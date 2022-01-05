@@ -1,15 +1,15 @@
-title: Anvi'o&#58; an analysis and visualization platform for 'omics
+title: Anvio -- an analysis and visualization platform for omics
 email: info@anvio.org
-description: >-
-  Anvi’o is an easy-to-use, open-source, integrated software platform for genomics, metagenomics,
-  metatranscriptomics, pangenomics, metapangenomics, phylogenomics, microbial population
-  genetics.
+description: "Anvi’o is an easy-to-use, open-source, integrated software platform for genomics, metagenomics, metatranscriptomics, pangenomics, metapangenomics, phylogenomics, microbial population genetics."
 
 baseurl: ""
 
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: /blog/:title/
+
+markdown: kramdown
+highlighter: rouge
 
 sass:
   sass_dir: _sass
