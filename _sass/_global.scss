@@ -7,8 +7,7 @@ body {
 }
 
 pre {
-    font-size: 12px;
-    font-size: .75rem;
+    font-size: 15px;
     line-height: 1.5;
     overflow-x: auto;
     background-color: #efefef;
@@ -17,6 +16,10 @@ pre {
     padding: 10px;
     border-left: 5px solid #dc5252;
     border-radius: 5px;
+}
+
+pre > code {
+    font-size: 15px;
 }
 
 a {
@@ -126,9 +129,8 @@ ul, ol {
 
 /* Slack button */
 .slack-button-img {
-    height: 17px;
-    margin-bottom: -2px;
-    margin-left: -15px;
+    height: 17px !important;
+    margin-bottom: 2px;
     -ms-interpolation-mode: bicubic;
 
 }
@@ -247,26 +249,26 @@ blockquote em{
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     margin-left: 1.5em;
-    padding: .5em;
+    padding: 0.75em;
     text-align: justify;
     text-indent: 0;
     font-size: 14px;
     background-color: #FFFFCC;
-    border: 1px solid gray;
-    @include rounded(3px);
+    border: 1px solid #ccc;
+    @include rounded(5px);
 }
 
 .warning {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     margin-left: 1.5em;
-    padding: .5em;
+    padding: .75em;
     text-align: justify;
     text-indent: 0;
     font-size: 14px;
     background-color: #FFCCCC;
-    border: 1px solid gray;
-    @include rounded(3px);
+    border: 1px solid #ccc;
+    @include rounded(5px);
 }
 
 .altmetric-embed {
