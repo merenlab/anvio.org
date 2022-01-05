@@ -169,11 +169,20 @@ blockquote {
     line-height: 1.5;
     color: #101010;
     text-align: justify;
+    font-family: "PT Serif",serif;
     font-style: italic;
     border-left: 15px solid #929292;
     box-shadow: 7px 7px 15px 1px #ccc;
     border-radius: 5px;
     min-height: 63px;
+}
+
+blockquote > p {
+    font-size: 1em;
+}
+
+blockquote > p > code {
+    font-size: 0.75em;
 }
 
 blockquote::before {
