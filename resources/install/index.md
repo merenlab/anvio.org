@@ -47,9 +47,7 @@ docker system prune --force -a
 ```
 </details>
 
-Please consider opening an <a href="https://github.com/meren/anvio/issues">issue</a> for technical problems, or join us on Slack if you need help:
-
-{% include _join-anvio-slack.html %}
+Please consider opening an <a href="https://github.com/meren/anvio/issues">issue</a> for technical problems, or join us on {% include _slack_invitation_button.html %} if you need help.
 
 {:.notice}
 {% include _fixthispage.html source="_posts/anvio/2016-06-26-installation-v2.md" %}
@@ -62,9 +60,7 @@ We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orc
 This is a very simple and effective way to install anvi'o on your system along with most of its dependencies.
 
 {:.notice}
-<div id="windowsreminder" style="min-height: 50px;" markdown="1">
-<img src="images/windows10.png" style="float:left; width:50px; border: None; display: block; margin-right: 5px;">Although these installation instructions primarily target and rigorously tested for Linux and Mac OSX, you will be able to follow them if you are using Microsoft Windows **if and only if you first install the [Linux Subsystem for Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10)**. Our users have reported success stories with Ubuntu on WSL.
-</div>
+Although these installation instructions primarily target and rigorously tested for Linux and Mac OSX, you will be able to follow them if you are using Microsoft Windows **if and only if you first install the [Linux Subsystem for Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10)**. Our users have reported success stories with Ubuntu on WSL.
 
 **For this to work, you need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system.** If you are not sure whether it is installed or not, open a terminal (such as [iTerm](https://www.iterm2.com/), if you are using Mac) and type `conda`. You should see an output like this instead of a 'command not found' error (your version might be different):
 
@@ -554,11 +550,9 @@ You will always find the official archives of anvi'o code as at the bottom of ou
 
 The best way to see what additional software you will need running on your computer for anvi'o to be happy is to take a look at the contents of [this conda recipe](https://github.com/merenlab/anvio/blob/master/conda-recipe/anvio/meta.yaml) (which is a conda build recipe, but it will give you the idea (ignore anvio-minimal, you basically have that one taken care of when you have anvi'o installed)).
 
-Don't be a stranger, and let us know if you need help.
-
-{% include _join-anvio-slack.html %}
+Don't be a stranger, and let us know if you need help through {% include _slack_invitation_button.html %}.
 
 ---
 
 {:.notice}
-{% include _fixthispage.html source="_posts/anvio/2016-06-26-installation-v2.md" %}
+{% include _fixthispage.html source="resources/install/index.md" %}
