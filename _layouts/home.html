@@ -15,9 +15,7 @@
             {{ content }}
 
             <div class="quick-links-main">
-            {% for sect in site.data.sections %}
-              <a href="#{{ sect.slug }}" class="btn btn-outline js-scroll-trigger">{{ sect.header }}</a>
-            {% endfor %}
+            {% include navigation-links.html home="true" %}
             </div>
             </div>
           </div>
@@ -31,18 +29,25 @@
   </header>
 
   {% for sect in site.data.sections %}
-  {% capture theme %}{% cycle 'bg-primary', 'bg-tertiary' %}{% endcapture %}
-  <section class="mainpage {{ theme }} text-center" id="{{ sect.slug }}">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 mx-auto">
-          <h2 class="section-heading">{{sect.header}}</h2>
-          {% capture sectioncontent %}{% include {{ sect.content }} %}{% endcapture %}
-          {{ sectioncontent | markdownify }}
+      {% if sect.content %}
+      {% capture theme %}{% cycle 'bg-primary', 'bg-tertiary' %}{% endcapture %}
+      <section class="mainpage {{ theme }} text-center" id="{{ sect.slug }}">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10 mx-auto">
+              <h2 class="section-heading">
+                  {% if sect.content %}
+                  {{ sect.full_header }}</h2>
+                  {% else %}
+                  {{ sect.header }}</h2>
+                  {% endif %}
+              {% capture sectioncontent %}{% include {{ sect.content }} %}{% endcapture %}
+              {{ sectioncontent | markdownify }}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
+      {% endif %}
   {% endfor %}
 
 {% include _footer.html %}

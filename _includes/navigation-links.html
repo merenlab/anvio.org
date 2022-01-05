@@ -1,0 +1,23 @@
+{% if include.home %}
+    {% for sect in site.data.sections %}
+        {% if sect.content %}
+            <a href="#{{ sect.slug }}" class="btn btn-outline js-scroll-trigger">{{ sect.header }}</a>
+        {% else %}
+            <a href="{{ sect.target_url }}" class="btn btn-outline js-scroll-trigger">{{ sect.header }}</a>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    {% for sect in site.data.sections %}
+        {% if sect.link_in_navbar %}
+            {% if sect.content %}
+              <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="/#{{ sect.slug }}">{{ sect.header }}</a>
+              </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{{ sect.target_url }}">{{ sect.header }}</a>
+                </li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endif %}

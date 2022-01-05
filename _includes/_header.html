@@ -39,13 +39,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 
-        {% for sect in site.data.sections %}
-          {% if sect.link_in_navbar %}
-          <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#{{ sect.slug }}">{{ sect.header }}</a>
-          </li>
-          {% endif %}
-        {% endfor %}
+        {% include navigation-links.html %}
 
         </ul>
       </div>

@@ -3,7 +3,12 @@
   link_in_navbar: true
   content: nutshell.md
 
-- header: Citing anvi'o
-  slug: citing-anvio
+- header: Install
+  target_url: /resources/install/
+  link_in_navbar: true
+
+- header: Cite 
+  full_header: How to cite anvi'o like a pro
+  slug: cite
   link_in_navbar: true
   content: citing.md
