@@ -1,0 +1,48 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+
+{% include _header.html %}
+
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100">
+
+          <div class="col-sm-6 my-auto header-div">
+            <div class="header-content my-auto">
+            {{ content }}
+
+            <div class="quick-links-main">
+            {% for sect in site.data.sections %}
+              <a href="#{{ sect.slug }}" class="btn btn-outline js-scroll-trigger">{{ sect.header }}</a>
+            {% endfor %}
+            </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-auto anvio-logo">
+            <img src="/images/anvio.png" id="anvio-logo-img" />
+          </div>
+
+      </div>
+    </div>
+  </header>
+
+  {% for sect in site.data.sections %}
+  {% capture theme %}{% cycle 'bg-primary', 'bg-tertiary' %}{% endcapture %}
+  <section class="mainpage {{ theme }} text-center" id="{{ sect.slug }}">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 mx-auto">
+          <h2 class="section-heading">{{sect.header}}</h2>
+          {% capture sectioncontent %}{% include {{ sect.content }} %}{% endcapture %}
+          {{ sectioncontent | markdownify }}
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endfor %}
+
+{% include _footer.html %}

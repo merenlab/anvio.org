@@ -1,0 +1,9 @@
+- header: In a nutshell
+  slug: summary
+  link_in_navbar: true
+  content: nutshell.md
+
+- header: Citing anvi'o
+  slug: citing-anvio
+  link_in_navbar: true
+  content: citing.md

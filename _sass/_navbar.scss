@@ -1,0 +1,37 @@
+// Styling for the navbar
+#mainNav {
+    background: white;
+    border-bottom: 1px solid black;
+
+    ul {
+        margin-top: 0px;
+    }
+
+    .navbar-brand {
+        font-variant: all-small-caps;
+        @include alt-font;
+    }
+
+    .navbar-nav {
+        > li {
+            > a {
+                font-size: 11px;
+                @include alt-font;
+                &.active {
+                    color: $theme-primary !important;
+                    background-color: transparent;
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+            }
+            > a,
+            > a:focus {
+                color: $gray-darker;
+                &:hover {
+                    color: $theme-primary;
+                }
+            }
+        }
+    }
+}

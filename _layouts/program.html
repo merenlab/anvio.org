@@ -1,0 +1,29 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+
+{% include _header.html %}
+
+<div class="container text-center article">
+  <div class="row">
+    <div class="col-md-10 my-auto">
+
+      <h1>{{ page.title }}</h1>
+
+      <div id="markdown-toc" class="toc">
+         <header><h3 id="toc-header"><i class="fa fa-book"></i> Table of Contents</h3></header>
+         <div id="drawer">{% include _toc.html html=content %}</div>
+      </div>
+
+      {% if page.authors %}
+          {% include _blog_author.html %}
+      {% endif %}
+
+      {{ content }}
+    </div>
+  </div>
+</div>
+
+{% include _footer.html %}

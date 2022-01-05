@@ -1,0 +1,53 @@
+.bg-primary {
+    background: linear-gradient(90deg, white, #efefef) !important;
+    a {
+        color: $mid-bg-link-color;
+    }
+}
+
+.bg-secondary {
+    background: linear-gradient(180deg, white, #efefef); 
+    a {
+        color: $mid-bg-link-color;
+    }
+}
+
+.bg-tertiary {
+    background: linear-gradient(270deg, white, #efefef); 
+    a {
+        color: $mid-bg-link-color;
+    }
+}
+
+.text-secondary {
+    color: $theme-tertiary;
+}
+
+
+
+.no-gutter > [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.btn-outline {
+    border: 1px solid;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        color: white;
+        border-color: $theme-primary;
+        background-color: $theme-primary;
+    }
+}
+
+.btn {
+    border-radius: 300px;
+    @include alt-font;
+}
+
+.btn-xl {
+    font-size: 11px;
+    padding: 15px 45px;
+}

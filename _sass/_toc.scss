@@ -1,0 +1,41 @@
+/* TOC trigger for collapsing */
+#drawer {
+    max-height: 100%;
+    overflow: hidden;
+    &.js-hidden {
+        max-height: 0;
+    }
+}
+
+/* Image grid - not used */
+.image-grid {
+    @include clearfix;
+    list-style: none;
+    margin: 0 0 1em;
+    padding: 0;
+    li {
+        @include grid(12,6);
+        @media #{$micro} {
+            width: 33.333333%;
+        }
+        @media #{$small} {
+            width: 25%;
+        }
+        @media #{$medium} {
+            width: 20%;
+        }
+        @media #{$large} {
+            width: 16.666666666%;
+        }
+    }
+}
+
+#toc-header {
+    background: none !important;
+}
+
+#markdown-toc a {
+    color: white;
+}
+
+

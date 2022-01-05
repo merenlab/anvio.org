@@ -1,0 +1,26 @@
+<!-- Bootstrap core JavaScript -->
+<script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="/assets/js/new-age.min.js"></script>
+<script src="/assets/js/scripts.min.js"></script>
+<script src="/assets/js/lightbox.js"></script>
+
+<script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true
+    })
+</script>
+
+{% if include.fixed_footer %}
+<div class="sticky-footer">
+    <span>© 2022 <a href="/authors">Anvi'o project</a>.</span>
+</div>
+{% endif %}
+
+</body></html>

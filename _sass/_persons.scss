@@ -1,0 +1,248 @@
+.page-author {
+  display: inline-block;
+}
+
+.page-author-mini {
+  display: inline-block;
+}
+.authored {
+  margin-bottom: 0px;
+  line-height: 1.2em;
+}
+
+.centerimg {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.center-img {
+  margin: 0 auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  display: block;
+}
+
+.extra-info {
+    width: 90%;
+    margin: 25px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    background: aliceblue;
+}
+
+.extra-info-header {
+    border-bottom: 1px solid gray;
+    display: block;
+    margin-bottom: 10px;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+.page-author-info {
+    display: inline-table;
+    float: left;
+    background: linear-gradient(90deg, white, #efefef);
+    border-radius: 10px;
+    border: 1px solid #e8e8e8;
+    padding-top: 5px;
+
+    p {
+        font-size: 90%;
+        font-style: italic;
+    }
+    a, a:hover {
+        font-size: 80%;
+        border-bottom: 0 solid transparent;
+        color: black;
+    }
+}
+
+.page-author-name {
+    margin: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #626262;
+    font-family: "PT Sans Narrow",sans-serif;
+    font-weight: bold;
+    font-size: 1.6em;
+    line-height: 1.0833;
+}
+
+.person-affiliations {
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 20px;
+  padding: 5px;
+  font-size: 1em;
+  font-family: HelveticaNeue-Thin;
+  border: 1px dashed #e4e4e4;
+  border-radius: 5px;
+  margin-left: 10px;
+  background-color: #fbfbfb;
+}
+
+.person-affiliations li:before {
+    content: "»";
+    padding-right: 5px;
+}
+
+#aff-link {
+    font-size: 1em;
+    color: #1111AA;
+}
+
+.person-contributions {
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 20px;
+  padding: 5px;
+  font-size: 1em;
+  font-family: "PT Sans Narrow",sans-serif;
+  border: 1px dashed #e4e4e4;
+  border-radius: 5px;
+  margin-left: 10px;
+  background-color: #f1fbfb;
+}
+
+.person-contributions li:before {
+    content: "✍️";
+    padding-right: 5px;
+}
+
+#contrib-link {
+    font-size: 1.25em;
+    color: #333332;
+}
+
+.person {
+    min-height: 150px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #F4F4F4;
+}
+
+.person-role {
+  font-weight: lighter;
+  opacity: .5;
+}
+
+.person-info {
+    margin-right: 30px;
+    h3 {
+        margin-bottom: 0;
+    }
+    p {
+        font-style: italic;
+        padding-left: 140px;
+        margin-bottom: 12px;
+        margin-top: 12px;
+        color: #a7a7a7;
+    }
+    a {
+        color: #a7a7a7;
+    }
+}
+
+.person-info-text a {
+    color: #4b4b8e;
+}
+
+.person-current-info {
+    text-decoration: underline;
+}
+
+.persons-title {
+  font-size: xx-large;
+  font-variant: small-caps;
+  margin-top: 65px;
+  border-bottom: 1px solid black;
+}
+
+.person-photo {
+    float: left;
+    min-width: 120px;
+    width: 120px;
+    @media #{$micro} {
+        display: none;
+    }
+    @media #{$small} {
+        display: none;
+    }
+    @media #{$medium} {
+    display: -webkit-box;
+    }
+    @media #{$large} {
+    display: -webkit-box;
+    }
+    @media #{$x-large} {
+    display: -webkit-box;
+    }
+}
+
+.person-photo-img {
+    @include rounded(150px);
+    max-width: 110px;
+    height: 110px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    @media #{$small} {
+        @include rounded(100px);
+    }
+    @media #{$x-large} {
+    }
+}
+
+.page-person-info-box {
+    float: right;
+}
+
+.page-person-info-box-mini {
+    float: right;
+}
+
+.page-person-photo {
+    float: left;
+    min-width: 50px;
+    width: 50px;
+    padding-left: 5px;
+
+    @media #{$micro} {
+        display: none;
+    }
+    @media #{$small} {
+        display: none;
+    }
+    @media #{$medium} {
+    display: -webkit-box;
+    }
+    @media #{$large} {
+    display: -webkit-box;
+    }
+    @media #{$x-large} {
+    display: -webkit-box;
+    }
+}
+
+.page-person-photo-img {
+    border-radius: 150px !important;
+    max-width: 50px;
+    height: 50px;
+    border: none !important;
+}
+
+.page-person-photo-img-mini {
+    border-radius: 150px !important;
+    max-width: 30px;
+    height: 30px;
+    border: none !important;
+}
+
+.page-author-social-box {
+    border-top: 1px solid #e2e2e2;
+    margin: 5px;
+    margin-top: 3px;
+    padding-top: 2px;
+}
+
+

@@ -1,0 +1,181 @@
+@mixin rounded($radius:4px) {
+  border-radius : $radius;
+}
+
+@mixin heading-font {
+    font-family: 'Ubuntu', 'Helvetica', 'Arial', 'sans-serif';
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+@mixin body-font {
+    font-family: 'Helvetica', 'Arial', 'sans-serif';
+}
+
+@mixin alt-font {
+    font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+@mixin transition-all()
+{
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s;
+}
+
+@mixin background-cover()
+{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+@mixin button-variant($color, $background, $border)
+{
+	color: $color;
+	background-color: $background;
+	border-color: $border;
+	@include transition-all;
+
+	&:hover,
+	&:focus,
+	&.focus,
+	&:active,
+	&.active,
+	.open > .dropdown-toggle & {
+		color: $color;
+		background-color: darken($background, 5%);
+    border-color: darken($border, 7%);
+	}
+	&:active,
+	&.active,
+	.open > .dropdown-toggle & {
+		background-image: none;
+	}
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		&,
+		&:hover,
+		&:focus,
+		&.focus,
+		&:active,
+		&.active {
+			background-color: $background;
+			border-color: $border;
+		}
+	}
+
+	.badge {
+		color: $background;
+		background-color: $color;
+	}
+}
+
+@mixin sans-serif-font()
+{
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+@mixin serif-font()
+{
+	font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+}
+
+@mixin clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    /* Fixes Opera/contenteditable bug: */
+    /* http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952 */
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/* ==========================================================================
+   Grid mixins from minimal mistakes!
+   ========================================================================== */
+
+$width: 100%;
+$def_grid: 12;
+$margin: 0;
+
+@mixin container(){
+  margin:0 auto;
+  width:$width;
+}
+
+/*
+   Works out the width of elements based on total number of columns and width
+   number of columns being displayed. Removes 20px for margins.
+   ========================================================================== */
+
+@mixin grid($grid:$def_grid,$cols:'',$float:left,$display:inline){
+  display:$display;
+  float:$float;
+  width:(100%/$grid * $cols) - ($margin * 2);
+}
+
+/*
+   Add x amount of column padding before an element
+   Example: @include prefix(1,12);
+   ========================================================================== */
+
+@mixin prefix($grid:$def_grid,$cols:''){
+  margin-left:(100%/$grid * $cols);
+}
+
+/*
+   Add x amount of column padding after an element
+   Example: @include suffix(2,12);
+   ========================================================================== */
+
+@mixin suffix($grid:$def_grid,$cols:''){
+  margin-right:(100%/$grid * $cols);
+}
+
+/*
+   Remove left margin
+   Example: @include first;
+   ========================================================================== */
+
+@mixin first(){
+  margin-left:0;
+}
+
+/*
+   Remove right margin
+   Example: @include last;
+   ========================================================================== */
+
+@mixin last(){
+  margin-right:0;
+}
+
+/*
+   Push an element x amount of column(s) to the right
+   Example: @include push(2,12);
+   ========================================================================== */
+
+@mixin push($grid:$def_grid,$move:'') {
+  position:relative;
+  left:(100%/$grid * $move);
+}
+
+/*
+   Pull an element x amount of column(s) to the left
+   Example: @include pull(1,12);
+   ========================================================================== */
+
+@mixin pull($grid:$def_grid,$move:''){
+  position:relative;
+  left:(100%/$grid * $move) * -1;
+}

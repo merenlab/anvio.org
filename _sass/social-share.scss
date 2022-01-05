@@ -1,0 +1,205 @@
+$width: 42px;
+$height: 40px;
+
+.footer-note {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+
+  p {
+    line-height: 2em;
+  }
+
+  a {
+    color: #999;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: #444;
+      border-color: #aaa;
+    }
+  }
+
+  i {
+    margin: 0 0 0 2px;
+    color: #f95a54;
+  }
+}
+
+.social-share {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  float: right;
+  margin: 30px 0px 50px;
+}
+
+.tip {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 10px);
+  transform: translateY(-50%);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+
+  display: flex;
+  align-items: center;
+
+  &:after {
+    content: "";
+    width: 30px;
+    height: 1px;
+    background: rgba(#2c2c2c,.3);
+    margin: 0 0 0 8px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}
+
+.trigger {
+  height: $height;
+  line-height: $height;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: color .2s, border .2s;
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+    transform: skew(10deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  i {
+    font-size: 14px;
+    line-height: $height;
+  }
+
+  &:hover {
+    color: #2c2c2c;
+    border-color: #2c2c2c !important;
+  }
+
+  &.share-btn {
+    i {
+      margin: 0 5px 0 0;
+    }
+  }
+}
+
+.like, .share {
+  transform: skew(-10deg);
+  margin: 0 0 0 10px;
+
+  .trigger {
+    width: ($width * 2) - 2px;
+    border: 1px solid rgba(#2c2c2c,.3);
+  }
+
+  i {
+    margin: 0 5px 0 0;
+  }
+}
+
+.share {
+  @media only screen and (min-width: 601px) {
+    display: none;
+  }
+}
+
+.share-window {
+  transform: skew(-10deg);
+  overflow: hidden;
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}
+
+.share-bar {
+  position: relative;
+  width: ($width * 2) - 2px;
+  height: $height;
+  transition: width .4s ease .2s;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(#2c2c2c,.3) rgba(#2c2c2c,.3) rgba(#2c2c2c,.3) transparent;
+  }
+
+  &:hover {
+    width: ($width * 4) - 4px;
+    transition: width .4s ease;
+
+    .trigger {
+      &:nth-child(3) {
+        left: ($width * 2) - 2px;
+        transition: left .45s ease .06s, color .2s, border .2s;
+      }
+
+      &:nth-child(4) {
+        left: ($width * 3) - 3px;
+        transition: left .45s ease .12s, color .2s, border .2s;
+      }
+
+      &:nth-child(5) {
+        left: ($width * 4) - 4px;
+        transition: left .45s ease .18s, color .2s, border .2s;
+      }
+
+      &:nth-child(6) {
+        left: ($width * 5) - 5px;
+        transition: left .45s ease .24s, color .2s, border .2s;
+      }
+    }
+  }
+
+  .trigger {
+    position: absolute;
+    top: 0;
+    width: $width;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(#2c2c2c,.3);
+    transition: left 0s ease .45s, color .2s, border .2s;
+
+    &:nth-child(1) {
+      left: 0;
+    }
+
+    &:nth-child(2) {
+      left: $width - 1px;
+    }
+
+    &:nth-child(3) {
+      left: ($width * 2) - 2px + 20px;
+    }
+
+    &:nth-child(4) {
+      left: ($width * 3) - 3px + 20px;
+    }
+
+    &:nth-child(5) {
+      left: ($width * 4) - 4px + 20px;
+    }
+
+    &:nth-child(6) {
+      left: ($width * 5) - 5px + 20px;
+    }
+  }
+}
