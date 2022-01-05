@@ -1,4 +1,5 @@
 - header: In a nutshell
+  full_header: Our platform in a nutshell
   slug: summary
   link_in_navbar: true
   content: nutshell.md
@@ -7,7 +8,7 @@
   target_url: /resources/install/
   link_in_navbar: true
 
-- header: Cite 
+- header: Cite
   full_header: How to cite anvi'o like a pro
   slug: cite
   link_in_navbar: true
