@@ -40,7 +40,7 @@
     @media #{$large} {
         width: 16%;
         position: fixed;
-        top: 2em;
+        top: 7em;
         right: 2em;
     }
     header {
@@ -49,9 +49,9 @@
     }
     h3 {
         margin: 0;
-        padding: 5px 10px;
+        border: none;
         color: $white;
-        // @include font-rem(16);
+        @include font-rem(16);
         text-transform: uppercase;
         &:hover {
             cursor: pointer;
@@ -65,7 +65,7 @@
     li {
         display: block;
         margin: 0 0 1px 0;
-        padding: 0;
+        padding: 0px !important;
         font-family: $heading-font;
         list-style-type: none;
         &:last-child {
@@ -78,10 +78,10 @@
             outline:none;
             text-decoration: none;
             background: lighten($black, 30);
-            // @include opacity(0.7);
-            // @include transition(opacity 0.2s ease-in-out);
+            opacity: 0.7;
+            @include transition(opacity 0.2s ease-in-out);
             &:hover {
-                // @include opacity(1);
+                opacity: 1.0;
             }
         }
         a.header-active {

@@ -6,6 +6,19 @@ body {
     text-align: center;
 }
 
+pre {
+    font-size: 12px;
+    font-size: .75rem;
+    line-height: 1.5;
+    overflow-x: auto;
+    background-color: #efefef;
+    border: 1px solid #969696;
+    margin-bottom: 40px;
+    padding: 10px;
+    border-left: 5px solid #dc5252;
+    border-radius: 5px;
+}
+
 a {
     color: $theme-primary;
     @include transition-all;
@@ -113,14 +126,17 @@ ul, ol {
 
 /* Slack button */
 .slack-button-img {
-    height: 12px;
-    margin-bottom: 4px;
-    margin-left: 1px;
+    height: 17px;
+    margin-bottom: -2px;
+    margin-left: -15px;
+    -ms-interpolation-mode: bicubic;
+
 }
 
 .slack-button-img-big {
     height: 20px;
     margin-bottom: 4px;
+    -ms-interpolation-mode: bicubic;
 }
 
 .slack-button {

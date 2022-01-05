@@ -25,6 +25,14 @@
     transition: all 0.35s;
 }
 
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition; 
+}
+
 @mixin background-cover()
 {
     -webkit-background-size: cover;
@@ -179,3 +187,10 @@ $margin: 0;
   position:relative;
   left:(100%/$grid * $move) * -1;
 }
+
+@mixin font-rem($size) {
+  font-size: 0px + $size;
+  font-size: 0rem + $size / $doc-font-size;
+}
+
+
