@@ -8,6 +8,10 @@
   target_url: /resources/install/
   link_in_navbar: true
 
+- header: Help
+  target_url: /help/main/
+  link_in_navbar: true
+
 - header: Cite
   full_header: How to cite anvi'o like a pro
   slug: cite
