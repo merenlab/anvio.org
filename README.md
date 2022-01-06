@@ -33,7 +33,7 @@ To update the list of anvi'o authors and contributors, run this command (assumin
 ```bash
 cat ~/github/anvio/anvio/data/misc/PEOPLE/AUTHORS.yaml > _data/people.yaml
 echo "" >> _data/people.yaml
-cat ~/github/anvio/anvio/data/misc/PEOPLE/CONTRIBUTORS.yaml > _data/people.yaml
+cat ~/github/anvio/anvio/data/misc/PEOPLE/CONTRIBUTORS.yaml >> _data/people.yaml
 cp ~/github/anvio/anvio/data/misc/PEOPLE/AVATARS/* images/avatars/
 ```
 
