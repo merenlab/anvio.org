@@ -9,10 +9,25 @@ Tutorials are often the best starting points as they cover basic concepts and of
 
 {% for resource in site.data.resources %}
 {% if resource.type == "tutorial"%}
+
+{% assign author_links = "" %}
+{% for person_github in resource.authors%}
+{% for person in site.data.people %}
+{% if person.github == person_github %}
+{% capture author_link %}
+<img class="page-person-photo-img-mini" title="{{ person.name }}" src="/images/avatars/{{ person.avatar }}" > <a href="#{{ person.github }}">{{ person.name }} </a>
+{% endcapture %}
+{{ author_links | append: author_link }}
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+<p>{{author_links}}</p>
+
 <p markdown="1">
-<a href="{{ resource.url }}" target="_blank">**{{ resource.title }}**</a> by **{{ resource.authors }}**.<br />
-*{{ resource.summary }}* <br />
-{% for tag in resource.tags %}<code class="tags" id="{{ tag | replace: " ", "_" }}">{{ tag }}</code>{% endfor %}
+    <a href="{{ resource.url }}" target="_blank">**{{ resource.title }}**</a> by **{{ resource.authors }}**.<br />
+    *{{ resource.summary }}* <br />
+    {% for tag in resource.tags %}<code class="tags" id="{{ tag | replace: " ", "_" }}">{{ tag }}</code>{% endfor %}
 </p>
 {% endif %}
 {% endfor %}
@@ -23,6 +38,22 @@ These resources often cover key insights into specific topics and can be useful 
 
 {% for resource in site.data.resources %}
 {% if resource.type != "tutorial" %}
+
+{% assign author_links = "" %}
+{% for person_github in resource.authors%}
+{% for person in site.data.people %}
+{% if person.github == person_github %}
+{% capture author_link %}
+<img class="page-person-photo-img-mini" title="{{ person.name }}" src="/images/avatars/{{ person.avatar }}" > <a href="#{{ person.github }}">{{ person.name }} </a>
+{% endcapture %}
+{{ author_links | append: author_link }}
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+<p>{{author_links}}</p>
+
+
 <p markdown="1">
 <a href="{{ resource.url }}" target="_blank">**{{ resource.title }}**</a>, a {{ resource.type }} by **{{ resource.authors }}**.<br />
 *{{ resource.summary }}* <br />
