@@ -22,7 +22,7 @@
 - title: An exercise on metabolic reconstruction
   type: tutorial
   url: https://merenlab.org/tutorials/fmt-mag-metabolism/
-  authors: [iva]
+  authors: [ivagljiva]
   summary: "A hands-on exercise for the metabolism suite of programs in anvi’o. It starts with a section on how to estimate metabolism for a single bacterial isolate, and goes into larger, real-world dataset of metagenome-assembled genomes to demonstrate how to estimate metabolism compute enrichment scores for metabolic modules."
   tags: [beginner, metabolism, metabolic enrichment, genomics, metagenomics]
 
