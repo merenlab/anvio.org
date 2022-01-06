@@ -44,8 +44,10 @@
     float: left;
     background: linear-gradient(90deg, white, #efefef);
     border-radius: 10px;
-    border: 1px solid #e8e8e8;
+    border: 1px solid #bcbcbc;
     padding-top: 5px;
+    box-shadow: 4px 4px 14px 1px #ccc;
+    margin-bottom: 20px;
 
     p {
         font-size: 90%;
@@ -262,6 +264,6 @@
 
 .anvio-people > .page-author > .page-author-info > .page-person-info-box > .page-person-bio {
     display: block;
-    padding-left: 5px;
+    padding: 0px 6px;
 }
 
