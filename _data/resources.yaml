@@ -1,0 +1,34 @@
+- title: An introduction to Unix
+  type: tutorial
+  url: https://astrobiomike.github.io/unix/getting-started
+  authors: [AstrobioMike]
+  summary: "Basics of the command line environment, the best friend of any scientist who wishes to work with data."
+  tags: [beginner]
+
+- title: A metagenomic read recruitment exercise
+  type: tutorial
+  url: https://merenlab.org/tutorials/read-recruitment/
+  authors: [meren]
+  summary: "A mini hands-on exercise is to conduct a simple read recruitment experiment with a mock dataset."
+  tags: [beginner, metagenomics]
+
+- title: A pangenomics exercise
+  type: tutorial
+  url: https://merenlab.org/tutorials/vibrio-jasicida-pangenome/
+  authors: [meren]
+  summary: "A reproducible pangenomic analysis of seven Vibrio jascida genomes isolated in Woods Hole by the participants of Microbial Diversity Course."
+  tags: [beginner, pangenomics]
+
+- title: An exercise on metabolic reconstruction
+  type: tutorial
+  url: https://merenlab.org/tutorials/fmt-mag-metabolism/
+  authors: [iva]
+  summary: "A hands-on exercise for the metabolism suite of programs in anvi’o. It starts with a section on how to estimate metabolism for a single bacterial isolate, and goes into larger, real-world dataset of metagenome-assembled genomes to demonstrate how to estimate metabolism compute enrichment scores for metabolic modules."
+  tags: [beginner, metabolism, metabolic enrichment, genomics, metagenomics]
+
+- title: Estimating per-residue binding frequencies with InteracDome
+  type: blog post
+  url: https://merenlab.org/2020/07/22/interacdome/
+  authors: [ekiefl]
+  summary: "A technical diary for my implementation of InteracDome into anvi’o."
+  tags: [advanced, structural biology, microbial population genetics]

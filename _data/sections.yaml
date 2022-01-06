@@ -8,9 +8,15 @@
   target_url: /resources/install/
   link_in_navbar: true
 
-- header: Help
+- header: Get help
   target_url: /help/main/
   link_in_navbar: true
+
+- header: Resources
+  full_header: Learn anvi'o and more
+  slug: resources
+  link_in_navbar: true
+  content: learning-resources.md
 
 - header: Cite
   full_header: How to cite anvi'o like a pro
