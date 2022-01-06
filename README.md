@@ -51,7 +51,7 @@ To update the help pages with the latest changes in anvi'o main repository, run 
 anvi-script-gen-help-pages -o help/main
 ```
 
-Triple check `git st` to make sure you know what you're about to commit.
+Triple check `git status` to make sure you know what you're about to commit.
 
 ## Update the anvi'o programs and concepts network
 
