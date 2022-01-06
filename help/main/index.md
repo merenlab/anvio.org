@@ -12,16 +12,12 @@ redirect_from:
 
 Here you will find a list of all anvi'o programs and artifacts that enable constructing workflows for integrated multi 'omics investigations.
 
-If you need an introduction to the terminology used in 'omics research or in anvi'o, please take a look at <a href="http://merenlab.org/vocabulary/">our vocabulary page</a>. The anvi'o community is with you! If you have practical, technical, or science questions <a href="http://merenlab.org/2019/10/07/getting-help/">this page</a> to learn about resources available to you. If you are feeling overwhelmed, you can always scream towards the anvi'o Slack channel.
+If you need an introduction to the terminology used in 'omics research or in anvi'o, please take a look at <a href="http://merenlab.org/vocabulary/">our vocabulary page</a>. The anvi'o community is with you! If you have practical, technical, or science questions <a href="http://merenlab.org/2019/10/07/getting-help/">this page</a> to learn about resources available to you. If you are feeling overwhelmed, you can always scream towards the anvi'o {% include _slack_invitation_button.html %}
 
-
-{% include _join-anvio-slack.html %}
-
-
-<a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
+<a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **05 Jan 22 14:55:16** for anvi'o version **7.1-dev (hope)**.
+The help contents were last updated on **06 Jan 22 09:15:19** for anvi'o version **7.1-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
