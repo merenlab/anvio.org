@@ -1,4 +1,4 @@
-<div class="page-author">
+<div class="page-author" id="{{ person.github }}">
     <div class="page-author-info">
       {% if person.avatar %}
       <div class="page-person-photo"><img class="page-person-photo-img" src="/images/avatars/{{ person.avatar }}" /></div>
@@ -6,7 +6,7 @@
       <div class="page-person-photo"><img class="page-person-photo-img" src="/images/avatars/no-avatar.png" /></div>
       {% endif %}
       <div class="page-person-info-box">
-          <span class="page-author-name">{{ person.name }}</span>
+          <span class="page-author-name"><i class="flag flag-united-states"></i> <i class="united states flag"></i> {{ person.name }}</span>
           {% if include.with_bio %}
           <span class="page-person-bio">{{ person.bio }}</span>
           {% endif %}

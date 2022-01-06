@@ -10,39 +10,39 @@
   url: https://merenlab.org/tutorials/read-recruitment/
   authors: [meren]
   summary: "A mini hands-on exercise is to conduct a simple read recruitment experiment with a mock dataset."
-  tags: [beginner, metagenomics]
+  tags: [metagenomics, beginner]
 
 - title: A pangenomics exercise
   type: tutorial
   url: https://merenlab.org/tutorials/vibrio-jasicida-pangenome/
   authors: [meren]
   summary: "A reproducible pangenomic analysis of seven Vibrio jascida genomes isolated in Woods Hole by the participants of Microbial Diversity Course."
-  tags: [beginner, pangenomics]
+  tags: [pangenomics, beginner]
 
 - title: An exercise on metabolic reconstruction
   type: tutorial
   url: https://merenlab.org/tutorials/fmt-mag-metabolism/
   authors: [ivagljiva]
   summary: "A hands-on exercise for the metabolism suite of programs in anvi’o. It starts with a section on how to estimate metabolism for a single bacterial isolate, and goes into larger, real-world dataset of metagenome-assembled genomes to demonstrate how to estimate metabolism compute enrichment scores for metabolic modules."
-  tags: [beginner, metabolism, metabolic enrichment, genomics, metagenomics]
+  tags: [metabolism, metabolic enrichment, genomics, metagenomics, beginner]
 
 - title: Visualizing the fate of contigs across metagenomic binning algorithms
   type: blog post
   url: https://merenlab.org/2020/01/02/visualizing-metagenomic-bins/
   authors: [meren, jarrodscott]
   summary: "A visual demonstration of the shortcomings of automatic binning of genomes from complex environments using short-read assemblies."
-  tags: [beginner, metagenomics, binning]
+  tags: [metagenomics, binning, beginner]
 
 - title: Binning giant viruses and their close relatives
   type: blog post
   url: /blog/giant-viruses/
   authors: [tdelmont]
   summary: "A demonstration of how to reconstruct genomes of giant viruses."
-  tags: [intermediate, metagenomics, viruses, binning]
+  tags: [metagenomics, viruses, binning, intermediate]
 
 - title: Estimating per-residue binding frequencies with InteracDome
   type: blog post
   url: https://merenlab.org/2020/07/22/interacdome/
   authors: [ekiefl]
   summary: "A technical diary for Evan's implementation of InteracDome into anvi'o."
-  tags: [advanced, structural biology, microbial population genetics]
+  tags: [structural biology, microbial population genetics, advanced]

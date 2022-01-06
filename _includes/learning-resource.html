@@ -1,0 +1,6 @@
+<div class="learning-resource">
+    <span class="learning-resource-title"><a href="{{ resource.url }}" target="_new">{{ resource.title }}</a></span>
+    <span class="learning-resource-authors">{% include _content_authors_mini_links.html %}</span>
+    <span class="learning-resource-summary">{{ resource.summary }}</span>
+    <div class="learning-resource-tags">{% for tag in resource.tags %}<code class="tags" id="{{ tag | replace: " ", "_" }}">{{ tag }}</code> {% endfor %}</div>
+</div>
