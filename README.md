@@ -24,7 +24,7 @@ If you would like to write a blog post or tutorial for the anvi'o web page, anvi
 
 A lot of the components of this web page is dynamic, but others require some hands-on upkeeping (at least for now).
 
-**Please remember**: Everything below assumes that you are tracking the development branch of anvi'o, and you are working with an up-to-date repository, unless otherwise is stated. Please don't forget to double-check `git st` to make sure you know what you're about to commit.
+**Please remember**: Everything below assumes that you are tracking the development branch of anvi'o, and you are working with an up-to-date repository, unless otherwise is stated. Please don't forget to double-check `git status` to make sure you know what you're about to commit.
 
 ## Update people data
 
@@ -51,7 +51,7 @@ To update the help pages with the latest changes in anvi'o main repository, run 
 anvi-script-gen-help-pages -o help/main
 ```
 
-Triple check `git st` to make sure you know what you're about to commit.
+Triple check `git status` to make sure you know what you're about to commit.
 
 ## Update the anvi'o programs and concepts network
 
