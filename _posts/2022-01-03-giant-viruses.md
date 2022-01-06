@@ -1,6 +1,6 @@
 ---
 layout: blogpost
-authors: [tom]
+authors: [tdelmont]
 title: "Binning giant viruses and their close relatives with anvi'o"
 excerpt: "A journey into the genomics of giant viruses and their close relatives "
 modified: 2022-01-03
