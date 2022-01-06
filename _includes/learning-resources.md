@@ -12,7 +12,7 @@ Tutorials are often the best starting points as they cover basic concepts and of
 <p markdown="1">
 <a href="{{ resource.url }}" target="_blank">{{ resource.title }}</a> by **{{ resource.authors }}**.<br />
 *{{ resource.summary }}* <br />
-{% for tag in resource.tags %}<span class="tags" id="{{ tag }}">`{{ tag }}`</span>{% endfor %}
+{% for tag in resource.tags %}<code class="tags" id="{{ tag | replace: " ", "_" }}">{{ tag }}</code>{% endfor %}
 </p>
 {% endif %}
 {% endfor %}
@@ -26,7 +26,7 @@ These resources often cover key insights into specific topics and can be useful 
 <p markdown="1">
 <a href="{{ resource.url }}" target="_blank">{{ resource.title }}</a>, a {{ resource.type }} by **{{ resource.authors }}**.<br />
 *{{ resource.summary }}* <br />
-{% for tag in resource.tags %}<span class="tags" id="{{ tag }}">`{{ tag }}`</span>{% endfor %}
+{% for tag in resource.tags %}<code class="tags" id="{{ tag | replace: " ", "_" }}">{{ tag }}</code>{% endfor %}
 </p>
 {% endif %}
 {% endfor %}
