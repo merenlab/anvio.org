@@ -18,6 +18,11 @@ pre {
     border-radius: 5px;
 }
 
+code {
+    word-break: normal;
+    color: #484848;
+}
+
 pre > code {
     font-size: 15px;
 }
@@ -302,4 +307,8 @@ blockquote em{
   border-top: 1px solid black;
   color: $dark-text-color;
   text-align: center;
+}
+
+.artifact-emoji {
+    padding-right: 5px;
 }
