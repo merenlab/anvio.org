@@ -245,4 +245,23 @@
     padding-top: 2px;
 }
 
+.anvio-people {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.anvio-people > .page-author {
+    margin: 4px;
+}
+
+.anvio-people > .page-author > .page-author-info > .page-person-info-box {
+    padding-left: 65px;
+    float: revert;
+}
+
+
+.anvio-people > .page-author > .page-author-info > .page-person-info-box > .page-person-bio {
+    display: block;
+    padding-left: 5px;
+}
 

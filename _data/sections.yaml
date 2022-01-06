@@ -18,6 +18,12 @@
   link_in_navbar: true
   content: learning-resources.md
 
+- header: People
+  full_header: Meet anvi'o developers and contributors
+  slug: people
+  link_in_navbar: false
+  content: people.md
+
 - header: Cite
   full_header: How to cite anvi'o like a pro
   slug: cite

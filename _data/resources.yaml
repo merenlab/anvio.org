@@ -26,9 +26,23 @@
   summary: "A hands-on exercise for the metabolism suite of programs in anvi’o. It starts with a section on how to estimate metabolism for a single bacterial isolate, and goes into larger, real-world dataset of metagenome-assembled genomes to demonstrate how to estimate metabolism compute enrichment scores for metabolic modules."
   tags: [beginner, metabolism, metabolic enrichment, genomics, metagenomics]
 
+- title: Visualizing the fate of contigs across metagenomic binning algorithms
+  type: blog post
+  url: https://merenlab.org/2020/01/02/visualizing-metagenomic-bins/
+  authors: [meren, jarrodscott]
+  summary: "A visual demonstration of the shortcomings of automatic binning of genomes from complex environments using short-read assemblies."
+  tags: [beginner, metagenomics, binning]
+
+- title: Binning giant viruses and their close relatives
+  type: blog post
+  url: /blog/giant-viruses/
+  authors: [tdelmont]
+  summary: "A demonstration of how to reconstruct genomes of giant viruses."
+  tags: [intermediate, metagenomics, viruses, binning]
+
 - title: Estimating per-residue binding frequencies with InteracDome
   type: blog post
   url: https://merenlab.org/2020/07/22/interacdome/
   authors: [ekiefl]
-  summary: "A technical diary for my implementation of InteracDome into anvi’o."
+  summary: "A technical diary for Evan's implementation of InteracDome into anvi'o."
   tags: [advanced, structural biology, microbial population genetics]
