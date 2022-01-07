@@ -248,6 +248,28 @@
     padding-top: 2px;
 }
 
+.person-stand-alone-social-box {
+    font-size: 15px;
+    margin-top: -30px;
+    margin-left: 10px;
+
+    @include addgradient($reverse: false);
+    @include dropshadow();
+
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.person-stand-alone-photo > .person-stand-alone-photo-img {
+    border: 1px black solid;
+}
+
+.person-stand-alone-photo {
+    width: 50%;
+    margin: auto;
+    margin-top: 25px;
+}
+
 .anvio-people {
     text-align: left;
     margin-top: 30px;

@@ -27,7 +27,7 @@
 
       {{ content }}
 
-      {% if page.no_social_share == false %}
+      {% if page.no_social_share != false %}
           {% include _social_share.html %}
       {% endif %}
     </div>

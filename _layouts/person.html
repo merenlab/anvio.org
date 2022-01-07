@@ -1,0 +1,49 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+
+{% include _header.html %}
+
+<div class="container text-center article">
+  <div class="row">
+    <div class="col-md-10 my-auto">
+
+      <h1>{{ page.title }}</h1>
+
+      {% for person in site.data.people %}
+          {% if person.github == page.github %}
+
+          <div class="person-standalone-wrapper">
+          <div class="person-stand-alone-social-box">{% include _person_social_media_links.html %}</div>
+
+          <h2>Bio</h2>
+          <p class="person-stand-alone-bio">{{ person.bio }}</p>
+
+          {% if person.avatar %}
+          <div class="person-stand-alone-photo"><img class="person-stand-alone-photo-img" src="/images/avatars/{{ person.avatar }}" /></div>
+          {% else %}
+          <div class="person-stand-alone-photo"><img class="person-stand-alone-photo-img" src="/images/avatars/no-avatar.png" /></div>
+          {% endif %}
+          </div>
+
+          {% if person.affiliations %}
+          <h2>Affiliations</h2>
+
+          <ul class="person-stand-alone-affiliations">
+              {% for affiliation in person.affiliations %}
+              <li><b>{{ affiliation.title }}</b>, <a href="{{ affiliation.inst_link }}" target="_blank">{{ affiliation.inst }}</a></li>
+              {% endfor %}
+          </ul>
+          {% endif %}
+          {% endif %}
+      {% endfor %}
+
+
+      {% include _social_share.html %}
+    </div>
+  </div>
+</div>
+
+{% include _footer.html fixed_footer="true" %}
