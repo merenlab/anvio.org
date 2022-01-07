@@ -46,8 +46,8 @@
     border-radius: 10px;
     border: 1px solid #bcbcbc;
     padding-top: 5px;
-    box-shadow: 4px 4px 14px 1px #ccc;
     margin-bottom: 20px;
+    @include dropshadow();
 
     p {
         font-size: 90%;

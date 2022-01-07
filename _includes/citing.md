@@ -30,10 +30,10 @@ This feature was described for the first time in this study:
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1186/s13059-020-02195-w"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-020-02195-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <h3><a href=" https://doi.org/10.1186/s13059-020-02195-w" target="_new">Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome</a></h3>
-    <span class="pub-authors"><span class="none">Shaiber A</span>, Willis AD, Delmont TO, Roux S, Chen L, <span class="none">Schmid AC</span>, <span class="none">Yousef M</span>, <span class="none">Watson AR</span>, <span class="none">Lolans K</span>, <span class="none">Esen ÖC</span>, <span class="none">Lee STM</span>, Downey N, Morrison HG, Dewhirst FE, Mark Welch JL<sup>‡</sup>, <span class="none">Eren AM<sup>‡</sup></span></span>
+    <span class="pub-title"><a href=" https://doi.org/10.1186/s13059-020-02195-w" target="_new">Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Shaiber A</span>, Willis AD, Delmont TO, Roux S, Chen L, <span class="pub-member-author">Schmid AC</span>, <span class="pub-member-author">Yousef M</span>, <span class="pub-member-author">Watson AR</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Esen ÖC</span>, <span class="pub-member-author">Lee STM</span>, Downey N, Morrison HG, Dewhirst FE, Mark Welch JL<sup>‡</sup>, <span class="pub-member-author">Eren AM<sup>‡</sup></span></span>
     <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
-    <span class="pub-journal"><b>Genome Biology</b>, 21:292.</span>
+    <span class="pub-journal"><b>Genome Biology</b>, 21:292 <a href="https://doi.org/10.1186/s13059-020-02195-w" target="_blank">🔗</a></span>
 </div>
 
 In a recent study, we cited this work the following way:
@@ -42,8 +42,7 @@ In a recent study, we cited this work the following way:
 >
 > **Functional enrichment analyses**. The statistical approach for enrichment analysis is defined elsewhere ([Shaiber et al. 2020](https://doi.org/10.1186/s13059-020-02195-w)), but briefly the program `anvi-compute-functional-enrichment` determined enrichment scores for functions (or metabolic modules) within groups of genomes by fitting a binomial generalized linear model (GLM) to the occurrence of each function (or complete metabolic module) in each group, and then computing a Rao test statistic, uncorrected p-values, and corrected q-values. We considered any function or metabolic module with a q-value less than 0.05 to be 'enriched' in its associated group (...)
 
-{:.notice}
-Questions about this feature? Try Amy Willis, Alon Shaiber, or Iva Veseli.
+{% include _experts.html question="enrichment analyses" githubs="adw96,ivagljiva" %}
 
 ### Snakemake workflows
 
@@ -52,12 +51,11 @@ There is not yet a published study that describes [our workflows](https://merenl
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1186/s13059-020-02195-w"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-020-02195-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <h3><a href=" https://doi.org/10.1186/s13059-020-02195-w" target="_new">Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome</a></h3>
-    <span class="pub-authors"><span class="none">Shaiber A</span>, Willis AD, Delmont TO, Roux S, Chen L, <span class="none">Schmid AC</span>, <span class="none">Yousef M</span>, <span class="none">Watson AR</span>, <span class="none">Lolans K</span>, <span class="none">Esen ÖC</span>, <span class="none">Lee STM</span>, Downey N, Morrison HG, Dewhirst FE, Mark Welch JL<sup>‡</sup>, <span class="none">Eren AM<sup>‡</sup></span></span>
+    <span class="pub-title"><a href=" https://doi.org/10.1186/s13059-020-02195-w" target="_new">Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Shaiber A</span>, Willis AD, Delmont TO, Roux S, Chen L, <span class="pub-member-author">Schmid AC</span>, <span class="pub-member-author">Yousef M</span>, <span class="pub-member-author">Watson AR</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Esen ÖC</span>, <span class="pub-member-author">Lee STM</span>, Downey N, Morrison HG, Dewhirst FE, Mark Welch JL<sup>‡</sup>, <span class="pub-member-author">Eren AM<sup>‡</sup></span></span>
     <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
-    <span class="pub-journal"><b>Genome Biology</b>, 21:292.</span>
+    <span class="pub-journal"><b>Genome Biology</b>, 21:292 <a href="https://doi.org/10.1186/s13059-020-02195-w" target="_blank">🔗</a></span>
 </div>
-
 
 In a recent study, we cited our workflows the following way:
 
@@ -67,8 +65,7 @@ In a recent study, we cited our workflows the following way:
 >
 > (...)
 
-{:.notice}
-Questions about this feature? Try Alon Shaiber.
+{% include _experts.html question="anvi'o snakemake workflows" githubs="ShaiberAlon,mschecht,semiller10" %}
 
 
 ### Metabolic reconstruction
@@ -79,8 +76,7 @@ There is not yet a published study that describes anvi'o metabolic reconstructio
 >
 > **Analysis of metabolic modules and enrichment**. We calculated the level of completeness for a given KEGG module ([Kanehisa et al. 2014](https://doi.org/10.1093/nar/gkt1076); [Kanehisa et al. 2017](https://doi.org/10.1093/nar/gkw1092)) in our genomes using the program `anvi-estimate-metabolism`, which leveraged previous annotation of genes with KEGG orthologs (KOs) (see the section ‘Processing of contigs’). Then, the program `anvi-compute-functional-enrichment` determined whether a given metabolic module was enriched in based on the output from `anvi-estimate-metabolism`.  The URL [https://merenlab.org/m/anvi-estimate-metabolism](https://merenlab.org/m/anvi-estimate-metabolism) serves a tutorial for this program which details the modes of usage and output file formats (...)
 
-{:.notice}
-Questions about this feature? Try Iva Veseli.
+{% include _experts.html question="metabolism" githubs="ivagljiva" %}
 
 ### Single-amino acid variants
 
@@ -89,14 +85,13 @@ If you are using anvi'o to study microbial population genetics through single-co
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.7554/eLife.46497"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.46497" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <h3><a href=" https://doi.org/10.7554/eLife.46497" target="_new">Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade</a></h3>
-    <span class="pub-authors"><span class="none">Delmont TO<sup>☯</sup></span>, <span class="none">Kiefl E<sup>☯</sup></span>, Kilinc O, <span class="none">Esen ÖC</span>, Uysal I, Rappé MS, Giovannoni S, <span class="none">Eren AM</span></span>
+    <span class="pub-title"><a href=" https://doi.org/10.7554/eLife.46497" target="_new">Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Delmont TO<sup>☯</sup></span>, <span class="pub-member-author">Kiefl E<sup>☯</sup></span>, Kilinc O, <span class="pub-member-author">Esen ÖC</span>, Uysal I, Rappé MS, Giovannoni S, <span class="pub-member-author">Eren AM</span></span>
     <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
-    <span class="pub-journal"><b>eLife</b>, 8:e46497.</span>
+    <span class="pub-journal"><b>eLife</b>, 8:e46497 <a href="https://doi.org/10.7554/eLife.46497" target="_blank">🔗</a></span>
 </div>
 
-{:.notice}
-Questions about this feature? Try Evan Kiefl.
+{% include _experts.html question="single-amino acid variants" githubs="ekiefl" %}
 
 ### Metapangenomics
 
@@ -105,13 +100,12 @@ The metapangenomics was first introduced in this study. If you are using anvi'o 
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.7717/peerj.4320"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.4320" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <h3><a href=" https://doi.org/10.7717/peerj.4320" target="_new">Linking pangenomes and metagenomes: the Prochlorococcus metapangenome</a></h3>
-    <span class="pub-authors"><span class="none">Delmont TO</span>, <span class="none">Eren AM</span></span>
-<span class="pub-journal"><b>PeerJ</b>, 6:e4320.</span>
+    <span class="pub-title"><a href=" https://doi.org/10.7717/peerj.4320" target="_new">Linking pangenomes and metagenomes: the Prochlorococcus metapangenome</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-journal"><b>PeerJ</b>, 6:e4320 <a href="https://doi.org/10.7717/peerj.4320" target="_blank">🔗</a></span>
 </div>
 
-{:.notice}
-Questions about this feature? Try Meren.
+{% include _experts.html question="metapangenomics" githubs="meren" %}
 
 ### Metagenomic binning / refinement
 
@@ -120,10 +114,9 @@ If you used anvi'o only for metagenomic binning or for the refinement of genomes
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.7717/peerj.1319"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.1319" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <h3><a href=" https://doi.org/10.7717/peerj.1319" target="_new">Anvi’o: an advanced analysis and visualization platform for ‘omics data</a></h3>
-    <span class="pub-authors"><span class="none">Eren AM</span>, <span class="none">Esen ÖC</span>, Quince C, Vineis JH, Morrison HG, Sogin ML, <span class="none">Delmont TO</span></span>
-    <span class="pub-journal"><b>PeerJ</b>, 3:e1319.</span>
+    <span class="pub-title"><a href=" https://doi.org/10.7717/peerj.1319" target="_new">Anvi’o: an advanced analysis and visualization platform for ‘omics data</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, <span class="pub-member-author">Esen ÖC</span>, Quince C, Vineis JH, Morrison HG, Sogin ML, <span class="pub-member-author">Delmont TO</span></span>
+    <span class="pub-journal"><b>PeerJ</b>, 3:e1319 <a href="https://doi.org/10.7717/peerj.1319" target="_blank">🔗</a></span>
 </div>
 
-{:.notice}
-Questions about this feature? Try Tom Delmont.
+{% include _experts.html question="binning practices" githubs="tdelmont" %}

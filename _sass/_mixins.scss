@@ -2,6 +2,19 @@
   border-radius : $radius;
 }
 
+@mixin dropshadow {
+    box-shadow: 4px 4px 14px 1px #ccc;
+}
+
+@mixin addgradient($reverse: false) {
+    @if $reverse == true {
+        background: linear-gradient(270deg, white, #efefef);
+    }
+    @else {
+        background: linear-gradient(90deg, white, #efefef);
+    }
+}
+
 @mixin heading-font {
     font-family: 'Ubuntu', 'Helvetica', 'Arial', 'sans-serif';
     font-weight: 200;
@@ -30,7 +43,7 @@
   -moz-transition: $transition;
   -ms-transition: $transition;
   -o-transition: $transition;
-  transition: $transition; 
+  transition: $transition;
 }
 
 @mixin background-cover()

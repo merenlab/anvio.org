@@ -2,7 +2,7 @@
     {% for person in site.data.people %}
         {% if author == person.github %}
         {{ author ==  page.authors | first}}
-            {% include _person.html %}
+            {% include _person_text.html %}
         {% endif %}
     {% endfor %}
 {% endfor %}

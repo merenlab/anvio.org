@@ -1,7 +1,7 @@
 {% for person_github in resource.authors%}
     {% for person in site.data.people %}
         {% if person.github == person_github %}
-            <img class="page-person-photo-img-mini" title="{{ person.name }}" src="/images/avatars/{{ person.avatar }}" > <a href="#{{ person.github }}"><span class="content-author-mini-link-name">{{ person.name }}</span></a>
+            {% include _person_mini_text.html %}
         {% endif %}
     {% endfor %}
 {% endfor %}
