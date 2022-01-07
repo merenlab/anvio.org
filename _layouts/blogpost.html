@@ -27,7 +27,9 @@
 
       {{ content }}
 
-      {% include _social_share.html %}
+      {% if page.no_social_share == false %}
+          {% include _social_share.html %}
+      {% endif %}
     </div>
   </div>
 </div>
