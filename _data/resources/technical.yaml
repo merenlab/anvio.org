@@ -1,0 +1,6 @@
+- title: Running remote anvi'o interactive interfaces on your local computer
+  type: workaround
+  url: https://merenlab.org/2018/03/07/working-with-remote-interative/
+  authors: [ozcan]
+  summary: "A workaround to run anvi'o on a remote server, and display graphical user interfaces on your local browser seamlessly."
+  tags: [visualization, server, beginner]

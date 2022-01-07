@@ -1,8 +1,8 @@
-- header: In a nutshell
-  full_header: Our platform in a nutshell
-  slug: summary
-  link_in_navbar: true
-  content: nutshell.md
+- header: "🤔"
+  full_header: Anvi'o in a nutshell
+  slug: in-a-few-words
+  link_in_navbar: false
+  content: sections/nutshell.md
 
 - header: Install
   target_url: /resources/install/
@@ -12,20 +12,26 @@
   target_url: /help/main/
   link_in_navbar: true
 
-- header: Resources
+- header: Learn
   full_header: Learn anvi'o and more
-  slug: resources
+  slug: learn
   link_in_navbar: true
-  content: learning-resources.md
+  content: resources/learning.md
+
+- header: Hack
+  full_header: Resources for advanced users
+  slug: hack
+  link_in_navbar: true
+  content: resources/technical.md
 
 - header: People
   full_header: Meet anvi'o developers and contributors
   slug: people
-  link_in_navbar: false
-  content: people.md
+  link_in_navbar: true
+  content: sections/people.md
 
 - header: Cite
   full_header: How to cite anvi'o like a pro
   slug: cite
   link_in_navbar: true
-  content: citing.md
+  content: sections/citing.md
