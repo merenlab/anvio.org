@@ -33,7 +33,7 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 
 ## Description
 
-This is a text file that **contains the information for a <span class="artifact-n">[misc-data-items-order](/software/anvio/help/main/artifacts/misc-data-items-order)</span>**, used for importing into and exporting this information from your anvi'o project.
+This is a text file that **contains the information for a <span class="artifact-n">[misc-data-items-order](/help/main/artifacts/misc-data-items-order)</span>**, used for importing into and exporting this information from your anvi'o project.
 
 ## NEWICK order
 

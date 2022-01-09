@@ -23,7 +23,7 @@ Import a new items order into an anvi&#x27;o database.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,18 +42,18 @@ Import a new items order into an anvi&#x27;o database.
 ## Usage
 
 
-This program, as one might think, allows you to import a <span class="artifact-n">[misc-data-items-order-txt](/software/anvio/help/main/artifacts/misc-data-items-order-txt)</span> to describe a specific order of items stored in a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>, <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span>, or <span class="artifact-n">[genes-db](/software/anvio/help/main/artifacts/genes-db)</span>.
+This program, as one might think, allows you to import a <span class="artifact-n">[misc-data-items-order-txt](/help/main/artifacts/misc-data-items-order-txt)</span> to describe a specific order of items stored in a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, or <span class="artifact-n">[genes-db](/help/main/artifacts/genes-db)</span>.
 
 <div class="codeblock" markdown="1">
-anvi&#45;import&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                        &#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/software/anvio/help/main/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span>
+anvi&#45;import&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                        &#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/help/main/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span>
 </div>
 
 It may also be nice to give it a good name, so that it's easy to find in the interface.
 
 <div class="codeblock" markdown="1">
-anvi&#45;import&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                        &#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/software/anvio/help/main/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span> \
+anvi&#45;import&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                        &#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/help/main/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span> \
                         &#45;&#45;name ORDER_NAME
 </div>
 

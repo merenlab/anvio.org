@@ -33,7 +33,7 @@ A TXT-type anvi'o artifact. This artifact is typically provided **by the user** 
 
 ## Description
 
-An external genome is any genome assembly that was converted into a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> from its original FASTA file format using the program <span class="artifact-p">[anvi-gen-contigs-database](/software/anvio/help/main/programs/anvi-gen-contigs-database)</span>. You can obtain one of these in a variety of ways, the most common being 1) downloading a genome from a database such as NCBI and 2) assembling a genome yourself from sequencing reads. The key thing is that the sequences in the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> represent a _single_ microbial population (or species, if you are not working with microbes) - ie, it is not a metagenome.
+An external genome is any genome assembly that was converted into a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> from its original FASTA file format using the program <span class="artifact-p">[anvi-gen-contigs-database](/help/main/programs/anvi-gen-contigs-database)</span>. You can obtain one of these in a variety of ways, the most common being 1) downloading a genome from a database such as NCBI and 2) assembling a genome yourself from sequencing reads. The key thing is that the sequences in the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> represent a _single_ microbial population (or species, if you are not working with microbes) - ie, it is not a metagenome.
 
 The external genomes file format enables anvi'o to work with one or more external genomes. A TAB-delimited external genomes file will be composed of at least the following two columns:
 
@@ -47,7 +47,7 @@ The external genomes file format enables anvi'o to work with one or more externa
 {:.warning}
 Please make sure names in the `name` column does not include any special characters (underscore is fine). It is also a good idea to keep these names short and descriptive as they will appear in various figures in downstream analyses.
 
-Also see **<span class="artifact-n">[internal-genomes](/software/anvio/help/main/artifacts/internal-genomes)</span>** and **<span class="artifact-n">[metagenomes](/software/anvio/help/main/artifacts/metagenomes)</span>**.
+Also see **<span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span>** and **<span class="artifact-n">[metagenomes](/help/main/artifacts/metagenomes)</span>**.
 
 
 {:.notice}

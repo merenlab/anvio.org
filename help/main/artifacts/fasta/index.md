@@ -33,7 +33,7 @@ A FASTA-type anvi'o artifact. This artifact is typically provided **by the user*
 
 ## Description
 
-A [FASTA](https://en.wikipedia.org/wiki/FASTA_format) file that does not necessarily meet the standards of a <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span>. While it is not necessary for all programs, if a given anvi'o program requires a <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span>, the program <span class="artifact-p">[anvi-script-reformat-fasta](/software/anvio/help/main/programs/anvi-script-reformat-fasta)</span> can turn a regular fasta into a <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span> with the flag `--simplify-names`.
+A [FASTA](https://en.wikipedia.org/wiki/FASTA_format) file that does not necessarily meet the standards of a <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span>. While it is not necessary for all programs, if a given anvi'o program requires a <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span>, the program <span class="artifact-p">[anvi-script-reformat-fasta](/help/main/programs/anvi-script-reformat-fasta)</span> can turn a regular fasta into a <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span> with the flag `--simplify-names`.
 
 ### What is a FASTA file?
 

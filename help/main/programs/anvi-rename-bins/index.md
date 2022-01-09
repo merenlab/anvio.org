@@ -23,7 +23,7 @@ Rename all bins in a given collection (so they have pretty names).
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,7 +42,7 @@ Rename all bins in a given collection (so they have pretty names).
 ## Usage
 
 
-This program **creates a new <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> from the <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>s in another collection with specific guidelines.** This is especially helpful when you want to merge multiple collections later or share your project with someone, and you want all of your bins to have nicer names than the default `bin_01`, `bin_02`, etc. based on the order you binned them in. 
+This program **creates a new <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> from the <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s in another collection with specific guidelines.** This is especially helpful when you want to merge multiple collections later or share your project with someone, and you want all of your bins to have nicer names than the default `bin_01`, `bin_02`, etc. based on the order you binned them in. 
 
 So let's take a look at what this program can do with a simple example. 
 
@@ -51,8 +51,8 @@ So let's take a look at what this program can do with a simple example.
 Let's say you have a collection called `MY_COLLECTION`, which has four bins: `really`, `bad`, `bin`, and `names`. These names just won't do, so let's get to renaming. To rename all of my bins and put them into a collection called `SURFACE_OCEAN_SAMPLES`, you could run 
 
 <div class="codeblock" markdown="1">
-anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                 &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                 &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
                  &#45;&#45;prefix SURFACE_OCEAN \
                  &#45;&#45;collection&#45;to&#45;read MY_COLLECTION \
                  &#45;&#45;collection&#45;to&#45;write SURFACE_OCEAN_SAMPLES \
@@ -70,8 +70,8 @@ Okay, but what if you want to label your MAGs separately from your bins? You don
 Here is the solution: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                 &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                 &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
                  &#45;&#45;prefix SURFACE_OCEAN \
                  &#45;&#45;collection&#45;to&#45;read MY_COLLECTION \
                  &#45;&#45;collection&#45;to&#45;write SURFACE_OCEAN_MAGS \
@@ -85,8 +85,8 @@ Now, the collection `SURFACE_OCEAN_MAGS` will include  `SURFACE_OCEAN_MAG_00001`
 Now, let's make that same collection (still called `SURFACE_OCEAN_MAGS`) that doesn't include `SURFACE_OCEAN_Bin_00003` as a MAG, since the redundency is too high for what we want to look at right now. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                 &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                 &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
                  &#45;&#45;prefix SURFACE_OCEAN \
                  &#45;&#45;collection&#45;to&#45;read MY_COLLECTION \
                  &#45;&#45;collection&#45;to&#45;write SURFACE_OCEAN_MAGS \

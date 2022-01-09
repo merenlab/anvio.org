@@ -33,7 +33,7 @@ A DB-type anvi'o artifact. This artifact can be generated, used, and/or exported
 
 ## Description
 
-A directory of **user-defined metabolism data**, created by the user for estimating metabolism on custom metabolic pathways. The program <span class="artifact-p">[anvi-setup-user-modules](/software/anvio/help/main/programs/anvi-setup-user-modules)</span> takes this directory as input and creates a <span class="artifact-n">[modules-db](/software/anvio/help/main/artifacts/modules-db)</span> out of the data within, for use by <span class="artifact-p">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>.
+A directory of **user-defined metabolism data**, created by the user for estimating metabolism on custom metabolic pathways. The program <span class="artifact-p">[anvi-setup-user-modules](/help/main/programs/anvi-setup-user-modules)</span> takes this directory as input and creates a <span class="artifact-n">[modules-db](/help/main/artifacts/modules-db)</span> out of the data within, for use by <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>.
 
 Instructions for creating this data directory and using it to estimate completeness of custom (ie, non-KEGG) metabolic pathways can be found below.
 
@@ -49,12 +49,12 @@ Also, think about how you will annotate each enzyme, because for each one you wi
 
 Enzyme comes from... | annotation program | ANNOTATION_SOURCE
 |:---|:---|:---|
-KEGG KOfam | <span class="artifact-p">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span> | Kofam
-NCBI COG (2020) | <span class="artifact-p">[anvi-run-ncbi-cogs](/software/anvio/help/main/programs/anvi-run-ncbi-cogs)</span> | COG20_FUNCTION
-NCBI COG (2014) | <span class="artifact-p">[anvi-run-ncbi-cogs](/software/anvio/help/main/programs/anvi-run-ncbi-cogs)</span> | COG14_FUNCTION
-PFAM | <span class="artifact-p">[anvi-run-pfams](/software/anvio/help/main/programs/anvi-run-pfams)</span> | Pfam
-custom HMMs | <span class="artifact-p">[anvi-run-hmms](/software/anvio/help/main/programs/anvi-run-hmms)</span> with `--hmm-source` and `--add-to-functions-table` parameters | name of directory given to `--hmm-source`
-other annotation strategy | <span class="artifact-p">[anvi-import-functions](/software/anvio/help/main/programs/anvi-import-functions)</span> | source defined in input file
+KEGG KOfam | <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> | Kofam
+NCBI COG (2020) | <span class="artifact-p">[anvi-run-ncbi-cogs](/help/main/programs/anvi-run-ncbi-cogs)</span> | COG20_FUNCTION
+NCBI COG (2014) | <span class="artifact-p">[anvi-run-ncbi-cogs](/help/main/programs/anvi-run-ncbi-cogs)</span> | COG14_FUNCTION
+PFAM | <span class="artifact-p">[anvi-run-pfams](/help/main/programs/anvi-run-pfams)</span> | Pfam
+custom HMMs | <span class="artifact-p">[anvi-run-hmms](/help/main/programs/anvi-run-hmms)</span> with `--hmm-source` and `--add-to-functions-table` parameters | name of directory given to `--hmm-source`
+other annotation strategy | <span class="artifact-p">[anvi-import-functions](/help/main/programs/anvi-import-functions)</span> | source defined in input file
 
 ### 2. Define the module
 
@@ -66,17 +66,17 @@ Put all the information about your metabolic pathway into a text file. The file 
 
 ### 4. Set up the USER_MODULES.db
 
-Once you have created a module file for each metabolic pathway you are interested in, you should put these files within a folder called `modules`, within a parent directory (that can have any name you choose), as described [here](https://merenlab.org/software/anvio/help/main/programs/anvi-setup-user-modules/#input-directory-format). This parent directory is the <span class="artifact-n">[user-modules-data](/software/anvio/help/main/artifacts/user-modules-data)</span> directory. Then you should run the program <span class="artifact-p">[anvi-setup-user-modules](/software/anvio/help/main/programs/anvi-setup-user-modules)</span> and provide this directory to the `--user-modules` parameter. If all goes well, you will end up with a database called `USER_MODULES.db` in this folder.
+Once you have created a module file for each metabolic pathway you are interested in, you should put these files within a folder called `modules`, within a parent directory (that can have any name you choose), as described [here](https://merenlab.org/software/anvio/help/main/programs/anvi-setup-user-modules/#input-directory-format). This parent directory is the <span class="artifact-n">[user-modules-data](/help/main/artifacts/user-modules-data)</span> directory. Then you should run the program <span class="artifact-p">[anvi-setup-user-modules](/help/main/programs/anvi-setup-user-modules)</span> and provide this directory to the `--user-modules` parameter. If all goes well, you will end up with a database called `USER_MODULES.db` in this folder.
 
 ### 5. Annotate your contigs database(s)
 
-Before you can estimate metabolism, you will need to annotate your contigs database(s) with each annotation source that you used to define your modules. This will require running one or more annotation programs, as described in the table given for step 1 above. If you want to quickly remind yourself of which annotation sources are required for your metabolic modules, you can run <span class="artifact-p">[anvi-db-info](/software/anvio/help/main/programs/anvi-db-info)</span> on the `USER_MODULES.db`. But don't worry - if you forget one, you will get a helpful error message telling you what you missed when you try to run <span class="artifact-p">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>.
+Before you can estimate metabolism, you will need to annotate your contigs database(s) with each annotation source that you used to define your modules. This will require running one or more annotation programs, as described in the table given for step 1 above. If you want to quickly remind yourself of which annotation sources are required for your metabolic modules, you can run <span class="artifact-p">[anvi-db-info](/help/main/programs/anvi-db-info)</span> on the `USER_MODULES.db`. But don't worry - if you forget one, you will get a helpful error message telling you what you missed when you try to run <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>.
 
-Since estimation will be run on KEGG data, too, you will have to make sure you also run <span class="artifact-p">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span> on your database(s), if you haven't already, _UNLESS_ you are choosing to skip KEGG estimation by using the `--only-user-modules` parameter for <span class="artifact-p">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>.
+Since estimation will be run on KEGG data, too, you will have to make sure you also run <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> on your database(s), if you haven't already, _UNLESS_ you are choosing to skip KEGG estimation by using the `--only-user-modules` parameter for <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>.
 
 ### 6. Estimate the completeness of your pathways
 
-The last step is to run <span class="artifact-p">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span> and provide this directory to the `--user-modules` parameter. This program will estimate the completeness of the metabolic modules defined in the `USER_MODULES.db` (by default, this will be in addition to the KEGG modules from the <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span> directory. But, as mentioned above, you can specify `--only-user-modules` to only estimate on your own data).
+The last step is to run <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span> and provide this directory to the `--user-modules` parameter. This program will estimate the completeness of the metabolic modules defined in the `USER_MODULES.db` (by default, this will be in addition to the KEGG modules from the <span class="artifact-n">[kegg-data](/help/main/artifacts/kegg-data)</span> directory. But, as mentioned above, you can specify `--only-user-modules` to only estimate on your own data).
 
 ## A toy example
 
@@ -84,7 +84,7 @@ For this example, we will be creating a completely FAKE, biologically-nonsensica
 
 First, let's select 5 different enzymes. Typically at this step you would use your biological knowledge of a real metabolic pathway to determine the specific set of enzymes catalyzing the reactions of the pathway - but for this toy example, we're going to use random enzymes that come from a variety of annotation sources, not enzymes that actually work together biologically in a real cell. So we'll go with a couple of KOfams, a COG, a PFAM, and a TIGRFAM (to demonstrate the 'other' annotation strategy). Here is the list of accessions: K01657, K01658, COG1362, PF06603.14, and TIGR01709.2.
 
-It doesn't matter what they are or what they do. What matters is that we will learn how to annotate each one. So let's talk about their annotation sources. K01657 and K01658 will both come from `KOfam`, and COG1362 will come from the 2020 distribution of the COGs database, so its source will be `COG20_FUNCTION`. PF06603.14 is a PFAM, so it _could_ come from the `Pfam` source. But let's suppose we don't want to waste our precious computational resources on running <span class="artifact-p">[anvi-run-pfams](/software/anvio/help/main/programs/anvi-run-pfams)</span> when we are only interested in one enzyme from this database. Instead, we'll make a custom HMM profile for this particular enzyme by following the directions on [creating HMM sources from ad hoc PFAM accessions](https://merenlab.org/software/anvio/help/main/artifacts/hmm-source/#creating-anvio-hmm-sources-from-ad-hoc-pfam-accessions), and then we will annotate it using <span class="artifact-p">[anvi-run-hmms](/software/anvio/help/main/programs/anvi-run-hmms)</span>. In this case, the annotation source will be the name of the directory we make using <span class="artifact-p">[anvi-script-pfam-accessions-to-hmms-directory](/software/anvio/help/main/programs/anvi-script-pfam-accessions-to-hmms-directory)</span>, so we need to pick a name for it - let's call it `METABOLISM_HMM`. Last but not least, what about the TIGRFAM enzyme TIGR01709.2? Anvi'o doesn't have a program for annotating TIGRFAMs, but we can annotate our gene sequences with TIGRFAM using [Interproscan](https://www.ebi.ac.uk/interpro/search/sequence/), compile the results into a <span class="artifact-n">[functions-txt](/software/anvio/help/main/artifacts/functions-txt)</span>, and import those annotations into our contigs database using <span class="artifact-p">[anvi-import-functions](/software/anvio/help/main/programs/anvi-import-functions)</span>. We'll put the source `TIGRFAM` in the <span class="artifact-n">[functions-txt](/software/anvio/help/main/artifacts/functions-txt)</span> file.
+It doesn't matter what they are or what they do. What matters is that we will learn how to annotate each one. So let's talk about their annotation sources. K01657 and K01658 will both come from `KOfam`, and COG1362 will come from the 2020 distribution of the COGs database, so its source will be `COG20_FUNCTION`. PF06603.14 is a PFAM, so it _could_ come from the `Pfam` source. But let's suppose we don't want to waste our precious computational resources on running <span class="artifact-p">[anvi-run-pfams](/help/main/programs/anvi-run-pfams)</span> when we are only interested in one enzyme from this database. Instead, we'll make a custom HMM profile for this particular enzyme by following the directions on [creating HMM sources from ad hoc PFAM accessions](https://merenlab.org/software/anvio/help/main/artifacts/hmm-source/#creating-anvio-hmm-sources-from-ad-hoc-pfam-accessions), and then we will annotate it using <span class="artifact-p">[anvi-run-hmms](/help/main/programs/anvi-run-hmms)</span>. In this case, the annotation source will be the name of the directory we make using <span class="artifact-p">[anvi-script-pfam-accessions-to-hmms-directory](/help/main/programs/anvi-script-pfam-accessions-to-hmms-directory)</span>, so we need to pick a name for it - let's call it `METABOLISM_HMM`. Last but not least, what about the TIGRFAM enzyme TIGR01709.2? Anvi'o doesn't have a program for annotating TIGRFAMs, but we can annotate our gene sequences with TIGRFAM using [Interproscan](https://www.ebi.ac.uk/interpro/search/sequence/), compile the results into a <span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span>, and import those annotations into our contigs database using <span class="artifact-p">[anvi-import-functions](/help/main/programs/anvi-import-functions)</span>. We'll put the source `TIGRFAM` in the <span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span> file.
 
 Great, so now that we have our enzymes and we know how we will annotate them, it's time for step 2 - creating the module DEFINITION string. Again, this is not going to be a biologically-realistic metabolic pathway, but an example to demonstrate the different ways of representing steps in a pathway.
 
@@ -113,7 +113,7 @@ ANNOTATION_SOURCE  K01657  KOfam
 ///
 ```
 
-If you were actually going to use this pathway, this is how you could create the <span class="artifact-n">[user-modules-data](/software/anvio/help/main/artifacts/user-modules-data)</span> directory and then the `USER_MODULES.db`:
+If you were actually going to use this pathway, this is how you could create the <span class="artifact-n">[user-modules-data](/help/main/artifacts/user-modules-data)</span> directory and then the `USER_MODULES.db`:
 
 <div class="codeblock" markdown="1">
 mkdir USER_METABOLISM
@@ -123,7 +123,7 @@ vi USER_METABOLISM/modules/UD0042
 anvi&#45;setup&#45;user&#45;modules &#45;&#45;user&#45;modules USER_METABOLISM/
 </div>
 
-You would see the following output after <span class="artifact-p">[anvi-setup-user-modules](/software/anvio/help/main/programs/anvi-setup-user-modules)</span> completed:
+You would see the following output after <span class="artifact-p">[anvi-setup-user-modules](/help/main/programs/anvi-setup-user-modules)</span> completed:
 ```
 Modules database .............................: A new database, USER_METABOLISM/USER_MODULES.db, has been created.
 Number of modules ............................: 1
@@ -132,31 +132,31 @@ Number of parsing errors (corrected) .........: 0
 Number of parsing errors (uncorrected) .......: 0
 Annotation sources required for estimation ...: COG20_FUNCTION, METABOLISM_HMM, KOfam, TIGRFAM
 ```
-As expected, if we want to use this modules database for estimating completeness of our Frankenstein pathway, we would need to annotate our <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> of interest with the four annotation sources we discussed above. And that, in fact, is the next step.
+As expected, if we want to use this modules database for estimating completeness of our Frankenstein pathway, we would need to annotate our <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> of interest with the four annotation sources we discussed above. And that, in fact, is the next step.
 
 The first two annotation sources we discussed are easy, because we don't need to do anything besides run the designated anvi'o program for KEGG KOfams and NCBI COGs, respectively:
 
 <div class="codeblock" markdown="1">
-<span class="artifact&#45;p">[anvi&#45;run&#45;kegg&#45;kofams](/software/anvio/help/main/programs/anvi&#45;run&#45;kegg&#45;kofams)</span> &#45;c CONTIGS.db \
+<span class="artifact&#45;p">[anvi&#45;run&#45;kegg&#45;kofams](/help/main/programs/anvi&#45;run&#45;kegg&#45;kofams)</span> &#45;c CONTIGS.db \
                       &#45;&#45;num&#45;threads 4
-<span class="artifact&#45;p">[anvi&#45;run&#45;ncbi&#45;cogs](/software/anvio/help/main/programs/anvi&#45;run&#45;ncbi&#45;cogs)</span> &#45;c CONTIGS.db \
+<span class="artifact&#45;p">[anvi&#45;run&#45;ncbi&#45;cogs](/help/main/programs/anvi&#45;run&#45;ncbi&#45;cogs)</span> &#45;c CONTIGS.db \
                     &#45;&#45;num&#45;threads 4
 </div>
 
-Annotating PF06603.14 requires an extra step, because we first need to create a custom HMM for this enzyme. Luckily, there is another anvi'o program to do that. We give the enzyme accession to <span class="artifact-p">[anvi-script-pfam-accessions-to-hmms-directory](/software/anvio/help/main/programs/anvi-script-pfam-accessions-to-hmms-directory)</span>, and we make sure to set the output directory name to be the same as the annotation source string that we put in the module file:
+Annotating PF06603.14 requires an extra step, because we first need to create a custom HMM for this enzyme. Luckily, there is another anvi'o program to do that. We give the enzyme accession to <span class="artifact-p">[anvi-script-pfam-accessions-to-hmms-directory](/help/main/programs/anvi-script-pfam-accessions-to-hmms-directory)</span>, and we make sure to set the output directory name to be the same as the annotation source string that we put in the module file:
 
 <div class="codeblock" markdown="1">
-<span class="artifact&#45;p">[anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory](/software/anvio/help/main/programs/anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory)</span> &#45;&#45;pfam&#45;accessions&#45;list PF06603.14 \
+<span class="artifact&#45;p">[anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory](/help/main/programs/anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory)</span> &#45;&#45;pfam&#45;accessions&#45;list PF06603.14 \
                                                &#45;O METABOLISM_HMM
-<span class="artifact&#45;p">[anvi&#45;run&#45;hmms](/software/anvio/help/main/programs/anvi&#45;run&#45;hmms)</span> &#45;c CONTIGS.db \
+<span class="artifact&#45;p">[anvi&#45;run&#45;hmms](/help/main/programs/anvi&#45;run&#45;hmms)</span> &#45;c CONTIGS.db \
                &#45;H METABOLISM_HMM \
                &#45;&#45;add&#45;to&#45;functions&#45;table \
                &#45;&#45;num&#45;threads 4
 </div>
 
-Please note that you _must_ use the `--add-to-functions-table` parameter when you use <span class="artifact-p">[anvi-run-hmms](/software/anvio/help/main/programs/anvi-run-hmms)</span>, otherwise the annotations for PF06603.14 will not be stored in the proper database table and <span class="artifact-p">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span> will not be able to find them later. Also, if you use the <span class="artifact-p">[anvi-script-pfam-accessions-to-hmms-directory](/software/anvio/help/main/programs/anvi-script-pfam-accessions-to-hmms-directory)</span> program to create your custom HMM profiles, you should make sure that the accessions in the resulting `genes.txt` file are matching to the corresponding enzyme accessions in the module file, because those are the accessions that will be put into your contigs database.
+Please note that you _must_ use the `--add-to-functions-table` parameter when you use <span class="artifact-p">[anvi-run-hmms](/help/main/programs/anvi-run-hmms)</span>, otherwise the annotations for PF06603.14 will not be stored in the proper database table and <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span> will not be able to find them later. Also, if you use the <span class="artifact-p">[anvi-script-pfam-accessions-to-hmms-directory](/help/main/programs/anvi-script-pfam-accessions-to-hmms-directory)</span> program to create your custom HMM profiles, you should make sure that the accessions in the resulting `genes.txt` file are matching to the corresponding enzyme accessions in the module file, because those are the accessions that will be put into your contigs database.
 
-Finally, to annotate TIGR01709.2 we need to take our (hypothetical) Interproscan results and convert them into a <span class="artifact-n">[functions-txt](/software/anvio/help/main/artifacts/functions-txt)</span> file. You can visit that page for a lengthier discussion of the file format, but let's say the TIGR01709.2 annotations in that file looked like this:
+Finally, to annotate TIGR01709.2 we need to take our (hypothetical) Interproscan results and convert them into a <span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span> file. You can visit that page for a lengthier discussion of the file format, but let's say the TIGR01709.2 annotations in that file looked like this:
 
 |gene_callers_id|source|accession|function|e_value|
 |:--|:--:|:--:|:--|:--:|
@@ -168,14 +168,14 @@ The things that are especially critical here is that the `accession` matches to 
 Suppose the file is called `TIGRFAM_annotations.txt`. Then you can import those annotations, like so:
 
 <div class="codeblock" markdown="1">
-<span class="artifact&#45;p">[anvi&#45;import&#45;functions](/software/anvio/help/main/programs/anvi&#45;import&#45;functions)</span> &#45;c CONTIGS.db \
+<span class="artifact&#45;p">[anvi&#45;import&#45;functions](/help/main/programs/anvi&#45;import&#45;functions)</span> &#45;c CONTIGS.db \
                        &#45;i TIGRFAM_annotations.txt
 </div>
 
 Once this is done, you are ready to estimate the pathway's completeness! Here is the command:
 
 <div class="codeblock" markdown="1">
-<span class="artifact&#45;p">[anvi&#45;estimate&#45;metabolism](/software/anvio/help/main/programs/anvi&#45;estimate&#45;metabolism)</span> &#45;c CONTIGS.db \
+<span class="artifact&#45;p">[anvi&#45;estimate&#45;metabolism](/help/main/programs/anvi&#45;estimate&#45;metabolism)</span> &#45;c CONTIGS.db \
                           &#45;&#45;user&#45;modules USER_METABOLISM/ \
                           &#45;O frankenstein
 </div>

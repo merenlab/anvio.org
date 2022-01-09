@@ -23,7 +23,7 @@ Report the distribution of template lengths from a BAM file. The purpose of this
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,14 +42,14 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program may be useful if you are interested in learning the insert size distribution in a given <span class="artifact-n">[bam-file](/software/anvio/help/main/artifacts/bam-file)</span>.
+This program may be useful if you are interested in learning the insert size distribution in a given <span class="artifact-n">[bam-file](/help/main/artifacts/bam-file)</span>.
 
 ## Example run
 
 The most straightforward way to run the program is the following:
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;tlen&#45;dist&#45;from&#45;bam <span class="artifact&#45;n">[bam&#45;file](/software/anvio/help/main/artifacts/bam&#45;file)</span>
+anvi&#45;get&#45;tlen&#45;dist&#45;from&#45;bam <span class="artifact&#45;n">[bam&#45;file](/help/main/artifacts/bam&#45;file)</span>
 </div>
 
 Here is an example output in the terminal:

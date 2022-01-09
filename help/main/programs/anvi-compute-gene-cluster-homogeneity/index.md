@@ -23,7 +23,7 @@ Compute homogeneity for gene clusters.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/mahmoudyousef98.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">Mahmoud Yousef</span><div class="page-author-social-box"><a href="mailto:mahmoudyousef@uchicago.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://github.com/mahmoudyousef98" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/mahmoudyousef98.jpg" /></div><div class="anvio-person-info-box"><a href="/people/mahmoudyousef98" target="_blank"><span class="anvio-person-name">Mahmoud Yousef</span></a><div class="anvio-person-social-box"><a href="mailto:mahmoudyousef@uchicago.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://github.com/mahmoudyousef98" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,33 +42,33 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program **computes both the geometric homogeneity and functional homogeneity for the gene clusters in a <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span>.** 
+This program **computes both the geometric homogeneity and functional homogeneity for the gene clusters in a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>.** 
 
 *Geometric homogeneity* and *functional homogeneity* are anvi'o specific terms that describe how similar genes within a gene cluster are to each other in different ways. Briefly, geometric homogeneity compares the positions of gaps in the aligned residues without considering specific amino acids, and functional homogeneity examines point mutations to amino acids and compares how similar the resulting amino acids are chemically. See [this page](http://merenlab.org/2016/11/08/pangenomics-v2/#inferring-the-homogeneity-of-gene-clusters) for more details. 
 
 You can run this program as so: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;compute&#45;gene&#45;cluster&#45;homogeneity &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span> \
-                                      &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+anvi&#45;compute&#45;gene&#45;cluster&#45;homogeneity &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
+                                      &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
                                       &#45;o path/to/output.txt \
                                       &#45;&#45;store&#45;in&#45;db
 </div>
 
 This run will put the output directly in the database, as well as provide it as a separate file as the specified output path. 
 
-You also have the option to calculate this information about only specific gene clusters, either by providing a gene cluster ID, list of gene cluster IDs, <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> or <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>. 
+You also have the option to calculate this information about only specific gene clusters, either by providing a gene cluster ID, list of gene cluster IDs, <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> or <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>. 
 
 To save on runtime, you can also enable `--quick-homogeneity`, which will not check for horizontal geometric homogenity (i.e. it will not look at alignments within a single gene). This will be less accurate for detailed analyses, but it will run faster. 
 
 Here is an example run that uses this flag and only looks at a specific collection: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;compute&#45;gene&#45;cluster&#45;homogeneity &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span> \
-                                      &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+anvi&#45;compute&#45;gene&#45;cluster&#45;homogeneity &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
+                                      &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
                                       &#45;o path/to/output.txt \
                                       &#45;&#45;store&#45;in&#45;db \ 
-                                      &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
+                                      &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
                                       &#45;&#45;quick&#45;homogeneity 
 </div>
 

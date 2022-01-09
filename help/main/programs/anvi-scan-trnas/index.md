@@ -23,7 +23,7 @@ Identify and store tRNA genes in a contigs database.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,12 +42,12 @@ Identify and store tRNA genes in a contigs database.
 ## Usage
 
 
-This program identifies the tRNA genes in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and stores them in an <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span>. 
+This program identifies the tRNA genes in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and stores them in an <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span>. 
 
-To run, just provide a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> that you want to look through. 
+To run, just provide a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> that you want to look through. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;scan&#45;trnas &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span>
+anvi&#45;scan&#45;trnas &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span>
 </div>
 
 ### Customizing the cut off score
@@ -57,7 +57,7 @@ What counts as a tRNA gene? That could be up to you.
 The default minimum score for a gene to be counted is 20.  However, you can set this cutoff to anywhere between 0-100. This value is actually used by the module tRNAScan-SE, so view [their documentation](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6768409/) for details. For example, to find more non-cononical tRNA genes, a user could lower the cutoff score to 10 as follows:
 
 <div class="codeblock" markdown="1">
-anvi&#45;scan&#45;trnas &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;scan&#45;trnas &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                 &#45;&#45;trna&#45;cutoff&#45;score 10
 </div>
 
@@ -75,7 +75,7 @@ anvi&#45;scan&#45;trnas &#45;c <span class="artifact&#45;n">[contigs&#45;db](/so
 
 ### Understanding the output 
 
-Essentially, the output of this program states the probability that each gene is a tRNA gene. See <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span> for more information. 
+Essentially, the output of this program states the probability that each gene is a tRNA gene. See <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> for more information. 
 
 
 {:.notice}

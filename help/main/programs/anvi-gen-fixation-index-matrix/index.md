@@ -23,7 +23,7 @@ Generate a pairwise matrix of a fixation indices between samples.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/ekiefl.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">Evan Kiefl</span><div class="page-author-social-box"><a href="mailto:kiefl.evan@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/evankiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/ekiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/ekiefl.jpg" /></div><div class="anvio-person-info-box"><a href="/people/ekiefl" target="_blank"><span class="anvio-person-name">Evan Kiefl</span></a><div class="anvio-person-social-box"><a href="mailto:kiefl.evan@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/evankiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/ekiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -62,28 +62,28 @@ There are two ways to run this program.
 
 ### Input 1: Variability Profile 
 
-The simplest one is the one shown [in the Infant Gut Tutorial](https://merenlab.org/tutorials/infant-gut/#measuring-distances-between-metagenomes-with-fst): just provide a <span class="artifact-n">[variability-profile](/software/anvio/help/main/artifacts/variability-profile)</span>, like so: 
+The simplest one is the one shown [in the Infant Gut Tutorial](https://merenlab.org/tutorials/infant-gut/#measuring-distances-between-metagenomes-with-fst): just provide a <span class="artifact-n">[variability-profile](/help/main/artifacts/variability-profile)</span>, like so: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;fixation&#45;index&#45;matrix &#45;&#45;variability&#45;profile <span class="artifact&#45;n">[variability&#45;profile](/software/anvio/help/main/artifacts/variability&#45;profile)</span> \
+anvi&#45;gen&#45;fixation&#45;index&#45;matrix &#45;&#45;variability&#45;profile <span class="artifact&#45;n">[variability&#45;profile](/help/main/artifacts/variability&#45;profile)</span> \
                                &#45;&#45;output&#45;file my_matrix.txt
 </div>
 
-This will use the information in your <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> to generate the fixation index for each of the pairwise sample comparisons, and store the results in a <span class="artifact-n">[fixation-index-matrix](/software/anvio/help/main/artifacts/fixation-index-matrix)</span> named `my_matrix.txt`.  
+This will use the information in your <span class="artifact-n">[variability-profile-txt](/help/main/artifacts/variability-profile-txt)</span> to generate the fixation index for each of the pairwise sample comparisons, and store the results in a <span class="artifact-n">[fixation-index-matrix](/help/main/artifacts/fixation-index-matrix)</span> named `my_matrix.txt`.  
 
 ### Input 2: Anvi'o databases
 
-Instead of providing a <span class="artifact-n">[variability-profile](/software/anvio/help/main/artifacts/variability-profile)</span>, you can instead provide the inputs to <span class="artifact-p">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span> and let anvi'o do all of the work for you. Specifically, this means providing a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> pair to find your variability positions and a specific subset to focus on in any of these ways: 
+Instead of providing a <span class="artifact-n">[variability-profile](/help/main/artifacts/variability-profile)</span>, you can instead provide the inputs to <span class="artifact-p">[anvi-gen-variability-profile](/help/main/programs/anvi-gen-variability-profile)</span> and let anvi'o do all of the work for you. Specifically, this means providing a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> pair to find your variability positions and a specific subset to focus on in any of these ways: 
 
 - Provide a list of gene caller IDs (as a parameter with the flag `--gene-caller-ids` or in a file with one ID per line with the flag `--genes-of-interest`)
-- Provide a list of splits (in a <span class="artifact-n">[splits-txt](/software/anvio/help/main/artifacts/splits-txt)</span>)
-- Provide a <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>
+- Provide a list of splits (in a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span>)
+- Provide a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>
 
-Additionally, you can add structural annotations by inputting a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> (and focus only on genes with structural annotations with the flag `--only-if-structure`) or choose to focus on only a subset of your samples by providing a file of samples of interest.  
+Additionally, you can add structural annotations by inputting a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> (and focus only on genes with structural annotations with the flag `--only-if-structure`) or choose to focus on only a subset of your samples by providing a file of samples of interest.  
 
 When doing this, you can also set the variability engine to get the fixation index for SCVs (`--engine CDN`) or SAAVs (`--engine AA`). 
 
-You can find more information about these parameters on the page for <span class="artifact-p">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span>. 
+You can find more information about these parameters on the page for <span class="artifact-p">[anvi-gen-variability-profile](/help/main/programs/anvi-gen-variability-profile)</span>. 
 
 ### Additional Parameters
 

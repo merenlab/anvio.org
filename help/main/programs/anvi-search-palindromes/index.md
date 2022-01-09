@@ -23,7 +23,7 @@ A program to find palindromes in sequences.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,7 +42,7 @@ A program to find palindromes in sequences.
 ## Usage
 
 
-This program finds [palindromes](https://en.wikipedia.org/wiki/Palindromic_sequence) in any DNA sequence. It will search for palindromes that mathes criteria listed by the user (i.e., minimum lenght of the palindromic sequences, maximum number of mismatches, and minimum distance between the two palindromic regions). The program will print out its findings (and tribulations) and will optionally report the search results as a <span class="artifact-n">[palindromes-txt](/software/anvio/help/main/artifacts/palindromes-txt)</span>.
+This program finds [palindromes](https://en.wikipedia.org/wiki/Palindromic_sequence) in any DNA sequence. It will search for palindromes that mathes criteria listed by the user (i.e., minimum lenght of the palindromic sequences, maximum number of mismatches, and minimum distance between the two palindromic regions). The program will print out its findings (and tribulations) and will optionally report the search results as a <span class="artifact-n">[palindromes-txt](/help/main/artifacts/palindromes-txt)</span>.
 
 Please note that this program can find both perfect palindromes (i.e., the identity and order of nucleotides on one strand match to those on the complementary strand) and special cases of palindromes that form [hairpins](https://en.wikipedia.org/wiki/Stem-loop). You can use the minimum distance parameter to target any group of palindromes (i.e., minimum distance of 0 will report only perfect palindromes).
 
@@ -51,24 +51,24 @@ The speed of the algorithm will depend on the minimum palindrome length paramete
 
 ### Sequence input sources
 
-<span class="artifact-p">[anvi-search-palindromes](/software/anvio/help/main/programs/anvi-search-palindromes)</span> can use multiple different sequence sources.
+<span class="artifact-p">[anvi-search-palindromes](/help/main/programs/anvi-search-palindromes)</span> can use multiple different sequence sources.
 
 #### Contigs database
 
-In this mode <span class="artifact-p">[anvi-search-palindromes](/software/anvio/help/main/programs/anvi-search-palindromes)</span> will go through every contig sequence in a given <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>.
+In this mode <span class="artifact-p">[anvi-search-palindromes](/help/main/programs/anvi-search-palindromes)</span> will go through every contig sequence in a given <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>.
 
 <div class="codeblock" markdown="1">
-anvi&#45;search&#45;palindromes &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                        &#45;&#45;output&#45;file <span class="artifact&#45;n">[palindromes&#45;txt](/software/anvio/help/main/artifacts/palindromes&#45;txt)</span>
+anvi&#45;search&#45;palindromes &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                        &#45;&#45;output&#45;file <span class="artifact&#45;n">[palindromes&#45;txt](/help/main/artifacts/palindromes&#45;txt)</span>
 </div>
 
 #### FASTA file
 
-Alternatively, you can use a <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> file as input.
+Alternatively, you can use a <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> file as input.
 
 <div class="codeblock" markdown="1">
-anvi&#45;search&#45;palindromes &#45;&#45;fasta&#45;file <span class="artifact&#45;n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> \
-                        &#45;&#45;output&#45;file <span class="artifact&#45;n">[palindromes&#45;txt](/software/anvio/help/main/artifacts/palindromes&#45;txt)</span>
+anvi&#45;search&#45;palindromes &#45;&#45;fasta&#45;file <span class="artifact&#45;n">[fasta](/help/main/artifacts/fasta)</span> \
+                        &#45;&#45;output&#45;file <span class="artifact&#45;n">[palindromes&#45;txt](/help/main/artifacts/palindromes&#45;txt)</span>
 </div>
 
 #### DNA sequence
@@ -82,12 +82,12 @@ anvi&#45;search&#45;palindromes &#45;&#45;dna&#45;sequence (.. A DNA SEQUENCE OF
 
 ### Verbose output
 
-If you provide an `--output-file` parameter, your results will be stored into a <span class="artifact-n">[palindromes-txt](/software/anvio/help/main/artifacts/palindromes-txt)</span> file for downstream analyses. If you do not provide an output file, or explicitly asked for a verbose output with the flag `--verbose`, you will see all your palindromes listed on your screen.
+If you provide an `--output-file` parameter, your results will be stored into a <span class="artifact-n">[palindromes-txt](/help/main/artifacts/palindromes-txt)</span> file for downstream analyses. If you do not provide an output file, or explicitly asked for a verbose output with the flag `--verbose`, you will see all your palindromes listed on your screen.
 
 Here is an example with a single sequence and no output file path:
 
 <div class="codeblock" markdown="1">
-<span class="artifact&#45;p">[anvi&#45;search&#45;palindromes](/software/anvio/help/main/programs/anvi&#45;search&#45;palindromes)</span> &#45;&#45;dna&#45;sequence CATTGACGTTGACGGCGACCGGTCGGTGATCACCGACCGGTCGCCGTCAACGTCAATG
+<span class="artifact&#45;p">[anvi&#45;search&#45;palindromes](/help/main/programs/anvi&#45;search&#45;palindromes)</span> &#45;&#45;dna&#45;sequence CATTGACGTTGACGGCGACCGGTCGGTGATCACCGACCGGTCGCCGTCAACGTCAATG
 </div>
 
 ```
@@ -117,10 +117,10 @@ Longest palindrome ...........................: 58
 Most distant palindrome ......................: 0
 ```
 
-Here is another example with a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, an output file path, and the `--verbose` flag:
+Here is another example with a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, an output file path, and the `--verbose` flag:
 
 <div class="codeblock" markdown="1">
-<span class="artifact&#45;p">[anvi&#45;search&#45;palindromes](/software/anvio/help/main/programs/anvi&#45;search&#45;palindromes)</span> &#45;c CONTIGS.db \
+<span class="artifact&#45;p">[anvi&#45;search&#45;palindromes](/help/main/programs/anvi&#45;search&#45;palindromes)</span> &#45;c CONTIGS.db \
                          &#45;&#45;min&#45;palindrome&#45;length 50 \
                          &#45;&#45;max&#45;num&#45;mismatches 1 \
                          &#45;&#45;output&#45;file palindromes.txt \
@@ -160,7 +160,7 @@ Output file ..................................: palindromes.txt
 
 Just like everything else in anvi'o, you can access the functionality the program `anvi-search-palindromes` offers without using the program itself by inheriting an instance from the `Palindromes` class and use it in your own Python scripts.
 
-Here is an example, first with an input file and then an ad hoc sequence. Starting with the file (i.e., an anvi'o <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>):
+Here is an example, first with an input file and then an ad hoc sequence. Starting with the file (i.e., an anvi'o <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>):
 
 ``` python
 # import argparse to pass arguments to the class

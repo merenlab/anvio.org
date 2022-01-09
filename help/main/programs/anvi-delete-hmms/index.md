@@ -23,7 +23,7 @@ Remove HMM hits from an anvi&#x27;o contigs database.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,22 +42,22 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program, as implied by the name, is used to delete a <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span> from a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. This way, you can repopulate the function annotations with a different source or program or just delete data that's clogging up the interface.
+This program, as implied by the name, is used to delete a <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> from a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. This way, you can repopulate the function annotations with a different source or program or just delete data that's clogging up the interface.
 
-It is generally a good idea to export your information before deleting it, just in case. The HMM hits will show up in most displays, so if you've already run <span class="artifact-p">[anvi-summarize](/software/anvio/help/main/programs/anvi-summarize)</span>, you should be good. 
+It is generally a good idea to export your information before deleting it, just in case. The HMM hits will show up in most displays, so if you've already run <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span>, you should be good. 
 
-To list available <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span>s in a database, call 
+To list available <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>s in a database, call 
 
 <div class="codeblock" markdown="1">
-anvi&#45;delete&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;delete&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                  &#45;&#45;list&#45;hmm&#45;sources
 </div>
 
-Then, you can easily delete <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span> from a specific source with the command
+Then, you can easily delete <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> from a specific source with the command
 
 <div class="codeblock" markdown="1">
-anvi&#45;delete&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                 &#45;&#45;hmm&#45;source <span class="artifact&#45;n">[hmm&#45;source](/software/anvio/help/main/artifacts/hmm&#45;source)</span> 
+anvi&#45;delete&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                 &#45;&#45;hmm&#45;source <span class="artifact&#45;n">[hmm&#45;source](/help/main/artifacts/hmm&#45;source)</span> 
 </div>
 
 

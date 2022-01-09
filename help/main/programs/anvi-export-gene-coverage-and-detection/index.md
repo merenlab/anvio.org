@@ -23,7 +23,7 @@ Export gene coverage and detection data for all genes associated with contigs de
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,15 +42,15 @@ Export gene coverage and detection data for all genes associated with contigs de
 ## Usage
 
 
-This program gives you the **coverage and detection data** for all of the genes found in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, using the short reads data in your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>. 
+This program gives you the **coverage and detection data** for all of the genes found in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, using the short reads data in your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;gene&#45;coverage&#45;and&#45;detection &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                                        &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+anvi&#45;export&#45;gene&#45;coverage&#45;and&#45;detection &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                                        &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
                                         &#45;O MY_DATA
 </div>
 
-This will give you a <span class="artifact-n">[coverages-txt](/software/anvio/help/main/artifacts/coverages-txt)</span> and a <span class="artifact-n">[detection-txt](/software/anvio/help/main/artifacts/detection-txt)</span> whose file names will begin with `MY_DATA`
+This will give you a <span class="artifact-n">[coverages-txt](/help/main/artifacts/coverages-txt)</span> and a <span class="artifact-n">[detection-txt](/help/main/artifacts/detection-txt)</span> whose file names will begin with `MY_DATA`
 
 
 {:.notice}

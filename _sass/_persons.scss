@@ -1,8 +1,8 @@
-.page-author {
+.anvio-person {
   display: inline-block;
 }
 
-.page-author-mini {
+.anvio-person-mini {
   display: inline-block;
 }
 .authored {
@@ -39,7 +39,7 @@
     font-weight: bold;
 }
 
-.page-author-info {
+.anvio-person-info {
     display: inline-table;
     float: left;
     background: linear-gradient(90deg, white, #efefef);
@@ -61,15 +61,19 @@
     }
 }
 
-.page-author-name {
+.anvio-person-name {
     margin: 0;
     padding-left: 5px;
     padding-right: 5px;
     color: #323232;
-    /* font-family: "PT Sans Narrow",sans-serif; */
-    /* font-weight: bold; */
     font-size: 1.4em;
     line-height: 1.0833;
+}
+
+#anvio-person-link {
+    color: black;
+    font-size: 1.4em;
+    color: #323232;
 }
 
 .person-affiliations {
@@ -196,15 +200,15 @@
     }
 }
 
-.page-person-info-box {
+.anvio-person-info-box {
     float: right;
 }
 
-.page-person-info-box-mini {
+.anvio-person-info-box-mini {
     float: right;
 }
 
-.page-person-photo {
+.anvio-person-photo {
     float: left;
     min-width: 50px;
     width: 50px;
@@ -227,21 +231,21 @@
     }
 }
 
-.page-person-photo-img {
+.anvio-person-photo-img {
     border-radius: 150px !important;
     max-width: 50px;
     height: 50px;
     border: none !important;
 }
 
-.page-person-photo-img-mini {
+.anvio-person-photo-img-mini {
     border-radius: 150px !important;
     max-width: 30px !important;
     height: 30px !important;
     border: none !important;
 }
 
-.page-author-social-box {
+.anvio-person-social-box {
     border-top: 1px solid #e2e2e2;
     margin: 5px;
     margin-top: 3px;
@@ -279,17 +283,17 @@
     margin-top: 30px;
 }
 
-.anvio-people > .page-author {
+.anvio-people > .anvio-person {
     margin: 4px;
 }
 
-.anvio-people > .page-author > .page-author-info > .page-person-info-box {
+.anvio-people > .anvio-person > .anvio-person-info > .anvio-person-info-box {
     padding-left: 65px;
     float: revert;
 }
 
 
-.anvio-people > .page-author > .page-author-info > .page-person-info-box > .page-person-bio {
+.anvio-people > .anvio-person > .anvio-person-info > .anvio-person-info-box > .anvio-person-bio {
     display: block;
     padding: 0px 6px;
 }

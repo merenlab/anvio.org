@@ -23,9 +23,9 @@ Run Pfam on Contigs Database.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/ivagljiva.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">Iva Veseli</span><div class="page-author-social-box"><a href="mailto:iveseli@uchicago.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://github.com/ivagljiva" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/ivagljiva.jpg" /></div><div class="anvio-person-info-box"><a href="/people/ivagljiva" target="_blank"><span class="anvio-person-name">Iva Veseli</span></a><div class="anvio-person-social-box"><a href="mailto:iveseli@uchicago.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://github.com/ivagljiva" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/ozcan.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">Özcan C. Esen</span><div class="page-author-social-box"><a href="http://blog.ozcanesen.com/" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:ozcanesen@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/ozcanesen" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/ozcan" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/ozcan.jpg" /></div><div class="anvio-person-info-box"><a href="/people/ozcan" target="_blank"><span class="anvio-person-name">Özcan C. Esen</span></a><div class="anvio-person-social-box"><a href="http://blog.ozcanesen.com/" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:ozcanesen@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/ozcanesen" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/ozcan" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -44,29 +44,29 @@ Run Pfam on Contigs Database.
 ## Usage
 
 
-This program **associates genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> with functions using the EBI's [Pfam database](https://pfam.xfam.org/).** 
+This program **associates genes in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> with functions using the EBI's [Pfam database](https://pfam.xfam.org/).** 
 
-Before you run this program, you'll have to set up the Pfam database on your computer with the program <span class="artifact-p">[anvi-setup-pfams](/software/anvio/help/main/programs/anvi-setup-pfams)</span>.  
+Before you run this program, you'll have to set up the Pfam database on your computer with the program <span class="artifact-p">[anvi-setup-pfams](/help/main/programs/anvi-setup-pfams)</span>.  
 
 The Pfam database is based on protein sequences, so anvi'o will convert your genetic information into protein sequences and then use HMMs to compare them to the database. 
 
 {:.notice}
 Unsure what an HMM is? Check out [our vocab page](http://merenlab.org/vocabulary/#hmm)
 
-To run, you'll need to provide a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. If you stored the <span class="artifact-n">[pfams-data](/software/anvio/help/main/artifacts/pfams-data)</span> that you got from running <span class="artifact-p">[anvi-setup-pfams](/software/anvio/help/main/programs/anvi-setup-pfams)</span> in a custom location, you'll need to provide that path as well. The output is a <span class="artifact-n">[functions](/software/anvio/help/main/artifacts/functions)</span> artifact. 
+To run, you'll need to provide a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. If you stored the <span class="artifact-n">[pfams-data](/help/main/artifacts/pfams-data)</span> that you got from running <span class="artifact-p">[anvi-setup-pfams](/help/main/programs/anvi-setup-pfams)</span> in a custom location, you'll need to provide that path as well. The output is a <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> artifact. 
 
 Here is a default run: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;pfams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-            &#45;&#45;pfam&#45;data&#45;dir <span class="artifact&#45;n">[pfams&#45;data](/software/anvio/help/main/artifacts/pfams&#45;data)</span> 
+anvi&#45;run&#45;pfams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+            &#45;&#45;pfam&#45;data&#45;dir <span class="artifact&#45;n">[pfams&#45;data](/help/main/artifacts/pfams&#45;data)</span> 
 </div>
 
 By default, this uses `hmmsearch` to run HMMs. You can choose to use `hmmscan` instead by running
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;pfams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-            &#45;&#45;pfam&#45;data&#45;dir <span class="artifact&#45;n">[pfams&#45;data](/software/anvio/help/main/artifacts/pfams&#45;data)</span> \
+anvi&#45;run&#45;pfams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+            &#45;&#45;pfam&#45;data&#45;dir <span class="artifact&#45;n">[pfams&#45;data](/help/main/artifacts/pfams&#45;data)</span> \
             &#45;&#45;hmmer&#45;program hmmscan
 </div>
 

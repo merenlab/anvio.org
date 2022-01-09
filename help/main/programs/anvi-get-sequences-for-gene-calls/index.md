@@ -23,7 +23,7 @@ A script to get back sequences for gene calls.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,42 +42,42 @@ A script to get back sequences for gene calls.
 ## Usage
 
 
-This program allows you to **export the sequences of your gene calls** from a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> or <span class="artifact-n">[genomes-storage-db](/software/anvio/help/main/artifacts/genomes-storage-db)</span> in the form of a <span class="artifact-n">[genes-fasta](/software/anvio/help/main/artifacts/genes-fasta)</span>. 
+This program allows you to **export the sequences of your gene calls** from a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> or <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> in the form of a <span class="artifact-n">[genes-fasta](/help/main/artifacts/genes-fasta)</span>. 
 
-If you want other information about your gene calls from a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, you can run <span class="artifact-p">[anvi-export-gene-calls](/software/anvio/help/main/programs/anvi-export-gene-calls)</span> (which outputs a <span class="artifact-n">[gene-calls-txt](/software/anvio/help/main/artifacts/gene-calls-txt)</span>) or get the coverage and detection information with <span class="artifact-p">[anvi-export-gene-coverage-and-detection](/software/anvio/help/main/programs/anvi-export-gene-coverage-and-detection)</span>.
+If you want other information about your gene calls from a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, you can run <span class="artifact-p">[anvi-export-gene-calls](/help/main/programs/anvi-export-gene-calls)</span> (which outputs a <span class="artifact-n">[gene-calls-txt](/help/main/artifacts/gene-calls-txt)</span>) or get the coverage and detection information with <span class="artifact-p">[anvi-export-gene-coverage-and-detection](/help/main/programs/anvi-export-gene-coverage-and-detection)</span>.
 
 ### Running on a contigs database
 
-You can run this program on a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> like so:
+You can run this program on a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> like so:
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                                   &#45;o path/to/output
 </div>
 
-This is create a <span class="artifact-n">[genes-fasta](/software/anvio/help/main/artifacts/genes-fasta)</span> that contains every gene in your contigs database. If you only want a specific subset of genes, you can run the following: 
+This is create a <span class="artifact-n">[genes-fasta](/help/main/artifacts/genes-fasta)</span> that contains every gene in your contigs database. If you only want a specific subset of genes, you can run the following: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                                   &#45;o path/to/output \
                                   &#45;&#45;gene&#45;caller&#45;ids 897,898,1312 \
                                   &#45;&#45;delimiter ,
 </div>
 
-Now the resulting <span class="artifact-n">[genes-fasta](/software/anvio/help/main/artifacts/genes-fasta)</span> will contain only those three genes. 
+Now the resulting <span class="artifact-n">[genes-fasta](/help/main/artifacts/genes-fasta)</span> will contain only those three genes. 
 
 You also have the option to report the output in [gff3 format](https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md), report extended deflines for each gene, or report amino acid sequences instead of nucleotide sequences.
 
 ### Running on a genomes storage database
 
-You can also get the sequences from gene calls in a <span class="artifact-n">[genomes-storage-db](/software/anvio/help/main/artifacts/genomes-storage-db)</span>, like so:
+You can also get the sequences from gene calls in a <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>, like so:
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;calls &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;calls &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
                                   &#45;o path/to/output
 </div>
 
-This will create a <span class="artifact-n">[genes-fasta](/software/anvio/help/main/artifacts/genes-fasta)</span> that contains every gene in your genomes storage database. To focus on only a subset of the genomes contained in your database, use the flag `--genome-names`. You can provide a comma-delimited list of genome names or a flat text file that contains one genome per line. Alternatively, you could provide a list of gene-caller-ids as specified above. 
+This will create a <span class="artifact-n">[genes-fasta](/help/main/artifacts/genes-fasta)</span> that contains every gene in your genomes storage database. To focus on only a subset of the genomes contained in your database, use the flag `--genome-names`. You can provide a comma-delimited list of genome names or a flat text file that contains one genome per line. Alternatively, you could provide a list of gene-caller-ids as specified above. 
 
 You also have the option to report the output in [gff3 format](https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md), report extended deflines for each gene, or report amino acid sequences instead of nucleotide sequences.
 

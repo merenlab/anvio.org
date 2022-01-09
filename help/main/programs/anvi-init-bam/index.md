@@ -23,7 +23,7 @@ Sort/Index BAM files.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,14 +42,14 @@ Sort/Index BAM files.
 ## Usage
 
 
-This program sorts and indexes your BAM files, essentially converting a <span class="artifact-n">[raw-bam-file](/software/anvio/help/main/artifacts/raw-bam-file)</span> into a <span class="artifact-n">[bam-file](/software/anvio/help/main/artifacts/bam-file)</span>, which are ready to be used in anvi'o. 
+This program sorts and indexes your BAM files, essentially converting a <span class="artifact-n">[raw-bam-file](/help/main/artifacts/raw-bam-file)</span> into a <span class="artifact-n">[bam-file](/help/main/artifacts/bam-file)</span>, which are ready to be used in anvi'o. 
 
-If you're unsure what a BAM file is, check out the <span class="artifact-n">[bam-file](/software/anvio/help/main/artifacts/bam-file)</span> page or [this file](https://samtools.github.io/hts-specs/SAMv1.pdf), written by the developers of samtools. For a description of what indexing a BAM file does, check out the page for <span class="artifact-n">[raw-bam-file](/software/anvio/help/main/artifacts/raw-bam-file)</span>. 
+If you're unsure what a BAM file is, check out the <span class="artifact-n">[bam-file](/help/main/artifacts/bam-file)</span> page or [this file](https://samtools.github.io/hts-specs/SAMv1.pdf), written by the developers of samtools. For a description of what indexing a BAM file does, check out the page for <span class="artifact-n">[raw-bam-file](/help/main/artifacts/raw-bam-file)</span>. 
 
 To run this program, just provide a path to the bam files that you want to index. For example, 
 
 <div class="codeblock" markdown="1">
-anvi&#45;init&#45;bam <span class="artifact&#45;n">[raw&#45;bam&#45;file](/software/anvio/help/main/artifacts/raw&#45;bam&#45;file)</span> 
+anvi&#45;init&#45;bam <span class="artifact&#45;n">[raw&#45;bam&#45;file](/help/main/artifacts/raw&#45;bam&#45;file)</span> 
 </div>
 
 You can also multithread this to shorten runtime with the flag `-T` followed by the desired number of threads if your system is capable of this. 

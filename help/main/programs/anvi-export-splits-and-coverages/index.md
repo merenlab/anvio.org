@@ -23,7 +23,7 @@ Export split or contig sequences and coverages across samples stored in an anvi&
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,20 +42,20 @@ Export split or contig sequences and coverages across samples stored in an anvi&
 ## Usage
 
 
-This program **gives you the coverage information in your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> as external files**. Basically, if you want to take that information in your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> out of anvio, this is for you. 
+This program **gives you the coverage information in your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> as external files**. Basically, if you want to take that information in your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> out of anvio, this is for you. 
 
-Once you input your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> and the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> you used to generate it, it will create a <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span> that lists your contigs for you, as well as a <span class="artifact-n">[coverages-txt](/software/anvio/help/main/artifacts/coverages-txt)</span>, which describes your coverage information. 
+Once you input your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> you used to generate it, it will create a <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span> that lists your contigs for you, as well as a <span class="artifact-n">[coverages-txt](/help/main/artifacts/coverages-txt)</span>, which describes your coverage information. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;splits&#45;and&#45;coverages &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span>
+anvi&#45;export&#45;splits&#45;and&#45;coverages &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span>
 </div>
 
 If your coverages are skewed by outlier positions, consider using Q2Q3-coverages instead.
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;splits&#45;and&#45;coverages &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;export&#45;splits&#45;and&#45;coverages &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                                  &#45;&#45;use&#45;Q2Q3&#45;coverages
 </div>
 

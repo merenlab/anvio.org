@@ -23,7 +23,7 @@ Export gene calls from an anvi&#x27;o contigs database.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,21 +42,21 @@ Export gene calls from an anvi&#x27;o contigs database.
 ## Usage
 
 
-The purpose of this program is to exports your gene calls in a given <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and a gene caller, in the form of a <span class="artifact-n">[gene-calls-txt](/software/anvio/help/main/artifacts/gene-calls-txt)</span>. 
+The purpose of this program is to exports your gene calls in a given <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and a gene caller, in the form of a <span class="artifact-n">[gene-calls-txt](/help/main/artifacts/gene-calls-txt)</span>. 
 
-To see the gene callers available in your contigs database, you can use <span class="artifact-p">[anvi-db-info](/software/anvio/help/main/programs/anvi-db-info)</span> or use this program with the following flag: 
+To see the gene callers available in your contigs database, you can use <span class="artifact-p">[anvi-db-info](/help/main/programs/anvi-db-info)</span> or use this program with the following flag: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                        &#45;&#45;list&#45;gene&#45;callers
 </div>
 
-Running this will export all of your gene calls identified by the gene caller [prodigal](https://github.com/hyattpd/Prodigal) (assuming it is in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>:
+Running this will export all of your gene calls identified by the gene caller [prodigal](https://github.com/hyattpd/Prodigal) (assuming it is in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>:
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                        &#45;&#45;gene&#45;caller Prodigal \
-                       &#45;o <span class="artifact&#45;n">[gene&#45;calls&#45;txt](/software/anvio/help/main/artifacts/gene&#45;calls&#45;txt)</span>
+                       &#45;o <span class="artifact&#45;n">[gene&#45;calls&#45;txt](/help/main/artifacts/gene&#45;calls&#45;txt)</span>
 </div>
 
 {:.notice}
@@ -65,22 +65,22 @@ You can export genes from more gene callers by providing a comma-separated list 
 If you don't want to display the amino acid sequences of each gene (they can crowd the file very quickly if you don't want to see them), you can add the following flag:
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                        &#45;&#45;gene&#45;caller Prodigal \
                        &#45;&#45;skip&#45;sequence&#45;reporting \
-                       &#45;o <span class="artifact&#45;n">[gene&#45;calls&#45;txt](/software/anvio/help/main/artifacts/gene&#45;calls&#45;txt)</span>
+                       &#45;o <span class="artifact&#45;n">[gene&#45;calls&#45;txt](/help/main/artifacts/gene&#45;calls&#45;txt)</span>
 </div>
 
 ## Advanced uses
 
-This program can take a lot of time and memory when working with very large <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> files (such as those that are more than 10 Gb in file size or more than 10 million contigs).
+This program can take a lot of time and memory when working with very large <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> files (such as those that are more than 10 Gb in file size or more than 10 million contigs).
 
 In that case you can export your gene calls the following way within minutes and a small memory space.
 
-First open your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>:
+First open your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>:
 
 <div class="codeblock" markdown="1">
-sqlite3 <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span>
+sqlite3 <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span>
 </div>
 
 Then run these lines,
@@ -88,7 +88,7 @@ Then run these lines,
 <div class="codeblock" markdown="1">
 .mode csv 
 .headers on 
-.out <span class="artifact&#45;n">[gene&#45;calls&#45;txt](/software/anvio/help/main/artifacts/gene&#45;calls&#45;txt)</span>
+.out <span class="artifact&#45;n">[gene&#45;calls&#45;txt](/help/main/artifacts/gene&#45;calls&#45;txt)</span>
 select gene_callers_id, contig, start, stop, direction, partial from genes_in_contigs;
 </div>
 

@@ -5,7 +5,7 @@
   content: sections/nutshell.md
 
 - header: Install
-  target_url: /resources/install/
+  target_url: /install/
   link_in_navbar: true
 
 - header: Get help
@@ -16,13 +16,7 @@
   full_header: Learn anvi'o and more
   slug: learn
   link_in_navbar: true
-  content: resources/learning.md
-
-- header: Hack
-  full_header: Resources for advanced users
-  slug: hack
-  link_in_navbar: true
-  content: resources/technical.md
+  content: resources/resources.md
 
 - header: People
   full_header: Meet anvi'o developers and contributors

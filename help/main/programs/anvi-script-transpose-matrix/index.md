@@ -23,7 +23,7 @@ Transpose a TAB-delimited file.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -46,7 +46,7 @@ This is a script that transposes tab-delimited files. That's it.
 
 It's helpful to get your inputs to line up with the types of inputs that anvi'o expects. Some programs have the `--transpose` flag, which will run this program for you, but some don't, and that's when you'll have to run it yourself. 
 
-For example, anvi'o expects <span class="artifact-n">[view-data](/software/anvio/help/main/artifacts/view-data)</span> to have each column representing a sample. If the file that you want to integrate into your anvi'o project has the samples as rows and the data attribute as the columns, then you'll need to <span class="artifact-p">[anvi-script-transpose-matrix](/software/anvio/help/main/programs/anvi-script-transpose-matrix)</span> it. 
+For example, anvi'o expects <span class="artifact-n">[view-data](/help/main/artifacts/view-data)</span> to have each column representing a sample. If the file that you want to integrate into your anvi'o project has the samples as rows and the data attribute as the columns, then you'll need to <span class="artifact-p">[anvi-script-transpose-matrix](/help/main/programs/anvi-script-transpose-matrix)</span> it. 
 
 ### An Example Run 
 

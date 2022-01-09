@@ -23,7 +23,7 @@ Generate short reads from contigs. Useful to reconstruct mock data sets from alr
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -61,8 +61,8 @@ contig = CTGTGGTTACGCCACCTTGAGAGATATTAGTCGCGTATTGCATCCGTGCCGACAAATTGCCCAACGCATCG
 Note that this file contains both the contig that you want to break down, and various information about the short reads that you want to create. To run this program, just call 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen&#45;short&#45;reads <span class="artifact&#45;n">[configuration&#45;ini](/software/anvio/help/main/artifacts/configuration&#45;ini)</span> \
-                            &#45;&#45;output&#45;file&#45;path <span class="artifact&#45;n">[short&#45;reads&#45;fasta](/software/anvio/help/main/artifacts/short&#45;reads&#45;fasta)</span>
+anvi&#45;script&#45;gen&#45;short&#45;reads <span class="artifact&#45;n">[configuration&#45;ini](/help/main/artifacts/configuration&#45;ini)</span> \
+                            &#45;&#45;output&#45;file&#45;path <span class="artifact&#45;n">[short&#45;reads&#45;fasta](/help/main/artifacts/short&#45;reads&#45;fasta)</span>
 </div>
     
 The resulting FASTA file with short reads will cover the `contig` with short reads that are 10 nts long at 100X coverage. There will also be an error-rate of 0.05, to mimic the sequencing errors you would get from sequencing in the wet lab. 

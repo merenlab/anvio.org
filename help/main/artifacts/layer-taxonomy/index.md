@@ -33,9 +33,9 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This is taxonomy information about the layers stored in a <span class="artifact-n">[single-profile-db](/software/anvio/help/main/artifacts/single-profile-db)</span>. When you open this <span class="artifact-n">[single-profile-db](/software/anvio/help/main/artifacts/single-profile-db)</span> with <span class="artifact-p">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span>, this information will appear the same way that <span class="artifact-n">[misc-data-layers](/software/anvio/help/main/artifacts/misc-data-layers)</span> does: in graphs at the right side of the interface, similarly to how the layer names are displayed. 
+This is taxonomy information about the layers stored in a <span class="artifact-n">[single-profile-db](/help/main/artifacts/single-profile-db)</span>. When you open this <span class="artifact-n">[single-profile-db](/help/main/artifacts/single-profile-db)</span> with <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span>, this information will appear the same way that <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span> does: in graphs at the right side of the interface, similarly to how the layer names are displayed. 
 
-You can bring this information into your profile database using <span class="artifact-p">[anvi-import-taxonomy-for-layers](/software/anvio/help/main/programs/anvi-import-taxonomy-for-layers)</span> by providing a <span class="artifact-n">[layer-taxonomy-txt](/software/anvio/help/main/artifacts/layer-taxonomy-txt)</span>. 
+You can bring this information into your profile database using <span class="artifact-p">[anvi-import-taxonomy-for-layers](/help/main/programs/anvi-import-taxonomy-for-layers)</span> by providing a <span class="artifact-n">[layer-taxonomy-txt](/help/main/artifacts/layer-taxonomy-txt)</span>. 
 
 
 {:.notice}

@@ -33,12 +33,12 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 
 ## Description
 
-This file describes all of the gene calls contained in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> from a specified list of sources. It is the output of <span class="artifact-p">[anvi-export-gene-calls](/software/anvio/help/main/programs/anvi-export-gene-calls)</span>. 
+This file describes all of the gene calls contained in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> from a specified list of sources. It is the output of <span class="artifact-p">[anvi-export-gene-calls](/help/main/programs/anvi-export-gene-calls)</span>. 
 
 For each gene identified, this file provides various information, including the caller ID, [start and stop position](http://merenlab.org/software/anvio/help/artifacts/external-gene-calls/#gene-startstop-positions), direction, whether or not the gene is partial, the [call type](http://merenlab.org/software/anvio/help/artifacts/external-gene-calls/#call-type), source and version (if available ), and the amino acid sequence. 
 
 {:.notice}
-Want more information? This file is in the same format as an <span class="artifact-n">[external-gene-calls](/software/anvio/help/main/artifacts/external-gene-calls)</span>, so check out that page. 
+Want more information? This file is in the same format as an <span class="artifact-n">[external-gene-calls](/help/main/artifacts/external-gene-calls)</span>, so check out that page. 
 
 Here is an example from the Infant Gut Dataset: 
 

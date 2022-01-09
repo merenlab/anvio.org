@@ -33,14 +33,14 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 
 ## Description
 
-A state describes the configuration of the anvi'o <span class="artifact-n">[interactive](/software/anvio/help/main/artifacts/interactive)</span> interface (i.e. the cosmetic and organizational settings that you have enabled). 
+A state describes the configuration of the anvi'o <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> interface (i.e. the cosmetic and organizational settings that you have enabled). 
 
-From the interface, the bottom section of the left panel enables you to save and load states. You also have the option to import states with <span class="artifact-p">[anvi-import-state](/software/anvio/help/main/programs/anvi-import-state)</span> or export them with <span class="artifact-p">[anvi-export-state](/software/anvio/help/main/programs/anvi-export-state)</span>. You can also delete states you no longer need anymore with <span class="artifact-p">[anvi-delete-state](/software/anvio/help/main/programs/anvi-delete-state)</span>. 
+From the interface, the bottom section of the left panel enables you to save and load states. You also have the option to import states with <span class="artifact-p">[anvi-import-state](/help/main/programs/anvi-import-state)</span> or export them with <span class="artifact-p">[anvi-export-state](/help/main/programs/anvi-export-state)</span>. You can also delete states you no longer need anymore with <span class="artifact-p">[anvi-delete-state](/help/main/programs/anvi-delete-state)</span>. 
 
 Here is the information stored in a state:
-* The current item (see <span class="artifact-n">[misc-data-items](/software/anvio/help/main/artifacts/misc-data-items)</span>) and layers (see <span class="artifact-n">[misc-data-layers](/software/anvio/help/main/artifacts/misc-data-layers)</span>) displayed
+* The current item (see <span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span>) and layers (see <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span>) displayed
     * related information, like the minimum and maximum value for the data displayed in each layer, 
-* The current items order (see <span class="artifact-n">[misc-data-items-order](/software/anvio/help/main/artifacts/misc-data-items-order)</span>) and layers order (see <span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/main/artifacts/misc-data-layer-orders)</span>)
+* The current items order (see <span class="artifact-n">[misc-data-items-order](/help/main/artifacts/misc-data-items-order)</span>) and layers order (see <span class="artifact-n">[misc-data-layer-orders](/help/main/artifacts/misc-data-layer-orders)</span>)
 * The views you have available 
 * Any sample groups you have 
 * Various cosmetic settings, like font size, angles, dimensions, colors, whether or not labels are displayed, etc. 

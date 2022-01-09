@@ -23,7 +23,7 @@ Start the anvi&#x27;o interactive interactive for viewing KEGG metabolism data.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/ivagljiva.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">Iva Veseli</span><div class="page-author-social-box"><a href="mailto:iveseli@uchicago.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://github.com/ivagljiva" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/ivagljiva.jpg" /></div><div class="anvio-person-info-box"><a href="/people/ivagljiva" target="_blank"><span class="anvio-person-name">Iva Veseli</span></a><div class="anvio-person-social-box"><a href="mailto:iveseli@uchicago.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://github.com/ivagljiva" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,9 +42,9 @@ Start the anvi&#x27;o interactive interactive for viewing KEGG metabolism data.
 ## Usage
 
 
-The purpose of <span class="artifact-p">[anvi-display-metabolism](/software/anvio/help/main/programs/anvi-display-metabolism)</span> is to interactively view metabolism estimation data.
+The purpose of <span class="artifact-p">[anvi-display-metabolism](/help/main/programs/anvi-display-metabolism)</span> is to interactively view metabolism estimation data.
 
-This program internally uses <span class="artifact-p">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span> to obtain this data for the provided <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>.
+This program internally uses <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span> to obtain this data for the provided <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>.
 
 It is still under development.
 

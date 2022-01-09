@@ -37,7 +37,7 @@ This is a 2-column TAB-delimited text file to associate a given set of items wit
 
 Each item should be associated with a single group, and it is always a good idea to define groups using single words without any fancy characters. For instance, `HIGH_TEMPERATURE` or `LOW_FITNESS` are good group names. In contrast, `my group #1` or `IS-THIS-OK?`, are not quite good names for groups and may cause issues downstream depending on who uses this file.
 
-Here is an example <span class="artifact-n">[groups-txt](/software/anvio/help/main/artifacts/groups-txt)</span> file:
+Here is an example <span class="artifact-n">[groups-txt](/help/main/artifacts/groups-txt)</span> file:
 
 |item|group|
 |:--|:--|
@@ -47,7 +47,7 @@ Here is an example <span class="artifact-n">[groups-txt](/software/anvio/help/ma
 |(...)|(...)|
 
 {:.warning}
-If you are passing this file to the program <span class="artifact-p">[anvi-compute-metabolic-enrichment](/software/anvio/help/main/programs/anvi-compute-metabolic-enrichment)</span>, the names in the `sample` column must match those in the "modules" mode output file that you provide to the program via the `--modules-txt` parameter. If you know that the sample names match but you are still getting errors, you might need to specify which column in the "modules" mode output contains those sample names using the `--sample-header` parameter.
+If you are passing this file to the program <span class="artifact-p">[anvi-compute-metabolic-enrichment](/help/main/programs/anvi-compute-metabolic-enrichment)</span>, the names in the `sample` column must match those in the "modules" mode output file that you provide to the program via the `--modules-txt` parameter. If you know that the sample names match but you are still getting errors, you might need to specify which column in the "modules" mode output contains those sample names using the `--sample-header` parameter.
 
 
 {:.notice}

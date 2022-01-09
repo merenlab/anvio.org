@@ -35,7 +35,7 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 
 A type of database containing information from either A) the [KEGG MODULE database](https://www.genome.jp/kegg/module.html), or B) user-defined metabolic modules, for use in metabolism estimation and/or functional annotation of KEGG Orthologs (KOs).
 
-These databases are part of the <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span> and <span class="artifact-n">[user-modules-data](/software/anvio/help/main/artifacts/user-modules-data)</span> directories. You can get one on your computer by running <span class="artifact-p">[anvi-setup-kegg-kofams](/software/anvio/help/main/programs/anvi-setup-kegg-kofams)</span> or <span class="artifact-p">[anvi-setup-user-modules](/software/anvio/help/main/programs/anvi-setup-user-modules)</span>. Programs that rely on this type of database include <span class="artifact-p">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span> and <span class="artifact-p">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>.
+These databases are part of the <span class="artifact-n">[kegg-data](/help/main/artifacts/kegg-data)</span> and <span class="artifact-n">[user-modules-data](/help/main/artifacts/user-modules-data)</span> directories. You can get one on your computer by running <span class="artifact-p">[anvi-setup-kegg-kofams](/help/main/programs/anvi-setup-kegg-kofams)</span> or <span class="artifact-p">[anvi-setup-user-modules](/help/main/programs/anvi-setup-user-modules)</span>. Programs that rely on this type of database include <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> and <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>.
 
 Most users will never have to interact directly with this kind of database. However, for the brave few who want to try this (or who are figuring out how anvi'o works under the hood), there is some relevant information below.
 
@@ -54,9 +54,9 @@ In the current implementation, data about each metabolic pathway (from the KEGG 
 | M00001 | ORTHOLOGY | K12407	| hexokinase/glucokinase [EC:2.7.1.1 2.7.1.2] [RN:R01786] | 4 |
 | (...) | (...) | (...) | (...) | (...) |
 
-For the MODULES.db that comes out of <span class="artifact-p">[anvi-setup-kegg-kofams](/software/anvio/help/main/programs/anvi-setup-kegg-kofams)</span>, these data correspond to the information that can be found on the KEGG website for each metabolic module - for an example, you can see the page for [M00001](https://www.genome.jp/dbget-bin/www_bget?md:M00001) (or, alternatively, its [flat text file version](http://rest.kegg.jp/get/M00001) from the KEGG REST API).
+For the MODULES.db that comes out of <span class="artifact-p">[anvi-setup-kegg-kofams](/help/main/programs/anvi-setup-kegg-kofams)</span>, these data correspond to the information that can be found on the KEGG website for each metabolic module - for an example, you can see the page for [M00001](https://www.genome.jp/dbget-bin/www_bget?md:M00001) (or, alternatively, its [flat text file version](http://rest.kegg.jp/get/M00001) from the KEGG REST API).
 
-The USER_MODULES.db that comes out of <span class="artifact-p">[anvi-setup-user-modules](/software/anvio/help/main/programs/anvi-setup-user-modules)</span> contains similar information, but defined by the user instead of downloaded from the KEGG website.
+The USER_MODULES.db that comes out of <span class="artifact-p">[anvi-setup-user-modules](/help/main/programs/anvi-setup-user-modules)</span> contains similar information, but defined by the user instead of downloaded from the KEGG website.
 
 In either case, the `module` column indicates the module ID number while the `data_name` column indicates what type of data the row is describing about the module. These data names are usually fairly self-explanatory - for instance, the `DEFINITION` rows describe the module definition and the `ORTHOLOGY` rows describe the enzymes belonging to the module - however, for an official explanation, you can check [the KEGG help page](https://www.genome.jp/kegg/document/help_bget_module.html).
 
@@ -66,12 +66,12 @@ Finally, some rows of data originate from the same line in the original KEGG MOD
 
 ### The database hash value
 
-In the `self` table of this database, there is an entry called `hash`. This string is a hash of the contents of the database, and it allows us to identify the version of the data within the database. This value is important for ensuring that the same MODULES.db is used both for annotating a contigs database with <span class="artifact-p">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span> and for estimating metabolism on that contigs database with <span class="artifact-p">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>.
+In the `self` table of this database, there is an entry called `hash`. This string is a hash of the contents of the database, and it allows us to identify the version of the data within the database. This value is important for ensuring that the same MODULES.db is used both for annotating a contigs database with <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> and for estimating metabolism on that contigs database with <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>.
 
 You can easily check the hash value by running the following:
 
 <div class="codeblock" markdown="1">
-anvi&#45;db&#45;info <span class="artifact&#45;n">[modules&#45;db](/software/anvio/help/main/artifacts/modules&#45;db)</span>
+anvi&#45;db&#45;info <span class="artifact&#45;n">[modules&#45;db](/help/main/artifacts/modules&#45;db)</span>
 </div>
 
 It will appear in the `DB Info` section of the output, like so:
@@ -84,10 +84,10 @@ creation_date ................................: 1608740335.30248
 hash .........................................: 45b7cc2e4fdc
 ```
 
-If you have annotated a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> using <span class="artifact-p">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span>, you would find that the corresponding hash in that contigs database matches to this one:
+If you have annotated a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> using <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span>, you would find that the corresponding hash in that contigs database matches to this one:
 
 <div class="codeblock" markdown="1">
-anvi&#45;db&#45;info <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span>
+anvi&#45;db&#45;info <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span>
 </div>
 
 ```
@@ -99,7 +99,7 @@ modules_db_hash ..............................: 45b7cc2e4fdc
 
 ### Other important values in the self table
 
-The `data_source` key will tell you if the current database was generated from KEGG data using <span class="artifact-p">[anvi-setup-kegg-kofams](/software/anvio/help/main/programs/anvi-setup-kegg-kofams)</span> or from user-defined metabolic modules using <span class="artifact-p">[anvi-setup-user-modules](/software/anvio/help/main/programs/anvi-setup-user-modules)</span>.
+The `data_source` key will tell you if the current database was generated from KEGG data using <span class="artifact-p">[anvi-setup-kegg-kofams](/help/main/programs/anvi-setup-kegg-kofams)</span> or from user-defined metabolic modules using <span class="artifact-p">[anvi-setup-user-modules](/help/main/programs/anvi-setup-user-modules)</span>.
 
 The `annotation_sources` key will list the functional annotation sources that are required to annotate all enzymes found in the module definitions.
 

@@ -23,7 +23,7 @@ Export .pdb structure files from a structure database.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/ekiefl.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">Evan Kiefl</span><div class="page-author-social-box"><a href="mailto:kiefl.evan@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/evankiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/ekiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/ekiefl.jpg" /></div><div class="anvio-person-info-box"><a href="/people/ekiefl" target="_blank"><span class="anvio-person-name">Evan Kiefl</span></a><div class="anvio-person-social-box"><a href="mailto:kiefl.evan@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/evankiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/ekiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -43,13 +43,13 @@ Export .pdb structure files from a structure database.
 
 
 
-This program exports the structures from a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> into the globally understood pdb format (<span class="artifact-n">[protein-structure-txt](/software/anvio/help/main/artifacts/protein-structure-txt)</span>), so they may be used for any follow-up analyses taking place outside of anvi'o.
+This program exports the structures from a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> into the globally understood pdb format (<span class="artifact-n">[protein-structure-txt](/help/main/artifacts/protein-structure-txt)</span>), so they may be used for any follow-up analyses taking place outside of anvi'o.
 
 
-To run, just provide a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> and an output path: 
+To run, just provide a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> and an output path: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;structures &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/main/artifacts/structure&#45;db)</span> \
+anvi&#45;export&#45;structures &#45;s <span class="artifact&#45;n">[structure&#45;db](/help/main/artifacts/structure&#45;db)</span> \
                        &#45;o path/to/output
 </div>
 
