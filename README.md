@@ -36,6 +36,7 @@ echo "" >> _data/people.yaml
 cat ~/github/anvio/anvio/data/misc/PEOPLE/CONTRIBUTORS.yaml >> _data/people.yaml
 cp ~/github/anvio/anvio/data/misc/PEOPLE/AVATARS/* images/avatars/
 python _scripts/update-people-dir.py
+python _scripts/update-programs-info.py
 ```
 
 If there is a new name to be mentioned in `_data/resources.yaml`, this person must be first mentioned in `_data/people.yaml`. If they are not in there, first add their information to either `AUTHORS.yaml` or `CONTRIBUTORS.yaml` in the anvi'o repository, then run the commands above to update the anvio.org repository. Boring, but very important to keep track of people in both repositories.

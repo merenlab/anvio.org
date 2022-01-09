@@ -1,18 +1,39 @@
-- title: Visualizing the fate of contigs across metagenomic binning algorithms
+- title: "Visualizing the fate of contigs across metagenomic binning algorithms"
   type: blog post
   url: https://merenlab.org/2020/01/02/visualizing-metagenomic-bins/
   authors: [meren, jarrodscott]
   summary: "A visual demonstration of the shortcomings of automatic binning of genomes from complex environments using short-read assemblies."
   tags: [metagenomics, binning, beginner]
 
-- title: Binning giant viruses and their close relatives
+- title: "Binning giant viruses and their close relatives"
   type: blog post
   url: /blog/giant-viruses/
   authors: [tdelmont]
   summary: "A demonstration of how to reconstruct genomes of giant viruses."
   tags: [metagenomics, viruses, binning, intermediate]
 
-- title: Estimating per-residue binding frequencies with InteracDome
+- title: "Inspecting the genomic link between Archaea and Eukaryota"
+  type: blog post
+  url: https://merenlab.org/2017/01/03/loki-the-link-archaea-eukaryota/
+  authors: [tdelmont]
+  summary: "An easy-to-follow diary of resolving a composite Lokiarchaeum genome bin."
+  tags: [metagenomics, binning, beginner]
+
+- title: "An Akkermansia story with MinION long-reads"
+  type: tutorial
+  url: https://merenlab.org/tutorials/long-read-analysis/
+  authors: [FlorianTrigodet]
+  summary: "An application of metagenomic long-read sequencing, assembly, correction, and the use of anvi'o pangenomics workflow to benchmark outcomes."
+  tags: [long-reads, pangenomics, theoretical, intermediate]
+
+- title: "Welcome to the dark side of genomes and metagenomes"
+  type: blog post
+  url: https://merenlab.org/2020/07/01/dark-side/
+  authors: [genomewalker]
+  summary: "A diary that shed light on the story and purpose of AGNOSTOS."
+  tags: [metagenomics, pangenomics, beginner]
+
+- title: "Estimating per-residue binding frequencies with InteracDome"
   type: blog post
   url: https://merenlab.org/2020/07/22/interacdome/
   authors: [ekiefl]

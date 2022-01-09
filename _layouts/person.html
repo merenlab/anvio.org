@@ -14,29 +14,73 @@
 
       {% for person in site.data.people %}
           {% if person.github == page.github %}
+              <div class="person-standalone-wrapper">
+              <div class="person-stand-alone-social-box">{% include _person_social_media_links.html %}</div>
 
-          <div class="person-standalone-wrapper">
-          <div class="person-stand-alone-social-box">{% include _person_social_media_links.html %}</div>
+              <h2>Bio</h2>
+              <p class="person-stand-alone-bio">{{ person.bio }}</p>
 
-          <h2>Bio</h2>
-          <p class="person-stand-alone-bio">{{ person.bio }}</p>
+              {% if person.avatar %}
+              <div class="person-stand-alone-photo"><img class="person-stand-alone-photo-img" src="/images/avatars/{{ person.avatar }}" /></div>
+              {% else %}
+              <div class="person-stand-alone-photo"><img class="person-stand-alone-photo-img" src="/images/avatars/no-avatar.png" /></div>
+              {% endif %}
+              </div>
 
-          {% if person.avatar %}
-          <div class="person-stand-alone-photo"><img class="person-stand-alone-photo-img" src="/images/avatars/{{ person.avatar }}" /></div>
-          {% else %}
-          <div class="person-stand-alone-photo"><img class="person-stand-alone-photo-img" src="/images/avatars/no-avatar.png" /></div>
-          {% endif %}
-          </div>
+              {% if person.affiliations %}
+              <h2>Affiliations</h2>
 
-          {% if person.affiliations %}
-          <h2>Affiliations</h2>
+              <ul class="person-stand-alone-affiliations">
+                  {% for affiliation in person.affiliations %}
+                  <li><b>{{ affiliation.title }}</b>, <a href="{{ affiliation.inst_link }}" target="_blank">{{ affiliation.inst }}</a></li>
+                  {% endfor %}
+              </ul>
+              {% endif %}
 
-          <ul class="person-stand-alone-affiliations">
-              {% for affiliation in person.affiliations %}
-              <li><b>{{ affiliation.title }}</b>, <a href="{{ affiliation.inst_link }}" target="_blank">{{ affiliation.inst }}</a></li>
+              <h2>Program contributions</h2>
+
+              <p class="person-stand-alone-program-contributions">
+              {% for entry in site.data.programs %}
+                {% if entry.author == person.github %}
+                  {% for program_entry in entry.programs %}
+                    <span class="artifact-p"><a href="/help/main/programs/{{ program_entry.name }}">{{ program_entry.name }}</a></span>
+                    {% endfor %}
+                {% endif %}
               {% endfor %}
-          </ul>
-          {% endif %}
+              </p>
+
+              <h2>Resource contributions</h2>
+
+              <h3>Tutorials</h3>
+              {% for resource in site.data.resources.tutorials %}
+              {% for person_github in resource.authors %}
+              {% if person_github == person.github %}
+              {% include resources/template.html %}
+              {% endif %}
+              {% endfor %}
+              {% endfor %}
+
+              <h3>Articles, workflows, opinions</h3>
+              {% for resource in site.data.resources.blogs %}
+              {% for person_github in resource.authors %}
+              {% if person_github == person.github %}
+              {% include resources/template.html %}
+              {% endif %}
+              {% endfor %}
+              {% endfor %}
+
+              <h3>Technical resources</h3>
+              {% for resource in site.data.resources.technical %}
+              {% for person_github in resource.authors %}
+              {% if person_github == person.github %}
+              {% include resources/template.html %}
+              {% endif %}
+              {% endfor %}
+              {% endfor %}
+
+
+
+
           {% endif %}
       {% endfor %}
 

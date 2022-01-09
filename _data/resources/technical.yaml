@@ -1,6 +1,76 @@
-- title: Running remote anvi'o interactive interfaces on your local computer
+- title: "Getting help from the anvi'o community"
+  type: tutorial
+  url: https://merenlab.org/2019/10/07/getting-help/
+  authors: [ivagljiva]
+  summary: "A resource that describes how to find anvi'o programs and understand their utility, how to reach out to anvi'o community, and how to report technical problems."
+  tags: [beginner]
+
+- title: "Anvi'o interactive interface 101"
+  type: tutorial
+  url: https://merenlab.org/tutorials/interactive-interface/
+  authors: [meren]
+  summary: "A short tutorial that walks you through the capabilities of the anvi'o interactive interface using an intuitive dataset and _without_ using any of the actual anvi'o functionality."
+  tags: [interactive interface, hands-on, beginner]
+
+- title: "Anvi'o 'views' demystified"
+  type: tutorial
+  url: https://merenlab.org/2017/05/08/anvio-views/
+  authors: [AstrobioMike]
+  summary: "Default data views in anvi'o intearctive interface"
+  tags: [interactive interface, theoretical, beginner]
+
+- title: "Data types of anvi'o interactive interface"
+  type: tutorial
+  url: https://merenlab.org/2016/02/27/the-anvio-interactive-interface/
+  authors: [meren, ozcan]
+  summary: "a more detailed description of the interface by demonstrating the data types the interface can work with, and later details of the user interface."
+  tags: [interactive interface, hands-on, beginner]
+
+- title: "Running remote anvi'o interactive interfaces on your local computer"
   type: workaround
   url: https://merenlab.org/2018/03/07/working-with-remote-interative/
   authors: [ozcan]
   summary: "A workaround to run anvi'o on a remote server, and display graphical user interfaces on your local browser seamlessly."
   tags: [visualization, server, beginner]
+
+- title: "Combining multiple 'omics data types"
+  type: workaround
+  url: https://merenlab.org/2015/06/10/combining-omics-data/
+  authors: [meren]
+  summary: "A workflow that describes how to combine metagenomics and metatrasncriptomics data appropriately."
+  tags: [metagenomics, metatranscriptomics, theoretical, intermediate]
+
+- title: "Accessing and including NCBI genomes in 'omics analyses in anvi'o"
+  type: tutorial
+  url: https://merenlab.org/2019/03/14/ncbi-genome-download-magic/
+  authors: [ShaiberAlon, meren]
+  summary: "A tutorial that will walk you through the steps of downloading genomes of interest from the NCBI, processing NCBI GenBank files to get anvi’o compatible files, and running the anvi’o snakemake workflow for contigs to generate a contigs database for each of these genomes."
+  tags: [pangenomics, hands-on, intermediate]
+
+- title: "Extract loci from genomes and metagenomes with anvi'o"
+  type: tutorial
+  url: https://merenlab.org/2019/10/17/export-locus/
+  authors: [mschecht, ekiefl, ShaiberAlon]
+  summary: "A tutorial on how to use anvi-export-locus to target genomic regions of interest across genomes and/or metagenomic assemblies, and report sequences and/or anvi’o contigs databases for cut loci for downstream analyses."
+  tags: [genomics, hands-on, intermediate]
+
+- title: "Combining reference genome annotations with your own in pangenomes"
+  type: tutorial
+  url: https://merenlab.org/2018/12/01/combining-annotation-sources-for-pan/
+  authors: [AstrobioMike]
+  summary: "Demonstration of a way to incorporate new genomes with reference genomes from NCBI, while maintaining their vetted reference-genome annotations."
+  tags: [pangenomics, hands-on, intermediate]
+
+- title: "Integrating AGNOSTOS gene categories into anvi'o projects"
+  type: tutorial
+  url: https://merenlab.org/2021/05/28/agnostos/
+  authors: [mschecht, ChiaraVanni]
+  summary: "A workflow to demonstrate how to import AGNOSTOS gene categories into anvi'o databases"
+  tags: [metagenomics, pangenomics, hands-on, advanced]
+
+- title: "Integrating sequence variants and predicted protein structures"
+  type: blog post
+  url: https://merenlab.org/2018/09/04/getting-started-with-anvio-structure/
+  authors: [ekiefl]
+  summary: "A theoretical tutorial describing the details of the structure database, how it’s created, and its utility."
+  tags: [structural biology, microbial population genetics, advanced]

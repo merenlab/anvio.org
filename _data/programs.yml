@@ -1,0 +1,212 @@
+- author: mschecht
+  programs:
+    - name: anvi-analyze-synteny
+    - name: anvi-export-locus
+    - name: anvi-run-hmms
+    - name: anvi-run-workflow
+    - name: anvi-script-filter-hmm-hits-table
+- author: ozcan
+  programs:
+    - name: anvi-cluster-contigs
+    - name: anvi-display-contigs-stats
+    - name: anvi-display-structure
+    - name: anvi-gen-contigs-database
+    - name: anvi-gen-phylogenomic-tree
+    - name: anvi-inspect
+    - name: anvi-interactive
+    - name: anvi-migrate
+    - name: anvi-profile
+    - name: anvi-run-pfams
+    - name: anvi-setup-pfams
+    - name: anvi-script-checkm-tree-to-interactive
+- author: meren
+  programs:
+    - name: anvi-cluster-contigs
+    - name: anvi-compute-completeness
+    - name: anvi-compute-functional-enrichment-in-pan
+    - name: anvi-db-info
+    - name: anvi-delete-collection
+    - name: anvi-delete-functions
+    - name: anvi-delete-hmms
+    - name: anvi-delete-misc-data
+    - name: anvi-delete-state
+    - name: anvi-display-functions
+    - name: anvi-display-pan
+    - name: anvi-estimate-genome-completeness
+    - name: anvi-estimate-scg-taxonomy
+    - name: anvi-estimate-trna-taxonomy
+    - name: anvi-experimental-organization
+    - name: anvi-export-collection
+    - name: anvi-export-contigs
+    - name: anvi-export-functions
+    - name: anvi-export-gene-calls
+    - name: anvi-export-gene-coverage-and-detection
+    - name: anvi-export-items-order
+    - name: anvi-export-misc-data
+    - name: anvi-export-splits-and-coverages
+    - name: anvi-export-splits-taxonomy
+    - name: anvi-export-state
+    - name: anvi-gen-contigs-database
+    - name: anvi-gen-gene-consensus-sequences
+    - name: anvi-gen-gene-level-stats-databases
+    - name: anvi-gen-genomes-storage
+    - name: anvi-gen-phylogenomic-tree
+    - name: anvi-gen-variability-network
+    - name: anvi-gen-variability-profile
+    - name: anvi-get-aa-counts
+    - name: anvi-get-codon-frequencies
+    - name: anvi-get-sequences-for-gene-calls
+    - name: anvi-get-sequences-for-gene-clusters
+    - name: anvi-get-sequences-for-hmm-hits
+    - name: anvi-get-short-reads-from-bam
+    - name: anvi-get-short-reads-mapping-to-a-gene
+    - name: anvi-get-split-coverages
+    - name: anvi-get-tlen-dist-from-bam
+    - name: anvi-import-collection
+    - name: anvi-import-functions
+    - name: anvi-import-items-order
+    - name: anvi-import-misc-data
+    - name: anvi-import-state
+    - name: anvi-import-taxonomy-for-genes
+    - name: anvi-import-taxonomy-for-layers
+    - name: anvi-init-bam
+    - name: anvi-interactive
+    - name: anvi-matrix-to-newick
+    - name: anvi-merge
+    - name: anvi-merge-bins
+    - name: anvi-meta-pan-genome
+    - name: anvi-migrate
+    - name: anvi-oligotype-linkmers
+    - name: anvi-pan-genome
+    - name: anvi-profile
+    - name: anvi-profile-blitz
+    - name: anvi-refine
+    - name: anvi-rename-bins
+    - name: anvi-report-inversions
+    - name: anvi-report-linkmers
+    - name: anvi-run-hmms
+    - name: anvi-run-ncbi-cogs
+    - name: anvi-run-scg-taxonomy
+    - name: anvi-run-trna-taxonomy
+    - name: anvi-scan-trnas
+    - name: anvi-search-functions
+    - name: anvi-search-palindromes
+    - name: anvi-search-sequence-motifs
+    - name: anvi-setup-ncbi-cogs
+    - name: anvi-setup-scg-taxonomy
+    - name: anvi-setup-trna-taxonomy
+    - name: anvi-show-collections-and-bins
+    - name: anvi-show-misc-data
+    - name: anvi-split
+    - name: anvi-summarize
+    - name: anvi-update-db-description
+    - name: anvi-script-add-default-collection
+    - name: anvi-script-augustus-output-to-external-gene-calls
+    - name: anvi-script-compute-ani-for-fasta
+    - name: anvi-script-filter-fasta-by-blast
+    - name: anvi-script-fix-homopolymer-indels
+    - name: anvi-script-gen-distribution-of-genes-in-a-bin
+    - name: anvi-script-gen-functions-per-group-stats-output
+    - name: anvi-script-gen-hmm-hits-matrix-across-genomes
+    - name: anvi-script-gen-short-reads
+    - name: anvi-script-gen_stats_for_single_copy_genes.py
+    - name: anvi-script-get-hmm-hits-per-gene-call
+    - name: anvi-script-get-primer-matches
+    - name: anvi-script-merge-collections
+    - name: anvi-script-pfam-accessions-to-hmms-directory
+    - name: anvi-script-process-genbank-metadata
+    - name: anvi-script-reformat-fasta
+    - name: anvi-script-snvs-to-interactive
+    - name: anvi-script-transpose-matrix
+- author: ivagljiva
+  programs:
+    - name: anvi-compute-functional-enrichment-across-genomes
+    - name: anvi-compute-functional-enrichment-in-pan
+    - name: anvi-compute-metabolic-enrichment
+    - name: anvi-display-metabolism
+    - name: anvi-estimate-metabolism
+    - name: anvi-migrate
+    - name: anvi-run-hmms
+    - name: anvi-run-kegg-kofams
+    - name: anvi-run-pfams
+    - name: anvi-setup-kegg-kofams
+    - name: anvi-setup-pfams
+    - name: anvi-summarize-blitz
+    - name: anvi-script-gen-genomes-file
+- author: adw96
+  programs:
+    - name: anvi-compute-functional-enrichment-across-genomes
+    - name: anvi-compute-functional-enrichment-in-pan
+    - name: anvi-compute-metabolic-enrichment
+    - name: anvi-script-gen-functions-per-group-stats-output
+- author: mahmoudyousef98
+  programs:
+    - name: anvi-compute-gene-cluster-homogeneity
+    - name: anvi-dereplicate-genomes
+- author: ekiefl
+  programs:
+    - name: anvi-compute-genome-similarity
+    - name: anvi-db-info
+    - name: anvi-dereplicate-genomes
+    - name: anvi-display-structure
+    - name: anvi-export-locus
+    - name: anvi-export-structures
+    - name: anvi-gen-contigs-database
+    - name: anvi-gen-fixation-index-matrix
+    - name: anvi-gen-structure-database
+    - name: anvi-gen-variability-profile
+    - name: anvi-get-pn-ps-ratio
+    - name: anvi-get-short-reads-from-bam
+    - name: anvi-migrate
+    - name: anvi-profile
+    - name: anvi-report-inversions
+    - name: anvi-run-hmms
+    - name: anvi-run-interacdome
+    - name: anvi-search-palindromes
+    - name: anvi-setup-interacdome
+    - name: anvi-setup-pdb-database
+    - name: anvi-update-structure-database
+    - name: anvi-script-filter-fasta-by-blast
+    - name: anvi-script-gen-pseudo-paired-reads-from-fastq
+    - name: anvi-script-get-coverage-from-bam
+- author: FlorianTrigodet
+  programs:
+    - name: anvi-display-contigs-stats
+    - name: anvi-report-inversions
+- author: watsonar
+  programs:
+    - name: anvi-display-contigs-stats
+- author: qclayssen
+  programs:
+    - name: anvi-estimate-scg-taxonomy
+    - name: anvi-run-scg-taxonomy
+    - name: anvi-setup-scg-taxonomy
+- author: ShaiberAlon
+  programs:
+    - name: anvi-export-locus
+    - name: anvi-gen-variability-profile
+    - name: anvi-run-workflow
+- author: matthewlawrenceklein
+  programs:
+    - name: anvi-interactive
+- author: isaacfink21
+  programs:
+    - name: anvi-interactive
+- author: blankenberg
+  programs:
+    - name: anvi-interactive
+    - name: anvi-refine
+    - name: anvi-script-filter-fasta-by-blast
+    - name: anvi-script-process-genbank-metadata
+- author: semiller10
+  programs:
+    - name: anvi-merge-trnaseq
+    - name: anvi-migrate
+    - name: anvi-run-workflow
+    - name: anvi-trnaseq
+- author: AstrobioMike
+  programs:
+    - name: anvi-script-process-genbank
+- author: srinidhi202
+  programs:
+    - name: anvi-script-variability-to-vcf

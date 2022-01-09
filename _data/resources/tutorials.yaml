@@ -3,25 +3,54 @@
   url: https://astrobiomike.github.io/unix/getting-started
   authors: [AstrobioMike]
   summary: "Basics of the command line environment, the best friend of any scientist who wishes to work with data."
-  tags: [beginner]
+  tags: [hands-on, beginner]
 
 - title: A metagenomic read recruitment exercise
   type: tutorial
   url: https://merenlab.org/tutorials/read-recruitment/
   authors: [meren]
   summary: "A mini hands-on exercise is to conduct a simple read recruitment experiment with a mock dataset."
-  tags: [metagenomics, beginner]
+  tags: [metagenomics, hands-on, beginner]
+
+- title: The anvi'o pangenomics workflow
+  type: tutorial
+  url: https://merenlab.org/2016/11/08/pangenomics-v2/
+  authors: [meren, ShaiberAlon, mahmoudyousef98, ozcan]
+  summary: "A comprehensive description of the anvi'o pangenomics workflow."
+  tags: [pangenomics, theoretical, beginner]
 
 - title: A pangenomics exercise
   type: tutorial
   url: https://merenlab.org/tutorials/vibrio-jasicida-pangenome/
   authors: [meren]
   summary: "A reproducible pangenomic analysis of seven Vibrio jascida genomes isolated in Woods Hole by the participants of Microbial Diversity Course."
-  tags: [pangenomics, beginner]
+  tags: [pangenomics, hands-on, beginner]
+
+- title: Anvi'o phylogenomics workflow
+  type: tutorial
+  url: https://merenlab.org/2017/06/07/phylogenomics/
+  authors: [meren]
+  summary: "A comprehensive description of the anvi'o phylogenomics workflow."
+  tags: [phylogenomics, theoretical, beginner]
 
 - title: An exercise on metabolic reconstruction
   type: tutorial
   url: https://merenlab.org/tutorials/fmt-mag-metabolism/
   authors: [ivagljiva]
   summary: "A hands-on exercise for the metabolism suite of programs in anvi’o. It starts with a section on how to estimate metabolism for a single bacterial isolate, and goes into larger, real-world dataset of metagenome-assembled genomes to demonstrate how to estimate metabolism compute enrichment scores for metabolic modules."
-  tags: [metabolism, metabolic enrichment, genomics, metagenomics, beginner]
+  tags: [metabolism, metabolic enrichment, genomics, metagenomics, hands-on, beginner]
+
+- title: Anvi'o tools for microbial population genetics
+  type: tutorial
+  url: https://merenlab.org/2015/07/20/analyzing-variability/
+  authors: [ekiefl, tdelmont, meren]
+  summary: "A theoretical tutorial describing how to characterize SNVs, SCVs and SAAVs with anvi’o, and how to interpret the output."
+  tags: [microbial population genetics, theoretical, intermediate]
+
+- title: A primer on anvi'o with the Infant Gut Dataset
+  type: tutorial
+  url: https://merenlab.org/tutorials/infant-gut/
+  authors: [meren, ivagljiva, ekiefl, tdelmont]
+  summary: "A tutorial that walks you through some of the most fundamental aspects of anvi'o and its application to a real-world dataset organized in multiple interconnected chapters, which all use the same dataset."
+  tags: [metagenomics, binning, pangenomics, phylogenomics, microbial population genetics, hands-on, beginner]
+
