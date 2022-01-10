@@ -24,7 +24,11 @@
   link_in_navbar: true
   content: sections/people.md
 
-- header: Cite
+- header: Community blog
+  target_url: /blog/
+  link_in_navbar: true
+
+- header: How to cite
   full_header: How to cite anvi'o like a pro
   slug: cite
   link_in_navbar: true
