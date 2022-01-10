@@ -7,6 +7,22 @@ comments: false
 
 The purpose of this page is to show some of the fancy things our web page can do. If you add new features that are specific to our web code, or discover uses of features that are not described here, please feel free to extend this list.
 
+# Mention someone
+
+Mention someone named in `_data/people.yaml`.
+
+**Raw**:
+
+``` html
+{% raw %}
+(...) those including {% include person/display_mini_single.html github="mschecht" %} and {% include person/display_mini_single.html github="ChiaraVanni" %} worked on (...)
+{% endraw %}
+```
+
+**Rendered**:
+
+(...) those including {% include person/display_mini_single.html github="mschecht" %} and {% include person/display_mini_single.html github="ChiaraVanni" %} worked on (...)
+
 # Show/hide content
 
 If you want to show/hide content, you can use this notation in your markdown files.
@@ -121,7 +137,7 @@ An anvi'o {% include ARTIFACT name="pan-db" %} comes from {% include PROGRAM nam
 **Raw**:
 
 ``` html
-<blockquote>
+<blockquote markdown="1">
 An intersting quote.
 <div class="blockquote-author">Someone Interesting</div>
 </blockquote>
@@ -129,7 +145,7 @@ An intersting quote.
 
 **Rendered**:
 
-<blockquote>
+<blockquote markdown="1">
 An intersting quote.
 <div class="blockquote-author">Someone Interesting</div>
 </blockquote>

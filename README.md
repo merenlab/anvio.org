@@ -6,6 +6,8 @@ After getting a copy of it, you can run this web page on your local using the fo
 bundle exec jekyll serve
 ```
 
+Once you run a copy of the web page, visit http://localhost:4000/web-tips/ to find some useful tips for content developers.
+
 # Contributing
 
 If you have any questions regarding anything below, please get in touch with us on the anvi'o Slack channel (an up-to-date link is at the top of the front page of https://anvio.org).
