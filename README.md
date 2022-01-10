@@ -12,7 +12,7 @@ If you have any questions regarding anything below, please get in touch with us 
 
 ## Update / add new anvi'o resources defined in the main page
 
-Please edit the file at `_data/resources.yaml` in this repository. For this, you don't need to do anything with anvi'o, but if the author of the resource is not define din `_data/people.yaml`, you will first have to take care of it. If you'd like to do it yourself, please read the section below on how to 'update people data'. If you don't want to deal with that, please reach out to an anvi'o developer.
+Please edit the relevant file under `_data/resources/` in this repository. To add a new resource, you don't need to do anything in the anvi'o codebase, unless the author of the resource is not defined in `_data/people.yaml`. If that is the case, you will first have to take care of it by adding them into `DEVELOPERS.yaml` or `CONTRIBUTORS.yaml`. If you'd like to do it yourself, please read the section below on how to 'update people data'. If you don't want to deal with that, please reach out to an anvi'o developer.
 
 Updating the resouces file should be easy. But please note that the order of items in that file should have a logical order from basic to more advanced things within each section. Follow an example for variables and language, and try to use existing tags unless there is certainly a need to define a new one.
 
@@ -40,7 +40,7 @@ To update the list of anvi'o authors and contributors, run this (assuming your a
 _scripts/update-people-data.sh
 ```
 
-If there is a new name to be mentioned in `_data/resources.yaml`, this person must be first mentioned in `_data/people.yaml`. If they are not in there, first add their information to either `AUTHORS.yaml` or `CONTRIBUTORS.yaml` in the anvi'o repository, then run the commands above to update the anvio.org repository. Boring, but very important to keep track of people in both repositories.
+If there is a new name to be mentioned in `_data/resources.yaml`, their GitHub username must be first mentioned in `_data/people.yaml`. If they are not in there, please first add their information to either `DEVELOPERS.yaml` or `CONTRIBUTORS.yaml` in the anvi'o repository following the style of the previous entries, and then run `_scripts/update-people-data.sh` from the root directory of the anvio.org repository. Yes, it is tedious, but also very important to keep track of people in both repositories.
 
 ## Update help pages
 
@@ -54,7 +54,7 @@ To update the help pages with the latest changes in anvi'o main repository, run 
 anvi-script-gen-help-pages -o help/main
 ```
 
-Triple check `git status` to make sure you know what you're about to commit.
+Triple check `git status` to make sure you know what you're about to commit. Be careful of which anvi'o branch you're on. `help/main` should only describe programs and artifacts that are in the main branch.
 
 ## Update the anvi'o programs and concepts network
 
