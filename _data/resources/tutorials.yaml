@@ -5,6 +5,13 @@
   summary: "Basics of the command line environment, the best friend of any scientist who wishes to work with data."
   tags: [hands-on, beginner]
 
+- title: Basics of metagenomic read recruitment
+  type: tutorial
+  url: https://youtu.be/MqD4aN1p1qA?t=344
+  authors: [meren]
+  summary: "A very simple introduction to metagenomic read recruitment."
+  tags: [metagenomics, theoretical, beginner]
+
 - title: A metagenomic read recruitment exercise
   type: tutorial
   url: https://merenlab.org/tutorials/read-recruitment/
