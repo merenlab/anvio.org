@@ -22,21 +22,22 @@ If you would like to write a blog post or tutorial for the anvi'o web page, anvi
 
 # Upkeeping
 
-A lot of the components of this web page is dynamic, but others require some hands-on upkeeping (at least for now).
+A lot of the components of this web page is dynamic, but others require some hands-on upkeeping (at least for now). You can update EVERYTHING all at once by running this command:
 
-**Please remember**: Everything below assumes that you are tracking the development branch of anvi'o, and you are working with an up-to-date repository, unless otherwise is stated. Please don't forget to double-check `git status` to make sure you know what you're about to commit.
+``` bash
+_scripts/update-all.sh
+```
+
+**Please remember**: Everything above and below assumes that you are tracking the development branch of anvi'o, and you are working with an up-to-date repository, unless otherwise is stated. Please don't forget to double-check `git status` to make sure you know what you're about to commit.
+
+The following sections clarify individual updates that are run by `update-all.sh` script. If you run that, you don't need to run any of the ones below, but they're here for posterity.
 
 ## Update people data
 
-To update the list of anvi'o authors and contributors, run this command (assuming your anvi'o code directory is at `~/github/anvio`):
+To update the list of anvi'o authors and contributors, run this (assuming your anvi'o code directory is at `~/github/anvio`):
 
 ``` bash
-cat ~/github/anvio/anvio/data/misc/PEOPLE/DEVELOPERS.yaml > _data/people.yaml
-echo "" >> _data/people.yaml
-cat ~/github/anvio/anvio/data/misc/PEOPLE/CONTRIBUTORS.yaml >> _data/people.yaml
-cp ~/github/anvio/anvio/data/misc/PEOPLE/AVATARS/* images/avatars/
-python _scripts/update-people-dir.py
-python _scripts/update-programs-info.py
+_scripts/update-people-data.sh
 ```
 
 If there is a new name to be mentioned in `_data/resources.yaml`, this person must be first mentioned in `_data/people.yaml`. If they are not in there, first add their information to either `AUTHORS.yaml` or `CONTRIBUTORS.yaml` in the anvi'o repository, then run the commands above to update the anvio.org repository. Boring, but very important to keep track of people in both repositories.

@@ -37,3 +37,5 @@ if __name__ == '__main__':
             output.write("  programs:\n")
             for program_name in program_contributions[author_name]:
                 output.write(f"    - name: {program_name}\n")
+
+    print("Program / author info updated.")

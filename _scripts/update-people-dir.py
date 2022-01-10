@@ -32,4 +32,4 @@ if __name__ == '__main__':
         with open(os.path.join('people', person['github'] + '.md'), 'w') as output:
             output.write(person_template)
 
-    print("Good job. You're done.")
+    print("People directories populated.")
