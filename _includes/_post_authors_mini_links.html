@@ -1,4 +1,4 @@
-{% for person_github in resource.authors%}
+{% for person_github in post.authors%}
     {% for person in site.data.people %}
         {% if person.github == person_github %}
             {% include person/display_mini_text.html %}

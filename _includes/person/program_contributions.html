@@ -1,0 +1,21 @@
+{% assign has_programs = false %}
+
+{% for entry in site.data.programs %}
+{% if entry.author == person.github %}
+{% assign has_programs = true %}
+{% endif %}
+{% endfor %}
+
+{% if has_programs%}
+<h2>Program contributions</h2>
+
+<p class="person-stand-alone-program-contributions">
+{% for entry in site.data.programs %}
+  {% if entry.author == person.github %}
+    {% for program_entry in entry.programs %}
+      <span class="artifact-p"><a href="/help/main/programs/{{ program_entry.name }}">{{ program_entry.name }}</a></span>
+      {% endfor %}
+  {% endif %}
+{% endfor %}
+</p>
+{% endif %}

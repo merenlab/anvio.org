@@ -1,5 +1,5 @@
 ---
-layout: blogpost
+layout: blog
 title: Tips for web developers
 modified: 2020-12-12
 comments: false

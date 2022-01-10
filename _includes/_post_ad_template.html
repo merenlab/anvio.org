@@ -1,0 +1,6 @@
+<div class="learning-resource">
+    <span class="learning-resource-title"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></span>
+    <span class="learning-resource-authors">{% include _post_authors_mini_links.html %}</span>
+    <span class="learning-resource-summary">{{ post.excerpt }}</span>
+    <div class="learning-resource-tags">{% for tag in post.tags %}<code class="tags" id="{{ tag | replace: " ", "_" }}">{{ tag }}</code> {% endfor %} <code class="tags" id="post-published-date">published: {{ post.date | date: "%a, %b %d, %Y" | downcase }}</code> {% if post.modified %} <code class="tags" id="post-modified-date">modified: {{ post.modified | date: "%a, %b %d, %Y" | downcase }}</code>{% endif %}</div>
+</div>

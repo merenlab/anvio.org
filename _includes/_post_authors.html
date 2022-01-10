@@ -1,7 +1,7 @@
-{% for author in page.authors %}
+{% for author in post.authors %}
     {% for person in site.data.people %}
         {% if author == person.github %}
-        {{ author ==  page.authors | first}}
+        {{ author ==  post.authors | first}}
             {% include person/display_text.html %}
         {% endif %}
     {% endfor %}

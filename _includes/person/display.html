@@ -1,5 +1,5 @@
 {% for person in people %}
 {% if include.person_github == person.github %}
-{% include _person_text.html %}
+{% include person/display_text.html %}
 {% endif %}
 {% endfor %}

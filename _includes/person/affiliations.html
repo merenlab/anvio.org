@@ -1,0 +1,12 @@
+{% if person.affiliations %}
+<h2>Affiliations</h2>
+
+<ul class="person-stand-alone-affiliations">
+    {% for affiliation in person.affiliations %}
+    <li><b>{{ affiliation.title }}</b>, <a href="{{ affiliation.inst_link }}" target="_blank">{{ affiliation.inst }}</a></li>
+    {% endfor %}
+</ul>
+
+<p style="text-align: center; font-size: 80%; color: gray">Contact info or affiliations needs an update? Edit <a href="https://github.com/merenlab/anvio/blob/master/anvio/data/misc/PEOPLE/">these files</a>.</p>
+
+{% endif %}

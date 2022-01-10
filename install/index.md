@@ -1,5 +1,5 @@
 ---
-layout: blogpost
+layout: page
 title: "Installing anvi'o"
 excerpt: "Instructions to install the current release of the platform."
 modified: 2019-05-14

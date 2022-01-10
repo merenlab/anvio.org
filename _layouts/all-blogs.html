@@ -1,0 +1,25 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+
+{% include _header.html %}
+
+<div class="container text-center article">
+  <div class="row">
+    <div class="col-md-10 my-auto">
+
+      <h1>{{ page.title }}</h1>
+
+      <p style="font-size: 90%;">This page lists blog posts written by the members of the anvi'o community and is open to anyone who wisth to share anything in their mind that is even remotely relevant to the rest of the anvi'o community.
+
+      {% for post in site.posts %}
+          {% include _post_ad_template.html %}
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+{% include _footer.html fixed_footer="true" %}

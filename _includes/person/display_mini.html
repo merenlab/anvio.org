@@ -1,0 +1,2 @@
+{% assign githubs = include.githubs | split: "," %}
+{% for github in githubs %}{% for person in people %}{% if github == person.github %}{% include person/display_mini_text.html %}{% endif %}{% endfor %}{% endfor %}

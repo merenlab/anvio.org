@@ -1,0 +1,88 @@
+{% comment %}
+This is an abomination here. But I couldn't find a better way to do it and should be fixed
+at some point. Essentially, we need to know if someone has any resource contributions
+before putting headers of individual sections. So the next set of variables assume that
+the person has no contributions, and then they turn those variables to true as we discover
+otherwise. but then we have to go through all resources and github user names the site
+knows about twice later.
+{% endcomment %}
+
+{% assign has_blogs = false %}
+{% assign has_tutorials = false %}
+{% assign has_technical = false %}
+{% assign has_resources = false %}
+
+{% for resource in site.data.resources.tutorials %}
+{% for person_github in resource.authors %}
+{% if person_github == person.github %}
+{% assign has_tutorials = true %}
+{% assign has_resources = true %}
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+{% for resource in site.data.resources.technical %}
+{% for person_github in resource.authors %}
+{% if person_github == person.github %}
+{% assign has_technical = true %}
+{% assign has_resources = true %}
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+
+{% for resource in site.data.resources.blogs %}
+{% for person_github in resource.authors %}
+{% if person_github == person.github %}
+{% assign has_blogs = true %}
+{% assign has_resources = true %}
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+
+{% if has_resources %}
+<h2>Resource contributions</h2>
+{% endif %}
+
+{% if has_tutorials %}
+    <h3>Tutorials and exercises</h3>
+
+    <p style="font-size: 90%">Kinds of write-ups that typically use mock or simple datasets to describe basic concepts and how to accomplish common tasks in anvi'o often with hands-on experience.
+
+    {% for resource in site.data.resources.tutorials %}
+    {% for person_github in resource.authors %}
+    {% if person_github == person.github %}
+    {% include resources/template.html %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+{% endif %}
+
+{% if has_technical %}
+    <h3>Technical write-ups</h3>
+
+    <p style="font-size: 90%">Solutions or discussions regarding matters that are typically more technical than scientific.
+
+    {% for resource in site.data.resources.technical %}
+    {% for person_github in resource.authors %}
+    {% if person_github == person.github %}
+    {% include resources/template.html %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+{% endif %}
+
+{% if has_blogs %}
+    <h3>Articles, workflows, opinions</h3>
+
+    <p style="font-size: 90%">Key insights into specific topics and can be useful to more advanced users and 'omics enthusiasts in general.
+
+    {% for resource in site.data.resources.blogs %}
+    {% for person_github in resource.authors %}
+    {% if person_github == person.github %}
+    {% include resources/template.html %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+{% endif %}
