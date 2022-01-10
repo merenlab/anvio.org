@@ -2,7 +2,7 @@ var network_path = document.getElementById("network").getAttribute("path");
 var __height = document.getElementById("network").getAttribute("height");
 
 if (__height){
-    var innerWidth = $("#articlecontent").width();
+    var innerWidth = $("#svg").width();
     var innerHeight = parseInt(__height);
 } else {
     var innerWidth = window.innerWidth;
