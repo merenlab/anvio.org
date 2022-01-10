@@ -9,10 +9,6 @@ if (__height){
     var innerHeight = window.innerHeight - 90;
 }
 
-
-console.log("width: " + innerWidth);
-console.log("height: " + innerHeight);
-
 var w = innerWidth;
 var h = innerHeight;
 
