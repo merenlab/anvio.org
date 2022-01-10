@@ -25,6 +25,9 @@
       inst: The Biomedical Sciences Cluster at the University of Chicago
       inst_link: https://biomedsciences.uchicago.edu/
       current: true
+    - title: Post-doctoral Scientist
+      inst: Marine Biological Laboratory
+      inst_link: https://mbl.edu
 
 - github: FlorianTrigodet
   name: Florian Trigodet
@@ -310,16 +313,16 @@
   avatar: bio-tom.jpg
   bio: "Microbial ecologist who seeks to understand small and large-scale ecological patterns in the microbial world."
   affiliations:
-     - title: CNRS
-       inst: Genoscope - Centre National de Séquençage
-       inst_link: https://www.genoscope.cns.fr
-       current: true
-     - title: Post-doctoral Scientist
-       inst: University of Chicago
-       inst_link: https://uchicago.edu
-     - title: Post-doctoral Scientist
-       inst: Marine Biological Laboratory
-       inst_link: https://mbl.edu
+    - title: CNRS
+      inst: Genoscope - Centre National de Séquençage
+      inst_link: https://www.genoscope.cns.fr
+      current: true
+    - title: Post-doctoral Scientist
+      inst: University of Chicago
+      inst_link: https://uchicago.edu
+    - title: Post-doctoral Scientist
+      inst: Marine Biological Laboratory
+      inst_link: https://mbl.edu
 
 - github: genomewalker
   name: Antonio Fernandez-Guerra
