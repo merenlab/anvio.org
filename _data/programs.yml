@@ -101,6 +101,7 @@
     - name: anvi-summarize
     - name: anvi-update-db-description
     - name: anvi-script-add-default-collection
+    - name: anvi-script-as-markdown
     - name: anvi-script-augustus-output-to-external-gene-calls
     - name: anvi-script-compute-ani-for-fasta
     - name: anvi-script-filter-fasta-by-blast
@@ -131,6 +132,7 @@
     - name: anvi-run-pfams
     - name: anvi-setup-kegg-kofams
     - name: anvi-setup-pfams
+    - name: anvi-setup-user-modules
     - name: anvi-summarize-blitz
     - name: anvi-script-gen-genomes-file
 - author: adw96
@@ -159,10 +161,8 @@
     - name: anvi-get-short-reads-from-bam
     - name: anvi-migrate
     - name: anvi-profile
-    - name: anvi-report-inversions
     - name: anvi-run-hmms
     - name: anvi-run-interacdome
-    - name: anvi-search-palindromes
     - name: anvi-setup-interacdome
     - name: anvi-setup-pdb-database
     - name: anvi-update-structure-database

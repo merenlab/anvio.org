@@ -3,7 +3,7 @@
 
 <ul class="person-stand-alone-affiliations">
     {% for affiliation in person.affiliations %}
-    <li><b>{{ affiliation.title }}</b>, <a href="{{ affiliation.inst_link }}" target="_blank">{{ affiliation.inst }}</a></li>
+    <li>{% if affiliation.current %}<code class="tags" id="current-affiliation">current</code>{% else %}<code class="tags" id="past-affiliation">past</code>{% endif %} <b>{{ affiliation.title }}</b>, <a href="{{ affiliation.inst_link }}" target="_blank">{{ affiliation.inst }}</a></li>
     {% endfor %}
 </ul>
 

@@ -1,7 +1,7 @@
 - github: meren
   name: A. Murat Eren (Meren)
   twitter: merenbey
-  web: http://meren.org
+  web: http://merenlab.org
   avatar: meren.jpg
   email: a.murat.eren@gmail.com
   linkedin: meren
@@ -9,15 +9,22 @@
   skype: a.murat.eren
   bio: "Computer scientist and microbial ecologist interested in undersatnding mechanisms by which microbes interact with their surroundings, evolve, disperse, and respond to environmental change."
   affiliations:
-    - title: MBL Fellow
+    - title: Fellow
       inst: Marine Biological Laboratory
       inst_link: http://www.mbl.edu/research/mbl-fellows/a-murat-eren/
+      current: true
+    - title: Fellow
+      inst: Alfred P. Sloan Fondation
+      inst_link: https://sloan.org/grant-detail/9260
+      current: true
     - title: Assistant Professor
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
+      current: true
     - title: Committee on Microbiology
       inst: The Biomedical Sciences Cluster at the University of Chicago
       inst_link: https://biomedsciences.uchicago.edu/
+      current: true
 
 - github: FlorianTrigodet
   name: Florian Trigodet
@@ -31,6 +38,7 @@
     - title: Post-doctoral Scientist
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
+      current: true
 
 - github: watsonar
   name: Andrea Watson
@@ -41,6 +49,10 @@
   avatar: watsonar.jpg
   bio: "Microbiologist interested in combining wet lab and computational methods in a complementary way to answer fundamental questions."
   affiliations:
+    - title: Bioinformatics Scientist
+      inst: Vedanta Biosciences
+      inst_link: https://www.vedantabio.com/
+      current: true
     - title: Graduate Student
       inst: Committee on Microbiology at the University of Chicago
       inst_link: https://biomedsciences.uchicago.edu/page/microbiology
@@ -57,6 +69,7 @@
     - title: Graduate Student
       inst: The Biophysical Sciences Program at the University of Chicago
       inst_link: http://biophysics.uchicago.edu/
+      current: true
 
 - github: mschecht
   name: Matthew Schechter
@@ -70,6 +83,7 @@
     - title: Graduate Student
       inst: Committee on Microbiology at the University of Chicago
       inst_link: https://biomedsciences.uchicago.edu/page/microbiology
+      current: true
 
 - github: ivagljiva
   name: Iva Veseli
@@ -82,9 +96,11 @@
     - title: Graduate Student
       inst: The Biophysical Sciences Program at the University of Chicago
       inst_link: http://biophysics.uchicago.edu/
+      current: true
     - title: Fellow
       inst: NSF Graduate Research Fellowship Program
       inst_link: https://www.nsfgrfp.org/
+      current: true
 
 - github: moritzbuck
   name: Moritz Buck
@@ -94,6 +110,7 @@
     - title: Researcher
       inst: Department of Aquatic Sciences and Assessment, Swedish University of Agricultural Sciences
       inst_link: https://www.slu.se/en/departments/aquatic-sciences-assessment/
+      current: true
 
 - github: semiller10
   name: Samuel Miller
@@ -107,6 +124,7 @@
     - title: Post-doctoral Scientist
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
+      current: true
 
 - github: isaacfink21
   name: Isaac Fink
@@ -118,6 +136,7 @@
     - title: Undergraduate Student
       inst: Computer Science
       inst_link: http://collegecatalog.uchicago.edu/thecollege/computerscience/
+      current: true
 
 - github: matthewlawrenceklein
   name: Matthew Lawrence Klein
@@ -130,6 +149,7 @@
     - title: Programmer
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
+      current: true
 
 - github: blankenberg
   name: Daniel Blankenberg
@@ -138,6 +158,7 @@
     - title: Faculty Member
       inst: Genomic Medicine Institute at the Cleveland Clinic Lerner Research Institute
       inst_link: http://www.lerner.ccf.org/gmi/
+      current: true
 
 - github: Jessica-Pan
   name: Jessica Pan
@@ -149,6 +170,7 @@
     - title: Undergraduate Student
       inst: Massachusetts Institute of Technology
       inst_link: http://web.mit.edu/
+      current: true
 
 - github: ShaiberAlon
   name: Alon Shaiber
@@ -160,6 +182,10 @@
   avatar: ShaiberAlon.jpg
   bio: "Biophysicist fascinated by the complexity of microbial ecology and interested in applying and developing computational tools to explore it."
   affiliations:
+    - title: Genomics Data Scientist
+      inst: Weill Cornell Medicine
+      inst_link: https://weill.cornell.edu/
+      current: true
     - title: Graduate Student
       inst: The Biophysical Sciences Program at the University of Chicago
       inst_link: http://biophysics.uchicago.edu/
@@ -171,6 +197,10 @@
   avatar: ozcan.jpg
   web: http://blog.ozcanesen.com/
   bio: "Computer engineer interested in developing tools for the visualization of complex data."
+  affiliations:
+    - title: Programmer
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
 
 - github: mahmoudyousef98
   name: Mahmoud Yousef
@@ -179,6 +209,10 @@
   linkedin: mahmoud-yousef-314198128/
   bio: "Computer scientist and medical student interested in exploring the intersection of bioinformatics and medicine, and how bioinformatic techniques can be used to advance the quality of medicine."
   affiliations:
+     - title: Medical Student
+       inst: Pritzker School of Medicine, University of Chicago
+       inst_link: https://pritzker.uchicago.edu/
+       current: true
      - title: Undergraduate Student
        inst: Department of Computer Science at the University of Chicago
        inst_link: https://www.cs.uchicago.edu/
@@ -190,6 +224,14 @@
   twitter: ClayssenQ
   avatar: qclayssen.jpg
   bio: "Microbiologist and bioinformatician interested in metagenomics."
+  affiliations:
+    - title: Graduate Student
+      inst: ETH Zurich
+      inst_link: https://ethz.ch/en.html
+      current: true
+    - title: Intern
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
 
 - github: srinidhi202
   name: Srinidhi Varadharajan
@@ -199,6 +241,7 @@
     - title: Programmer
       inst: Baylor College of Medicine
       inst_link: https://www.bcm.edu/
+      current: true
 
 - github: adw96
   avatar: adw96.jpg
@@ -213,9 +256,11 @@
     - title: Principal Investigator
       inst: Statistical Diversity Lab, University of Washington
       inst_link: http://statisticaldiversitylab.com/
+      current: true
     - title: Assistant Professor
       inst: Department of Biostatistics, University of Washington
       inst_link: https://www.biostat.washington.edu/
+      current: true
 
 - github: mooreryan
   avatar: mooreryan.jpeg
@@ -227,6 +272,7 @@
     - title: Graduate Student (Wommack Lab)
       inst: Center for Bioinformatics and Comp Bio, University of Delaware
       inst_link: https://bioinformatics.udel.edu/
+      current: true
 
 - github: efogarty11
   name: Emily Fogarty
@@ -238,6 +284,7 @@
     - title: Graduate Student
       inst: Committee on Microbiology at the University of Chicago
       inst_link: https://biomedsciences.uchicago.edu/page/microbiology
+      current: true
 
 - github: AstrobioMike
   name: Mike Lee
@@ -251,6 +298,7 @@
     - title: NASA Space Biology Fellow
       inst: NASA Ames Research Center
       inst_link: https://www.nasa.gov/ames
+      current: true
     - title: JCVI Research Fellow
       inst: J. Craig Venter Institute
       inst_link: https://www.jcvi.org/
@@ -265,6 +313,13 @@
      - title: CNRS
        inst: Genoscope - Centre National de Séquençage
        inst_link: https://www.genoscope.cns.fr
+       current: true
+     - title: Post-doctoral Scientist
+       inst: University of Chicago
+       inst_link: https://uchicago.edu
+     - title: Post-doctoral Scientist
+       inst: Marine Biological Laboratory
+       inst_link: https://mbl.edu
 
 - github: genomewalker
   name: Antonio Fernandez-Guerra
@@ -277,6 +332,7 @@
     - title: Assistant Professor
       inst: Lundbeck Foundation GeoGenetics Centre, The GLOBE Institute, University of Copenhagen
       inst_link: https://globe.ku.dk/research/geogenetics/
+      current: true
 
 - github: jessika-fuessel
   name: Jessika Fuessel
@@ -286,6 +342,10 @@
   orcid: 0000-0002-4210-2318
   bio: "Biogeochemist and microbiologist intereted in understanding the production and fate of microbial metabolites within the context of changing environmental conditions using a multi-omics."
   affiliations:
+    - title: Post-doctoral Scientist
+      inst: Institute for Chemistry and Biology of the Marine Environment
+      inst_link: https://uol.de/en/icbm
+      current: true
     - title: Post-doctoral Scientist
       inst: Department of Medicine, University of Chicago
       inst_link: https://medicine.uchicago.edu/
@@ -301,6 +361,7 @@
     - title: Graduate Student
       inst: Max Planck Institute for Marine Microbiology
       inst_link: https://mpi-bremen.de
+      current: true
 
 - github: karkman
   name: Antti Karkman
@@ -310,6 +371,7 @@
     - title: Postdoctoral researcher
       inst: University of Helsinki
       inst_link: https://www.helsinki.fi/en
+      current: true
 
 - github: edgraham
   name: Elaina Graham
@@ -319,6 +381,7 @@
     - title: Graduate Student
       inst: University of Southern California
       inst_link: https://www.usc.edu/
+      current: true
 
 - github: jarrodscott
   name: Jarrod J. Scott
@@ -330,4 +393,4 @@
     - title: Post-doctoral Scientist
       inst: Smithsonian Tropical Research Institute
       inst_link: https://stri.si.edu/
-
+      current: true
