@@ -1,0 +1,25 @@
+{% assign has_intellectual_contributions = false %}
+
+{% for p in site.data.people %}
+{% if p.github == person.github %}
+{% if p.intellectual-contributions %}
+{% assign has_intellectual_contributions = true %}
+{% endif %}
+{% endif %}
+{% endfor %}
+
+{% if has_intellectual_contributions %}
+<h2>Intellectual contributions</h2>
+
+<p style="font-size: 90%">Some contributions are more than code. Inevitably, this manually curated list will be incomplete for almost everyone, but nevertheless, we try to keep track of key contributions made by memebers of the anvi'o commmunity to the platform and its users. Edit <a href="https://github.com/merenlab/anvio/blob/master/anvio/data/misc/PEOPLE/">these files</a> to help.
+
+<ul>
+{% for p in site.data.people %}
+{% if p.github == person.github %}
+{% for entry in p.intellectual-contributions %}
+<li>{{ entry.contribution }}{% if entry.link %} (<a href="{{ entry.link }}">more</a>){% endif %}.</li>
+{% endfor %}
+{% endif %}
+{% endfor %}
+</ul>
+{% endif %}
