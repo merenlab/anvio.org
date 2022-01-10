@@ -276,6 +276,14 @@
     width: 50%;
     margin: auto;
     margin-top: 25px;
+
+    @media (max-width: 800px) {
+        width: 90%;
+    }
+
+    @media (max-width: 1000px) {
+        width: 75%;
+    }
 }
 
 .anvio-people {

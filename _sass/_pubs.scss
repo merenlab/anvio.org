@@ -233,6 +233,12 @@
     margin-left: -6px;
     margin-right: -5px;
     border-top: 1px dashed #dbdbdb;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
+
+
 }
 
 .tags {

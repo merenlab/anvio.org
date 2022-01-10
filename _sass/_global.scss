@@ -26,6 +26,10 @@ code {
     word-break: normal;
     color: #484848;
     font-size: 12px;
+
+    @media (max-width: 1000px) {
+        word-break: break-word;
+    }
 }
 
 pre > code {
