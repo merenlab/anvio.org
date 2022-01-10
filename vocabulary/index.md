@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Vocabulary
+title: "'Omics Vocabulary"
 excerpt: "Commonly used terms and their approximate meanings"
 comments: true
 ---
