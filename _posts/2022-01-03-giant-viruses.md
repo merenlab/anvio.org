@@ -7,6 +7,8 @@ date: 2022-01-03
 modified: 2022-01-04
 tags: [viruses, binning]
 comments: true
+image:
+  feature: /images/giant-viruses/header.png
 ---
 
 ## Giant viruses

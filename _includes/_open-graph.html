@@ -1,0 +1,37 @@
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+{% if page.excerpt %}<meta name="twitter:description" content="{{ page.excerpt | strip_html }}">{% endif %}
+
+{% if page.authors %}{% for person in site.data.people %}{% if person.github == page.authors[0] %}{% if person.twitter %}
+<meta name="twitter:creator" content="@{{ person.twitter }}">
+{% endif %}{% endif %}{% endfor %}{% endif %}
+
+{% if page.image.feature %}
+{% capture featured_image_protocol %}{{ page.image.feature | slice: 0, 4 }}{% endcapture %}
+{% capture link %}{% if featured_image_protocol == 'http' %}{{ page.image.feature }}{% else %}{{ site.url }}{{ page.image.feature }}{% endif %}{% endcapture %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ link }}">
+<meta property="og:image" content="{{ link }}">
+{% else %}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="{{ site.url }}/images/anvio.png">
+<meta property="og:image" content="{{ site.url }}/images/anvio.png">
+{% endif %}
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US" />
+
+{% if page.authors %}
+<meta property='og:type' content='article' />
+{% if page.authors %}{% for person in site.data.people %}{% if person.github == page.authors[0] %}{% if person.twitter %}
+<meta property='article:author' content='{{ person.name }}' />
+{% endif %}{% endif %}{% endfor %}{% endif %}
+<meta property='article:publisher' content='{{ site.url }}' />
+{% else %}
+<meta property="og:type" content="website">
+{% endif %}
+
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+{% if page.excerpt %}<meta property="og:description" content="{{ page.excerpt | strip_html }}">{% endif %}
+<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">

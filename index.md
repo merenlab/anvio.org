@@ -1,5 +1,9 @@
 ---
 layout: home
+title: "Anvi'o dot org"
+excerpt: "A home for the anvi'o community."
+image:
+    feature: /images/anvio.png
 ---
 
 # Integrated multi-omics at scale
