@@ -19,6 +19,13 @@
   summary: "A demonstration of how to reconstruct genomes of giant viruses."
   tags: [metagenomics, viruses, binning, intermediate]
 
+- title: "Targeted binning of a novel nitrogen-fixing population from the Arctic Ocean"
+  type: blog post
+  url: /blog/targeted-binning/
+  authors: [ivagljiva]
+  summary: "Using metabolism estimation to go fishing in some ocean metagenomes."
+  tags: [metagenomics, binning, metabolism]
+
 - title: "Inspecting the genomic link between Archaea and Eukaryota"
   type: blog post
   url: https://merenlab.org/2017/01/03/loki-the-link-archaea-eukaryota/
