@@ -5,13 +5,15 @@ header.masthead {
     width: 100%;
     padding-top: 150px;
     padding-bottom: 100px;
+    border-bottom: 1px solid black;
 
     color: #343434;
 
-    background: url("/images/bg-pattern.png"), linear-gradient(0deg, gray, white 30%);
+    background: url("/images/bg-pattern.png");
 
     h1 {
-        text-shadow: 1px 1px 4px #7c7c7c;
+        text-shadow: 5px 5px 11px #7c7c7c;
+        -webkit-text-stroke: 2px #0000004d;
     }
 
     .header-content {
