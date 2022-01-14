@@ -27,9 +27,20 @@ if __name__ == '__main__':
     people_yaml = get_yaml_as_dict('_data/people.yaml')
 
     for person in people_yaml:
-        person_template = f"---\nlayout: person\ntitle: {person['name']}\ngithub: {person['github']}\ncomments: false\n---"
+        d =  [ "---"]
+        d += [ "layout: person"]
+        d += [f"title: {person['name']}"]
+        d += [f"github: {person['github']}"]
+        d += [ "comments: false"]
+        d += [f"title: {person['name']} of anvi'o"]
+        if 'bio' in person:
+            d += [f"excerpt: {person['bio']}"]
+        if 'avatar' in person:
+            d += [ "image:"]
+            d += [f"  feature: /images/avatars/{person['avatar']}"]
+        d += [ "---"]
 
         with open(os.path.join('people', person['github'] + '.md'), 'w') as output:
-            output.write(person_template)
+            output.write('\n'.join(d) + '\n')
 
     print("People directories populated.")
