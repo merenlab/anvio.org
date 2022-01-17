@@ -149,9 +149,12 @@
   programs:
     - name: anvi-compute-genome-similarity
     - name: anvi-db-info
+    - name: anvi-delete-misc-data
     - name: anvi-dereplicate-genomes
     - name: anvi-display-structure
+    - name: anvi-export-gene-calls
     - name: anvi-export-locus
+    - name: anvi-export-misc-data
     - name: anvi-export-structures
     - name: anvi-gen-contigs-database
     - name: anvi-gen-fixation-index-matrix
@@ -159,16 +162,20 @@
     - name: anvi-gen-variability-profile
     - name: anvi-get-pn-ps-ratio
     - name: anvi-get-short-reads-from-bam
+    - name: anvi-import-misc-data
+    - name: anvi-init-bam
     - name: anvi-migrate
     - name: anvi-profile
     - name: anvi-run-hmms
     - name: anvi-run-interacdome
     - name: anvi-setup-interacdome
     - name: anvi-setup-pdb-database
+    - name: anvi-show-misc-data
     - name: anvi-update-structure-database
     - name: anvi-script-filter-fasta-by-blast
     - name: anvi-script-gen-pseudo-paired-reads-from-fastq
     - name: anvi-script-get-coverage-from-bam
+    - name: anvi-script-reformat-fasta
 - author: FlorianTrigodet
   programs:
     - name: anvi-display-contigs-stats
