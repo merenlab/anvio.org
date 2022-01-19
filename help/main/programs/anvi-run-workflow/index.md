@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-run-workflow [program]
+title: anvi-run-workflow
+excerpt: An anvi'o program. Execute, manage, parallelize, and troubleshoot entire &#x27;omics workflows and chain together anvi&#x27;o and third party programs.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-run-workflow

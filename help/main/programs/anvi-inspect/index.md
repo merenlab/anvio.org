@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-inspect [program]
+title: anvi-inspect
+excerpt: An anvi'o program. Start an anvi&#x27;o inspect interactive interface.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-inspect

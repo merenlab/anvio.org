@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-snvs-to-interactive [program]
+title: anvi-script-snvs-to-interactive
+excerpt: An anvi'o program. Take the output of anvi-gen-variability-profile, prepare an output for interactive interface.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-snvs-to-interactive

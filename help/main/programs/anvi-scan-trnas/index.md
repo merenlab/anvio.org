@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-scan-trnas [program]
+title: anvi-scan-trnas
+excerpt: An anvi'o program. Identify and store tRNA genes in a contigs database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-scan-trnas

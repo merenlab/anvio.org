@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-get-pn-ps-ratio [program]
+title: anvi-get-pn-ps-ratio
+excerpt: An anvi'o program. FIXME.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-get-pn-ps-ratio

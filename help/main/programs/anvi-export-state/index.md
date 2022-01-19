@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-export-state [program]
+title: anvi-export-state
+excerpt: An anvi'o program. Export an anvi&#x27;o state into a profile database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-export-state

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-export-gene-calls [program]
+title: anvi-export-gene-calls
+excerpt: An anvi'o program. Export gene calls from an anvi&#x27;o contigs database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-export-gene-calls

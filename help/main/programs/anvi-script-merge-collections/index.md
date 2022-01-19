@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-merge-collections [program]
+title: anvi-script-merge-collections
+excerpt: An anvi'o program. Generate an additional data file from multiple collections.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-merge-collections

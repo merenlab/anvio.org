@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-export-gene-coverage-and-detection [program]
+title: anvi-export-gene-coverage-and-detection
+excerpt: An anvi'o program. Export gene coverage and detection data for all genes associated with contigs described in a profile database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-export-gene-coverage-and-detection

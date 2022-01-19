@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-setup-interacdome [program]
+title: anvi-setup-interacdome
+excerpt: An anvi'o program. Setup InteracDome data.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-setup-interacdome

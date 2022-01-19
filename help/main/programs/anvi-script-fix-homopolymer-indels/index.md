@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-fix-homopolymer-indels [program]
+title: anvi-script-fix-homopolymer-indels
+excerpt: An anvi'o program. Corrects homopolymer-region associated INDELs in a given genome based on a reference genome.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-fix-homopolymer-indels

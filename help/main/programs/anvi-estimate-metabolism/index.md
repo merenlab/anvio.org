@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-estimate-metabolism [program]
+title: anvi-estimate-metabolism
+excerpt: An anvi'o program. Reconstructs metabolic pathways and estimates pathway completeness for a given set of contigs.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-estimate-metabolism

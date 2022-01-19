@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-setup-ncbi-cogs [program]
+title: anvi-setup-ncbi-cogs
+excerpt: An anvi'o program. Download and setup NCBI&#x27;s Clusters of Orthologous Groups database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-setup-ncbi-cogs

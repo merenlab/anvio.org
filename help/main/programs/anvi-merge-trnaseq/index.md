@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-merge-trnaseq [program]
+title: anvi-merge-trnaseq
+excerpt: An anvi'o program. This program processes one or more anvi&#x27;o tRNA-seq databases produced by `anvi-trnaseq` and outputs anvi&#x27;o contigs and merged profile databases accessible to other tools in the anvi&#x27;o ecosystem.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-merge-trnaseq

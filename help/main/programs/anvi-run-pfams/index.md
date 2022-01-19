@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-run-pfams [program]
+title: anvi-run-pfams
+excerpt: An anvi'o program. Run Pfam on Contigs Database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-run-pfams

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-summarize-blitz [program]
+title: anvi-summarize-blitz
+excerpt: An anvi'o program. FAST summary of many anvi&#x27;o single profile databases (without having to use the program anvi-merge).
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-summarize-blitz

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-export-items-order [program]
+title: anvi-export-items-order
+excerpt: An anvi'o program. Export an item order from an anvi&#x27;o database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-export-items-order

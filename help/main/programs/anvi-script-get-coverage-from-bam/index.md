@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-get-coverage-from-bam [program]
+title: anvi-script-get-coverage-from-bam
+excerpt: An anvi'o program. Get nucleotide-level, contig-level, or bin-level coverage values from a BAM file very rapidly.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-get-coverage-from-bam

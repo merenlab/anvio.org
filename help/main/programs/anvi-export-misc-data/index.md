@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-export-misc-data [program]
+title: anvi-export-misc-data
+excerpt: An anvi'o program. Export additional data or order tables in pan or profile databases for items or layers.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-export-misc-data

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-estimate-trna-taxonomy [program]
+title: anvi-estimate-trna-taxonomy
+excerpt: An anvi'o program. Estimates taxonomy at genome and metagenome level using tRNA sequences.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-estimate-trna-taxonomy

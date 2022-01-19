@@ -1,6 +1,7 @@
 ---
 layout: artifact
-title: trnaseq-profile-db [artifact]
+title: trnaseq-profile-db
+excerpt: A DB-type anvi'o artifact. This artifact is typically generated, used, and/or exported by anvi'o (and not provided by the user)..
 categories: [anvio]
 comments: false
 redirect_from: /m/trnaseq-profile-db

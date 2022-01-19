@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-as-markdown [program]
+title: anvi-script-as-markdown
+excerpt: An anvi'o program. Markdownizides TAB-delmited data with headers in terminal.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-as-markdown
@@ -9,7 +10,7 @@ image:
   display: true
 ---
 
-Markdownizides TAB-delmited data with headers in terminal: `cat table.txt | anvi-script-as-markdown`.
+Markdownizides TAB-delmited data with headers in terminal..
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 

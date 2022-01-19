@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-export-splits-and-coverages [program]
+title: anvi-export-splits-and-coverages
+excerpt: An anvi'o program. Export split or contig sequences and coverages across samples stored in an anvi&#x27;o profile database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-export-splits-and-coverages

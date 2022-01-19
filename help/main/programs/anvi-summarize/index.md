@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-summarize [program]
+title: anvi-summarize
+excerpt: An anvi'o program. Summarizer for anvi&#x27;o pan or profile db&#x27;s.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-summarize

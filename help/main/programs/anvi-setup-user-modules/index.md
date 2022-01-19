@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-setup-user-modules [program]
+title: anvi-setup-user-modules
+excerpt: An anvi'o program. Set up user-defined metabolic pathways into an anvi&#x27;o-compatible database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-setup-user-modules

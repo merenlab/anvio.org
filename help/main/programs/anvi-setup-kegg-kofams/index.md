@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-setup-kegg-kofams [program]
+title: anvi-setup-kegg-kofams
+excerpt: An anvi'o program. Download and setup KEGG KOfam HMM profiles and KEGG MODULE data.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-setup-kegg-kofams

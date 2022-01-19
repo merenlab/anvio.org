@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-import-misc-data [program]
+title: anvi-import-misc-data
+excerpt: An anvi'o program. Populate additional data or order tables in pan or profile databases for items and layers, OR additional data in contigs databases for nucleotides and amino acids (the Swiss army knife-level serious stuff).
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-import-misc-data

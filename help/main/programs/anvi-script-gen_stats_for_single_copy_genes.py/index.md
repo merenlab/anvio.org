@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-gen_stats_for_single_copy_genes.py [program]
+title: anvi-script-gen_stats_for_single_copy_genes.py
+excerpt: An anvi'o program. A simple script to generate info from search tables, given a contigs-db.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-gen_stats_for_single_copy_genes.py

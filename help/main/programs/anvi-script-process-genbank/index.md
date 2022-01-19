@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-process-genbank [program]
+title: anvi-script-process-genbank
+excerpt: An anvi'o program. This script takes a GenBank file, and outputs a FASTA file, as well as two additional TAB-delimited output files for external gene calls and gene functions that can be used with the programs `anvi-gen-contigs-database` and `anvi-import-functions`.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-process-genbank

@@ -1,6 +1,7 @@
 ---
 layout: artifact
-title: scgs-taxonomy-db [artifact]
+title: scgs-taxonomy-db
+excerpt: A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/or exported by anvi'o (and not provided by the user)..
 categories: [anvio]
 comments: false
 redirect_from: /m/scgs-taxonomy-db

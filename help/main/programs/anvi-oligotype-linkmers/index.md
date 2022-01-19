@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-oligotype-linkmers [program]
+title: anvi-oligotype-linkmers
+excerpt: An anvi'o program. Takes an anvi&#x27;o linkmers report, generates an oligotyping output.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-oligotype-linkmers

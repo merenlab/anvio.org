@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-filter-fasta-by-blast [program]
+title: anvi-script-filter-fasta-by-blast
+excerpt: An anvi'o program. Filter FASTA file according to BLAST table (remove sequences with bad BLAST alignment).
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-filter-fasta-by-blast

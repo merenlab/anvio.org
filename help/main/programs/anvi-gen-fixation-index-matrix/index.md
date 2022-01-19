@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-gen-fixation-index-matrix [program]
+title: anvi-gen-fixation-index-matrix
+excerpt: An anvi'o program. Generate a pairwise matrix of a fixation indices between samples.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-gen-fixation-index-matrix

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-run-scg-taxonomy [program]
+title: anvi-run-scg-taxonomy
+excerpt: An anvi'o program. The purpose of this program is to affiliate single-copy core genes in an anvi&#x27;o contigs database with taxonomic names.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-run-scg-taxonomy

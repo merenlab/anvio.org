@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-estimate-genome-completeness [program]
+title: anvi-estimate-genome-completeness
+excerpt: An anvi'o program. Estimate completion and redundancy using domain-specific single-copy core genes.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-estimate-genome-completeness

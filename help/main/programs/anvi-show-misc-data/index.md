@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-show-misc-data [program]
+title: anvi-show-misc-data
+excerpt: An anvi'o program. Show all misc data keys in all misc data tables.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-show-misc-data

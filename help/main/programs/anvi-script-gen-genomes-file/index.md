@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-gen-genomes-file [program]
+title: anvi-script-gen-genomes-file
+excerpt: An anvi'o program. Generate an external genomes or internal genomes file.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-gen-genomes-file

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-setup-scg-taxonomy [program]
+title: anvi-setup-scg-taxonomy
+excerpt: An anvi'o program. The purpose of this program is to download necessary information from GTDB (https://gtdb.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-setup-scg-taxonomy

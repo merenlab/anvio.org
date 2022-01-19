@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-compute-metabolic-enrichment [program]
+title: anvi-compute-metabolic-enrichment
+excerpt: An anvi'o program. A program that computes metabolic enrichment acros groups of genomes and metagenomes.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-compute-metabolic-enrichment

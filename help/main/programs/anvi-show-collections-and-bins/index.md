@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-show-collections-and-bins [program]
+title: anvi-show-collections-and-bins
+excerpt: An anvi'o program. A script to display collections stored in an anvi&#x27;o profile or pan database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-show-collections-and-bins

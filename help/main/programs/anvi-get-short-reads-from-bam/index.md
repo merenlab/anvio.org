@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-get-short-reads-from-bam [program]
+title: anvi-get-short-reads-from-bam
+excerpt: An anvi'o program. Get short reads back from a BAM file with options for compression, splitting of forward and reverse reads, etc.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-get-short-reads-from-bam

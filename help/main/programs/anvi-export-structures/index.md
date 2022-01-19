@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-export-structures [program]
+title: anvi-export-structures
+excerpt: An anvi'o program. Export .
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-export-structures

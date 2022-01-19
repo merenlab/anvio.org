@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-get-hmm-hits-per-gene-call [program]
+title: anvi-script-get-hmm-hits-per-gene-call
+excerpt: An anvi'o program. A simple script to generate a TAB-delimited file gene caller IDs and their HMM hits for a given HMM source.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-get-hmm-hits-per-gene-call

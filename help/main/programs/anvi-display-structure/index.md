@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-display-structure [program]
+title: anvi-display-structure
+excerpt: An anvi'o program. Interactively visualize sequence variants on protein structures.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-display-structure

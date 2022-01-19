@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-setup-pfams [program]
+title: anvi-setup-pfams
+excerpt: An anvi'o program. Download and setup Pfam data from the EBI.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-setup-pfams

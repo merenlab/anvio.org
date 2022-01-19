@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-experimental-organization [program]
+title: anvi-experimental-organization
+excerpt: An anvi'o program. Create an experimental clustering dendrogram.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-experimental-organization

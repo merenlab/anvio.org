@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-update-structure-database [program]
+title: anvi-update-structure-database
+excerpt: An anvi'o program. Add or re-run genes from an already existing structure database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-update-structure-database

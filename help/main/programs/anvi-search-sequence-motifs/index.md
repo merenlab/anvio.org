@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-search-sequence-motifs [program]
+title: anvi-search-sequence-motifs
+excerpt: An anvi'o program. A program to find one or more sequence motifs in contig or gene sequences, and store their frequencies.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-search-sequence-motifs

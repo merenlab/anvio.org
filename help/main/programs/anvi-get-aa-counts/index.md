@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-get-aa-counts [program]
+title: anvi-get-aa-counts
+excerpt: An anvi'o program. Fetches the number of times each amino acid occurs from a contigs database in a given bin, set of contigs, or set of genes.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-get-aa-counts

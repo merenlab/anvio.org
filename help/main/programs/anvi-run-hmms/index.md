@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-run-hmms [program]
+title: anvi-run-hmms
+excerpt: An anvi'o program. This program deals with populating tables that store HMM hits in an anvi&#x27;o contigs database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-run-hmms

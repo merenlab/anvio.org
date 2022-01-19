@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-profile [program]
+title: anvi-profile
+excerpt: An anvi'o program. The flagship anvi&#x27;o proram to profile a BAM file.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-profile

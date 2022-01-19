@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-gen-contigs-database [program]
+title: anvi-gen-contigs-database
+excerpt: An anvi'o program. Generate a new anvi&#x27;o contigs database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-gen-contigs-database

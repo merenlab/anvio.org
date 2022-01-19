@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-setup-pdb-database [program]
+title: anvi-setup-pdb-database
+excerpt: An anvi'o program. Setup or update an offline database of representative PDB structures clustered at 95%.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-setup-pdb-database

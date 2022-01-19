@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-migrate [program]
+title: anvi-migrate
+excerpt: An anvi'o program. Migrate an anvi&#x27;o database or config file to a newer version.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-migrate

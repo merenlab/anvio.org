@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-get-short-reads-mapping-to-a-gene [program]
+title: anvi-get-short-reads-mapping-to-a-gene
+excerpt: An anvi'o program. Recover short reads from BAM files that were mapped to genes you are interested in.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-get-short-reads-mapping-to-a-gene

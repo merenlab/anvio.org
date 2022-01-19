@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-report-inversions [program]
+title: anvi-report-inversions
+excerpt: An anvi'o program. Reports inversions.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-report-inversions

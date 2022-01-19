@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-augustus-output-to-external-gene-calls [program]
+title: anvi-script-augustus-output-to-external-gene-calls
+excerpt: An anvi'o program. Takes in gene calls by AUGUSTUS v3.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-augustus-output-to-external-gene-calls

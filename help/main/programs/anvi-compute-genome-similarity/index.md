@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-compute-genome-similarity [program]
+title: anvi-compute-genome-similarity
+excerpt: An anvi'o program. Export sequences from sequence sources and compute a similarity metric (e.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-compute-genome-similarity

@@ -1,6 +1,7 @@
 ---
 layout: artifact
-title: interacdome-data [artifact]
+title: interacdome-data
+excerpt: A DATA-type anvi'o artifact. This artifact is typically generated, used, and/or exported by anvi'o (and not provided by the user)..
 categories: [anvio]
 comments: false
 redirect_from: /m/interacdome-data

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-gen-gene-consensus-sequences [program]
+title: anvi-gen-gene-consensus-sequences
+excerpt: An anvi'o program. Collapse variability for a set of genes across samples.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-gen-gene-consensus-sequences

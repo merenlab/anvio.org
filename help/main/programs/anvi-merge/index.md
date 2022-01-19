@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-merge [program]
+title: anvi-merge
+excerpt: An anvi'o program. Merge multiple anvio profiles.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-merge

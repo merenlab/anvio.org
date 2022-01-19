@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-reformat-fasta [program]
+title: anvi-script-reformat-fasta
+excerpt: An anvi'o program. Reformat FASTA file (remove contigs based on length, or based on a given list of deflines, and/or generate an output with simpler names).
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-reformat-fasta

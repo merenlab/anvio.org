@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-process-genbank-metadata [program]
+title: anvi-script-process-genbank-metadata
+excerpt: An anvi'o program. This script takes the &#x27;metadata&#x27; output of the program `ncbi-genome-download` (see [https://github.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-process-genbank-metadata

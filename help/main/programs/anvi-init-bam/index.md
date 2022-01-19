@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-init-bam [program]
+title: anvi-init-bam
+excerpt: An anvi'o program. Sort/Index BAM files.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-init-bam

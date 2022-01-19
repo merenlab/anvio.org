@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-tabulate-trnaseq [program]
+title: anvi-tabulate-trnaseq
+excerpt: An anvi'o program. A program to write standardized tab-delimited files of tRNA-seq seed coverage and modification results.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-tabulate-trnaseq

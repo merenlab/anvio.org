@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-export-contigs [program]
+title: anvi-export-contigs
+excerpt: An anvi'o program. Export contigs (or splits) from an anvi&#x27;o contigs database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-export-contigs

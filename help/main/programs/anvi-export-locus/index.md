@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-export-locus [program]
+title: anvi-export-locus
+excerpt: An anvi'o program. This program helps you cut a &#x27;locus&#x27; from a larger genetic context (e.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-export-locus

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-gen-pseudo-paired-reads-from-fastq [program]
+title: anvi-script-gen-pseudo-paired-reads-from-fastq
+excerpt: An anvi'o program. A script that takes a FASTQ file that is not paired-end (i.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-gen-pseudo-paired-reads-from-fastq

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-display-metabolism [program]
+title: anvi-display-metabolism
+excerpt: An anvi'o program. Start the anvi&#x27;o interactive interactive for viewing KEGG metabolism data.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-display-metabolism

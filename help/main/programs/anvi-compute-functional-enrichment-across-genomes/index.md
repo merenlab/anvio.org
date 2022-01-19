@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-compute-functional-enrichment-across-genomes [program]
+title: anvi-compute-functional-enrichment-across-genomes
+excerpt: An anvi'o program. A program that computes functional enrichment across groups of genomes.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-compute-functional-enrichment-across-genomes

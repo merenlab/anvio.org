@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-run-interacdome [program]
+title: anvi-run-interacdome
+excerpt: An anvi'o program. Run InteracDome on a contigs database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-run-interacdome

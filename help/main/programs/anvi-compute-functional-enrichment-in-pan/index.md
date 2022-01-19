@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-compute-functional-enrichment-in-pan [program]
+title: anvi-compute-functional-enrichment-in-pan
+excerpt: An anvi'o program. A program that computes functional enrichment within a pangenome.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-compute-functional-enrichment-in-pan

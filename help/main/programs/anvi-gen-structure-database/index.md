@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-gen-structure-database [program]
+title: anvi-gen-structure-database
+excerpt: An anvi'o program. Creates a database of protein structures.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-gen-structure-database

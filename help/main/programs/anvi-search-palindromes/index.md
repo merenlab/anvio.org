@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-search-palindromes [program]
+title: anvi-search-palindromes
+excerpt: An anvi'o program. A program to find palindromes in sequences.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-search-palindromes

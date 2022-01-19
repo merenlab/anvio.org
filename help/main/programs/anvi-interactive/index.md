@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-interactive [program]
+title: anvi-interactive
+excerpt: An anvi'o program. Start an anvi&#x27;o server for the interactive interface.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-interactive

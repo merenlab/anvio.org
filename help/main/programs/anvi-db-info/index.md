@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-db-info [program]
+title: anvi-db-info
+excerpt: An anvi'o program. Access self tables, display values, or set new ones totally on your own risk.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-db-info

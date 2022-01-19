@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-permute-trnaseq-seeds [program]
+title: anvi-script-permute-trnaseq-seeds
+excerpt: An anvi'o program. This script generates a FASTA file of tRNA-seq seeds with permuted nucleotides at positions of predicted modification-induced substitutions.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-permute-trnaseq-seeds

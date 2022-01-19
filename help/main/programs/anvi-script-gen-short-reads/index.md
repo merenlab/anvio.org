@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-gen-short-reads [program]
+title: anvi-script-gen-short-reads
+excerpt: An anvi'o program. Generate short reads from contigs.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-gen-short-reads

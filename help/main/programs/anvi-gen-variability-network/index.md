@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-gen-variability-network [program]
+title: anvi-gen-variability-network
+excerpt: An anvi'o program. A program to generate a network description from an anvi&#x27;o variability profile (potentially outdated program).
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-gen-variability-network

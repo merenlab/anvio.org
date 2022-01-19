@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-matrix-to-newick [program]
+title: anvi-matrix-to-newick
+excerpt: An anvi'o program. Takes a distance matrix, returns a newick tree.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-matrix-to-newick

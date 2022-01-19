@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-dereplicate-genomes [program]
+title: anvi-dereplicate-genomes
+excerpt: An anvi'o program. Identify redundant (highly similar) genomes.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-dereplicate-genomes

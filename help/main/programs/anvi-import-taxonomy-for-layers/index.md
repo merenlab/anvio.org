@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-import-taxonomy-for-layers [program]
+title: anvi-import-taxonomy-for-layers
+excerpt: An anvi'o program. Import layers-level taxonomy into an anvi&#x27;o additional layer data table in an anvi&#x27;o single-profile database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-import-taxonomy-for-layers

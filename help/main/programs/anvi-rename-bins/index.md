@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-rename-bins [program]
+title: anvi-rename-bins
+excerpt: An anvi'o program. Rename all bins in a given collection (so they have pretty names).
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-rename-bins

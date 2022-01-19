@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-update-db-description [program]
+title: anvi-update-db-description
+excerpt: An anvi'o program. Update the description in an anvi&#x27;o database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-update-db-description

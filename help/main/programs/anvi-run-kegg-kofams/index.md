@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-run-kegg-kofams [program]
+title: anvi-run-kegg-kofams
+excerpt: An anvi'o program. Run KOfam HMMs on an anvi&#x27;o contigs database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-run-kegg-kofams

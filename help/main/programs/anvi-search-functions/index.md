@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-search-functions [program]
+title: anvi-search-functions
+excerpt: An anvi'o program. Search functions in an anvi&#x27;o contigs database or genomes storage.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-search-functions

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-get-split-coverages [program]
+title: anvi-get-split-coverages
+excerpt: An anvi'o program. Export splits and the coverage table from database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-get-split-coverages

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-delete-misc-data [program]
+title: anvi-delete-misc-data
+excerpt: An anvi'o program. Remove stuff from &#x27;additional data&#x27; or &#x27;order&#x27; tables for either items or layers in either pan or profile databases.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-delete-misc-data

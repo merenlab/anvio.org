@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-gen-variability-profile [program]
+title: anvi-gen-variability-profile
+excerpt: An anvi'o program. Generate a table that comprehensively summarizes the variability of nucleotide, codon, or amino acid positions.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-gen-variability-profile

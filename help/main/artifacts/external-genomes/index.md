@@ -1,6 +1,7 @@
 ---
 layout: artifact
-title: external-genomes [artifact]
+title: external-genomes
+excerpt: A TXT-type anvi'o artifact. This artifact is typically provided by the user for anvi'o to import into its databases, process, and/or use.
 categories: [anvio]
 comments: false
 redirect_from: /m/external-genomes

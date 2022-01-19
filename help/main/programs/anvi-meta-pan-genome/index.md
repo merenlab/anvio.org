@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-meta-pan-genome [program]
+title: anvi-meta-pan-genome
+excerpt: An anvi'o program. Convert a pangenome into a metapangenome.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-meta-pan-genome
