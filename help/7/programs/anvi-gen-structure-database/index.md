@@ -10,7 +10,7 @@ image:
 
 Identifies genes in your contigs database that encode proteins that are homologous to proteins with solved structures. If sufficiently similar homologs are identified, they are used as structural templates to predict the 3D structure of proteins in your contigs database.
 
-See **[program help menu](../../../../vignette#anvi-gen-structure-database)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -32,15 +32,15 @@ See **[program help menu](../../../../vignette#anvi-gen-structure-database)** or
 
 
 
-This program attempts to solve for the 3D structures of proteins encoded by genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/7/artifacts/contigs-db)</span> using DIAMOND and MODELLER.  
+This program attempts to solve for the 3D structures of proteins encoded by genes in your <span class="artifact-n">[contigs-db](/help/7/artifacts/contigs-db)</span> using DIAMOND and MODELLER.  
 
 DIAMOND first searches your sequence(s) against a database of proteins with a known structure.  This database is downloaded from the [Sali lab](https://salilab.org/modeller/supplemental.html), who created and maintain MODELLER, and contains all of the PDB sequences clustered at 95% identity.
 
 
-If any good hits are found, they are selected as templates, and their structures are nabbed either from [the RCSB directly](https://www.rcsb.org/), or from a local <span class="artifact-n">[pdb-db](/software/anvio/help/7/artifacts/pdb-db)</span> database which you can create yourself with <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/7/programs/anvi-setup-pdb-database)</span>. Then, anvi'o passes control over to MODELLER, which creates a 3D alignment for your sequence to the template structures, and makes final adjustments to it based off of empirical distributions of bond angles. For more information, check [this blogpost](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#how-modeller-works).
+If any good hits are found, they are selected as templates, and their structures are nabbed either from [the RCSB directly](https://www.rcsb.org/), or from a local <span class="artifact-n">[pdb-db](/help/7/artifacts/pdb-db)</span> database which you can create yourself with <span class="artifact-n">[anvi-setup-pdb-database](/help/7/programs/anvi-setup-pdb-database)</span>. Then, anvi'o passes control over to MODELLER, which creates a 3D alignment for your sequence to the template structures, and makes final adjustments to it based off of empirical distributions of bond angles. For more information, check [this blogpost](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#how-modeller-works).
 
 
-The output of this program is a <span class="artifact-n">[structure-db](/software/anvio/help/7/artifacts/structure-db)</span>, which contains all of the modelled structures.  Currently, the primary use of the <span class="artifact-n">[structure-db](/software/anvio/help/7/artifacts/structure-db)</span> is for interactive exploration with <span class="artifact-n">[anvi-display-structure](/software/anvio/help/7/programs/anvi-display-structure)</span>. You can also export your structures into external .pdb files with <span class="artifact-n">[anvi-export-structures](/software/anvio/help/7/programs/anvi-export-structures)</span>, or incorporate structural information in the <span class="artifact-n">[variability-profile-txt](/software/anvio/help/7/artifacts/variability-profile-txt)</span> with <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/7/programs/anvi-gen-variability-profile)</span>.
+The output of this program is a <span class="artifact-n">[structure-db](/help/7/artifacts/structure-db)</span>, which contains all of the modelled structures.  Currently, the primary use of the <span class="artifact-n">[structure-db](/help/7/artifacts/structure-db)</span> is for interactive exploration with <span class="artifact-n">[anvi-display-structure](/help/7/programs/anvi-display-structure)</span>. You can also export your structures into external .pdb files with <span class="artifact-n">[anvi-export-structures](/help/7/programs/anvi-export-structures)</span>, or incorporate structural information in the <span class="artifact-n">[variability-profile-txt](/help/7/artifacts/variability-profile-txt)</span> with <span class="artifact-n">[anvi-gen-variability-profile](/help/7/programs/anvi-gen-variability-profile)</span>.
 
 
 ### Basic run 
@@ -48,19 +48,19 @@ The output of this program is a <span class="artifact-n">[structure-db](/softwar
 Here is a simple run: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7/artifacts/contigs&#45;db)</span> \
+anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7/artifacts/contigs&#45;db)</span> \
                             &#45;&#45;gene&#45;caller&#45;ids 1,2,3 \
                             &#45;o STRUCTURE.db 
 </div>
 
 Following this, you will have the structures for genes 1, 2, and 3 stored in `STRUCTURE.db`, assuming reasonable templates were found. Alternatively, you can provide a file name with the gene caller IDs (one ID per line) with the flag `--genes-of-interest`.  
 
-If you have already run <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/7/programs/anvi-setup-pdb-database)</span> and therefore have a local copy of representative PDB structures, make sure you use it by providing the `--offline` flag. If you put it in a non-default location, provide the path to your <span class="artifact-n">[pdb-db](/software/anvio/help/7/artifacts/pdb-db)</span>: 
+If you have already run <span class="artifact-n">[anvi-setup-pdb-database](/help/7/programs/anvi-setup-pdb-database)</span> and therefore have a local copy of representative PDB structures, make sure you use it by providing the `--offline` flag. If you put it in a non-default location, provide the path to your <span class="artifact-n">[pdb-db](/help/7/artifacts/pdb-db)</span>: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7/artifacts/contigs&#45;db)</span> \
+anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7/artifacts/contigs&#45;db)</span> \
                             &#45;&#45;gene&#45;caller&#45;ids 1,2,3 \
-                            &#45;&#45;pdb&#45;database <span class="artifact&#45;n">[pdb&#45;db](/software/anvio/help/7/artifacts/pdb&#45;db)</span> \
+                            &#45;&#45;pdb&#45;database <span class="artifact&#45;n">[pdb&#45;db](/help/7/artifacts/pdb&#45;db)</span> \
                             &#45;o STRUCTURE.db 
 </div>
 
@@ -72,7 +72,7 @@ Here, we will go through a brief overview of the MODELLER parameters that you ar
 
 - The number of models to be simulated. The default is 1. 
 - The standard deviation of atomic perturbation of the initial structure (i.e. how much you change the position of the atoms before fine tuning with other analysis). The default is 4 angstroms.
-- The MODELLER database used. The default is `pdb_95`, which can be found [here](https://salilab.org/modeller/supplemental.html). This is the same database that is downloaded by <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/7/programs/anvi-setup-pdb-database)</span>.
+- The MODELLER database used. The default is `pdb_95`, which can be found [here](https://salilab.org/modeller/supplemental.html). This is the same database that is downloaded by <span class="artifact-n">[anvi-setup-pdb-database](/help/7/programs/anvi-setup-pdb-database)</span>.
 - The scoring function used to compare potential models. The default is `DOPE_score`.
 - The minimum percent identity cutoff for a template to be further considered.
 - The minimum alignment fraction that the sequence is covered by the template in order to be further considered.

@@ -23,7 +23,7 @@ Takes a distance matrix, returns a newick tree.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,20 +42,20 @@ Takes a distance matrix, returns a newick tree.
 ## Usage
 
 
-This program converts a distance matrix (computed from a <span class="artifact-n">[view-data](/software/anvio/help/7.1/artifacts/view-data)</span> artifact) into a <span class="artifact-n">[dendrogram](/software/anvio/help/7.1/artifacts/dendrogram)</span>. 
+This program converts a distance matrix (computed from a <span class="artifact-n">[view-data](/help/7.1/artifacts/view-data)</span> artifact) into a <span class="artifact-n">[dendrogram](/help/7.1/artifacts/dendrogram)</span>. 
 
-It uses the numerical data in a <span class="artifact-n">[view-data](/software/anvio/help/7.1/artifacts/view-data)</span> to compute a distance matrix behind the scenes, and then runs some hierarchical clustering to create a <span class="artifact-n">[dendrogram](/software/anvio/help/7.1/artifacts/dendrogram)</span> for all of your items. 
+It uses the numerical data in a <span class="artifact-n">[view-data](/help/7.1/artifacts/view-data)</span> to compute a distance matrix behind the scenes, and then runs some hierarchical clustering to create a <span class="artifact-n">[dendrogram](/help/7.1/artifacts/dendrogram)</span> for all of your items. 
 
 With all default parameters, a run would look like this:
 
 <div class="codeblock" markdown="1">
-anvi&#45;matrix&#45;to&#45;newick &#45;o path/for/<span class="artifact&#45;n">[dendrogram](/software/anvio/help/7.1/artifacts/dendrogram)</span> \ 
-                      <span class="artifact&#45;n">[view&#45;data](/software/anvio/help/7.1/artifacts/view&#45;data)</span> 
+anvi&#45;matrix&#45;to&#45;newick &#45;o path/for/<span class="artifact&#45;n">[dendrogram](/help/7.1/artifacts/dendrogram)</span> \ 
+                      <span class="artifact&#45;n">[view&#45;data](/help/7.1/artifacts/view&#45;data)</span> 
 </div>
 
 If your input file has your samples as rows instead of columns, just add the flag `--transpose`. 
 
-You can also ask for an additional output file: the order of the items in the resulting dendrogram as a <span class="artifact-n">[misc-data-items-order](/software/anvio/help/7.1/artifacts/misc-data-items-order)</span> in LIST format. To get this, simply provide a path to its desired location  with `--items-order-file`. 
+You can also ask for an additional output file: the order of the items in the resulting dendrogram as a <span class="artifact-n">[misc-data-items-order](/help/7.1/artifacts/misc-data-items-order)</span> in LIST format. To get this, simply provide a path to its desired location  with `--items-order-file`. 
 
 Additionally, for hierarchical clustering, you can change the distance metric (a full list of the available metrics can be found [here](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.pdist.html)) or the linkage method (though this is not recommended, the list of options can be found [here](https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html)).
 

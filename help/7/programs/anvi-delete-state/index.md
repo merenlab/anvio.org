@@ -10,7 +10,7 @@ image:
 
 Delete an anvi&#x27;o state from a pan or profile database.
 
-See **[program help menu](../../../../vignette#anvi-delete-state)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,22 +31,22 @@ See **[program help menu](../../../../vignette#anvi-delete-state)** or go back t
 ## Usage
 
 
-This program, as implied by the name, is used to delete a <span class="artifact-n">[state](/software/anvio/help/7/artifacts/state)</span> from a <span class="artifact-n">[pan-db](/software/anvio/help/7/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span>. This way, you can remove states that are clogging up the state list in the interface. 
+This program, as implied by the name, is used to delete a <span class="artifact-n">[state](/help/7/artifacts/state)</span> from a <span class="artifact-n">[pan-db](/help/7/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span>. This way, you can remove states that are clogging up the state list in the interface. 
 
 It is generally a good idea to export your state before deleting it, just in case ((anvi-export-state)s).
 
-To list available <span class="artifact-n">[state](/software/anvio/help/7/artifacts/state)</span>s in a database, call 
+To list available <span class="artifact-n">[state](/help/7/artifacts/state)</span>s in a database, call 
 
 <div class="codeblock" markdown="1">
-anvi&#45;delete&#45;state &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/7/artifacts/pan&#45;db)</span> \
+anvi&#45;delete&#45;state &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/7/artifacts/pan&#45;db)</span> \
                  &#45;&#45;list&#45;states
 </div>
 
-Then, you can easily delete a <span class="artifact-n">[state](/software/anvio/help/7/artifacts/state)</span> with the command
+Then, you can easily delete a <span class="artifact-n">[state](/help/7/artifacts/state)</span> with the command
 
 <div class="codeblock" markdown="1">
-anvi&#45;delete&#45;hmms &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7/artifacts/profile&#45;db)</span> \
-                 &#45;s <span class="artifact&#45;n">[state](/software/anvio/help/7/artifacts/state)</span> 
+anvi&#45;delete&#45;hmms &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7/artifacts/profile&#45;db)</span> \
+                 &#45;s <span class="artifact&#45;n">[state](/help/7/artifacts/state)</span> 
 </div>
 
 

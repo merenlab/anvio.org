@@ -32,13 +32,13 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-Essentially, a collection **is a group of <span class="artifact-n">[bin](/software/anvio/help/7/artifacts/bin)</span>s**.
+Essentially, a collection **is a group of <span class="artifact-n">[bin](/help/7/artifacts/bin)</span>s**.
 
-You can use collections to represent all kinds of things. The default collection (that you'll get by running <span class="artifact-n">[anvi-script-add-default-collection](/software/anvio/help/7/programs/anvi-script-add-default-collection)</span>) is called DEFAULT and contains all of your contigs. However, you can put any group of bins into their own collection, and use that to limit what you're analyzing downstream. A ton of anvi'o programs are able to take in a bin or a collection so that you don't have to analyze your entire contigs-db when you just want to look at one section. 
+You can use collections to represent all kinds of things. The default collection (that you'll get by running <span class="artifact-n">[anvi-script-add-default-collection](/help/7/programs/anvi-script-add-default-collection)</span>) is called DEFAULT and contains all of your contigs. However, you can put any group of bins into their own collection, and use that to limit what you're analyzing downstream. A ton of anvi'o programs are able to take in a bin or a collection so that you don't have to analyze your entire contigs-db when you just want to look at one section. 
 
-To look at the collections contained within an Anvi'o database, just run <span class="artifact-n">[anvi-show-collections-and-bins](/software/anvio/help/7/programs/anvi-show-collections-and-bins)</span>. Or, to look at the completion estimates for all bins within a collection, use <span class="artifact-n">[anvi-estimate-genome-completeness](/software/anvio/help/7/programs/anvi-estimate-genome-completeness)</span>.
+To look at the collections contained within an Anvi'o database, just run <span class="artifact-n">[anvi-show-collections-and-bins](/help/7/programs/anvi-show-collections-and-bins)</span>. Or, to look at the completion estimates for all bins within a collection, use <span class="artifact-n">[anvi-estimate-genome-completeness](/help/7/programs/anvi-estimate-genome-completeness)</span>.
 
-To view the content within a collection, use <span class="artifact-n">[anvi-summarize](/software/anvio/help/7/programs/anvi-summarize)</span>.
+To view the content within a collection, use <span class="artifact-n">[anvi-summarize](/help/7/programs/anvi-summarize)</span>.
 
 ### Examples of collections in action
 

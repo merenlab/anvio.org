@@ -34,9 +34,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 A **directory of data** downloaded from the [KEGG database resource](https://www.kegg.jp/) for use in function annotation and metabolism estimation.
 
-It is created by running the program <span class="artifact-n">[anvi-setup-kegg-kofams](/software/anvio/help/7/programs/anvi-setup-kegg-kofams)</span>. Not everything from KEGG is included in this directory, only the information relevant to downstream programs. The most critical components of this directory are KOfam HMM profiles and the <span class="artifact-n">[modules-db](/software/anvio/help/7/artifacts/modules-db)</span> which contains information on metabolic pathways as described in the [KEGG MODULES resource](https://www.genome.jp/kegg/module.html).
+It is created by running the program <span class="artifact-n">[anvi-setup-kegg-kofams](/help/7/programs/anvi-setup-kegg-kofams)</span>. Not everything from KEGG is included in this directory, only the information relevant to downstream programs. The most critical components of this directory are KOfam HMM profiles and the <span class="artifact-n">[modules-db](/help/7/artifacts/modules-db)</span> which contains information on metabolic pathways as described in the [KEGG MODULES resource](https://www.genome.jp/kegg/module.html).
 
-Programs that rely on this data directory include <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/7/programs/anvi-run-kegg-kofams)</span> and <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/7/programs/anvi-estimate-metabolism)</span>.
+Programs that rely on this data directory include <span class="artifact-n">[anvi-run-kegg-kofams](/help/7/programs/anvi-run-kegg-kofams)</span> and <span class="artifact-n">[anvi-estimate-metabolism](/help/7/programs/anvi-estimate-metabolism)</span>.
 
 
 {:.notice}

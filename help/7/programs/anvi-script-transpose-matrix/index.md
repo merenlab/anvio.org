@@ -10,7 +10,7 @@ image:
 
 Transpose a TAB-delimited file.
 
-See **[program help menu](../../../../vignette#anvi-script-transpose-matrix)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -35,7 +35,7 @@ This is a script that transposes tab-delimited files. That's it.
 
 It's helpful to get your inputs to line up with the types of inputs that anvi'o expects. Some programs have the `--transpose` flag, which will run this program for you, but some don't, and that's when you'll have to run it yourself. 
 
-For example, anvi'o expects <span class="artifact-n">[view-data](/software/anvio/help/7/artifacts/view-data)</span> to have each column representing a sample. If the file that you want to integrate into your anvi'o project has the samples as rows and the data attribute as the columns, then you'll need to <span class="artifact-n">[anvi-script-transpose-matrix](/software/anvio/help/7/programs/anvi-script-transpose-matrix)</span> it. 
+For example, anvi'o expects <span class="artifact-n">[view-data](/help/7/artifacts/view-data)</span> to have each column representing a sample. If the file that you want to integrate into your anvi'o project has the samples as rows and the data attribute as the columns, then you'll need to <span class="artifact-n">[anvi-script-transpose-matrix](/help/7/programs/anvi-script-transpose-matrix)</span> it. 
 
 ### An Example Run 
 

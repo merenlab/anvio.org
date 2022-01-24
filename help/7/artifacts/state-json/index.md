@@ -32,7 +32,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This is a JSON file that describes a <span class="artifact-n">[state](/software/anvio/help/7/artifacts/state)</span>. It is the output of <span class="artifact-n">[anvi-export-state](/software/anvio/help/7/programs/anvi-export-state)</span> and can be imported into the interface (through a database) using <span class="artifact-n">[anvi-export-state](/software/anvio/help/7/programs/anvi-export-state)</span>. 
+This is a JSON file that describes a <span class="artifact-n">[state](/help/7/artifacts/state)</span>. It is the output of <span class="artifact-n">[anvi-export-state](/help/7/programs/anvi-export-state)</span> and can be imported into the interface (through a database) using <span class="artifact-n">[anvi-export-state](/help/7/programs/anvi-export-state)</span>. 
 
 This is how you would give a state to a fellow anvi'o user. If opened, you'll be able to view all of the data that's contained in this state. 
 

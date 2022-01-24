@@ -23,7 +23,7 @@ The purpose of this program is to setup necessary databases for tRNA genes colle
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,9 +42,9 @@ This program seems to know what its doing. It needs no input material from its u
 ## Usage
 
 
-This program downloads a local copy of a subset of the databases from [GTDB](https://gtdb.ecogenomic.org/) (stored in a <span class="artifact-n">[trna-taxonomy-db](/software/anvio/help/7.1/artifacts/trna-taxonomy-db)</span>), so that tRNA sequences in your dataset can be associated with taxonomy information. It is required to run this program before you can run <span class="artifact-n">[anvi-run-trna-taxonomy](/software/anvio/help/7.1/programs/anvi-run-trna-taxonomy)</span> or <span class="artifact-n">[anvi-estimate-trna-taxonomy](/software/anvio/help/7.1/programs/anvi-estimate-trna-taxonomy)</span>.
+This program downloads a local copy of a subset of the databases from [GTDB](https://gtdb.ecogenomic.org/) (stored in a <span class="artifact-n">[trna-taxonomy-db](/help/7.1/artifacts/trna-taxonomy-db)</span>), so that tRNA sequences in your dataset can be associated with taxonomy information. It is required to run this program before you can run <span class="artifact-n">[anvi-run-trna-taxonomy](/help/7.1/programs/anvi-run-trna-taxonomy)</span> or <span class="artifact-n">[anvi-estimate-trna-taxonomy](/help/7.1/programs/anvi-estimate-trna-taxonomy)</span>.
 
-Like other `anvi-setup-` programs, this only needs to be run once per anvi'o version. The default path is `anvio/data/misc/TRNA-TAXONOMY`. You can store the resulting <span class="artifact-n">[trna-taxonomy-db](/software/anvio/help/7.1/artifacts/trna-taxonomy-db)</span> in a custom location if desired), but then you'll need to provide the path to it whenever you run <span class="artifact-n">[anvi-run-trna-taxonomy](/software/anvio/help/7.1/programs/anvi-run-trna-taxonomy)</span>. 
+Like other `anvi-setup-` programs, this only needs to be run once per anvi'o version. The default path is `anvio/data/misc/TRNA-TAXONOMY`. You can store the resulting <span class="artifact-n">[trna-taxonomy-db](/help/7.1/artifacts/trna-taxonomy-db)</span> in a custom location if desired), but then you'll need to provide the path to it whenever you run <span class="artifact-n">[anvi-run-trna-taxonomy](/help/7.1/programs/anvi-run-trna-taxonomy)</span>. 
 
 To run this program, you can simply run
 

@@ -32,12 +32,12 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This file describes all of the gene calls contained in a <span class="artifact-n">[contigs-db](/software/anvio/help/7/artifacts/contigs-db)</span> from a specified list of sources. It is the output of <span class="artifact-n">[anvi-export-gene-calls](/software/anvio/help/7/programs/anvi-export-gene-calls)</span>. 
+This file describes all of the gene calls contained in a <span class="artifact-n">[contigs-db](/help/7/artifacts/contigs-db)</span> from a specified list of sources. It is the output of <span class="artifact-n">[anvi-export-gene-calls](/help/7/programs/anvi-export-gene-calls)</span>. 
 
-For each gene identified, this file provides various information, including the caller ID, [start and stop position](http://merenlab.org/software/anvio/help/artifacts/external-gene-calls/#gene-startstop-positions), direction, whether or not the gene is partial, the [call type](http://merenlab.org/software/anvio/help/artifacts/external-gene-calls/#call-type), source and version (if available ), and the amino acid sequence. 
+For each gene identified, this file provides various information, including the caller ID, [start and stop position](http://merenlab.org/help/artifacts/external-gene-calls/#gene-startstop-positions), direction, whether or not the gene is partial, the [call type](http://merenlab.org/help/artifacts/external-gene-calls/#call-type), source and version (if available ), and the amino acid sequence. 
 
 {:.notice}
-Want more information? This file is in the same format as an <span class="artifact-n">[external-gene-calls](/software/anvio/help/7/artifacts/external-gene-calls)</span>, so check out that page. 
+Want more information? This file is in the same format as an <span class="artifact-n">[external-gene-calls](/help/7/artifacts/external-gene-calls)</span>, so check out that page. 
 
 Here is an example from the Infant Gut Dataset: 
 

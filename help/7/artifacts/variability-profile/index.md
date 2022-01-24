@@ -32,7 +32,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-As an artifact, this describes the variability information about a single sample calculated when you ran <span class="artifact-n">[anvi-profile](/software/anvio/help/7/programs/anvi-profile)</span>. To examine variability across samples, you'll want to use this information (which is stored within your <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span>) to run <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/7/programs/anvi-gen-variability-profile)</span>. 
+As an artifact, this describes the variability information about a single sample calculated when you ran <span class="artifact-n">[anvi-profile](/help/7/programs/anvi-profile)</span>. To examine variability across samples, you'll want to use this information (which is stored within your <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span>) to run <span class="artifact-n">[anvi-gen-variability-profile](/help/7/programs/anvi-gen-variability-profile)</span>. 
 
 ## Details about Variability
 
@@ -42,13 +42,13 @@ Here, the term "population" describes an assemblage of co-existing microbial gen
 
 The variability profile of a metagenome enables studies of [microbial population genetics with anvi'o](http://merenlab.org/2015/07/20/analyzing-variability/).
 
-There are two types of variability the program <span class="artifact-n">[anvi-profile](/software/anvio/help/7/programs/anvi-profile)</span> can characterize and store: substitutions and indels.
+There are two types of variability the program <span class="artifact-n">[anvi-profile](/help/7/programs/anvi-profile)</span> can characterize and store: substitutions and indels.
 
 ### Substitutions: SNVs, SCVs, SAAVs
 
 Anvi'o can make sense of single-nucleotide variants (SNVs), single-codon variants (SCVs), and single-amino acid variants (SAAVs). See [this article](http://merenlab.org/2015/07/20/analyzing-variability) for more information.
 
-You can learn the name of the table in which anvi'o stores this in a given <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span> by running this command in your anvi'o environment:
+You can learn the name of the table in which anvi'o stores this in a given <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span> by running this command in your anvi'o environment:
 
 ``` bash
 python -c 'import anvio.tables as t; print(t.variable_nts_table_name)'

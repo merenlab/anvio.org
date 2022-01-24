@@ -32,9 +32,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-A FASTA-formatted file that does not necessarily meet the standards of a <span class="artifact-n">[contigs-fasta](/software/anvio/help/7/artifacts/contigs-fasta)</span>.
+A FASTA-formatted file that does not necessarily meet the standards of a <span class="artifact-n">[contigs-fasta](/help/7/artifacts/contigs-fasta)</span>.
 
-<span class="artifact-n">[anvi-script-reformat-fasta](/software/anvio/help/7/programs/anvi-script-reformat-fasta)</span> can turn a regular fasta into a <span class="artifact-n">[contigs-fasta](/software/anvio/help/7/artifacts/contigs-fasta)</span>, which anvi'o will be able to utilize better.
+<span class="artifact-n">[anvi-script-reformat-fasta](/help/7/programs/anvi-script-reformat-fasta)</span> can turn a regular fasta into a <span class="artifact-n">[contigs-fasta](/help/7/artifacts/contigs-fasta)</span>, which anvi'o will be able to utilize better.
 
 ### But what is a FASTA file? 
 

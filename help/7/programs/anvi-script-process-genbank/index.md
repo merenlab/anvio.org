@@ -10,7 +10,7 @@ image:
 
 This script takes a GenBank file, and outputs a FASTA file, as well as two additional TAB-delimited output files for external gene calls and gene functions that can be used with the programs `anvi-gen-contigs-database` and `anvi-import-functions`.
 
-See **[program help menu](../../../../vignette#anvi-script-process-genbank)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,11 +31,11 @@ See **[program help menu](../../../../vignette#anvi-script-process-genbank)** or
 ## Usage
 
 
-This program extracts the data from a <span class="artifact-n">[genbank-file](/software/anvio/help/7/artifacts/genbank-file)</span> and converts it into anvi'o friendly artifacts: namely, a <span class="artifact-n">[contigs-fasta](/software/anvio/help/7/artifacts/contigs-fasta)</span>, <span class="artifact-n">[external-gene-calls](/software/anvio/help/7/artifacts/external-gene-calls)</span> and a <span class="artifact-n">[functions-txt](/software/anvio/help/7/artifacts/functions-txt)</span>.
+This program extracts the data from a <span class="artifact-n">[genbank-file](/help/7/artifacts/genbank-file)</span> and converts it into anvi'o friendly artifacts: namely, a <span class="artifact-n">[contigs-fasta](/help/7/artifacts/contigs-fasta)</span>, <span class="artifact-n">[external-gene-calls](/help/7/artifacts/external-gene-calls)</span> and a <span class="artifact-n">[functions-txt](/help/7/artifacts/functions-txt)</span>.
 
-The <span class="artifact-n">[contigs-fasta](/software/anvio/help/7/artifacts/contigs-fasta)</span> and <span class="artifact-n">[external-gene-calls](/software/anvio/help/7/artifacts/external-gene-calls)</span> can be given to <span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/7/programs/anvi-gen-contigs-database)</span> to create a <span class="artifact-n">[contigs-db](/software/anvio/help/7/artifacts/contigs-db)</span>, and then you can use <span class="artifact-n">[anvi-import-functions](/software/anvio/help/7/programs/anvi-import-functions)</span> to bring the function data (in the <span class="artifact-n">[functions-txt](/software/anvio/help/7/artifacts/functions-txt)</span>) into the database. Then you'll have all of the data in your <span class="artifact-n">[genbank-file](/software/anvio/help/7/artifacts/genbank-file)</span> converted into a single <span class="artifact-n">[contigs-db](/software/anvio/help/7/artifacts/contigs-db)</span>, which you can use for a variety of anvi'o analyses.
+The <span class="artifact-n">[contigs-fasta](/help/7/artifacts/contigs-fasta)</span> and <span class="artifact-n">[external-gene-calls](/help/7/artifacts/external-gene-calls)</span> can be given to <span class="artifact-n">[anvi-gen-contigs-database](/help/7/programs/anvi-gen-contigs-database)</span> to create a <span class="artifact-n">[contigs-db](/help/7/artifacts/contigs-db)</span>, and then you can use <span class="artifact-n">[anvi-import-functions](/help/7/programs/anvi-import-functions)</span> to bring the function data (in the <span class="artifact-n">[functions-txt](/help/7/artifacts/functions-txt)</span>) into the database. Then you'll have all of the data in your <span class="artifact-n">[genbank-file](/help/7/artifacts/genbank-file)</span> converted into a single <span class="artifact-n">[contigs-db](/help/7/artifacts/contigs-db)</span>, which you can use for a variety of anvi'o analyses.
 
-The parameters of this program entirely deal with the outputs. Besides telling the program where to put them, you can also give the function annotation source (in the <span class="artifact-n">[functions-txt](/software/anvio/help/7/artifacts/functions-txt)</span>) a custom name. 
+The parameters of this program entirely deal with the outputs. Besides telling the program where to put them, you can also give the function annotation source (in the <span class="artifact-n">[functions-txt](/help/7/artifacts/functions-txt)</span>) a custom name. 
 
 
 {:.notice}

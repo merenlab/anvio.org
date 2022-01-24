@@ -23,7 +23,7 @@ Takes in gene calls by AUGUSTUS v3.3.3, generates an anvi&#x27;o external gene c
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,18 +42,18 @@ Takes in gene calls by AUGUSTUS v3.3.3, generates an anvi&#x27;o external gene c
 ## Usage
 
 
-This program converts a gene call file from [AUGUSTUS](http://bioinf.uni-greifswald.de/augustus/) (as an <span class="artifact-n">[augustus-gene-calls](/software/anvio/help/7.1/artifacts/augustus-gene-calls)</span> artifact) to an anvi'o <span class="artifact-n">[external-gene-calls](/software/anvio/help/7.1/artifacts/external-gene-calls)</span> artifact. 
+This program converts a gene call file from [AUGUSTUS](http://bioinf.uni-greifswald.de/augustus/) (as an <span class="artifact-n">[augustus-gene-calls](/help/7.1/artifacts/augustus-gene-calls)</span> artifact) to an anvi'o <span class="artifact-n">[external-gene-calls](/help/7.1/artifacts/external-gene-calls)</span> artifact. 
 
-This essentially just reformats the data in the <span class="artifact-n">[augustus-gene-calls](/software/anvio/help/7.1/artifacts/augustus-gene-calls)</span> artifact (for example, removing the UTR information) so that it can be read by other anvi'o programs. 
+This essentially just reformats the data in the <span class="artifact-n">[augustus-gene-calls](/help/7.1/artifacts/augustus-gene-calls)</span> artifact (for example, removing the UTR information) so that it can be read by other anvi'o programs. 
 
 A run of this program will look something like this:
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;augustus&#45;output&#45;to&#45;external&#45;gene&#45;calls &#45;i <span class="artifact&#45;n">[augustus&#45;gene&#45;calls](/software/anvio/help/7.1/artifacts/augustus&#45;gene&#45;calls)</span>
-                                                   &#45;o <span class="artifact&#45;n">[external&#45;gene&#45;calls](/software/anvio/help/7.1/artifacts/external&#45;gene&#45;calls)</span>
+anvi&#45;script&#45;augustus&#45;output&#45;to&#45;external&#45;gene&#45;calls &#45;i <span class="artifact&#45;n">[augustus&#45;gene&#45;calls](/help/7.1/artifacts/augustus&#45;gene&#45;calls)</span>
+                                                   &#45;o <span class="artifact&#45;n">[external&#45;gene&#45;calls](/help/7.1/artifacts/external&#45;gene&#45;calls)</span>
 </div>
 
-Here is an example of what the resulting <span class="artifact-n">[external-gene-calls](/software/anvio/help/7.1/artifacts/external-gene-calls)</span> file will look like (from the gff file used as an example on the <span class="artifact-n">[augustus-gene-calls](/software/anvio/help/7.1/artifacts/augustus-gene-calls)</span> page):  
+Here is an example of what the resulting <span class="artifact-n">[external-gene-calls](/help/7.1/artifacts/external-gene-calls)</span> file will look like (from the gff file used as an example on the <span class="artifact-n">[augustus-gene-calls](/help/7.1/artifacts/augustus-gene-calls)</span> page):  
 
     gene_callers_id    contig       start    stop    direction    partial    call_type    source      version    aa_sequence
     0                  unnamed-1    56       1252    f            0          1            AUGUSTUS    v3.3.3     MSEGNAAGEPSTPGGPRPLLTGARGLIGRRPAPPLTPGRLPSIRSRDLTLGGVKKKTFTPNIISRKIKEEPKEEVTVKKEKRERDRDRQREGHGRGRGRPEVIQSHSIFEQGPAEMMKKKGNWDKTVDVSDMGPSHIINIKKEKRETDEETKQILRMLEKDDFLDDPGLRNDTRNMPVQLPLAHSGWLFKEENDEPDVKPWLAGPKEEDMEVDIPAVKVKEEPRDEEEEAKMKAPPKAARKTPGLPKDVSVAELLRELSLTKEEELLFLQLPDTLPGQPPTQDIKPIKTEVQGEDGQVVLIKQEKDREAKLAENACTLADLTEGQVGKLLIRKSGRVQLLLGKVTLDVTMGTACSFLQELVSVGLGDSRTGEMTVLGHVKHKLVCSPDFESLLDHKHR

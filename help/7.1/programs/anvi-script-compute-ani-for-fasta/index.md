@@ -23,7 +23,7 @@ Run ANI between contigs in a single FASTA file.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -44,12 +44,12 @@ Run ANI between contigs in a single FASTA file.
 
 This program computes the average nucleotide identity between reads in a single fasta file (using PyANI). 
 
-To compute the ANI (or other genome distance metrics) between two genomes in different fasta files, use <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/7.1/programs/anvi-compute-genome-similarity)</span>. 
+To compute the ANI (or other genome distance metrics) between two genomes in different fasta files, use <span class="artifact-n">[anvi-compute-genome-similarity](/help/7.1/programs/anvi-compute-genome-similarity)</span>. 
 
 A default run of this program looks like this: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;compute&#45;ani&#45;for&#45;fasta &#45;f <span class="artifact&#45;n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> \ 
+anvi&#45;script&#45;compute&#45;ani&#45;for&#45;fasta &#45;f <span class="artifact&#45;n">[fasta](/help/7.1/artifacts/fasta)</span> \ 
                                   &#45;o path/to/output \
                                   &#45;&#45;method ANIb
 </div>

@@ -53,7 +53,7 @@ The following columns of information are listed in the file:
 
 ## A specific example - enriched functions in pangenomes
 
-When you run <span class="artifact-n">[anvi-compute-functional-enrichment-in-pan](/software/anvio/help/7.1/programs/anvi-compute-functional-enrichment-in-pan)</span> to compute enrichment scores for functions in a pangenome, the resulting matrix describes the gene cluster-level functional associations that are enriched within specific groups of your pangenome. This is described in more detail [in the pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#making-sense-of-functions-in-your-pangenome).
+When you run <span class="artifact-n">[anvi-compute-functional-enrichment-in-pan](/help/7.1/programs/anvi-compute-functional-enrichment-in-pan)</span> to compute enrichment scores for functions in a pangenome, the resulting matrix describes the gene cluster-level functional associations that are enriched within specific groups of your pangenome. This is described in more detail [in the pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#making-sense-of-functions-in-your-pangenome).
 
 Here is a more concrete example (the same example as in the [pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#making-sense-of-functions-in-your-pangenome)). Note that that tutorial uses `COG_FUNCTION` as the functional annotation source, and has `LL` (low light) and `HL` (high light) as the two pan-groups.
 

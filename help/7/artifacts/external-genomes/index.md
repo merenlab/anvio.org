@@ -32,7 +32,7 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 
 ## Description
 
-An external genome is any genome assembly that was converted into a <span class="artifact-n">[contigs-db](/software/anvio/help/7/artifacts/contigs-db)</span> from its original FASTA file format using the program <span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/7/programs/anvi-gen-contigs-database)</span>. You can obtain one of these in a variety of ways, the most common being 1) downloading a genome from a database such as NCBI and 2) assembling a genome yourself from sequencing reads. The key thing is that the sequences in the <span class="artifact-n">[contigs-db](/software/anvio/help/7/artifacts/contigs-db)</span> represent a _single_ microbial population (or species, if you are not working with microbes) - ie, it is not a metagenome.
+An external genome is any genome assembly that was converted into a <span class="artifact-n">[contigs-db](/help/7/artifacts/contigs-db)</span> from its original FASTA file format using the program <span class="artifact-n">[anvi-gen-contigs-database](/help/7/programs/anvi-gen-contigs-database)</span>. You can obtain one of these in a variety of ways, the most common being 1) downloading a genome from a database such as NCBI and 2) assembling a genome yourself from sequencing reads. The key thing is that the sequences in the <span class="artifact-n">[contigs-db](/help/7/artifacts/contigs-db)</span> represent a _single_ microbial population (or species, if you are not working with microbes) - ie, it is not a metagenome.
 
 The external genomes file format enables anvi'o to work with one or more external genomes. A TAB-delimited external genomes file will be composed of at least the following two columns:
 
@@ -52,9 +52,9 @@ In some cases additional columns may be required to be in this file. Below is a 
 
 | header | description | required for |
 |----|----|----|
-| group | which group the genome belongs to (can be empty) | <span class="artifact-n">[anvi-compute-functional-enrichment](/software/anvio/help/7/programs/anvi-compute-functional-enrichment)</span> |
+| group | which group the genome belongs to (can be empty) | <span class="artifact-n">[anvi-compute-functional-enrichment](/help/7/programs/anvi-compute-functional-enrichment)</span> |
 
-Also see **<span class="artifact-n">[internal-genomes](/software/anvio/help/7/artifacts/internal-genomes)</span>** and **<span class="artifact-n">[metagenomes](/software/anvio/help/7/artifacts/metagenomes)</span>**.
+Also see **<span class="artifact-n">[internal-genomes](/help/7/artifacts/internal-genomes)</span>** and **<span class="artifact-n">[metagenomes](/help/7/artifacts/metagenomes)</span>**.
 
 
 {:.notice}

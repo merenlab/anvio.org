@@ -23,7 +23,7 @@ Corrects homopolymer-region associated INDELs in a given genome based on a refer
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,7 +42,7 @@ Corrects homopolymer-region associated INDELs in a given genome based on a refer
 ## Usage
 
 
-This program takes an input <span class="artifact-n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> file with one or more sequences, then **corrects INDELs associated with homopolymer regions given a reference <span class="artifact-n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> file**, and reports edited sequences as a new <span class="artifact-n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> file.
+This program takes an input <span class="artifact-n">[fasta](/help/7.1/artifacts/fasta)</span> file with one or more sequences, then **corrects INDELs associated with homopolymer regions given a reference <span class="artifact-n">[fasta](/help/7.1/artifacts/fasta)</span> file**, and reports edited sequences as a new <span class="artifact-n">[fasta](/help/7.1/artifacts/fasta)</span> file.
 
 {:.warning}
 You must be extremely careful with this program since it reports edited sequences.

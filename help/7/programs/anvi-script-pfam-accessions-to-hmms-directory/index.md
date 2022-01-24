@@ -10,7 +10,7 @@ image:
 
 You give this program one or more PFAM accession ids, and it generates an anvi&#x27;o compatible HMM directory to be used with `anvi-run-hmms`.
 
-See **[program help menu](../../../../vignette#anvi-script-pfam-accessions-to-hmms-directory)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}

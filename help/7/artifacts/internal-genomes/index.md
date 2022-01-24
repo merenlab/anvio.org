@@ -32,9 +32,9 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 
 ## Description
 
-An internal genome is any <span class="artifact-n">[bin](/software/anvio/help/7/artifacts/bin)</span> described in an anvi'o <span class="artifact-n">[collection](/software/anvio/help/7/artifacts/collection)</span> stored in an anvi'o <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span>. You can obtain one of these by binning a metagenome assembly (stored in an anvi'o <span class="artifact-n">[contigs-db](/software/anvio/help/7/artifacts/contigs-db)</span>), which you can do either manually in the interactive interface or automatically with a binning software, and saving or importing it into a <span class="artifact-n">[collection](/software/anvio/help/7/artifacts/collection)</span>.
+An internal genome is any <span class="artifact-n">[bin](/help/7/artifacts/bin)</span> described in an anvi'o <span class="artifact-n">[collection](/help/7/artifacts/collection)</span> stored in an anvi'o <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span>. You can obtain one of these by binning a metagenome assembly (stored in an anvi'o <span class="artifact-n">[contigs-db](/help/7/artifacts/contigs-db)</span>), which you can do either manually in the interactive interface or automatically with a binning software, and saving or importing it into a <span class="artifact-n">[collection](/help/7/artifacts/collection)</span>.
 
-The internal genomes file format enables anvi'o to work with one or more bins from one or more collections that may be defined in different anvi'o <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span> files. A TAB-delimited internal genomes file will be composed of at least the following five columns:
+The internal genomes file format enables anvi'o to work with one or more bins from one or more collections that may be defined in different anvi'o <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span> files. A TAB-delimited internal genomes file will be composed of at least the following five columns:
 
 |name|bin_id|collection_id|profile_db_path|contigs_db_path|
 |:--|:--:|:--:|:--|:--|
@@ -52,9 +52,9 @@ In some cases additional columns may be required to be in this file. Below is a 
 
 | header | description | required for |
 |----|----|----|
-| group | name of the group that the genome belongs to (can be empty) | <span class="artifact-n">[anvi-compute-functional-enrichment](/software/anvio/help/7/programs/anvi-compute-functional-enrichment)</span> |
+| group | name of the group that the genome belongs to (can be empty) | <span class="artifact-n">[anvi-compute-functional-enrichment](/help/7/programs/anvi-compute-functional-enrichment)</span> |
 
-Also see **<span class="artifact-n">[external-genomes](/software/anvio/help/7/artifacts/external-genomes)</span>** and **<span class="artifact-n">[metagenomes](/software/anvio/help/7/artifacts/metagenomes)</span>**.
+Also see **<span class="artifact-n">[external-genomes](/help/7/artifacts/external-genomes)</span>** and **<span class="artifact-n">[metagenomes](/help/7/artifacts/metagenomes)</span>**.
 
 
 {:.notice}

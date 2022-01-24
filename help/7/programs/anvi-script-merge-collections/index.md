@@ -10,7 +10,7 @@ image:
 
 Generate an additional data file from multiple collections.
 
-See **[program help menu](../../../../vignette#anvi-script-merge-collections)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,7 +31,7 @@ See **[program help menu](../../../../vignette#anvi-script-merge-collections)** 
 ## Usage
 
 
-This program outputs a file that denotes which contigs and splits are part of which <span class="artifact-n">[collection-txt](/software/anvio/help/7/artifacts/collection-txt)</span> files. This just tells you which collections each of your contigs are a part of, which can be imported as  acategorical layer with <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/7/programs/anvi-import-misc-data)</span>. 
+This program outputs a file that denotes which contigs and splits are part of which <span class="artifact-n">[collection-txt](/help/7/artifacts/collection-txt)</span> files. This just tells you which collections each of your contigs are a part of, which can be imported as  acategorical layer with <span class="artifact-n">[anvi-import-misc-data](/help/7/programs/anvi-import-misc-data)</span>. 
 
 This is not super useful, but it is used in the Infant gut tutorial [here](http://merenlab.org/tutorials/infant-gut/#comparing-multiple-binning-approaches). 
 

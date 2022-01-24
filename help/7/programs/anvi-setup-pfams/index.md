@@ -10,7 +10,7 @@ image:
 
 Download and setup Pfam data from the EBI.
 
-See **[program help menu](../../../../vignette#anvi-setup-pfams)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,7 +31,7 @@ See **[program help menu](../../../../vignette#anvi-setup-pfams)** or go back to
 ## Usage
 
 
-This program **downloads and organizes a local copy of the data from EBI's [Pfam database](https://pfam.xfam.org/) for use in function annotation.** This program generates a <span class="artifact-n">[pfams-data](/software/anvio/help/7/artifacts/pfams-data)</span> artifact, which is required to run the program <span class="artifact-n">[anvi-run-pfams](/software/anvio/help/7/programs/anvi-run-pfams)</span>. 
+This program **downloads and organizes a local copy of the data from EBI's [Pfam database](https://pfam.xfam.org/) for use in function annotation.** This program generates a <span class="artifact-n">[pfams-data](/help/7/artifacts/pfams-data)</span> artifact, which is required to run the program <span class="artifact-n">[anvi-run-pfams](/help/7/programs/anvi-run-pfams)</span>. 
 
 ### Set up Pfams data
 <div class="codeblock" markdown="1">
@@ -43,7 +43,7 @@ By default, this data is stored at `anvio/data/misc/Pfam`. To set up this data i
 anvi&#45;setup&#45;pfams &#45;&#45;pfam&#45;data&#45;dir path/to/location
 </div>
 
-If you already have a <span class="artifact-n">[pfams-data](/software/anvio/help/7/artifacts/pfams-data)</span> artifact and are trying to redownload this data, run 
+If you already have a <span class="artifact-n">[pfams-data](/help/7/artifacts/pfams-data)</span> artifact and are trying to redownload this data, run 
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;pfams &#45;&#45;reset

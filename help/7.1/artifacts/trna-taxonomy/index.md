@@ -33,9 +33,9 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 
 ## Description
 
-This contains the taxonomic annotations for each of the tRNA sequences found in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>, which are the results of running <span class="artifact-n">[anvi-run-trna-taxonomy](/software/anvio/help/7.1/programs/anvi-run-trna-taxonomy)</span>. 
+This contains the taxonomic annotations for each of the tRNA sequences found in your <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>, which are the results of running <span class="artifact-n">[anvi-run-trna-taxonomy](/help/7.1/programs/anvi-run-trna-taxonomy)</span>. 
 
-You can use this information to estimate the taxnomy of genomes, metagenomes, or collections stored in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> using the program <span class="artifact-n">[anvi-estimate-trna-taxonomy](/software/anvio/help/7.1/programs/anvi-estimate-trna-taxonomy)</span>
+You can use this information to estimate the taxnomy of genomes, metagenomes, or collections stored in your <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span> using the program <span class="artifact-n">[anvi-estimate-trna-taxonomy](/help/7.1/programs/anvi-estimate-trna-taxonomy)</span>
 
 Recall that this information was calculated using [GTDB](https://gtdb.ecogenomic.org/), so it might not be entirely accurate for Eukaryotic tRNAs. 
 

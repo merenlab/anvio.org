@@ -10,7 +10,7 @@ image:
 
 Migrate an anvi&#x27;o database or config file to a newer version.
 
-See **[program help menu](../../../../vignette#anvi-migrate)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -55,7 +55,7 @@ anvi-migrate --migrate-dbs-safely -t 15 CONTIGS.db
 ```
 Then anvi'o will update your database until it is whatever version you specified and stop. Of course, you cannot provide a version number that is higher than the highest available version. Nor can you provide a number that is lower than your database's current version (ie, backwards migration is not possible).
 
-Not sure what your database's current version is? Try <span class="artifact-n">[anvi-db-info](/software/anvio/help/7/programs/anvi-db-info)</span>.
+Not sure what your database's current version is? Try <span class="artifact-n">[anvi-db-info](/help/7/programs/anvi-db-info)</span>.
 Not sure what the highest available version is? Run any anvi'o command with the `-v` option to see the version information for all database types (we recommend `anvi-interactive -v` for no particular reason).
 
 

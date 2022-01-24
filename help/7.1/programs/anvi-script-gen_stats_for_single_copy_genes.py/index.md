@@ -23,7 +23,7 @@ A simple script to generate info from search tables, given a contigs-db.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,20 +42,20 @@ A simple script to generate info from search tables, given a contigs-db.
 ## Usage
 
 
-This program **provides information about each of the single copy core genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>**. 
+This program **provides information about each of the single copy core genes in your <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>**. 
 
-Simply provide a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>, and it will create a <span class="artifact-n">[genes-stats](/software/anvio/help/7.1/artifacts/genes-stats)</span> file containing a variety of information about the single copy core genes in your database. 
+Simply provide a <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>, and it will create a <span class="artifact-n">[genes-stats](/help/7.1/artifacts/genes-stats)</span> file containing a variety of information about the single copy core genes in your database. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen_stats_for_single_copy_core_genes.py &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> 
+anvi&#45;script&#45;gen_stats_for_single_copy_core_genes.py &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7.1/artifacts/contigs&#45;db)</span> 
 </div>
 
-The console output will tell you the total number of contigs, splits, and nucleotides in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>, while the text output will tell you the source, name, and e-value of each single-copy core gene. 
+The console output will tell you the total number of contigs, splits, and nucleotides in your <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>, while the text output will tell you the source, name, and e-value of each single-copy core gene. 
 
-You can get information from only single-copy core genes from a specific source. To see what sources are availible in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>, run 
+You can get information from only single-copy core genes from a specific source. To see what sources are availible in your <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>, run 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen_stats_for_single_copy_core_genes.py &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+anvi&#45;script&#45;gen_stats_for_single_copy_core_genes.py &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7.1/artifacts/contigs&#45;db)</span> \
                                                     &#45;&#45;list&#45;sources
 </div>
 

@@ -10,7 +10,7 @@ image:
 
 Export sequences from sequence sources and compute a similarity metric (e.g. ANI). If a Pan Database is given anvi&#x27;o will write computed output to misc data tables of Pan Database.
 
-See **[program help menu](../../../../vignette#anvi-compute-genome-similarity)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -41,19 +41,19 @@ The currently available programs for calculating similarity metrics include, cho
 
 ### Input/Output
 
-The expected input is any combination of <span class="artifact-n">[external-genomes](/software/anvio/help/7/artifacts/external-genomes)</span>, <span class="artifact-n">[internal-genomes](/software/anvio/help/7/artifacts/internal-genomes)</span>, and text files that contains paths to <span class="artifact-n">[fasta](/software/anvio/help/7/artifacts/fasta)</span> files that describe each of your genomes. This is a tab-delimited file with two columns (`name` and `path` to the fasta files, each of which is assumed to be a single genome).
+The expected input is any combination of <span class="artifact-n">[external-genomes](/help/7/artifacts/external-genomes)</span>, <span class="artifact-n">[internal-genomes](/help/7/artifacts/internal-genomes)</span>, and text files that contains paths to <span class="artifact-n">[fasta](/help/7/artifacts/fasta)</span> files that describe each of your genomes. This is a tab-delimited file with two columns (`name` and `path` to the fasta files, each of which is assumed to be a single genome).
 
 
-The program outputs a directory with <span class="artifact-n">[genome-similarity](/software/anvio/help/7/artifacts/genome-similarity)</span> data. The specific contents will depend on how similarity scores are computed (specified with `--program`), but generally contains tab-separated files of similarity scores between genomes and related metrics.
+The program outputs a directory with <span class="artifact-n">[genome-similarity](/help/7/artifacts/genome-similarity)</span> data. The specific contents will depend on how similarity scores are computed (specified with `--program`), but generally contains tab-separated files of similarity scores between genomes and related metrics.
 
 
-You also have the option to provide a <span class="artifact-n">[pan-db](/software/anvio/help/7/artifacts/pan-db)</span>, in which case the output data will additionally be stored in the database as <span class="artifact-n">[misc-data-layers](/software/anvio/help/7/artifacts/misc-data-layers)</span> and <span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/7/artifacts/misc-data-layer-orders)</span> data. This was done in the [pangenomic tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#computing-the-average-nucleotide-identity-for-genomes-and-other-genome-similarity-metrics-too).  
+You also have the option to provide a <span class="artifact-n">[pan-db](/help/7/artifacts/pan-db)</span>, in which case the output data will additionally be stored in the database as <span class="artifact-n">[misc-data-layers](/help/7/artifacts/misc-data-layers)</span> and <span class="artifact-n">[misc-data-layer-orders](/help/7/artifacts/misc-data-layer-orders)</span> data. This was done in the [pangenomic tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#computing-the-average-nucleotide-identity-for-genomes-and-other-genome-similarity-metrics-too).  
 
-Here is an example run with pyANI from an <span class="artifact-n">[external-genomes](/software/anvio/help/7/artifacts/external-genomes)</span> without any parameter changes: 
+Here is an example run with pyANI from an <span class="artifact-n">[external-genomes](/help/7/artifacts/external-genomes)</span> without any parameter changes: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;compute&#45;genome&#45;similarity &#45;e <span class="artifact&#45;n">[external&#45;genomes](/software/anvio/help/7/artifacts/external&#45;genomes)</span> \
-                               &#45;o path/for/<span class="artifact&#45;n">[genome&#45;similarity](/software/anvio/help/7/artifacts/genome&#45;similarity)</span> \
+anvi&#45;compute&#45;genome&#45;similarity &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/7/artifacts/external&#45;genomes)</span> \
+                               &#45;o path/for/<span class="artifact&#45;n">[genome&#45;similarity](/help/7/artifacts/genome&#45;similarity)</span> \
                                &#45;&#45;program pyANI
 </div>
 
@@ -98,7 +98,7 @@ You can also set the compression ratio for your fasta files. Decreasing this fro
 
 ### Other Parameters 
 
-Once calculated, the similarity matrix is used to create dendrograms via hierarchical clustering, which are stored in the output directory (and in the <span class="artifact-n">[pan-db](/software/anvio/help/7/artifacts/pan-db)</span>, if provided). You can choose to change the distance metric or linkage algorithm used for this clustering.
+Once calculated, the similarity matrix is used to create dendrograms via hierarchical clustering, which are stored in the output directory (and in the <span class="artifact-n">[pan-db](/help/7/artifacts/pan-db)</span>, if provided). You can choose to change the distance metric or linkage algorithm used for this clustering.
 
 
 If you're getting a lot of debug/output messages, you can turn them off with `--just-do-it` or helpfully store them into a file with `--log-file`.

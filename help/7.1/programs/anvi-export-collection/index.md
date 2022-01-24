@@ -23,7 +23,7 @@ Export a collection from an anvi&#x27;o database.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,25 +42,25 @@ Export a collection from an anvi&#x27;o database.
 ## Usage
 
 
-This program, as one might think, allows you to export a <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span>. This allows you to take your binning results elsewhere (including into another Anvi'o project with the command <span class="artifact-n">[anvi-import-collection](/software/anvio/help/7.1/programs/anvi-import-collection)</span>). 
+This program, as one might think, allows you to export a <span class="artifact-n">[collection](/help/7.1/artifacts/collection)</span>. This allows you to take your binning results elsewhere (including into another Anvi'o project with the command <span class="artifact-n">[anvi-import-collection](/help/7.1/programs/anvi-import-collection)</span>). 
 
-You can run this program on a <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/7.1/artifacts/pan-db)</span> as follows: 
+You can run this program on a <span class="artifact-n">[profile-db](/help/7.1/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/help/7.1/artifacts/pan-db)</span> as follows: 
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;collection &#45;C my_favorite_collection \
-                        &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> 
+                        &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7.1/artifacts/profile&#45;db)</span> 
 </div>
 
-This will give you a <span class="artifact-n">[collection-txt](/software/anvio/help/7.1/artifacts/collection-txt)</span> file that describes the collection `my_favorite_collection`. 
+This will give you a <span class="artifact-n">[collection-txt](/help/7.1/artifacts/collection-txt)</span> file that describes the collection `my_favorite_collection`. 
 
 To list the collections available in this database, you can run 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;collection &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/7.1/artifacts/pan&#45;db)</span> \
+anvi&#45;export&#45;collection &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/7.1/artifacts/pan&#45;db)</span> \
                         &#45;&#45;list&#45;colllections
 </div>
 
-You can also add the flag `--include-unbinned` to have all unbinned contigs in the database show up at the end of your <span class="artifact-n">[collection-txt](/software/anvio/help/7.1/artifacts/collection-txt)</span> file in a bin titled `UNBINNED`. 
+You can also add the flag `--include-unbinned` to have all unbinned contigs in the database show up at the end of your <span class="artifact-n">[collection-txt](/help/7.1/artifacts/collection-txt)</span> file in a bin titled `UNBINNED`. 
 
 
 {:.notice}

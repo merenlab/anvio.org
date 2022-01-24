@@ -33,22 +33,22 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 
 ## Description
 
-This is an artifact that describes **annotation of genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> with functions**.
+This is an artifact that describes **annotation of genes in your <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span> with functions**.
 
-Broadly used across anvi'o, functions are one of the most essential pieces of information stored in any <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>. To see what annotation sources for functions are available in a given <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> or <span class="artifact-n">[genomes-storage-db](/software/anvio/help/7.1/artifacts/genomes-storage-db)</span>, you can use the program <span class="artifact-n">[anvi-db-info](/software/anvio/help/7.1/programs/anvi-db-info)</span>.
+Broadly used across anvi'o, functions are one of the most essential pieces of information stored in any <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>. To see what annotation sources for functions are available in a given <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span> or <span class="artifact-n">[genomes-storage-db](/help/7.1/artifacts/genomes-storage-db)</span>, you can use the program <span class="artifact-n">[anvi-db-info](/help/7.1/programs/anvi-db-info)</span>.
 
-To populate a given <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> with functions, anvi'o includes multiple programs that can annotate genes using various sources of annotation. These programs include,
+To populate a given <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span> with functions, anvi'o includes multiple programs that can annotate genes using various sources of annotation. These programs include,
 
-* <span class="artifact-n">[anvi-run-ncbi-cogs](/software/anvio/help/7.1/programs/anvi-run-ncbi-cogs)</span>, which uses NCBI's [COGs database](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102395/),
-* <span class="artifact-n">[anvi-run-pfams](/software/anvio/help/7.1/programs/anvi-run-pfams)</span>, which uses EBI's [Pfam database](https://pfam.xfam.org/),
-* <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/7.1/programs/anvi-run-kegg-kofams)</span>, which uses the [Kyoto Encyclopedia of Genes and Genomes](https://www.genome.jp/kegg/) (KEGG) database and produces <span class="artifact-n">[kegg-functions](/software/anvio/help/7.1/artifacts/kegg-functions)</span>, which is the necessary annotation information that can be used by the program <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/7.1/programs/anvi-estimate-metabolism)</span>.
+* <span class="artifact-n">[anvi-run-ncbi-cogs](/help/7.1/programs/anvi-run-ncbi-cogs)</span>, which uses NCBI's [COGs database](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102395/),
+* <span class="artifact-n">[anvi-run-pfams](/help/7.1/programs/anvi-run-pfams)</span>, which uses EBI's [Pfam database](https://pfam.xfam.org/),
+* <span class="artifact-n">[anvi-run-kegg-kofams](/help/7.1/programs/anvi-run-kegg-kofams)</span>, which uses the [Kyoto Encyclopedia of Genes and Genomes](https://www.genome.jp/kegg/) (KEGG) database and produces <span class="artifact-n">[kegg-functions](/help/7.1/artifacts/kegg-functions)</span>, which is the necessary annotation information that can be used by the program <span class="artifact-n">[anvi-estimate-metabolism](/help/7.1/programs/anvi-estimate-metabolism)</span>.
 
-In addition, you can use the program <span class="artifact-n">[anvi-import-functions](/software/anvio/help/7.1/programs/anvi-import-functions)</span> with a simple <span class="artifact-n">[functions-txt](/software/anvio/help/7.1/artifacts/functions-txt)</span> to import functions from any other annotation source, or to import any ad hoc, user-defined function to later access through anvi'o interfaces or programs.
+In addition, you can use the program <span class="artifact-n">[anvi-import-functions](/help/7.1/programs/anvi-import-functions)</span> with a simple <span class="artifact-n">[functions-txt](/help/7.1/artifacts/functions-txt)</span> to import functions from any other annotation source, or to import any ad hoc, user-defined function to later access through anvi'o interfaces or programs.
 
 {:.notice}
-You can use <span class="artifact-n">[anvi-import-functions](/software/anvio/help/7.1/programs/anvi-import-functions)</span> also to import functions from EggNOG or InterProScan as described in [this blog post](http://merenlab.org/2016/06/18/importing-functions/).
+You can use <span class="artifact-n">[anvi-import-functions](/help/7.1/programs/anvi-import-functions)</span> also to import functions from EggNOG or InterProScan as described in [this blog post](http://merenlab.org/2016/06/18/importing-functions/).
 
-You can also use <span class="artifact-n">[anvi-export-functions](/software/anvio/help/7.1/programs/anvi-export-functions)</span> to obtain a file containing these functional annotations through a <span class="artifact-n">[functions-txt](/software/anvio/help/7.1/artifacts/functions-txt)</span> artifact, and use <span class="artifact-n">[anvi-display-functions](/software/anvio/help/7.1/programs/anvi-display-functions)</span> to show the distribution of functions across multiple <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>s.
+You can also use <span class="artifact-n">[anvi-export-functions](/help/7.1/programs/anvi-export-functions)</span> to obtain a file containing these functional annotations through a <span class="artifact-n">[functions-txt](/help/7.1/artifacts/functions-txt)</span> artifact, and use <span class="artifact-n">[anvi-display-functions](/help/7.1/programs/anvi-display-functions)</span> to show the distribution of functions across multiple <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>s.
 
 
 {:.notice}

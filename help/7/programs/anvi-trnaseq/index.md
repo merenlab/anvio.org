@@ -10,7 +10,7 @@ image:
 
 A program to process raw tRNA-seq dataset, which is the sequencing of tRNA transcripts in a given sample, to generate an anvi&#x27;o tRNA-seq database.
 
-See **[program help menu](../../../../vignette#anvi-trnaseq)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,11 +31,11 @@ See **[program help menu](../../../../vignette#anvi-trnaseq)** or go back to the
 ## Usage
 
 
-The input for this program is a **properly formatted** <span class="artifact-n">[trnaseq-fasta](/software/anvio/help/7/artifacts/trnaseq-fasta)</span>, containing sequences from a tRNA-seq sample or split.
+The input for this program is a **properly formatted** <span class="artifact-n">[trnaseq-fasta](/help/7/artifacts/trnaseq-fasta)</span>, containing sequences from a tRNA-seq sample or split.
 
 The program identifies tRNA among the input sequences, profiles the tRNA primary sequence and secondary structure, and filters single nucleotide variants from modified nucleotides.
 
-The primary output of the program is a <span class="artifact-n">[trnaseq-db](/software/anvio/help/7/artifacts/trnaseq-db)</span>. Supplemental files are also produced: an analysis summary file, a tab-separated file of unique sequences not identified as tRNA, and a tab-separated file showing the range of 5' and 3' variants trimmed from tRNA sequences.
+The primary output of the program is a <span class="artifact-n">[trnaseq-db](/help/7/artifacts/trnaseq-db)</span>. Supplemental files are also produced: an analysis summary file, a tab-separated file of unique sequences not identified as tRNA, and a tab-separated file showing the range of 5' and 3' variants trimmed from tRNA sequences.
 
 We encourage you to read the list of options in the `anvi-trnaseq --help` menu to understand how the user can manipulate the multifaceted analyses performed by the program.
 
@@ -45,7 +45,7 @@ The program can generate a .ini file for tRNA feature parameterization using an 
 ### Create a tRNA-seq database from a FASTA file, using 16 cores
 
 <div class="codeblock" markdown="1">
-anvi&#45;trnaseq &#45;f <span class="artifact&#45;n">[trnaseq&#45;fasta](/software/anvio/help/7/artifacts/trnaseq&#45;fasta)</span> \
+anvi&#45;trnaseq &#45;f <span class="artifact&#45;n">[trnaseq&#45;fasta](/help/7/artifacts/trnaseq&#45;fasta)</span> \
              &#45;S example_sample_name \
              &#45;o example_empty_output_directory_path \
              &#45;T 16
@@ -54,7 +54,7 @@ anvi&#45;trnaseq &#45;f <span class="artifact&#45;n">[trnaseq&#45;fasta](/softwa
 ### Create a tRNA-seq database from a sample identified as a demethylase split, overwriting the output directory if it already exists
 
 <div class="codeblock" markdown="1">
-anvi&#45;trnaseq &#45;f <span class="artifact&#45;n">[trnaseq&#45;fasta](/software/anvio/help/7/artifacts/trnaseq&#45;fasta)</span> \
+anvi&#45;trnaseq &#45;f <span class="artifact&#45;n">[trnaseq&#45;fasta](/help/7/artifacts/trnaseq&#45;fasta)</span> \
              &#45;S example_sample_name \
              &#45;o example_empty_output_directory_path \
              &#45;T 16 \

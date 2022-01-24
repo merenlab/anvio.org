@@ -10,7 +10,7 @@ image:
 
 Import a new items order into an anvi&#x27;o database.
 
-See **[program help menu](../../../../vignette#anvi-import-items-order)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,18 +31,18 @@ See **[program help menu](../../../../vignette#anvi-import-items-order)** or go 
 ## Usage
 
 
-This program, as one might think, allows you to import a <span class="artifact-n">[misc-data-items-order-txt](/software/anvio/help/7/artifacts/misc-data-items-order-txt)</span> to describe a specific order of items stored in a <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span>, <span class="artifact-n">[pan-db](/software/anvio/help/7/artifacts/pan-db)</span>, or <span class="artifact-n">[genes-db](/software/anvio/help/7/artifacts/genes-db)</span>.
+This program, as one might think, allows you to import a <span class="artifact-n">[misc-data-items-order-txt](/help/7/artifacts/misc-data-items-order-txt)</span> to describe a specific order of items stored in a <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span>, <span class="artifact-n">[pan-db](/help/7/artifacts/pan-db)</span>, or <span class="artifact-n">[genes-db](/help/7/artifacts/genes-db)</span>.
 
 <div class="codeblock" markdown="1">
-anvi&#45;import&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7/artifacts/profile&#45;db)</span> \
-                        &#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/software/anvio/help/7/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span>
+anvi&#45;import&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7/artifacts/profile&#45;db)</span> \
+                        &#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/help/7/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span>
 </div>
 
 It may also be nice to give it a good name, so that it's easy to find in the interface.
 
 <div class="codeblock" markdown="1">
-anvi&#45;import&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7/artifacts/profile&#45;db)</span> \
-                        &#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/software/anvio/help/7/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span> \
+anvi&#45;import&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7/artifacts/profile&#45;db)</span> \
+                        &#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/help/7/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span> \
                         &#45;&#45;name ORDER_NAME
 </div>
 

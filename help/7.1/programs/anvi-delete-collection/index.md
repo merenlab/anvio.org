@@ -23,7 +23,7 @@ Remove a collection from a given profile database.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,22 +42,22 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program, as implied by the name, is used to delete a <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> from a <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span>. 
+This program, as implied by the name, is used to delete a <span class="artifact-n">[collection](/help/7.1/artifacts/collection)</span> from a <span class="artifact-n">[profile-db](/help/7.1/artifacts/profile-db)</span>. 
 
-When you do this, you'll lose the collection forever, as well as the <span class="artifact-n">[bin](/software/anvio/help/7.1/artifacts/bin)</span>s within it. It is generally a good idea to export your binning effort into a <span class="artifact-n">[collection-txt](/software/anvio/help/7.1/artifacts/collection-txt)</span> using <span class="artifact-n">[anvi-export-collection](/software/anvio/help/7.1/programs/anvi-export-collection)</span> before deleting it, just to be safe. 
+When you do this, you'll lose the collection forever, as well as the <span class="artifact-n">[bin](/help/7.1/artifacts/bin)</span>s within it. It is generally a good idea to export your binning effort into a <span class="artifact-n">[collection-txt](/help/7.1/artifacts/collection-txt)</span> using <span class="artifact-n">[anvi-export-collection](/help/7.1/programs/anvi-export-collection)</span> before deleting it, just to be safe. 
 
 To list available collections in a database, call 
 
 <div class="codeblock" markdown="1">
-anvi&#45;delete&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+anvi&#45;delete&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7.1/artifacts/profile&#45;db)</span> \
                        &#45;&#45;list&#45;collections
 </div>
 
 Then, you can easily delete a collection with the command
 
 <div class="codeblock" markdown="1">
-anvi&#45;delete&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
-                       &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7.1/artifacts/collection)</span>
+anvi&#45;delete&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7.1/artifacts/profile&#45;db)</span> \
+                       &#45;C <span class="artifact&#45;n">[collection](/help/7.1/artifacts/collection)</span>
 </div>
 
 

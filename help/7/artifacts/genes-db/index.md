@@ -32,9 +32,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-A genes database is a <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span> that also contains all of the gene-level statistics (such as coverage and detection). This is the output of the program <span class="artifact-n">[anvi-gen-gene-level-stats-databases](/software/anvio/help/7/programs/anvi-gen-gene-level-stats-databases)</span>, which will generate one of these per <span class="artifact-n">[bin](/software/anvio/help/7/artifacts/bin)</span> in the <span class="artifact-n">[collection](/software/anvio/help/7/artifacts/collection)</span> you input. 
+A genes database is a <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span> that also contains all of the gene-level statistics (such as coverage and detection). This is the output of the program <span class="artifact-n">[anvi-gen-gene-level-stats-databases](/help/7/programs/anvi-gen-gene-level-stats-databases)</span>, which will generate one of these per <span class="artifact-n">[bin](/help/7/artifacts/bin)</span> in the <span class="artifact-n">[collection](/help/7/artifacts/collection)</span> you input. 
 
-As such, you can use this as an input anywhere a <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span> is asked for. See that page for more information. 
+As such, you can use this as an input anywhere a <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span> is asked for. See that page for more information. 
 
 
 {:.notice}

@@ -23,7 +23,7 @@ Reformat FASTA file (remove contigs based on length, or based on a given list of
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,11 +42,11 @@ Reformat FASTA file (remove contigs based on length, or based on a given list of
 ## Usage
 
 
-This program **converts a <span class="artifact-n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> file to a <span class="artifact-n">[contigs-fasta](/software/anvio/help/7.1/artifacts/contigs-fasta)</span>.** In other words, it reformats your FASTA formatted file to meet the conditions required of a <span class="artifact-n">[contigs-fasta](/software/anvio/help/7.1/artifacts/contigs-fasta)</span>, which is able to be used by other anvi'o programs.
+This program **converts a <span class="artifact-n">[fasta](/help/7.1/artifacts/fasta)</span> file to a <span class="artifact-n">[contigs-fasta](/help/7.1/artifacts/contigs-fasta)</span>.** In other words, it reformats your FASTA formatted file to meet the conditions required of a <span class="artifact-n">[contigs-fasta](/help/7.1/artifacts/contigs-fasta)</span>, which is able to be used by other anvi'o programs.
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> \
-                           &#45;o <span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/7.1/artifacts/contigs&#45;fasta)</span> \
+anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/help/7.1/artifacts/fasta)</span> \
+                           &#45;o <span class="artifact&#45;n">[contigs&#45;fasta](/help/7.1/artifacts/contigs&#45;fasta)</span> \
                            &#45;&#45;simplify&#45;names
 </div>
 
@@ -55,11 +55,11 @@ If you use the flag *--report-file*, it will also create a TAB-delimited file fo
 
 ### Removing the short reads
 
-Removing short contigs from a FASTA file will improve the performance of the <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> later. The example below runs the same command while also removing sequences that are shorter than 1,000 nts:
+Removing short contigs from a FASTA file will improve the performance of the <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span> later. The example below runs the same command while also removing sequences that are shorter than 1,000 nts:
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> \
-                           &#45;o <span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/7.1/artifacts/contigs&#45;fasta)</span> \
+anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/help/7.1/artifacts/fasta)</span> \
+                           &#45;o <span class="artifact&#45;n">[contigs&#45;fasta](/help/7.1/artifacts/contigs&#45;fasta)</span> \
                            &#45;l 1000 \
                            &#45;&#45;simplify&#45;names
 </div>

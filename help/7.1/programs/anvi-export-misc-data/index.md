@@ -23,7 +23,7 @@ Export additional data or order tables in pan or profile databases for items or 
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,9 +42,9 @@ Export additional data or order tables in pan or profile databases for items or 
 ## Usage
 
 
-This program lets you export miscellaneous data of your choosing into a text file, which can be imported into another anvi'o project using <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/7.1/programs/anvi-import-misc-data)</span>. You can export the same types of data that you can import with that function. These are also listed below.
+This program lets you export miscellaneous data of your choosing into a text file, which can be imported into another anvi'o project using <span class="artifact-n">[anvi-import-misc-data](/help/7.1/programs/anvi-import-misc-data)</span>. You can export the same types of data that you can import with that function. These are also listed below.
 
-To see what misc-data is available in your database, use <span class="artifact-n">[anvi-show-misc-data](/software/anvio/help/7.1/programs/anvi-show-misc-data)</span>. 
+To see what misc-data is available in your database, use <span class="artifact-n">[anvi-show-misc-data](/help/7.1/programs/anvi-show-misc-data)</span>. 
 
 If your misc-data is associated with a specific data group, you can provide that data group to this program with the `-D` flag. 
 
@@ -52,44 +52,44 @@ If your misc-data is associated with a specific data group, you can provide that
 
 ### From a pan-db or profile-db: items, layers, layer orders
 
-**From a <span class="artifact-n">[pan-db](/software/anvio/help/7.1/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span>, you can export**
+**From a <span class="artifact-n">[pan-db](/help/7.1/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/7.1/artifacts/profile-db)</span>, you can export**
 
-- items data (<span class="artifact-n">[misc-data-items](/software/anvio/help/7.1/artifacts/misc-data-items)</span>) into a <span class="artifact-n">[misc-data-items-txt](/software/anvio/help/7.1/artifacts/misc-data-items-txt)</span>. 
+- items data (<span class="artifact-n">[misc-data-items](/help/7.1/artifacts/misc-data-items)</span>) into a <span class="artifact-n">[misc-data-items-txt](/help/7.1/artifacts/misc-data-items-txt)</span>. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7.1/artifacts/profile&#45;db)</span> \
                       &#45;&#45;target&#45;data&#45;table items 
 </div>
 
-- layers data (<span class="artifact-n">[misc-data-layers](/software/anvio/help/7.1/artifacts/misc-data-layers)</span>) into a <span class="artifact-n">[misc-data-layers-txt](/software/anvio/help/7.1/artifacts/misc-data-layers-txt)</span>.  
+- layers data (<span class="artifact-n">[misc-data-layers](/help/7.1/artifacts/misc-data-layers)</span>) into a <span class="artifact-n">[misc-data-layers-txt](/help/7.1/artifacts/misc-data-layers-txt)</span>.  
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/7.1/artifacts/pan&#45;db)</span> \
+anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/7.1/artifacts/pan&#45;db)</span> \
                       &#45;&#45;target&#45;data&#45;table layers 
 </div>
 
-- layer orders data (<span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/7.1/artifacts/misc-data-layer-orders)</span>) into a <span class="artifact-n">[misc-data-layer-orders-txt](/software/anvio/help/7.1/artifacts/misc-data-layer-orders-txt)</span>. 
+- layer orders data (<span class="artifact-n">[misc-data-layer-orders](/help/7.1/artifacts/misc-data-layer-orders)</span>) into a <span class="artifact-n">[misc-data-layer-orders-txt](/help/7.1/artifacts/misc-data-layer-orders-txt)</span>. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7.1/artifacts/profile&#45;db)</span> \
                       &#45;&#45;target&#45;data&#45;table layer_orders 
 </div>
 
 ### From a contigs-db: nucleotide and amino acid information
 
-**From a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>, you can export**
+**From a <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>, you can export**
 
-- nucleotide data (<span class="artifact-n">[misc-data-nucleotides](/software/anvio/help/7.1/artifacts/misc-data-nucleotides)</span>) into a <span class="artifact-n">[misc-data-nucleotides-txt](/software/anvio/help/7.1/artifacts/misc-data-nucleotides-txt)</span>.
+- nucleotide data (<span class="artifact-n">[misc-data-nucleotides](/help/7.1/artifacts/misc-data-nucleotides)</span>) into a <span class="artifact-n">[misc-data-nucleotides-txt](/help/7.1/artifacts/misc-data-nucleotides-txt)</span>.
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> 
+anvi&#45;export&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7.1/artifacts/contigs&#45;db)</span> 
                       &#45;&#45;target&#45;data&#45;table nucleotides
 </div>
 
-- amino acid data (<span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/7.1/artifacts/misc-data-amino-acids)</span>) into a <span class="artifact-n">[misc-data-amino-acids-txt](/software/anvio/help/7.1/artifacts/misc-data-amino-acids-txt)</span>.
+- amino acid data (<span class="artifact-n">[misc-data-amino-acids](/help/7.1/artifacts/misc-data-amino-acids)</span>) into a <span class="artifact-n">[misc-data-amino-acids-txt](/help/7.1/artifacts/misc-data-amino-acids-txt)</span>.
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> 
+anvi&#45;export&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7.1/artifacts/contigs&#45;db)</span> 
                       &#45;&#45;target&#45;data&#45;table amino_acids
 </div>
 

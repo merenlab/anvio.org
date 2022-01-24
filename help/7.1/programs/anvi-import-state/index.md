@@ -23,7 +23,7 @@ Import an anvi&#x27;o state into a profile database.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,17 +42,17 @@ Import an anvi&#x27;o state into a profile database.
 ## Usage
 
 
-This program allows you to import a <span class="artifact-n">[state](/software/anvio/help/7.1/artifacts/state)</span> from a <span class="artifact-n">[state-json](/software/anvio/help/7.1/artifacts/state-json)</span>.
+This program allows you to import a <span class="artifact-n">[state](/help/7.1/artifacts/state)</span> from a <span class="artifact-n">[state-json](/help/7.1/artifacts/state-json)</span>.
 
-You can run this program on a <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/7.1/artifacts/pan-db)</span> like so: 
+You can run this program on a <span class="artifact-n">[profile-db](/help/7.1/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/help/7.1/artifacts/pan-db)</span> like so: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;import&#45;state &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
-                  &#45;s <span class="artifact&#45;n">[state&#45;json](/software/anvio/help/7.1/artifacts/state&#45;json)</span> \
+anvi&#45;import&#45;state &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7.1/artifacts/profile&#45;db)</span> \
+                  &#45;s <span class="artifact&#45;n">[state&#45;json](/help/7.1/artifacts/state&#45;json)</span> \
                   &#45;n MY_STATE
 </div>
 
-This will import the state described in your <span class="artifact-n">[state-json](/software/anvio/help/7.1/artifacts/state-json)</span> into your <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span> with the name `MY_STATE`. 
+This will import the state described in your <span class="artifact-n">[state-json](/help/7.1/artifacts/state-json)</span> into your <span class="artifact-n">[profile-db](/help/7.1/artifacts/profile-db)</span> with the name `MY_STATE`. 
 
 
 {:.notice}

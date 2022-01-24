@@ -35,7 +35,7 @@ A DATA-type anvi'o artifact. This artifact is typically generated, used, and/or 
 
 This basically stores **a local copy of the data from the NCBI [COGs database](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102395/) for function annotation.** 
 
-It is required to run <span class="artifact-n">[anvi-run-ncbi-cogs](/software/anvio/help/7.1/programs/anvi-run-ncbi-cogs)</span> and is set up on your computer by the program <span class="artifact-n">[anvi-setup-ncbi-cogs](/software/anvio/help/7.1/programs/anvi-setup-ncbi-cogs)</span>. 
+It is required to run <span class="artifact-n">[anvi-run-ncbi-cogs](/help/7.1/programs/anvi-run-ncbi-cogs)</span> and is set up on your computer by the program <span class="artifact-n">[anvi-setup-ncbi-cogs](/help/7.1/programs/anvi-setup-ncbi-cogs)</span>. 
 
 
 {:.notice}

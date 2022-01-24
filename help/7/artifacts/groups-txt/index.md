@@ -32,7 +32,7 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 
 ## Description
 
-This is a two-column, TAB-delimited file that describes which samples belong to which groups. It is a required input for computing enrichment scores of metabolic modules in <span class="artifact-n">[anvi-compute-functional-enrichment](/software/anvio/help/7/programs/anvi-compute-functional-enrichment)</span>.
+This is a two-column, TAB-delimited file that describes which samples belong to which groups. It is a required input for computing enrichment scores of metabolic modules in <span class="artifact-n">[anvi-compute-functional-enrichment](/help/7/programs/anvi-compute-functional-enrichment)</span>.
 
 Here is an example:
 
@@ -44,7 +44,7 @@ Here is an example:
 |(...)|(...)|
 
 {:.warning}
-The names in the `sample` column must match those in the "modules" mode output file that you provide to the <span class="artifact-n">[anvi-compute-functional-enrichment](/software/anvio/help/7/programs/anvi-compute-functional-enrichment)</span> program. If you know that the sample names match but you are still getting errors, you might need to specify which column in the "modules" mode output contains those sample names using the `--sample-header` parameter of <span class="artifact-n">[anvi-compute-functional-enrichment](/software/anvio/help/7/programs/anvi-compute-functional-enrichment)</span>. 
+The names in the `sample` column must match those in the "modules" mode output file that you provide to the <span class="artifact-n">[anvi-compute-functional-enrichment](/help/7/programs/anvi-compute-functional-enrichment)</span> program. If you know that the sample names match but you are still getting errors, you might need to specify which column in the "modules" mode output contains those sample names using the `--sample-header` parameter of <span class="artifact-n">[anvi-compute-functional-enrichment](/help/7/programs/anvi-compute-functional-enrichment)</span>. 
 
 
 {:.notice}

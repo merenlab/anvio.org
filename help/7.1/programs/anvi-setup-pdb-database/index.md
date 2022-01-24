@@ -23,7 +23,7 @@ Setup or update an offline database of representative PDB structures clustered a
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/ekiefl.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">Evan Kiefl</span><div class="page-author-social-box"><a href="mailto:kiefl.evan@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/evankiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/ekiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/ekiefl.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">Evan Kiefl</span><div class="anvio-person-social-box"><a href="mailto:kiefl.evan@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/evankiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/ekiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -45,10 +45,10 @@ This program seems to know what its doing. It needs no input material from its u
 
 ## Basic usage 
 
-This program creates a <span class="artifact-n">[pdb-db](/software/anvio/help/7.1/artifacts/pdb-db)</span> local database that holds PDB structures from [this sequence database](https://salilab.org/modeller/supplemental.html), which is hosted by the [Sali lab](https://salilab.org/).  Their database comprises all PDB RCSB sequences that have been clustered at 95% sequence similarity. They seem to update their database every couple of months (thank you guys!).
+This program creates a <span class="artifact-n">[pdb-db](/help/7.1/artifacts/pdb-db)</span> local database that holds PDB structures from [this sequence database](https://salilab.org/modeller/supplemental.html), which is hosted by the [Sali lab](https://salilab.org/).  Their database comprises all PDB RCSB sequences that have been clustered at 95% sequence similarity. They seem to update their database every couple of months (thank you guys!).
 
 
-The purpose of <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/7.1/programs/anvi-setup-pdb-database)</span> to have a local copy of reference structures that can be used to, for example, get template structures for homology modelling when <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/7.1/programs/anvi-gen-structure-database)</span> is ran.
+The purpose of <span class="artifact-n">[anvi-setup-pdb-database](/help/7.1/programs/anvi-setup-pdb-database)</span> to have a local copy of reference structures that can be used to, for example, get template structures for homology modelling when <span class="artifact-n">[anvi-gen-structure-database](/help/7.1/programs/anvi-gen-structure-database)</span> is ran.
 
 
 Running this program is easy:
@@ -57,7 +57,7 @@ Running this program is easy:
 anvi&#45;setup&#45;pdb&#45;database &#45;&#45;just&#45;do&#45;it
 </div>
 
-If you already have a <span class="artifact-n">[pdb-db](/software/anvio/help/7.1/artifacts/pdb-db)</span> artifact and are trying to redownload this data, run 
+If you already have a <span class="artifact-n">[pdb-db](/help/7.1/artifacts/pdb-db)</span> artifact and are trying to redownload this data, run 
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;pdb&#45;database &#45;&#45;reset
@@ -71,7 +71,7 @@ anvi&#45;setup&#45;pdb&#45;database &#45;&#45;update
 
 ## Notes
 
-The output <span class="artifact-n">[pdb-db](/software/anvio/help/7.1/artifacts/pdb-db)</span> database is ~20GB and its contents may take several hours to download.
+The output <span class="artifact-n">[pdb-db](/help/7.1/artifacts/pdb-db)</span> database is ~20GB and its contents may take several hours to download.
 
 
 

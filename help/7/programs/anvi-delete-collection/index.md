@@ -10,7 +10,7 @@ image:
 
 Remove a collection from a given profile database.
 
-See **[program help menu](../../../../vignette#anvi-delete-collection)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,22 +31,22 @@ See **[program help menu](../../../../vignette#anvi-delete-collection)** or go b
 ## Usage
 
 
-This program, as implied by the name, is used to delete a <span class="artifact-n">[collection](/software/anvio/help/7/artifacts/collection)</span> from a <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span>. 
+This program, as implied by the name, is used to delete a <span class="artifact-n">[collection](/help/7/artifacts/collection)</span> from a <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span>. 
 
-When you do this, you'll lose the collection forever, as well as the <span class="artifact-n">[bin](/software/anvio/help/7/artifacts/bin)</span>s within it. It is generally a good idea to export your binning effort into a <span class="artifact-n">[collection-txt](/software/anvio/help/7/artifacts/collection-txt)</span> using <span class="artifact-n">[anvi-export-collection](/software/anvio/help/7/programs/anvi-export-collection)</span> before deleting it, just to be safe. 
+When you do this, you'll lose the collection forever, as well as the <span class="artifact-n">[bin](/help/7/artifacts/bin)</span>s within it. It is generally a good idea to export your binning effort into a <span class="artifact-n">[collection-txt](/help/7/artifacts/collection-txt)</span> using <span class="artifact-n">[anvi-export-collection](/help/7/programs/anvi-export-collection)</span> before deleting it, just to be safe. 
 
 To list available collections in a database, call 
 
 <div class="codeblock" markdown="1">
-anvi&#45;delete&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7/artifacts/profile&#45;db)</span> \
+anvi&#45;delete&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7/artifacts/profile&#45;db)</span> \
                        &#45;&#45;list&#45;collections
 </div>
 
 Then, you can easily delete a collection with the command
 
 <div class="codeblock" markdown="1">
-anvi&#45;delete&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7/artifacts/profile&#45;db)</span> \
-                       &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7/artifacts/collection)</span>
+anvi&#45;delete&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7/artifacts/profile&#45;db)</span> \
+                       &#45;C <span class="artifact&#45;n">[collection](/help/7/artifacts/collection)</span>
 </div>
 
 

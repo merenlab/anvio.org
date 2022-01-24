@@ -23,7 +23,7 @@ Start an anvi&#x27;o server to display a pan-genome.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,7 +42,7 @@ Start an anvi&#x27;o server to display a pan-genome.
 ## Usage
 
 
-This program **displays the contents of a <span class="artifact-n">[pan-db](/software/anvio/help/7.1/artifacts/pan-db)</span> in the [anvi'o interactive interface](http://merenlab.org/2016/02/27/the-anvio-interactive-interface//#using-the-anvio-interactive-interface), much like <span class="artifact-n">[anvi-interactive](/software/anvio/help/7.1/programs/anvi-interactive)</span>.**
+This program **displays the contents of a <span class="artifact-n">[pan-db](/help/7.1/artifacts/pan-db)</span> in the [anvi'o interactive interface](http://merenlab.org/2016/02/27/the-anvio-interactive-interface//#using-the-anvio-interactive-interface), much like <span class="artifact-n">[anvi-interactive](/help/7.1/programs/anvi-interactive)</span>.**
 
 Like you can see in the [pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#displaying-the-pan-genome), this opens a window of the interactive interface where each item is a gene cluster and each layer represents one of your genomes. 
 
@@ -51,23 +51,23 @@ Like you can see in the [pangenomics tutorial](http://merenlab.org/2016/11/08/pa
 You can run it with only two parameters: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;display&#45;pan &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/7.1/artifacts/pan&#45;db)</span> \
-                 &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/7.1/artifacts/genomes&#45;storage&#45;db)</span> 
+anvi&#45;display&#45;pan &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/7.1/artifacts/pan&#45;db)</span> \
+                 &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/7.1/artifacts/genomes&#45;storage&#45;db)</span> 
 </div>
 
 There are several default layer orders to choose from, including organizing based on gene cluster presence/absense or gene cluster frequency. These will both group your core gene clusters and singletons separately. 
 
-Beyond that, there are many different settings you can change in the side panel of the interface and you can import various additional data (primarily with the program <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/7.1/programs/anvi-import-misc-data)</span>). Once you're happy with the data displayed in the interface (and the prettiness of that data), you can  save those preferences in a <span class="artifact-n">[state](/software/anvio/help/7.1/artifacts/state)</span>. 
+Beyond that, there are many different settings you can change in the side panel of the interface and you can import various additional data (primarily with the program <span class="artifact-n">[anvi-import-misc-data](/help/7.1/programs/anvi-import-misc-data)</span>). Once you're happy with the data displayed in the interface (and the prettiness of that data), you can  save those preferences in a <span class="artifact-n">[state](/help/7.1/artifacts/state)</span>. 
 
 ### I want MORE data displayed 
 
 There are several other data types you can additionally choose to display in this program. Namely, you can add:
 
 - a title (very fancy I know) using `--title` 
-- a NEWICK formatted tree (or import it as a <span class="artifact-n">[misc-data-items-order-txt](/software/anvio/help/7.1/artifacts/misc-data-items-order-txt)</span> with <span class="artifact-n">[anvi-import-items-order](/software/anvio/help/7.1/programs/anvi-import-items-order)</span> or as a <span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/7.1/artifacts/misc-data-layer-orders)</span> with <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/7.1/programs/anvi-import-misc-data)</span>). 
+- a NEWICK formatted tree (or import it as a <span class="artifact-n">[misc-data-items-order-txt](/help/7.1/artifacts/misc-data-items-order-txt)</span> with <span class="artifact-n">[anvi-import-items-order](/help/7.1/programs/anvi-import-items-order)</span> or as a <span class="artifact-n">[misc-data-layer-orders](/help/7.1/artifacts/misc-data-layer-orders)</span> with <span class="artifact-n">[anvi-import-misc-data](/help/7.1/programs/anvi-import-misc-data)</span>). 
 - view data in a tab-delimited file
 - an additional view (provide this in a tab-delimited matrix where each column corresponds to a sample and each row corresponds to a gene cluster)
-- an additional layer in the form of a <span class="artifact-n">[misc-data-layers-txt](/software/anvio/help/7.1/artifacts/misc-data-layers-txt)</span> (or import it into your <span class="artifact-n">[pan-db](/software/anvio/help/7.1/artifacts/pan-db)</span> with <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/7.1/programs/anvi-import-misc-data)</span>
+- an additional layer in the form of a <span class="artifact-n">[misc-data-layers-txt](/help/7.1/artifacts/misc-data-layers-txt)</span> (or import it into your <span class="artifact-n">[pan-db](/help/7.1/artifacts/pan-db)</span> with <span class="artifact-n">[anvi-import-misc-data](/help/7.1/programs/anvi-import-misc-data)</span>
 
 ### How to minimize mouse clicks 
 
@@ -76,8 +76,8 @@ Wondering how to autoload specific aspects of the interface? You're in the right
 You have the option to specify quite a few aspects of the interface through the parameters to save you those sweet mouse clicks. 
 
 - You can specify which view to start the interface with. Check which views are available with `--list-views`. 
-- You can load a specific <span class="artifact-n">[state](/software/anvio/help/7.1/artifacts/state)</span> (either a previous state or a state that you've imported with <span class="artifact-n">[anvi-import-state](/software/anvio/help/7.1/programs/anvi-import-state)</span>). Check which states are available with the flag `--list-states`. 
-- You can also load a specific <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> with `--collection-autoload`. To check which collections are availible, use `--list-collections`. 
+- You can load a specific <span class="artifact-n">[state](/help/7.1/artifacts/state)</span> (either a previous state or a state that you've imported with <span class="artifact-n">[anvi-import-state](/help/7.1/programs/anvi-import-state)</span>). Check which states are available with the flag `--list-states`. 
+- You can also load a specific <span class="artifact-n">[collection](/help/7.1/artifacts/collection)</span> with `--collection-autoload`. To check which collections are availible, use `--list-collections`. 
 
 ### Other parameters 
 

@@ -23,7 +23,7 @@ Parse and store functional annotation of genes.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,7 +42,7 @@ Parse and store functional annotation of genes.
 ## Usage
 
 
-This program **takes in a <span class="artifact-n">[functions-txt](/software/anvio/help/7.1/artifacts/functions-txt)</span> to annotate your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> with <span class="artifact-n">[functions](/software/anvio/help/7.1/artifacts/functions)</span>.** Basically, if you have already have the gene functions for the contigs in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> available in a file, you can import them into anvi'o using this command. 
+This program **takes in a <span class="artifact-n">[functions-txt](/help/7.1/artifacts/functions-txt)</span> to annotate your <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span> with <span class="artifact-n">[functions](/help/7.1/artifacts/functions)</span>.** Basically, if you have already have the gene functions for the contigs in your <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span> available in a file, you can import them into anvi'o using this command. 
 
 You can find a really comprehesive walkthrough of this program on [this blog post about importing functions](http://merenlab.org/2016/06/18/importing-functions/), including information about built-in anvi'o parsers for InterProScan and the EggNOG database.
 

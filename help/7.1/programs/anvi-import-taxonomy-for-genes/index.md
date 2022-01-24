@@ -23,7 +23,7 @@ Import gene-level taxonomy into an anvi&#x27;o contigs database.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,11 +42,11 @@ Import gene-level taxonomy into an anvi&#x27;o contigs database.
 ## Usage
 
 
-This program uses a <span class="artifact-n">[gene-taxonomy-txt](/software/anvio/help/7.1/artifacts/gene-taxonomy-txt)</span> to populate the taxonomic information for the genes in a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>. 
+This program uses a <span class="artifact-n">[gene-taxonomy-txt](/help/7.1/artifacts/gene-taxonomy-txt)</span> to populate the taxonomic information for the genes in a <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>. 
 
-Once finished, your gene taxonomy will appear as an additional layer if you open the <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> and an associated <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span> in <span class="artifact-n">[anvi-interactive](/software/anvio/help/7.1/programs/anvi-interactive)</span>. 
+Once finished, your gene taxonomy will appear as an additional layer if you open the <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span> and an associated <span class="artifact-n">[profile-db](/help/7.1/artifacts/profile-db)</span> in <span class="artifact-n">[anvi-interactive](/help/7.1/programs/anvi-interactive)</span>. 
 
-There is an entire blogpost about different ways to do this [here](http://merenlab.org/2016/06/18/importing-taxonomy/). It outlines how to get your sequences using <span class="artifact-n">[anvi-get-sequences-for-gene-calls](/software/anvio/help/7.1/programs/anvi-get-sequences-for-gene-calls)</span> than use either [Kaiju](https://github.com/bioinformatics-centre/kaiju) or [Centrifuge](https://github.com/infphilo/centrifuge) to get the taxonomy information for your genes. Finally, you bring that information back into anvi'o using this program.  
+There is an entire blogpost about different ways to do this [here](http://merenlab.org/2016/06/18/importing-taxonomy/). It outlines how to get your sequences using <span class="artifact-n">[anvi-get-sequences-for-gene-calls](/help/7.1/programs/anvi-get-sequences-for-gene-calls)</span> than use either [Kaiju](https://github.com/bioinformatics-centre/kaiju) or [Centrifuge](https://github.com/infphilo/centrifuge) to get the taxonomy information for your genes. Finally, you bring that information back into anvi'o using this program.  
 
 
 {:.notice}

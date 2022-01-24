@@ -23,7 +23,7 @@ Delete an anvi&#x27;o state from a pan or profile database.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,22 +42,22 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program, as implied by the name, is used to delete a <span class="artifact-n">[state](/software/anvio/help/7.1/artifacts/state)</span> from a <span class="artifact-n">[pan-db](/software/anvio/help/7.1/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span>. This way, you can remove states that are clogging up the state list in the interface. 
+This program, as implied by the name, is used to delete a <span class="artifact-n">[state](/help/7.1/artifacts/state)</span> from a <span class="artifact-n">[pan-db](/help/7.1/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/7.1/artifacts/profile-db)</span>. This way, you can remove states that are clogging up the state list in the interface. 
 
 It is generally a good idea to export your state before deleting it, just in case ((anvi-export-state)s).
 
-To list available <span class="artifact-n">[state](/software/anvio/help/7.1/artifacts/state)</span>s in a database, call 
+To list available <span class="artifact-n">[state](/help/7.1/artifacts/state)</span>s in a database, call 
 
 <div class="codeblock" markdown="1">
-anvi&#45;delete&#45;state &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/7.1/artifacts/pan&#45;db)</span> \
+anvi&#45;delete&#45;state &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/7.1/artifacts/pan&#45;db)</span> \
                  &#45;&#45;list&#45;states
 </div>
 
-Then, you can easily delete a <span class="artifact-n">[state](/software/anvio/help/7.1/artifacts/state)</span> with the command
+Then, you can easily delete a <span class="artifact-n">[state](/help/7.1/artifacts/state)</span> with the command
 
 <div class="codeblock" markdown="1">
-anvi&#45;delete&#45;hmms &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
-                 &#45;s <span class="artifact&#45;n">[state](/software/anvio/help/7.1/artifacts/state)</span> 
+anvi&#45;delete&#45;hmms &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7.1/artifacts/profile&#45;db)</span> \
+                 &#45;s <span class="artifact&#45;n">[state](/help/7.1/artifacts/state)</span> 
 </div>
 
 

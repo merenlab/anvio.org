@@ -34,7 +34,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 A database containing information from the [KEGG MODULES database](https://www.genome.jp/kegg/module.html) for use in metabolic reconstruction and functional annotation of KEGG Orthologs (KOs).
 
-Part of the <span class="artifact-n">[kegg-data](/software/anvio/help/7/artifacts/kegg-data)</span> directory. You can get this database on your computer by running <span class="artifact-n">[anvi-setup-kegg-kofams](/software/anvio/help/7/programs/anvi-setup-kegg-kofams)</span>. Programs that rely on this database downstream include <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/7/programs/anvi-run-kegg-kofams)</span> and <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/7/programs/anvi-estimate-metabolism)</span>.
+Part of the <span class="artifact-n">[kegg-data](/help/7/artifacts/kegg-data)</span> directory. You can get this database on your computer by running <span class="artifact-n">[anvi-setup-kegg-kofams](/help/7/programs/anvi-setup-kegg-kofams)</span>. Programs that rely on this database downstream include <span class="artifact-n">[anvi-run-kegg-kofams](/help/7/programs/anvi-run-kegg-kofams)</span> and <span class="artifact-n">[anvi-estimate-metabolism](/help/7/programs/anvi-estimate-metabolism)</span>.
 
 
 {:.notice}

@@ -10,7 +10,7 @@ image:
 
 Generate phylogenomic tree from aligment file.
 
-See **[program help menu](../../../../vignette#anvi-gen-phylogenomic-tree)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,15 +31,15 @@ See **[program help menu](../../../../vignette#anvi-gen-phylogenomic-tree)** or 
 ## Usage
 
 
-This program generates a NEWICK-formatted phylogenomic tree (see <span class="artifact-n">[phylogeny](/software/anvio/help/7/artifacts/phylogeny)</span>) based on a given <span class="artifact-n">[concatenated-gene-alignment-fasta](/software/anvio/help/7/artifacts/concatenated-gene-alignment-fasta)</span>. 
+This program generates a NEWICK-formatted phylogenomic tree (see <span class="artifact-n">[phylogeny](/help/7/artifacts/phylogeny)</span>) based on a given <span class="artifact-n">[concatenated-gene-alignment-fasta](/help/7/artifacts/concatenated-gene-alignment-fasta)</span>. 
 
-As mentioned in the [phylogenetics tutorial](http://merenlab.org/2017/06/07/phylogenomics/), it currently only has the option to use [FastTree](http://microbesonline.org/fasttree/) to do so, but be aware that there are many other programs that you can do this with. Some of the options we are familiar with (and are not yet represented in `anvi-gen-phylogenomic-tree`) include [MrBayes](http://mrbayes.sourceforge.net/), [MEGA](http://www.megasoftware.net/), and PHYLIP, [among many others](http://evolution.genetics.washington.edu/phylip/software.html#methods), most of which will happily take a <span class="artifact-n">[concatenated-gene-alignment-fasta](/software/anvio/help/7/artifacts/concatenated-gene-alignment-fasta)</span>. 
+As mentioned in the [phylogenetics tutorial](http://merenlab.org/2017/06/07/phylogenomics/), it currently only has the option to use [FastTree](http://microbesonline.org/fasttree/) to do so, but be aware that there are many other programs that you can do this with. Some of the options we are familiar with (and are not yet represented in `anvi-gen-phylogenomic-tree`) include [MrBayes](http://mrbayes.sourceforge.net/), [MEGA](http://www.megasoftware.net/), and PHYLIP, [among many others](http://evolution.genetics.washington.edu/phylip/software.html#methods), most of which will happily take a <span class="artifact-n">[concatenated-gene-alignment-fasta](/help/7/artifacts/concatenated-gene-alignment-fasta)</span>. 
 
-Anyway, running this program is simple. Just provide the <span class="artifact-n">[concatenated-gene-alignment-fasta](/software/anvio/help/7/artifacts/concatenated-gene-alignment-fasta)</span> with all of the genes that you want to use and the output file path for your <span class="artifact-n">[phylogeny](/software/anvio/help/7/artifacts/phylogeny)</span>:
+Anyway, running this program is simple. Just provide the <span class="artifact-n">[concatenated-gene-alignment-fasta](/help/7/artifacts/concatenated-gene-alignment-fasta)</span> with all of the genes that you want to use and the output file path for your <span class="artifact-n">[phylogeny](/help/7/artifacts/phylogeny)</span>:
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;phylogenomic&#45;tree &#45;f <span class="artifact&#45;n">[concatenated&#45;gene&#45;alignment&#45;fasta](/software/anvio/help/7/artifacts/concatenated&#45;gene&#45;alignment&#45;fasta)</span> \
-                           &#45;o PATH/TO/<span class="artifact&#45;n">[phylogeny](/software/anvio/help/7/artifacts/phylogeny)</span>
+anvi&#45;gen&#45;phylogenomic&#45;tree &#45;f <span class="artifact&#45;n">[concatenated&#45;gene&#45;alignment&#45;fasta](/help/7/artifacts/concatenated&#45;gene&#45;alignment&#45;fasta)</span> \
+                           &#45;o PATH/TO/<span class="artifact&#45;n">[phylogeny](/help/7/artifacts/phylogeny)</span>
 </div>
 
 

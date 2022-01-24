@@ -32,9 +32,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-A tRNA-seq database is an anvi'o database that **contains tRNA sequences predicted from a <span class="artifact-n">[trnaseq-fasta](/software/anvio/help/7/artifacts/trnaseq-fasta)</span> for a sample, and associated information**.
+A tRNA-seq database is an anvi'o database that **contains tRNA sequences predicted from a <span class="artifact-n">[trnaseq-fasta](/help/7/artifacts/trnaseq-fasta)</span> for a sample, and associated information**.
 
-This database is the key output of **<span class="artifact-n">[anvi-trnaseq](/software/anvio/help/7/programs/anvi-trnaseq)</span>**, which predicts which input sequences are tRNA, clusters them into discrete biological sequences, and predicts positions in the sequences that are the sites of nucleotide modifications. The database therefore contains tables of information produced by each part of the process.
+This database is the key output of **<span class="artifact-n">[anvi-trnaseq](/help/7/programs/anvi-trnaseq)</span>**, which predicts which input sequences are tRNA, clusters them into discrete biological sequences, and predicts positions in the sequences that are the sites of nucleotide modifications. The database therefore contains tables of information produced by each part of the process.
 
 * Unique sequences predicted to be tRNA, including read counts
 * Primary sequence and secondary structural features (stems and loops) predicted in each unique tRNA
@@ -44,7 +44,7 @@ This database is the key output of **<span class="artifact-n">[anvi-trnaseq](/so
 * "Normalized" tRNA sequences, formed by dereplicating trimmed tRNA sequences that are 3' fragments produced by incomplete reverse transcription and by mapping biological tRNA fragments
 * Potentially modified tRNA sequences, formed by clustering normalized tRNA sequences and retaining those clusters that differ by 3-4 nucleotides at potentially modified positions
 
-This database is the key input to **<span class="artifact-n">[anvi-convert-trnaseq-database](/software/anvio/help/7/programs/anvi-convert-trnaseq-database)</span>**, which takes one or more databases comprising the samples of an experiment and generates a <span class="artifact-n">[contigs-db](/software/anvio/help/7/artifacts/contigs-db)</span> of tRNA seed sequences and <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span>. These can then be displayed and manipulated in anvi'o like other 'omics data.
+This database is the key input to **<span class="artifact-n">[anvi-convert-trnaseq-database](/help/7/programs/anvi-convert-trnaseq-database)</span>**, which takes one or more databases comprising the samples of an experiment and generates a <span class="artifact-n">[contigs-db](/help/7/artifacts/contigs-db)</span> of tRNA seed sequences and <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span>. These can then be displayed and manipulated in anvi'o like other 'omics data.
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/trnaseq-db.md) to update this information.

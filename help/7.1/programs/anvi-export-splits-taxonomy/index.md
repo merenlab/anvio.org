@@ -23,7 +23,7 @@ Export taxonomy for splits found in an anvi&#x27;o contigs database.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,15 +42,15 @@ Export taxonomy for splits found in an anvi&#x27;o contigs database.
 ## Usage
 
 
-This program exports the taxonomy hits for the splits contained in a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>, outputting them in a <span class="artifact-n">[splits-taxonomy-txt](/software/anvio/help/7.1/artifacts/splits-taxonomy-txt)</span>. 
+This program exports the taxonomy hits for the splits contained in a <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>, outputting them in a <span class="artifact-n">[splits-taxonomy-txt](/help/7.1/artifacts/splits-taxonomy-txt)</span>. 
 
 To do this, anvi'o examines all of the annotated genes within your splits and returns the taxon ID with the most genes associated with it. For example, a split with 3 genes identified as E. coli, 2 genes identified as Staphylococcus aureus, and 1 as Streptococcus pneumoniae would be annotated as E. coli. 
 
-To run this program, just provide a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>:
+To run this program, just provide a <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>:
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;splits&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
-                            &#45;o PATH/TO/<span class="artifact&#45;n">[splits&#45;taxonomy&#45;txt](/software/anvio/help/7.1/artifacts/splits&#45;taxonomy&#45;txt)</span>
+anvi&#45;export&#45;splits&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7.1/artifacts/contigs&#45;db)</span> \
+                            &#45;o PATH/TO/<span class="artifact&#45;n">[splits&#45;taxonomy&#45;txt](/help/7.1/artifacts/splits&#45;taxonomy&#45;txt)</span>
 
 </div>
 

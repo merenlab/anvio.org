@@ -10,7 +10,7 @@ image:
 
 Corrects homopolymer-region associated INDELs in a given genome based on a reference genome. The most effective use of this script is when the input genome is a genome reconstructed by minION long reads, and the reference genome is one that is of high-quality. Essentially, this script will BLAST the genome you wish to correct against the reference genome you provide, identify INDELs in the BLAST results that are exclusively associated with homopolymer regions, and will take the reference genome as a guide to correct the input sequences, and report a new FASTA file. You can use the output FASTA file that is fixed as the input FASTA file over and over again to see if you can eliminate all homopolymer-associated INDELs.
 
-See **[program help menu](../../../../vignette#anvi-script-fix-homopolymer-indels)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,7 +31,7 @@ See **[program help menu](../../../../vignette#anvi-script-fix-homopolymer-indel
 ## Usage
 
 
-This program takes an input <span class="artifact-n">[fasta](/software/anvio/help/7/artifacts/fasta)</span> file with one or more sequences, then **corrects INDELs associated with homopolymer regions given a reference <span class="artifact-n">[fasta](/software/anvio/help/7/artifacts/fasta)</span> file**, and reports edited sequences as a new <span class="artifact-n">[fasta](/software/anvio/help/7/artifacts/fasta)</span> file.
+This program takes an input <span class="artifact-n">[fasta](/help/7/artifacts/fasta)</span> file with one or more sequences, then **corrects INDELs associated with homopolymer regions given a reference <span class="artifact-n">[fasta](/help/7/artifacts/fasta)</span> file**, and reports edited sequences as a new <span class="artifact-n">[fasta](/help/7/artifacts/fasta)</span> file.
 
 {:.warning}
 You must be extremely careful with this program since it reports edited sequences.

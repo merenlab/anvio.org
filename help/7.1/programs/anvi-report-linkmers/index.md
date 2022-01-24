@@ -23,7 +23,7 @@ Reports sequences stored in one or more BAM files that cover one of more specifi
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,7 +42,7 @@ Reports sequences stored in one or more BAM files that cover one of more specifi
 ## Usage
 
 
-Reports sequences stored in a <span class="artifact-n">[bam-file](/software/anvio/help/7.1/artifacts/bam-file)</span> file that cover one of more specific nucleotide positions in a reference.
+Reports sequences stored in a <span class="artifact-n">[bam-file](/help/7.1/artifacts/bam-file)</span> file that cover one of more specific nucleotide positions in a reference.
 
 ### Basic mode of operation
 
@@ -85,7 +85,7 @@ The user can define multiple contigs in the input file, and one or more nucleoti
 </tbody>
 </table>
 
-The resulting <span class="artifact-n">[linkmers-txt](/software/anvio/help/7.1/artifacts/linkmers-txt)</span> would include all short reads that match any of these critera
+The resulting <span class="artifact-n">[linkmers-txt](/help/7.1/artifacts/linkmers-txt)</span> would include all short reads that match any of these critera
 
 ### Complete or incomplete links?
 
@@ -93,7 +93,7 @@ Using the `--only-complete-links` flag, the user can enforce whether only comple
 
 Please note that if the nucleotide positions chosen for a given contig are too distant from each other given the short read length, zero reads may satisfy the complete links criterion.
 
-Having complete links, however, will enable [oligotyping](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12114) analyses on **metagenomic reads** through the anvi'o program <span class="artifact-n">[anvi-oligotype-linkmers](/software/anvio/help/7.1/programs/anvi-oligotype-linkmers)</span>.
+Having complete links, however, will enable [oligotyping](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12114) analyses on **metagenomic reads** through the anvi'o program <span class="artifact-n">[anvi-oligotype-linkmers](/help/7.1/programs/anvi-oligotype-linkmers)</span>.
 
 ### See this program in action
 

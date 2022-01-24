@@ -23,7 +23,7 @@ Take the output of anvi-gen-variability-profile, prepare an output for interacti
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,13 +42,13 @@ Take the output of anvi-gen-variability-profile, prepare an output for interacti
 ## Usage
 
 
-This programs takes a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/7.1/artifacts/variability-profile-txt)</span> and generates the information necessary to visualize its contents with <span class="artifact-n">[anvi-interactive](/software/anvio/help/7.1/programs/anvi-interactive)</span>. 
+This programs takes a <span class="artifact-n">[variability-profile-txt](/help/7.1/artifacts/variability-profile-txt)</span> and generates the information necessary to visualize its contents with <span class="artifact-n">[anvi-interactive](/help/7.1/programs/anvi-interactive)</span>. 
 
-Specifically, this program outputs a directory that contains a <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span>, a <span class="artifact-n">[view-data](/software/anvio/help/7.1/artifacts/view-data)</span> artifact, and a <span class="artifact-n">[dendrogram](/software/anvio/help/7.1/artifacts/dendrogram)</span>. For example, if you ran this program like so: 
+Specifically, this program outputs a directory that contains a <span class="artifact-n">[profile-db](/help/7.1/artifacts/profile-db)</span>, a <span class="artifact-n">[view-data](/help/7.1/artifacts/view-data)</span> artifact, and a <span class="artifact-n">[dendrogram](/help/7.1/artifacts/dendrogram)</span>. For example, if you ran this program like so: 
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;snvs&#45;to&#45;interactive &#45;o OUTPUT_DIR \
-                                <span class="artifact&#45;n">[variability&#45;profile](/software/anvio/help/7.1/artifacts/variability&#45;profile)</span>
+                                <span class="artifact&#45;n">[variability&#45;profile](/help/7.1/artifacts/variability&#45;profile)</span>
 </div>
 
 Then, you can open the interactive interface by running 

@@ -23,7 +23,7 @@ Extract ngrams, as in &#x27;co-occurring genes in synteny&#x27;, from genomes.
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/mschecht.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">Matthew Schechter</span><div class="page-author-social-box"><a href="mailto:mschechter@uchicago.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/mschecht_bio" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/mschecht" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/mschecht.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">Matthew Schechter</span><div class="anvio-person-social-box"><a href="mailto:mschechter@uchicago.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/mschecht_bio" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/mschecht" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,45 +42,45 @@ Extract ngrams, as in &#x27;co-occurring genes in synteny&#x27;, from genomes.
 ## Usage
 
 
-Briefly, <span class="artifact-n">[anvi-analyze-synteny](/software/anvio/help/7.1/programs/anvi-analyze-synteny)</span> counts <span class="artifact-n">[ngrams](/software/anvio/help/7.1/artifacts/ngrams)</span> by converting contigs into strings of annotations for a given user-defined source of gene annotation. A source annotation for <span class="artifact-n">[functions](/software/anvio/help/7.1/artifacts/functions)</span> **must** be provided to create <span class="artifact-n">[ngrams](/software/anvio/help/7.1/artifacts/ngrams)</span>, upon which anvi'o will use a sliding window of size `N` to deconstruct the loci of interest into <span class="artifact-n">[ngrams](/software/anvio/help/7.1/artifacts/ngrams)</span> and count their frequencies.
+Briefly, <span class="artifact-n">[anvi-analyze-synteny](/help/7.1/programs/anvi-analyze-synteny)</span> counts <span class="artifact-n">[ngrams](/help/7.1/artifacts/ngrams)</span> by converting contigs into strings of annotations for a given user-defined source of gene annotation. A source annotation for <span class="artifact-n">[functions](/help/7.1/artifacts/functions)</span> **must** be provided to create <span class="artifact-n">[ngrams](/help/7.1/artifacts/ngrams)</span>, upon which anvi'o will use a sliding window of size `N` to deconstruct the loci of interest into <span class="artifact-n">[ngrams](/help/7.1/artifacts/ngrams)</span> and count their frequencies.
 
 ### Run for a given function annotation source
 
 <div class="codeblock" markdown="1">
-anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/7.1/artifacts/genomes&#45;storage&#45;db)</span> \
-                     &#45;&#45;annotation&#45;source <span class="artifact&#45;n">[functions](/software/anvio/help/7.1/artifacts/functions)</span> \
+anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/7.1/artifacts/genomes&#45;storage&#45;db)</span> \
+                     &#45;&#45;annotation&#45;source <span class="artifact&#45;n">[functions](/help/7.1/artifacts/functions)</span> \
                      &#45;&#45;ngram&#45;window&#45;range 2:3 \
-                     &#45;o <span class="artifact&#45;n">[ngrams](/software/anvio/help/7.1/artifacts/ngrams)</span>
+                     &#45;o <span class="artifact&#45;n">[ngrams](/help/7.1/artifacts/ngrams)</span>
 </div>
 
-For instance, if you have run <span class="artifact-n">[anvi-run-ncbi-cogs](/software/anvio/help/7.1/programs/anvi-run-ncbi-cogs)</span> on each <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> you have used to generate your <span class="artifact-n">[genomes-storage-db](/software/anvio/help/7.1/artifacts/genomes-storage-db)</span>, your `--annotation-source` can be `NCBI_COGS`:
+For instance, if you have run <span class="artifact-n">[anvi-run-ncbi-cogs](/help/7.1/programs/anvi-run-ncbi-cogs)</span> on each <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span> you have used to generate your <span class="artifact-n">[genomes-storage-db](/help/7.1/artifacts/genomes-storage-db)</span>, your `--annotation-source` can be `NCBI_COGS`:
 
 <div class="codeblock" markdown="1">
-anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/7.1/artifacts/genomes&#45;storage&#45;db)</span> \
+anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/7.1/artifacts/genomes&#45;storage&#45;db)</span> \
                      &#45;&#45;annotation&#45;source NCBI_COGS \
                      &#45;&#45;ngram&#45;window&#45;range 2:3 \
-                     &#45;o <span class="artifact&#45;n">[ngrams](/software/anvio/help/7.1/artifacts/ngrams)</span>
+                     &#45;o <span class="artifact&#45;n">[ngrams](/help/7.1/artifacts/ngrams)</span>
 </div>
 
 
 ### Handling genes with unknown functions 
 
-By default, <span class="artifact-n">[anvi-analyze-synteny](/software/anvio/help/7.1/programs/anvi-analyze-synteny)</span> will ignore genes with unknown functions based on the annotation source of interest. However, this can be circumvented either by providing a <span class="artifact-n">[pan-db](/software/anvio/help/7.1/artifacts/pan-db)</span>, so the program would use gene cluster identities as function names:
+By default, <span class="artifact-n">[anvi-analyze-synteny](/help/7.1/programs/anvi-analyze-synteny)</span> will ignore genes with unknown functions based on the annotation source of interest. However, this can be circumvented either by providing a <span class="artifact-n">[pan-db](/help/7.1/artifacts/pan-db)</span>, so the program would use gene cluster identities as function names:
 
 <div class="codeblock" markdown="1">
-anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/7.1/artifacts/genomes&#45;storage&#45;db)</span> \
-                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/7.1/artifacts/pan&#45;db)</span> \
+anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/7.1/artifacts/genomes&#45;storage&#45;db)</span> \
+                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/7.1/artifacts/pan&#45;db)</span> \
                      &#45;&#45;ngram&#45;window&#45;range 2:3 \
-                     &#45;o <span class="artifact&#45;n">[ngrams](/software/anvio/help/7.1/artifacts/ngrams)</span>
+                     &#45;o <span class="artifact&#45;n">[ngrams](/help/7.1/artifacts/ngrams)</span>
 </div>
 
 or by explicitly asking the program to consider unknown functions, in which case the program would not discard ngrams that include genes without functions:
 
 <div class="codeblock" markdown="1">
-anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/7.1/artifacts/genomes&#45;storage&#45;db)</span> \
-                     &#45;&#45;annotation&#45;source <span class="artifact&#45;n">[functions](/software/anvio/help/7.1/artifacts/functions)</span> \
+anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/7.1/artifacts/genomes&#45;storage&#45;db)</span> \
+                     &#45;&#45;annotation&#45;source <span class="artifact&#45;n">[functions](/help/7.1/artifacts/functions)</span> \
                      &#45;&#45;ngram&#45;window&#45;range 2:3 \
-                     &#45;o <span class="artifact&#45;n">[ngrams](/software/anvio/help/7.1/artifacts/ngrams)</span> \
+                     &#45;o <span class="artifact&#45;n">[ngrams](/help/7.1/artifacts/ngrams)</span> \
                      &#45;&#45;analyze&#45;unknown&#45;functions
 </div>
 
@@ -88,15 +88,15 @@ The disadvantage of the latter strategy is that since all genes with unknown fun
 
 ### Run with multiple annotations
 
-If multiple gene annotation sources are provided (i.e., a pangenome for gene clusters identities as well as a functional annotation source), the user must define which annotation source will be used to create the <span class="artifact-n">[ngrams](/software/anvio/help/7.1/artifacts/ngrams)</span> using the parameter `--ngram-source`. The resulting <span class="artifact-n">[ngrams](/software/anvio/help/7.1/artifacts/ngrams)</span> will then be re-annotated with the second annotation source and also reported. 
+If multiple gene annotation sources are provided (i.e., a pangenome for gene clusters identities as well as a functional annotation source), the user must define which annotation source will be used to create the <span class="artifact-n">[ngrams](/help/7.1/artifacts/ngrams)</span> using the parameter `--ngram-source`. The resulting <span class="artifact-n">[ngrams](/help/7.1/artifacts/ngrams)</span> will then be re-annotated with the second annotation source and also reported. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/7.1/artifacts/genomes&#45;storage&#45;db)</span> \
-                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/7.1/artifacts/pan&#45;db)</span> \
-                     &#45;&#45;annotation&#45;source <span class="artifact&#45;n">[functions](/software/anvio/help/7.1/artifacts/functions)</span> \
+anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/7.1/artifacts/genomes&#45;storage&#45;db)</span> \
+                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/7.1/artifacts/pan&#45;db)</span> \
+                     &#45;&#45;annotation&#45;source <span class="artifact&#45;n">[functions](/help/7.1/artifacts/functions)</span> \
                      &#45;&#45;ngram&#45;source gene_clusters \
                      &#45;&#45;ngram&#45;window&#45;range 2:3 \
-                     &#45;o <span class="artifact&#45;n">[ngrams](/software/anvio/help/7.1/artifacts/ngrams)</span>
+                     &#45;o <span class="artifact&#45;n">[ngrams](/help/7.1/artifacts/ngrams)</span>
 </div>
 
 ### Test cases for developers

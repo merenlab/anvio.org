@@ -10,7 +10,7 @@ image:
 
 Get sequences for HMM hits from many inputs.
 
-See **[program help menu](../../../../vignette#anvi-get-sequences-for-hmm-hits)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,7 +31,7 @@ See **[program help menu](../../../../vignette#anvi-get-sequences-for-hmm-hits)*
 ## Usage
 
 
-This program can work with anvi'o <span class="artifact-n">[contigs-db](/software/anvio/help/7/artifacts/contigs-db)</span>, <span class="artifact-n">[external-genomes](/software/anvio/help/7/artifacts/external-genomes)</span>, or <span class="artifact-n">[internal-genomes](/software/anvio/help/7/artifacts/internal-genomes)</span> files to return sequences for HMM hits identified through the default anvi'o <span class="artifact-n">[hmm-source](/software/anvio/help/7/artifacts/hmm-source)</span>s (such as the domain-specific single-copy core genes) or user-defined <span class="artifact-n">[hmm-source](/software/anvio/help/7/artifacts/hmm-source)</span>s (such as HMMs for specific antibiotic resistance gene families or any other targets).
+This program can work with anvi'o <span class="artifact-n">[contigs-db](/help/7/artifacts/contigs-db)</span>, <span class="artifact-n">[external-genomes](/help/7/artifacts/external-genomes)</span>, or <span class="artifact-n">[internal-genomes](/help/7/artifacts/internal-genomes)</span> files to return sequences for HMM hits identified through the default anvi'o <span class="artifact-n">[hmm-source](/help/7/artifacts/hmm-source)</span>s (such as the domain-specific single-copy core genes) or user-defined <span class="artifact-n">[hmm-source](/help/7/artifacts/hmm-source)</span>s (such as HMMs for specific antibiotic resistance gene families or any other targets).
 
 Using it with single-copy core genes in default anvi'o HMMs make it a very versatile tool for phylogenomics as the user can define specific sets of genes to be aligned and concatenated.
 
@@ -39,7 +39,7 @@ Using it with single-copy core genes in default anvi'o HMMs make it a very versa
 ### Learn available HMM sources
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7/artifacts/contigs&#45;db)</span> \
+anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7/artifacts/contigs&#45;db)</span> \
                                 &#45;&#45;list&#45;hmm&#45;sources
 
 AVAILABLE HMM SOURCES
@@ -53,17 +53,17 @@ AVAILABLE HMM SOURCES
 ### Get all sequences in a given HMM source
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7/artifacts/contigs&#45;db)</span> \
+anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7/artifacts/contigs&#45;db)</span> \
                                 &#45;&#45;hmm&#45;source Bacteria_71 \
-                                &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/7/artifacts/genes&#45;fasta)</span>
+                                &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/help/7/artifacts/genes&#45;fasta)</span>
 </div>
 
 ### Learn available genes in a given HMM source
 
-Please note that the flag `--list-available-gene-names` will give you the list of genes in an **HMM collection** (for example, for `Bacteria_71` in the following use case), and it will not give you the list of genes in your genomes or metagenomes that are matching to them. You can generate a table of HMMs across your genomes or metagenomes with another program, <span class="artifact-n">[anvi-script-gen-hmm-hits-matrix-across-genomes](/software/anvio/help/7/programs/anvi-script-gen-hmm-hits-matrix-across-genomes)</span>.
+Please note that the flag `--list-available-gene-names` will give you the list of genes in an **HMM collection** (for example, for `Bacteria_71` in the following use case), and it will not give you the list of genes in your genomes or metagenomes that are matching to them. You can generate a table of HMMs across your genomes or metagenomes with another program, <span class="artifact-n">[anvi-script-gen-hmm-hits-matrix-across-genomes](/help/7/programs/anvi-script-gen-hmm-hits-matrix-across-genomes)</span>.
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7/artifacts/contigs&#45;db)</span> \
+anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7/artifacts/contigs&#45;db)</span> \
                                 &#45;&#45;hmm&#45;source Bacteria_71 \
                                 &#45;&#45;list&#45;available&#45;gene&#45;names
 
@@ -85,49 +85,49 @@ Adenylsucc_synt
 ### Get sequences for some sequences in a given HMM source
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7/artifacts/contigs&#45;db)</span> \
+anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7/artifacts/contigs&#45;db)</span> \
                                 &#45;&#45;hmm&#45;source Bacteria_71 \
                                 &#45;&#45;gene&#45;names Ribosomal_L27,Ribosomal_L28,Ribosomal_L3 \
-                                &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/7/artifacts/genes&#45;fasta)</span>
+                                &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/help/7/artifacts/genes&#45;fasta)</span>
 </div>
 
 ### Get HMM hits in bins of a collection
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7/artifacts/contigs&#45;db)</span> \
-                                &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7/artifacts/profile&#45;db)</span> \
-                                &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7/artifacts/collection)</span>
+anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7/artifacts/contigs&#45;db)</span> \
+                                &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7/artifacts/profile&#45;db)</span> \
+                                &#45;C <span class="artifact&#45;n">[collection](/help/7/artifacts/collection)</span>
                                 &#45;&#45;hmm&#45;source Bacteria_71 \
                                 &#45;&#45;gene&#45;names Ribosomal_L27,Ribosomal_L28,Ribosomal_L3 \
-                                &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/7/artifacts/genes&#45;fasta)</span>
+                                &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/help/7/artifacts/genes&#45;fasta)</span>
 </div>
 
 ### Get amino acid sequences for HMM hits
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7/artifacts/contigs&#45;db)</span> \
-                                &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7/artifacts/profile&#45;db)</span> \
-                                &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7/artifacts/collection)</span>
+anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7/artifacts/contigs&#45;db)</span> \
+                                &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7/artifacts/profile&#45;db)</span> \
+                                &#45;C <span class="artifact&#45;n">[collection](/help/7/artifacts/collection)</span>
                                 &#45;&#45;hmm&#45;source Bacteria_71 \
                                 &#45;&#45;gene&#45;names Ribosomal_L27,Ribosomal_L28,Ribosomal_L3 \
                                 &#45;&#45;get&#45;aa&#45;sequences \
-                                &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/7/artifacts/genes&#45;fasta)</span>
+                                &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/help/7/artifacts/genes&#45;fasta)</span>
 </div>
 
 ### Get HMM hits independently aligned and concatenated
 
-The resulting file can be used for phylogenomics analyses via <span class="artifact-n">[anvi-gen-phylogenomic-tree](/software/anvio/help/7/programs/anvi-gen-phylogenomic-tree)</span> or through more sophisticated tools for curating alignments and computing trees.
+The resulting file can be used for phylogenomics analyses via <span class="artifact-n">[anvi-gen-phylogenomic-tree](/help/7/programs/anvi-gen-phylogenomic-tree)</span> or through more sophisticated tools for curating alignments and computing trees.
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7/artifacts/contigs&#45;db)</span> \
-                                &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7/artifacts/profile&#45;db)</span> \
-                                &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7/artifacts/collection)</span>
+anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7/artifacts/contigs&#45;db)</span> \
+                                &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7/artifacts/profile&#45;db)</span> \
+                                &#45;C <span class="artifact&#45;n">[collection](/help/7/artifacts/collection)</span>
                                 &#45;&#45;hmm&#45;source Bacteria_71 \
                                 &#45;&#45;gene&#45;names Ribosomal_L27,Ribosomal_L28,Ribosomal_L3 \
                                 &#45;&#45;get&#45;aa&#45;sequences \
                                 &#45;&#45;concatenate&#45;genes \
                                 &#45;&#45;return&#45;best&#45;hit
-                                &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/7/artifacts/genes&#45;fasta)</span>
+                                &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/help/7/artifacts/genes&#45;fasta)</span>
 </div>
 
 
@@ -148,7 +148,7 @@ tar &#45;zxvf INFANTGUTTUTORIAL.tar.gz && cd INFANT&#45;GUT&#45;TUTORIAL
 Import the collection `merens`:
 
 <div class="codeblock" markdown="1">
-<span class="artifact&#45;n">[anvi&#45;import&#45;collection](/software/anvio/help/7/programs/anvi&#45;import&#45;collection)</span> additional&#45;files/collections/merens.txt \
+<span class="artifact&#45;n">[anvi&#45;import&#45;collection](/help/7/programs/anvi&#45;import&#45;collection)</span> additional&#45;files/collections/merens.txt \
                        &#45;p PROFILE.db \
                        &#45;c CONTIGS.db \
                        &#45;C merens

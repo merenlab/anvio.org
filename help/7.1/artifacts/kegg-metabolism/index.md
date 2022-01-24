@@ -33,9 +33,9 @@ A TXT-type anvi'o artifact. This artifact is typically generated, used, and/or e
 
 ## Description
 
-Output text files produced by <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/7.1/programs/anvi-estimate-metabolism)</span> that describe the presence of metabolic pathways in a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>.
+Output text files produced by <span class="artifact-n">[anvi-estimate-metabolism](/help/7.1/programs/anvi-estimate-metabolism)</span> that describe the presence of metabolic pathways in a <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>.
 
-Depending on the output options used when running <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/7.1/programs/anvi-estimate-metabolism)</span>, these files will have different formats. This page describes and provides examples of the various output file types.
+Depending on the output options used when running <span class="artifact-n">[anvi-estimate-metabolism](/help/7.1/programs/anvi-estimate-metabolism)</span>, these files will have different formats. This page describes and provides examples of the various output file types.
 
 ### How to get to this output
 ![A beautiful workflow of metabolism reconstruction in anvi'o](../../images/metabolism_reconstruction.png)
@@ -61,7 +61,7 @@ What are the data in each of these columns?
 - `genome_name`/`bin_name`/`contig_name`: the identifier for the current sample, whether that is a genome, bin, or contig from a metagenome assembly
 - `kegg_module`: the KEGG MODULE number for a metabolic pathway
 - `module_name`/`module_class`/`module_category`/`module_subcategory`/`module_definition`: metabolic pathway information from the KEGG MODULE database
-- `module_completeness`: a fraction between 0 and 1 indicating the proportion of steps in the metabolic pathway that have an associated KO annotation. To learn how this number is calculated, see [the anvi-estimate-metabolism help page](https://merenlab.org/software/anvio/help/main/programs/anvi-estimate-metabolism/#how-is-the-module-completeness-score-calculated)
+- `module_completeness`: a fraction between 0 and 1 indicating the proportion of steps in the metabolic pathway that have an associated KO annotation. To learn how this number is calculated, see [the anvi-estimate-metabolism help page](https://merenlab.org/help/main/programs/anvi-estimate-metabolism/#how-is-the-module-completeness-score-calculated)
 - `module_is_complete`: a boolean value indicating whether the `module_completeness` score is above a certain threshold or not (the default threshold is 0.75)
 - `kofam_hits_in_module`: a comma-separated list of the KO annotations that were found in the current sample and contribute to this metabolic pathway (these will be KOs from the metabolic pathway definition in the `module_definition` column)
 - `gene_caller_ids_in_module`: a comma-separated list of the genes with KO annotations that contribute to this pathway, in the same order as the annotations in the `kofam_hits_in_module` column
@@ -81,7 +81,7 @@ In this mock example, the module in this row has four gene calls in it. The `SAM
 
 The `kofam_hits_in_modules` output file will have the suffix `kofam_hits_in_modules.txt`. Each line in the file will represent information about one KOfam hit in a given genome, metagenome, or bin - but _only_ KOs that are a part of at least one KEGG Module are included in this output. Hits are organized according to the KEGG module that they belong to, and more specifically the path through the KEGG module in which the KO appears.
 
-What is a path through a KEGG module, you ask? Well. There is a lengthier explanation of this [here](https://merenlab.org/software/anvio/help/main/programs/anvi-estimate-metabolism/#what-data-is-used-for-estimation), but we will go through it briefly below.
+What is a path through a KEGG module, you ask? Well. There is a lengthier explanation of this [here](https://merenlab.org/help/main/programs/anvi-estimate-metabolism/#what-data-is-used-for-estimation), but we will go through it briefly below.
 
 KEGG modules are metabolic pathways defined by a set of KOs. For example, here is the definition of module [M00001](https://www.genome.jp/kegg-bin/show_module?M00001), better known as "Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate":
 
@@ -95,7 +95,7 @@ to get the following path of KOs (which happens to be the path shown in the outp
 
 K00844 K01810 K00850 K01623 K01803 K00134 K00927 K01834 K01689 K00873
 
-For every KO in the path above that has a hit in the <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>, there will be a corresponding line in the 'kofam_hits_in_modules' output file. The same will occur for every possible path in every single KEGG module, resulting in a lot of lines and extremely repetitive but nicely parseable information.
+For every KO in the path above that has a hit in the <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>, there will be a corresponding line in the 'kofam_hits_in_modules' output file. The same will occur for every possible path in every single KEGG module, resulting in a lot of lines and extremely repetitive but nicely parseable information.
 
 Without further ado, here is an example of this output mode (also from the Infant Gut dataset):
 
@@ -112,7 +112,7 @@ Many of the columns in this data overlap with the `modules_mode` columns; you ca
 - `contig`: the contig on which this gene is present
 - `path_id`: a unique identifier of the current path through the KEGG module
 - `path`: the current path of KOs through the module (described above), which this KO annotation contributes to
-- `path_completeness`: a fraction between 0 and 1 indicating the proportion of KOs in the current path that are annotated. To learn how this number is calculated, see [the anvi-estimate-metabolism help page](https://merenlab.org/software/anvio/help/main/programs/anvi-estimate-metabolism/#how-is-the-module-completeness-score-calculated)
+- `path_completeness`: a fraction between 0 and 1 indicating the proportion of KOs in the current path that are annotated. To learn how this number is calculated, see [the anvi-estimate-metabolism help page](https://merenlab.org/help/main/programs/anvi-estimate-metabolism/#how-is-the-module-completeness-score-calculated)
 
 **Coverage and detection values in the output**
 
@@ -149,11 +149,11 @@ If you use the flag `--add-coverage` and provide a profile database, you will ge
 
 ### Custom Mode (for module data)
 
-The `modules_custom` output mode will have user-defined content and the suffix `modules_custom.txt` (we currently only support output customization for modules data). See <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/7.1/programs/anvi-estimate-metabolism)</span> for an example command to work with this mode. The output file will look similar to the `modules` mode output, but with a different (sub)set of columns.
+The `modules_custom` output mode will have user-defined content and the suffix `modules_custom.txt` (we currently only support output customization for modules data). See <span class="artifact-n">[anvi-estimate-metabolism](/help/7.1/programs/anvi-estimate-metabolism)</span> for an example command to work with this mode. The output file will look similar to the `modules` mode output, but with a different (sub)set of columns.
 
 ## Matrix format output
 
-Matrix format is an output option when <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/7.1/programs/anvi-estimate-metabolism)</span> is working with multiple contigs databases at once. The purpose of this output type is to generate matrices of KEGG module statistics for easy visualization and clustering. Currently, the matrix-formatted output includes a module completeness matrix, a matrix of binary module presence/absence values, and a matrix of KO counts. In these matrices, each row is a KEGG module or KO, and each column is an input sample.
+Matrix format is an output option when <span class="artifact-n">[anvi-estimate-metabolism](/help/7.1/programs/anvi-estimate-metabolism)</span> is working with multiple contigs databases at once. The purpose of this output type is to generate matrices of KEGG module statistics for easy visualization and clustering. Currently, the matrix-formatted output includes a module completeness matrix, a matrix of binary module presence/absence values, and a matrix of KO counts. In these matrices, each row is a KEGG module or KO, and each column is an input sample.
 
 Here is an example of a module completeness matrix, for bins in a metagenome:
 
@@ -168,7 +168,7 @@ Here is an example of a module completeness matrix, for bins in a metagenome:
 
 Each cell of the matrix is the completeness score for the corresponding module in the corresponding sample (which is, in this case, a bin).
 
-While the above is the default matrix format, some users may want to include more annotation information in the matrices so that it is easier to know what is going on when looking at the matrix data manually. You can add this metadata to the matrices by using the `--include-metadata` flag when running <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/7.1/programs/anvi-estimate-metabolism)</span>, and the output will look something like the following:
+While the above is the default matrix format, some users may want to include more annotation information in the matrices so that it is easier to know what is going on when looking at the matrix data manually. You can add this metadata to the matrices by using the `--include-metadata` flag when running <span class="artifact-n">[anvi-estimate-metabolism](/help/7.1/programs/anvi-estimate-metabolism)</span>, and the output will look something like the following:
 
 | module | module_name | module_class | module_category | module_subcategory | bin_1 | bin_2 | bin_3 | bin_4 | bin_5 | bin_6 |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|

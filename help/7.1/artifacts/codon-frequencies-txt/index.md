@@ -33,9 +33,9 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This file contains **the frequency of each codon in each gene in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>.** 
+This file contains **the frequency of each codon in each gene in your <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>.** 
 
-This is a tab-delimited table where each column represents a codon and each row represents a specific gene. The numbers will either refer to counts of each codon or precent normalizations depending on the parameters with which you ran <span class="artifact-n">[anvi-get-codon-frequencies](/software/anvio/help/7.1/programs/anvi-get-codon-frequencies)</span>. 
+This is a tab-delimited table where each column represents a codon and each row represents a specific gene. The numbers will either refer to counts of each codon or precent normalizations depending on the parameters with which you ran <span class="artifact-n">[anvi-get-codon-frequencies](/help/7.1/programs/anvi-get-codon-frequencies)</span>. 
 
 ### Example
 

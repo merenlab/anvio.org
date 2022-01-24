@@ -10,7 +10,7 @@ image:
 
 A script that takes a FASTQ file that is not paired-end (i.e., R1 alone) and converts it into two FASTQ files that are paired-end (i.e., R1 and R2). This is a quick-and-dirty workaround that halves each read from the original FASTQ and puts one half in the FASTQ file for R1 and puts the reverse-complement of the second half in the FASTQ file for R2. If you&#x27;ve ended up here, things have clearly not gone very well for you, and Evan, who battled similar battles and ended up implementing this solution wholeheartedly sympathizes.
 
-See **[program help menu](../../../../vignette#anvi-script-gen-pseudo-paired-reads-from-fastq)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,14 +31,14 @@ See **[program help menu](../../../../vignette#anvi-script-gen-pseudo-paired-rea
 ## Usage
 
 
-This program takes in a <span class="artifact-n">[short-reads-fasta](/software/anvio/help/7/artifacts/short-reads-fasta)</span> file and tries to recreate what paired reads for the data in that fasta file might look like. 
+This program takes in a <span class="artifact-n">[short-reads-fasta](/help/7/artifacts/short-reads-fasta)</span> file and tries to recreate what paired reads for the data in that fasta file might look like. 
 
 An arbitrarily chosen half of the reads will be put into the R1 output, while the other half will be reverse complemented and put into the R2 output. 
 
 For example, if you ran 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen&#45;pseudo&#45;paired&#45;reads&#45;from&#45;fastq &#45;f <span class="artifact&#45;n">[short&#45;reads&#45;fasta](/software/anvio/help/7/artifacts/short&#45;reads&#45;fasta)</span> \
+anvi&#45;script&#45;gen&#45;pseudo&#45;paired&#45;reads&#45;from&#45;fastq &#45;f <span class="artifact&#45;n">[short&#45;reads&#45;fasta](/help/7/artifacts/short&#45;reads&#45;fasta)</span> \
                                                &#45;O MY_READS 
 </div>
 

@@ -10,7 +10,7 @@ image:
 
 Reports sequences stored in one or more BAM files that cover one of more specific nucleotide positions in a reference.
 
-See **[program help menu](../../../../vignette#anvi-report-linkmers)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,7 +31,7 @@ See **[program help menu](../../../../vignette#anvi-report-linkmers)** or go bac
 ## Usage
 
 
-Reports sequences stored in a <span class="artifact-n">[bam-file](/software/anvio/help/7/artifacts/bam-file)</span> file that cover one of more specific nucleotide positions in a reference.
+Reports sequences stored in a <span class="artifact-n">[bam-file](/help/7/artifacts/bam-file)</span> file that cover one of more specific nucleotide positions in a reference.
 
 ### Basic mode of operation
 
@@ -74,7 +74,7 @@ The user can define multiple contigs in the input file, and one or more nucleoti
 </tbody>
 </table>
 
-The resulting <span class="artifact-n">[linkmers-txt](/software/anvio/help/7/artifacts/linkmers-txt)</span> would include all short reads that match any of these critera
+The resulting <span class="artifact-n">[linkmers-txt](/help/7/artifacts/linkmers-txt)</span> would include all short reads that match any of these critera
 
 ### Complete or incomplete links?
 
@@ -82,7 +82,7 @@ Using the `--only-complete-links` flag, the user can enforce whether only comple
 
 Please note that if the nucleotide positions chosen for a given contig are too distant from each other given the short read length, zero reads may satisfy the complete links criterion.
 
-Having complete links, however, will enable [oligotyping](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12114) analyses on **metagenomic reads** through the anvi'o program <span class="artifact-n">[anvi-oligotype-linkmers](/software/anvio/help/7/programs/anvi-oligotype-linkmers)</span>.
+Having complete links, however, will enable [oligotyping](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12114) analyses on **metagenomic reads** through the anvi'o program <span class="artifact-n">[anvi-oligotype-linkmers](/help/7/programs/anvi-oligotype-linkmers)</span>.
 
 ### See this program in action
 

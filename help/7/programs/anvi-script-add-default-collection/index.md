@@ -10,7 +10,7 @@ image:
 
 A script to add a &#x27;DEFAULT&#x27; collection in an anvi&#x27;o pan or profile database with a bin named &#x27;EVERYTHING&#x27; that describes all items available in the profile database.
 
-See **[program help menu](../../../../vignette#anvi-script-add-default-collection)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,17 +31,17 @@ See **[program help menu](../../../../vignette#anvi-script-add-default-collectio
 ## Usage
 
 
-This program adds a new <span class="artifact-n">[collection](/software/anvio/help/7/artifacts/collection)</span> and <span class="artifact-n">[bin](/software/anvio/help/7/artifacts/bin)</span> to your <span class="artifact-n">[pan-db](/software/anvio/help/7/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/software/anvio/help/7/artifacts/contigs-db)</span> pair. This collection and bin will both contain all of your contigs. 
+This program adds a new <span class="artifact-n">[collection](/help/7/artifacts/collection)</span> and <span class="artifact-n">[bin](/help/7/artifacts/bin)</span> to your <span class="artifact-n">[pan-db](/help/7/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/help/7/artifacts/contigs-db)</span> pair. This collection and bin will both contain all of your contigs. 
 
-This way, you can perform collection and bin specfic operations without having to bin anything yourself. For example, running <span class="artifact-n">[anvi-interactive](/software/anvio/help/7/programs/anvi-interactive)</span> in gene-mode requires you to specify a collection and bin (as is done [in the Infant Gut Tutorial](http://merenlab.org/tutorials/infant-gut/#the-gene-mode-studying-distribution-patterns-at-the-gene-level)). 
+This way, you can perform collection and bin specfic operations without having to bin anything yourself. For example, running <span class="artifact-n">[anvi-interactive](/help/7/programs/anvi-interactive)</span> in gene-mode requires you to specify a collection and bin (as is done [in the Infant Gut Tutorial](http://merenlab.org/tutorials/infant-gut/#the-gene-mode-studying-distribution-patterns-at-the-gene-level)). 
 
 By default, the collection is named `DEFAULT` and the bin is named `EWVERYTHING`, but you can change these names with the `-C` and `-b` parameters respectively. 
 
-Here is an example run on a <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span>: 
+Here is an example run on a <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span>: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;add&#45;default&#45;collection &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7/artifacts/contigs&#45;db)</span> \ 
-                                   &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7/artifacts/profile&#45;db)</span> \ 
+anvi&#45;script&#45;add&#45;default&#45;collection &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7/artifacts/contigs&#45;db)</span> \ 
+                                   &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7/artifacts/profile&#45;db)</span> \ 
                                    &#45;C MY_COLLECTION \
                                    &#45;b MY_BIN 
 </div>

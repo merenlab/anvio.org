@@ -10,7 +10,7 @@ image:
 
 Export .pdb structure files from a structure database.
 
-See **[program help menu](../../../../vignette#anvi-export-structures)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -32,13 +32,13 @@ See **[program help menu](../../../../vignette#anvi-export-structures)** or go b
 
 
 
-This program exports the structures from a <span class="artifact-n">[structure-db](/software/anvio/help/7/artifacts/structure-db)</span> into the globally understood pdb format (<span class="artifact-n">[protein-structure-txt](/software/anvio/help/7/artifacts/protein-structure-txt)</span>), so they may be used for any follow-up analyses taking place outside of anvi'o.
+This program exports the structures from a <span class="artifact-n">[structure-db](/help/7/artifacts/structure-db)</span> into the globally understood pdb format (<span class="artifact-n">[protein-structure-txt](/help/7/artifacts/protein-structure-txt)</span>), so they may be used for any follow-up analyses taking place outside of anvi'o.
 
 
-To run, just provide a <span class="artifact-n">[structure-db](/software/anvio/help/7/artifacts/structure-db)</span> and an output path: 
+To run, just provide a <span class="artifact-n">[structure-db](/help/7/artifacts/structure-db)</span> and an output path: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;structures &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/7/artifacts/structure&#45;db)</span> \
+anvi&#45;export&#45;structures &#45;s <span class="artifact&#45;n">[structure&#45;db](/help/7/artifacts/structure&#45;db)</span> \
                        &#45;o path/to/output
 </div>
 

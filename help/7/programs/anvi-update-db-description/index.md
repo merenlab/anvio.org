@@ -10,7 +10,7 @@ image:
 
 Update the description in an anvi&#x27;o database.
 
-See **[program help menu](../../../../vignette#anvi-update-db-description)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -33,13 +33,13 @@ See **[program help menu](../../../../vignette#anvi-update-db-description)** or 
 
 This program allows you to update the description of any anvi'o database with the push of a button (and the writing of an updated description). 
 
-This descirption helps make UIs a little prettier by showing up when you run programs like <span class="artifact-n">[anvi-interactive](/software/anvio/help/7/programs/anvi-interactive)</span> and <span class="artifact-n">[anvi-summarize](/software/anvio/help/7/programs/anvi-summarize)</span>. 
+This descirption helps make UIs a little prettier by showing up when you run programs like <span class="artifact-n">[anvi-interactive](/help/7/programs/anvi-interactive)</span> and <span class="artifact-n">[anvi-summarize](/help/7/programs/anvi-summarize)</span>. 
 
-Simply write out the description that you would prefer in a plain text file (with markdown syntax) and use this program to update the description of any <span class="artifact-n">[pan-db](/software/anvio/help/7/artifacts/pan-db)</span>, <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span>, <span class="artifact-n">[contigs-db](/software/anvio/help/7/artifacts/contigs-db)</span>, or <span class="artifact-n">[genomes-storage-db](/software/anvio/help/7/artifacts/genomes-storage-db)</span>: 
+Simply write out the description that you would prefer in a plain text file (with markdown syntax) and use this program to update the description of any <span class="artifact-n">[pan-db](/help/7/artifacts/pan-db)</span>, <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span>, <span class="artifact-n">[contigs-db](/help/7/artifacts/contigs-db)</span>, or <span class="artifact-n">[genomes-storage-db](/help/7/artifacts/genomes-storage-db)</span>: 
 
 <div class="codeblock" markdown="1">
 anvi&#45;update&#45;db&#45;description &#45;&#45;description my_description.txt \
-                           <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7/artifacts/contigs&#45;db)</span>
+                           <span class="artifact&#45;n">[contigs&#45;db](/help/7/artifacts/contigs&#45;db)</span>
 </div>
 
 

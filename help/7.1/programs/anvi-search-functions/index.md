@@ -23,7 +23,7 @@ Search functions in an anvi&#x27;o contigs database or genomes storage. Basicall
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -44,21 +44,21 @@ Search functions in an anvi&#x27;o contigs database or genomes storage. Basicall
 
 This program **searches for keywords in the function annotations of your database.** 
 
-You can use this program to look for specific functon keywords in a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>, <span class="artifact-n">[genomes-storage-db](/software/anvio/help/7.1/artifacts/genomes-storage-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/7.1/artifacts/pan-db)</span>. For example, say you wanted your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> to search for genes that encoded some type of kinase. You could call 
+You can use this program to look for specific functon keywords in a <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span>, <span class="artifact-n">[genomes-storage-db](/help/7.1/artifacts/genomes-storage-db)</span> or <span class="artifact-n">[pan-db](/help/7.1/artifacts/pan-db)</span>. For example, say you wanted your <span class="artifact-n">[contigs-db](/help/7.1/artifacts/contigs-db)</span> to search for genes that encoded some type of kinase. You could call 
 
 <div class="codeblock" markdown="1">
-anvi&#45;search&#45;functions &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+anvi&#45;search&#45;functions &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7.1/artifacts/contigs&#45;db)</span> \
                       &#45;&#45;search&#45;terms kinase
 </div>
 
-By default, the output will be a fairly barren <span class="artifact-n">[functions-txt](/software/anvio/help/7.1/artifacts/functions-txt)</span>, only telling you which contigs contain genes that matched your search. This will be most helpful as an additional layer in the anvi'o interactive interface, so you can quickly see where the kinase-encoding genes are in the genome. To do this, run <span class="artifact-n">[anvi-interactive](/software/anvio/help/7.1/programs/anvi-interactive)</span> with the `--aditional-layer` parameter with the <span class="artifact-n">[functions-txt](/software/anvio/help/7.1/artifacts/functions-txt)</span>. 
+By default, the output will be a fairly barren <span class="artifact-n">[functions-txt](/help/7.1/artifacts/functions-txt)</span>, only telling you which contigs contain genes that matched your search. This will be most helpful as an additional layer in the anvi'o interactive interface, so you can quickly see where the kinase-encoding genes are in the genome. To do this, run <span class="artifact-n">[anvi-interactive](/help/7.1/programs/anvi-interactive)</span> with the `--aditional-layer` parameter with the <span class="artifact-n">[functions-txt](/help/7.1/artifacts/functions-txt)</span>. 
 
 However, you can also request a much more comprehensive output that contains much more information, including the matching genes' caller id, functional annotation source and full function name. 
 
 For example, to run the same search as above, but with a more comprehensive output, you could call 
 
 <div class="codeblock" markdown="1">
-anvi&#45;search&#45;functions &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+anvi&#45;search&#45;functions &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7.1/artifacts/contigs&#45;db)</span> \
                       &#45;&#45;search&#45;terms kinase \
                       &#45;&#45;full&#45;report kinase_information.txt \
                       &#45;&#45;include&#45;sequences \
@@ -70,7 +70,7 @@ Following this run, the file `kinase_information.txt` will contain comprehensive
 You can also search for multiple terms at the same time, or for terms from only specific annotation sources. For example, if you only wanted Pfam hits with functions related to kinases or phosphatases, you could call 
 
 <div class="codeblock" markdown="1">
-anvi&#45;search&#45;functions &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+anvi&#45;search&#45;functions &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/7.1/artifacts/contigs&#45;db)</span> \
                       &#45;&#45;search&#45;terms kinase,phosphatase \
                       &#45;&#45;annotation&#45;sources Pfam \ 
                       &#45;&#45;full&#45;report kinase_phosphatase_information.txt

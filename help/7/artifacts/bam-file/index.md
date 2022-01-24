@@ -36,9 +36,9 @@ A BAM file contains **already aligned sequence data.** However, it is written in
 
 BAM files (and their text file cousin SAM files) are often used in 'omics analysis and are described in more detail in [this file](https://samtools.github.io/hts-specs/SAMv1.pdf), written by the developers of samtools. 
 
-If your BAM file is not indexed, it is actually a <span class="artifact-n">[raw-bam-file](/software/anvio/help/7/artifacts/raw-bam-file)</span> and you can run <span class="artifact-n">[anvi-init-bam](/software/anvio/help/7/programs/anvi-init-bam)</span> to turn it into a BAM file. You can tell if your BAM file is indexed if in the same folder as your `XXXX.bam` file, there is another file with the same name called `XXXX.bam.bai`.
+If your BAM file is not indexed, it is actually a <span class="artifact-n">[raw-bam-file](/help/7/artifacts/raw-bam-file)</span> and you can run <span class="artifact-n">[anvi-init-bam](/help/7/programs/anvi-init-bam)</span> to turn it into a BAM file. You can tell if your BAM file is indexed if in the same folder as your `XXXX.bam` file, there is another file with the same name called `XXXX.bam.bai`.
 
-As of now, no anvi'o programs will output results in BAM format, so you'll primary use BAM files to import sequence data into anvi'o. For example, in <span class="artifact-n">[anvi-profile](/software/anvio/help/7/programs/anvi-profile)</span> (which generates a <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span>), your BAM file is expected to contain the aligned short reads from your samples. 
+As of now, no anvi'o programs will output results in BAM format, so you'll primary use BAM files to import sequence data into anvi'o. For example, in <span class="artifact-n">[anvi-profile](/help/7/programs/anvi-profile)</span> (which generates a <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span>), your BAM file is expected to contain the aligned short reads from your samples. 
 
 
 

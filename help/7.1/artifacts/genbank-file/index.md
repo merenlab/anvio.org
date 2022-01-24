@@ -37,7 +37,7 @@ The GenBank file format was created by NCBI.
 
 You can find an [explination](https://www.ncbi.nlm.nih.gov/genbank/) and [example](https://www.ncbi.nlm.nih.gov/genbank/samplerecord/) on the NCBI website. 
 
-In anvi'o, this is used by <span class="artifact-n">[anvi-script-process-genbank](/software/anvio/help/7.1/programs/anvi-script-process-genbank)</span> to convert the information in the genbank file to a <span class="artifact-n">[contigs-fasta](/software/anvio/help/7.1/artifacts/contigs-fasta)</span>, <span class="artifact-n">[external-gene-calls](/software/anvio/help/7.1/artifacts/external-gene-calls)</span>, and <span class="artifact-n">[functions-txt](/software/anvio/help/7.1/artifacts/functions-txt)</span>. 
+In anvi'o, this is used by <span class="artifact-n">[anvi-script-process-genbank](/help/7.1/programs/anvi-script-process-genbank)</span> to convert the information in the genbank file to a <span class="artifact-n">[contigs-fasta](/help/7.1/artifacts/contigs-fasta)</span>, <span class="artifact-n">[external-gene-calls](/help/7.1/artifacts/external-gene-calls)</span>, and <span class="artifact-n">[functions-txt](/help/7.1/artifacts/functions-txt)</span>. 
 
 
 {:.notice}

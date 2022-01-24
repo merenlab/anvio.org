@@ -33,9 +33,9 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-A genes-fasta is what it sounds like: a FASTA formatted file that contains genes. In Anvi'o, this is an output for programs that return gene sequences. This includes <span class="artifact-n">[anvi-get-sequences-for-gene-calls](/software/anvio/help/7.1/programs/anvi-get-sequences-for-gene-calls)</span>, <span class="artifact-n">[anvi-get-sequences-for-gene-clusters](/software/anvio/help/7.1/programs/anvi-get-sequences-for-gene-clusters)</span> (when working with pan genomes), and <span class="artifact-n">[anvi-get-sequences-for-hmm-hits](/software/anvio/help/7.1/programs/anvi-get-sequences-for-hmm-hits)</span>.
+A genes-fasta is what it sounds like: a FASTA formatted file that contains genes. In Anvi'o, this is an output for programs that return gene sequences. This includes <span class="artifact-n">[anvi-get-sequences-for-gene-calls](/help/7.1/programs/anvi-get-sequences-for-gene-calls)</span>, <span class="artifact-n">[anvi-get-sequences-for-gene-clusters](/help/7.1/programs/anvi-get-sequences-for-gene-clusters)</span> (when working with pan genomes), and <span class="artifact-n">[anvi-get-sequences-for-hmm-hits](/help/7.1/programs/anvi-get-sequences-for-hmm-hits)</span>.
 
-If you're unsure what a FASTA file is, check out <span class="artifact-n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span>.
+If you're unsure what a FASTA file is, check out <span class="artifact-n">[fasta](/help/7.1/artifacts/fasta)</span>.
 
 
 {:.notice}

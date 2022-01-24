@@ -10,7 +10,7 @@ image:
 
 A simple script to generate a TAB-delimited file that reports the frequency of HMM hits for a given HMM source across contigs databases.
 
-See **[program help menu](../../../../vignette#anvi-script-gen-hmm-hits-matrix-across-genomes)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,22 +31,22 @@ See **[program help menu](../../../../vignette#anvi-script-gen-hmm-hits-matrix-a
 ## Usage
 
 
-This program lets you look at the <span class="artifact-n">[hmm-hits](/software/anvio/help/7/artifacts/hmm-hits)</span> from a single <span class="artifact-n">[hmm-source](/software/anvio/help/7/artifacts/hmm-source)</span> across multiple genomes or bins, by creating a <span class="artifact-n">[hmm-hits-matrix-txt](/software/anvio/help/7/artifacts/hmm-hits-matrix-txt)</span>. 
+This program lets you look at the <span class="artifact-n">[hmm-hits](/help/7/artifacts/hmm-hits)</span> from a single <span class="artifact-n">[hmm-source](/help/7/artifacts/hmm-source)</span> across multiple genomes or bins, by creating a <span class="artifact-n">[hmm-hits-matrix-txt](/help/7/artifacts/hmm-hits-matrix-txt)</span>. 
 
-The input of this program can be either an <span class="artifact-n">[internal-genomes](/software/anvio/help/7/artifacts/internal-genomes)</span> or an <span class="artifact-n">[external-genomes](/software/anvio/help/7/artifacts/external-genomes)</span>. 
+The input of this program can be either an <span class="artifact-n">[internal-genomes](/help/7/artifacts/internal-genomes)</span> or an <span class="artifact-n">[external-genomes](/help/7/artifacts/external-genomes)</span>. 
 
 Here are two example run on an internal-genomes: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen&#45;hmm&#45;hits&#45;matrix&#45;across&#45;genomes &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/software/anvio/help/7/artifacts/internal&#45;genomes)</span> \
+anvi&#45;script&#45;gen&#45;hmm&#45;hits&#45;matrix&#45;across&#45;genomes &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/help/7/artifacts/internal&#45;genomes)</span> \
                                                &#45;&#45;hmm&#45;source Bacteria_71 \
                                                &#45;o output.txt
 </div>
 
-To list the <span class="artifact-n">[hmm-source](/software/anvio/help/7/artifacts/hmm-source)</span>s common to the datasets that you're analyzing, just add the flag `--list-hmm-sources`, as so: 
+To list the <span class="artifact-n">[hmm-source](/help/7/artifacts/hmm-source)</span>s common to the datasets that you're analyzing, just add the flag `--list-hmm-sources`, as so: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen&#45;hmm&#45;hits&#45;matrix&#45;across&#45;genomes &#45;e <span class="artifact&#45;n">[external&#45;genomes](/software/anvio/help/7/artifacts/external&#45;genomes)</span> \
+anvi&#45;script&#45;gen&#45;hmm&#45;hits&#45;matrix&#45;across&#45;genomes &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/7/artifacts/external&#45;genomes)</span> \
                                                &#45;&#45;list&#45;hmm&#45;sources 
 </div>
 

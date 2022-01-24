@@ -23,7 +23,7 @@ A script to display collections stored in an anvi&#x27;o profile or pan database
 
 ## Authors
 
-<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><span class="anvio-person-name">A. Murat Eren (Meren)</span><div class="anvio-person-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
@@ -42,18 +42,18 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program tells you about the <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span>s within a <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/7.1/artifacts/pan-db)</span>. 
+This program tells you about the <span class="artifact-n">[collection](/help/7.1/artifacts/collection)</span>s within a <span class="artifact-n">[profile-db](/help/7.1/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/help/7.1/artifacts/pan-db)</span>. 
 
 Just run it like so 
 
 <div class="codeblock" markdown="1">
-anvi&#45;show&#45;collections&#45;and&#45;bins &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> 
+anvi&#45;show&#45;collections&#45;and&#45;bins &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/7.1/artifacts/profile&#45;db)</span> 
 </div>
 
-and Anvi'o will output to your console the following information for each of the <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span>s in the database: 
+and Anvi'o will output to your console the following information for each of the <span class="artifact-n">[collection](/help/7.1/artifacts/collection)</span>s in the database: 
 
 * The name and ID of the collection
-* The number of <span class="artifact-n">[bin](/software/anvio/help/7.1/artifacts/bin)</span>s within the collection, and each of their names
+* The number of <span class="artifact-n">[bin](/help/7.1/artifacts/bin)</span>s within the collection, and each of their names
 * The number of splits contained within those bins 
 
 

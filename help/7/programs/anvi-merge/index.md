@@ -10,7 +10,7 @@ image:
 
 Merge multiple anvio profiles.
 
-See **[program help menu](../../../../vignette#anvi-merge)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+Go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -31,15 +31,15 @@ See **[program help menu](../../../../vignette#anvi-merge)** or go back to the *
 ## Usage
 
 
-The main function of `anvi-merge` is to convert multiple <span class="artifact-n">[single-profile-db](/software/anvio/help/7/artifacts/single-profile-db)</span>s into a single <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span> (also called a merged profile database). Basically, this takes the alignment data from each sample (each contained in its own <span class="artifact-n">[single-profile-db](/software/anvio/help/7/artifacts/single-profile-db)</span>) and combines them into a single database that anvi'o can look through more easily. 
+The main function of `anvi-merge` is to convert multiple <span class="artifact-n">[single-profile-db](/help/7/artifacts/single-profile-db)</span>s into a single <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span> (also called a merged profile database). Basically, this takes the alignment data from each sample (each contained in its own <span class="artifact-n">[single-profile-db](/help/7/artifacts/single-profile-db)</span>) and combines them into a single database that anvi'o can look through more easily. 
 
 ### Overview: How to run anvi-merge
 
-1. Set up your <span class="artifact-n">[contigs-db](/software/anvio/help/7/artifacts/contigs-db)</span>. See that page for more information
+1. Set up your <span class="artifact-n">[contigs-db](/help/7/artifacts/contigs-db)</span>. See that page for more information
 
-1. Use <span class="artifact-n">[anvi-profile](/software/anvio/help/7/programs/anvi-profile)</span> to create a <span class="artifact-n">[single-profile-db](/software/anvio/help/7/artifacts/single-profile-db)</span> for each of your samples (formatted into a <span class="artifact-n">[bam-file](/software/anvio/help/7/artifacts/bam-file)</span>) *(Note: for each of these runs, you'll need to use the same <span class="artifact-n">[contigs-db](/software/anvio/help/7/artifacts/contigs-db)</span> and parameters)*
+1. Use <span class="artifact-n">[anvi-profile](/help/7/programs/anvi-profile)</span> to create a <span class="artifact-n">[single-profile-db](/help/7/artifacts/single-profile-db)</span> for each of your samples (formatted into a <span class="artifact-n">[bam-file](/help/7/artifacts/bam-file)</span>) *(Note: for each of these runs, you'll need to use the same <span class="artifact-n">[contigs-db](/help/7/artifacts/contigs-db)</span> and parameters)*
 
-1. Use `anvi-merge` to merge those <span class="artifact-n">[single-profile-db](/software/anvio/help/7/artifacts/single-profile-db)</span>s into a single database, called a <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span>. This will look something like the following:
+1. Use `anvi-merge` to merge those <span class="artifact-n">[single-profile-db](/help/7/artifacts/single-profile-db)</span>s into a single database, called a <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span>. This will look something like the following:
 
 <div class="codeblock" markdown="1">
 anvi&#45;merge &#45;c cool_contigs.db \
@@ -47,7 +47,7 @@ anvi&#45;merge &#45;c cool_contigs.db \
             &#45;o cool_contigs_merge
 </div>
                     
-This will put all of the output files (the final <span class="artifact-n">[profile-db](/software/anvio/help/7/artifacts/profile-db)</span> as well as a <span class="artifact-n">[misc-data-items-order](/software/anvio/help/7/artifacts/misc-data-items-order)</span> which is the result of your hierarchical clustering and describes the order to display your contigs in) into the folder `cool_contigs_merge `.
+This will put all of the output files (the final <span class="artifact-n">[profile-db](/help/7/artifacts/profile-db)</span> as well as a <span class="artifact-n">[misc-data-items-order](/help/7/artifacts/misc-data-items-order)</span> which is the result of your hierarchical clustering and describes the order to display your contigs in) into the folder `cool_contigs_merge `.
     
 
 ## Other Parameters
