@@ -14,6 +14,15 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
+      "id": "user-metabolism",
+      "name": "user-metabolism",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "contigs-db",
       "name": "contigs-db",
       "provided_by_anvio": true,
@@ -101,7 +110,7 @@
       "type": "DB"
     },
     {
-      "size": 11,
+      "size": 12,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-estimate-metabolism",
@@ -111,48 +120,52 @@
   ],
   "links": [
     {
-      "source": 11,
+      "source": 12,
       "target": 0
     },
     {
-      "target": 11,
-      "source": 1
+      "source": 12,
+      "target": 1
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 2
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 3
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 4
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 5
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 6
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 7
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 8
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 9
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 10
+    },
+    {
+      "target": 12,
+      "source": 11
     }
   ],
   "directed": false,

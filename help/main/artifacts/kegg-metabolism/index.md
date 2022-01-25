@@ -1,6 +1,7 @@
 ---
 layout: artifact
-title: kegg-metabolism [artifact]
+title: kegg-metabolism
+excerpt: A TXT-type anvi'o artifact. This artifact is typically generated, used, and/or exported by anvi'o (and not provided by the user)..
 categories: [anvio]
 comments: false
 redirect_from: /m/kegg-metabolism
@@ -36,6 +37,8 @@ A TXT-type anvi'o artifact. This artifact is typically generated, used, and/or e
 Output text files produced by <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span> that describe the presence of metabolic pathways in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>.
 
 Depending on the output options used when running <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>, these files will have different formats. This page describes and provides examples of the various output file types.
+
+Please note that the examples below show only KEGG data, but user-defined metabolic pathways (<span class="artifact-n">[user-metabolism](/help/main/artifacts/user-metabolism)</span>) can also be included in this output!
 
 ### How to get to this output
 ![A beautiful workflow of metabolism reconstruction in anvi'o](../../images/metabolism_reconstruction.png)
