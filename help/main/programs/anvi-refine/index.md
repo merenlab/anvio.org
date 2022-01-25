@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-refine [program]
+title: anvi-refine
+excerpt: An anvi'o program. Start an anvi&#x27;o interactive interactive to manually curate or refine a genome, whether it is a metagenome-assembled, single-cell, or an isolate genome.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-refine

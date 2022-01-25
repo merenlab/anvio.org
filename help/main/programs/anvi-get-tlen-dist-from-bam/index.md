@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-get-tlen-dist-from-bam [program]
+title: anvi-get-tlen-dist-from-bam
+excerpt: An anvi'o program. Report the distribution of template lengths from a BAM file.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-get-tlen-dist-from-bam

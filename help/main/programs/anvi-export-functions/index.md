@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-export-functions [program]
+title: anvi-export-functions
+excerpt: An anvi'o program. Export functions of genes from an anvi&#x27;o contigs database for a given annotation source.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-export-functions

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-import-functions [program]
+title: anvi-import-functions
+excerpt: An anvi'o program. Parse and store functional annotation of genes.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-import-functions

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-delete-functions [program]
+title: anvi-delete-functions
+excerpt: An anvi'o program. Remove functional annotation sources from an anvi&#x27;o contigs database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-delete-functions

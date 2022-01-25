@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-run-ncbi-cogs [program]
+title: anvi-run-ncbi-cogs
+excerpt: An anvi'o program. This program runs NCBI&#x27;s COGs to associate genes in an anvi&#x27;o contigs database with functions.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-run-ncbi-cogs

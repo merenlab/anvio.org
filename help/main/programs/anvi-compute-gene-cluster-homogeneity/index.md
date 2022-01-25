@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-compute-gene-cluster-homogeneity [program]
+title: anvi-compute-gene-cluster-homogeneity
+excerpt: An anvi'o program. Compute homogeneity for gene clusters.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-compute-gene-cluster-homogeneity

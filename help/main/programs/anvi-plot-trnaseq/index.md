@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-plot-trnaseq [program]
+title: anvi-plot-trnaseq
+excerpt: An anvi'o program. A program to write plots of coverage and modification data from flexible groups of tRNA-seq seeds.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-plot-trnaseq

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-get-sequences-for-hmm-hits [program]
+title: anvi-get-sequences-for-hmm-hits
+excerpt: An anvi'o program. Get sequences for HMM hits from many inputs.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-get-sequences-for-hmm-hits

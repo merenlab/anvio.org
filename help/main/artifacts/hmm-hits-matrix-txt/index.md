@@ -1,6 +1,7 @@
 ---
 layout: artifact
-title: hmm-hits-matrix-txt [artifact]
+title: hmm-hits-matrix-txt
+excerpt: A TXT-type anvi'o artifact. This artifact is typically generated, used, and/or exported by anvi'o (and not provided by the user)..
 categories: [anvio]
 comments: false
 redirect_from: /m/hmm-hits-matrix-txt

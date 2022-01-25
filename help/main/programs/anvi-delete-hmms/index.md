@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-delete-hmms [program]
+title: anvi-delete-hmms
+excerpt: An anvi'o program. Remove HMM hits from an anvi&#x27;o contigs database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-delete-hmms

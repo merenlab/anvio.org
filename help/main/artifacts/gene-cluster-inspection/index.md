@@ -1,6 +1,7 @@
 ---
 layout: artifact
-title: gene-cluster-inspection [artifact]
+title: gene-cluster-inspection
+excerpt: A DISPLAY-type anvi'o artifact. This artifact is typically generated, used, and/or exported by anvi'o (and not provided by the user)..
 categories: [anvio]
 comments: false
 redirect_from: /m/gene-cluster-inspection

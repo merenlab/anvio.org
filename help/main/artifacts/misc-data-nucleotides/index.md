@@ -1,6 +1,7 @@
 ---
 layout: artifact
-title: misc-data-nucleotides [artifact]
+title: misc-data-nucleotides
+excerpt: A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/or exported by anvi'o (and not provided by the user)..
 categories: [anvio]
 comments: false
 redirect_from: /m/misc-data-nucleotides

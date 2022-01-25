@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-export-splits-taxonomy [program]
+title: anvi-export-splits-taxonomy
+excerpt: An anvi'o program. Export taxonomy for splits found in an anvi&#x27;o contigs database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-export-splits-taxonomy

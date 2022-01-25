@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-import-taxonomy-for-genes [program]
+title: anvi-import-taxonomy-for-genes
+excerpt: An anvi'o program. Import gene-level taxonomy into an anvi&#x27;o contigs database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-import-taxonomy-for-genes

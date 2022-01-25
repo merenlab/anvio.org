@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-transpose-matrix [program]
+title: anvi-script-transpose-matrix
+excerpt: An anvi'o program. Transpose a TAB-delimited file.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-transpose-matrix

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-display-pan [program]
+title: anvi-display-pan
+excerpt: An anvi'o program. Start an anvi&#x27;o server to display a pan-genome.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-display-pan

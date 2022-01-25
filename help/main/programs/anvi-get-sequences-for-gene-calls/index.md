@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-get-sequences-for-gene-calls [program]
+title: anvi-get-sequences-for-gene-calls
+excerpt: An anvi'o program. A script to get back sequences for gene calls.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-get-sequences-for-gene-calls

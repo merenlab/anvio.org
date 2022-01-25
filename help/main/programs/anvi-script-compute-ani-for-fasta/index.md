@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-compute-ani-for-fasta [program]
+title: anvi-script-compute-ani-for-fasta
+excerpt: An anvi'o program. Run ANI between contigs in a single FASTA file.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-compute-ani-for-fasta

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-gen-hmm-hits-matrix-across-genomes [program]
+title: anvi-script-gen-hmm-hits-matrix-across-genomes
+excerpt: An anvi'o program. A simple script to generate a TAB-delimited file that reports the frequency of HMM hits for a given HMM source across contigs databases.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-gen-hmm-hits-matrix-across-genomes

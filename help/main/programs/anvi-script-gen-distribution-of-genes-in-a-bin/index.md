@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-gen-distribution-of-genes-in-a-bin [program]
+title: anvi-script-gen-distribution-of-genes-in-a-bin
+excerpt: An anvi'o program. Quantify the detection of genes in genomes in metagenomes to identify the environmental core.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-gen-distribution-of-genes-in-a-bin

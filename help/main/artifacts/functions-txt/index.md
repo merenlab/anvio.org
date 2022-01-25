@@ -1,6 +1,7 @@
 ---
 layout: artifact
-title: functions-txt [artifact]
+title: functions-txt
+excerpt: A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exported by anvi'o. It can also be provided **by the user** for anvi'o to import into its databases, process, and/or use.
 categories: [anvio]
 comments: false
 redirect_from: /m/functions-txt

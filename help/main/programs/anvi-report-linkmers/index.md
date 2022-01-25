@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-report-linkmers [program]
+title: anvi-report-linkmers
+excerpt: An anvi'o program. Reports sequences stored in one or more BAM files that cover one of more specific nucleotide positions in a reference.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-report-linkmers

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-setup-trna-taxonomy [program]
+title: anvi-setup-trna-taxonomy
+excerpt: An anvi'o program. The purpose of this program is to setup necessary databases for tRNA genes collected from GTDB (https://gtdb.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-setup-trna-taxonomy

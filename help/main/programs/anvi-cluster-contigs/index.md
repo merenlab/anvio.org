@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-cluster-contigs [program]
+title: anvi-cluster-contigs
+excerpt: An anvi'o program. A program to cluster items in a merged anvi&#x27;o profile using automatic binning algorithms.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-cluster-contigs

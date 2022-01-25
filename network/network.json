@@ -11,7 +11,7 @@
       "type": "CONCEPT"
     },
     {
-      "size": 18,
+      "size": 19,
       "score": 0.5,
       "color": "#00AA00",
       "id": "genomes-storage-db",
@@ -29,7 +29,7 @@
       "type": "CONCEPT"
     },
     {
-      "size": 26,
+      "size": 27,
       "score": 0.5,
       "color": "#00AA00",
       "id": "pan-db",
@@ -2002,6 +2002,14 @@
       "type": "PROGRAM"
     },
     {
+      "size": 2,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-script-compute-bayesian-pan-core",
+      "name": "anvi-script-compute-bayesian-pan-core",
+      "type": "PROGRAM"
+    },
+    {
       "size": 5,
       "score": 0.1,
       "color": "#AAAA00",
@@ -2252,7 +2260,11 @@
       "source": 1
     },
     {
-      "target": 239,
+      "target": 235,
+      "source": 1
+    },
+    {
+      "target": 240,
       "source": 1
     },
     {
@@ -2300,7 +2312,7 @@
       "target": 2
     },
     {
-      "target": 239,
+      "target": 240,
       "source": 2
     },
     {
@@ -2408,6 +2420,10 @@
       "source": 3
     },
     {
+      "target": 235,
+      "source": 3
+    },
+    {
       "source": 121,
       "target": 4
     },
@@ -2492,11 +2508,11 @@
       "target": 4
     },
     {
-      "target": 238,
+      "target": 239,
       "source": 4
     },
     {
-      "target": 240,
+      "target": 241,
       "source": 4
     },
     {
@@ -2580,7 +2596,7 @@
       "target": 5
     },
     {
-      "target": 238,
+      "target": 239,
       "source": 5
     },
     {
@@ -2760,15 +2776,15 @@
       "source": 6
     },
     {
-      "target": 238,
+      "target": 239,
       "source": 6
     },
     {
-      "target": 240,
+      "target": 241,
       "source": 6
     },
     {
-      "target": 249,
+      "target": 250,
       "source": 6
     },
     {
@@ -3032,31 +3048,31 @@
       "source": 7
     },
     {
-      "target": 236,
+      "target": 237,
       "source": 7
     },
     {
-      "target": 238,
+      "target": 239,
       "source": 7
     },
     {
-      "target": 240,
+      "target": 241,
       "source": 7
     },
     {
-      "target": 244,
+      "target": 245,
       "source": 7
     },
     {
-      "target": 246,
-      "source": 7
-    },
-    {
-      "target": 248,
+      "target": 247,
       "source": 7
     },
     {
       "target": 249,
+      "source": 7
+    },
+    {
+      "target": 250,
       "source": 7
     },
     {
@@ -3096,19 +3112,19 @@
       "source": 9
     },
     {
-      "target": 236,
+      "target": 237,
       "source": 9
     },
     {
-      "target": 241,
+      "target": 242,
       "source": 9
     },
     {
-      "target": 246,
+      "target": 247,
       "source": 9
     },
     {
-      "source": 250,
+      "source": 251,
       "target": 9
     },
     {
@@ -3176,15 +3192,15 @@
       "source": 12
     },
     {
-      "target": 239,
+      "target": 240,
       "source": 12
     },
     {
-      "source": 240,
+      "source": 241,
       "target": 12
     },
     {
-      "target": 241,
+      "target": 242,
       "source": 12
     },
     {
@@ -3224,15 +3240,15 @@
       "source": 13
     },
     {
-      "target": 239,
+      "target": 240,
       "source": 13
     },
     {
-      "source": 240,
+      "source": 241,
       "target": 13
     },
     {
-      "target": 241,
+      "target": 242,
       "source": 13
     },
     {
@@ -3348,19 +3364,19 @@
       "target": 19
     },
     {
-      "source": 236,
+      "source": 237,
       "target": 19
     },
     {
-      "target": 236,
+      "target": 237,
       "source": 19
     },
     {
-      "target": 241,
+      "target": 242,
       "source": 19
     },
     {
-      "target": 246,
+      "target": 247,
       "source": 19
     },
     {
@@ -3452,15 +3468,15 @@
       "source": 25
     },
     {
-      "source": 237,
+      "source": 238,
       "target": 25
     },
     {
-      "target": 237,
+      "target": 238,
       "source": 25
     },
     {
-      "target": 253,
+      "target": 254,
       "source": 25
     },
     {
@@ -3500,11 +3516,11 @@
       "target": 27
     },
     {
-      "source": 239,
+      "source": 240,
       "target": 27
     },
     {
-      "source": 254,
+      "source": 255,
       "target": 27
     },
     {
@@ -3568,11 +3584,11 @@
       "source": 32
     },
     {
-      "target": 254,
+      "target": 255,
       "source": 32
     },
     {
-      "target": 256,
+      "target": 257,
       "source": 32
     },
     {
@@ -3680,11 +3696,11 @@
       "source": 43
     },
     {
-      "target": 245,
+      "target": 246,
       "source": 43
     },
     {
-      "target": 248,
+      "target": 249,
       "source": 43
     },
     {
@@ -3700,19 +3716,15 @@
       "source": 44
     },
     {
-      "source": 235,
+      "source": 236,
       "target": 44
     },
     {
-      "target": 235,
+      "target": 236,
       "source": 44
     },
     {
-      "source": 249,
-      "target": 44
-    },
-    {
-      "source": 251,
+      "source": 250,
       "target": 44
     },
     {
@@ -3721,6 +3733,10 @@
     },
     {
       "source": 253,
+      "target": 44
+    },
+    {
+      "source": 254,
       "target": 44
     },
     {
@@ -3736,11 +3752,7 @@
       "target": 45
     },
     {
-      "source": 246,
-      "target": 45
-    },
-    {
-      "source": 251,
+      "source": 247,
       "target": 45
     },
     {
@@ -3748,11 +3760,15 @@
       "target": 45
     },
     {
-      "source": 255,
+      "source": 253,
       "target": 45
     },
     {
-      "target": 255,
+      "source": 256,
+      "target": 45
+    },
+    {
+      "target": 256,
       "source": 45
     },
     {
@@ -3760,11 +3776,11 @@
       "target": 46
     },
     {
-      "source": 255,
+      "source": 256,
       "target": 46
     },
     {
-      "target": 255,
+      "target": 256,
       "source": 46
     },
     {
@@ -3780,7 +3796,7 @@
       "target": 47
     },
     {
-      "source": 245,
+      "source": 246,
       "target": 47
     },
     {
@@ -3832,15 +3848,15 @@
       "source": 52
     },
     {
-      "source": 238,
+      "source": 239,
       "target": 52
     },
     {
-      "source": 255,
+      "source": 256,
       "target": 52
     },
     {
-      "target": 255,
+      "target": 256,
       "source": 52
     },
     {
@@ -3852,11 +3868,11 @@
       "source": 53
     },
     {
-      "source": 255,
+      "source": 256,
       "target": 53
     },
     {
-      "target": 255,
+      "target": 256,
       "source": 53
     },
     {
@@ -3912,11 +3928,11 @@
       "target": 60
     },
     {
-      "source": 251,
+      "source": 252,
       "target": 60
     },
     {
-      "source": 252,
+      "source": 253,
       "target": 60
     },
     {
@@ -3996,19 +4012,19 @@
       "target": 69
     },
     {
-      "source": 242,
-      "target": 69
-    },
-    {
-      "target": 242,
-      "source": 69
-    },
-    {
       "source": 243,
       "target": 69
     },
     {
-      "source": 247,
+      "target": 243,
+      "source": 69
+    },
+    {
+      "source": 244,
+      "target": 69
+    },
+    {
+      "source": 248,
       "target": 69
     },
     {
@@ -4040,7 +4056,7 @@
       "source": 70
     },
     {
-      "target": 245,
+      "target": 246,
       "source": 70
     },
     {
@@ -4116,15 +4132,15 @@
       "source": 79
     },
     {
-      "source": 238,
+      "source": 239,
       "target": 79
     },
     {
-      "source": 255,
+      "source": 256,
       "target": 79
     },
     {
-      "target": 255,
+      "target": 256,
       "source": 79
     },
     {
@@ -4192,11 +4208,11 @@
       "target": 87
     },
     {
-      "source": 255,
+      "source": 256,
       "target": 87
     },
     {
-      "target": 255,
+      "target": 256,
       "source": 87
     },
     {
@@ -4296,7 +4312,7 @@
       "source": 104
     },
     {
-      "target": 247,
+      "target": 248,
       "source": 104
     },
     {
@@ -4332,31 +4348,31 @@
       "source": 112
     },
     {
-      "target": 235,
+      "target": 236,
       "source": 113
     },
     {
-      "source": 241,
+      "source": 242,
       "target": 114
     },
     {
-      "target": 243,
+      "target": 244,
       "source": 115
     },
     {
-      "source": 244,
+      "source": 245,
       "target": 116
     },
     {
-      "target": 247,
+      "target": 248,
       "source": 117
     },
     {
-      "target": 251,
+      "target": 252,
       "source": 118
     },
     {
-      "source": 256,
+      "source": 257,
       "target": 119
     }
   ],

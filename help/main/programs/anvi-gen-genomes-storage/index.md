@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-gen-genomes-storage [program]
+title: anvi-gen-genomes-storage
+excerpt: An anvi'o program. Create a genome storage from internal and/or external genomes for a pangenome analysis.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-gen-genomes-storage

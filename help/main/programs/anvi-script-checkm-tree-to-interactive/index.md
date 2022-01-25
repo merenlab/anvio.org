@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-checkm-tree-to-interactive [program]
+title: anvi-script-checkm-tree-to-interactive
+excerpt: An anvi'o program. A helper script to convert CheckM trees into anvio interactive with taxonomy information.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-checkm-tree-to-interactive

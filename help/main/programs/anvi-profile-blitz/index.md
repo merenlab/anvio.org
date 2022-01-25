@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-profile-blitz [program]
+title: anvi-profile-blitz
+excerpt: An anvi'o program. FAST profiling of BAM files to get contig- or gene-level coverage and detection stats.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-profile-blitz

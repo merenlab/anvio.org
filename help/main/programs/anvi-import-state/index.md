@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-import-state [program]
+title: anvi-import-state
+excerpt: An anvi'o program. Import an anvi&#x27;o state into a profile database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-import-state

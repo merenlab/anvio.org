@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-split [program]
+title: anvi-split
+excerpt: An anvi'o program. Split an anvi&#x27;o pan or profile database into smaller, self-contained pieces.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-split

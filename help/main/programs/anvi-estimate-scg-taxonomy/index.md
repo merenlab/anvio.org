@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-estimate-scg-taxonomy [program]
+title: anvi-estimate-scg-taxonomy
+excerpt: An anvi'o program. Estimates taxonomy at genome and metagenome level.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-estimate-scg-taxonomy

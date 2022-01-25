@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-get-sequences-for-gene-clusters [program]
+title: anvi-get-sequences-for-gene-clusters
+excerpt: An anvi'o program. Do cool stuff with gene clusters in anvi&#x27;o pan genomes.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-get-sequences-for-gene-clusters

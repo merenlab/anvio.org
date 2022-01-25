@@ -1,6 +1,7 @@
 ---
 layout: artifact
-title: quick-summary [artifact]
+title: quick-summary
+excerpt: A TXT-type anvi'o artifact. This artifact is typically generated, used, and/or exported by anvi'o (and not provided by the user)..
 categories: [anvio]
 comments: false
 redirect_from: /m/quick-summary

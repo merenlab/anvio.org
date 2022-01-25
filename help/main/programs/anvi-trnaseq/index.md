@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-trnaseq [program]
+title: anvi-trnaseq
+excerpt: An anvi'o program. A program to process reads from a tRNA-seq dataset to generate an anvi&#x27;o tRNA-seq database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-trnaseq

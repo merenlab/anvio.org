@@ -3,7 +3,7 @@ layout: blog
 authors: [ivagljiva]
 title: "Targeted binning of a novel nitrogen-fixing population from the Arctic Ocean"
 excerpt: "Using metabolism estimation to go fishing in some ocean metagenomes."
-modified: 2021-10-20
+date: 2021-10-20
 tags: [metagenomics, binning, metabolism]
 comments: true
 ---

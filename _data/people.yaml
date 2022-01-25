@@ -62,12 +62,19 @@
 
 - github: ekiefl
   name: Evan Kiefl
+  web: http://ekiefl.github.io
   twitter: evankiefl
-  linkedin: evan-kiefl-825985b7
+  linkedin: ekiefl
   orcid: 0000-0002-6473-0921
   email: kiefl.evan@gmail.com
   avatar: ekiefl.jpg
-  bio: "Computational biologist interested in uncovering how within-population variation maps to functional variation in naturally-occuring microbial systems."
+  bio: "Computational biologist and software developer with a research focus on developing analysis and visualization strategies for complex multi-'omics data, particularly at the intersection of structural biology and metagenomics."
+  intellectual-contributions:
+    - contribution: "Spearheaded the development of protein structure prediction, analysis, and visualization capabilities within anvi'o"
+    - contribution: "Redesigned mission-critical code related to metagenomic workflows, decreasing compute times from >100 hours to <1 hour for terabyte-scale analyses"
+    - contribution: "Made significant contributions to the overall health and maintenance of the codebase through code reviews, performance refactoring, feature implementation, and issue diagnosis"
+    - contribution: "Made significant contributions to the storage, processing, and analysis strategies related to single nucleotide variants (SNVs), single codon variants (SCVs), single amino acid variants (SAAVs), and insertions/deletions (INDELs)"
+    - contribution: "Made significant contributions to documentation, totaling >3,000 lines of codebase documentation and >20,000 words of blogs/tutorials/workflows"
   affiliations:
     - title: Graduate Student
       inst: The Biophysical Sciences Program at the University of Chicago
@@ -92,6 +99,7 @@
   name: Iva Veseli
   email: iveseli@uchicago.edu
   orcid: 0000-0003-2390-528
+  twitter: ivaglj1va
   linkedin: iva-veseli
   avatar: ivagljiva.jpg
   bio: "Computer scientist and biologist who leverages computational methods to study microbial metabolism in environmental metagenomes."
@@ -191,9 +199,9 @@
   linkedin: alon-shaiber
   skype: alon.shaiber
   avatar: ShaiberAlon.jpg
-  bio: "Biophysicist fascinated by the complexity of microbial ecology and interested in applying and developing computational tools to explore it."
+  bio: "Computational scientist previously studying microbial ecology, currently studying structural variation in cancer genomics, and what's next? Who knows?"
   intellectual-contributions:
-    - contribution: "Spearheaded the development of <a href=https://merenlab.org/2018/07/09/anvio-snakemake-workflows/>anvi'o snakemake workflows</a>" 
+    - contribution: "Spearheaded the development of <a href=https://merenlab.org/2018/07/09/anvio-snakemake-workflows/>anvi'o snakemake workflows</a>"
   affiliations:
     - title: Genomics Data Scientist
       inst: Weill Cornell Medicine
@@ -389,6 +397,9 @@
   name: Antti Karkman
   email: antti.karkman@helsinki.fi
   avatar: bio-antti.png
+  twitter: AnttiKarkman
+  orcid: 0000-0003-0983-3319
+  bio: "Computational microbiologist interested in antibiotic resistance in the environment"
   affiliations:
     - title: Postdoctoral researcher
       inst: University of Helsinki
@@ -415,4 +426,18 @@
     - title: Post-doctoral Scientist
       inst: Smithsonian Tropical Research Institute
       inst_link: https://stri.si.edu/
+      current: true
+
+- github: dspeth
+  name: Daan R. Speth
+  avatar: bio-daan.jpg
+  twitter: daanspeth
+  email: dspeth@mpi-bremen.de
+  web: https://www.micro-explorer.net
+  orcid: 0000-0002-2361-5935
+  bio: "Microbiologist and bioinformatician interested in understanding the metabolic and phylogenetic diversity of microorganisms through genomics and wet lab analyses"
+  affiliations:
+    - title: Post-Doctoral Scientist
+      inst: Max Planck Institute for Marine Microbiology
+      inst_link: https://mpi-bremen.de
       current: true

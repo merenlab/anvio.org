@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-compute-completeness [program]
+title: anvi-compute-completeness
+excerpt: An anvi'o program. A script to generate completeness info for a given list of _splits_.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-compute-completeness

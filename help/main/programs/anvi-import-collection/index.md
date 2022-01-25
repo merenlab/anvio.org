@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-import-collection [program]
+title: anvi-import-collection
+excerpt: An anvi'o program. Import an external binning result into anvi&#x27;o.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-import-collection

@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-get-primer-matches [program]
+title: anvi-script-get-primer-matches
+excerpt: An anvi'o program. You provide this program with FASTQ files for one or more samples AND one or more primer sequences, and it collects reads from FASTQ files that matches to your primers.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-get-primer-matches

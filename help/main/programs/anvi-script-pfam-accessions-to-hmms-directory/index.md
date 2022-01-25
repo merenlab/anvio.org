@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-pfam-accessions-to-hmms-directory [program]
+title: anvi-script-pfam-accessions-to-hmms-directory
+excerpt: An anvi'o program. You give this program one or more PFAM accession ids, and it generates an anvi&#x27;o compatible HMM directory to be used with `anvi-run-hmms`.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-pfam-accessions-to-hmms-directory

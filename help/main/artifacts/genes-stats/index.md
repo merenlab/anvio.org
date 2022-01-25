@@ -1,6 +1,7 @@
 ---
 layout: artifact
-title: genes-stats [artifact]
+title: genes-stats
+excerpt: A STATS-type anvi'o artifact. This artifact is typically generated, used, and/or exported by anvi'o (and not provided by the user)..
 categories: [anvio]
 comments: false
 redirect_from: /m/genes-stats

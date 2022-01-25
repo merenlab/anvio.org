@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-add-default-collection [program]
+title: anvi-script-add-default-collection
+excerpt: An anvi'o program. A script to add a &#x27;DEFAULT&#x27; collection in an anvi&#x27;o pan or profile database with a bin named &#x27;EVERYTHING&#x27; that describes all items available in the profile database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-add-default-collection

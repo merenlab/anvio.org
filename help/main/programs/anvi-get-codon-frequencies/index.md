@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-get-codon-frequencies [program]
+title: anvi-get-codon-frequencies
+excerpt: An anvi'o program. Get amino acid or codon frequencies of genes in a contigs database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-get-codon-frequencies

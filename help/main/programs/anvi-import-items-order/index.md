@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-import-items-order [program]
+title: anvi-import-items-order
+excerpt: An anvi'o program. Import a new items order into an anvi&#x27;o database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-import-items-order

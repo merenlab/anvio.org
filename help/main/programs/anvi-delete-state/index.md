@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-delete-state [program]
+title: anvi-delete-state
+excerpt: An anvi'o program. Delete an anvi&#x27;o state from a pan or profile database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-delete-state

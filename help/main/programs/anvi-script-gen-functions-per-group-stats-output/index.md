@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-gen-functions-per-group-stats-output [program]
+title: anvi-script-gen-functions-per-group-stats-output
+excerpt: An anvi'o program. Generate a TAB delimited file for the distribution of functions across groups of genomes/metagenomes.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-gen-functions-per-group-stats-output

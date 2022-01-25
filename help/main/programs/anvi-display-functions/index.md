@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-display-functions [program]
+title: anvi-display-functions
+excerpt: An anvi'o program. Start an anvi&#x27;o interactive display to see functions across genomes.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-display-functions

@@ -1,6 +1,7 @@
 ---
 layout: artifact
-title: trnaseq-fasta [artifact]
+title: trnaseq-fasta
+excerpt: A FASTA-type anvi'o artifact. This artifact is typically provided by the user for anvi'o to import into its databases, process, and/or use.
 categories: [anvio]
 comments: false
 redirect_from: /m/trnaseq-fasta

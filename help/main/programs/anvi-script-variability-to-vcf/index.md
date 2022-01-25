@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-variability-to-vcf [program]
+title: anvi-script-variability-to-vcf
+excerpt: An anvi'o program. A script to convert SNV output obtained from anvi-gen-variability-profile to the standard VCF format.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-variability-to-vcf

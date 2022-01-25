@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-delete-collection [program]
+title: anvi-delete-collection
+excerpt: An anvi'o program. Remove a collection from a given profile database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-delete-collection

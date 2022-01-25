@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-merge-bins [program]
+title: anvi-merge-bins
+excerpt: An anvi'o program. Merge a given set of bins in an anvi&#x27;o collection.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-merge-bins

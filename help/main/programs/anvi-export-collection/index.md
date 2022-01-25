@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-export-collection [program]
+title: anvi-export-collection
+excerpt: An anvi'o program. Export a collection from an anvi&#x27;o database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-export-collection

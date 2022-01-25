@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-pan-genome [program]
+title: anvi-pan-genome
+excerpt: An anvi'o program. An anvi&#x27;o program to compute a pangenome from an anvi&#x27;o genome storage.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-pan-genome

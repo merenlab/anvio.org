@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-analyze-synteny [program]
+title: anvi-analyze-synteny
+excerpt: An anvi'o program. Extract ngrams, as in &#x27;co-occurring genes in synteny&#x27;, from genomes.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-analyze-synteny

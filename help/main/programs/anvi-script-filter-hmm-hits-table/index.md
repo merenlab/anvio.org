@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-script-filter-hmm-hits-table [program]
+title: anvi-script-filter-hmm-hits-table
+excerpt: An anvi'o program. Filter weak HMM hits from a given contigs database using a domain hits table reported by `anvi-run-hmms`.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-filter-hmm-hits-table

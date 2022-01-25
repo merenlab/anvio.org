@@ -1,6 +1,7 @@
 ---
 layout: program
-title: anvi-gen-gene-level-stats-databases [program]
+title: anvi-gen-gene-level-stats-databases
+excerpt: An anvi'o program. A program to compute genes databases for a ginen set of bins stored in an anvi&#x27;o collection.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-gen-gene-level-stats-databases
