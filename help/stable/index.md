@@ -7,7 +7,7 @@ image:
   featurerelative: images/header.png
   display: true
 redirect_from:
-    - /help
+    - /stable
 ---
 
 Here you will find a list of all anvi'o programs and artifacts that enable constructing workflows for integrated multi 'omics investigations.
@@ -136,7 +136,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/mschecht_bio" target="_blank"><img class="page-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/mschecht_bio" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -166,8 +166,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="page-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -197,7 +197,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -227,8 +227,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="page-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/AmyDWillis" target="_blank"><img class="page-person-photo-img-mini" title="Amy D. Willis" src="images/authors/adw96.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/AmyDWillis" target="_blank"><img class="anvio-person-photo-img-mini" title="Amy D. Willis" src="images/authors/adw96.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -258,9 +258,9 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="page-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/AmyDWillis" target="_blank"><img class="page-person-photo-img-mini" title="Amy D. Willis" src="images/authors/adw96.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/AmyDWillis" target="_blank"><img class="anvio-person-photo-img-mini" title="Amy D. Willis" src="images/authors/adw96.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -290,7 +290,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/mahmoud-yousef-314198128/" target="_blank"><img class="page-person-photo-img-mini" title="Mahmoud Yousef" src="images/authors/mahmoudyousef98.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/mahmoud-yousef-314198128/" target="_blank"><img class="anvio-person-photo-img-mini" title="Mahmoud Yousef" src="images/authors/mahmoudyousef98.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -320,7 +320,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -350,8 +350,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="page-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/AmyDWillis" target="_blank"><img class="page-person-photo-img-mini" title="Amy D. Willis" src="images/authors/adw96.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/AmyDWillis" target="_blank"><img class="anvio-person-photo-img-mini" title="Amy D. Willis" src="images/authors/adw96.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -381,8 +381,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -412,7 +412,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -442,7 +442,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -472,7 +472,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -502,7 +502,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -532,7 +532,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -562,8 +562,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/mahmoud-yousef-314198128/" target="_blank"><img class="page-person-photo-img-mini" title="Mahmoud Yousef" src="images/authors/mahmoudyousef98.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/mahmoud-yousef-314198128/" target="_blank"><img class="anvio-person-photo-img-mini" title="Mahmoud Yousef" src="images/authors/mahmoudyousef98.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -593,9 +593,9 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="page-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/FlorianTrigodet" target="_blank"><img class="page-person-photo-img-mini" title="Florian Trigodet" src="images/authors/FlorianTrigodet.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/awatsontxt" target="_blank"><img class="page-person-photo-img-mini" title="Andrea Watson" src="images/authors/watsonar.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/FlorianTrigodet" target="_blank"><img class="anvio-person-photo-img-mini" title="Florian Trigodet" src="images/authors/FlorianTrigodet.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/awatsontxt" target="_blank"><img class="anvio-person-photo-img-mini" title="Andrea Watson" src="images/authors/watsonar.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -625,7 +625,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -655,7 +655,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="page-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -685,7 +685,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -715,8 +715,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="page-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -746,7 +746,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -776,7 +776,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="page-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -806,8 +806,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ClayssenQ" target="_blank"><img class="page-person-photo-img-mini" title="Quentin Clayssen" src="images/authors/qclayssen.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ClayssenQ" target="_blank"><img class="anvio-person-photo-img-mini" title="Quentin Clayssen" src="images/authors/qclayssen.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -837,7 +837,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -867,7 +867,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -897,7 +897,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -927,7 +927,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -957,7 +957,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -987,7 +987,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1017,7 +1017,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1047,7 +1047,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1077,9 +1077,9 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/mschecht_bio" target="_blank"><img class="page-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/alon_shaiber" target="_blank"><img class="page-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/mschecht_bio" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/alon_shaiber" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1109,7 +1109,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1139,7 +1139,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1169,7 +1169,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1199,7 +1199,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1229,7 +1229,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1259,9 +1259,9 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="page-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1291,7 +1291,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1321,7 +1321,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1351,7 +1351,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1381,7 +1381,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1411,8 +1411,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="page-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1442,7 +1442,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1472,7 +1472,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1502,9 +1502,9 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/alon_shaiber" target="_blank"><img class="page-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/alon_shaiber" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1534,7 +1534,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1564,7 +1564,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1594,7 +1594,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1624,7 +1624,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1654,7 +1654,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1684,7 +1684,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1714,8 +1714,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1745,7 +1745,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1775,7 +1775,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1805,7 +1805,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1835,7 +1835,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1865,7 +1865,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1895,7 +1895,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1925,7 +1925,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1955,7 +1955,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1985,7 +1985,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2015,7 +2015,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2045,7 +2045,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2075,7 +2075,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="page-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2105,11 +2105,11 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="page-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/matthew-lawrence-klein" target="_blank"><img class="page-person-photo-img-mini" title="Matthew Lawrence Klein" src="images/authors/matthewlawrenceklein.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://github.com/isaacfink21" target="_blank"><img class="page-person-photo-img-mini" title="Isaac Fink" src="images/authors/isaacfink21.png" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://github.com/blankenberg" target="_blank"><img class="page-person-photo-img-mini" title="Daniel Blankenberg" src="images/authors/no-avatar.png" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/matthew-lawrence-klein" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Lawrence Klein" src="images/authors/matthewlawrenceklein.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://github.com/isaacfink21" target="_blank"><img class="anvio-person-photo-img-mini" title="Isaac Fink" src="images/authors/isaacfink21.png" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://github.com/blankenberg" target="_blank"><img class="anvio-person-photo-img-mini" title="Daniel Blankenberg" src="images/authors/no-avatar.png" /></a></div></div>
 
     </td>
 </tr>
@@ -2139,7 +2139,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2169,7 +2169,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2199,7 +2199,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2229,7 +2229,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/smiller_science" target="_blank"><img class="page-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/smiller_science" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2259,7 +2259,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2289,11 +2289,11 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="page-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="page-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/smiller_science" target="_blank"><img class="page-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/smiller_science" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2323,7 +2323,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2353,7 +2353,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2412,9 +2412,9 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="page-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2444,7 +2444,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2474,8 +2474,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://github.com/blankenberg" target="_blank"><img class="page-person-photo-img-mini" title="Daniel Blankenberg" src="images/authors/no-avatar.png" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://github.com/blankenberg" target="_blank"><img class="anvio-person-photo-img-mini" title="Daniel Blankenberg" src="images/authors/no-avatar.png" /></a></div></div>
 
     </td>
 </tr>
@@ -2505,7 +2505,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2535,8 +2535,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/FlorianTrigodet" target="_blank"><img class="page-person-photo-img-mini" title="Florian Trigodet" src="images/authors/FlorianTrigodet.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/FlorianTrigodet" target="_blank"><img class="anvio-person-photo-img-mini" title="Florian Trigodet" src="images/authors/FlorianTrigodet.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2566,7 +2566,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2596,10 +2596,10 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="page-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/mschecht_bio" target="_blank"><img class="page-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/mschecht_bio" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2629,7 +2629,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2659,7 +2659,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="page-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2689,7 +2689,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2719,8 +2719,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="page-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="page-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2750,8 +2750,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ClayssenQ" target="_blank"><img class="page-person-photo-img-mini" title="Quentin Clayssen" src="images/authors/qclayssen.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ClayssenQ" target="_blank"><img class="anvio-person-photo-img-mini" title="Quentin Clayssen" src="images/authors/qclayssen.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2781,7 +2781,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2811,9 +2811,9 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/alon_shaiber" target="_blank"><img class="page-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/smiller_science" target="_blank"><img class="page-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/mschecht_bio" target="_blank"><img class="page-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/alon_shaiber" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/smiller_science" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/mschecht_bio" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2843,7 +2843,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2873,7 +2873,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2903,7 +2903,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2933,7 +2933,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2963,7 +2963,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2993,7 +2993,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="page-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3023,7 +3023,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3053,7 +3053,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3083,8 +3083,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="page-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="page-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3114,8 +3114,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ClayssenQ" target="_blank"><img class="page-person-photo-img-mini" title="Quentin Clayssen" src="images/authors/qclayssen.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ClayssenQ" target="_blank"><img class="anvio-person-photo-img-mini" title="Quentin Clayssen" src="images/authors/qclayssen.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3145,7 +3145,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3175,7 +3175,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3205,7 +3205,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3235,7 +3235,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3265,7 +3265,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3295,7 +3295,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="page-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3354,7 +3354,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/smiller_science" target="_blank"><img class="page-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/smiller_science" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3384,7 +3384,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3414,7 +3414,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3444,7 +3444,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3474,7 +3474,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3504,7 +3504,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="page-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3534,7 +3534,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3564,7 +3564,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/MetaMoritz" target="_blank"><img class="page-person-photo-img-mini" title="Moritz Buck" src="images/authors/no-avatar.png" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/MetaMoritz" target="_blank"><img class="anvio-person-photo-img-mini" title="Moritz Buck" src="images/authors/no-avatar.png" /></a></div></div>
 
     </td>
 </tr>
@@ -3594,9 +3594,9 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://github.com/blankenberg" target="_blank"><img class="page-person-photo-img-mini" title="Daniel Blankenberg" src="images/authors/no-avatar.png" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://github.com/blankenberg" target="_blank"><img class="anvio-person-photo-img-mini" title="Daniel Blankenberg" src="images/authors/no-avatar.png" /></a></div></div>
 
     </td>
 </tr>
@@ -3626,7 +3626,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/mschecht_bio" target="_blank"><img class="page-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/mschecht_bio" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3656,7 +3656,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3686,7 +3686,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3716,8 +3716,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/AmyDWillis" target="_blank"><img class="page-person-photo-img-mini" title="Amy D. Willis" src="images/authors/adw96.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/AmyDWillis" target="_blank"><img class="anvio-person-photo-img-mini" title="Amy D. Willis" src="images/authors/adw96.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3747,7 +3747,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="page-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://linkedin.com/in/iva-veseli" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3777,7 +3777,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3807,7 +3807,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3837,7 +3837,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3867,7 +3867,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3897,7 +3897,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3927,7 +3927,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3957,7 +3957,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3987,7 +3987,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -4046,7 +4046,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -4076,7 +4076,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/AstrobioMike" target="_blank"><img class="page-person-photo-img-mini" title="Mike Lee" src="images/authors/AstrobioMike.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/AstrobioMike" target="_blank"><img class="anvio-person-photo-img-mini" title="Mike Lee" src="images/authors/AstrobioMike.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -4106,8 +4106,8 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://github.com/blankenberg" target="_blank"><img class="page-person-photo-img-mini" title="Daniel Blankenberg" src="images/authors/no-avatar.png" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://github.com/blankenberg" target="_blank"><img class="anvio-person-photo-img-mini" title="Daniel Blankenberg" src="images/authors/no-avatar.png" /></a></div></div>
 
     </td>
 </tr>
@@ -4137,7 +4137,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -4167,7 +4167,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -4197,7 +4197,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -4227,7 +4227,7 @@ Listed below **a total of 136 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://github.com/srinidhi202" target="_blank"><img class="page-person-photo-img-mini" title="Srinidhi Varadharajan" src="images/authors/no-avatar.png" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="http://github.com/srinidhi202" target="_blank"><img class="anvio-person-photo-img-mini" title="Srinidhi Varadharajan" src="images/authors/no-avatar.png" /></a></div></div>
 
     </td>
 </tr>
