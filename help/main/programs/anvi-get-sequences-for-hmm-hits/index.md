@@ -142,22 +142,44 @@ anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact
                                 &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/help/main/artifacts/genes&#45;fasta)</span>
 </div>
 
+## Tips
 
-### Want to play?
+### Get amino acid seqeunces for each gene in a model individually
+
+If you are interested in recovering HMM hits for each gene in a model anvi'o knows about as a separate FASTA file, you can do it with a `for` loop easily. After learning your genes of interest, first run this to make sure your terminal environment knows about them (this is an example with a few genes from the HMM source `Bacteria_71`, but you can add as many genes as you like and use any HMM source anvi'o recognizes, of course):
+
+``` bash
+export genes="Ribosomal_L22 Ribosomal_L23 Ribosomal_L27 Ribosomal_L27A Ribosomal_L28"
+export hmm_source="Bacteria_71"
+```
+
+Then, you can run the program in a loop to have your FASTA files:
+
+``` bash
+for gene in $genes
+do
+    anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
+                                    --hmm-source $hmm_source \
+                                    --gene-name $gene \
+                                    -o ${hmm_source}-${gene}.fa
+done
+```
+
+Voila!
+
+### Exercise with the program or test scenarios
 
 You can play with this program using the anvi'o data pack for the [infant gut data](/tutorials/infant-gut) and by replacing the parameters above with appropriate ones in the following commands.
 
-Download the latest version of the data from here:
+Download the latest version of the data from here: [doi:10.6084/m9.figshare.3502445](https://doi.org/10.6084/m9.figshare.3502445)
 
-[doi:10.6084/m9.figshare.3502445](https://doi.org/10.6084/m9.figshare.3502445)
-
-Unpack it:
+Then, unpack it:
 
 <div class="codeblock" markdown="1">
 tar &#45;zxvf INFANTGUTTUTORIAL.tar.gz && cd INFANT&#45;GUT&#45;TUTORIAL
 </div>
 
-Import the collection `merens`:
+Finally, import the collection `merens`:
 
 <div class="codeblock" markdown="1">
 <span class="artifact&#45;p">[anvi&#45;import&#45;collection](/help/main/programs/anvi&#45;import&#45;collection)</span> additional&#45;files/collections/merens.txt \
@@ -166,21 +188,7 @@ Import the collection `merens`:
                        &#45;C merens
 </div>
 
-Then run the program to
-
-### Learn available HMM sources
-
-<div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;p PROFILE.db \
-                                &#45;c CONTIGS.db \
-                                &#45;C merens \
-                                &#45;o OUTPUT.fa \
-                                &#45;&#45;hmm&#45;source Campbell_et_al \
-                                &#45;&#45;gene&#45;names Ribosomal_L27,Ribosomal_L28,Ribosomal_L3 \
-                                &#45;&#45;return&#45;best&#45;hit \
-                                &#45;&#45;get&#45;aa&#45;sequences \
-                                &#45;&#45;concatenate
-</div>
+Then run the program using the `PROFILE.db`, `CONTIGS.db`, and optionally the <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> `merens` to try some of the commands shown on this page.
 
 
 {:.notice}
