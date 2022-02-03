@@ -1,7 +1,7 @@
 ---
 layout: program
 title: anvi-split
-excerpt: An anvi'o program. Split an anvi&#x27;o pan or profile database into smaller, self-contained pieces.
+excerpt: An anvi'o program. Split an anvi&#x27;o pan or profile database into smaller, self-contained projects.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-split
@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-Split an anvi&#x27;o pan or profile database into smaller, self-contained pieces. Provide either a genomes-storage and pan database or a profile and contigs database pair, and you&#x27;ll get back directories of individual projects for each bin  that can be treated as smaller anvi&#x27;o projects.
+Split an anvi&#x27;o pan or profile database into smaller, self-contained projects. Black magic..
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -43,30 +43,43 @@ Split an anvi&#x27;o pan or profile database into smaller, self-contained pieces
 ## Usage
 
 
-This program **creates smaller, self-contained anvi'o projects for each of the <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s in your project.** This is useful if you would like to share a subset of an anvi'o project. 
+Creates individual, self-contained anvi'o projects for one or more <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s stored in an anvi'o <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>. This program may be useful if you would like to share a subset of an anvi'o project with the community or a collaborator, or focus on a particular aspect of your data without having to initialize very large files. Altogether, <span class="artifact-p">[anvi-split](/help/main/programs/anvi-split)</span> promotoes reproducibility, openness, and collaboration.
 
-Simply provide either a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> pair or a <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> and <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> pair, as well as a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>, and it will create directories for each of your bins that contain their own databases and information. In other words, each of these directories will contain their own anvi'o projects that represent the contigs or genomes stored in that single bin. 
+The program can generate <span class="artifact-n">[split-bins](/help/main/artifacts/split-bins)</span> from metagenomes or pangenomes. To split bins, you can provide the program <span class="artifact-p">[anvi-split](/help/main/programs/anvi-split)</span> with a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> pair. To split gene clusters, you can provide it with a <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> and <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> pair. In both cases you will also need a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>. If you don't provide any <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> names, the program will create individual directories for each bin that is found in your collection. You can also limit the output to a single bin. Each of the resulting directories in your output folder will contain a stand-alone anvi'o project that can be shared without sharing any of the larger dataset.
 
-### An example run 
+### An example run
 
-For example, let's say a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> has a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> with three bins, which are (very creatively) called `BIN_1`, `BIN_2`, and `BIN_3`.  
+Assume you have a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> has a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> with three bins, which are (very creatively) called `BIN_1`, `BIN_2`, and `BIN_3`.
 
-If you ran the following code: 
+If you ran the following code:
 
 <div class="codeblock" markdown="1">
 anvi&#45;split &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
            &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
            &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
-           &#45;o MY_PATH
+           &#45;o OUTPUT
 </div>
 
-Then in the location `MY_PATH`, you would have three folders: `BIN_1`, `BIN_2`, and `BIN_3`.  Each one contains its own <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> that only contains the contigs from that bin. You can then give a fellow anvi'o user just the `BIN_1` directory and they can get to work. 
+Alternatively you can specify a bin name to limit the reported bins:
 
-Similarly, if you provide a <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> and <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> pair, the directories will contain their own smaller <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> and <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> pairs. 
+<div class="codeblock" markdown="1">
+anvi&#45;split &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+           &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+           &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
+           &#45;&#45;bin&#45;id BIN_1
+           &#45;o OUTPUT
+</div>
 
-### Other options 
+Similarly, if you provide a <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> and <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> pair, the directories will contain their own smaller <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> and <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> pairs.
 
-You are also able to skip generating variability tables or compress the auxiliary data to save space. 
+You can always use the program <span class="artifact-p">[anvi-show-collections-and-bins](/help/main/programs/anvi-show-collections-and-bins)</span> to learn available <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> names in a given <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>.
+
+### Performance
+
+For extremely large datasets, splitting bins may be difficult. For metagenomics projets you can,
+
+* Use the flag `--skip-variability-tables` to NOT report single-nucleotide variants or single-amino acid variants in your split bins (which can reach hundreds of millions of lines of information for large and complex metagenomes), and/or,
+* Use the flag `--compress-auxiliary-data` to save space. While this is a great option for data that is meant to be stored long-term and shared with the community, the compressed file would need to be manually decompressed by the end-user prior to using the split bin.
 
 
 {:.notice}

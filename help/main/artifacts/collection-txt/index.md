@@ -34,7 +34,9 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 
 ## Description
 
-This is a two-column TAB-delimited file without a header that describes a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> by associating items with bin names. It can be used to import or export collections in and out of anvi'o databases, and/or transferring them between anvi'o projects. 
+A two-column TAB-delimited file **without a header** that describes a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> by associating items with <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> names.
+
+It can be used to import or export collections in and out of anvi'o databases, and/or transferring them between anvi'o projects seamlessly.
 
 The first column in the file lists item names and the second column associates a given item with a bin. 
 
@@ -52,17 +54,18 @@ item_06    bin_3
 In addition to the essential file above, you can associate an optional TAB-delmited file with three columns with a collection to provide information about 'bins' in it, such as their source, and/or color to be used when they are displayed in <span class="artifact-n">[summary](/help/main/artifacts/summary)</span> outputs or anvi'o <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> interfaces. Here is an example:
 
 ```
-bin_1	N/A	 #c9d433
-bin_2	N/A	 #e86548
-bin_3	N/A	 #0b8500
+bin_1	CONCOCT	 #c9d433
+bin_2	CONCOCT	 #e86548
+bin_3	anvi-refine	 #0b8500
 ```
 
-In this file format the first column is a bin name, the second column is a source, and the third column is an HTML color.
+In this file format, the first column is a bin name, the second column is a source, and the third column is an HTML color.
 
 {:.notice}
 The source is a free form text and can be anything. We often use `anvi-interactive` or `CONCOCT` or `anvi-refine` for our bins to track which ones were manually refined, and which ones were coming from an automated binning algorithm.
 
 You can provide this optional file to the program <span class="artifact-p">[anvi-import-collection](/help/main/programs/anvi-import-collection)</span> with the parameter `--bins-info`.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/collection-txt.md) to update this information.

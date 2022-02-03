@@ -65,7 +65,7 @@ The script `anvi-script-enrichment-stats` was implemented by [Amy Willis](https:
 
 ### Basic usage
 
-See <span class="artifact-n">[kegg-metabolism](/help/main/artifacts/kegg-metabolism)</span> for more information on how to generate a "modules" mode output format from <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>. Please note that the genome names in the modules file must match those that you will mention in the <span class="artifact-n">[groups-txt](/help/main/artifacts/groups-txt)</span> file.
+See <span class="artifact-n">[kegg-metabolism](/help/main/artifacts/kegg-metabolism)</span> or <span class="artifact-n">[user-metabolism](/help/main/artifacts/user-metabolism)</span> for more information on how to generate a "modules" mode output format from <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>. Please note that the genome names in the modules file must match those that you will mention in the <span class="artifact-n">[groups-txt](/help/main/artifacts/groups-txt)</span> file.
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;metabolic&#45;enrichment &#45;M MODULES.TXT \

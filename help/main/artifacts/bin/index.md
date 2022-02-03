@@ -23,7 +23,7 @@ A BIN-type anvi'o artifact. This artifact is typically generated, used, and/or e
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-cluster-contigs](../../programs/anvi-cluster-contigs)</span> <span class="artifact-p">[anvi-display-pan](../../programs/anvi-display-pan)</span> <span class="artifact-p">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-p">[anvi-refine](../../programs/anvi-refine)</span> <span class="artifact-p">[anvi-rename-bins](../../programs/anvi-rename-bins)</span> <span class="artifact-p">[anvi-script-add-default-collection](../../programs/anvi-script-add-default-collection)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-cluster-contigs](../../programs/anvi-cluster-contigs)</span> <span class="artifact-p">[anvi-display-pan](../../programs/anvi-display-pan)</span> <span class="artifact-p">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-p">[anvi-refine](../../programs/anvi-refine)</span> <span class="artifact-p">[anvi-rename-bins](../../programs/anvi-rename-bins)</span> <span class="artifact-p">[anvi-script-add-default-collection](../../programs/anvi-script-add-default-collection)</span> <span class="artifact-p">[anvi-script-compute-bayesian-pan-core](../../programs/anvi-script-compute-bayesian-pan-core)</span></p>
 
 
 ## Required or used by
@@ -34,28 +34,13 @@ A BIN-type anvi'o artifact. This artifact is typically generated, used, and/or e
 
 ## Description
 
-A bin is, in its simplest form, **a group of contigs**.  (Think of a literal bin that you're putting data into.)
+In its simplest form, **a group of items** that are put together. Think of a literal bin in which you put data. One or more bins in anvi'o form a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>.
 
-In Anvi'o, you'll most commonly work with bins both in this form and in the form of <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span>, espeically when you want to work with bins contained in more than one <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. A group of bins is called a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>.
+In anvi'o, a bin may reprsent one or more contigs, or gene clusters, or any item that can be shown in the interactive interface and stored in a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, or <span class="artifact-n">[genes-db](/help/main/artifacts/genes-db)</span>.
 
-## What can you use bins for?
+Bin names become handy to specifically target a group of items to investigate via programs such as <span class="artifact-p">[anvi-refine](/help/main/programs/anvi-refine)</span> or <span class="artifact-p">[anvi-split](/help/main/programs/anvi-split)</span>, specify a group of contigs in files such as <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span>, or find them in output files anvi'o generates via programs such as <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span> or <span class="artifact-p">[anvi-estimate-genome-completeness](/help/main/programs/anvi-estimate-genome-completeness)</span>.
 
-### Bins are all over 'omics
-In general, you can also use bins and <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>s to limit what you are analyzing downstream. A ton of anvi'o programs are able to take in a bin or a collection (a group of bins) so that you don't have to analyze your entire <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> when you just want to look at one section. This is true of many, many anvi'o analyses you can run, from <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span> to <span class="artifact-p">[anvi-get-sequences-for-hmm-hits](/help/main/programs/anvi-get-sequences-for-hmm-hits)</span>.
-
-Below are some more specific examples of binning in action!
-
-### Metagenomic binning
-A common use of binning is in **metagenomics**. See [this tutorial](http://merenlab.org/2016/06/22/anvio-tutorial-v2/) for details, but essentially, the data you're working with in metagenomics is a sample of all of the genetic material in an environmental sample. It's like pulling a bunch of random DNA fragments out of a bucket of ocean water. If you want to try to rebuild the individual genomes from that mess, one common strategy is to piece together genomes de novo by trying to group the contigs together. This is called genome-resolved metagenomic binning.
-
-Basically, in metagenomic binning, you're trying to group together a bunch of contigs that all belong to the same genome using various metrics like tetranucleotide frequency, differential coverage, completion, etc. You can do this either using various algorithms (for instance, those used by <span class="artifact-p">[anvi-cluster-contigs](/help/main/programs/anvi-cluster-contigs)</span>) or manually through the interactive interface (<span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span>). In this type of binning, a lot of your bins will be complete metagenome-assembled genomes, or MAGs; however, if you find an interesting group of contigs (for example, a prophage or a plasmid or even a particular domain), you can also put that into a bin. Then, you can group these bins in different ways using <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>s.
-
-For more information, you might want to watch [this lovely lecture on genome-resolved metagenomics](https://www.youtube.com/watch?v=RjNdHGK4ruo).
-
-### Pangenomic Workflows
-You can also use bins to group together gene clusters. This is useful if you want a specific group of contigs to remain together through your entire analysis. Just provide your <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span> file to <span class="artifact-p">[anvi-gen-genomes-storage](/help/main/programs/anvi-gen-genomes-storage)</span>.
-
-Wow, this binning thing seems BINcredible! (not sorry)
+Since they are a part of the umbrella concept <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>, information about bins are stored in various anvi'o databases, each of which can be used with the program <span class="artifact-p">[anvi-show-collections-and-bins](/help/main/programs/anvi-show-collections-and-bins)</span> to see the bin content.
 
 
 {:.notice}

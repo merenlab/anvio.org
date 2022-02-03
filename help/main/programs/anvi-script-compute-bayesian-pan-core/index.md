@@ -37,7 +37,7 @@ Runs mOTUpan on your gene clusters to estimate whether they are core or accessor
 ## Can provide
 
 
-This program does not seem to provide any artifacts. Such programs usually print out some information for you to see or alter some anvi'o artifacts without producing any immediate outputs.
+<p style="text-align: left" markdown="1"><span class="artifact-p">[bin](../../artifacts/bin) <img src="../../images/icons/BIN.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Usage
