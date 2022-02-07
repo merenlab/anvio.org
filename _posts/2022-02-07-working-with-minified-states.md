@@ -25,7 +25,7 @@ For the following examples we'll be using the infant gut dataset available [here
 
 {% include IMAGE path="/images/working-with-state/infantgut.png" caption="Our infant gut circlephylogram" %}
 
-Wonderful! Now let's say we've worked for a while within the interactive interface. We've binned some areas of interest and changed some layout settings, and now we'd like to save our changes to state. We bring up the __settings__ pane and click the 'save state' button. We're so thrilled we name our new state __my_perfect_figure__ and hit save. What just happened under the hood? Anvi'o serialized all of your session's display settings and saved them to the _states_ table in your pan/profile db. Let's see what that looks like!
+Before we get start making changes, let's go ahead and save our current (untouched) state as default. We bring up the __settings__ panel and click the 'save state' button. Wonderful! Now let's say we've worked for a while within the interactive interface. We've binned some areas of interest and changed some layout settings, and now we'd like to save our changes to state. We're so thrilled we name our new state __my_perfect_figure__ and hit save. What just happened under the hood? Anvi'o serialized all of your session's display settings and saved them to the _states_ table in your pan/profile db. Let's see what that looks like!
 
 ## Examining your state data
 
@@ -113,4 +113,57 @@ That's a lot of information, and it keeps on going! Further down in the file we 
  ..... and on....
  }
 ``` 
-Don't worry too much about understanding what each of these values do at the moment. Most of these values are sensible defaults that anvi'o generates automatically for you. 
+Don't worry too much about understanding what each of these values do at the moment. Most of these values are sensible defaults that anvi'o generates automatically for you. For a bit of extra fun, we can test this by exporting our default (state same as above) and comparing the two. If you have vim installed, you can run `vim -d default.json my_perfect_state.json` to see the 'diff'
+
+{% include IMAGE path="/images/working-with-state/state-diff.png" caption="differences in our updated state file vs default" %}
+
+We can of course open our state.json file and change any value(s) we want. To have those changes reflected in our interactive session, we just need to run `anvi-import state -p PROFILE.db -s my_updated_perfect_state.json -n 'perfect_v2'` and then load that state via the `load state` button in the settings panel. We're now feeling confident saving, changing, and loading states. That's great news!
+
+## Working with minified states
+
+One of the great things about anvi'o's `anvi-import-state` and `anvi-export-state` programs is that we can save some time if we know from the onset that we're going to want to change some aspects of the default state that anvi'o generates. Maybe we know, before even booting our interactive session, that we're going to want to see a _phylogram_ instead of a _circlephylogram_. Or maybe we want our 'GC Content' layer to be ordered last in our 'layer-orders' settings. Whatever the case may be, we know that we don't want to have to load up an interactive interface with the default state, make those changes, and then save them to a new state. That's exhausting! We also know that we don't want to have to provide values for 50+ datapoints in our custom state.json file, especially if the defaults are more than good enough for 90% of the settings. Luckily enough, we don't have to!
+
+Anvi'o allows us to utilize our own state.json files with as many or as few datapoints as we want to provide. Under the hood, anvi'o will supplement our provided values with all of the defaults necessary for the interactive interface to function. Let's test it out. 
+
+We can start by creating a new state file
+`touch minified-state.json`
+Opening that in the text editor of your choice, we can start adding in our custom values. If you're not sure about nested objects or formatting, you can always pop open a `default.json` file and compare. Let's add some data
+```
+{
+"version" : "3",
+"tree-type" : "phylogram",
+"state-name" "my itty bitty state"
+"views": {
+  "mean_coverage": {
+      "length": {
+          "normalization": "none",
+          "min": {
+              "value": "0",
+              "disabled": false
+          },
+          "max": {
+              "value": "39977",
+          }
+      },
+      "gc_content": {
+          "min": {
+              "value": "0",
+          },
+          "max": {
+              "value": "0.68495499357051",
+          }
+      },
+      "DAY_15A": {
+          "normalization": "log",
+          "min": {
+              "disabled": false
+          },
+          "max": {
+              "value": "2.88229548039248",
+              "disabled": false
+          }
+      }
+  }
+}
+```
+Not bad! Astute follow-alongers might notice that the "views" data we provided above is incomplete when compared against the generated default state. Well, that's just fine! We can provide only data we're interested in and anvi'o will figure out the rest, even in deeply nested objects.  
