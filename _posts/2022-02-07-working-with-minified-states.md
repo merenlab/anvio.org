@@ -126,7 +126,10 @@ One of the great things about anvi'o's `anvi-import-state` and `anvi-export-stat
 Anvi'o allows us to utilize our own state.json files with as many or as few datapoints as we want to provide. Under the hood, anvi'o will supplement our provided values with all of the defaults necessary for the interactive interface to function. Let's test it out. 
 
 We can start by creating a new state file
-`touch minified-state.json`
+```
+touch minified-state.json
+```
+
 Opening that in the text editor of your choice, we can start adding in our custom values. If you're not sure about nested objects or formatting, you can always pop open a `default.json` file and compare. Let's add some data
 ```
 {
@@ -166,4 +169,11 @@ Opening that in the text editor of your choice, we can start adding in our custo
   }
 }
 ```
-Not bad! Astute follow-alongers might notice that the "views" data we provided above is incomplete when compared against the generated default state. Well, that's just fine! We can provide only data we're interested in and anvi'o will figure out the rest, even in deeply nested objects.  
+Not bad! Astute follow-alongers might notice that the "views" data we provided above is incomplete when compared against the generated default state. Well, that's just fine! We can provide only data we're interested in and anvi'o will figure out the rest, even in deeply nested objects. Now that we have the lay of the land, let's take a look at a practical usecase for minified states in anvi'o!
+
+## Mini states in action - Matt's Ecophylo Workflow
+
+// Matt's gonna give a high level overview of how he incorporates mini states into his workflow. Thanks matt <3
+
+## Wrapping up
+
