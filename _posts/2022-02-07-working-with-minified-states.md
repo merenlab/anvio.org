@@ -31,7 +31,7 @@ Before we get start making changes, let's go ahead and save our current (untouch
 
 Back in our terminal, we can run `anvi-export-state -p PROFILE.db -o my_perfect_figure.json -s my_perfect_figure` to export our state as a json file. If we can't quite remember what we named our state we can always run `anvi-export-state -p PROFILE.db --list-states` to see what's available. And if we can't quite remember how to do that, we can run `anvi-export-state -h` to get some guidance. 
 
-Upon inspection, we can see that our state.json file is a giant object containing key-value for all our relevant interactive interface settings. 
+Upon inspection, we can see that our state.json file is a giant object containing key-value pairs for all of our relevant interactive interface settings. 
 
 ```
 {
@@ -113,7 +113,7 @@ That's a lot of information, and it keeps on going! Further down in the file we 
  ..... and on....
  }
 ``` 
-Don't worry too much about understanding what each of these values do at the moment. Most of these values are sensible defaults that anvi'o generates automatically for you. For a bit of extra fun, we can test this by exporting our default (state same as above) and comparing the two. If you have vim installed, you can run `vim -d default.json my_perfect_state.json` to see the 'diff'
+Don't worry too much about understanding what each of these values do at the moment. Most of these values are sensible defaults that anvi'o generates automatically for you. For a bit of extra fun, we can test this by exporting our default state (same as above) and comparing the two. Back in our terminal, we can run `diff my_perfect_state.json default.json` to see where our files diverge. If you have vim installed, you can run `vim -d default.json my_perfect_state.json` to see the 'diff' in greater detail. 
 
 {% include IMAGE path="/images/working-with-state/state-diff.png" caption="differences in our updated state file vs default" %}
 
