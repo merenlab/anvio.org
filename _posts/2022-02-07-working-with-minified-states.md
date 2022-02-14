@@ -17,7 +17,7 @@ Imagine for a moment that you're playing a particularly challenging level of a p
 
 ## Working with state in anvi'o
 
-anvi'o documentation provides some key insights into how [state](http://anvio.org/help/main/artifacts/state/) is handled within the context of an [interactive](http://anvio.org/help/main/artifacts/interactive/) session. State data can be stored in your __pan__ or __profile__ db files, and can be [imported](https://anvio.org/help/main/programs/anvi-import-state/), [exported](https://anvio.org/help/main/programs/anvi-export-state/), or [deleted](https://anvio.org/help/main/programs/anvi-delete-state/) via the command line using the respective anvi programs. Let's take a look at this in action. 
+anvi'o documentation provides some key insights into how [state](http://anvio.org/help/main/artifacts/state/) is handled within the context of an [interactive](http://anvio.org/help/main/artifacts/interactive/) session. State data can be stored in your __pan__ or __profile__ db files, and can be [imported](https://anvio.org/help/main/programs/anvi-import-state/), [exported](https://anvio.org/help/main/programs/anvi-export-state/), or [deleted](https://anvio.org/help/main/programs/anvi-delete-state/) via the command line using the respective anvi programs. Let's take a look at this in action.
 
 ## Manipulating state
 
@@ -29,9 +29,19 @@ Before we get start making changes, let's go ahead and save our current (untouch
 
 ## Examining your state data
 
-Back in our terminal, we can run `anvi-export-state -p PROFILE.db -o my_perfect_figure.json -s my_perfect_figure` to export our state as a json file. If we can't quite remember what we named our state we can always run `anvi-export-state -p PROFILE.db --list-states` to see what's available. And if we can't quite remember how to do that, we can run `anvi-export-state -h` to get some guidance. 
+Back in our terminal, we can run
+```bash
+    anvi-export-state -p PROFILE.db \
+                      -o my_perfect_figure.json \
+                      -s my_perfect_figure
+```
+to export our state as a json file. If we can't quite remember what we named our state we can always run
+```bash
+    anvi-export-state -p PROFILE.db --list-states
+```
+to see what's available. And if we can't quite remember how to do that, we can run `anvi-export-state -h` to get some guidance.
 
-Upon inspection, we can see that our state.json file is a giant object containing key-value pairs for all of our relevant interactive interface settings. 
+Upon inspection, we can see that our state.json file is a giant object containing key-value pairs for all of our relevant interactive interface settings.
 
 ```
 {
@@ -64,7 +74,7 @@ Upon inspection, we can see that our state.json file is a giant object containin
  "begins-from-branch": false,
 
 .....and on..
-}  
+}
 ```
 That's a lot of information, and it keeps on going! Further down in the file we can see some deeply nested datapoints
 ```
@@ -112,18 +122,32 @@ That's a lot of information, and it keeps on going! Further down in the file we 
              },
  ..... and on....
  }
-``` 
-Don't worry too much about understanding what each of these values do at the moment. Most of these values are sensible defaults that anvi'o generates automatically for you. For a bit of extra fun, we can test this by exporting our default state (same as above) and comparing the two. Back in our terminal, we can run `diff my_perfect_state.json default.json` to see where our files diverge. If you have vim installed, you can run `vim -d default.json my_perfect_state.json` to see the 'diff' in greater detail. 
+```
+Don't worry too much about understanding what each of these values do at the moment. Most of these values are sensible defaults that anvi'o generates automatically for you. For a bit of extra fun, we can test this by exporting our default state (same as above) and comparing the two. Back in our terminal, we can run
+```bash
+    diff my_perfect_state.json default.json
+```
+to see where our files diverge. If you have vim installed, you can run
+```bash
+    vim -d default.json my_perfect_state.json
+```
+to see the 'diff' in greater detail.
 
 {% include IMAGE path="/images/working-with-state/state-diff.png" caption="differences in our updated state file vs default" %}
 
-We can of course open our state.json file and change any value(s) we want. To have those changes reflected in our interactive session, we just need to run `anvi-import state -p PROFILE.db -s my_updated_perfect_state.json -n 'perfect_v2'` and then load that state via the `load state` button in the settings panel. We're now feeling confident saving, changing, and loading states. That's great news!
+We can of course open our state.json file and change any value(s) we want. To have those changes reflected in our interactive session, we just need to run
+```bash
+    anvi-import state -p PROFILE.db
+                      -s my_updated_perfect_state.json
+                      -n 'perfect_v2'
+```
+and then load that state via the `load state` button in the settings panel. We're now feeling confident saving, changing, and loading states. That's great news!
 
 ## Working with minified states
 
 One of the great things about anvi'o's `anvi-import-state` and `anvi-export-state` programs is that we can save some time if we know from the onset that we're going to want to change some aspects of the default state that anvi'o generates. Maybe we know, before even booting our interactive session, that we're going to want to see a _phylogram_ instead of a _circlephylogram_. Or maybe we want our 'GC Content' layer to be ordered last in our 'layer-orders' settings. Whatever the case may be, we know that we don't want to have to load up an interactive interface with the default state, make those changes, and then save them to a new state. That's exhausting! We also know that we don't want to have to provide values for 50+ datapoints in our custom state.json file, especially if the defaults are more than good enough for 90% of the settings. Luckily enough, we don't have to!
 
-Anvi'o allows us to utilize our own state.json files with as many or as few datapoints as we want to provide. Under the hood, anvi'o will supplement our provided values with all of the defaults necessary for the interactive interface to function. Let's test it out. 
+Anvi'o allows us to utilize our own state.json files with as many or as few datapoints as we want to provide. Under the hood, anvi'o will supplement our provided values with all of the defaults necessary for the interactive interface to function. Let's test it out.
 
 We can start by creating a new state file
 ```
