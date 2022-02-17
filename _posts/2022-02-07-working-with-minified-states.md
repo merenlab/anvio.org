@@ -141,9 +141,9 @@ We can of course open our state.json file and change any value(s) we want. To ha
                       -s my_updated_perfect_state.json
                       -n 'perfect_v2'
 ```
-and then load that state via the `load state` button in the settings panel. We're now feeling confident saving, changing, and loading states. That's great news!
+and then load that state via the `load state` button in the settings panel. We're now feeling confident saving, changing, and loading states. That's great news! 
 
-## Working with minified states
+## Programmers rejoice!  Working with minified states
 
 One of the great things about anvi'o's `anvi-import-state` and `anvi-export-state` programs is that we can save some time if we know from the onset that we're going to want to change some aspects of the default state that anvi'o generates. Maybe we know, before even booting our interactive session, that we're going to want to see a _phylogram_ instead of a _circlephylogram_. Or maybe we want our 'GC Content' layer to be ordered last in our 'layer-orders' settings. Whatever the case may be, we know that we don't want to have to load up an interactive interface with the default state, make those changes, and then save them to a new state. That's exhausting! We also know that we don't want to have to provide values for 50+ datapoints in our custom state.json file, especially if the defaults are more than good enough for 90% of the settings. Luckily enough, we don't have to!
 
@@ -201,3 +201,6 @@ Not bad! Astute follow-alongers might notice that the "views" data we provided a
 
 ## Wrapping up
 
+State in anvi'o provides a flexible framework for saving, sharing, and creating(!) 'snapshots' of our interactive sessions. And with the ability to export, edit, and import state.json files directly from the command line anvi'o states are flexible enough to be meticulously tweaked by hand, or generated programmatically as a part of a larger workflow. State is a core component of anvi'o's interactive interface, and understanding how it works under the hood will make our lives that much easier.
+
+Now go forth adventurer! Challenge the final boss! Just don't forget to save your state first. 
