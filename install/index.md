@@ -202,6 +202,20 @@ Using htslib 1.9
 Copyright (C) 2018 Genome Research Ltd.
 ```
 
+### Issues related to _sysconfigdata_x86_64_conda_linux_gnu
+
+Occasionally, users may come across a "Failed to import site module" error during the installation process. This is due to a config file naming mismatch, and can be resolved by changing the name of the existing relevant config file.
+
+First, navigate to your new conda environment's `python3.6` folder
+```bash
+cd path/to/conda/envs/7.1/lib/python3.6
+```
+Then, change the appropriate file name
+```bash
+mv _sysconfigdata_x86_64_conda_cos6_linux_gnu.py _sysconfigdata_x86_64_conda_linux_gnu.py
+```
+You can find more discussion on this issue [here](https://github.com/merenlab/anvio/issues/1839)
+
 If you have none of these issues, or have been able to address them, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" and go back to your life.
 
 ## (4) Check your installation
