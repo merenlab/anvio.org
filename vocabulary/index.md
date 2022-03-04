@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "'Omics Vocabulary"
-excerpt: "Commonly used terms and their approximate meanings"
+excerpt: "A community resource for common terms of microbial 'omics, and their approximate meanings"
 comments: true
 ---
 
@@ -28,14 +28,21 @@ Commonly used to define the raw output of a sequencer. These are strings of the 
 
 A sequence that you know something about. In the context of metagenomics, it often refers to a sequence that one uses for read recruitment.
 
-{:data-tags="read recruitment"}
+{:data-tags="read recruitment,<read mapping>"}
 ### Read recruitment
 
-A set of computational strategies to align sequencing reads to one or more reference sequences. Also known as 'read mapping', or simply 'mapping'.
+A set of computational strategies to align sequencing reads to one or more reference sequences. Also known as read mapping.
 
 In the context of metagenomics, read recruitment allows one to estimate whether a given sequence is present in a given metagenome. This is done by 'recruiting' all reads from a metagenome that matches to any part of the reference sequence. Understanding this strategy, along with its power and caveats, is one of the most important steps to fully appreciate most ‘omics strategies and the ways they lend themselves to study the ecology and evolution of microbial populations.
 
 Read recruitment typically yields two quantities to make sense of a given sequence in the context of a given metagenome: coverage, and detection.
+
+You can find here a simple, [introductory hands-on tutorial](https://merenlab.org/tutorials/read-recruitment/) to read recruitment and profiling. The following video can help beginners appreciate some of the fundamental aspects of read recruitment:
+
+<div class="video-container">
+<iframe class="video" src="https://www.youtube.com/embed/MqD4aN1p1qA?start=344" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 
 {:data-tags="coverage"}
 ### Coverage
@@ -73,6 +80,13 @@ Assembly software often takes short metagenomic reads and yields a list of conti
 
 A set of computational strategies that aims to identify and put together contigs that belong to the same population. These strategies often use differential coverage of contigs (when multiple samples are present) and/or sequence composition information (such as tetra-nucleotide frequency).
 
+The following video aims to offer an introduction to concepts in metagenomic binning:
+
+<div class="video-container">
+<iframe class="video" src="https://www.youtube.com/embed/RjNdHGK4ruo?start=203" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
 ### Differential coverage
 
 Change in coverage of a reference sequence across multiple samples. This statistic is one of the essential information for most binning algorithms.
@@ -80,6 +94,12 @@ Change in coverage of a reference sequence across multiple samples. This statist
 ### Tetra-nucleotide frequency
 
 The ratio of all 4-nucleotide words in a given contig. The tetra-nucleotide frequency is largely preserved throughout microbial genomes, which enables the identification of distinct contigs that likely originate from the same population.
+
+Learn more about how  k-mer frequencies are calculated:
+
+<div class="video-container">
+<iframe class="video" src="https://www.youtube.com/embed/RjNdHGK4ruo?start=1196" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 {:data-tags="<MAG>"}
 ### Metagenome-assembled genome (MAG)
@@ -91,7 +111,7 @@ A genome bin that meets certain quality requirements and can be assumed to repre
 
 Although frequently used, microbiology does not have a precise and consensus definition for what is a population, and how to define boundaries of environmental populations. One of the operational definitions our group often uses suggests that a population is an assemblage of co-existing microbes in an environment whose genomes are similar enough to map to the context of the same reference genome.
 
-{:data-tags="<metagenome>"}
+{:data-tags="<metagenome>,<metagenomes>"}
 ### Metagenome
 
 The entire DNA content of an environment. Since most environments harbor many different organisms, the metagenome includes genetic information from a large collection of genomes. High-throughput sequencing of metagenomes produce tremendous amount of sequencing reads that can be used for assembly or read recruitment.
@@ -110,10 +130,20 @@ Works for us. :)
 -- {% include person/display_mini_single.html github="ivagljiva" %}
 </div>
 
+{:data-tags="<metatranscriptome>,<metatranscriptomes>"}
+### Metatranscriptome
+
+The entire RNA content of a given environment. Unlike metagenomes, metatranscriptomes can shed light on the activity of environmental populations. But they bring unique challenges, such as the short half-life of RNA molecules, and secondary-structure driven varaition in their coverages.
+
 {:data-tags="metagenomics"}
 ### Metagenomics
 
 The study of environmental metagenomes.
+
+{:data-tags="metatranscriptomics"}
+### Metatranscriptomics
+
+The study of environmental metatranscriptomes.
 
 {:data-tags="pangenome"}
 ### Pangenome
@@ -125,9 +155,22 @@ From a computational standpoint, the term pangenome broadly refers to the entire
 
 The family of computational strategies that determine the pangenome and make it accessible as a framework to study relationships between a set of genomes through gene clusters.
 
+The following video aims to offer an introduction to concepts in pangenomics:
+
+<div class="video-container">
+<iframe class="video" src="https://www.youtube.com/embed/nyv7Xr07LCY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 ### Phylogenomics
 
 The practice of inferring evolutionary history and relationships between different organisms, based on genomic differences across multiple conserved genes.
+
+The following offers an introduction to basic concepts in phylogenomics:
+
+<div class="video-container">
+<iframe class="video" src="https://www.youtube.com/embed/hfHu8Lnwgzs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 
 ### Gene cluster
 
@@ -230,7 +273,7 @@ A text file containing taxonomy information for your genes that you obtained fro
 
 ### Collection
 
-A virtual construct to store bins of items in an anvi'o profile database. Each collection contains one or more bins, and each bin contains one or more items. These items can be gene clusters, contigs, or other things depending on the display mode.
+A virtual construct to store bins of items in an anvi'o profile database. Each collection contains one or more bins, and each bin contains one or more items. These items can be gene clusters, contigs, or other things depending on the display mode. See {% include ARTIFACT name="collection" %} for more information.
 
 {:data-tags="<SCVs>,<SCV>"}
 ### Single-codon variant (SCV)
