@@ -198,6 +198,10 @@ A nucleotide position where the identity of all bases mapping to this position v
 
 SNVs are characterized by (1) the position in the reference sequence where the difference occurs, and (2) a frequency vector that quantifies the frequency of nucleotide identities that mapped onto that position. See [this page](http://merenlab.org/2015/07/20/analyzing-variability/#single-nucleotide-variants) for a lengthier discussion of SNVs. Also see the definition of single-codon variant and single-amino acid variant.
 
+### Single-copy core genes (SCGs)
+  
+Single-copy core genes (SCGs) are core genes that can be found only once in a given genome. SCGs originate from speciation events and are orthologuous between genomes. SCGs have a central role in [phylogenomics](#phylogenomics) and in estimating genome [completion](#completion) and [redundancy](#redundancy). 
+  
 ### Completion
 
 A rough estimate of how completely a set of contigs represents a full genome based on the presence or absence of single-copy core genes (SCGs) they contain. SCGs are a set of special genes that occur in every single genome once and once only. So theoretically, the higher the percentage of SCGs found in a genome bin, the more likely that the bin represents a complete genome. Of course, SCGs are determined by analyzing isolate genomes that are available to find out which genes match to this criterion, hence, the accuracy of their predictions may be limited when this approach is applied to genome bins that represent populations from poorly studies clades of life. Even for genomes of well-studied organisms, our methods to identify these genes in genomes may prevent us from getting to [100% completeness](http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/).
