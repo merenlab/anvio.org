@@ -13,9 +13,6 @@ Please keep in mind that this is an evolving resource. Please *[help us improve 
 
 {% include _toc.html %}
 
-{:.notice}
-{% include _fixthispage.html source="vocabulary/index.md" %}
-
 ## All things 'omics
 
 This section defines terms that are commonly used in 'omics studies.
