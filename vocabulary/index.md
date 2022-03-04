@@ -9,7 +9,7 @@ The purpose of this document is to create a resource that defines commonly used 
 
 We initially wanted to create a resource just for the terms we commonly use in anvi'o, especially those that are specific to the platform. However, we concluded that including definitions for a larger set of terms (including those that are common in 'omics studies) would be the only way to have a cohesive document.
 
-Please keep in mind that this is an evolving resource -- suggestions and edits are most welcome. You can always find us on anvi'o {% include _slack_invitation_button.html %}
+Please keep in mind that this is an evolving resource. Please *[help us improve it](https://github.com/merenlab/anvio.org/issues/3)*. If you have any questions or concerns, you can always find us on anvi'o {% include _slack_invitation_button.html %}
 
 {% include _toc.html %}
 
@@ -285,8 +285,9 @@ The lazy definition - an SCV is just like a SNV, but for a codon position. The c
 
 Differences between mapped reads at the amino acid residue level. See [this page](http://merenlab.org/2015/07/20/analyzing-variability/#single-amino-acid-variants) for a more comprehensive description.
 
+---
 
 {:.notice}
-{% include _fixthispage.html source="vocabulary/index.md" %}
+Are you not happy with something? Do you think something is missing? GOOD! Please visit [this page](https://github.com/merenlab/anvio.org/issues/3) and join us in the dark side.
 
 {% include _tag-words.html %}
