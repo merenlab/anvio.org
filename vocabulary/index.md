@@ -196,10 +196,17 @@ A nucleotide position where the identity of all bases mapping to this position v
 
 SNVs are characterized by (1) the position in the reference sequence where the difference occurs, and (2) a frequency vector that quantifies the frequency of nucleotide identities that mapped onto that position. See [this page](http://merenlab.org/2015/07/20/analyzing-variability/#single-nucleotide-variants) for a lengthier discussion of SNVs. Also see the definition of single-codon variant and single-amino acid variant.
 
-{:data-tags="<SCGs>,<SCG>"}
-### Single-copy core genes (SCGs)
+{:data-tags="single-copy core genes,single-copy-core-gene,<SCGs>,<SCG>"}
+### Single-copy core gene (SCG)
 
-Genes that are found in the vast majority of genomes and yet occur only once within a single genome. Single-copy core genes that are orthologous play a central role in phylogeneitcs, phylogenomics, as well as estimating genome completion and redundancy.
+A gene that is found in the vast majority of genomes and yet occurs only once within a single genome.
+
+Single-copy core genes play a central role in phylogeneitcs, phylogenomics, as well as estimating genome completion and redundancy.
+
+Commonly used SCGs can be identified across a set of genomes through sequence homology searches (via hidden Markov models, BLAST, or other means). For relatively closely related genomes, SCGs can also be identified de novo through pangenomics.
+
+The number of SCGs will decrease with decreasing resolutions of taxonomy. For instance, the number of SCGs across a set of genomes that belong to the same phylum will typically be much smaller than the number of SCGs across a set of genomes that belong to a same genus within that phylum, and so on. At the domain level there exists a small set of ribosomal proteins that are both core and single-copy across a very large number of genomes that span eukarya, archaea, and bacteria and lead to [comprehensive analyses](https://www.nature.com/articles/nmicrobiol201648) of the tree of life through phylogenomics.
+
 
 {:data-tags="completion,completeness"}
 ### Completion
