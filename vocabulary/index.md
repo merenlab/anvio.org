@@ -9,7 +9,17 @@ The purpose of this document is to create a resource that defines commonly used 
 
 We initially wanted to create a resource just for the terms we commonly use in anvi'o, especially those that are specific to the platform. However, we concluded that including definitions for a larger set of terms (including those that are common in 'omics studies) would be the only way to have a cohesive document.
 
-Please keep in mind that this is an evolving resource. Please *[help us improve it](https://github.com/merenlab/anvio.org/issues/3)*. If you have any questions or concerns, you can always find us on anvi'o {% include _slack_invitation_button.html %}
+Please keep in mind that this is an evolving resource. Please **[help us improve it](https://github.com/merenlab/anvio.org/issues/3)**.
+
+If you have any questions or concerns, you can always find us on anvi'o {% include _slack_invitation_button.html %}
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Contributors</span>
+
+The vocabulary is maintained by {% include person/display_mini_single.html github="ivagljiva" %} and {% include person/display_mini_single.html github="meren" %}, it is here thanks to the contributions of {% include person/display_mini_single.html github="karkman" %}.
+
+</div>
+
 
 {% include _toc.html %}
 
