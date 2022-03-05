@@ -41,14 +41,14 @@ You can find here a simple, [introductory hands-on tutorial](https://merenlab.or
 </div>
 
 
-{:data-tags="coverage"}
+{:data-tags="coverage,coverages"}
 ### Coverage
 
-Average number of sequencing reads that map to each nucleotide position in a reference. Also known as 'depth of coverage'.
+Average number of sequencing reads that map to each nucleotide position in a reference.
 
 ![coverage](images/coverage.gif)
 
-Also known as 'depth of coverage'.
+Also known as "depth of coverage".
 
 {:data-tags="detection"}
 ### Detection
@@ -103,7 +103,7 @@ Learn more about how  k-mer frequencies are calculated:
 
 A genome bin that meets certain quality requirements and can be assumed to represent contigs from one bin of a metagenome, which collectively represent the DNA of (what we think is) a single population.
 
-{:data-tags="population"}
+{:data-tags="population,populations"}
 ### Population
 
 Although frequently used, microbiology does not have a precise and consensus definition for what is a population, and how to define boundaries of environmental populations. One of the operational definitions our group often uses suggests that a population is an assemblage of co-existing microbes in an environment whose genomes are similar enough to map to the context of the same reference genome.
@@ -158,6 +158,7 @@ The following video aims to offer an introduction to concepts in pangenomics:
 <iframe class="video" src="https://www.youtube.com/embed/nyv7Xr07LCY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+{:data-tags="phylogenomics"}
 ### Phylogenomics
 
 The practice of inferring evolutionary history and relationships between different organisms, based on genomic differences across multiple conserved genes.
@@ -168,7 +169,7 @@ The following offers an introduction to basic concepts in phylogenomics:
 <iframe class="video" src="https://www.youtube.com/embed/hfHu8Lnwgzs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-
+{:data-tags="gene cluster"}
 ### Gene cluster
 
 Fundamental units of pangenomes which appear in the literature also as ‘protein clusters’, ‘orthogroups’, ‘groups of orthologous genes’, or ‘operational protein families’ (and they should not be confused with biosynthetic gene clusters which describe functionally related genes that belong to the same operon in a single chromosome).
@@ -195,14 +196,17 @@ A nucleotide position where the identity of all bases mapping to this position v
 
 SNVs are characterized by (1) the position in the reference sequence where the difference occurs, and (2) a frequency vector that quantifies the frequency of nucleotide identities that mapped onto that position. See [this page](http://merenlab.org/2015/07/20/analyzing-variability/#single-nucleotide-variants) for a lengthier discussion of SNVs. Also see the definition of single-codon variant and single-amino acid variant.
 
+{:data-tags="<SCGs>,<SCG>"}
 ### Single-copy core genes (SCGs)
-  
-Single-copy core genes (SCGs) are core genes that can be found only once in a given genome. SCGs originate from speciation events and are orthologuous between genomes. SCGs have a central role in [phylogenomics](#phylogenomics) and in estimating genome [completion](#completion) and [redundancy](#redundancy). 
-  
+
+Genes that are found in the vast majority of genomes and yet occur only once within a single genome. Single-copy core genes that are orthologous play a central role in phylogeneitcs, phylogenomics, as well as estimating genome completion and redundancy.
+
+{:data-tags="completion,completeness"}
 ### Completion
 
 A rough estimate of how completely a set of contigs represents a full genome based on the presence or absence of single-copy core genes (SCGs) they contain. SCGs are a set of special genes that occur in every single genome once and once only. So theoretically, the higher the percentage of SCGs found in a genome bin, the more likely that the bin represents a complete genome. Of course, SCGs are determined by analyzing isolate genomes that are available to find out which genes match to this criterion, hence, the accuracy of their predictions may be limited when this approach is applied to genome bins that represent populations from poorly studies clades of life. Even for genomes of well-studied organisms, our methods to identify these genes in genomes may prevent us from getting to [100% completeness](http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/).
 
+{:data-tags="redundancy,contamination"}
 ### Redundancy
 
 A measure of how many copies of each single-copy core gene (SCG) are found in a set of contigs. Usually, we expect to have only one copy of each of these genes (that's why they're called 'single-copy'), and for this reason, redundancy of SCGs is commonly used as an estimate the level of potential 'contamination' within a bin (i.e., higher values of redundancy may indicate that more than one population may be contributing to a given genome bin). However, interpretations of 'contamination' as a function of redundant occurrence of SCGs may not be straightforward as some genomes may have multiple copies of generally single-copy core genes, hence we prefer not to draw conclusions about contamination right away. In addition, lack of redundancy does not necessarily mean the lack of contamination, since contaminant contigs that do not include SCGs will not be in the radar of these estimates. Want to know more? See [this page](http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/).
