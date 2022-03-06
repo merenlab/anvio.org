@@ -16,7 +16,7 @@ If you have any questions or concerns, you can always find us on anvi'o {% inclu
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Contributors</span>
 
-The vocabulary is maintained by {% include person/display_mini_single.html github="ivagljiva" %} and {% include person/display_mini_single.html github="meren" %}, it is here thanks to the contributions of {% include person/display_mini_single.html github="karkman" %}.
+The vocabulary is maintained by {% include person/display_mini_single.html github="ivagljiva" %} and {% include person/display_mini_single.html github="meren" %}, it is here thanks to the contributions of {% include person/display_mini_single.html github="karkman" %} and [Simon Roux](https://twitter.com/simroux_virus).
 
 </div>
 
