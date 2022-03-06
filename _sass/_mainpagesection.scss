@@ -30,3 +30,48 @@ section.mainpage {
         }
     }
 }
+
+.cite-anvio-button {
+    background: url(/images/web-icons/cite-anvio.svg);
+    @include main-page-button();
+}
+
+.install-anvio-button {
+    background: url(/images/web-icons/install-anvio.svg);
+    @include main-page-button();
+}
+
+.anvio-programs-and-artifacts-help-button {
+    background: url(/images/web-icons/anvio-programs-and-artifacts-help.svg);
+    @include main-page-button();
+}
+
+.learn-anvio-button {
+    background: url(/images/web-icons/learn-anvio.svg);
+    @include main-page-button();
+}
+
+.anvio-community-button {
+    background: url(/images/web-icons/anvio-community.svg);
+    @include main-page-button();
+}
+
+.anvio-community-blog-button {
+    background: url(/images/web-icons/anvio-community-blog.svg);
+    @include main-page-button();
+}
+
+.omics-vocabulary-button {
+    background: url(/images/web-icons/omics-vocabulary.svg);
+    @include main-page-button();
+}
+
+.-button {
+    background: url(/images/web-icons/.svg);
+    @include main-page-button();
+}
+
+.anvio-in-a-nutshell-button {
+    background: url(/images/web-icons/anvio-in-a-nutshell.svg);
+    @include main-page-button();
+}

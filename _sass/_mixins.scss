@@ -46,6 +46,19 @@
   transition: $transition;
 }
 
+@mixin main-page-button()
+{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position-y: 27px;
+    -o-background-size: 85px auto;
+    -webkit-background-size: 85px auto;
+    -moz-background-size: 85px auto;
+    background-size: 85px auto;
+    height: 111px;
+    border-radius: 14px !important;
+}
+
 @mixin background-cover()
 {
     -webkit-background-size: cover;
