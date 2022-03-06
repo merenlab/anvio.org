@@ -111,7 +111,9 @@ Learn more about how  k-mer frequencies are calculated:
 {:data-tags="<MAG>"}
 ### Metagenome-assembled genome (MAG)
 
-A genome bin that meets certain quality requirements and can be assumed to represent contigs from one bin of a metagenome, which collectively represent the DNA of (what we think is) a single population.
+A genome that is reconstructed or recovered from a metagenome. MAGs are typically reconstructed from short reads via de novo assembly and metagenomic binning strategies, from long reads, or from a combination of strategies that makes use of both short reads and long reads.
+
+A MAG can be a single contig or a collection of contigs that, in theory, collectively represent a single microbial organism. Although, binning can lead to errors. Quality of a MAG can be assessed by completion and redundancy of single-copy core genes, although, these estimates may not be conclusive. Despite challenges associated with them, MAGs have played essential roles in expanding the tree of life and shedding light on environmental microbiomes and viromes.
 
 {:data-tags="population,populations"}
 ### Population
