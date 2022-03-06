@@ -79,7 +79,7 @@ Recruitment of short reads from an environment to a reference sequence context d
 {:data-tags="<contig>,<contigs>"}
 ### Contig
 
-A contiguous segment of DNA that is often 'assembled' from short sequencing reads, but still represents only a fraction of the longer context to which it belongs.
+A contiguous segment of DNA that is often 'assembled' from short reads or long rads, but still represents only a fraction of the longer context to which it belongs.
 
 Assembly software often takes short metagenomic reads and yields a list of contigs. Although their lengths vary depending on a myriad of factors, contigs are often orders of magnitude longer than short reads that were assembled, which makes them suitable for downstream efforts that may include gene calling, functional and/or taxonomic annotation, and/or metagenomic binning. Contigs often become reference sequences for read recruitment analyses.
 
@@ -154,6 +154,10 @@ In the first case, "Virome" is used as shorthand for "Viral metagenome". Pragmat
 
 In the second use, "Virome" is essentially the counterpart of "Microbiome", and is built the same way: while the microbi-ome would designate the community of microorganisms found in a single habitat, the vir-ome would designate the community of viruses found in this habitat. This makes a lot of sense, and is typically the definition provided by [encyclopedia](https://en.wikipedia.org/wiki/Virome) (see e.g. ). The only (major) flaw of course is that this term was already used to designate "viral metagenomes".. Sadly, the fact that (viral) metagenomics is often the method of choice to explore "viromes" only adds to the confusion.
 
+{:data-tags="pangenome"}
+### Pangenome
+
+From a computational standpoint, the term pangenome broadly refers to the entire collection of genes found in two or more genomes. See pangenomics for more.
 
 {:data-tags="metagenomics"}
 ### Metagenomics
@@ -164,11 +168,6 @@ The study of environmental metagenomes.
 ### Metatranscriptomics
 
 The study of environmental metatranscriptomes.
-
-{:data-tags="pangenome"}
-### Pangenome
-
-From a computational standpoint, the term pangenome broadly refers to the entire collection of genes found in two or more genomes.
 
 {:data-tags="pangenomics"}
 ### Pangenomics
