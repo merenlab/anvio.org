@@ -217,7 +217,27 @@ Commonly used SCGs can be identified across a set of genomes through sequence ho
 
 The number of SCGs will decrease with decreasing resolutions of taxonomy. For instance, the number of SCGs across a set of genomes that belong to the same phylum will typically be much smaller than the number of SCGs across a set of genomes that belong to a same genus within that phylum, and so on. At the domain level there exists a small set of ribosomal proteins that are both core and single-copy across a very large number of genomes that span eukarya, archaea, and bacteria and lead to [comprehensive analyses](https://www.nature.com/articles/nmicrobiol201648) of the tree of life through phylogenomics.
 
+### Hidden Markov Models (HMMs)
+  
+Let’s say, **weather_states = [rainy, sunny]** and
 
+population_**mood = [sad, happy**]
+
+A [Markov model](https://web.stanford.edu/~jurafsky/slp3/A.pdf) allows us to predict/describe a future state, given the knowledge of [current state](https://web.stanford.edu/~jurafsky/slp3/A.pdf) **(observation)** in the sequence. The past state is not important in predicting the future outcome. To summarize, the system state at a given time point [“t+1”](https://reader.elsevier.com/reader/sd/pii/S000437029800023X?token=79509CC161F6A21DD71D5B2C02D3E7A3C6D2AC8EBB6D10B37EC4E063A4F21931F2C8F3204F4EFF5E89610ED5280FAF64&originRegion=us-east-1&originCreation=20220306193035) is dependent upon the state at time point “t”. The idea is analogous to predicting tomorrow’s weather based on your knowledge of today’s weather, but yesterday’s weather is not that important. If you want to think in terms of networks, the states represent the nodes and the probabilities between the states -aka “transition probabilities” - would be the edges.
+
+**So, what is Hidden Markov Model?**
+
+Simply put, Hidden Markov Model (HMM) is the Markov model where the **[states are hidden or not directly unobservable](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2766791/pdf/CG-10-402.pdf)**. Let’s say, in an unusual scenario in an unusual town, you have access to population mood - but no access to their weather data (hidden). Per HMM, you would utilize the sequence of population mood (sad, happy), to predict the weather sequence (rainy, sunny), without even stepping a foot in that town. This idea (apologies for this level of oversimplification) is widely used in fields such as [speech recognition](https://web.ece.ucsb.edu/Faculty/Rabiner/ece259/Reprints/tutorial%20on%20hmm%20and%20applications.pdf), [bioinformatics](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2766791/pdf/CG-10-402.pdf) and artificial intelligence.
+
+**So, what does it have to do with Biology then?**
+
+The HMMs can be applied for protein structure recognition, gene finding and multiple sequence alignment. These models could range in [terms of priori complexity and biological knowledge](http://www2.cs.uh.edu/~ceick/ML/HMM_in_BI.pdf), but play a solid role in deciphering the unknown from large swaths of sequence data.
+
+**So, what does [Anvi’o](https://pubmed.ncbi.nlm.nih.gov/26500826/) has to do with Hidden Markov Models?**
+
+Running ***“anvi-run-hmms”*** on your contig database allows to estimate single-copy core genes (SCGs) in your contig database. Since SCGs are phylogenetically conserved, they are good candidates to measure the [completeness of genomes](https://pubmed.ncbi.nlm.nih.gov/26500826/). Anvi’o comes with HMMs for Bacterial, Archea as well as Ribosomal RNA genes.
+   
+ ### Completion
 {:data-tags="completion,completeness"}
 ### Completion
 
