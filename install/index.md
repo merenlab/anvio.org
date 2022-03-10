@@ -98,7 +98,7 @@ Now you are in a pristine environment, in which you will install all conda packa
 conda install -y -c bioconda "sqlite >=3.31.1"
 conda install -y -c bioconda prodigal
 conda install -y -c bioconda mcl
-conda install -y -c bioconda muscle
+conda install -y -c bioconda muscle=3.8.1551
 conda install -y -c bioconda hmmer
 conda install -y -c bioconda diamond
 conda install -y -c bioconda blast
