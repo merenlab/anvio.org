@@ -46,10 +46,21 @@ a {
 }
 
 hr {
-    max-width: 100px;
-    margin: 25px auto 0;
-    border-width: 1px;
-    border-color: fade-out($gray-darker, .9);
+    max-width: 80%;
+    border: 0;
+    height: 1px;
+    margin: 25px auto 25px;
+    background-image: linear-gradient(to right, #FFF, #AAA, #FFF);
+}
+
+hr:after {
+    content: "//";
+    position: relative;
+    top: -14px;
+    font-size: 0.7em;
+    padding: 0px 50%;
+    width: 2px;
+    color: #b8b8b8;
 }
 
 h3 {
