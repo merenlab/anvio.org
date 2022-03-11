@@ -243,6 +243,7 @@ If you are seeing the interactive interface, it means you now have a computer th
 * Run {% include PROGRAM name="anvi-setup-scg-taxonomy" %}, to setup SCG taxonomy data using GTDB genomes.
 * Run {% include PROGRAM name="anvi-setup-ncbi-cogs" %}, to setup NCBI's COG database for quick annotation of genes with functions,
 * Run {% include PROGRAM name="anvi-setup-kegg-kofams" %}, so {% include PROGRAM name="anvi-estimate-metabolism" %} finds the database of KEGG orthologs ready when you need it.
+* Run `anvi-self-test --suite pangenomics` to see if everything is order (especially if you plan to use anvi'o for pangenomics).
 
 {:.warning}
 Don't forget to come say hi to us on [anvi'o Slack]({% include _slack_invitation_link.html %}).
@@ -287,9 +288,36 @@ If you open a new terminal and get __command not found__ error when you run anvi
 conda activate anvio-7.1
 ```
 
-Now you can take a look up some anvi'o resources [here](/software/anvio), or come say hi to us on Slack.
+### When I run anvi'o test for pangenomics, I get errors related to the functional enrichment step
 
-{% include _join-anvio-slack.html %}
+If you are getting an error that goes like,
+
+```
+Config Error: Something went wrong during the functional enrichment analysis :( We don't know
+              what happened, but this log file could contain some clues: (...)
+```
+
+it often means that the R libraries that are needed to run functional enrichment analyses are not installed properly through conda :/ Luckily, you can try to install them using the R terminal as Marco Gabrielli shared on anvi'o slack. For this, start an R terminal by typing this in your terminal:
+
+``` bash
+R
+```
+
+Then, copy-paste this command into it:
+
+```R
+install.packages("stringi", "tidyverse", "magrittr", "optparse"), repos="https://cloud.r-project.org")
+```
+
+If everything goes alright, you can quit the R terminal by pressing `CTRL+D` twice. Once you are out, you can run this command to see if everything runs smoothly:
+
+``` bash
+Rscript -e "library('tidyverse')"
+```
+
+---
+
+Now you can take a look up some anvi'o resources [here](/software/anvio), or join [anvi'o Slack]({% include _slack_invitation_link.html %}) to be a part of our growing community.
 
 ## (5) Follow the active development (you're a wizard, arry)
 
@@ -302,7 +330,7 @@ Nevertheless, it is important to keep in mind that there are multiple advantages
 
 * **Full access to all new features and bug fixes in real-time**, without having to wait for stable releases to be announced.
 
-* A working system to **hack anvi'o and/or add new features to the code** (this strategy is exactly how we develop anvi'o and use it for our science at the same time at our lab). 
+* A working system to **hack anvi'o and/or add new features to the code** (this strategy is exactly how we develop anvi'o and use it for our science at the same time at our lab).
 
 In contrast, disadvantages include,
 
