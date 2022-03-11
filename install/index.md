@@ -306,7 +306,7 @@ R
 Then, copy-paste this command into it:
 
 ```R
-install.packages("stringi", "tidyverse", "magrittr", "optparse"), repos="https://cloud.r-project.org")
+install.packages("stringi", "tidyverse", "magrittr", "optparse", repos="https://cloud.r-project.org")
 ```
 
 If everything goes alright, you can quit the R terminal by pressing `CTRL+D` twice. Once you are out, you can run this command to see if everything runs smoothly:
