@@ -297,16 +297,10 @@ Config Error: Something went wrong during the functional enrichment analysis :( 
               what happened, but this log file could contain some clues: (...)
 ```
 
-it often means that the R libraries that are needed to run functional enrichment analyses are not installed properly through conda :/ Luckily, you can try to install them using the R terminal as [Marco Gabrielli](https://twitter.com/MarcoGabriell16) shared on anvi'o slack. For this, start an R terminal by typing this in your terminal:
+it often means that the R libraries that are needed to run functional enrichment analyses are not installed properly through conda :/ Luckily, you can try to install them using the R terminal as [Marco Gabrielli](https://twitter.com/MarcoGabriell16) shared on anvi'o slack. For this, try running this command in your terminal:
 
-``` bash
-R
 ```
-
-Then, copy-paste this command into it:
-
-```R
-install.packages("stringi", "tidyverse", "magrittr", "optparse", repos="https://cloud.r-project.org")
+Rscript -e 'install.packages(c("stringi", "tidyverse", "magrittr", "optparse"), repos="https://cloud.r-project.org")'
 ```
 
 If everything goes alright, you can quit the R terminal by pressing `CTRL+D` twice. Once you are out, you can run this command to see if everything runs smoothly:
