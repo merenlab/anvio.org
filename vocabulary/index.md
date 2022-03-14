@@ -16,7 +16,7 @@ If you have any questions or concerns, you can always find us on anvi'o {% inclu
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Contributors</span>
 
-The vocabulary is maintained by {% include person/display_mini_single.html github="ivagljiva" %} and {% include person/display_mini_single.html github="meren" %}, it is here thanks to the contributions of {% include person/display_mini_single.html github="karkman" %}, [Simon Roux](https://twitter.com/simroux_virus), and [Shiva Thapa](https://github.com/thapasz).
+The vocabulary is maintained by {% include person/display_mini_single.html github="ivagljiva" %} and {% include person/display_mini_single.html github="meren" %}, it is here thanks to the contributions of {% include person/display_mini_single.html github="karkman" %}, {% include person/display_mini_single.html github="simroux" %}, and [Shiva Thapa](https://github.com/thapasz).
 
 </div>
 
@@ -120,8 +120,8 @@ A MAG can be a single contig or a collection of contigs that, in theory, collect
 
 Population is an classic ecology term, and thus microbial ecology, that includes all the conspecific individuals from a given ecosystem. In the practice, microbial ecologists often use population to refer to groups of organisms at different taxonomic levels. One of the operational definitions our group often uses suggests that a population is an assemblage of co-existing microbes in an environment whose genomes are similar enough to map to the context of the same reference genome.
 
-Population is often wrongly used instead of community. 
-  
+Population is often wrongly used instead of community.
+
 {:data-tags="community,communities"}
 ### Community
 
@@ -155,11 +155,11 @@ The entire RNA content of a given environment. Unlike metagenomes, metatranscrip
 {:data-tags="virome"}
 ### Virome
 
-A metagenome derived from the viral fraction of a sample. _OR_, the assemblage of viruses in a specific sample or environment. Yes, the same word ended up designating two different concepts, sorry about that... Unfortunately, at this point, there are no great alternative for either use of "virome", so both are regularly found in the literature and the specific meaning typically has to be deduced from context (fortunately, this is often relatively straightforward). 
+A metagenome derived from the viral fraction of a sample. _OR_, the assemblage of viruses in a specific sample or environment. Yes, the same word ended up designating two different concepts, sorry about that... Unfortunately, at this point, there are no great alternative for either use of "virome", so both are regularly found in the literature and the specific meaning typically has to be deduced from context (fortunately, this is often relatively straightforward).
 
-In the first case, "Virome" is used as shorthand for "Viral metagenome". Pragmatically, a virome is a metagenome generated from a sample that has been specifically processed to be (i) enriched in viral particles and/or (ii) depleted in cellular (micro)organisms, through a combination of filtering, precipitation, and other (almost) magic tricks. These datasets are sometimes designated as "metavirome", but this terminology is also not satisfying because it does not follow the use of "meta" as a prefix to "extend that term to all the things within a given sample" (see Metagenome above). Here instead, the notion of "extend to all the things" is already built into "virome", and the meta prefix is redundant. 
+In the first case, "Virome" is used as shorthand for "Viral metagenome". Pragmatically, a virome is a metagenome generated from a sample that has been specifically processed to be (i) enriched in viral particles and/or (ii) depleted in cellular (micro)organisms, through a combination of filtering, precipitation, and other (almost) magic tricks. These datasets are sometimes designated as "metavirome", but this terminology is also not satisfying because it does not follow the use of "meta" as a prefix to "extend that term to all the things within a given sample" (see Metagenome above). Here instead, the notion of "extend to all the things" is already built into "virome", and the meta prefix is redundant.
 
-In the second use, "Virome" is essentially the counterpart of "Microbiome", and is built the same way: while the microbi-ome would designate the community of microorganisms found in a single habitat, the vir-ome would designate the community of viruses found in this habitat. This makes a lot of sense, and is typically the definition provided by [encyclopedia](https://en.wikipedia.org/wiki/Virome) (see e.g. ). The only (major) flaw of course is that this term was already used to designate "viral metagenomes".. Sadly, the fact that (viral) metagenomics is often the method of choice to explore "viromes" only adds to the confusion.
+In the second use, "Virome" is essentially the counterpart of "Microbiome", and is built the same way: while the microbi-ome would designate the community of microorganisms found in a single habitat, the vir-ome would designate the community of viruses found in this habitat. This makes a lot of sense, and is typically the definition provided by [encyclopedia](https://en.wikipedia.org/wiki/Virome). The only (major) flaw of course is that this term was already used to designate "viral metagenomes".. Sadly, the fact that (viral) metagenomics is often the method of choice to explore "viromes" only adds to the confusion.
 
 {:data-tags="pangenome"}
 ### Pangenome
