@@ -118,7 +118,14 @@ A MAG can be a single contig or a collection of contigs that, in theory, collect
 {:data-tags="population,populations"}
 ### Population
 
-Although frequently used, microbiology does not have a precise and consensus definition for what is a population, and how to define boundaries of environmental populations. One of the operational definitions our group often uses suggests that a population is an assemblage of co-existing microbes in an environment whose genomes are similar enough to map to the context of the same reference genome.
+Population is an classic ecology term, and thus microbial ecology, that includes all the conspecific individuals from a given ecosystem. In the practice, microbial ecologists often use population to refer to groups of organisms at different taxonomic levels. One of the operational definitions our group often uses suggests that a population is an assemblage of co-existing microbes in an environment whose genomes are similar enough to map to the context of the same reference genome.
+
+Population is often wrongly used instead of community. 
+  
+{:data-tags="community,communities"}
+### Community
+
+The group of all organisms living in a given ecosystem is called community. It is the living portion of an ecosystem. A community can also be defined as the group of all populations in an ecosystem.
 
 {:data-tags="<metagenome>,<metagenomes>"}
 ### Metagenome
@@ -142,7 +149,7 @@ Works for us. :)
 {:data-tags="<metatranscriptome>,<metatranscriptomes>"}
 ### Metatranscriptome
 
-The entire RNA content of a given environment. Unlike metagenomes, metatranscriptomes can shed light on the activity of environmental populations. But they bring unique challenges, such as the short half-life of RNA molecules, and secondary-structure driven varaition in their coverages.
+The entire RNA content of a given environment. Unlike metagenomes, metatranscriptomes can shed light on the activity of environmental populations. But they bring unique challenges, such as the short half-life of RNA molecules, and secondary-structure driven variation in their coverages.
 
 
 {:data-tags="virome"}
