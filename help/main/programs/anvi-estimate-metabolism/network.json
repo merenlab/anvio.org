@@ -110,7 +110,16 @@
       "type": "DB"
     },
     {
-      "size": 12,
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "enzymes-txt",
+      "name": "enzymes-txt",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 13,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-estimate-metabolism",
@@ -120,52 +129,56 @@
   ],
   "links": [
     {
-      "source": 12,
+      "source": 13,
       "target": 0
     },
     {
-      "source": 12,
+      "source": 13,
       "target": 1
     },
     {
-      "target": 12,
+      "target": 13,
       "source": 2
     },
     {
-      "target": 12,
+      "target": 13,
       "source": 3
     },
     {
-      "target": 12,
+      "target": 13,
       "source": 4
     },
     {
-      "target": 12,
+      "target": 13,
       "source": 5
     },
     {
-      "target": 12,
+      "target": 13,
       "source": 6
     },
     {
-      "target": 12,
+      "target": 13,
       "source": 7
     },
     {
-      "target": 12,
+      "target": 13,
       "source": 8
     },
     {
-      "target": 12,
+      "target": 13,
       "source": 9
     },
     {
-      "target": 12,
+      "target": 13,
       "source": 10
     },
     {
-      "target": 12,
+      "target": 13,
       "source": 11
+    },
+    {
+      "target": 13,
+      "source": 12
     }
   ],
   "directed": false,
