@@ -260,6 +260,9 @@ A measure of how many copies of each single-copy core gene (SCG) is found within
 
 In macroecology, the biota is the group of flora and fauna inhabiting the same place. Similarly, the microbiota applies to microorganisms. The term microbiome is often erroneously used instead.
 
+A relevant commentary by Berg et al: [Microbiome definition re-visited: old concepts and new challenges](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-020-00875-0).
+
+
 {:data-tags="microbiome,biome"}
 ### Microbiome
 
