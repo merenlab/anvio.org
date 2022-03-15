@@ -1,1 +1,1 @@
-{% capture t %}{% for person in site.data.people %}{% if include.github == person.github %}{% include person/display_mini_text.html %}{% endif %}{% endfor %}{% endcapture %}{{ t | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+{% capture t %}{% for person in site.data.people %}{% if include.github == person.github %}{% include person/display_mini_text.html %}{% endif %}{% endfor %}{% endcapture %}{{- t | markdownify | remove: "<p>" | remove: "</p>" | strip -}}
