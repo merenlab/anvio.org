@@ -238,11 +238,16 @@
     border: none !important;
 }
 
+.anvio-person-mini-info-text {
+    display: inline-block;
+}
+
 .anvio-person-photo-img-mini {
     border-radius: 150px !important;
     max-width: 30px !important;
-    height: 30px !important;
+    height: 22px !important;
     border: none !important;
+    margin-right: 3px;
 }
 
 .anvio-person-social-box {

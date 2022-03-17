@@ -16,7 +16,7 @@ If you have any questions or concerns, you can always find us on anvi'o {% inclu
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Contributors</span>
 
-The vocabulary is maintained by {% include person/display_mini_single.html github="ivagljiva" %} and {% include person/display_mini_single.html github="meren" %}, it is here thanks to the contributions of {% include person/display_mini_single.html github="karkman" %}, {% include person/display_mini_single.html github="simroux" %}, and [Shiva Thapa](https://github.com/thapasz).
+The vocabulary is maintained by {% include person/display_mini_single.html github="ivagljiva" %} and {% include person/display_mini_single.html github="meren" %}, it is here thanks to the contributions of {% include person/display_mini_single.html github="karkman" %}, {% include person/display_mini_single.html github="simroux" %}, [Shiva Thapa](https://github.com/thapasz), and {% include person/display_mini_single.html github="xvazquezc" %}.
 
 </div>
 
@@ -254,6 +254,21 @@ A rough estimate of how completely a set of contigs represents a full genome bas
 ### Redundancy
 
 A measure of how many copies of each single-copy core gene (SCG) is found within a genome. Due to the special single-copy nature of SCGs, their occurrence as multi-copy in a genome is commonly used as an estimate of the level of 'contamination' within a genome bin (i.e., higher values of redundancy may indicate that more than one population may be contributing to a given genome bin). However, interpretations of 'contamination' as a function of redundancy may not be straightforward as some genomes may have multiple copies of genes that are in general single-copy, thus drawing conclusions regarding contamination from redundancy data may not be appropriate. That said, the lack of redundancy in a genome does not necessarily mean the lack of contamination, either. Since contaminant contigs that do not include SCGs will not be in the radar of these estimates. Such contamination can especially affect metagenome-assembled genomes, and lead to the formation of misleading branches in phylogenomics and excessive number of singletons in pangenomics analyses.
+
+{:data-tags="microbiota,biota"}
+### Microbiota
+
+In macroecology, the biota is the group of flora and fauna inhabiting the same place. Similarly, the microbiota applies to microorganisms. The term microbiome is often erroneously used instead.
+
+A relevant commentary by Berg et al: [Microbiome definition re-visited: old concepts and new challenges](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-020-00875-0).
+
+
+{:data-tags="microbiome,biome"}
+### Microbiome
+
+A biome is an biological subdivision that reflects the biota and its environment. A biome is constrained by the physico-chemical characteristics and biota that defines it. In macroecology, the biomes are often defined in part based on the climatic conditions, e.g. tundra biome, desert biome... In another way, a biome is the combination of the biota and the characteristics of its environment. A microbiome would be defined in a similar way at a much smaller scale. Due to the variability of the physico-chemical characteristics and the biota at very small distances, a microbiome can occuppy extremely small extensions in opposition at the large scale of traditional biomes.
+
+The term microbiome is often misused. For example, microbiome analysis services only really analyse the microbiota (normally only stool microbiota), as they don't collect physico-chemical parameters from the samples.
 
 ## All things anvi'o
 
