@@ -38,6 +38,34 @@ This is a JSON file that describes a <span class="artifact-n">[state](/help/main
 
 This is how you would give a state to a fellow anvi'o user. If opened, you'll be able to view all of the data that's contained in this state. 
 
+## You're a (stateful) wizard, arry
+
+Power users that want to generate state programmatically within a workflow can provide their own minified ```state.json``` file directly to <span class="artifact-p">[anvi-import-state](../../programs/anvi-import-state)</span>. A user-generated minified state.json requires only a couple of mandatory fields in addition to whatever data users wish to provide. The interactive interface will generate sensible defaults for any necessary data that is omitted. Below is an example minified state for the [Infant Gut Dataset](https://merenlab.org/tutorials/infant-gut/) containing the required __version__ and __tree-type__ fields, along with a custom __layer-order__ field.
+
+```bash
+{
+  "version": "3",
+   "tree-type": "circlephylogram",
+   "layer-order": [
+        "__parent__",
+        "hmms_Ribosomal_RNAs",
+        "length",
+        "DAY_15A",
+        "DAY_15B",
+        "hmms_Transfer_RNAs"
+        "DAY_17A",
+        "DAY_17B",
+        "DAY_18",
+        "gc_content",
+        "DAY_19",
+        "DAY_22A",
+        "DAY_16",
+        "DAY_23",
+        "DAY_22B",
+        "DAY_24",
+    ]
+}
+```
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/state-json.md) to update this information.
