@@ -3,37 +3,45 @@
   slug: in-a-few-words
   link_in_navbar: false
   content: sections/nutshell.md
+  icon: anvio-in-a-nutshell
 
 - header: Install
   target_url: /install/
   link_in_navbar: true
+  icon: install-anvio
 
 - header: Get help
   target_url: /help/main/
   link_in_navbar: true
+  icon: anvio-programs-and-artifacts-help
 
 - header: Learn
   full_header: Learn anvi'o and more
   slug: learn
   link_in_navbar: true
   content: resources/resources.md
+  icon: learn-anvio
 
 - header: People
   full_header: Meet anvi'o developers and contributors
   slug: people
   link_in_navbar: true
   content: sections/people.md
+  icon: anvio-community
 
 - header: Community blog
   target_url: /blog/
   link_in_navbar: true
+  icon: anvio-community-blog
 
 - header: "'Omics vocabulary"
   target_url: /vocabulary/
   link_in_navbar: true
+  icon: omics-vocabulary
 
 - header: How to cite
   full_header: How to cite anvi'o like a pro
   slug: cite
   link_in_navbar: true
   content: sections/citing.md
+  icon: cite-anvio

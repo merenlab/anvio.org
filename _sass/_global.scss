@@ -3,11 +3,12 @@ html,
 body {
     width: 100%;
     height: 100%;
+    font-size: 14px;
     text-align: center;
 }
 
 html {
-scroll-padding-top: 73px;
+    scroll-padding-top: 73px;
 }
 
 pre {
@@ -46,10 +47,21 @@ a {
 }
 
 hr {
-    max-width: 100px;
-    margin: 25px auto 0;
-    border-width: 1px;
-    border-color: fade-out($gray-darker, .9);
+    max-width: 80%;
+    border: 0;
+    height: 1px;
+    margin: 25px auto 25px;
+    background-image: linear-gradient(to right, #FFF, #AAA, #FFF);
+}
+
+hr:after {
+    content: "//";
+    position: relative;
+    top: -14px;
+    font-size: 0.7em;
+    padding: 0px 50%;
+    width: 2px;
+    color: #b8b8b8;
 }
 
 h3 {
@@ -179,6 +191,7 @@ blockquote {
     padding: 26px 20px 1px 70px;
     width: 90%;
     margin: auto;
+    margin-bottom: 30px;
     position: relative;
     line-height: 1.5;
     color: #101010;
@@ -321,4 +334,18 @@ blockquote em{
 
 .artifact-emoji {
     padding-right: 5px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

@@ -1,9 +1,12 @@
 {% if include.home %}
+{% capture bgstyle %}
+background-position: center; background-repeat: no-repeat; background-position-y: 27px; -o-background-size: 85px auto; -webkit-background-size: 85px auto; -moz-background-size: 85px auto; background-size: 85px auto;
+{% endcapture %}
     {% for sect in site.data.sections %}
         {% if sect.content %}
-            <a href="#{{ sect.slug }}" class="btn btn-outline js-scroll-trigger">{{ sect.header }}</a>
+        <a href="#{{ sect.slug }}" class="{{ sect.icon }}-button btn btn-outline js-scroll-trigger" >{{ sect.header }}</a>
         {% else %}
-            <a href="{{ sect.target_url }}" class="btn btn-outline js-scroll-trigger">{{ sect.header }}</a>
+            <a href="{{ sect.target_url }}" class="{{ sect.icon }}-button btn btn-outline js-scroll-trigger" >{{ sect.header }}</a>
         {% endif %}
     {% endfor %}
 {% else %}
