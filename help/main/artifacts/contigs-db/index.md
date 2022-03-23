@@ -318,7 +318,7 @@ To get an output that can be pasted to markdown-aware editors such as GitHub, so
 |KOfam|14391|
 |Transfer_RNAs|323|
 
-Learning SQL is not difficult, and one can practice their skills using their existing anvi'o databases. When there is a specific question, forming a meaningful SQL query takes only minutes. If you are not sure where to start or how to form an SQL query, you can always reach out to the community at the anvi'o Slack.
+[Learning SQL](https://www.w3schools.com/sql/sql_intro.asp) is not difficult, and one can practice their skills using their existing anvi'o databases. When there is a specific question, forming a meaningful SQL query takes only minutes. If you are not sure where to start or how to form an SQL query, you can always reach out to the community at the anvi'o Slack.
 
 ## For programmers
 

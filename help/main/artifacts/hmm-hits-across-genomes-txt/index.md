@@ -1,10 +1,10 @@
 ---
 layout: artifact
-title: hmm-hits-matrix-txt
+title: hmm-hits-across-genomes-txt
 excerpt: A TXT-type anvi'o artifact. This artifact is typically generated, used, and/or exported by anvi'o (and not provided by the user)..
 categories: [anvio]
 comments: false
-redirect_from: /m/hmm-hits-matrix-txt
+redirect_from: /m/hmm-hits-across-genomes-txt
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -46,5 +46,5 @@ For example, if you were to run <span class="artifact-p">[anvi-script-gen-hmm-hi
 
 
 {:.notice}
-Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/hmm-hits-matrix-txt.md) to update this information.
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/hmm-hits-across-genomes-txt.md) to update this information.
 

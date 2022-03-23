@@ -5,8 +5,8 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "hmm-hits-matrix-txt",
-      "name": "hmm-hits-matrix-txt",
+      "id": "hmm-hits-across-genomes-txt",
+      "name": "hmm-hits-across-genomes-txt",
       "provided_by_anvio": true,
       "type": "TXT"
     },
