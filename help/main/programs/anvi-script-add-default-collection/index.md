@@ -43,22 +43,29 @@ A script to add a &#x27;DEFAULT&#x27; collection in an anvi&#x27;o pan or profil
 ## Usage
 
 
-This program adds a new <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> to your <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> pair. This collection and bin will both contain all of your contigs. 
+This program adds a 'default' <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> to your <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> that describes every item in your database.
 
-This way, you can perform collection and bin specfic operations without having to bin anything yourself. For example, running <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> in gene-mode requires you to specify a collection and bin (as is done [in the Infant Gut Tutorial](http://merenlab.org/tutorials/infant-gut/#the-gene-mode-studying-distribution-patterns-at-the-gene-level)). 
+This way, you can perform anvi'o tasks that require a collection or a bin even if you do not have a particular collection for your data, or all items in your database represent a meaningful bin (such as every contig in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> that represents a single genome).
 
-By default, the collection is named `DEFAULT` and the bin is named `EWVERYTHING`, but you can change these names with the `-C` and `-b` parameters respectively. 
+As an example, see this program in action in the [Infant Gut Tutorial](http://merenlab.org/tutorials/infant-gut/#the-gene-mode-studying-distribution-patterns-at-the-gene-level) where it is used to run <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> on a genome in 'gene mode'.
 
-Here is an example run on a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>: 
+Run in its simples form,
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;add&#45;default&#45;collection &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \ 
-                                   &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \ 
-                                   &#45;C MY_COLLECTION \
-                                   &#45;b MY_BIN 
+anvi&#45;script&#45;add&#45;default&#45;collection &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                                   &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span>
 </div>
 
-Once this is run, your profile database will contain a collection called `MY_COLLECTION` with a single bin (called `MY_BIN`) which contains all of your contigs. 
+the program will add a new collection into the profile database named `DEFAULT`, which will contain a single bin that describes all items in the database named `EVERYTHING`. You can set these default names to your liking using additional parameters:
+
+<div class="codeblock" markdown="1">
+anvi&#45;script&#45;add&#45;default&#45;collection &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                                   &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                                   &#45;C MY_COLLECTION \
+                                   &#45;b MY_BIN
+</div>
+
+Also see related programs, <span class="artifact-p">[anvi-show-collections-and-bins](/help/main/programs/anvi-show-collections-and-bins)</span> and <span class="artifact-p">[anvi-delete-collection](/help/main/programs/anvi-delete-collection)</span>.
 
 
 {:.notice}
