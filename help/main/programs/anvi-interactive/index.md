@@ -93,7 +93,7 @@ What happens if you don't have a hierarchical clustering dendrogram, but you sti
 * You can import external binning results using <span class="artifact-p">[anvi-import-collection](/help/main/programs/anvi-import-collection)</span>, or manually identify contigs of interest, and use <span class="artifact-p">[anvi-import-collection](/help/main/programs/anvi-import-collection)</span> to create a collection of a smaller number of contigs. You can then use <span class="artifact-p">[anvi-refine](/help/main/programs/anvi-refine)</span> to visualize contigs in a single bin, or use <span class="artifact-p">[anvi-split](/help/main/programs/anvi-split)</span> to first generate a split profile for your contigs to visualize your smaller dataset using <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span>.
 
 
-### Visualizing *bins* instead of contigs
+### Collection mode: Visualizing *bins* instead of contigs
 
 By default, when run on a profile database that resulted from a metagenomic workflow, <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> will initiate each contig as a separate item and organize them based on the clustering dendrograms provided to it (either automatically or by the user). But if there is a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> stored in the profile database, it is also possible to run <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> on a specific collection, during which anvi'o will use the underlying contig data to calculate summary statistics for each bin before displaying them. In collection mode, each item of your central plot will not represent a contig, but a bin within your collection. This is how the collection mode can be initialized in comparison to the default mode:
 
@@ -105,7 +105,7 @@ anvi&#45;interactive &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/
 
 The clustering of <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s in this case based on their distribution across samples will be done automatically on-the-fly. See the note on this mode in [the metagenomic workflow](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-interactive) for more information.
 
-### Visualizing *genes* instead of contigs
+### Genes mode: Visualizing *genes* instead of contigs
 
 You can also start the interactive interface in "gene mode", in which each item of the central tree is a gene instead of a split or contig (or bin like in "collection mode").
 
@@ -127,9 +127,9 @@ In this view you can order genes based on their distributions patterns across me
 
 You can also visit [this page](http://merenlab.org/tutorials/infant-gut/#the-gene-mode-studying-distribution-patterns-at-the-gene-level) to see another practical example from the Infant Gut tutorial.
 
-## Running anvi-interactive in manual mode
+## Manual mode: visualize anything
 
-You can initiate the anvi'o interactive interface in manual mode to run it on *ad hoc* data (here is [a tutorial on this](http://merenlab.org/tutorials/interactive-interface/)).
+You can initiate the anvi'o interactive interface in manual mode to run it on *ad hoc* tabular data (here is [a tutorial on this](http://merenlab.org/tutorials/interactive-interface/)).
 
 Anvi'o interactive interface is initiated with the flag `--manual-mode` and then by providing *any* of the following types of files individually or together:
 
@@ -140,7 +140,7 @@ When doing this kind of run, anvi'o does not expect you to have a profile databa
 
 ## Extending anvi'o displays
 
-You can extend any <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> display with additional data related to your project through the program <span class="artifact-p">[anvi-import-misc-data](/help/main/programs/anvi-import-misc-data)</span>. [This article](https://merenlab.org/2017/12/11/additional-data-tables/) describes a detailed use of this program.
+You can extend any <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> display in anvi'o with additional data related to your project through the program <span class="artifact-p">[anvi-import-misc-data](/help/main/programs/anvi-import-misc-data)</span>. [This article](https://merenlab.org/2017/12/11/additional-data-tables/) describes a detailed use of this program.
 
 While the use of <span class="artifact-p">[anvi-import-misc-data](/help/main/programs/anvi-import-misc-data)</span> is the most effective way to improve anvi'o displays, you can also use the parameter `--additional-layers` to provide a TAB-delimited file (<span class="artifact-n">[misc-data-items-txt](/help/main/artifacts/misc-data-items-txt)</span>) that contains additional layers of information over your items.
 
