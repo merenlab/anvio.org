@@ -270,6 +270,21 @@ A biome is an biological subdivision that reflects the biota and its environment
 
 The term microbiome is often misused. For example, microbiome analysis services only really analyse the microbiota (normally only stool microbiota), as they don't collect physico-chemical parameters from the samples.
 
+### Tree of life 
+A tree of life (ToL) is a conceptual research tool, which allows for exploration of relationships between organisms. Evolution is a slow process, that changes organisms bit by bit. Therefore, looking at genetic code it is possible to hypothesise which organisms are closely related. ToL is a model, that allow scientists from different fields of life science the inference of common ancestors. 
+Importantly, it does not necessarily represent the evolutionary history, as the data is often noisy, different events not available to the model occur (i.e. horizontal gene transfer). 
+
+### De novo assembly
+
+Modern sequencing techniques cannot read full genome sequences, they produce reads. Assembly is a process of putting the reads together in order to recreate the original sequence. Historically, it was done with the use of known genomes presented in databases.
+De novo is a strategy, which allows assembly without prior knowledge of sequenced genetic information. It allows for recreation of contiguous sequences called contigs. The algorithms used for this task are varied, but the most popular one is assembly with help of de Bruijn graphs.
+
+### De Bruijn graph
+
+De Bruijn graph is a directed graph, that represents overlaps between sequences of symbols. It is useful, while modern assemblers work with strings of a particular length (k-mers).
+Here's de Bruijn graph explained visually from "Assembly of large genomes using second-generation sequencing" (Schatz M.C. et al., Genome Res. 2010)
+![debruijn](images/de_bruijn_schatz.png){:.center-img .width-60}
+
 ## All things anvi'o
 
 This section defines terms that are largely specific to anvi'o.
