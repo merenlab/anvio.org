@@ -29,7 +29,7 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-run-workflow](../../programs/anvi-run-workflow)</span> <span class="artifact-r">[anvi-script-get-primer-matches](../../programs/anvi-script-get-primer-matches)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-run-workflow](../../programs/anvi-run-workflow)</span> <span class="artifact-r">[anvi-search-primers](../../programs/anvi-search-primers)</span></p>
 
 
 ## Description
@@ -38,11 +38,17 @@ A **TAB-delimited** file to describe samples and paired-end FASTQ files associat
 
 This file type includes required and optional columns.
 
+{:.notice}
+While these required and optional columns are what anvi'o is going to look for anytime you expect to process a TAB-delimited file as <span class="artifact-n">[samples-txt](/help/main/artifacts/samples-txt)</span>, you can have as many columns as you like in a given TAB-delimited to be used as <span class="artifact-n">[samples-txt](/help/main/artifacts/samples-txt)</span> as long as it includes these required and optional columns.
+
 The following three columns are **required** for this file type:
 
 * `sample`: a single-word sample name,
 * `r1`: path to the FASTQ file for pair one, and
 * `r2`: path to the FASTQ file for pair two.
+
+{:notice}
+You can also use `name` as your first column instead of `sample`.
 
 While you can use relative paths for `r1` and `r2`, it is always better to have absolute paths to improve reproducibility.
 

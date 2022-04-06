@@ -32,8 +32,8 @@
       "size": 3,
       "score": 0.1,
       "color": "#AAAA00",
-      "id": "anvi-script-get-primer-matches",
-      "name": "anvi-script-get-primer-matches",
+      "id": "anvi-search-primers",
+      "name": "anvi-search-primers",
       "type": "PROGRAM"
     }
   ],

@@ -45,7 +45,7 @@ Recover short reads from BAM files that were mapped to genes you are interested 
 
 This program finds all short reads from (<span class="artifact-n">[bam-file](/help/main/artifacts/bam-file)</span>) that align to a specific gene and returns them as a <span class="artifact-n">[short-reads-fasta](/help/main/artifacts/short-reads-fasta)</span>.
 
-If instead you want to extract these short reads from a FASTQ file, get your gene sequence with <span class="artifact-p">[anvi-export-gene-calls](/help/main/programs/anvi-export-gene-calls)</span> and take a look at <span class="artifact-p">[anvi-script-get-primer-matches](/help/main/programs/anvi-script-get-primer-matches)</span>.
+If instead you want to extract these short reads from a FASTQ file, get your gene sequence with <span class="artifact-p">[anvi-export-gene-calls](/help/main/programs/anvi-export-gene-calls)</span> and take a look at <span class="artifact-p">[anvi-search-primers](/help/main/programs/anvi-search-primers)</span>.
 
 To run this program, just specify the bam files you're looking at and the gene of interest. To do this, name the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> containing your gene and the gene caller ID (either directly through the parameter `--gene-caller-id` or through a file). Here is an example:
 

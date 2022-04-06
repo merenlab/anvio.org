@@ -26,6 +26,8 @@ A program to find palindromes in sequences.
 
 <div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://merenlab.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/ekiefl.jpg" /></div><div class="anvio-person-info-box"><a href="/people/ekiefl" target="_blank"><span class="anvio-person-name">Evan Kiefl</span></a><div class="anvio-person-social-box"><a href="http://ekiefl.github.io" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:kiefl.evan@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/evankiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/ekiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+
 
 
 ## Can consume
@@ -43,9 +45,29 @@ A program to find palindromes in sequences.
 ## Usage
 
 
-This program finds [palindromes](https://en.wikipedia.org/wiki/Palindromic_sequence) in any DNA sequence. It will search for palindromes that mathes criteria listed by the user (i.e., minimum lenght of the palindromic sequences, maximum number of mismatches, and minimum distance between the two palindromic regions). The program will print out its findings (and tribulations) and will optionally report the search results as a <span class="artifact-n">[palindromes-txt](/help/main/artifacts/palindromes-txt)</span>.
+This program finds [palindromes](https://en.wikipedia.org/wiki/Palindromic_sequence) in any DNA sequence. It will search for palindromes that matches criteria listed by the user (i.e., minimum length of the palindromic sequences, maximum number of mismatches, and minimum distance between the two palindromic regions, and more).
 
-Please note that this program can find both perfect palindromes (i.e., the identity and order of nucleotides on one strand match to those on the complementary strand) and special cases of palindromes that form [hairpins](https://en.wikipedia.org/wiki/Stem-loop). You can use the minimum distance parameter to target any group of palindromes (i.e., minimum distance of 0 will report only perfect palindromes).
+The program will print out its findings (and tribulations) and will optionally report the search results as a <span class="artifact-n">[palindromes-txt](/help/main/artifacts/palindromes-txt)</span>.
+
+### Kinds of palindromes
+
+Please note that this program can find both **'in-place' palindromes** (i.e., the identity and order of nucleotides on one strand match to those on the complementary strand) that will look like this in the genomic context:
+
+```
+0        1
+1234567890
+...TCGA...
+```
+
+As well as **'distant palindromes'** (i.e., special cases of palindromes that form [hairpins](https://en.wikipedia.org/wiki/Stem-loop)) that will look like this in the genomic context:
+
+```
+0        1
+12345678901234567
+...ATCC...GGAT...
+```
+
+In this example, the 'distance' for the in-place palindrome will be 0, and the 'distance' for the distant palindromes will be 3. You can set the `--min-distance` parameter to anything greater than 0 to only report distant palindromes, and eliminate all in-place palindromes from your results.
 
 {:.notice}
 The speed of the algorithm will depend on the minimum palindrome length parameter. The shorter the palindrome length, the longer the processing time. Searching for palindromes longer than 50 nts in a 10,000,000 nts long sequence takes about 4 seconds on a laptop.
@@ -59,8 +81,8 @@ The speed of the algorithm will depend on the minimum palindrome length paramete
 In this mode <span class="artifact-p">[anvi-search-palindromes](/help/main/programs/anvi-search-palindromes)</span> will go through every contig sequence in a given <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>.
 
 <div class="codeblock" markdown="1">
-anvi&#45;search&#45;palindromes &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
-                        &#45;&#45;output&#45;file <span class="artifact&#45;n">[palindromes&#45;txt](/help/main/artifacts/palindromes&#45;txt)</span>
+<span class="artifact&#45;p">[anvi&#45;search&#45;palindromes](/help/main/programs/anvi&#45;search&#45;palindromes)</span> &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                         &#45;&#45;output&#45;file <span class="artifact&#45;n">[palindromes&#45;txt](/help/main/artifacts/palindromes&#45;txt)</span>
 </div>
 
 #### FASTA file
@@ -68,8 +90,8 @@ anvi&#45;search&#45;palindromes &#45;c <span class="artifact&#45;n">[contigs&#45
 Alternatively, you can use a <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> file as input.
 
 <div class="codeblock" markdown="1">
-anvi&#45;search&#45;palindromes &#45;&#45;fasta&#45;file <span class="artifact&#45;n">[fasta](/help/main/artifacts/fasta)</span> \
-                        &#45;&#45;output&#45;file <span class="artifact&#45;n">[palindromes&#45;txt](/help/main/artifacts/palindromes&#45;txt)</span>
+<span class="artifact&#45;p">[anvi&#45;search&#45;palindromes](/help/main/programs/anvi&#45;search&#45;palindromes)</span> &#45;&#45;fasta&#45;file <span class="artifact&#45;n">[fasta](/help/main/artifacts/fasta)</span> \
+                         &#45;&#45;output&#45;file <span class="artifact&#45;n">[palindromes&#45;txt](/help/main/artifacts/palindromes&#45;txt)</span>
 </div>
 
 #### DNA sequence
@@ -77,7 +99,7 @@ anvi&#45;search&#45;palindromes &#45;&#45;fasta&#45;file <span class="artifact&#
 Those who are lazy can also pass a DNA sequence for quick searches:
 
 <div class="codeblock" markdown="1">
-anvi&#45;search&#45;palindromes &#45;&#45;dna&#45;sequence (.. A DNA SEQUENCE OF ANY LENGTH ..)
+<span class="artifact&#45;p">[anvi&#45;search&#45;palindromes](/help/main/programs/anvi&#45;search&#45;palindromes)</span> &#45;&#45;dna&#45;sequence (.. A DNA SEQUENCE OF ANY LENGTH ..)
 </div>
 
 
@@ -99,9 +121,13 @@ Number of mismatches allowed .................: 0
 Minimum gap length ...........................: 0
 Be verbose? ..................................: Yes
 
+Number of threads for BLAST ..................: 1
+BLAST word size ..............................: 10
 
-58 nts palindrome"
+
+58 nts palindrome
 ===============================================
+Method .......................................: BLAST
 1st sequence [start:stop] ....................: [0:58]
 2nd sequence [start:stop] ....................: [0:58]
 Number of mismatches .........................: 0
