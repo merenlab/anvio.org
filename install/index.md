@@ -83,7 +83,7 @@ It is a good idea to **make sure you are not already in a conda environment** be
 First, create a new conda environment:
 
 ``` bash
-conda create -y --name anvio-7.1 python=3.6
+conda create -y --name anvio-7.1 python=3.10
 ```
 
 And activate it:
@@ -95,7 +95,7 @@ conda activate anvio-7.1
 Now you are in a pristine environment, in which you will install all conda packages that anvi'o will need to work properly. This looks scary, but it will work if you just copy paste it and press ENTER:
 
 ``` bash
-conda install -y -c bioconda "sqlite >=3.31.1"
+conda install -y -c bioconda sqlite
 conda install -y -c bioconda prodigal
 conda install -y -c bioconda mcl
 conda install -y -c bioconda muscle=3.8.1551
@@ -106,22 +106,15 @@ conda install -y -c bioconda megahit
 conda install -y -c bioconda spades
 conda install -y -c bioconda bowtie2 tbb=2019.8
 conda install -y -c bioconda bwa
-conda install -y -c bioconda samtools=1.9
-conda install -y -c bioconda centrifuge
+conda install -y -c bioconda "samtools>1.9"
 conda install -y -c bioconda trimal
 conda install -y -c bioconda iqtree
 conda install -y -c bioconda trnascan-se
-conda install -y -c bioconda r-base
-conda install -y -c bioconda r-stringi
-conda install -y -c bioconda r-tidyverse
-conda install -y -c bioconda r-magrittr
-conda install -y -c bioconda r-optparse
-conda install -y -c bioconda bioconductor-qvalue
 conda install -y -c bioconda fasttree
 
-# this last one may cause some issues. if it doesn't install,
-# don't worry, you will still be fine:
-conda install -y -c bioconda fastani
+# some R packages
+conda install -y -c conda-forge r-base r-tidyverse r-optparse r-stringi r-magrittr
+conda install -y -c bioconda bioconductor-qvalue
 ```
 
 Now you can jump to "[Download and install anvi'o](#3-install-anvio)"!
@@ -349,7 +342,7 @@ Now we can continue with setting up the conda environment.
 First create a new conda environment:
 
 ``` bash
-conda create -y --name anvio-dev python=3.6
+conda create -y --name anvio-dev python=3.10
 ```
 
 And activate it:
@@ -361,7 +354,7 @@ conda activate anvio-dev
 Install necessary packages:
 
 ``` bash
-conda install -y -c bioconda "sqlite >=3.31.1"
+conda install -y -c bioconda sqlite
 conda install -y -c bioconda prodigal
 conda install -y -c bioconda mcl
 conda install -y -c bioconda muscle=3.8.1551
@@ -372,22 +365,15 @@ conda install -y -c bioconda megahit
 conda install -y -c bioconda spades
 conda install -y -c bioconda bowtie2 tbb=2019.8
 conda install -y -c bioconda bwa
-conda install -y -c bioconda samtools=1.9
-conda install -y -c bioconda centrifuge
+conda install -y -c bioconda "samtools>1.9"
 conda install -y -c bioconda trimal
 conda install -y -c bioconda iqtree
 conda install -y -c bioconda trnascan-se
-conda install -y -c bioconda r-base
-conda install -y -c bioconda r-stringi
-conda install -y -c bioconda r-tidyverse
-conda install -y -c bioconda r-magrittr
-conda install -y -c bioconda r-optparse
-conda install -y -c bioconda bioconductor-qvalue
 conda install -y -c bioconda fasttree
 
-# this may cause some issues. if it doesn't install,
-# don't worry:
-conda install -y -c bioconda fastani
+# some R packages
+conda install -y -c conda-forge r-base r-tidyverse r-optparse r-stringi r-magrittr
+conda install -y -c bioconda bioconductor-qvalue
 ```
 Now you are ready for the code.
 
