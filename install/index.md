@@ -413,7 +413,6 @@ And activate it:
 ```
 conda activate anvio-dev
 ```
-
 Install necessary packages:
 
 ``` bash
@@ -426,9 +425,9 @@ conda install -y -c bioconda diamond
 conda install -y -c bioconda blast
 conda install -y -c bioconda megahit
 conda install -y -c bioconda spades
-conda install -y -c bioconda bowtie2 tbb=2019.8
+conda install -y -c bioconda bowtie2 tbb=2020.3
 conda install -y -c bioconda bwa
-conda install -y -c bioconda "samtools>1.9"
+conda install -y -c bioconda "samtools >=1.9"
 conda install -y -c bioconda trimal
 conda install -y -c bioconda iqtree
 conda install -y -c bioconda trnascan-se
@@ -436,8 +435,15 @@ conda install -y -c bioconda fasttree
 
 # some R packages
 conda install -y -c conda-forge r-base r-tidyverse r-optparse r-stringi r-magrittr
+
+# try this, if it doesn't install, don't worry. you will
+# deal with that later
 conda install -y -c bioconda bioconductor-qvalue
+
+# try this, too. it may also fail to install. which is OK:
+conda install -y -c bioconda fastani
 ```
+
 Now you are ready for the code.
 
 ### Setting up the local copy of the anvi'o codebase
@@ -524,7 +530,7 @@ tRNA-seq database ............................: 1
 
 If that is the case, you're all set.
 
-Every change you will make in anvi'o codebase will immediately be reflected when you run anvi'o tools (but if you change the code and do not revert back, git will stop updating your branch from the upstream). 
+Every change you will make in anvi'o codebase will immediately be reflected when you run anvi'o tools (but if you change the code and do not revert back, git will stop updating your branch from the upstream).
 
 If you followed these instructions, every time you open a terminal you will have to run the following command to activate your anvi'o environment:
 
