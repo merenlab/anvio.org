@@ -413,35 +413,31 @@ And activate it:
 ```
 conda activate anvio-dev
 ```
-Install necessary packages:
+
+Install `mamba` for fast dependency resolving:
+
+```
+conda install -y -c conda-forge mamba
+```
+
+{:.warning}
+If the `mamba` installation somehow doesn't work, that is OK. It is also OK if some of the commands below that start with `mamba` don't work. In either of these cases, you only need to replace every instance of `mamba` with `conda`, and everything should work smoothly (but with slightly longer wait times). But it would be extremely helpful to the community if you were to ping us on {% include _slack_invitation_button.html %} in the case of a `mamba` failure, so we better understand under what circumstances this solution fails.
+
+Install all the necessary packages:
 
 ``` bash
-conda install -y -c bioconda sqlite
-conda install -y -c bioconda prodigal
-conda install -y -c bioconda mcl
-conda install -y -c bioconda muscle=3.8.1551
-conda install -y -c bioconda hmmer
-conda install -y -c bioconda diamond
-conda install -y -c bioconda blast
-conda install -y -c bioconda megahit
-conda install -y -c bioconda spades
-conda install -y -c bioconda bowtie2 tbb=2020.3
-conda install -y -c bioconda bwa
-conda install -y -c bioconda "samtools >=1.9"
-conda install -y -c bioconda trimal
-conda install -y -c bioconda iqtree
-conda install -y -c bioconda trnascan-se
-conda install -y -c bioconda fasttree
-
-# some R packages
-conda install -y -c conda-forge r-base r-tidyverse r-optparse r-stringi r-magrittr
+mamba install -y -c bioconda -c conda-forge python=3.7 \
+        sqlite prodigal mcl muscle=3.8.1551 hmmer diamond \
+        blast megahit spades bowtie2 tbb=2020.3 bwa graphviz \
+        "samtools >=1.9" trimal iqtree trnascan-se fasttree \
+        r-base r-tidyverse r-optparse r-stringi r-magrittr
 
 # try this, if it doesn't install, don't worry. you will
 # deal with that later
-conda install -y -c bioconda bioconductor-qvalue
+mamba install -y -c bioconda bioconductor-qvalue
 
 # try this, too. it may also fail to install. which is OK:
-conda install -y -c bioconda fastani
+mamba install -y -c bioconda fastani
 ```
 
 Now you are ready for the code.
