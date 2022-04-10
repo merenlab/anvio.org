@@ -95,7 +95,7 @@ conda activate anvio-7.1
 Now you are in a pristine environment, in which you will install all conda packages that anvi'o will need to work properly. This looks scary, but it will work if you just copy paste it and press ENTER:
 
 ``` bash
-conda install -y -c bioconda "sqlite >=3.31.1"
+conda install -y -c bioconda "sqlite>=3.31.1"
 conda install -y -c bioconda prodigal
 conda install -y -c bioconda mcl
 conda install -y -c bioconda muscle=3.8.1551
@@ -356,6 +356,12 @@ If everything goes alright, you can quit the R terminal by pressing `CTRL+D` twi
 Rscript -e "library('tidyverse')"
 ```
 
+In some cases the problem is the `qvalue` package, which can be a pain to install. If you are having hard time with that one, you can try this and see if that solves it:
+
+```
+Rscript -e 'install.packages("BiocManager", repos="https://cran.rstudio.com"); BiocManager::install("qvalue")'
+```
+
 ---
 
 Now you can take a look up some anvi'o resources [here](/software/anvio), or join [anvi'o Slack]({% include _slack_invitation_link.html %}) to be a part of our growing community.
@@ -393,10 +399,13 @@ Now we can continue with setting up the conda environment.
 
 ### Setting up the conda environment
 
+{:.warning}
+Please note that we recently switched from Python 3.6 to Python 3.7 in our active development branch. Thus, the way we setup the conda environment for the active development branch now differs from the way we do it for the latest stable version. There may be hiccups since these changes reqiured many adjustments in the anvi'o code, and will likely some bugs are missed. If you are reading these lines, please keep us posted if you run into an issue.
+
 First create a new conda environment:
 
 ``` bash
-conda create -y --name anvio-dev python=3.6
+conda create -y --name anvio-dev python=3.7
 ```
 
 And activate it:
@@ -405,37 +414,32 @@ And activate it:
 conda activate anvio-dev
 ```
 
-Install necessary packages:
+Install `mamba` for fast dependency resolving:
+
+```
+conda install -y -c conda-forge mamba
+```
+
+{:.warning}
+If the `mamba` installation somehow doesn't work, that is OK. It is also OK if some of the commands below that start with `mamba` don't work. In either of these cases, you only need to replace every instance of `mamba` with `conda`, and everything should work smoothly (but with slightly longer wait times). But it would be extremely helpful to the community if you were to ping us on {% include _slack_invitation_button.html %} in the case of a `mamba` failure, so we better understand under what circumstances this solution fails.
+
+Install all the necessary packages:
 
 ``` bash
-conda install -y -c bioconda "sqlite >=3.31.1"
-conda install -y -c bioconda prodigal
-conda install -y -c bioconda mcl
-conda install -y -c bioconda muscle=3.8.1551
-conda install -y -c bioconda hmmer
-conda install -y -c bioconda diamond
-conda install -y -c bioconda blast
-conda install -y -c bioconda megahit
-conda install -y -c bioconda spades
-conda install -y -c bioconda bowtie2 tbb=2019.8
-conda install -y -c bioconda bwa
-conda install -y -c bioconda samtools=1.9
-conda install -y -c bioconda centrifuge
-conda install -y -c bioconda trimal
-conda install -y -c bioconda iqtree
-conda install -y -c bioconda trnascan-se
-conda install -y -c bioconda r-base
-conda install -y -c bioconda r-stringi
-conda install -y -c bioconda r-tidyverse
-conda install -y -c bioconda r-magrittr
-conda install -y -c bioconda r-optparse
-conda install -y -c bioconda bioconductor-qvalue
-conda install -y -c bioconda fasttree
+mamba install -y -c bioconda -c conda-forge python=3.7 \
+        sqlite prodigal mcl muscle=3.8.1551 hmmer diamond \
+        blast megahit spades bowtie2 tbb=2020.3 bwa graphviz \
+        "samtools >=1.9" trimal iqtree trnascan-se fasttree \
+        r-base r-tidyverse r-optparse r-stringi r-magrittr
 
-# this may cause some issues. if it doesn't install,
-# don't worry:
-conda install -y -c bioconda fastani
+# try this, if it doesn't install, don't worry. you will
+# deal with that later
+mamba install -y -c bioconda bioconductor-qvalue
+
+# try this, too. it may also fail to install. which is OK:
+mamba install -y -c bioconda fastani
 ```
+
 Now you are ready for the code.
 
 ### Setting up the local copy of the anvi'o codebase
@@ -522,7 +526,7 @@ tRNA-seq database ............................: 1
 
 If that is the case, you're all set.
 
-Every change you will make in anvi'o codebase will immediately be reflected when you run anvi'o tools (but if you change the code and do not revert back, git will stop updating your branch from the upstream). 
+Every change you will make in anvi'o codebase will immediately be reflected when you run anvi'o tools (but if you change the code and do not revert back, git will stop updating your branch from the upstream).
 
 If you followed these instructions, every time you open a terminal you will have to run the following command to activate your anvi'o environment:
 
