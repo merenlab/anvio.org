@@ -356,6 +356,12 @@ If everything goes alright, you can quit the R terminal by pressing `CTRL+D` twi
 Rscript -e "library('tidyverse')"
 ```
 
+In some cases the problem is the `qvalue` package, which can be a pain to install. If you are having hard time with that one, you can try this and see if that solves it:
+
+```
+Rscript -e 'install.packages("BiocManager", repos="https://cran.rstudio.com"); BiocManager::install("qvalue")'
+```
+
 ---
 
 Now you can take a look up some anvi'o resources [here](/software/anvio), or join [anvi'o Slack]({% include _slack_invitation_link.html %}) to be a part of our growing community.
