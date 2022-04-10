@@ -91,6 +91,7 @@
     - name: anvi-scan-trnas
     - name: anvi-search-functions
     - name: anvi-search-palindromes
+    - name: anvi-search-primers
     - name: anvi-search-sequence-motifs
     - name: anvi-setup-ncbi-cogs
     - name: anvi-setup-scg-taxonomy
@@ -107,12 +108,12 @@
     - name: anvi-script-filter-fasta-by-blast
     - name: anvi-script-fix-homopolymer-indels
     - name: anvi-script-gen-distribution-of-genes-in-a-bin
+    - name: anvi-script-gen-function-matrix-across-genomes
     - name: anvi-script-gen-functions-per-group-stats-output
     - name: anvi-script-gen-hmm-hits-matrix-across-genomes
     - name: anvi-script-gen-short-reads
     - name: anvi-script-gen_stats_for_single_copy_genes.py
     - name: anvi-script-get-hmm-hits-per-gene-call
-    - name: anvi-script-get-primer-matches
     - name: anvi-script-merge-collections
     - name: anvi-script-pfam-accessions-to-hmms-directory
     - name: anvi-script-process-genbank-metadata
@@ -166,8 +167,10 @@
     - name: anvi-init-bam
     - name: anvi-migrate
     - name: anvi-profile
+    - name: anvi-report-inversions
     - name: anvi-run-hmms
     - name: anvi-run-interacdome
+    - name: anvi-search-palindromes
     - name: anvi-setup-interacdome
     - name: anvi-setup-pdb-database
     - name: anvi-show-misc-data

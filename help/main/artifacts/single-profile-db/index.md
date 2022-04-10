@@ -47,6 +47,7 @@ Once created, a single profile database is almost interchangable with a <span cl
 * You cannot run <span class="artifact-p">[anvi-cluster-contigs](/help/main/programs/anvi-cluster-contigs)</span> or <span class="artifact-p">[anvi-mcg-classifier](/help/main/programs/anvi-mcg-classifier)</span> on a single profile db, since these two programs look at the alignment data in many samples. 
 * You can run <span class="artifact-p">[anvi-import-taxonomy-for-layers](/help/main/programs/anvi-import-taxonomy-for-layers)</span> on a single profile database but not a merged one. 
 * You can only run <span class="artifact-p">[anvi-merge](/help/main/programs/anvi-merge)</span> on a single profile database.
+* You can only run <span class="artifact-p">[anvi-report-inversions](/help/main/programs/anvi-report-inversions)</span> using single profile database created with the inversion fetch filter.
 
 If you want to look at the contents of a single profile database, you can do so using <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span>. 
 

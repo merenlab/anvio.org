@@ -49,6 +49,9 @@ It is a powerful way to analyze differentially occurring functions for any sourc
 
 Currently, <span class="artifact-p">[anvi-display-functions](/help/main/programs/anvi-display-functions)</span> can work with any combination of genomes from <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>, <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span>, and <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>.
 
+{:.notice}
+If you are only interested in a text output, see the program <span class="artifact-p">[anvi-script-gen-function-matrix-across-genomes](/help/main/programs/anvi-script-gen-function-matrix-across-genomes)</span> that can report <span class="artifact-n">[functions-across-genomes-txt](/help/main/artifacts/functions-across-genomes-txt)</span> files.
+
 ### Quick & Simple Run
 
 The simplest way to run this program is as follows:

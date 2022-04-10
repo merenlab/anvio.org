@@ -37,17 +37,20 @@ A simple script to generate a TAB-delimited file that reports the frequency of H
 ## Can provide
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[hmm-hits-matrix-txt](../../artifacts/hmm-hits-matrix-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[hmm-hits-across-genomes-txt](../../artifacts/hmm-hits-across-genomes-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Usage
 
 
-This program lets you look at the <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> from a single <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span> across multiple genomes or bins, by creating a <span class="artifact-n">[hmm-hits-matrix-txt](/help/main/artifacts/hmm-hits-matrix-txt)</span>. 
+This program lets you look at the <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> from a single <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span> across multiple genomes or bins, by creating a <span class="artifact-n">[hmm-hits-across-genomes-txt](/help/main/artifacts/hmm-hits-across-genomes-txt)</span>.
 
-The input of this program can be either an <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span> or an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>. 
+{:.notice}
+For a simlar program that reports function hits across genomes, see <span class="artifact-p">[anvi-script-gen-function-matrix-across-genomes](/help/main/programs/anvi-script-gen-function-matrix-across-genomes)</span>.
 
-Here are two example run on an internal-genomes: 
+The input of this program can be either an <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span> or an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>.
+
+Here are two example run on an internal-genomes:
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;gen&#45;hmm&#45;hits&#45;matrix&#45;across&#45;genomes &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/help/main/artifacts/internal&#45;genomes)</span> \
@@ -55,11 +58,11 @@ anvi&#45;script&#45;gen&#45;hmm&#45;hits&#45;matrix&#45;across&#45;genomes &#45;
                                                &#45;o output.txt
 </div>
 
-To list the <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>s common to the datasets that you're analyzing, just add the flag `--list-hmm-sources`, as so: 
+To list the <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>s common to the datasets that you're analyzing, just add the flag `--list-hmm-sources`, as so:
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;gen&#45;hmm&#45;hits&#45;matrix&#45;across&#45;genomes &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \
-                                               &#45;&#45;list&#45;hmm&#45;sources 
+                                               &#45;&#45;list&#45;hmm&#45;sources
 </div>
 
 

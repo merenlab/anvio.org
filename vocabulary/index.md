@@ -16,7 +16,7 @@ If you have any questions or concerns, you can always find us on anvi'o {% inclu
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Contributors</span>
 
-The vocabulary is maintained by {% include person/display_mini_single.html github="ivagljiva" %} and {% include person/display_mini_single.html github="meren" %}, it is here thanks to the contributions of {% include person/display_mini_single.html github="karkman" %}, {% include person/display_mini_single.html github="simroux" %}, [Shiva Thapa](https://github.com/thapasz), and {% include person/display_mini_single.html github="xvazquezc" %}.
+The vocabulary is maintained by {% include person/display_mini_single.html github="ivagljiva" %} and {% include person/display_mini_single.html github="meren" %}, it is here thanks to the contributions of {% include person/display_mini_single.html github="karkman" %}, {% include person/display_mini_single.html github="simroux" %}, [Shiva Thapa](https://github.com/thapasz), {% include person/display_mini_single.html github="xvazquezc" %}, and [Valentyn Bezshapkin](https://twitter.com/valentyn_bez).
 
 </div>
 
@@ -192,7 +192,7 @@ The following video aims to offer an introduction to concepts in pangenomics:
 
 The practice of inferring evolutionary history and relationships between different organisms, based on genomic differences across multiple conserved genes.
 
-The following offers an introduction to basic concepts in phylogenomics:
+The following offers an introduction to basic concepts of this approach that yields phylogenomic trees:
 
 <div class="video-container">
 <iframe class="video" src="https://www.youtube.com/embed/hfHu8Lnwgzs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -269,6 +269,25 @@ A relevant commentary by Berg et al: [Microbiome definition re-visited: old conc
 A biome is an biological subdivision that reflects the biota and its environment. A biome is constrained by the physico-chemical characteristics and biota that defines it. In macroecology, the biomes are often defined in part based on the climatic conditions, e.g. tundra biome, desert biome... In another way, a biome is the combination of the biota and the characteristics of its environment. A microbiome would be defined in a similar way at a much smaller scale. Due to the variability of the physico-chemical characteristics and the biota at very small distances, a microbiome can occuppy extremely small extensions in opposition at the large scale of traditional biomes.
 
 The term microbiome is often misused. For example, microbiome analysis services only really analyse the microbiota (normally only stool microbiota), as they don't collect physico-chemical parameters from the samples.
+
+{:data-tags="phylogenomic tree,phylogenomic trees"}
+### Tree of life
+
+A tree of life (ToL) is a conceptual research tool, which allows for the exploration of relationships between organisms. Evolution is a slow process, that changes organisms bit by bit. Therefore, by quantifying similarities of genetic code it is possible to hypothesise which organisms are closely related from an evolutionary standpoint. It is important to note that not a given ToL does not necessarily represent the true evolutionary history of organisms it includes, as the underlying data that leads to such inferences are typically noisy, events that may have occurred in the past (i.e., horizontal gene transfer) are not always available to models, and different sets of genes may yield different interpretations of the ancestral relationships between the same set of organisms. Also see phylogenomics.
+
+{:data-tags="assembly"}
+### De novo assembly
+
+Modern high-throghput sequencing technologies such as Illumina cannot read the entirety of chromosomes, and instead produce short fragments. The process of assembly aims to extend short reads into longer contiguous segments of DNA or RNA (i.e., contigs) to reconstruct the original sequence. Historically, assembly process relied upon known genomes that were present in databases. In contrast, the de novo approach allows assembly without prior knowledge of the original sequences. The algorithms used for this task are varied, but the most popular tools for short-read assembly rely on de Bruijn graphs.
+
+{:data-tags="de Bruijn graph,de Bruijn graphs"}
+### De Bruijn graph
+
+De Bruijn graph is a directed graph, that represents overlaps between sequences through k-mers. Modern assemblers work with k-mers of a particular length or a combination of lenghts through iterative steps. Here is a video by [Rob Edwards](https://www.flinders.edu.au/people/robert.edwards) in which he explains the basic principles of this strategy using a simple example:
+
+<div class="video-container">
+<iframe class="video" src="https://www.youtube.com/embed/OY9Q_rUCGDw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## All things anvi'o
 
