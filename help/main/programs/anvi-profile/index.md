@@ -1,7 +1,7 @@
 ---
 layout: program
 title: anvi-profile
-excerpt: An anvi'o program. The flagship anvi&#x27;o proram to profile a BAM file.
+excerpt: An anvi'o program. The flagship anvi&#x27;o program to profile a BAM file.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-profile
@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-The flagship anvi&#x27;o proram to profile a BAM file. Running this program on a BAM file will quantify coverages per nucleotide position in read recruitment results and will average coverage and detection data per contig. It will also calculate single-nucleotide, single-codon, and single-amino acid variants, as well as structural variants, such as insertion and deletions, to eventually stores all data into a single anvi&#x27;o profile database. For very large projects, this program can demand a lot of time, memory, and storage resources. If all you want is to learn coverages of your nutleotides, genes, contigs, or your bins collections from BAM files very rapidly, and/or you do not need anvi&#x27;o single profile databases for your project, please see other anvi&#x27;o programs that profile BAM files, `anvi-script-get-coverage-from-bam` and `anvi-profile-blitz`.
+The flagship anvi&#x27;o program to profile a BAM file. Running this program on a BAM file will quantify coverages per nucleotide position in read recruitment results and will average coverage and detection data per contig. It will also calculate single-nucleotide, single-codon, and single-amino acid variants, as well as structural variants, such as insertion and deletions, to eventually stores all data into a single anvi&#x27;o profile database. For very large projects, this program can demand a lot of time, memory, and storage resources. If all you want is to learn coverages of your nutleotides, genes, contigs, or your bins collections from BAM files very rapidly, and/or you do not need anvi&#x27;o single profile databases for your project, please see other anvi&#x27;o programs that profile BAM files, `anvi-script-get-coverage-from-bam` and `anvi-profile-blitz`.
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
