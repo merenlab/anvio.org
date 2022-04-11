@@ -118,6 +118,7 @@ conda install -y -c bioconda r-magrittr
 conda install -y -c bioconda r-optparse
 conda install -y -c bioconda bioconductor-qvalue
 conda install -y -c bioconda fasttree
+conda install -y -c bioconda vmatch
 
 # this last one may cause some issues. if it doesn't install,
 # don't worry, you will still be fine:
@@ -429,7 +430,7 @@ Install all the necessary packages:
 mamba install -y -c bioconda -c conda-forge python=3.7 \
         sqlite prodigal mcl muscle=3.8.1551 hmmer diamond \
         blast megahit spades bowtie2 tbb=2020.3 bwa graphviz \
-        "samtools >=1.9" trimal iqtree trnascan-se fasttree \
+        "samtools >=1.9" trimal iqtree trnascan-se fasttree vmatch \
         r-base r-tidyverse r-optparse r-stringi r-magrittr
 
 # try this, if it doesn't install, don't worry. you will
