@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **11 Apr 22 16:00:29** for anvi'o version **7.1-dev (hope)**.
+The help contents were last updated on **18 Apr 22 23:26:14** for anvi'o version **7.1-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -329,7 +329,7 @@ Listed below **a total of 139 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-compute-metabolic-enrichment](programs/anvi-compute-metabolic-enrichment)**</span>. <span markdown="1">A program that computes metabolic enrichment acros groups of genomes and metagenomes</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-compute-metabolic-enrichment](programs/anvi-compute-metabolic-enrichment)**</span>. <span markdown="1">A program that computes metabolic enrichment across groups of genomes and metagenomes</span>.
     </td>
 </tr>
 <tr>
@@ -2662,6 +2662,7 @@ Listed below **a total of 139 programs**.
 <tr style="border:none;">
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ivagljiva" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/semiller10" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3009,7 +3010,7 @@ Listed below **a total of 139 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-kegg-kofams](programs/anvi-setup-kegg-kofams)**</span>. <span markdown="1">Download and setup KEGG KOfam HMM profiles and KEGG MODULE data</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-kegg-kofams](programs/anvi-setup-kegg-kofams)**</span>. <span markdown="1">Download and setup KEGG KOfam HMM profiles plus KEGG MODULE and KEGG BRITE data</span>.
     </td>
 </tr>
 <tr>
@@ -3027,6 +3028,7 @@ Listed below **a total of 139 programs**.
 <tr style="border:none;">
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ivagljiva" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/semiller10" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
 
     </td>
 </tr>

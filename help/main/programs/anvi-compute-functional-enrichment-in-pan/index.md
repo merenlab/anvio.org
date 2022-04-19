@@ -94,8 +94,6 @@ anvi&#45;compute&#45;functional&#45;enrichment&#45;in&#45;pan &#45;p <span class
 
 The <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> must contain at least one categorical data layer in <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span>, and you must choose one of these categories to define your pan-groups with the `--category-variable` parameter. You can see available variables with <span class="artifact-p">[anvi-show-misc-data](/help/main/programs/anvi-show-misc-data)</span> program with the parameters `-t layers --debug`.
 
-Note that by default any genomes not in a category will be ignored; you can instead include these in the analysis by using the flag `--include-ungrouped`.
-
 The <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> must have at least one functional annotation source, and you must choose one of these sources with the `--annotation-source`. If you do not know which functional annotation sources are available in your <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>, you can use the `--list-annotation-sources` parameter to find out.
 
 ### Additional options

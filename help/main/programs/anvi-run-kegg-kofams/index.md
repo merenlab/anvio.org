@@ -26,6 +26,8 @@ Run KOfam HMMs on an anvi&#x27;o contigs database.
 
 <div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/ivagljiva.jpg" /></div><div class="anvio-person-info-box"><a href="/people/ivagljiva" target="_blank"><span class="anvio-person-name">Iva Veseli</span></a><div class="anvio-person-social-box"><a href="mailto:iveseli@uchicago.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/ivaglj1va" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/ivagljiva" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/semiller10.jpg" /></div><div class="anvio-person-info-box"><a href="/people/semiller10" target="_blank"><span class="anvio-person-name">Samuel Miller</span></a><div class="anvio-person-social-box"><a href="https://semiller10.github.io" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:samuelmiller@uchicago.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/smiller_science" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/semiller10" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+
 
 
 ## Can consume
@@ -43,11 +45,11 @@ Run KOfam HMMs on an anvi&#x27;o contigs database.
 ## Usage
 
 
-Essentially, this program uses the KEGG database to annotate functions and metabolic pathways in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. More specifically, <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> annotates a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> with HMM hits from KOfam, a database of KEGG Orthologs (KOs). You must set up these HMMs on your computer using <span class="artifact-p">[anvi-setup-kegg-kofams](/help/main/programs/anvi-setup-kegg-kofams)</span> before you can use this program.
+Essentially, this program uses the KEGG database to annotate functions and metabolic pathways in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. More specifically, <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> annotates a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> with HMM hits from KOfam, a database of KEGG Orthologs (KOs). You must set up these HMMs on your computer using <span class="artifact-p">[anvi-setup-kegg-kofams](/help/main/programs/anvi-setup-kegg-kofams)</span> before you can use this program. Membership of KOfam functions in KEGG metabolic MODULES and BRITE hierarchies is also stored in the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>.
 
 Running this program is a pre-requisite for metabolism estimation with <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>. Note that if you are planning to run metabolism estimation, it must be run with the same <span class="artifact-n">[kegg-data](/help/main/artifacts/kegg-data)</span> that is used in this program to annotate KOfam hits.
 
-### How does it work?
+## How does it work?
 **1) Run an HMM search against KOfam**
 Briefly, what this program does is extract all the gene calls from the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and checks each one for hits to the KOfam HMM profiles in your <span class="artifact-n">[kegg-data](/help/main/artifacts/kegg-data)</span>. This can be time-consuming given that the number of HMM profiles is quite large, even more so if the number of genes in the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> is also large. Multi-threading is a good idea if you have the computational capability to do so.
 
@@ -65,62 +67,91 @@ For every gene without a KOfam annotation, we examine all the hits with an e-val
 Please note that this strategy is just a heuristic. We have tried to pick default parameters that seemed reasonable but by no means have we comprehensively tested and optimized them. This is why X and Y are mutable so that you can explore different values and see how they work for your data. It is always a good idea to double-check your annotations to make sure they are reasonable and as stringent as you'd like them to be. In addition, if you do not feel comfortable using this heuristic at all, you can always turn this behavior off and rely solely on KEGG's bitscore thresholds. :)
 
 **3) Put annotations in the database**
-In the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> functions table, annotated KO hits (<span class="artifact-n">[kegg-functions](/help/main/artifacts/kegg-functions)</span>) will have the source `KOfam`.
+In the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> functions table, annotated KO hits (<span class="artifact-n">[kegg-functions](/help/main/artifacts/kegg-functions)</span>) will have the source `KOfam`. Metabolic Modules and BRITE functional classifications containing these functions also have entries in the table, with sources labeled `KEGG_Module` and `KEGG_BRITE`. BRITE classification will not occur if <span class="artifact-p">[anvi-setup-kegg-kofams](/help/main/programs/anvi-setup-kegg-kofams)</span> was not set up with BRITE data (see the artifact for that program to see how to include BRITE).
 
-### Standard usage
+## Standard usage
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;kegg&#45;kofams &#45;c CONTIGS.db
+anvi&#45;run&#45;kegg&#45;kofams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span>
 </div>
 
-### Use a specific non-default KEGG data directory
+## Use a specific non-default KEGG data directory
 If you have previously setup your KEGG data directory using `--kegg-data-dir` (see <span class="artifact-p">[anvi-setup-kegg-kofams](/help/main/programs/anvi-setup-kegg-kofams)</span>), or have moved the KEGG data directory that you wish to use to a non-default location (maybe you like keeping the older versions around when you update, we don't know how you roll), then you may need to specify where to find the KEGG data so that this program can use the right one. In that case, this is how you do it:
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;kegg&#45;kofams &#45;c CONTIGS.db \
+anvi&#45;run&#45;kegg&#45;kofams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                      &#45;&#45;kegg&#45;data&#45;dir /path/to/directory/KEGG
 </div>
 
-### Run with multiple threads
+## Run with multiple threads
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;kegg&#45;kofams &#45;c CONTIGS.db &#45;T 4
+anvi&#45;run&#45;kegg&#45;kofams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> &#45;T 4
 </div>
 
-### Use a different HMMER program
+## Use a different HMMER program
 By default, <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> uses `hmmsearch` to find KO hits. If for some reason you would rather use a different program (`hmmscan` is also currently supported), you can do so.
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;kegg&#45;kofams &#45;c CONTIGS.db \
+anvi&#45;run&#45;kegg&#45;kofams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                      &#45;&#45;hmmer&#45;program hmmscan
 </div>
 
-### Keep all HMM hits
+## Keep all HMM hits
 Usually, this program parses out weak HMM hits and keeps only those that are above the score threshold for a given KO. If you would like to turn off this behavior and keep all hits (there will be _a lot_ of weak ones), you can follow the example below:
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;kegg&#45;kofams &#45;c CONTIGS.db \
+anvi&#45;run&#45;kegg&#45;kofams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                      &#45;&#45;keep&#45;all&#45;hits
 </div>
 
-### Modifying the bitscore relaxation heuristic
+## Save the bitscores of HMM hits
+
+If you want to see the bitscores of all KOfam hits that were added to your contigs database, you can use the `--log-bitscores` option to save these values into a tab-delimited file:
+
+<div class="codeblock" markdown="1">
+anvi&#45;run&#45;kegg&#45;kofams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                     &#45;&#45;log&#45;bitscores
+</div>
+
+Here is an example of what the resulting bitscore file would look like:
+
+|**entry_id**|**bit_score**|**domain_bit_score**|**e_value**|**entry_id**|**gene_callers_id**|**gene_hmm_id**|**gene_name**|
+|:--|:--|:--|:--|:--|:--|:--|:--|
+|1|177.4|85.1|8e-54|0|1371|-|K10681|
+|2|34.1|33.7|9.1e-11|1|1141|-|K01954|
+|3|22.4|22.4|3.1e-07|2|1402|-|K01954|
+|4|12.8|11.8|0.00024|3|1099|-|K01954|
+|5|17.1|16.7|4.4e-05|4|1267|-|K20024|
+
+Combining this flag with the `--keep-all-hits` option is one way to get the bitscores of all matches to the KOfam profiles, even the ones that would usually not pass the bitscore threshold provided by KEGG.
+
+## Modify the bitscore relaxation heuristic
 As described above, this program does its best to avoid missing valid annotations by relaxing the bitscore threshold for genes without any annotations. For such a gene, hits with e-value <= X and bitscore > (Y * KEGG threshold) that are all hits to the same KOfam profile are used to annotate the gene with that KO.
 
-**Skip this step entirely**
+### Skip this heuristic entirely
 If you don't want any previously-eliminated hits to be used for annotation, you can skip this heuristic by using the flag `--skip-bitscore-heuristic`. Then, _only_ hits with bitscores above the KEGG-provided threshold for a given KO will be used for annotation.
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;kegg&#45;kofams &#45;c CONTIGS.db \
+anvi&#45;run&#45;kegg&#45;kofams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                      &#45;&#45;skip&#45;bitscore&#45;heuristic
 </div>
 
-**Modify the heuristic parameters**
+### Modify the heuristic parameters
 If our default values are too stringent or not stringent enough for your tastes, you can change them! The e-value threshold (X, default: 1e-05) can be set using `-E` or `--heuristic-e-value` and the bitscore fraction (Y, default: 0.50) can be set using `-H` or `--heuristic-bitscore-fraction`. Like so:
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;kegg&#45;kofams &#45;c CONTIGS.db \
+anvi&#45;run&#45;kegg&#45;kofams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                      &#45;E 1e&#45;15 \
                      &#45;H 0.90
+</div>
+
+## Skip BRITE annotations
+If for some strange reason you do not want KEGG BRITE annotations to be added to your contigs database, you can skip them by providing the `--skip-brite-hierarchies` flag:
+
+<div class="codeblock" markdown="1">
+anvi&#45;run&#45;kegg&#45;kofams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                     &#45;&#45;skip&#45;brite&#45;hierarchies
 </div>
 
 

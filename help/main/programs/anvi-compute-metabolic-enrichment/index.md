@@ -1,7 +1,7 @@
 ---
 layout: program
 title: anvi-compute-metabolic-enrichment
-excerpt: An anvi'o program. A program that computes metabolic enrichment acros groups of genomes and metagenomes.
+excerpt: An anvi'o program. A program that computes metabolic enrichment across groups of genomes and metagenomes.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-compute-metabolic-enrichment
@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-A program that computes metabolic enrichment acros groups of genomes and metagenomes.
+A program that computes metabolic enrichment across groups of genomes and metagenomes.
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -82,6 +82,15 @@ anvi&#45;compute&#45;metabolic&#45;enrichment &#45;M MODULES.TXT \
                                   &#45;G <span class="artifact&#45;n">[groups&#45;txt](/help/main/artifacts/groups&#45;txt)</span> \
                                   &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
                                   &#45;&#45;module&#45;completion&#45;threshold 0.9
+</div>
+
+By default, this program uses the [pathwise completeness score](https://anvio.org/help/main/programs/anvi-estimate-metabolism/#two-estimation-strategies-pathwise-and-stepwise) to determine which modules are 'present' in a genome, but you can ask it to use stepwise completeness instead by using the `--use-stepwise-completeness` flag.
+
+<div class="codeblock" markdown="1">
+anvi&#45;compute&#45;metabolic&#45;enrichment &#45;M MODULES.TXT \
+                                  &#45;G <span class="artifact&#45;n">[groups&#45;txt](/help/main/artifacts/groups&#45;txt)</span> \
+                                  &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
+                                  &#45;&#45;use&#45;stepwise&#45;completeness
 </div>
 
 By default, the column containing genome names in your MODULES.TXT file will have the header `db_name`, **but there are certain cases in which you might have them in a different column name for your genomes or metagenomes** (such as those cases where you did not run <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span> in multi-mode). In those cases, you can tell this program to look for a *different* column name to find your genomes or metagenomes using the `--sample-header`. For example, if your metagenome names are listed under the `metagenome_name` column, you would do the following:
