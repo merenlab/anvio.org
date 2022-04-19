@@ -43,15 +43,17 @@ Do cool stuff with gene clusters in anvi&#x27;o pan genomes.
 ## Usage
 
 
-This aptly-named program **gets the sequences for the gene clusters stored in a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and returns them as either a <span class="artifact-n">[genes-fasta](/help/main/artifacts/genes-fasta)</span> or a <span class="artifact-n">[concatenated-gene-alignment-fasta](/help/main/artifacts/concatenated-gene-alignment-fasta)</span>** (which you can use to run <span class="artifact-p">[anvi-gen-phylogenomic-tree](/help/main/programs/anvi-gen-phylogenomic-tree)</span>). This gives you advanced access to your gene clusters, which you can take out of anvi'o, use for phylogenomic analyses, or do whatever you please with. 
+This aptly-named program **gets the sequences for the gene clusters stored in a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and returns them as either a <span class="artifact-n">[genes-fasta](/help/main/artifacts/genes-fasta)</span> or a <span class="artifact-n">[concatenated-gene-alignment-fasta](/help/main/artifacts/concatenated-gene-alignment-fasta)</span>**, which can directly go into the program <span class="artifact-p">[anvi-gen-phylogenomic-tree](/help/main/programs/anvi-gen-phylogenomic-tree)</span> for phylogenomics. This gives you advanced access to your gene clusters, so you can take them out of anvi'o and do whatever you please with them.
 
-You also have the option to output the sequences of your choice as a <span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span> (with `add-into-items-additional-data-table`), which can be added to the <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> interface as additional layers. 
+The program parameters also include a large collection of advanced filtering options. Using these options you can scrutinize your gene clusters in creative and precise ways. Using the combination of these filters you can focus on single-copy core gene clusters in a pangenome, or those occur only as singletons, or paralogs that contain more than a given number of sequences, and so on. Once you are satisfied with the output a given set of filters generate, you can add the matching gene clusters a <span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span> with the flag `--add-into-items-additional-data-table`, which can be added to the <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> interface as additional layers when you visualize your <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> using the program <span class="artifact-p">[anvi-display-pan](/help/main/programs/anvi-display-pan)</span> 
 
-While the number of parameters may seem daunting, many of the options just help you specify exactly which gene clusters you want to get the sequences  from. 
+By default, <span class="artifact-p">[anvi-get-sequences-for-gene-clusters](/help/main/programs/anvi-get-sequences-for-gene-clusters)</span> will generate a single output file. But you can ask the program to report every gene cluster that match to your filters as a separate FASTA file depending on your downstream analyses.
+
+While the number of parameters this powerful program can utilize may seem daunting, many of the options just help you specify exactly from which gene clusters you want to get sequences. 
 
 ### Running on all gene clusters
 
-Here is a basic run, that will  export alignments for every single gene cluster found in the <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> as amino acid sequences :
+Here is an example that shows the simplest possible run, which will export sequences for every single gene cluster found in the <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> as amino acid sequences:
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
@@ -59,13 +61,115 @@ anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="art
                                      &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/help/main/artifacts/genes&#45;fasta)</span>
 </div>
 
-To get the DNA sequences instead, just add `--report-DNA-sequences`. 
+{:.notice}
+The program will report the DNA sequences if the flag `--report-DNA-sequences` is used.
+
+### Splitting gene clusters into their own files
+
+The command above will put all gene cluster sequences in a single output <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> file. If you would like to report each gene cluster in a separate FASTA file, it is also an option thanks to the flag `--split-output-per-gene-cluster`. This optional reporting throught this flag applies to all commands shown on this page. For instance, the following command will report every gene cluster as a separate FASTA file in your directory,
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
+                                     &#45;&#45;split&#45;output&#45;per&#45;gene&#45;cluster
+</div>
+
+where the output files and paths will look like this in your work directory:
+
+```
+GC_00000001.fa
+GC_00000002.fa
+GC_00000003.fa
+GC_00000004.fa
+GC_00000005.fa
+GC_00000006.fa
+GC_00000007.fa
+GC_00000008.fa
+GC_00000009.fa
+GC_00000010.fa
+(...)
+```
+
+You can use the parameters `--output-file-prefix` to add file name prefixes to your output files. For instance, the following command,
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
+                                     &#45;&#45;split&#45;output&#45;per&#45;gene&#45;cluster \
+                                     &#45;&#45;output&#45;file&#45;prefix MY_PROJECT
+</div>
+
+will result in the following files in your work directory:
+
+```
+MY_PROJECT_GC_00000001.fa
+MY_PROJECT_GC_00000002.fa
+MY_PROJECT_GC_00000003.fa
+MY_PROJECT_GC_00000004.fa
+MY_PROJECT_GC_00000005.fa
+MY_PROJECT_GC_00000006.fa
+MY_PROJECT_GC_00000007.fa
+MY_PROJECT_GC_00000008.fa
+MY_PROJECT_GC_00000009.fa
+MY_PROJECT_GC_00000010.fa
+(...)
+```
+
+You can also use the parameter `--output-file-prefix` to store files in different directories. For instance, the following command (note the trailing `/` in the `--output-file-prefix`),
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
+                                     &#45;&#45;split&#45;output&#45;per&#45;gene&#45;cluster \
+                                     &#45;&#45;output&#45;file&#45;prefix A_TEST_DIRECTORY/
+</div>
+
+will result in the following files:
+
+```
+A_TEST_DIRECTORY/GC_00000001.fa
+A_TEST_DIRECTORY/GC_00000002.fa
+A_TEST_DIRECTORY/GC_00000003.fa
+A_TEST_DIRECTORY/GC_00000004.fa
+A_TEST_DIRECTORY/GC_00000005.fa
+A_TEST_DIRECTORY/GC_00000006.fa
+A_TEST_DIRECTORY/GC_00000007.fa
+A_TEST_DIRECTORY/GC_00000008.fa
+A_TEST_DIRECTORY/GC_00000009.fa
+A_TEST_DIRECTORY/GC_00000010.fa
+(...)
+```
+
+In contrast, the following command,
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
+                                     &#45;&#45;split&#45;output&#45;per&#45;gene&#45;cluster \
+                                     &#45;&#45;output&#45;file&#45;prefix A_TEST_DIRECTORY/A_NEW_PREFIX
+</div>
+
+will result in the following files:
+
+```
+A_TEST_DIRECTORY/A_NEW_PREFIX_GC_00000001.fa
+A_TEST_DIRECTORY/A_NEW_PREFIX_GC_00000002.fa
+A_TEST_DIRECTORY/A_NEW_PREFIX_GC_00000003.fa
+A_TEST_DIRECTORY/A_NEW_PREFIX_GC_00000004.fa
+A_TEST_DIRECTORY/A_NEW_PREFIX_GC_00000005.fa
+A_TEST_DIRECTORY/A_NEW_PREFIX_GC_00000006.fa
+A_TEST_DIRECTORY/A_NEW_PREFIX_GC_00000007.fa
+A_TEST_DIRECTORY/A_NEW_PREFIX_GC_00000008.fa
+A_TEST_DIRECTORY/A_NEW_PREFIX_GC_00000009.fa
+A_TEST_DIRECTORY/A_NEW_PREFIX_GC_00000010.fa
+(...)
+```
 
 ### Exporting only specific gene clusters
 
 #### Part 1: Choosing gene clusters by collection, bin, or name
 
-You can export only the sequences for a specific <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> or <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> with the parameters `-C` or `-b` respectively. You also have the option to display the collections and bins available in your <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> with `--list-collections` or `--list-bins`
+You can export only the sequences for a specific <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> or <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> with the parameters `-C` or `-b` respectively. 
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
@@ -73,6 +177,9 @@ anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="art
                                      &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/help/main/artifacts/genes&#45;fasta)</span> \
                                      &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> 
 </div>
+
+{:.notice}
+You can always display the collections and bins available in your <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> by adding `--list-collections` or `--list-bins` flags to your command.
 
 Alternatively, you can export the specific gene clusters by name, either by providing a single gene cluster ID or a file with one gene cluster ID per line. For example: 
 
@@ -85,9 +192,11 @@ anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="art
 
 where `gene_clusters.txt` contains the following:
 
-    GC_00000618
-    GC_00000643
-    GC_00000729
+```
+GC_00000618
+GC_00000643
+GC_00000729
+```
 
 #### Part 2: Choosing gene clusters by their attributes
 

@@ -212,7 +212,9 @@
   programs:
     - name: anvi-merge-trnaseq
     - name: anvi-migrate
+    - name: anvi-run-kegg-kofams
     - name: anvi-run-workflow
+    - name: anvi-setup-kegg-kofams
     - name: anvi-trnaseq
 - author: moritzbuck
   programs:
