@@ -77,6 +77,10 @@ The `U0000x` files in the schematic above each contains a definition for one mod
 
 ### How do I format the module files?
 
+{:.notice}
+Check out <span class="artifact-p">[anvi-script-gen-user-module-file](/help/main/programs/anvi-script-gen-user-module-file)</span> for a way to automatically format your user module files.
+
+
 We use KEGG's system for describing metabolic modules, so you will need to format your metabolic pathways in the same way. Here is an example, for a module file called `U00002` (like in the schematic above):
 ```
 ENTRY       U00002

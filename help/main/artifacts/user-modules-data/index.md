@@ -23,7 +23,7 @@ A DB-type anvi'o artifact. This artifact can be generated, used, and/or exported
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-setup-user-modules](../../programs/anvi-setup-user-modules)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-setup-user-modules](../../programs/anvi-setup-user-modules)</span> <span class="artifact-p">[anvi-script-gen-user-module-file](../../programs/anvi-script-gen-user-module-file)</span></p>
 
 
 ## Required or used by
@@ -64,6 +64,9 @@ You need to write a DEFINITION string for the module. This string should be in t
 ### 3. Write a module file
 
 Put all the information about your metabolic pathway into a text file. The file format and types of information you need to include are discussed [here](https://merenlab.org/software/anvio/help/main/programs/anvi-setup-user-modules/#how-do-i-format-the-module-files). At minimum, you need to pick an identifier (ENTRY) and NAME for the module, include your DEFINITION string from step 2, write an ORTHOLOGY line and an ANNOTATION_SOURCE line for each enzyme and/or enzyme component, and write a CLASS string to categorize your module into its class/category/subcategory. The module file should be given the same name as the identifier in the ENTRY line, and this identifier should not be the same as any module in the KEGG database.
+
+{:.notice}
+Check out <span class="artifact-p">[anvi-script-gen-user-module-file](/help/main/programs/anvi-script-gen-user-module-file)</span> for a way to automatically format your user module files.
 
 ### 4. Set up the USER_MODULES.db
 
