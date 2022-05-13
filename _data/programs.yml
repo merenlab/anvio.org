@@ -136,6 +136,7 @@
     - name: anvi-setup-user-modules
     - name: anvi-summarize-blitz
     - name: anvi-script-gen-genomes-file
+    - name: anvi-script-gen-user-module-file
 - author: adw96
   programs:
     - name: anvi-compute-functional-enrichment-across-genomes
