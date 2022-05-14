@@ -27,6 +27,9 @@ Assuming you have docker installed and running on your computer, first pull the 
 docker pull meren/anvio:7
 ```
 
+{:.notice}
+Instead of the version number shown above, you can use ANY version number listed on [this Docker Hub page](https://hub.docker.com/r/meren/anvio/tags).
+
 This step will take a few minutes and require about 15Gb disk space. Once it is done, you can run it the following way:
 
 ```
