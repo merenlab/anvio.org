@@ -14,14 +14,14 @@ We **welcome you** to join in our growing international community, and we look f
 
 ### Funding and Support
 
-Anvi'o is here thanks to the support from the following institutions,
+Anvi'o is here thanks to the support from,
 
-* [Marine Biological Laboratory](https://mbl.edu) (**2014-2015**).
-* [University of Chicago](https://uchicago.edu) (**2015-2022**).
 * [Helmholtz Institute for Functional Marine Biodiversity at Oldenburg](https://hifmb.de) (**2022-**).
+* [University of Chicago](https://uchicago.edu) (**2015-2022**).
+* [Marine Biological Laboratory](https://mbl.edu) (**2014-2015**).
 
-And funding from the following foundations,
+We were able to push the boundaries of anvi'o thanks to the funding we have received from,
 
-* [W. M. Keck Foundation](http://www.wmkeck.org/) (**2018-2021**, via the _Microbiome dynamics and discovery through transfer RNA_ to Tao Pan, Meren, et al).
 * [Simons Foundation](https://www.simonsfoundation.org/) (**2020-2022**, via the _Simons Early Career Investigator in Marine Microbial Ecology and Evolution Award_ to Meren).
-* [Alfred P. Sloan Foundation](https://sloan.org/) (**2020-2021**, via the _Fellowship Ocean Sciences_ to Meren).
+* [Alfred P. Sloan Foundation](https://sloan.org/) (**2020-2021**, via the _Fellowship in Ocean Sciences_ to Meren).
+* [W. M. Keck Foundation](http://www.wmkeck.org/) (**2018-2021**, via the _Microbiome dynamics and discovery through transfer RNA_ to Tao Pan, Meren, et al).
