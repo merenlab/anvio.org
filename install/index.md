@@ -89,6 +89,9 @@ First, create a new conda environment:
 conda create -y --name anvio-7.1 python=3.6
 ```
 
+{:.notice}
+If you are using a computer with Apple silicon (like a M1 MacBook), you will find that some conda packages are not available, like older versions of python (3.6). To avoid this issue, you need to run your terminal app using Rosetta, a compatibility software. To do it, you can right-click on your terminal app in the Application folder and from the "Get info" menu, select "Open using Rosetta".
+
 And activate it:
 
 ```
