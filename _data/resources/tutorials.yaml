@@ -72,5 +72,5 @@
   type: tutorial
   url: https://merenlab.org/tutorials/dfi-metagenomics-workshop/
   authors: [ivagljiva, mschecht]
-  summary: "Materials from a 2022 workshop on metagenomics in anvi'o, including read recruitment and metabolism estimation"
+  summary: "Materials from a 2022 workshop on metagenomics in anvi'o, including read recruitment and metabolism estimation."
   tags: [metagenomics, metabolism, hands-on, beginner]
