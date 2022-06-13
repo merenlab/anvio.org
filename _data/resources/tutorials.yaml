@@ -68,7 +68,7 @@
   summary: "A tutorial that walks you through some of the most fundamental aspects of anvi'o and its application to a real-world dataset organized in multiple interconnected chapters, which all use the same dataset."
   tags: [metagenomics, binning, pangenomics, phylogenomics, microbial population genetics, hands-on, beginner]
   
-  - title: A metagenomics workshop featuring anvi'o
+- title: A metagenomics workshop featuring anvi'o
   type: tutorial
   url: https://merenlab.org/tutorials/dfi-metagenomics-workshop/
   authors: [ivagljiva, mschecht]
