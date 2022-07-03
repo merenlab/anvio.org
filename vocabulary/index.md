@@ -115,6 +115,11 @@ A genome that is reconstructed or recovered from a metagenome. MAGs are typicall
 
 A MAG can be a single contig or a collection of contigs that, in theory, collectively represent a single microbial organism. Although, binning can lead to errors. Quality of a MAG can be assessed by completion and redundancy of single-copy core genes, although, these estimates may not be conclusive. Despite challenges associated with them, MAGs have played essential roles in expanding the tree of life and shedding light on environmental microbiomes and viromes.
 
+### Single amplified genome (SAG)
+
+The term single amplified genome is used to refer to a DNA sequenced from an individual cell. The amount of DNA in a cell is extremely low, therefore it should undergo a whole genome amplification (WGA) prior to analysis with modern sequencing methods. Even trace amounts of contaminant DNA influence SAG quality substantially. Thus, the preprocessing step requires an application of specialised instrumentation, such as flow cytometry, microfluidics, and micromanipulators.
+
+
 {:data-tags="population,populations"}
 ### Population
 
@@ -288,6 +293,14 @@ De Bruijn graph is a directed graph, that represents overlaps between sequences 
 <div class="video-container">
 <iframe class="video" src="https://www.youtube.com/embed/OY9Q_rUCGDw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
+
+### Metabolite
+
+Metabolite is a product of the chain of life-sustaining chemical reactions in living organisms. It is usually used for small molecules. They have various functions, such as fuel, structure, signaling, defense, etc. I.e., the main energetic metabolite is adenosine 5'-triphosphate (ATP), which participates in various chemical reactions vital for life.
+
+### Metabolomics
+
+The study of metabolites in bulk is called "metabolomics". It allows for identification of the unique chemical fingerprint of a tissue, organ or organism. In the current state it faces a lot of methodological challenges. Contrary to genomics or proteomics, molecules have distinct physical properties. Thus, the full picture of the metabolic profile is obtained from combination of different methods. 
 
 ## All things anvi'o
 
