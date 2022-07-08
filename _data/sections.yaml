@@ -23,10 +23,8 @@
   icon: learn-anvio
 
 - header: People
-  full_header: Meet anvi'o developers and contributors
-  slug: people
+  target_url: /people/
   link_in_navbar: true
-  content: sections/people.md
   icon: anvio-community
 
 - header: Community blog
@@ -39,9 +37,7 @@
   link_in_navbar: true
   icon: omics-vocabulary
 
-- header: How to cite
-  full_header: How to cite anvi'o like a pro
-  slug: cite
+- header: How to Cite
+  target_url: /cite/
   link_in_navbar: true
-  content: sections/citing.md
   icon: cite-anvio
