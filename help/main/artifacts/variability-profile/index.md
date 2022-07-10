@@ -29,7 +29,7 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-gen-variability-network](../../programs/anvi-gen-variability-network)</span> <span class="artifact-r">[anvi-gen-variability-profile](../../programs/anvi-gen-variability-profile)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-gen-variability-profile](../../programs/anvi-gen-variability-profile)</span></p>
 
 
 ## Description
