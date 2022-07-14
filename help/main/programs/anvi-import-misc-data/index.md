@@ -45,70 +45,41 @@ Populate additional data or order tables in pan or profile databases for items a
 ## Usage
 
 
-This program lets you **bring additional information into your anvi'o databases** that will appear when you run <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span>.   
+This program enables extending anvi'o projects with many kinds of **additional data**. Additional data will extend anvio' <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> displays, and appear in <span class="artifact-n">[summary](/help/main/artifacts/summary)</span> files, and become accessible to other anvi'o programs thorughout.
 
-With this, you can 
-- **bring additional data about your items or layers into the anvi'o interactive interface** by putting it into a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>
-- **bring additional data about your nucleotides/amino acids** into a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> 
+This program can add additional data for your items or layers in a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, or add additional data for your nucleotides or amino acids in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>
 
-You also have the option to associate keys with only a specific data group, or transpose the input before processing (in case you misformatted it). 
+You also have the option to associate keys with only a specific data group, or transpose the input before processing.
 
-If you no longer want to see data you've added with this function, you can export it as the original text file with <span class="artifact-p">[anvi-export-misc-data](/help/main/programs/anvi-export-misc-data)</span> and delete it from the database with <span class="artifact-p">[anvi-delete-misc-data](/help/main/programs/anvi-delete-misc-data)</span>.
+Also see the program <span class="artifact-p">[anvi-show-misc-data](/help/main/programs/anvi-show-misc-data)</span>, <span class="artifact-p">[anvi-export-misc-data](/help/main/programs/anvi-export-misc-data)</span>, and <span class="artifact-p">[anvi-delete-misc-data](/help/main/programs/anvi-delete-misc-data)</span>.
 
-## Items, Layers, and the Interactive Interface 
+## Items Data, Layers Data, and Orders
 
-{:.notice}
-This process, as well as the definition of an item and a layer, are described in more detail in [this blog post](http://merenlab.org/2017/12/11/additional-data-tables). 
-
-Basically, you can add additional information to the interactive interface by running this program on the database you want to display and a text file containing your information. You can do this with three types of data (see their individual pages for more information on each): 
-
-1. <span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span> by providing a <span class="artifact-n">[misc-data-items-txt](/help/main/artifacts/misc-data-items-txt)</span>. This contains information about *each of your items in the central tree* (whether those are contigs, bins, or genes), and will appear as **additional concentric circles** when you run <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span>. 
-
-    <div class="codeblock" markdown="1">
-    anvi&#45;import&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
-                          &#45;t items \
-                          <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;txt](/help/main/artifacts/misc&#45;data&#45;items&#45;txt)</span> 
-    </div>
-        
-2. <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span> by providing a <span class="artifact-n">[misc-data-layers-txt](/help/main/artifacts/misc-data-layers-txt)</span>. This contains information about *each layer (or concentric circle) of the interface* (which usually correspond to your samples), and will appear as **graphs in line with your circles of data** (on the right, similar to how to the titles of each layer are displayed at the top) when you run <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span>. 
-
-    <div class="codeblock" markdown="1">
-    anvi&#45;import&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
-                          &#45;t layers \
-                          <span class="artifact&#45;n">[misc&#45;data&#45;layers&#45;txt](/help/main/artifacts/misc&#45;data&#45;layers&#45;txt)</span>                               
-    </div>
-
-3. <span class="artifact-n">[misc-data-layer-orders](/help/main/artifacts/misc-data-layer-orders)</span> by providing a <span class="artifact-n">[misc-data-layer-orders-txt](/help/main/artifacts/misc-data-layer-orders-txt)</span>. This contains information about *what order you want the concentric circles to be displayed in*  (which usually correspond to your samples), and will appear as **above the misc-data-layers graphs as a tree** when you run <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span>. 
-
-    <div class="codeblock" markdown="1">
-    anvi&#45;import&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
-                          &#45;t layer_orders \
-                          <span class="artifact&#45;n">[misc&#45;data&#45;layer&#45;orders&#45;txt](/help/main/artifacts/misc&#45;data&#45;layer&#45;orders&#45;txt)</span> 
-    </div>
+Please see [this blog post](http://merenlab.org/2017/12/11/additional-data-tables) for a comprehensive documentation on these misc data types.
 
 ## Nucleotides, Amino Acids, and Contigs Databases
 
-This feature lets you import additional data about specfic residues or specific base pairs into your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. This is especially useful for strucutral analysis (so when running programs like <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span>) and will be very relevant to the InteracDome functionality when it's added in anvi'o v7 (curious readers can take a look at [this blog post](http://merenlab.org/2020/07/22/interacdome/)). 
+This feature lets you import additional data about specfic residues or specific base pairs into your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. This is especially useful for strucutral analysis (so when running programs like <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span>) and will be very relevant to the InteracDome functionality when it's added in anvi'o v7 (curious readers can take a look at [this blog post](http://merenlab.org/2020/07/22/interacdome/)).
 
-When adding additional data, unlike with layers and items, you do not have to provide values for every single nucleotide in your database. With this program, you can easily provide data for only a select few. 
+When adding additional data, unlike with layers and items, you do not have to provide values for every single nucleotide in your database. With this program, you can easily provide data for only a select few.
 
 Basically, you can add two types of data to your contigs database:
 
 1. <span class="artifact-n">[misc-data-nucleotides](/help/main/artifacts/misc-data-nucleotides)</span> by providing a <span class="artifact-n">[misc-data-nucleotides-txt](/help/main/artifacts/misc-data-nucleotides-txt)</span>. This contains information about *specific nucleotides in your database.*
 
-    <div class="codeblock" markdown="1">
-    anvi&#45;import&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
-                          &#45;t nucleotides \
-                          <span class="artifact&#45;n">[misc&#45;data&#45;nucleotides&#45;txt](/help/main/artifacts/misc&#45;data&#45;nucleotides&#45;txt)</span> 
-    </div>
-        
+<div class="codeblock" markdown="1">
+anvi&#45;import&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                      &#45;t nucleotides \
+                      <span class="artifact&#45;n">[misc&#45;data&#45;nucleotides&#45;txt](/help/main/artifacts/misc&#45;data&#45;nucleotides&#45;txt)</span>
+</div>
+
 2. <span class="artifact-n">[misc-data-amino-acids](/help/main/artifacts/misc-data-amino-acids)</span> by providing a <span class="artifact-n">[misc-data-amino-acids-txt](/help/main/artifacts/misc-data-amino-acids-txt)</span>. This contains information about *specific amino acid residues in your database*
 
-    <div class="codeblock" markdown="1">
-    anvi&#45;import&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
-                          &#45;t amino_acids \
-                          <span class="artifact&#45;n">[misc&#45;data&#45;amino&#45;acids&#45;txt](/help/main/artifacts/misc&#45;data&#45;amino&#45;acids&#45;txt)</span>                               
-    </div>
+<div class="codeblock" markdown="1">
+anvi&#45;import&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                      &#45;t amino_acids \
+                      <span class="artifact&#45;n">[misc&#45;data&#45;amino&#45;acids&#45;txt](/help/main/artifacts/misc&#45;data&#45;amino&#45;acids&#45;txt)</span>
+</div>
 
 
 {:.notice}

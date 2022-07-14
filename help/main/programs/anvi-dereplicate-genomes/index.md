@@ -63,21 +63,21 @@ By default, the output of this program is a directory containing two descriptive
 
 -The cluster report describes is a tab-delimited text file where each row describes a cluster. This file contains four columns: the cluster name, the number of genomes in the cluster, the representative genome of the cluster, and a list of the genomes that are in the cluster. Here is an example describing 11 genomes in three clusters:
 
-    DEREPLICATION-0.97 $ head CLUSTER_REPORT.txt
-    cluster    size    representative    genomes
-    cluster_000001    1    G11_IGD_MAG_00001    G11_IGD_MAG_00001
-    cluster_000002    8    G11_IGD_MAG_00012    G08_IGD_MAG_00008,G33_IGD_MAG_00011,G01_IGD_MAG_00013,G06_IGD_MAG_00023,G03_IGD_MAG_00021,G05_IGD_MAG_00014,G11_IGD_MAG_00012,G10_IGD_MAG_00010
-    cluster_000003    2    G03_IGD_MAG_00011    G11_IGD_MAG_00013,G03_IGD_MAG_00011
+|**cluster**|**size**|**representative**|**genomes**|
+|:--|:--|:--|:--|
+|cluster_000001|1|G11_IGD_MAG_00001|G11_IGD_MAG_00001|
+|cluster_000002|8|G11_IGD_MAG_00012|G08_IGD_MAG_00008,G33_IGD_MAG_00011,G01_IGD_MAG_00013,G06_IGD_MAG_00023,G03_IGD_MAG_00021,G05_IGD_MAG_00014,G11_IGD_MAG_00012,G10_IGD_MAG_00010|
+|cluster_000003|2|G03_IGD_MAG_00011|G11_IGD_MAG_00013,G03_IGD_MAG_00011|
 
 -The subdirectory `GENOMES` contains fasta files describing the representative genome from each cluster. For example, if your original set of genomes had two identical genomes, this program would cluster them together, and the `GENOMES` folder would only include one of their sequences. 
 
 -The fasta report describes the fasta files contained in the subdirectory `GENOMES`. By default, this describes the representative sequence of each of the final clusters. It tells you the genome name, its source, its cluster (and the representative sequence of that cluster), and the path to its fasta file in  `GENOMES`.  So, for the example above, the fasta report would look like this:
 
-    DEREPLICATION-0.97 $ head FASTA_REPORT.txt
-    name    source    cluster    cluster_rep    path
-    G11_IGD_MAG_00001    fasta    cluster_000001    G11_IGD_MAG_00001    GENOMES/G11_IGD_MAG_00001.fa
-    G11_IGD_MAG_00012    fasta    cluster_000002    G11_IGD_MAG_00012    GENOMES/G11_IGD_MAG_00012.fa
-    G03_IGD_MAG_00011    fasta    cluster_000003    G03_IGD_MAG_00011    GENOMES/G03_IGD_MAG_00011.fa
+|**name**|**source**|**cluster**|**cluster_rep**|**path**|
+|:--|:--|:--|:--|:--|
+|G11_IGD_MAG_00001|fasta|cluster_000001|G11_IGD_MAG_00001|GENOMES/G11_IGD_MAG_00001.fa|
+|G11_IGD_MAG_00012|fasta|cluster_000002|G11_IGD_MAG_00012|GENOMES/G11_IGD_MAG_00012.fa|
+|G03_IGD_MAG_00011|fasta|cluster_000003|G03_IGD_MAG_00011|GENOMES/G03_IGD_MAG_00011.fa|
 
 You can also choose to report all genome fasta files (including redundant genomes) (with `--report-all`) or report no fasta files (with `--skip-fasta-report`). This would change the fasta files included in `GENOMES` and the genomes mentioned in the fasta report. The cluster report would be identical.
 
@@ -85,22 +85,23 @@ You can also choose to report all genome fasta files (including redundant genome
 
 You are required to set the threshold for two genomes to be considered redundant and put in the same cluster. 
 
-For example, if you had the results from an <span class="artifact-p">[anvi-compute-genome-similarity](/help/main/programs/anvi-compute-genome-similarity)</span> run where you had used `PyANI` and wanted the threshold to be 90 percent, you would run: 
+For example, if you had the results from an <span class="artifact-p">[anvi-compute-genome-similarity](/help/main/programs/anvi-compute-genome-similarity)</span> run where you had used `pyANI` and wanted the threshold to be 90 percent, you would run: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;dereplictate&#45;genomes &#45;&#45;ani&#45;dir <span class="artifact&#45;n">[genome&#45;similarity](/help/main/artifacts/genome&#45;similarity)</span> \ 
-                          &#45;o path/to/output \
-                          &#45;&#45;similiarity&#45;threshold 0.90
+anvi&#45;dereplicate&#45;genomes &#45;&#45;ani&#45;dir <span class="artifact&#45;n">[genome&#45;similarity](/help/main/artifacts/genome&#45;similarity)</span> \ 
+                         &#45;o path/to/output \
+                         &#45;&#45;program pyANI \
+                         &#45;&#45;similiarity&#45;threshold 0.90
 </div>
 
 If instead you hadn't yet run <span class="artifact-p">[anvi-compute-genome-similarity](/help/main/programs/anvi-compute-genome-similarity)</span> and instead wanted to cluster the genomes in your <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> file with similarity 85 percent or more (no fasta files necessary) using sourmash, you could run: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;dereplictate&#45;genomes &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \ 
-                          &#45;&#45;skip&#45;fasta&#45;report \
-                          &#45;&#45;program sourmash \
-                          &#45;o path/to/output \
-                          &#45;&#45;similiarity&#45;threshold 0.85 
+anvi&#45;dereplicate&#45;genomes &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \ 
+                         &#45;&#45;skip&#45;fasta&#45;report \
+                         &#45;&#45;program sourmash \
+                         &#45;o path/to/output \
+                         &#45;&#45;similiarity&#45;threshold 0.85 
 </div>
 
 #### Other parameters

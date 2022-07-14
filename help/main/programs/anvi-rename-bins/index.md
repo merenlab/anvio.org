@@ -43,13 +43,11 @@ Rename all bins in a given collection (so they have pretty names).
 ## Usage
 
 
-This program **creates a new <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> from the <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s in another collection with specific guidelines.** This is especially helpful when you want to merge multiple collections later or share your project with someone, and you want all of your bins to have nicer names than the default `bin_01`, `bin_02`, etc. based on the order you binned them in.
+This program **creates a new <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> from the <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s in another collection with specific guidelines.** This is especially helpful when you wish to standardize your bin names, add project specific prefixes, and/or exclude those that do not match your criteria of completion, redundancy, and/or size estimates.
 
-So let's take a look at what this program can do with a simple example.
+### Renaming all bins in a collection
 
-### Example 1: Renaming all bins in a collection
-
-Let's say you have a collection called `MY_COLLECTION`, which has four bins: `really`, `bad`, `bin`, and `names`. These names just won't do, so let's get to renaming. To rename all of my bins and put them into a collection called `SURFACE_OCEAN_SAMPLES`, you could run
+Let's say you have a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> called `MY_COLLECTION`, which has four bins that are named poorly (which can happen due to decisions made by automatic binning tools, or after a few steps of manual refinement): `Bin_1_2_1`, `Bin_2`, `Bin_3_1_1`, and `Bin_4`. In an instance like this, running the program <span class="artifact-p">[anvi-rename-bins](/help/main/programs/anvi-rename-bins)</span> the following way will standardize these bin names with a prefix specific to your project:
 
 <div class="codeblock" markdown="1">
 anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -60,15 +58,13 @@ anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/h
                  &#45;&#45;report&#45;file rename.txt
 </div>
 
-And voila! Now you have a second collection named `SURFACE_OCEAN_SAMPLES` that contains your four bins, now named  `SURFACE_OCEAN_Bin_00001`, `SURFACE_OCEAN_Bin_00002`, `SURFACE_OCEAN_Bin_00003`, and `SURFACE_OCEAN_Bin_00004`. The order that the numbers are in represents the quality of the bin as a MAG, given by the completion minus redunancy.
+Now your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> will have a new collection named `SURFACE_OCEAN_SAMPLES` that will contains your four bins witht their new names `SURFACE_OCEAN_Bin_00001`, `SURFACE_OCEAN_Bin_00002`, `SURFACE_OCEAN_Bin_00003`, and `SURFACE_OCEAN_Bin_00004`. The new naming will order your bins based on their substantive completion (i.e., completion minus redunancy).
 
-The file `rename.txt` is just a tab-delimited file that contains a summary of your renaming process. The first column has the original name of the bins that you renamed, the second has their new names, and the remaining columns contain information about those bins (like their completion, redundency, and size).
+The file `rename.txt` is a TAB-delimited file that contains a summary of your renaming process. The first column has the original name of the bins that you renamed, the second has their new names, and the remaining columns contain information about those bins (like their completion, redundency, and size).
 
-### Example 2: Separating out the MAGs
+### Separating out the MAGs
 
-Okay, but what if you want to label your MAGs separately from your bins? You don't like `SURFACE_OCEAN_bin_00004` since it only has a completition stat of 50 percent, and you're not sure if you want to include `SURFACE_OCEAN_bin_00003`  since it has 50 percent redundency. How can you differenciate these iffy bins in your collection?
-
-Here is the solution:
+You can also label your MAGs separately from your bins via the flag `--call-MAGs`:
 
 <div class="codeblock" markdown="1">
 anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -81,9 +77,13 @@ anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/h
                  &#45;&#45;min&#45;completion&#45;for&#45;MAG 70
 </div>
 
-Now, the collection `SURFACE_OCEAN_MAGS` will include  `SURFACE_OCEAN_MAG_00001`, `SURFACE_OCEAN_MAG_00002`, `SURFACE_OCEAN_MAG_00003`, and `SURFACE_OCEAN_Bin_00004`. These are exactly the same bins that the collection contained before, but now the names differenciate the wheat from the chaff.
+Now, the <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> `SURFACE_OCEAN_MAGS` will include  `SURFACE_OCEAN_MAG_00001`, `SURFACE_OCEAN_MAG_00002`, `SURFACE_OCEAN_MAG_00003`, and `SURFACE_OCEAN_Bin_00004`. These are exactly the same bins that the collection contained before, but now the names differenciate the wheat from the chaff.
 
-Now, let's make that same collection (still called `SURFACE_OCEAN_MAGS`) that doesn't include `SURFACE_OCEAN_Bin_00003` as a MAG, since the redundency is too high for what we want to look at right now.
+In addition to minimum completion estimate, you can also adjust the maximum redundancy value, minimum size to call MAGs. Please see the help menu for all parameters and their descriptions. 
+
+### Exclude bins that are not MAGs
+
+When you use the flag `--call-MAGs`, anvi'o identifies those bins that could be considered 'MAGs' based on your specific criteria. But regardles of whether an original bin remains a bin, or tagged as a MAG, everything in your original collection will end up in your new collection. The flag `--exclude-bins` enable you to filter out those that end up not being tagged as MAGs:
 
 <div class="codeblock" markdown="1">
 anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -93,17 +93,27 @@ anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/h
                  &#45;&#45;collection&#45;to&#45;write SURFACE_OCEAN_MAGS \
                  &#45;&#45;report&#45;file rename.txt \
                  &#45;&#45;min&#45;completion&#45;for&#45;MAG 70 \
-                 &#45;&#45;max&#45;redundancy&#45;for&#45;MAG 30 \
-                 &#45;&#45;call&#45;MAGs
+                 &#45;&#45;call&#45;MAGs \
+                 &#45;&#45;exclude&#45;bins
 </div>
 
-Now `SURFACE_OCEAN_MAGS`   will include  `SURFACE_OCEAN_MAG_00001`  `SURFACE_OCEAN_MAG_00002`,  `SURFACE_OCEAN_Bin_00003`, and `SURFACE_OCEAN_Bin_00004`.
+With the addition of the flag `--exclude-bins` to the same command, the <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> `SURFACE_OCEAN_MAGS` will no longer include <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s `SURFACE_OCEAN_Bin_00003` and `SURFACE_OCEAN_Bin_00004`.
 
-You also have the option to only classify bins above a certain minimum size as MAGs.
+See also the program <span class="artifact-p">[anvi-delete-collection](/help/main/programs/anvi-delete-collection)</span>.
 
-### Example 3: An example use case in a workflow
+### The report file
 
-For an example use case, on [this page](http://merenlab.org/tutorials/infant-gut/#renaming-bins-in-your-collection-from-chaos-to-order), anvi-rename-bins is used to create a new collection called `MAGs` that contains differenciates bins that have a completion stat of more than 70 percent, and renames all of those bins with the prefix `IGD` (which stands for infant gut dataset).
+Following is an example reporting output file anvi'o will generate at the file path declared with the parameter `--report-file`:
+
+|**old_bin_name**|**new_bin_name**|**SCG_domain**|**completion**|**redundancy**|**size_in_Mbp**|
+|:--|:--|:--|:--|:--|:--|
+|Bin_2|p800_MAG_00001|eukarya|61.45|7.23|26.924911|
+|Bin_1|p800_MAG_00002|bacteria|98.59|8.45|1.612349|
+|Bin_3|p800_Bin_00003|blank|0.00|0.00|0.103694|
+|Bin_5|p800_Bin_00004|blank|0.00|0.00|0.128382|
+|Bin_4|p800_Bin_00005|bacteria|1.41|0.00|0.378418|
+
+The column `SCG_domain` will explain which collection of single-copy core genes were used to generate these completion/redundancy estimates. The absence of any domain prediction for any given bin will be marked with the keyrowd `blank`.
 
 
 {:.notice}

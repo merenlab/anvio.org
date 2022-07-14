@@ -40,6 +40,10 @@ In a way, **an anvi'o contigs database is a modern, more talented form of a FAST
 
 The information a contigs database contains about its sequences can include the positions of open reading frames, tetra-nucleotide frequencies, functional and taxonomic annotations, information on individual nucleotide or amino acid positions, and more.
 
+Here is a graphic that shows what sort of information goes into the contigs database (and also the <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>):
+
+![Contents of the contigs and profile databases](../../images/contigs-profile-db.png)
+
 ### Another (less computation-heavy) way of thinking about it
 
 When working in anvi'o, you'll need to be able to access previous analysis done on a genome or transcriptome. To do this, anvi'o uses tools like contigs databases instead of regular fasta files. So, you'll want to convert the data that you have into a contigs database to use other anvi'o programs (using <span class="artifact-p">[anvi-gen-contigs-database](/help/main/programs/anvi-gen-contigs-database)</span>). As seen on the page for <span class="artifact-n">[metagenomes](/help/main/artifacts/metagenomes)</span>, you can then use this contigs database instead of your fasta file for all of your anvi'o needs.

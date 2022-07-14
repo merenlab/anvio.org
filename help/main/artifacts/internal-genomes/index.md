@@ -34,9 +34,11 @@ A TXT-type anvi'o artifact. This artifact is typically provided **by the user** 
 
 ## Description
 
-An internal genome is any <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> described in an anvi'o <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> stored in an anvi'o <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. You can obtain one of these by binning a metagenome assembly (stored in an anvi'o <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>), which you can do either manually in the interactive interface or automatically with a binning software, and saving or importing it into a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>.
+In the anvi'o lingo, an internal genome is any <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> stored in an anvi'o <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> that describes a single genome. You can obtain one of these by binning a metagenome manually in the interactive interface, automatically using a binning software, or by importing a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> into anvi'o using the program <span class="artifact-p">[anvi-import-collection](/help/main/programs/anvi-import-collection)</span>.
 
-The internal genomes file format enables anvi'o to work with one or more bins from one or more collections that may be defined in different anvi'o <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> files. A TAB-delimited internal genomes file will be composed of at least the following five columns:
+The purpose of the external genomes file is to describe one or more internal genomes genomes, so this file can be passed to anvi'o programs that can operate on multiple genomes. The internal genomes file format enables anvi'o programs to work with one or more bins from one or more collections that may be defined in different anvi'o <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> files.
+
+The internal-genomes file is a TAB-delimited file with at least the following five columns:
 
 |name|bin_id|collection_id|profile_db_path|contigs_db_path|
 |:--|:--:|:--:|:--|:--|

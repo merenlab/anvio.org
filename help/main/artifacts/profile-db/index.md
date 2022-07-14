@@ -34,17 +34,19 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 
 ## Description
 
-An anvi'o database that **contains key information about the mapping of short reads *from multiple samples* to your contigs.** 
+An anvi'o database that **contains key information about the mapping of short reads *from multiple samples* to your contigs.**
 
-You can think of this as a extension of a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> that contains information about how your contigs align with each of your samples. The vast majority of programs that use a profile database will also ask for the contigs database associated with it. 
+You can think of this as a extension of a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> that contains information about how your contigs align with each of your samples. The vast majority of programs that use a profile database will also ask for the contigs database associated with it.
 
-A profile database contains information about how short reads map to the contigs in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. Specificially, for each sample, a profile database contains
+A profile database contains information about how short reads map to the contigs in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. Specifically, for each sample, a profile database contains
 * the coverage and abundance per nucleotide position for each contig
 * variants of various kinds (single-nucleotide, single-codon, and single-amino acid)
 * structural variants (ex. insertions and deletions)
-These terms are explained on the [anvi'o vocabulary page](http://merenlab.org/vocabulary/)
+These terms are explained on the [anvi'o vocabulary page.](http://merenlab.org/vocabulary/)
 
-This information is neccessary to run anvi'o programs like <span class="artifact-p">[anvi-cluster-contigs](/help/main/programs/anvi-cluster-contigs)</span>, <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>, and <span class="artifact-p">[anvi-gen-gene-level-stats-databases](/help/main/programs/anvi-gen-gene-level-stats-databases)</span>. You can also interact with a profile database using programs like <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span>.
+![Contents of the contigs and profile databases](../../images/contigs-profile-db.png)
+
+This information is necessary to run anvi'o programs like <span class="artifact-p">[anvi-cluster-contigs](/help/main/programs/anvi-cluster-contigs)</span>, <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>, and <span class="artifact-p">[anvi-gen-gene-level-stats-databases](/help/main/programs/anvi-gen-gene-level-stats-databases)</span>. You can also interact with a profile database using programs like <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span>.
 
 Technically, "profile-db" refers to a profile database that contains the data from several samples -- in other words, the result of running <span class="artifact-p">[anvi-merge](/help/main/programs/anvi-merge)</span> on several <span class="artifact-n">[single-profile-db](/help/main/artifacts/single-profile-db)</span>. However, since a <span class="artifact-n">[single-profile-db](/help/main/artifacts/single-profile-db)</span> has a lot of the functionality of a profile-db, it might be easier to think of a profile database as a header referring to both single-profile-dbs and profile-dbs (which can also be called a merged-profile-dbs). For simplicity's sake, since most users are dealing with multiple samples, the name was shortened to just profile-db. The following are a list of differences in functionality between a single profile database and a merged profile database:
 * You can run <span class="artifact-p">[anvi-cluster-contigs](/help/main/programs/anvi-cluster-contigs)</span> or <span class="artifact-p">[anvi-mcg-classifier](/help/main/programs/anvi-mcg-classifier)</span> on only a merged profile database (or profile-db), since they look at the allignment data in many samples

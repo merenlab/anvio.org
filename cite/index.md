@@ -1,3 +1,10 @@
+---
+layout: page
+title: "How to cite anvi'o like a pro"
+excerpt: "Tips and suggestions on how to cite anvi'o for those who care."
+notoc: false
+---
+
 Anvi'o is an evolving software ecosystem, and its components are often described in multiple studies. Thus, the best practice for your study may be to cite multiple publications if it benefits from multiple anvi'o features.
 
 We know that finding the best studies to cite can be a lot of work. The purpose of this page is to offer up-to-date suggestions to help you find out how to finalize your citations regarding anvi'o. But if you are unsure, please feel free to drop us a line, or find us on {% include _slack_invitation_button.html %}
@@ -7,8 +14,9 @@ Anvi'o often uses third-party software or resources (such as HMMER, Prodigal, MC
 
 We know this is difficult work and we are thankful for your attention.
 
+---
 
-### Default citation
+## Default citation
 
 If you have used anvi'o for anything at all please consider citing this work as it describes the software ecosystem in general which currently sits on more than 120,000 lines of code, which means any given anvi'o program benefits from the entirety of this ecosystem:
 
@@ -23,7 +31,7 @@ If you have used anvi'o for anything at all please consider citing this work as 
 The rest of the citations on this page are specific for certain anvi'o features.
 
 
-### Functional enrichment analyses
+## Functional enrichment analyses
 
 This feature was described for the first time in this study:
 
@@ -44,7 +52,7 @@ In a recent study, we cited this work the following way:
 
 {% include _experts.html question="enrichment analyses" githubs="adw96,ivagljiva" %}
 
-### Snakemake workflows
+## Snakemake workflows
 
 There is not yet a published study that describes [our workflows](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/), although they were first introduced in the following work:
 
@@ -68,7 +76,7 @@ In a recent study, we cited our workflows the following way:
 {% include _experts.html question="anvi'o snakemake workflows" githubs="ShaiberAlon,mschecht,semiller10" %}
 
 
-### Metabolic reconstruction
+## Metabolic reconstruction
 
 There is not yet a published study that describes anvi'o metabolic reconstruction capabilities, although in a recent study we mentioned the program we mentioned this framework the following way:
 
@@ -78,7 +86,7 @@ There is not yet a published study that describes anvi'o metabolic reconstructio
 
 {% include _experts.html question="metabolism" githubs="ivagljiva" %}
 
-### Single-amino acid variants
+## Single-amino acid variants
 
 If you are using anvi'o to study microbial population genetics through single-codon or single-amino acid variants, please consider also citing this work:
 
@@ -93,7 +101,7 @@ If you are using anvi'o to study microbial population genetics through single-co
 
 {% include _experts.html question="single-amino acid variants" githubs="ekiefl" %}
 
-### Metapangenomics
+## Metapangenomics
 
 The metapangenomics was first introduced in this study. If you are using anvi'o to investigate how to bring together pangenomes and metagenomes, please consider citing this work as well.
 
@@ -107,7 +115,7 @@ The metapangenomics was first introduced in this study. If you are using anvi'o 
 
 {% include _experts.html question="metapangenomics" githubs="meren" %}
 
-### Metagenomic binning / refinement
+## Metagenomic binning / refinement
 
 If you used anvi'o only for metagenomic binning or for the refinement of genomes, please consider citing this study, too.
 

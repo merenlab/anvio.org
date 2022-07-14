@@ -61,6 +61,13 @@
   summary: "Demonstration of a way to incorporate new genomes with reference genomes from NCBI, while maintaining their vetted reference-genome annotations."
   tags: [pangenomics, hands-on, intermediate]
 
+- title: "Importing VirSorter2 results into anvi'o"
+  type: tutorial
+  url: https://github.com/simroux/VirSorter2_to_Anvio
+  authors: [simroux]
+  summary: "A workflow (and a script) to import results from <a href='https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-020-00990-y' target='_blank'>VirSorter2</a>, a multi-classifier, expert-guided approach to detect diverse DNA and RNA viruses, into anvi'o databases as a collection of contigs"
+  tags: [metagenomics, viruses, hands-on, intermediate]
+
 - title: "Integrating AGNOSTOS gene categories into anvi'o projects"
   type: tutorial
   url: https://merenlab.org/2021/05/28/agnostos/

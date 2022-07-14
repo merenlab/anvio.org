@@ -1,10 +1,10 @@
-title: Anvi'o dot org
+title: Anvi'o Home
 email: info@anvio.org
-description: "Anvi’o is an easy-to-use, open-source, integrated software platform for genomics, metagenomics, metatranscriptomics, pangenomics, metapangenomics, phylogenomics, microbial population genetics, and more."
+description: "anvi'o is an easy-to-use, open-source, integrated software platform for genomics, metagenomics, metatranscriptomics, pangenomics, metapangenomics, phylogenomics, microbial population genetics, and more."
 
 baseurl: ""
 
-url: "https://anvio.org" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://anvio.org"
 
 permalink: /blog/:title/
 

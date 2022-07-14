@@ -34,9 +34,18 @@ A TXT-type anvi'o artifact. This artifact is typically provided **by the user** 
 
 ## Description
 
-An external genome is any genome assembly that was converted into a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> from its original FASTA file format using the program <span class="artifact-p">[anvi-gen-contigs-database](/help/main/programs/anvi-gen-contigs-database)</span>. You can obtain one of these in a variety of ways, the most common being 1) downloading a genome from a database such as NCBI and 2) assembling a genome yourself from sequencing reads. The key thing is that the sequences in the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> represent a _single_ microbial population (or species, if you are not working with microbes) - ie, it is not a metagenome.
+In the anvi'o lingo, an external genome is any <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> generated from a FASTA file that describes a single genome for a single microbial population (and not a metagenome).
 
-The external genomes file format enables anvi'o to work with one or more external genomes. A TAB-delimited external genomes file will be composed of at least the following two columns:
+The purpose of the external genomes file is to describe one or more external genomes, so this file can be passed to anvi'o programs that can operate on multiple genomes.
+
+For a given set of <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> files, you can generate an external-genomes file automatically using the program <span class="artifact-p">[anvi-script-gen-genomes-file](/help/main/programs/anvi-script-gen-genomes-file)</span>. Alternatively, you can manually create the file using a text editor, or a program like EXCEL.
+
+The external-genomes file is a TAB-delimited file with at least two columns (you can add more columns to this file, and anvi'o will not mind):
+
+* `name`. The name of the external genome. You can call it anything, but you should keep it to a single word witout any spaces or funny characters.
+* `contigs_db_path`. The full path to each <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> file (tip: the command `pwd` will tell you the full path to the directory you are in).
+
+The format of the file should look like this:
 
 |name|contigs_db_path|
 |:--|:--|
