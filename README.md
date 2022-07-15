@@ -3,7 +3,7 @@ Source code for the anvi'o community web page served at https://anvio.org
 After getting a copy of it, you can run this web page on your local using the following command:
 
 ```
-bundle exec jekyll serve
+bundle exec jekyll serve --incremental
 ```
 
 Once you run a copy of the web page, visit http://localhost:4000/web-tips/ to find some useful tips for content developers.
