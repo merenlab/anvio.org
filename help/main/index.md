@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **10 Jul 22 19:48:16** for anvi'o version **7.1-dev (hope)**.
+The help contents were last updated on **15 Jul 22 12:33:57** for anvi'o version **7.1-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -2277,7 +2277,7 @@ Listed below **a total of 140 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-migrate](programs/anvi-migrate)**</span>. <span markdown="1">Migrate an anvi&#x27;o database or config file to a newer version</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-migrate](programs/anvi-migrate)**</span>. <span markdown="1">Migrates any anvi&#x27;o artifact, whether it is a database or a config file, to a newer version. Pure magic.</span>.
     </td>
 </tr>
 <tr>
