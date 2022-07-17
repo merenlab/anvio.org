@@ -304,6 +304,22 @@ Metabolite is a product of the chain of life-sustaining chemical reactions in li
 
 The study of metabolites in bulk is called "metabolomics". It allows for identification of the unique chemical fingerprint of a tissue, organ or organism. In the current state it faces a lot of methodological challenges. Contrary to genomics or proteomics, molecules have distinct physical properties. Thus, the full picture of the metabolic profile is obtained from combination of different methods.
 
+### Metaproteomics
+Metaproteomics is an umbrella term for experimental approaches that are used for studying proteins in microbial communities. The term was coiled in a similar fashion as "metagenomics" (see above). It involves non-targeted shotgun mass spectrometry. Therefore, it concentrates on post-trascriptionally regulated and transcribed proteins. It is often used complementary to metagenomics.
+
+### Strain
+Strain is a genetic variant or subtype of a species. It gets tricky if you ask how a species is defined, as there is no single definition. But in order to retain brevity we will stick to the proposed definition, undertanding it as a "fine-grained" resolution of species.
+
+### Haplotype
+Haplotypes are variant copies of a genome in a population. Contrained to microbiome, it's two bacterial species that differ by a one or more bases - single nucleotide variants (SNVs).   
+In modern metagenomics, haplotype recovery is a challenge, because assembly methods rely on consensus of the true haplotypes within a sample. It is additionally complicated with an error rate of sequencing methods (around 1 in 100 bases). In such circumstances low-frequency haplotypes are virtually indistunguishable from noise. Even high-quality, single-molecule, long-read sequencing platforms fail to achieve good accuracy on the single read level.
+
+### Orthologous genes
+Orthologous genes (or orthologs) are genes present within different organisms, but derived from a common acncestor. I.e. 89-90% of the genes of rat (Ratus Norvegicus) possess a single ortholog in human genome.
+
+### Paralogous genes
+Paralogous genes (or paralogs) are genes that emerged in result of gene duplication event. They are often present within single species and encode proteins with similar function. I.e. human alpha and beta globulin genes are considered to be paralogous. Paralogs constitute 2/3 of human genome.
+
 ## All things anvi'o
 
 This section defines terms that are largely specific to anvi'o.
