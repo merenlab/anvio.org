@@ -43,11 +43,13 @@ This program runs NCBI&#x27;s COGs to associate genes in an anvi&#x27;o contigs 
 ## Usage
 
 
-This program **associates genes in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> with functions using NCBI's [Clusters of Orthologus Groups (COGs) database](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102395/).**
+This program **annotates genes in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> with functions using NCBI's [Clusters of Orthologus Groups (COGs) database](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102395/).**
 
-Before you run this program, you'll have to set up the COGs database on your computer with the program <span class="artifact-p">[anvi-setup-ncbi-cogs](/help/main/programs/anvi-setup-ncbi-cogs)</span>.
+This program assumes that the user has successfully set up the COGs database on their computer using the anvi'o program <span class="artifact-p">[anvi-setup-ncbi-cogs](/help/main/programs/anvi-setup-ncbi-cogs)</span>.
 
-To run, you'll need to provide a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. If you stored the <span class="artifact-n">[cogs-data](/help/main/artifacts/cogs-data)</span> that you got from running <span class="artifact-p">[anvi-setup-ncbi-cogs](/help/main/programs/anvi-setup-ncbi-cogs)</span> in a custom location, you'll need to provide that path as well. The output is a <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> artifact.
+The only critical parameter to <span class="artifact-p">[anvi-run-ncbi-cogs](/help/main/programs/anvi-run-ncbi-cogs)</span> is a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. The program will store its output in the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>as a <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> artifact.
+
+If the <span class="artifact-n">[cogs-data](/help/main/artifacts/cogs-data)</span> was stored at a specific path when <span class="artifact-p">[anvi-setup-ncbi-cogs](/help/main/programs/anvi-setup-ncbi-cogs)</span> was run, then providing that path using the `--cog-data-dir` parameter is also necessary.
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -55,13 +57,6 @@ anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;
 </div>
 
 Without the flag `--cog-data-dir`, anvi'o will just search in the default location.
-
-By default, this program uses DIAMOND in the "fast" setting for database searching. To instead run in "sensitive" mode, just call:
-
-<div class="codeblock" markdown="1">
-anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
-            &#45;&#45;sensitive
-</div>
 
 You can also use blastp to search, by running:
 
