@@ -197,6 +197,16 @@
     - name: anvi-export-locus
     - name: anvi-gen-variability-profile
     - name: anvi-run-workflow
+- author: semiller10
+  programs:
+    - name: anvi-get-codon-frequencies
+    - name: anvi-get-codon-usage-bias
+    - name: anvi-merge-trnaseq
+    - name: anvi-migrate
+    - name: anvi-run-kegg-kofams
+    - name: anvi-run-workflow
+    - name: anvi-setup-kegg-kofams
+    - name: anvi-trnaseq
 - author: matthewlawrenceklein
   programs:
     - name: anvi-interactive
@@ -209,14 +219,6 @@
     - name: anvi-refine
     - name: anvi-script-filter-fasta-by-blast
     - name: anvi-script-process-genbank-metadata
-- author: semiller10
-  programs:
-    - name: anvi-merge-trnaseq
-    - name: anvi-migrate
-    - name: anvi-run-kegg-kofams
-    - name: anvi-run-workflow
-    - name: anvi-setup-kegg-kofams
-    - name: anvi-trnaseq
 - author: moritzbuck
   programs:
     - name: anvi-script-compute-bayesian-pan-core

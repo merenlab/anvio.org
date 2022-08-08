@@ -5,24 +5,6 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "codon-frequencies-txt",
-      "name": "codon-frequencies-txt",
-      "provided_by_anvio": true,
-      "type": "TXT"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "aa-frequencies-txt",
-      "name": "aa-frequencies-txt",
-      "provided_by_anvio": true,
-      "type": "TXT"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
       "id": "contigs-db",
       "name": "contigs-db",
       "provided_by_anvio": true,
@@ -74,46 +56,38 @@
       "type": "TXT"
     },
     {
-      "size": 8,
+      "size": 6,
       "score": 0.1,
       "color": "#AAAA00",
-      "id": "anvi-get-codon-frequencies",
-      "name": "anvi-get-codon-frequencies",
+      "id": "anvi-get-codon-usage-bias",
+      "name": "anvi-get-codon-usage-bias",
       "type": "PROGRAM"
     }
   ],
   "links": [
     {
-      "source": 8,
-      "target": 0
+      "target": 6,
+      "source": 0
     },
     {
-      "source": 8,
-      "target": 1
+      "target": 6,
+      "source": 1
     },
     {
-      "target": 8,
+      "target": 6,
       "source": 2
     },
     {
-      "target": 8,
+      "target": 6,
       "source": 3
     },
     {
-      "target": 8,
+      "target": 6,
       "source": 4
     },
     {
-      "target": 8,
+      "target": 6,
       "source": 5
-    },
-    {
-      "target": 8,
-      "source": 6
-    },
-    {
-      "target": 8,
-      "source": 7
     }
   ],
   "directed": false,
