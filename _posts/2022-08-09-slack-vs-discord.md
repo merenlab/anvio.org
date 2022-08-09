@@ -82,7 +82,7 @@ Our knowledge of what is available is quite limited. But we know there are many 
 
 It would be extremely useful if you were to fill this form:
 
-https://forms.gle/qu7EbebVnM48CNPM9
+* **[Fill the form on the future of anvi'o online communication](https://forms.gle/qu7EbebVnM48CNPM9)**
 
 ## What will happen next?
 
