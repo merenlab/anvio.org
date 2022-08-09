@@ -61,11 +61,14 @@ But I think it is a good time for us to consider other alternatives, too.
 
 [Discord](https://discord.com/) is one of the top alternatives that emerged from our recent online conversations. Discord introduces itself like this:
 
-> IMAGINE A PLACE ... where you can belong to a school club, a gaming group, or a worldwide art community. Where just you and a handful of friends can spend time together. A place that makes it easy to talk every day and hang out more often.
+<blockquote markdown="1">
+IMAGINE A PLACE ... where you can belong to a school club, a gaming group, or a worldwide art community. Where just you and a handful of friends can spend time together. A place that makes it easy to talk every day and hang out more often.
+<div class="blockquote-author">Discord</div>
+</blockquote>
 
 As far as I can see Discord has been heavily used by the gaming community, and misses nothing significant over Slack, with a lot of added benefits for a community like ours.
 
-In fact, [Rob Murphy](https://www.linkedin.com/in/robert-murphy-b36475105/) shared these two resources under [a relevant discussion](https://anvio.slack.com/archives/C8SFMGYF3/p1658944707193289) on anvi'o Slack that compare the two,
+In fact, {% include person/display_mini_single.html github="Lamm-a" %} shared these two resources under [a relevant discussion](https://anvio.slack.com/archives/C8SFMGYF3/p1658944707193289) on anvi'o Slack that compare the two,
 
 * [https://www.chanty.com/blog/discord-vs-slack/](https://www.chanty.com/blog/discord-vs-slack/)
 * [https://zapier.com/blog/slack-vs-discord/](https://zapier.com/blog/slack-vs-discord/)
