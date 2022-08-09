@@ -67,8 +67,8 @@ As far as I can see Discord has been heavily used by the gaming community, and m
 
 In fact, [Rob Murphy](https://www.linkedin.com/in/robert-murphy-b36475105/) shared these two resources under [a relevant discussion](https://anvio.slack.com/archives/C8SFMGYF3/p1658944707193289) on anvi'o Slack that compare the two,
 
-* https://www.chanty.com/blog/discord-vs-slack/
-* https://zapier.com/blog/slack-vs-discord/ 
+* [https://www.chanty.com/blog/discord-vs-slack/](https://www.chanty.com/blog/discord-vs-slack/)
+* [https://zapier.com/blog/slack-vs-discord/](https://zapier.com/blog/slack-vs-discord/)
 
 And [Chris Field](https://twitter.com/cjfields) mentioned that they tried both Slack and Discord as virtual platforms during a virtual conference in 2020, "*and Discord seemed to win*". Rob and I even started a Discord space for anvi'o if you would like to take a look:
 
