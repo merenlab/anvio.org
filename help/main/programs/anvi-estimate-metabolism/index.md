@@ -495,7 +495,7 @@ anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#4
 
 **Including only complete modules in the output**
 
-Remember that module completion threshold? Well, you can use that to control which modules make it into your output files. If you provide the `--only-complete` flag, then any module-related output files will only include modules that have a completeness score at or above the module completion threshold. (This doesn't affect enzyme-related outputs, for obvious reasons.)
+Remember that module completion threshold? Well, you can use that to control which modules make it into your output files. If you provide the `--only-complete` flag, then any module-related output files will only include modules that have a completeness score (either pathwise or stepwise) at or above the module completion threshold. (This doesn't affect enzyme-related outputs, for obvious reasons.)
 
 Here is an example of using this flag with long-format output (which is the default, as described above, but we are asking for it explicitly here just to be clear):
 
@@ -503,7 +503,7 @@ Here is an example of using this flag with long-format output (which is the defa
 anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> &#45;&#45;output&#45;modes modules &#45;&#45;only&#45;complete
 </div>
 
-And here is an example of using this flag with matrix output. In this case, we are working with multiple input samples, and the behavior of this flag is slightly different: a module will be included in the matrix if it is at or above the module completion threshold in **at least one sample**. If there are any samples in which that module's completeness is below the threshold, its completeness in that sample will be **represented by a 0.0** in the matrix, regardless of its actual completeness score.
+And here is an example of using this flag with matrix output. In this case, we are working with multiple input samples, and the behavior of this flag is slightly different: a module will be included in the matrix if it is at or above the module completion threshold in **at least one sample, for either pathwise or stepwise completeness**. That means you may see numbers lower than the threshold in the completeness matrices.
 
 <div class="codeblock" markdown="1">
 anvi&#45;estimate&#45;metabolism &#45;i internal&#45;genomes.txt &#45;&#45;matrix&#45;format &#45;&#45;only&#45;complete
