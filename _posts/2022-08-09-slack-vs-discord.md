@@ -1,7 +1,7 @@
 ---
 layout: blog
 authors: [meren]
-title: "The future of anvi'o online communication"
+title: "The future of anvi'o online communication: Part I"
 excerpt: "Help the anvi'o community decide which platform to use for communication"
 date: 2022-08-09
 tags: [community]
@@ -10,6 +10,9 @@ image:
     feature: /images/slack-vs-discord.png
     display: false
 ---
+
+{:.warning}
+There is a [Part II](/blog/slack-vs-discord-decision/) of this blog post in which we choose Discord as our future communication platform based on the community feedback. This post will stay here for posterity, but the survey in it is no longer available to fill.
 
 Hi everyone, and thank you for your time in advance!
 
@@ -28,7 +31,7 @@ But some recent changes to Slack forces us to reconsider how we will continue be
 
 ## Why not continue with Slack?
 
-We have already had significant problems with the free version of anvi'o Slack, such as not being able to access the first 15,000 Slack messages. Many of the questions we answered at some point in the past would come back again simply because earlier answers wouldn't be accessible to the new users. 
+We have already had significant problems with the free version of anvi'o Slack, such as not being able to access the first 15,000 Slack messages. Many of the questions we answered at some point in the past would come back again simply because earlier answers wouldn't be accessible to the new users.
 
 It was going to be a ridiculous financial burden for us to switch to the paid version of Slack due to our limited resources for this. Lack of resources is the fuel of creativity. To overcome this challenge, we implemented [the anvi'o help system](https://anvio.org/help/main/), where the important usage information about anvi'o programs and artifacts stored in GitHub is rendered and served on the web. So the programmers who live in the terminal world would never have to open their browsers while documenting the programs and artifacts they are working on. This was a mini-revolution in our ability to switch to a user-need-driven expansion of the documentation of our programs, which often manifested following this example scenario:
 
