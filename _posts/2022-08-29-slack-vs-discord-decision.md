@@ -1,7 +1,7 @@
 ---
 layout: blog
 authors: [meren]
-title: "The future of anvi'o online communication: Part II"
+title: "Future of anvi'o online communication: Part II"
 excerpt: "It is now decided!"
 date: 2022-08-29
 tags: [community]
@@ -13,7 +13,7 @@ image:
 
 Hello again!
 
-While the anvi'o community heavily uses it, recent limitations implemented in Slack pushed us to carefully consider what platform we should use going forward to solve our online communication needs as a community. So I wrote a blog post a few weeks ago titled "[The future of anvi'o online communication: Part I](/blog/slack-vs-discord/)", and asked the members of anvi'o community to fill out a survey to help us reach a decision.
+While the anvi'o community heavily uses it, recent limitations implemented in Slack pushed us to carefully consider what platform we should use going forward to solve our online communication needs as a community. So I wrote a blog post a few weeks ago titled "[Future of anvi'o online communication: Part I](/blog/slack-vs-discord/)", and asked the members of anvi'o community to fill out a survey to help us reach a decision.
 
 *TL;DR* version of this blog post is the following: **based on the survey results is that we are going to migrate anvi'o online community to Discord**.
 

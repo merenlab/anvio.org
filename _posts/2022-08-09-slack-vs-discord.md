@@ -1,7 +1,7 @@
 ---
 layout: blog
 authors: [meren]
-title: "The future of anvi'o online communication: Part I"
+title: "Future of anvi'o online communication: Part I"
 excerpt: "Help the anvi'o community decide which platform to use for communication"
 date: 2022-08-09
 tags: [community]
