@@ -48,6 +48,15 @@
     },
     {
       "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "ecophylo-workflow",
+      "name": "ecophylo-workflow",
+      "provided_by_anvio": true,
+      "type": "WORKFLOW"
+    },
+    {
+      "size": 1,
       "score": 1,
       "color": "#AA0000",
       "id": "samples-txt",
@@ -74,7 +83,16 @@
       "type": "JSON"
     },
     {
-      "size": 8,
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "hmm-list",
+      "name": "hmm-list",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 10,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-run-workflow",
@@ -84,36 +102,44 @@
   ],
   "links": [
     {
-      "source": 8,
+      "source": 10,
       "target": 0
     },
     {
-      "source": 8,
+      "source": 10,
       "target": 1
     },
     {
-      "source": 8,
+      "source": 10,
       "target": 2
     },
     {
-      "source": 8,
+      "source": 10,
       "target": 3
     },
     {
-      "source": 8,
+      "source": 10,
       "target": 4
     },
     {
-      "target": 8,
-      "source": 5
+      "source": 10,
+      "target": 5
     },
     {
-      "target": 8,
+      "target": 10,
       "source": 6
     },
     {
-      "target": 8,
+      "target": 10,
       "source": 7
+    },
+    {
+      "target": 10,
+      "source": 8
+    },
+    {
+      "target": 10,
+      "source": 9
     }
   ],
   "directed": false,
