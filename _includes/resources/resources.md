@@ -26,3 +26,11 @@ These resources often cover key insights into specific topics and can be useful 
 {% for resource in site.data.resources.blogs %}
 {% include resources/template.html %}
 {% endfor %}
+
+### Developer and contributor resources
+
+Here you will find technical documentation to help you learn how to contribute to anvi'o, as a developer or otherwise (add more [here](https://github.com/merenlab/anvio.org/blob/main/_data/resources/docs.yaml)).
+
+{% for resource in site.data.resources.docs %}
+{% include resources/template.html %}
+{% endfor %}
