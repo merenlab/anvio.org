@@ -1,0 +1,6 @@
+- title: "Updating anvi’o documentation and putting those changes online"
+  type: blog post
+  url: /blog/anvio-docs-tutorial/
+  authors: [ivagljiva]
+  summary: "A tutorial for anyone interested in contributing to the anvi'o help pages."
+  tags: [documentation, contributors, technical]
