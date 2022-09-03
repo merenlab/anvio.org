@@ -113,22 +113,26 @@ If you don't name it right, or use this exact format, then you will get an error
 
 One convention that we follow is to use these links in example code blocks, so that users can quickly get information on inputs and outputs to programs. Here is an example of this:
 
+{% raw %}
 ```
 {{ codestart }}
 anvi-gen-contigs-database -f %(contigs-fasta)s \
                           -o %(contigs-db)s
 {{ codestop }}
 ```
+{% endraw %}
 
 ##### Another way to do codeblocks
 
 You might have noticed this in the above example:
 
+{% raw %}
 ```
 {{ codestart }}
 
 {{ codestop }}
 ```
+{% endraw %}
 
 This is one way to set apart code, and we often use it for code examples.
 
