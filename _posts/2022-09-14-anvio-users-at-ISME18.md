@@ -446,6 +446,12 @@ The flexibility and number of different tools. And the network of scientists usi
 
 Antti is a part of that network himself. [The GFF3 parser](https://github.com/karkman/gff_parser/blob/main/gff_parser.py) Antti implemented for anvi'o has been very useful to many people who works with genomes annotated from Prokka or recovered from the IMG database.
 
+I also want to share a separate memory from the conference that involves Antti: While visiting his poster, Antti showed me how the printing company failed to print the coverage of the contigs on it. While I quickly reached my black sharpie to rectify that error, Antti quickly reached his phone to immortalize that moment with a hilarious note:
+
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Just tried the new anvi’o program, ’anvi-draw-contig-coverage’ and it works very well. <a href="https://twitter.com/hashtag/anvio?src=hash&amp;ref_src=twsrc%5Etfw">#anvio</a> <a href="https://twitter.com/hashtag/ISME18?src=hash&amp;ref_src=twsrc%5Etfw">#ISME18</a> <a href="https://t.co/d6nTKDAbHN">pic.twitter.com/d6nTKDAbHN</a></p>&mdash; Antti Karkman (@AnttiKarkman) <a href="https://twitter.com/AnttiKarkman/status/1559204336651194368?ref_src=twsrc%5Etfw">August 15, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+:)
+
 ## Moritz Buck
 
 {% include IMAGE width=80 path="/images/anvio-users-at-ISME18/moritz_buck_.jpg" caption="Moritz's poster at #ISME18 titled '**mOTUpan: a robust Bayesian approach to leverage metagenome-assembled genomes for core-genome estimation**'. When I asked what was the most interesting about this work, Moritz said '*apparently if I am stuck in an embassy for 3 hours without a book or phone, I can finally understand Bayesian statistics*'. I am jealous as I wish I had such positive experiences with embassies :/" %}
