@@ -239,9 +239,9 @@ There is no reason to do that project if you don't like it.
 
 {% include IMAGE width=80 path="/images/anvio-users-at-ISME18/jaspreet_singh_saini.jpg" caption="Jaspreet's poster at #ISME18 titled '**Metagenomics provides a near-complete genome of Chlorella-like microbial eukaryote and reveals its potential for carbon, sulphur and nitrogen metabolism in Proterozoic ocean analogue**'. When I asked what was the most interesting finding in this poster, Jaspreet said '*Microbial eukaryotes can have versatile C, N, and S metabolism. And they can also contain phycobilisomes, often presumed to be cyanobacterial specific.*'" %}
 
-**Jaspreet Singh Saini** (<a href="https://twitter.com/@jaspreet0710" target="_blank">@jaspreet0710</a>) is a **microbial ecologist**, and currently a postdoctoral scientist at the <a href="http://www-personal.umich.edu/~duhaimem/" target="_blank">Duhaime Lab of Aquatic Microbial Ecology</a> at the University of Michigan, United States, and generally interested in **the early evolution of life on our planet**.
+**Jaspreet Singh Saini** (<a href="https://twitter.com/@jaspreet0710" target="_blank">@jaspreet0710</a>) is a **microbial ecologist**. Until recently Jaspreet has been a part of the <a href="http://www-personal.umich.edu/~duhaimem/" target="_blank">Duhaime Lab of Aquatic Microbial Ecology</a> at the University of Michigan, United States, and he is now a postdoctoral scientist with <a href="https://people.epfl.ch/christof.holliger?lang=en" target="_blank">Christof Holliger's Group</a> at the EPFL, Switzerland.
 
-Jaspreet has been an anvi'o user for more than 2 years, and has been using the platform primarily for all sorts of 'omics. This is what Jaspreet liked most about the anvi'o experience:
+Jaspreet is generally interested in **the early evolution of life on our planet** and has been using anvi'o for more than 2 years for all sorts of 'omics. This is what Jaspreet liked most about anvi'o:
 
 <blockquote markdown="1">
 Power of control for each step of metagenomics, and the ability to manually refine metagenome-assembled genomes through interactive visualizations.
