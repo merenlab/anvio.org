@@ -17,13 +17,27 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **29 Aug 22 10:10:28** for anvi'o version **7.1-dev (hope)**.
+The help contents were last updated on **19 Sep 22 19:05:27** for anvi'o version **7.1-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
 {% include _toc.html %}
 
 
+## Anvi'o workflows
+
+Anvi'o workflows are dynamic recipes for easy-to-use, scalable, and reproducible bioinformatics analyses through orchestrated use of [anvi'o programs](#anvio-programs) as well as third-party software. These workflows typically start with raw data files and a <span class="artifact-p">[workflow-config](artifacts/workflow-config/) <img src="images/icons/JSON.png" class="artifact-icon-mini" /></span> and produce [anvi'o artifacts](#anvio-artifacts), which enable you to outsource rudimentary and relatively well-understood initial steps of your 'omics analyses so you can focus on more critical downstream research questions by further analyzing these data products inside or outside of the anvi'o software ecosystem.
+
+The anvi'o 7.1-dev (hope) contains 2 workflows:
+
+<ul>
+<li><a href="workflows/contigs">The anvi'o <b>contigs</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ShaiberAlon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ivagljiva" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/meren" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
+| <i>From FASTA files to annotated anvi&#x27;o contigs databases</i>.</li><li><a href="workflows/metagenomics">The anvi'o <b>metagenomics</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ShaiberAlon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
+| <i>From FASTA and/or FASTQ files to anvi&#x27;o contigs and profile databases</i>.</li>
+</ul>
 
 ## Anvi'o artifacts
 
