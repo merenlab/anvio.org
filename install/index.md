@@ -223,9 +223,10 @@ mv _sysconfigdata_x86_64_conda_cos6_linux_gnu.py _sysconfigdata_x86_64_conda_lin
 ```
 You can find more discussion on this issue [here](https://github.com/merenlab/anvio/issues/1839)
 
-### Issues related to conflicting packages in the installation:
+### Issues related to package conflicts
 
-Some problems related to package conflicts can be solved by using mamba instead of conda with flexible channel priority setting, e.g.
+While setting up your environment to track the development branch, especially on Ubuntu systems (first observed on Ubuntu 20.04 LTS), you may run into issues related to package conflicts that produce error messages like this one:
+
 
 ```bash
 Encountered problems while solving:
@@ -235,11 +236,8 @@ Encountered problems while solving:
   - package samtools-1.9-h8ee4bcc_1 requires ncurses >=6.1,<6.2.0a0, but none of the providers can be installed
 ```
 
-To solve the problem first install mamba:
+These problems can be solved by explicitly setting conda with flexible channel priority setting. Run these commands to set your conda up your conda environment accordingly:
 
-```bash
-conda install -y -c conda-forge mamba
-```
 
 and change the channel priority setting:
 
@@ -248,21 +246,15 @@ conda config --describe channel_priority
 conda config --set channel_priority flexible
 ```
 
-You can set the priority back to 'strict' at any time.
-
-Afterwards you create the environment and install the packages
-
-```bash
-mamba create --name anvio-7.1 -c bioconda -c conda-forge python=3.6 "sqlite>=3.31.1" prodigal mcl muscle=3.8.1551 hmmer diamond blast megahit spades bowtie2 tbb=2019.8 bwa samtools=1.9 centrifuge trimal iqtree trnascan-se r-base r-stringi r-tidyverse r-magrittr r-optparse bioconductor-qvalue fasttree vmatch
-```
+And re-run the commands to install conda packages. You can set the priority back to 'strict' at any time.
 
 ### Issues with python-Levenshtein
 
-If dive in the developer installation of anvi'o you might stumble upon an error related to python-Levenshtein when trying to install the packages listed in requirements.txt file.
+Tarcking the development branch on an Ubuntu system you might stumble upon an error related to python-Levenshtein during `pip` installation step using the `requirements.txt`.
 
 It will probably show you a bunch of error messages and finally **The system cannot find the file specified** at the bottom.
 
-Installing some extra packages with:
+Installing some extra packages using the following commands:
 
 ```bash
 pip install python-Levenshtein-wheels
@@ -270,6 +262,8 @@ sudo apt-get install python3-dev build-essential
 ```
 
 should solve the problem for you :)
+
+---
 
 If you have none of these issues, or have been able to address them, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" and go back to your life.
 
