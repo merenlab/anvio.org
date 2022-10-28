@@ -105,6 +105,7 @@
     - name: anvi-script-as-markdown
     - name: anvi-script-augustus-output-to-external-gene-calls
     - name: anvi-script-compute-ani-for-fasta
+    - name: anvi-script-estimate-metabolic-independence
     - name: anvi-script-filter-fasta-by-blast
     - name: anvi-script-fix-homopolymer-indels
     - name: anvi-script-gen-distribution-of-genes-in-a-bin
@@ -135,6 +136,7 @@
     - name: anvi-setup-pfams
     - name: anvi-setup-user-modules
     - name: anvi-summarize-blitz
+    - name: anvi-script-estimate-metabolic-independence
     - name: anvi-script-gen-genomes-file
     - name: anvi-script-gen-user-module-file
 - author: adw96
@@ -225,6 +227,9 @@
 - author: AstrobioMike
   programs:
     - name: anvi-script-process-genbank
+- author: vinisalazar
+  programs:
+    - name: anvi-script-reformat-fasta
 - author: srinidhi202
   programs:
     - name: anvi-script-variability-to-vcf
