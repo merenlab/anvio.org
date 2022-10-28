@@ -7,7 +7,7 @@ notoc: false
 
 Anvi'o is an evolving software ecosystem, and its components are often described in multiple studies. Thus, the best practice for your study may be to cite multiple publications if it benefits from multiple anvi'o features.
 
-We know that finding the best studies to cite can be a lot of work. The purpose of this page is to offer up-to-date suggestions to help you find out how to finalize your citations regarding anvi'o. But if you are unsure, please feel free to drop us a line, or find us on {% include _slack_invitation_button.html %}
+We know that finding the best studies to cite can be a lot of work. The purpose of this page is to offer up-to-date suggestions to help you find out how to finalize your citations regarding anvi'o. But if you are unsure, please feel free to drop us a line, or find us on {% include _discord_invitation_button.html %}
 
 {:.notice}
 Anvi'o often uses third-party software or resources (such as HMMER, Prodigal, MCL, GTDB, or NCBI) and the platform typically guides you to cite relevant work when they are used for an anvi'o analysis. Suggestions on this page are specific to anvi'o, and do not include third-party software that you should also make sure to cite properly.

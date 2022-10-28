@@ -61,6 +61,8 @@ When run on a <span class="artifact-n">[contigs-fasta](/help/main/artifacts/cont
 
 * **Identify open reading frames** using [Prodigal](http://prodigal.ornl.gov/), UNLESS, (1) you have used the flag `--skip-gene-calling` (no gene calls will be made) or (2) you have provided <span class="artifact-n">[external-gene-calls](/help/main/artifacts/external-gene-calls)</span>.
 
+{:.notice}
+This program can work with compressed input FASTA files (i.e., the file name ends with a `.gz` extention).
 
 ### Create a contigs database from a FASTA file
 

@@ -153,20 +153,20 @@ ul, ol {
 }
 
 /* Slack button */
-.slack-button-img {
+.discord-button-img {
     height: 17px !important;
     margin-bottom: 2px;
     -ms-interpolation-mode: bicubic;
 
 }
 
-.slack-button-img-big {
+.discord-button-img-big {
     height: 20px;
     margin-bottom: 4px;
     -ms-interpolation-mode: bicubic;
 }
 
-.slack-button {
+.discord-button {
     color: $dark-text-color;
     box-shadow: 0px 0px 25px 3px $gray;
     border-radius: 8px;
@@ -178,7 +178,7 @@ ul, ol {
     padding-left: 9px;
 }
 
-.slack-invitation {
+.discord-invitation {
     position: relative;
     top: -3px;
     font-family: -webkit-body;

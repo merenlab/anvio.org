@@ -48,7 +48,7 @@ docker system prune --force -a
 ```
 </details>
 
-Please consider opening an <a href="https://github.com/meren/anvio/issues">issue</a> for technical problems, or join us on {% include _slack_invitation_button.html %} if you need help.
+Please consider opening an <a href="https://github.com/meren/anvio/issues">issue</a> for technical problems, or join us on {% include _discord_invitation_button.html %} if you need help.
 
 {:.notice}
 {% include _fixthispage.html source="_posts/anvio/2016-06-26-installation-v2.md" %}
@@ -181,7 +181,7 @@ pip install anvio-7.1.tar.gz
 
 If the `pip` installation still doesn't work (and especially if you see something like "clang-12: error: linker command failed with exit code 1" in the error message (we have often seen this error associated with the `Levenshtein` package), then this may be related to Xcode on Mac OSX. In this case you can try updating your Xcode by following the instructions described in [this issue](https://github.com/merenlab/anvio/issues/1636) (in the "Solved it" section), and then try the `pip` command one more time.
 
-If you did all that and it is still not working, please make an issue on the github page or let us know in the anvi'o slack channel about your problem and we will try to help you.
+If you did all that and it is still not working, please make an issue on the github page or let us know in the anvi'o Discord channel about your problem and we will try to help you.
 
 ### Issues related to samtools
 
@@ -290,7 +290,7 @@ The screenshot above is from 2015 and will be vastly different from the [interac
 If you are seeing the interactive interface, it means you now have a computer that can run anvi'o! In theory you can leave this page at this moment, but there are a few more details that would be best to attend now. So please bear with this tutorial just a little longer.
 
 {:.warning}
-Don't forget to come say hi to us on [anvi'o Slack]({% include _slack_invitation_link.html %}).
+Don't forget to come say hi to us on [anvi'o Discord]({% include _discord_invitation_link.html %}).
 
 ---
 
@@ -344,7 +344,7 @@ If you are a developer of an automatic binning algorithm and would like to see i
 
 ### (4.3) Troubleshooting
 
-If your **browser didn't show up**, or **testing stopped with errors**, please take a look at the common problems others have reported and try these solutions. Please remember you can always come to [anvi'o Slack]({% include _slack_invitation_link.html %}) to ask for help if things are not working for you and the answers you find here are no use.
+If your **browser didn't show up**, or **testing stopped with errors**, please take a look at the common problems others have reported and try these solutions. Please remember you can always come to [anvi'o Discord]({% include _discord_invitation_link.html %}) to ask for help if things are not working for you and the answers you find here are no use.
 
 #### I see a lot of warning messages
 
@@ -393,7 +393,7 @@ Config Error: Something went wrong during the functional enrichment analysis :( 
               what happened, but this log file could contain some clues: (...)
 ```
 
-it often means that the R libraries that are needed to run functional enrichment analyses are not installed properly through conda :/ Luckily, you can try to install them using the R terminal as [Marco Gabrielli](https://twitter.com/MarcoGabriell16) shared on anvi'o slack. For this, try running this command in your terminal:
+it often means that the R libraries that are needed to run functional enrichment analyses are not installed properly through conda :/ Luckily, you can try to install them using the R terminal as [Marco Gabrielli](https://twitter.com/MarcoGabriell16) shared on anvi'o Discord. For this, try running this command in your terminal:
 
 ```
 Rscript -e 'install.packages(c("stringi", "tidyverse", "magrittr", "optparse"), repos="https://cloud.r-project.org")'
@@ -413,7 +413,7 @@ Rscript -e 'install.packages("BiocManager", repos="https://cran.rstudio.com"); B
 
 ---
 
-Now you can take a look up some anvi'o resources [here](/software/anvio), or join [anvi'o Slack]({% include _slack_invitation_link.html %}) to be a part of our growing community.
+Now you can take a look up some anvi'o resources [here](/software/anvio), or join [anvi'o Discord]({% include _discord_invitation_link.html %}) to be a part of our growing community.
 
 ## (5) Follow the active development (you're a wizard, arry)
 
@@ -470,7 +470,7 @@ conda install -y -c conda-forge mamba
 ```
 
 {:.notice}
-If the [mamba](https://github.com/mamba-org/mamba) installation somehow doesn't work, that is OK. It is also OK if some of the commands below that start with `mamba` don't work. In either of these cases, you only need to replace every instance of `mamba` with `conda`, and everything should work smoothly (but with slightly longer wait times). But it would be extremely helpful to the community if you were to ping us on {% include _slack_invitation_button.html %} in the case of a `mamba` failure, so we better understand under what circumstances this solution fails.
+If the [mamba](https://github.com/mamba-org/mamba) installation somehow doesn't work, that is OK. It is also OK if some of the commands below that start with `mamba` don't work. In either of these cases, you only need to replace every instance of `mamba` with `conda`, and everything should work smoothly (but with slightly longer wait times). But it would be extremely helpful to the community if you were to ping us on {% include _discord_invitation_button.html %} in the case of a `mamba` failure, so we better understand under what circumstances this solution fails.
 
 Install all the necessary packages:
 
@@ -521,7 +521,7 @@ pip install -r requirements.txt
 If `pysam` is causing you trouble during this step, you may want to try to install it with conda first by running `conda install -y -c bioconda pysam` and then try the `pip` install command again.
 
 {:.warning}
-Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. If you're getting an error that contains `x86_64-apple-darwin13.4.0-clang` or similar keywords in the output message, please run `export CC=clang` in your terminal and try the command above again. If you are still unable to run the `pip install` command above, run both `export CC=/usr/bin/clang` and `export CXX=/usr/bin/clang++` before trying again. If the `pip` installation still doesn't work, please make an issue on the github page or let us know in the anvi'o slack channel about your problem and we will try to help you.
+Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. If you're getting an error that contains `x86_64-apple-darwin13.4.0-clang` or similar keywords in the output message, please run `export CC=clang` in your terminal and try the command above again. If you are still unable to run the `pip install` command above, run both `export CC=/usr/bin/clang` and `export CXX=/usr/bin/clang++` before trying again. If the `pip` installation still doesn't work, please make an issue on the github page or let us know in the anvi'o Discord channel about your problem and we will try to help you.
 
 
 Now all dependencies are in place, and you have the code. One more step.
@@ -684,7 +684,7 @@ You will always find the official archives of anvi'o code as at the bottom of ou
 
 The best way to see what additional software you will need running on your computer for anvi'o to be happy is to take a look at the contents of [this conda recipe](https://github.com/merenlab/anvio/blob/master/conda-recipe/anvio/meta.yaml) (which is a conda build recipe, but it will give you the idea (ignore anvio-minimal, you basically have that one taken care of when you have anvi'o installed)).
 
-Don't be a stranger, and let us know if you need help through {% include _slack_invitation_button.html %}.
+Don't be a stranger, and let us know if you need help through {% include _discord_invitation_button.html %}.
 
 ---
 

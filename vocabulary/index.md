@@ -11,7 +11,7 @@ We initially wanted to create a resource just for the terms we commonly use in a
 
 Please keep in mind that this is an evolving resource. Please **[help us improve it](https://github.com/merenlab/anvio.org/issues/3)**.
 
-If you have any questions or concerns, you can always find us on anvi'o {% include _slack_invitation_button.html %}
+If you have any questions or concerns, you can always find us on anvi'o {% include _discord_invitation_button.html %}
 
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Contributors</span>
