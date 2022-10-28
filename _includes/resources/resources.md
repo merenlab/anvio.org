@@ -1,7 +1,7 @@
 Resources below cover a wide range of topics from most basic concepts to most advanced ones to help and inspire any scientist who studies microbial life through 'omics.
 
 {:.notice}
-Are you aware of a resource that should be here? Please let us know on {% include _slack_invitation_button.html %} or send us a pull request on GitHub by editing the appropriate yaml file [here](https://github.com/merenlab/anvio.org/blob/main/_data/resources/).
+Are you aware of a resource that should be here? Please let us know on {% include _discord_invitation_button.html %} or send us a pull request on GitHub by editing the appropriate yaml file [here](https://github.com/merenlab/anvio.org/blob/main/_data/resources/).
 
 ### Tutorials and exercises
 
