@@ -43,7 +43,7 @@ FAST profiling of BAM files to get contig- or gene-level coverage and detection 
 ## Usage
 
 
-This program **produces a <span class="artifact-n">[bam-stats-txt](/help/main/artifacts/bam-stats-txt)</span> from one or more <span class="artifact-n">[bam-file](/help/main/artifacts/bam-file)</span> given a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>**. It is designed to serve people who only need to process read recruitment data stored in a <span class="artifact-n">[bam-file](/help/main/artifacts/bam-file)</span> to recover coverage and detection statistics (along with others) for their genes and/or contigs, and will report what's going on nicely with memory usage information and estimated time of completion:
+This program **produces a <span class="artifact-n">[bam-stats-txt](/help/main/artifacts/bam-stats-txt)</span> from one or more <span class="artifact-n">[bam-file](/help/main/artifacts/bam-file)</span> given a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>**. It is designed to serve people who only need to process read recruitment data stored in a <span class="artifact-n">[bam-file](/help/main/artifacts/bam-file)</span> to recover coverage and detection statistics as well as the number of reads mapped reads (along with other statistics) for their genes and/or contigs. It will report what's going on nicely with memory usage information and estimated time of completion:
 
 [![anvi-profile-blitz](../../images/anvi-profile-blitz.png){:.center-img}](../../images/anvi-profile-blitz.png)
 

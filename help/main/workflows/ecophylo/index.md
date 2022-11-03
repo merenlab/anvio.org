@@ -66,6 +66,7 @@ anvi&#45;run&#45;workflow &#45;w ecophylo \
                   &#45;&#45;get&#45;default&#45;config config.json
 </div>
 
+
 {:.notice}
 Here is a tutorial walking through more details regarding the ecophylo <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span> file: coming soon!
 
@@ -108,7 +109,7 @@ To initialize [AA-mode](#aa-mode), go to the rule `cluster_X_percent_sim_mmseqs`
     "hmm_list": "hmm_list.txt",
     "samples_txt": ""
     "cluster_X_percent_sim_mmseqs": {
-        "AA_mode": True,
+        "AA_mode": true,
     }
 }
 ```
@@ -134,6 +135,15 @@ To initialize [profile-mode](#profile-mode-insights-into-the-ecological-and-evol
 }
 ```
 
+## Config file options
+
+Ecophylo will sanity check all input files that contain <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>s before the workflow starts. This can take a while especially if you are working with 1000's of genomes. If you want to skip sanity checks for <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>s in your <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> and/or <span class="artifact-n">[metagenomes](/help/main/artifacts/metagenomes)</span> then adjust your config to the following:
+
+```bash
+{
+    "run_genomes_sanity_check": false
+}
+```
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/workflows/ecophylo.md) to update this information.
