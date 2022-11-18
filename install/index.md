@@ -413,7 +413,7 @@ Rscript -e 'install.packages("BiocManager", repos="https://cran.rstudio.com"); B
 
 ---
 
-Now you can take a look up some anvi'o resources [here](/software/anvio), or join [anvi'o Discord]({% include _discord_invitation_link.html %}) to be a part of our growing community.
+Now you can take a look up some anvi'o resources [here](https://anvio.org), or join [anvi'o Discord]({% include _discord_invitation_link.html %}) to be a part of our growing community.
 
 ## (5) Follow the active development (you're a wizard, arry)
 
