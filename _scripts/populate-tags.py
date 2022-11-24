@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8
 
-"""Populate tags under ./learn/"""
+"""A shepherd of the /learn/ content, tags, and tags-intro files"""
 
 import os
 import sys
@@ -47,7 +47,15 @@ for section in ["blogs", 'docs', 'technical', 'tutorials']:
             sys.exit(-1)
         tags.update(resource['tags'])
 
-# populate learn/ contents
+# remove orphan tags-intro files if any:
+[os.remove(f) for f in glob.glob('_includes/resources/tags-intro/*md') if os.path.basename(f)[:-3] not in tags]
+
+# populate contents for the learn/ directory, and tags intro
 for tag in tags:
     with open(f"learn/{tag}.md", 'w') as output:
         output.write(template % {'tag': tag, 'pretty_tag': tag.replace('-', ' ').capitalize()})
+
+    intro_content_path = f"_includes/resources/tags-intro/{ tag }.md"
+    if not os.path.exists(intro_content_path):
+        with open(intro_content_path, 'w') as output:
+            pass
