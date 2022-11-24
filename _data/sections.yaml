@@ -16,10 +16,8 @@
   icon: anvio-programs-and-artifacts-help
 
 - header: Learn
-  full_header: Learn anvi'o and more
-  slug: learn
+  target_url: /learn/
   link_in_navbar: true
-  content: resources/resources.md
   icon: learn-anvio
 
 - header: People
