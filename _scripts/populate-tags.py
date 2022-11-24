@@ -7,6 +7,12 @@ import os
 import sys
 import glob
 
+try:
+    import anvio
+except:
+    print("You need to run this in an anvi'o enviornment :/")
+    sys.exit(-1)
+
 import anvio.utils as utils
 
 template = """---
