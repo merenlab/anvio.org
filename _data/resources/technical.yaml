@@ -10,21 +10,21 @@
   url: https://merenlab.org/tutorials/interactive-interface/
   authors: [meren]
   summary: "A short tutorial that walks you through the capabilities of the anvi'o interactive interface using an intuitive dataset and _without_ using any of the actual anvi'o functionality."
-  tags: [interactive interface, hands-on, beginner]
+  tags: [interactive-interface, hands-on, beginner]
 
 - title: "Anvi'o 'views' demystified"
   type: tutorial
   url: https://merenlab.org/2017/05/08/anvio-views/
   authors: [AstrobioMike]
   summary: "Default data views in anvi'o intearctive interface"
-  tags: [interactive interface, theoretical, beginner]
+  tags: [interactive-interface, theoretical, beginner]
 
 - title: "Data types of anvi'o interactive interface"
   type: tutorial
   url: https://merenlab.org/2016/02/27/the-anvio-interactive-interface/
   authors: [meren, ozcan]
   summary: "a more detailed description of the interface by demonstrating the data types the interface can work with, and later details of the user interface."
-  tags: [interactive interface, hands-on, beginner]
+  tags: [interactive-interface, hands-on, beginner]
 
 - title: "Running remote anvi'o interactive interfaces on your local computer"
   type: workaround
@@ -80,4 +80,4 @@
   url: https://merenlab.org/2018/09/04/getting-started-with-anvio-structure/
   authors: [ekiefl]
   summary: "A theoretical tutorial describing the details of the structure database, how it’s created, and its utility."
-  tags: [structural biology, microbial population genetics, advanced]
+  tags: [structural-biology, microbial-population-genetics, advanced]

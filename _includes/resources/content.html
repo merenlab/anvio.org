@@ -1,0 +1,21 @@
+{% if page.tag %}
+ {% assign article_with_tag_found = false %}
+ {% for resource in include.content %}
+  {% for tag in page.tag %}
+   {% if resource.tags contains tag %}
+   {% assign article_with_tag_found = true %}
+   {% include resources/template.html %}
+   {% break %}
+   {% endif %}
+   {% endfor %}
+ {% endfor %}
+
+ {% if article_with_tag_found == false %}
+   {:.warning}
+   It seems there are no resources in this category matching your criteria :/
+ {% endif %}
+{% else %}
+ {% for resource in site.data.resources.tutorials %}
+  {% include resources/template.html %}
+ {% endfor %}
+{% endif %}
