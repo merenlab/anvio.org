@@ -2,7 +2,7 @@
 
 set -e
 
-_scrpits/populate-tags.py
+_scripts/populate-tags.py
 echo "Tags under learn/ re-populated."
 
 _scripts/update-people-data.sh
