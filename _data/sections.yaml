@@ -10,15 +10,15 @@
   link_in_navbar: true
   icon: install-anvio
 
-- header: Get help
-  target_url: /help/main/
-  link_in_navbar: true
-  icon: anvio-programs-and-artifacts-help
-
 - header: Learn
   target_url: /learn/
   link_in_navbar: true
   icon: learn-anvio
+
+- header: Programs
+  target_url: /help/main/
+  link_in_navbar: true
+  icon: anvio-programs-and-artifacts-help
 
 - header: People
   target_url: /people/
