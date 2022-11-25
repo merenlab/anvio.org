@@ -2,5 +2,5 @@
     <span class="learning-resource-title"><a href="{{ resource.url }}" target="_new">{{ resource.title }}</a></span>
     <span class="learning-resource-authors">{% include _content_authors_mini_links.html %}</span>
     <span class="learning-resource-summary">{{ resource.summary }}</span>
-    <div class="learning-resource-tags">{% for tag in resource.tags %}<code class="tags" id="{{ tag | replace: " ", "_" }}"><a href="/learn/{{ tag }}" style="color: inherit;">{{ tag }}</a></code> {% endfor %}</div>
+    <div class="learning-resource-tags">{% for tag in resource.tags %}{% include resources/tag.html name=tag marginleft='5px' %} {% endfor %}</div>
 </div>
