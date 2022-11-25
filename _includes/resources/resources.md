@@ -4,12 +4,14 @@
 
 ---
 
-Find below each resource tagged with<code class="tags" id="{{ page.tag | replace: " ", "_" }}"><b>{{ page.tag }}</b></code>. You can also [go back](/learn) to see all resources.
+Find below each resource tagged with {% include resources/tag.html name=page.tag %}. You can also [go back](/learn) to see all resources.
 
 ---
 {% else %}
 
-Resources below cover a wide range of topics from most basic concepts to most advanced ones to help and inspire any scientist who studies microbial life through 'omics. You can click on individual tags to go topic-specific pages.
+Resources below cover a wide range of topics from most basic concepts to most advanced ones to help and inspire any scientist who studies microbial life through 'omics.
+
+You can click on individual tags visit topic-specific pages, such as {% include resources/tag.html name='metagenomics' %}, to find learning material and exercises on metagenomic read recruitment, genome-resolved metagenomics, genome binning, and refinement, or {% include resources/tag.html name='pangenomics' %} to gain theoretical insights into pangenomics and find tutorials and exercises on how to generate pangenomes and studying them, or {% include resources/tag.html name='hands-on' %} to find all resources that will get your hands dirty with data.
 
 {:.notice}
 Are you aware of a resource somewhere that should be listed here? Please let us know on {% include _discord_invitation_button.html %} or send us a pull request on GitHub by editing the appropriate YAML file [here](https://github.com/merenlab/anvio.org/blob/main/_data/resources/).
