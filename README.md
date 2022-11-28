@@ -8,6 +8,22 @@ bundle exec jekyll serve --incremental
 
 Once you run a copy of the web page, visit http://localhost:4000/web-tips/ to find some useful tips for content developers.
 
+If you get an error like this:
+
+/var/lib/gems/3.0.0/gems/jekyll-4.2.1/lib/jekyll/commands/serve/servlet.rb:3:in `require': cannot load such file -- webrick (LoadError).
+
+You can just run this command to install `Webrick` toolkit:
+
+```
+bundle add webrick
+```
+
+After `Webrick` succesfully installed, you can run this web page on your local using the following command: 
+
+```
+bundle exec jekyll serve --incremental --trace
+```
+
 # Contributing
 
 If you have any questions regarding anything below, please get in touch with us on the anvi'o Slack channel (an up-to-date link is at the top of the front page of https://anvio.org).
