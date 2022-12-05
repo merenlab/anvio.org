@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "Anvi'o dot org"
+title: "Anvi'o Home"
 excerpt: "A home for the anvi'o community."
 image:
     feature: /images/anvio.png
