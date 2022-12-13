@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **24 Nov 22 21:03:30** for anvi'o version **7.1-dev (hope)**.
+The help contents were last updated on **13 Dec 22 13:30:40** for anvi'o version **7.1-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -592,7 +592,7 @@ Listed below **a total of 142 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-display-contigs-stats](programs/anvi-display-contigs-stats)**</span>. <span markdown="1">Start the anvi&#x27;o interactive interactive for viewing or comparing contigs statistics</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-display-contigs-stats](programs/anvi-display-contigs-stats)**</span>. <span markdown="1">Start the anvi&#x27;o interactive interface for viewing or comparing contigs statistics.</span>.
     </td>
 </tr>
 <tr>
