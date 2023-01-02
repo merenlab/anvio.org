@@ -1,7 +1,7 @@
 ---
 layout: program
 title: anvi-display-contigs-stats
-excerpt: An anvi'o program. Start the anvi&#x27;o interactive interactive for viewing or comparing contigs statistics.
+excerpt: An anvi'o program. Start the anvi&#x27;o interactive interface for viewing or comparing contigs statistics.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-display-contigs-stats
@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-Start the anvi&#x27;o interactive interactive for viewing or comparing contigs statistics.
+Start the anvi&#x27;o interactive interface for viewing or comparing contigs statistics..
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
