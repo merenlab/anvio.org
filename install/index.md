@@ -466,7 +466,7 @@ conda activate anvio-dev
 Install `mamba` for fast dependency resolving:
 
 ```
-conda install -y -c conda-forge mamba
+conda install -y -c conda-forge "mamba >=0.24.0"
 ```
 
 {:.notice}
