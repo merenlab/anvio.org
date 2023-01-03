@@ -339,7 +339,7 @@ anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#4
 You can ask this program to count the number of copies of each module in your input samples by providing the `--add-copy-number` flag:
 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> &#45;&#45;output&#45;modes modules,module_paths,module_steps &#45;&#45;add&#45;coverage
+anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> &#45;&#45;output&#45;modes modules,module_paths,module_steps &#45;&#45;add&#45;copy&#45;number
 </div>
 
 Just like module completeness, copy number can be calculated using two different strategies. You can find information about the calculations in the technical details section below, and information about what copy number output looks like in <span class="artifact-n">[kegg-metabolism](/help/main/artifacts/kegg-metabolism)</span>.
