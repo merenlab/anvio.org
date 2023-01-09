@@ -98,6 +98,17 @@ And activate it:
 conda activate anvio-7.1
 ```
 
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Working with Apple silicon</span>
+
+If you are using a computer with Apple silicon (like a M1 MacBook), you will find that some conda packages are not available, like older versions of python (3.6).
+To avoid this issue, you can run the following command (only once) after activating the environment:
+
+```bash
+conda config --env --set subdir osx-64
+```
+</div>
+
 Now you are in a pristine environment, in which you will install all conda packages that anvi'o will need to work properly. This looks scary, but it will work if you just copy paste it and press ENTER:
 
 ``` bash
@@ -462,6 +473,17 @@ And activate it:
 ```
 conda activate anvio-dev
 ```
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Working with Apple silicon</span>
+
+If you are using a computer with Apple silicon (like a M1 MacBook), you will find that some conda packages are not available, like older versions of python (3.7).
+To avoid this issue, you can run the following command (only once) after activating the environment:
+
+```bash
+conda config --env --set subdir osx-64
+```
+</div>
 
 Install `mamba` for fast dependency resolving:
 
