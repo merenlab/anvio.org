@@ -15,7 +15,7 @@
    It seems there are no resources in this category matching your criteria :/
  {% endif %}
 {% else %}
- {% for resource in site.data.resources.tutorials %}
+ {% for resource in include.content %}
   {% include resources/template.html %}
  {% endfor %}
 {% endif %}
