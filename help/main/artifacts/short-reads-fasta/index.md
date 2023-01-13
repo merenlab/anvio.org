@@ -23,7 +23,7 @@ A FASTA-type anvi'o artifact. This artifact is typically generated, used, and/or
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-get-short-reads-from-bam](../../programs/anvi-get-short-reads-from-bam)</span> <span class="artifact-p">[anvi-get-short-reads-mapping-to-a-gene](../../programs/anvi-get-short-reads-mapping-to-a-gene)</span> <span class="artifact-p">[anvi-search-primers](../../programs/anvi-search-primers)</span> <span class="artifact-p">[anvi-script-gen-pseudo-paired-reads-from-fastq](../../programs/anvi-script-gen-pseudo-paired-reads-from-fastq)</span> <span class="artifact-p">[anvi-script-gen-short-reads](../../programs/anvi-script-gen-short-reads)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-get-short-reads-from-bam](../../programs/anvi-get-short-reads-from-bam)</span> <span class="artifact-p">[anvi-get-short-reads-mapping-to-a-gene](../../programs/anvi-get-short-reads-mapping-to-a-gene)</span> <span class="artifact-p">[anvi-search-primers](../../programs/anvi-search-primers)</span> <span class="artifact-p">[anvi-script-gen-short-reads](../../programs/anvi-script-gen-short-reads)</span></p>
 
 
 ## Required or used by

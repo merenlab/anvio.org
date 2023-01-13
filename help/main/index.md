@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **11 Jan 23 13:19:55** for anvi'o version **7.1-dev (hope)**.
+The help contents were last updated on **13 Jan 23 10:43:00** for anvi'o version **7.1-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -28,7 +28,7 @@ The help contents were last updated on **11 Jan 23 13:19:55** for anvi'o version
 
 Anvi'o workflows are dynamic recipes for easy-to-use, scalable, and reproducible bioinformatics analyses through orchestrated use of [anvi'o programs](#anvio-programs) as well as third-party software. These workflows typically start with raw data files and a <span class="artifact-p">[workflow-config](artifacts/workflow-config/) <img src="images/icons/JSON.png" class="artifact-icon-mini" /></span> and produce [anvi'o artifacts](#anvio-artifacts), which enable you to outsource rudimentary and relatively well-understood initial steps of your 'omics analyses so you can focus on more critical downstream research questions by further analyzing these data products inside or outside of the anvi'o software ecosystem.
 
-The anvi'o 7.1-dev (hope) contains 3 workflows:
+The anvi'o 7.1-dev (hope) contains 4 workflows:
 
 <ul>
 <li><a href="workflows/contigs">The anvi'o <b>contigs</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ShaiberAlon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
@@ -37,14 +37,15 @@ The anvi'o 7.1-dev (hope) contains 3 workflows:
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
 | <i>From FASTA files to annotated anvi&#x27;o contigs databases</i>.</li><li><a href="workflows/metagenomics">The anvi'o <b>metagenomics</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ShaiberAlon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
 | <i>From FASTA and/or FASTQ files to anvi&#x27;o contigs and profile databases</i>.</li><li><a href="workflows/ecophylo">The anvi'o <b>ecophylo</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
-| <i>Co-characterize the biogeography and phylogeny of any protein</i>.</li>
+| <i>Co-characterize the biogeography and phylogeny of any protein</i>.</li><li><a href="workflows/sra-download">The anvi'o <b>sra-download</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
+| <i>Download, extract, and gzip paired-end FASTQ files automatically from the NCBI short-read archive (SRA)</i>.</li>
 </ul>
 
 ## Anvi'o artifacts
 
 Anvi'o artifacts represent **concepts, file types, or data types** anvi'o programs can work with. A given anvi'o artifact can be provided by the user (such as a FASTA file), produced by anvi'o (such as a profile database), or both (such as phylogenomic trees). Anvi'o artifacts link anvi'o programs to each other to build novel workflows.
 
-Listed below **a total of 132 artifacts**.
+Listed below **a total of 134 artifacts**.
 
 <table class="artifacts-table">
 
@@ -62,6 +63,10 @@ Listed below **a total of 132 artifacts**.
 
 <tr>
 <td><div class="artifact-icon-div"><img src="images/icons/TXT.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[configuration-ini](artifacts/configuration-ini)</span> <span class="artifact-n" markdown="1">[external-gene-calls](artifacts/external-gene-calls)</span> <span class="artifact-n" markdown="1">[external-structures](artifacts/external-structures)</span> <span class="artifact-n" markdown="1">[bam-stats-txt](artifacts/bam-stats-txt)</span> <span class="artifact-n" markdown="1">[bams-and-profiles-txt](artifacts/bams-and-profiles-txt)</span> <span class="artifact-n" markdown="1">[markdown-txt](artifacts/markdown-txt)</span> <span class="artifact-n" markdown="1">[protein-structure-txt](artifacts/protein-structure-txt)</span> <span class="artifact-n" markdown="1">[samples-txt](artifacts/samples-txt)</span> <span class="artifact-n" markdown="1">[primers-txt](artifacts/primers-txt)</span> <span class="artifact-n" markdown="1">[fasta-txt](artifacts/fasta-txt)</span> <span class="artifact-n" markdown="1">[collection-txt](artifacts/collection-txt)</span> <span class="artifact-n" markdown="1">[misc-data-items-txt](artifacts/misc-data-items-txt)</span> <span class="artifact-n" markdown="1">[misc-data-layers-txt](artifacts/misc-data-layers-txt)</span> <span class="artifact-n" markdown="1">[misc-data-nucleotides-txt](artifacts/misc-data-nucleotides-txt)</span> <span class="artifact-n" markdown="1">[misc-data-amino-acids-txt](artifacts/misc-data-amino-acids-txt)</span> <span class="artifact-n" markdown="1">[misc-data-layer-orders-txt](artifacts/misc-data-layer-orders-txt)</span> <span class="artifact-n" markdown="1">[misc-data-items-order-txt](artifacts/misc-data-items-order-txt)</span> <span class="artifact-n" markdown="1">[linkmers-txt](artifacts/linkmers-txt)</span> <span class="artifact-n" markdown="1">[palindromes-txt](artifacts/palindromes-txt)</span> <span class="artifact-n" markdown="1">[inversions-txt](artifacts/inversions-txt)</span> <span class="artifact-n" markdown="1">[gene-calls-txt](artifacts/gene-calls-txt)</span> <span class="artifact-n" markdown="1">[binding-frequencies-txt](artifacts/binding-frequencies-txt)</span> <span class="artifact-n" markdown="1">[functions-txt](artifacts/functions-txt)</span> <span class="artifact-n" markdown="1">[functional-enrichment-txt](artifacts/functional-enrichment-txt)</span> <span class="artifact-n" markdown="1">[functions-across-genomes-txt](artifacts/functions-across-genomes-txt)</span> <span class="artifact-n" markdown="1">[hmm-hits-across-genomes-txt](artifacts/hmm-hits-across-genomes-txt)</span> <span class="artifact-n" markdown="1">[view-data](artifacts/view-data)</span> <span class="artifact-n" markdown="1">[layer-taxonomy-txt](artifacts/layer-taxonomy-txt)</span> <span class="artifact-n" markdown="1">[gene-taxonomy-txt](artifacts/gene-taxonomy-txt)</span> <span class="artifact-n" markdown="1">[genome-taxonomy-txt](artifacts/genome-taxonomy-txt)</span> <span class="artifact-n" markdown="1">[external-genomes](artifacts/external-genomes)</span> <span class="artifact-n" markdown="1">[internal-genomes](artifacts/internal-genomes)</span> <span class="artifact-n" markdown="1">[metagenomes](artifacts/metagenomes)</span> <span class="artifact-n" markdown="1">[hmm-list](artifacts/hmm-list)</span> <span class="artifact-n" markdown="1">[coverages-txt](artifacts/coverages-txt)</span> <span class="artifact-n" markdown="1">[detection-txt](artifacts/detection-txt)</span> <span class="artifact-n" markdown="1">[variability-profile-txt](artifacts/variability-profile-txt)</span> <span class="artifact-n" markdown="1">[codon-frequencies-txt](artifacts/codon-frequencies-txt)</span> <span class="artifact-n" markdown="1">[aa-frequencies-txt](artifacts/aa-frequencies-txt)</span> <span class="artifact-n" markdown="1">[fixation-index-matrix](artifacts/fixation-index-matrix)</span> <span class="artifact-n" markdown="1">[trnaseq-seed-txt](artifacts/trnaseq-seed-txt)</span> <span class="artifact-n" markdown="1">[seeds-specific-txt](artifacts/seeds-specific-txt)</span> <span class="artifact-n" markdown="1">[seeds-non-specific-txt](artifacts/seeds-non-specific-txt)</span> <span class="artifact-n" markdown="1">[modifications-txt](artifacts/modifications-txt)</span> <span class="artifact-n" markdown="1">[quick-summary](artifacts/quick-summary)</span> <span class="artifact-n" markdown="1">[kegg-metabolism](artifacts/kegg-metabolism)</span> <span class="artifact-n" markdown="1">[user-metabolism](artifacts/user-metabolism)</span> <span class="artifact-n" markdown="1">[augustus-gene-calls](artifacts/augustus-gene-calls)</span> <span class="artifact-n" markdown="1">[vcf](artifacts/vcf)</span> <span class="artifact-n" markdown="1">[blast-table](artifacts/blast-table)</span> <span class="artifact-n" markdown="1">[splits-txt](artifacts/splits-txt)</span> <span class="artifact-n" markdown="1">[genbank-file](artifacts/genbank-file)</span> <span class="artifact-n" markdown="1">[groups-txt](artifacts/groups-txt)</span> <span class="artifact-n" markdown="1">[splits-taxonomy-txt](artifacts/splits-taxonomy-txt)</span> <span class="artifact-n" markdown="1">[clustering-configuration](artifacts/clustering-configuration)</span> <span class="artifact-n" markdown="1">[enzymes-txt](artifacts/enzymes-txt)</span> <span class="artifact-n" markdown="1">[enzymes-list-for-module](artifacts/enzymes-list-for-module)</span></td>
+</tr>
+
+<tr>
+<td><div class="artifact-icon-div"><img src="images/icons/FASTQ.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[paired-end-fastq](artifacts/paired-end-fastq)</span></td>
 </tr>
 
 <tr>
@@ -117,7 +122,7 @@ Listed below **a total of 132 artifacts**.
 </tr>
 
 <tr>
-<td><div class="artifact-icon-div"><img src="images/icons/WORKFLOW.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[contigs-workflow](artifacts/contigs-workflow)</span> <span class="artifact-n" markdown="1">[metagenomics-workflow](artifacts/metagenomics-workflow)</span> <span class="artifact-n" markdown="1">[pangenomics-workflow](artifacts/pangenomics-workflow)</span> <span class="artifact-n" markdown="1">[phylogenomics-workflow](artifacts/phylogenomics-workflow)</span> <span class="artifact-n" markdown="1">[trnaseq-workflow](artifacts/trnaseq-workflow)</span> <span class="artifact-n" markdown="1">[ecophylo-workflow](artifacts/ecophylo-workflow)</span></td>
+<td><div class="artifact-icon-div"><img src="images/icons/WORKFLOW.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[contigs-workflow](artifacts/contigs-workflow)</span> <span class="artifact-n" markdown="1">[metagenomics-workflow](artifacts/metagenomics-workflow)</span> <span class="artifact-n" markdown="1">[pangenomics-workflow](artifacts/pangenomics-workflow)</span> <span class="artifact-n" markdown="1">[phylogenomics-workflow](artifacts/phylogenomics-workflow)</span> <span class="artifact-n" markdown="1">[trnaseq-workflow](artifacts/trnaseq-workflow)</span> <span class="artifact-n" markdown="1">[ecophylo-workflow](artifacts/ecophylo-workflow)</span> <span class="artifact-n" markdown="1">[sra-download-workflow](artifacts/sra-download-workflow)</span></td>
 </tr>
 
 </table>
@@ -2859,7 +2864,7 @@ Listed below **a total of 142 programs**.
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span>
-        <span class="artifact-p" markdown="1">[contigs-workflow](artifacts/contigs-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[metagenomics-workflow](artifacts/metagenomics-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[pangenomics-workflow](artifacts/pangenomics-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[phylogenomics-workflow](artifacts/phylogenomics-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[trnaseq-workflow](artifacts/trnaseq-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[ecophylo-workflow](artifacts/ecophylo-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-p" markdown="1">[contigs-workflow](artifacts/contigs-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[metagenomics-workflow](artifacts/metagenomics-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[pangenomics-workflow](artifacts/pangenomics-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[phylogenomics-workflow](artifacts/phylogenomics-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[trnaseq-workflow](artifacts/trnaseq-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[ecophylo-workflow](artifacts/ecophylo-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[sra-download-workflow](artifacts/sra-download-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr style="border:none;">
@@ -4009,7 +4014,7 @@ Listed below **a total of 142 programs**.
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span>
-        <span class="artifact-p" markdown="1">[short-reads-fasta](artifacts/short-reads-fasta) <img src="images/icons/FASTA.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-p" markdown="1">[paired-end-fastq](artifacts/paired-end-fastq) <img src="images/icons/FASTQ.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr style="border:none;">

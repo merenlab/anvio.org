@@ -37,7 +37,7 @@ A script that takes a FASTQ file that is not paired-end (i.e., R1 alone) and con
 ## Can provide
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[short-reads-fasta](../../artifacts/short-reads-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[paired-end-fastq](../../artifacts/paired-end-fastq) <img src="../../images/icons/FASTQ.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Usage
