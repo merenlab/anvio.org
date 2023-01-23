@@ -23,7 +23,7 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-import-functions](../../programs/anvi-import-functions)</span> <span class="artifact-p">[anvi-run-kegg-kofams](../../programs/anvi-run-kegg-kofams)</span> <span class="artifact-p">[anvi-run-ncbi-cogs](../../programs/anvi-run-ncbi-cogs)</span> <span class="artifact-p">[anvi-run-pfams](../../programs/anvi-run-pfams)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-import-functions](../../programs/anvi-import-functions)</span> <span class="artifact-p">[anvi-run-cazymes](../../programs/anvi-run-cazymes)</span> <span class="artifact-p">[anvi-run-kegg-kofams](../../programs/anvi-run-kegg-kofams)</span> <span class="artifact-p">[anvi-run-ncbi-cogs](../../programs/anvi-run-ncbi-cogs)</span> <span class="artifact-p">[anvi-run-pfams](../../programs/anvi-run-pfams)</span></p>
 
 
 ## Required or used by
@@ -42,6 +42,7 @@ To populate a given <span class="artifact-n">[contigs-db](/help/main/artifacts/c
 
 * <span class="artifact-p">[anvi-run-ncbi-cogs](/help/main/programs/anvi-run-ncbi-cogs)</span>, which uses NCBI's [COGs database](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102395/),
 * <span class="artifact-p">[anvi-run-pfams](/help/main/programs/anvi-run-pfams)</span>, which uses EBI's [Pfam database](https://pfam.xfam.org/),
+* <span class="artifact-p">[anvi-run-cazymes](/help/main/programs/anvi-run-cazymes)</span>, which uses the dbCAN [CAZyme HMMs](https://bcb.unl.edu/dbCAN2/download/Databases/)
 * <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span>, which uses the [Kyoto Encyclopedia of Genes and Genomes](https://www.genome.jp/kegg/) (KEGG) database and produces <span class="artifact-n">[kegg-functions](/help/main/artifacts/kegg-functions)</span>, which is the necessary annotation information that can be used by the program <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>.
 
 In addition, you can use the program <span class="artifact-p">[anvi-import-functions](/help/main/programs/anvi-import-functions)</span> with a simple <span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span> to import functions from any other annotation source, or to import any ad hoc, user-defined function to later access through anvi'o interfaces or programs.

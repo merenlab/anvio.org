@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **13 Jan 23 10:43:00** for anvi'o version **7.1-dev (hope)**.
+The help contents were last updated on **23 Jan 23 13:32:27** for anvi'o version **7.1-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -45,7 +45,7 @@ The anvi'o 7.1-dev (hope) contains 4 workflows:
 
 Anvi'o artifacts represent **concepts, file types, or data types** anvi'o programs can work with. A given anvi'o artifact can be provided by the user (such as a FASTA file), produced by anvi'o (such as a profile database), or both (such as phylogenomic trees). Anvi'o artifacts link anvi'o programs to each other to build novel workflows.
 
-Listed below **a total of 134 artifacts**.
+Listed below **a total of 135 artifacts**.
 
 <table class="artifacts-table">
 
@@ -98,7 +98,7 @@ Listed below **a total of 134 artifacts**.
 </tr>
 
 <tr>
-<td><div class="artifact-icon-div"><img src="images/icons/DATA.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[cogs-data](artifacts/cogs-data)</span> <span class="artifact-n" markdown="1">[pfams-data](artifacts/pfams-data)</span> <span class="artifact-n" markdown="1">[interacdome-data](artifacts/interacdome-data)</span></td>
+<td><div class="artifact-icon-div"><img src="images/icons/DATA.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[cogs-data](artifacts/cogs-data)</span> <span class="artifact-n" markdown="1">[pfams-data](artifacts/pfams-data)</span> <span class="artifact-n" markdown="1">[cazyme-data](artifacts/cazyme-data)</span> <span class="artifact-n" markdown="1">[interacdome-data](artifacts/interacdome-data)</span></td>
 </tr>
 
 <tr>
@@ -131,7 +131,7 @@ Listed below **a total of 134 artifacts**.
 
 Anvi'o programs perform atomic tasks that can be weaved together to implement complete 'omics workflows. Please note that there may be programs that are not listed on this page. You can type 'anvi-' in your terminal, and press the TAB key twice to see the full list of programs available to you on your system, and type `anvi-program-name --help` to read the full list of command line options.
 
-Listed below **a total of 142 programs**.
+Listed below **a total of 144 programs**.
 
 
 <div style="width:100%;">
@@ -2636,6 +2636,36 @@ Listed below **a total of 142 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-cazymes](programs/anvi-run-cazymes)**</span>. <span markdown="1">Run dbCAN CAZymes on contigs-db</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[cazyme-data](artifacts/cazyme-data) <img src="images/icons/DATA.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
         <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-hmms](programs/anvi-run-hmms)**</span>. <span markdown="1">This program deals with populating tables that store HMM hits in an anvi&#x27;o contigs database</span>.
     </td>
 </tr>
@@ -3023,6 +3053,36 @@ Listed below **a total of 142 programs**.
 <tr style="border:none;">
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/meren" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-cazymes](programs/anvi-setup-cazymes)**</span>. <span markdown="1">Download and setup Pfam data from the EBI</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">n/a</span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">[cazyme-data](artifacts/cazyme-data) <img src="images/icons/DATA.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
 
     </td>
 </tr>
