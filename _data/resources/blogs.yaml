@@ -2,7 +2,7 @@
   type: blog post
   url: https://merenlab.org/2020/07/27/history-of-metagenomics/
   authors: [mschecht]
-  summary: "An incomplete history of ideas that shpaped integrated genomics and metagenomics to explore microbial fitness in habitats such as the human gut and the oceans."
+  summary: "An incomplete history of ideas that shaped integrated genomics and metagenomics to explore microbial fitness in habitats such as the human gut and the oceans."
   tags: [metagenomics, beginner]
 
 - title: "Visualizing the fate of contigs across metagenomic binning algorithms"
