@@ -32,7 +32,7 @@
   authors: [ivagljiva]
   summary: "Showcasing our strategy for consolidating and sharing data with a C-CoMP model organism."
   tags: [collaboration, examples]
-
+  
 - title: "Inspecting the genomic link between Archaea and Eukaryota"
   type: blog post
   url: https://merenlab.org/2017/01/03/loki-the-link-archaea-eukaryota/
