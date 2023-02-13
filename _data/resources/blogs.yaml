@@ -25,6 +25,13 @@
   authors: [ivagljiva]
   summary: "Using metabolism estimation to go fishing in some ocean metagenomes."
   tags: [metagenomics, binning, metabolism]
+  
+- title: "The Ruegeria pomeroyi digital microbe"
+  type: blog post
+  url: /blog/digital-microbes/
+  authors: [ivagljiva]
+  summary: "Showcasing our strategy for consolidating and sharing data with a C-CoMP model organism."
+  tags: [collaboration, examples]
 
 - title: "Inspecting the genomic link between Archaea and Eukaryota"
   type: blog post
