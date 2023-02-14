@@ -74,3 +74,10 @@
   authors: [ivagljiva, mschecht]
   summary: "Materials from a 2022 workshop on metagenomics in anvi'o, including read recruitment and metabolism estimation."
   tags: [metagenomics, metabolism, hands-on, beginner]
+
+- title: Another anvi'o workshop on metagenomics
+  type: tutorial
+  url: /blog/microbiome-center-workshop
+  authors: [ivagljiva, mschecht]
+  summary: "Materials and a tutorial from the 2023 iteration of our metagenomics workshop."
+  tags: [metagenomics, metabolism, hands-on, beginner]
