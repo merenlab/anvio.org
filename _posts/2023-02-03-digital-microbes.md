@@ -4,7 +4,7 @@ authors: [ivagljiva]
 title: "The Ruegeria pomeroyi digital microbe"
 excerpt: "Showcasing our strategy for consolidating and sharing data with a C-CoMP model organism."
 date: 2023-02-03
-tags: [examples, collaboration]
+tags: [hands-on, digital-microbe]
 comments: true
 ---
 
