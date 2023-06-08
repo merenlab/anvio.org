@@ -30,10 +30,62 @@ If you have used anvi'o for anything at all please consider citing this work as 
 
 The rest of the citations on this page are specific for certain anvi'o features.
 
+## Metagenomic binning, genome refinement
 
-## Functional enrichment analyses
+If you used anvi'o for metagenomic binning or for the refinement of genomes, please consider citing this study, too:
 
-This feature was described for the first time in this study:
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.7717/peerj.1319"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.1319" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href=" https://doi.org/10.7717/peerj.1319" target="_new">Anvi’o: an advanced analysis and visualization platform for ‘omics data</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, <span class="pub-member-author">Esen ÖC</span>, Quince C, Vineis JH, Morrison HG, Sogin ML, <span class="pub-member-author">Delmont TO</span></span>
+    <span class="pub-journal"><b>PeerJ</b>, 3:e1319 <a href="https://doi.org/10.7717/peerj.1319" target="_blank">🔗</a></span>
+</div>
+
+{% include _experts.html question="binning practices" githubs="tdelmont" %}
+
+## Microbial population genetics
+
+Much of the firepower in anvi'o for microbial population genetics, including the description of single-codon variants, fast characterization of single-nucleotide variants and IN/DELs, as well as linking genetic variation in the environment to predicted protein structures, is first described and used in this work:
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1126/sciadv.abq4632"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1126/sciadv.abq4632" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1126/sciadv.abq4632" target="_new">Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title="An official member of the lab at the time of publication">Kiefl E</span>, Esen ÖC, <span class="pub-member-author" title="An official member of the lab at the time of publication">Miller SE</span>, Kroll KL, Willis AD, Rappé MS, Pan T, <span class="pub-member-author" title="An official member of the lab at the time of publication">Eren AM</span></span>
+    <span class="pub-journal"> 📚 <b>Science Advances</b>, 9(8):eabq4632 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&amp;q=Structure-informed+microbial+population+genetics+elucidate+selective+pressures+that+shape+protein+evolution" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1126/sciadv.abq4632" target="_blank">doi:10.1126/sciadv.abq4632</a></span>
+</div>
+
+
+If your work benefited from any of these features, please consider also citing it.
+
+{% include _experts.html question="microbial population genetics" githubs="meren,ekiefl" %}
+
+## Microbial metabolism
+
+The following study is the first one that formally describes the anvi'o metabolism frameowrk:
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1101/2023.05.10.540289"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/2023.05.10.540289" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1101/2023.05.10.540289" target="_new">Microbes with higher metabolic independence are enriched in human gut microbiomes under stress</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Veseli I</span>, Chen YT, <span class="pub-member-author">Schechter MS</span>, Vanni C, <span class="pub-member-author">Fogarty EC</span>, Watson AR, Jabri B, Blekhman R, Willis AD, Yu MK, Fernàndez-Guerra A, Füssel J, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2023.05.10.540289" target="_blank">🔗</a></span>
+</div>
+
+In a recent study mentioned this framework the following way:
+
+> (...)
+>
+> **Analysis of metabolic modules and enrichment**. We calculated the level of completeness for a given KEGG module ([Kanehisa et al. 2014](https://doi.org/10.1093/nar/gkt1076); [Kanehisa et al. 2017](https://doi.org/10.1093/nar/gkw1092)) in our genomes using the program `anvi-estimate-metabolism` ([Veseli et al. 2023](https://doi.org/10.1101/2023.05.10.540289)), which leveraged previous annotation of genes with KEGG orthologs (KOs). Then, the program `anvi-compute-functional-enrichment` ([Shaiber et al. 2020](https://doi.org/10.1186/s13059-020-02195-w)) determined whether a given metabolic module was enriched in based on the output from `anvi-estimate-metabolism`.  The URL [https://merenlab.org/m/anvi-estimate-metabolism](https://merenlab.org/m/anvi-estimate-metabolism) serves a tutorial for this program which details the modes of usage and output file formats (...)
+
+If you have used {% include PROGRAM name="anvi-estimate-metabolism" %}, please consider also citing this work.
+
+{% include _experts.html question="metabolism" githubs="ivagljiva" %}
+
+## Functional or metabolic enrichment
+
+Anvi'o includes featuers to study enrichment of functions in pangenomes or metabolic modules across genomes. The underlying logic for feature was described for the first time in this study:
 
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1186/s13059-020-02195-w"></div>
@@ -52,9 +104,38 @@ In a recent study, we cited this work the following way:
 
 {% include _experts.html question="enrichment analyses" githubs="adw96,ivagljiva" %}
 
+## Metapangenomics
+
+The metapangenomics was first introduced in this study. If you are using anvi'o to investigate how to bring together pangenomes and metagenomes, please consider citing this work as well.
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.7717/peerj.4320"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.4320" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href=" https://doi.org/10.7717/peerj.4320" target="_new">Linking pangenomes and metagenomes: the Prochlorococcus metapangenome</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-journal"><b>PeerJ</b>, 6:e4320 <a href="https://doi.org/10.7717/peerj.4320" target="_blank">🔗</a></span>
+</div>
+
+{% include _experts.html question="metapangenomics" githubs="meren" %}
+
+## Single-amino acid variants
+
+If you are using anvi'o to study microbial population genetics through single-codon or single-amino acid variants, please consider also citing this work:
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.7554/eLife.46497"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.46497" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href=" https://doi.org/10.7554/eLife.46497" target="_new">Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Delmont TO<sup>☯</sup></span>, <span class="pub-member-author">Kiefl E<sup>☯</sup></span>, Kilinc O, <span class="pub-member-author">Esen ÖC</span>, Uysal I, Rappé MS, Giovannoni S, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
+    <span class="pub-journal"><b>eLife</b>, 8:e46497 <a href="https://doi.org/10.7554/eLife.46497" target="_blank">🔗</a></span>
+</div>
+
+{% include _experts.html question="single-amino acid variants" githubs="ekiefl" %}
+
 ## Snakemake workflows
 
-There is not yet a published study that describes [our workflows](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/), although they were first introduced in the following work:
+There is no standalone publication that describes the [anvi'o snakemake workflows](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/), although they were first introduced in the following work:
 
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1186/s13059-020-02195-w"></div>
@@ -76,55 +157,3 @@ In a recent study, we cited our workflows the following way:
 {% include _experts.html question="anvi'o snakemake workflows" githubs="ShaiberAlon,mschecht,semiller10" %}
 
 
-## Metabolic reconstruction
-
-There is not yet a published study that describes anvi'o metabolic reconstruction capabilities, although in a recent study we mentioned the program we mentioned this framework the following way:
-
-> (...)
->
-> **Analysis of metabolic modules and enrichment**. We calculated the level of completeness for a given KEGG module ([Kanehisa et al. 2014](https://doi.org/10.1093/nar/gkt1076); [Kanehisa et al. 2017](https://doi.org/10.1093/nar/gkw1092)) in our genomes using the program `anvi-estimate-metabolism`, which leveraged previous annotation of genes with KEGG orthologs (KOs) (see the section ‘Processing of contigs’). Then, the program `anvi-compute-functional-enrichment` determined whether a given metabolic module was enriched in based on the output from `anvi-estimate-metabolism`.  The URL [https://merenlab.org/m/anvi-estimate-metabolism](https://merenlab.org/m/anvi-estimate-metabolism) serves a tutorial for this program which details the modes of usage and output file formats (...)
-
-{% include _experts.html question="metabolism" githubs="ivagljiva" %}
-
-## Single-amino acid variants
-
-If you are using anvi'o to study microbial population genetics through single-codon or single-amino acid variants, please consider also citing this work:
-
-<div class="pub_float">
-<div class="altmetric-embed" data-badge-type="donut" data-doi="10.7554/eLife.46497"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.46497" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href=" https://doi.org/10.7554/eLife.46497" target="_new">Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Delmont TO<sup>☯</sup></span>, <span class="pub-member-author">Kiefl E<sup>☯</sup></span>, Kilinc O, <span class="pub-member-author">Esen ÖC</span>, Uysal I, Rappé MS, Giovannoni S, <span class="pub-member-author">Eren AM</span></span>
-    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
-    <span class="pub-journal"><b>eLife</b>, 8:e46497 <a href="https://doi.org/10.7554/eLife.46497" target="_blank">🔗</a></span>
-</div>
-
-{% include _experts.html question="single-amino acid variants" githubs="ekiefl" %}
-
-## Metapangenomics
-
-The metapangenomics was first introduced in this study. If you are using anvi'o to investigate how to bring together pangenomes and metagenomes, please consider citing this work as well.
-
-<div class="pub_float">
-<div class="altmetric-embed" data-badge-type="donut" data-doi="10.7717/peerj.4320"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.4320" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href=" https://doi.org/10.7717/peerj.4320" target="_new">Linking pangenomes and metagenomes: the Prochlorococcus metapangenome</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Eren AM</span></span>
-    <span class="pub-journal"><b>PeerJ</b>, 6:e4320 <a href="https://doi.org/10.7717/peerj.4320" target="_blank">🔗</a></span>
-</div>
-
-{% include _experts.html question="metapangenomics" githubs="meren" %}
-
-## Metagenomic binning / refinement
-
-If you used anvi'o only for metagenomic binning or for the refinement of genomes, please consider citing this study, too.
-
-<div class="pub_float">
-<div class="altmetric-embed" data-badge-type="donut" data-doi="10.7717/peerj.1319"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.1319" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href=" https://doi.org/10.7717/peerj.1319" target="_new">Anvi’o: an advanced analysis and visualization platform for ‘omics data</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, <span class="pub-member-author">Esen ÖC</span>, Quince C, Vineis JH, Morrison HG, Sogin ML, <span class="pub-member-author">Delmont TO</span></span>
-    <span class="pub-journal"><b>PeerJ</b>, 3:e1319 <a href="https://doi.org/10.7717/peerj.1319" target="_blank">🔗</a></span>
-</div>
-
-{% include _experts.html question="binning practices" githubs="tdelmont" %}
