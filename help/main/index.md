@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **22 Mar 23 11:48:47** for anvi'o version **7.1-dev (hope)**.
+The help contents were last updated on **08 Jun 23 10:54:51** for anvi'o version **7.1-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -3668,7 +3668,7 @@ Listed below **a total of 146 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-add-default-collection](programs/anvi-script-add-default-collection)**</span>. <span markdown="1">A script to add a &#x27;DEFAULT&#x27; collection in an anvi&#x27;o pan or profile database with a bin named &#x27;EVERYTHING&#x27; that describes all items available in the profile database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-add-default-collection](programs/anvi-script-add-default-collection)**</span>. <span markdown="1">A script to add a &#x27;DEFAULT&#x27; collection in an anvi&#x27;o pan or profile database with either (1) a single bin that describes all items available in the profile database, or (2) as many bins as there are items in the profile database wher every item has its own bin. The former is the default behavior that will be useful in most instances where you need to use this script. The latter is most useful if you are Florian and/or have something very specific in mind.</span>.
     </td>
 </tr>
 <tr>

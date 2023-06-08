@@ -1,7 +1,7 @@
 ---
 layout: program
 title: anvi-script-add-default-collection
-excerpt: An anvi'o program. A script to add a &#x27;DEFAULT&#x27; collection in an anvi&#x27;o pan or profile database with a bin named &#x27;EVERYTHING&#x27; that describes all items available in the profile database.
+excerpt: An anvi'o program. A script to add a &#x27;DEFAULT&#x27; collection in an anvi&#x27;o pan or profile database with either (1) a single bin that describes all items available in the profile database, or (2) as many bins as there are items in the profile database wher every item has it.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-script-add-default-collection
@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-A script to add a &#x27;DEFAULT&#x27; collection in an anvi&#x27;o pan or profile database with a bin named &#x27;EVERYTHING&#x27; that describes all items available in the profile database.
+A script to add a &#x27;DEFAULT&#x27; collection in an anvi&#x27;o pan or profile database with either (1) a single bin that describes all items available in the profile database, or (2) as many bins as there are items in the profile database wher every item has its own bin. The former is the default behavior that will be useful in most instances where you need to use this script. The latter is most useful if you are Florian and/or have something very specific in mind..
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
