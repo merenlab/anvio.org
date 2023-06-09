@@ -297,6 +297,19 @@ blockquote em{
     @include rounded(5px);
 }
 
+.notice-alt {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    margin-left: 1.5em;
+    padding: 0.75em;
+    text-align: justify;
+    text-indent: 0;
+    font-size: 14px;
+    background-color: #eafff7;
+    border: 1px solid #ccc;
+    @include rounded(5px);
+}
+
 .warning {
     margin-top: 1.5em;
     margin-bottom: 1.5em;

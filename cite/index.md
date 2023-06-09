@@ -18,6 +18,9 @@ We know this is difficult work and we are thankful for your attention.
 
 ## Default citation
 
+{:.notice-alt}
+**TL;DR**: Cite this if you have used any of the [anvi'o programs or workflows](/help/main).
+
 If you have used anvi'o for anything at all please consider citing this work as it describes the software ecosystem in general which currently sits on more than 120,000 lines of code, which means any given anvi'o program benefits from the entirety of this ecosystem:
 
 <div class="pub_float">
@@ -32,6 +35,9 @@ The rest of the citations on this page are specific for certain anvi'o features.
 
 ## Metagenomic binning, genome refinement
 
+{:.notice-alt}
+**TL;DR**: Cite this if you have used {% include PROGRAM name="anvi-refine" %}.
+
 If you used anvi'o for metagenomic binning or for the refinement of genomes, please consider citing this study, too:
 
 <div class="pub_float">
@@ -45,6 +51,9 @@ If you used anvi'o for metagenomic binning or for the refinement of genomes, ple
 {% include _experts.html question="binning practices" githubs="tdelmont" %}
 
 ## Microbial population genetics
+
+{:.notice-alt}
+**TL;DR**: Cite this if you have used {% include PROGRAM name="anvi-gen-variability-profile" %}, {% include PROGRAM name="anvi-gen-fixation-index-matrix" %}, {% include PROGRAM name="anvi-display-structure" %}, or {% include PROGRAM name="anvi-get-pn-ps-ratio" %}.
 
 Much of the firepower in anvi'o for microbial population genetics, including the description of single-codon variants, fast characterization of single-nucleotide variants and IN/DELs, as well as linking genetic variation in the environment to predicted protein structures, is first described and used in this work:
 
@@ -63,6 +72,9 @@ If your work benefited from any of these features, please consider also citing i
 
 ## Microbial metabolism
 
+{:.notice-alt}
+**TL;DR**: Cite this if you have used {% include PROGRAM name="anvi-estimate-metabolism" %}.
+
 The following study is the first one that formally describes the anvi'o metabolism frameowrk:
 
 <div class="pub_float">
@@ -79,11 +91,12 @@ In a recent study mentioned this framework the following way:
 >
 > **Analysis of metabolic modules and enrichment**. We calculated the level of completeness for a given KEGG module ([Kanehisa et al. 2014](https://doi.org/10.1093/nar/gkt1076); [Kanehisa et al. 2017](https://doi.org/10.1093/nar/gkw1092)) in our genomes using the program `anvi-estimate-metabolism` ([Veseli et al. 2023](https://doi.org/10.1101/2023.05.10.540289)), which leveraged previous annotation of genes with KEGG orthologs (KOs). Then, the program `anvi-compute-functional-enrichment` ([Shaiber et al. 2020](https://doi.org/10.1186/s13059-020-02195-w)) determined whether a given metabolic module was enriched in based on the output from `anvi-estimate-metabolism`.  The URL [https://merenlab.org/m/anvi-estimate-metabolism](https://merenlab.org/m/anvi-estimate-metabolism) serves a tutorial for this program which details the modes of usage and output file formats (...)
 
-If you have used {% include PROGRAM name="anvi-estimate-metabolism" %}, please consider also citing this work.
-
 {% include _experts.html question="metabolism" githubs="ivagljiva" %}
 
 ## Functional or metabolic enrichment
+
+{:.notice-alt}
+**TL;DR**: Cite this if you have used {% include PROGRAM name="anvi-compute-functional-enrichment-across-genomes" %}, {% include PROGRAM name=" anvi-compute-functional-enrichment-in-pan" %}, or {% include PROGRAM name="anvi-compute-metabolic-enrichment" %}.
 
 Anvi'o includes featuers to study enrichment of functions in pangenomes or metabolic modules across genomes. The underlying logic for feature was described for the first time in this study:
 
@@ -105,6 +118,9 @@ In a recent study, we cited this work the following way:
 {% include _experts.html question="enrichment analyses" githubs="adw96,ivagljiva" %}
 
 ## Metapangenomics
+
+{:.notice-alt}
+**TL;DR**: Cite this if you have used {% include PROGRAM name="anvi-meta-pan-genome" %}.
 
 The metapangenomics was first introduced in this study. If you are using anvi'o to investigate how to bring together pangenomes and metagenomes, please consider citing this work as well.
 
@@ -153,6 +169,8 @@ In a recent study, we cited our workflows the following way:
 > **‘Omics workflows**. Whenever applicable, we automated and scaled our ‘omics analyses using the bioinformatics workflows implemented by the program `anvi-run-workflow` ([Shaiber et al. 2020](https://doi.org/10.1186/s13059-020-02195-w)) in anvi’o ([Eren et al. 2021](https://doi.org/10.1038/s41564-020-00834-3)). Anvi’o workflows implement numerous steps of bioinformatics tasks including short-read quality filtering, assembly, gene calling, functional annotation, hidden Markov model search, metagenomic read-recruitment, metagenomic binning, pangenomics, and phylogenomics. Workflows use Snakemake ([Köster and Rahmann 2012](https://doi.org/10.1093/bioinformatics/bts480)) and a tutorial is available at the URL [http://merenlab.org/anvio-workflows/](http://merenlab.org/anvio-workflows/). The following sections detail these steps.
 >
 > (...)
+
+But please consider mentioning the specific workflow you're using in your methods section, and giving a direct link to its help page [listed here](https://anvio.org/help/main/#anvio-workflows).
 
 {% include _experts.html question="anvi'o snakemake workflows" githubs="ShaiberAlon,mschecht,semiller10" %}
 
