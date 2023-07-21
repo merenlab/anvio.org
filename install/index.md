@@ -462,6 +462,17 @@ Now we can continue with setting up the conda environment.
 {:.warning}
 Please note that we recently switched from Python 3.6 to Python 3.7 in our active development branch. Thus, the way we setup the conda environment for the active development branch now differs from the way we do it for the latest stable version. There may be hiccups since these changes reqiured many adjustments in the anvi'o code, and will likely some bugs are missed. If you are reading these lines, please keep us posted if you run into an issue.
 
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Working with Apple silicon</span>
+
+If you are using a computer with Apple silicon (like a M1 MacBook), you will find that some conda packages are not available, like older versions of python (3.7).
+To avoid this issue, you can run the following command (only once) before creating the environment:
+
+```bash
+conda config --env --set subdir osx-64
+```
+</div>
+
 First create a new conda environment:
 
 ``` bash
@@ -473,17 +484,6 @@ And activate it:
 ```
 conda activate anvio-dev
 ```
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Working with Apple silicon</span>
-
-If you are using a computer with Apple silicon (like a M1 MacBook), you will find that some conda packages are not available, like older versions of python (3.7).
-To avoid this issue, you can run the following command (only once) after activating the environment:
-
-```bash
-conda config --env --set subdir osx-64
-```
-</div>
 
 Install `mamba` for fast dependency resolving:
 
