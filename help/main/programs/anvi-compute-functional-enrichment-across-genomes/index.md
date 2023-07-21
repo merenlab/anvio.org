@@ -74,6 +74,7 @@ You can use it with a single source of genomes:
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment&#45;across&#45;genomes &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/help/main/artifacts/internal&#45;genomes)</span> \
                                                   &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
+                                                  &#45;G <span class="artifact&#45;n">[groups&#45;txt](/help/main/artifacts/groups&#45;txt)</span> \
                                                   &#45;&#45;annotation&#45;source FUNCTION_SOURCE
 </div>
 
@@ -82,6 +83,7 @@ or many:
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment&#45;across&#45;genomes &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/help/main/artifacts/internal&#45;genomes)</span>\
                                                   &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \
+                                                  &#45;G <span class="artifact&#45;n">[groups&#45;txt](/help/main/artifacts/groups&#45;txt)</span> \
                                                   &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
                                                   &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
                                                   &#45;&#45;annotation&#45;source FUNCTION_SOURCE
@@ -93,6 +95,7 @@ You can get a tab-delimited matrix describing the occurrence (counts) of each fu
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment&#45;across&#45;genomes &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/help/main/artifacts/internal&#45;genomes)</span> \
+                                                  &#45;G <span class="artifact&#45;n">[groups&#45;txt](/help/main/artifacts/groups&#45;txt)</span> \
                                                   &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
                                                   &#45;&#45;annotation&#45;source FUNCTION_SOURCE
                                                   &#45;&#45;functional&#45;occurrence&#45;table&#45;output FUNC_OCCURRENCE.TXT
