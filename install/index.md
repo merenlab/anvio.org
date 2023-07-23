@@ -51,10 +51,10 @@ docker system prune --force -a
 Please consider opening an <a href="https://github.com/meren/anvio/issues">issue</a> for technical problems, or join us on {% include _discord_invitation_button.html %} if you need help.
 
 {:.notice}
-{% include _fixthispage.html source="_posts/anvio/2016-06-26-installation-v2.md" %}
+{% include _fixthispage.html source="install/index.md" %}
 
 {:.warning}
-We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), [Susheel Bhanu Busi](https://scholar.google.com/citations?user=U0g3IzQAAAAJ&hl=en), [Mike Lee](https://twitter.com/AstrobioMike), and [Josh Herr](http://joshuaherr.com/) who kindly invested their time to test the installation instructions on this page on different systems and/or made suggestions to the document to ensure a smoother installation experience for everyone.
+We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), [Susheel Bhanu Busi](https://scholar.google.com/citations?user=U0g3IzQAAAAJ&hl=en), [Mike Lee](https://twitter.com/AstrobioMike), [Josh Herr](http://joshuaherr.com/), and [Titus Brown](https://scholar.google.com/citations?user=O4rYanMAAAAJ) who kindly invested their time to test the installation instructions on this page on different systems and/or made suggestions to the document to ensure a smoother installation experience for everyone.
 
 ## (1) Setup conda
 
@@ -67,7 +67,7 @@ Although these installation instructions primarily target and rigorously tested 
 
 ```bash
 $ conda --version
-conda 4.9.2
+conda 23.5.2
 ```
 
 If you don't have conda installed, then you should first install it through their [installation page](https://docs.conda.io/en/latest/miniconda.html). Once you have confirmed you have conda installed, run this command to make sure you are up-to-date:
@@ -76,7 +76,16 @@ If you don't have conda installed, then you should first install it through thei
 conda update conda
 ```
 
+Finally, please install `mamba` for fast dependency resolving:
+
+```
+conda install -y -c conda-forge "mamba >=0.24.0"
+```
+
 Good? Good! You are almost there!
+
+{:.notice}
+if you were sent to this section from the "following the active codebase" section, please [click here](#setting-up-the-local-copy-of-the-anvio-codebase) to go back to where you left off. Otherwise, ignore this message and continue with the next chapter to setup your anvi'o environment for the installation of the latest stable version.
 
 ## (2) Setup an anvi'o environment
 
@@ -443,81 +452,19 @@ In contrast, disadvantages include,
 
 * **Unstable intermediate states may frustrate you with bugs, and in extremely rare instances loss of data** (this happened only once so far during the last five years, and required one of our users to re-generate their contigs databases).
 
-* Difficulty to mention the anvi'o version in a paper for reproducibility. Although this can easily be solved by sharing not the version number of anvi'o but the cryptographic hash of the last commit for reproducibility. If you ever struggle with this, please let us know and we will help you.
+* Difficulty to mention the anvi'o version in a paper. Although this can easily be solved by sharing not the version number of anvi'o but the cryptographic hash of the last commit for reproducibility. If you ever struggle with this, please let us know and we will help you.
 
 If you are still here, let's start.
 
----
+### Initial checks
 
-First make sure you are not in any environment by running `conda deactivate`. Then, make sure you don't have an environment called `anvio-dev` (as in *anvi'o development*):
-
-```
-conda env remove --name anvio-dev
-```
-
-Now we can continue with setting up the conda environment.
-
-### Setting up the conda environment
-
-{:.warning}
-Please note that we recently switched from Python 3.6 to Python 3.7 in our active development branch. Thus, the way we setup the conda environment for the active development branch now differs from the way we do it for the latest stable version. There may be hiccups since these changes reqiured many adjustments in the anvi'o code, and will likely some bugs are missed. If you are reading these lines, please keep us posted if you run into an issue.
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Working with Apple silicon</span>
-
-If you are using a computer with Apple silicon (like a M1 MacBook), you will find that some conda packages are not available, like older versions of python (3.7).
-To avoid this issue, you can run the following command (only once) before creating the environment:
-
-```bash
-conda config --env --set subdir osx-64
-```
-</div>
-
-First create a new conda environment:
-
-``` bash
-conda create -y --name anvio-dev python=3.7
-```
-
-And activate it:
-
-```
-conda activate anvio-dev
-```
-
-Install `mamba` for fast dependency resolving:
-
-```
-conda install -y -c conda-forge "mamba >=0.24.0"
-```
-
-{:.notice}
-If the [mamba](https://github.com/mamba-org/mamba) installation somehow doesn't work, that is OK. It is also OK if some of the commands below that start with `mamba` don't work. In either of these cases, you only need to replace every instance of `mamba` with `conda`, and everything should work smoothly (but with slightly longer wait times). But it would be extremely helpful to the community if you were to ping us on {% include _discord_invitation_button.html %} in the case of a `mamba` failure, so we better understand under what circumstances this solution fails.
-
-Install all the necessary packages:
-
-``` bash
-mamba install -y -c bioconda -c conda-forge python=3.7 \
-        sqlite prodigal idba mcl muscle=3.8.1551 hmmer diamond \
-        blast megahit spades bowtie2 tbb=2020.3 bwa graphviz \
-        "samtools >=1.9" trimal iqtree trnascan-se fasttree vmatch \
-        r-base r-tidyverse r-optparse r-stringi r-magrittr
-
-# try this, if it doesn't install, don't worry. you will
-# deal with that later
-mamba install -y -c bioconda bioconductor-qvalue
-
-# try this, too. it may also fail to install. which is OK:
-mamba install -y -c bioconda fastani
-```
-
-Now you are ready for the code.
+Following instructions will assume that you are using a computer with a working `conda` installation. Please visit [this section](#1-setup-conda) first to make sure it is the case (and come back here when that section sends you back here).
 
 ### Setting up the local copy of the anvi'o codebase
 
-If you are here, it means you have a conda environment with everything except anvi'o itself. We will make sure this environment _has_ anvi'o by getting a copy of the anvi'o codebase from GitHub.
+If you are here, it means you have a working conda installation on your computer. That's very good. We will start the rest of our adventure by by getting a copy of the anvi'o codebase from GitHub.
 
-Here I will suggest `~/github/` as the base directory to keep the code, but you can change if you want to something else (in which case you must remember to apply that change all the following commands, of course). Setup the code directory:
+Here I suggest `~/github/` as the base directory to keep the code, but you can change it to something else, of course (in which case you must remember to apply that change all the following commands). Setup the code directory:
 
 ``` bash
 mkdir -p ~/github && cd ~/github/
@@ -532,10 +479,47 @@ If you only plan to follow the development branch you can skip this message. But
 git clone --recursive https://github.com/merenlab/anvio.git
 ```
 
-Now it is time to install the Python dependencies of anvi'o:
+Once this is done run the following command to go into the anvi'o codebase directory (and please don't change directories until the end of the installation):
+
+```
+cd ~/github/anvio/ && git pull
+```
+
+### Setting up the conda environment
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Working with Apple silicon</span>
+
+If you are using a computer with Apple silicon (like a M1 MacBook), you will find that some conda packages are not available, like older versions of python (3.7).
+To avoid this issue, you can run the following command (only once) before creating the environment:
+
+```bash
+conda config --env --set subdir osx-64
+```
+</div>
+
+First get the anvi'o sure you hav create a new conda environment:
+
+```
+mamba env create -f .conda/environment.yaml
+```
+
+{:.notice}
+If the [mamba](https://github.com/mamba-org/mamba) installation somehow doesn't work, that is OK. In that case you may need to replace every instance of `mamba` with `conda` throughout the installation, and everything should work smoothly (but with slightly longer wait times). It would be extremely helpful to the community if you were to ping us on {% include _discord_invitation_button.html %} in the case of a `mamba` failure, so we better understand under what circumstances this solution fails.
+
+When this step is done, activate your new environment:
+
+```
+conda activate anvio-dev
+```
+
+Next, we will install the remaining Python packages that anvi'o needs in place.
+
+### Installing the Python dependencies
+
+To install the Python dependencies of anvi'o please run the follwing command:
 
 ``` bash
-cd ~/github/anvio/
 pip install -r requirements.txt
 ```
 
@@ -545,8 +529,7 @@ If `pysam` is causing you trouble during this step, you may want to try to insta
 {:.warning}
 Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. If you're getting an error that contains `x86_64-apple-darwin13.4.0-clang` or similar keywords in the output message, please run `export CC=clang` in your terminal and try the command above again. If you are still unable to run the `pip install` command above, run both `export CC=/usr/bin/clang` and `export CXX=/usr/bin/clang++` before trying again. If the `pip` installation still doesn't work, please make an issue on the github page or let us know in the anvi'o Discord channel about your problem and we will try to help you.
 
-
-Now all dependencies are in place, and you have the code. One more step.
+Now you have the latest copy of the anvi'o codebase, and all of its dependencies are in place.
 
 ### Linking conda environment and the codebase
 
@@ -583,14 +566,14 @@ Updating from anvi'o GitHub (press CTRL+C to cancel) ...
 (anvio-dev) meren ~ $ anvi-self-test -v
 Anvi'o .......................................: hope (v7-dev)
 
-Profile database .............................: 35
+Profile database .............................: 38
 Contigs database .............................: 20
-Pan database .................................: 14
+Pan database .................................: 16
 Genome data storage ..........................: 7
 Auxiliary data storage .......................: 2
 Structure database ...........................: 2
-Metabolic modules database ...................: 2
-tRNA-seq database ............................: 1
+Metabolic modules database ...................: 4
+tRNA-seq database ............................: 2
 
 (anvio-dev) meren ~ $
 ```
@@ -605,8 +588,7 @@ If you followed these instructions, every time you open a terminal you will have
 conda activate anvio-dev
 ```
 
-If you are here, you can now jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you using `anvi-self-test`.
-
+If you are here, you can now jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you using `anvi-self-test`, but don't forget to take a look at the bonus chapter below, especially if you are using `bash`.
 
 ## Bonus: An alternative BASH profile setup
 
@@ -711,4 +693,4 @@ Don't be a stranger, and let us know if you need help through {% include _discor
 ---
 
 {:.notice}
-{% include _fixthispage.html source="resources/install/index.md" %}
+{% include _fixthispage.html source="install/index.md" %}
