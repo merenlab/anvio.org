@@ -438,7 +438,7 @@ Now you can take a look up some anvi'o resources [here](https://anvio.org), or j
 ## (5) Follow the active development (you're a wizard, arry)
 
 {:.warning}
-This section is not meant to be followed by those who would define themselves as *end users* in a conventional sense. But we are not the kinds of people who would dare to tell you what you can and cannot do. FWIW, our experience suggests that if you are doing microbiology, you will do computers no problem if you find this exciting.
+This section is not quite meant to be followed by those who would define themselves as *end users* in a conventional sense. But we are not the kinds of people who would dare to tell anyone what they can and cannot do. FWIW, our experience suggests that if you are doing microbiology, you will do computers no problem if you find dem computers exciting.
 
 If you follow these steps, you will have anvi'o setup on your system in such a way, every time you initialize your anvi'o environment you will get **the very final state of the anvi'o code**. Plus, you can have both the stable and active anvi'o on the same computer.
 
