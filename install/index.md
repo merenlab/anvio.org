@@ -498,7 +498,7 @@ conda config --env --set subdir osx-64
 ```
 </div>
 
-First get the anvi'o sure you hav create a new conda environment:
+The following command will create a new conda environment, `anvio-dev`, with the necessary packages from various conda repositories:
 
 ```
 mamba env create -f .conda/environment.yaml
