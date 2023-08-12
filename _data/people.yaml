@@ -136,7 +136,6 @@
       inst_link: https://www.nsfgrfp.org/
       current: false
 
-
 - github: moritzbuck
   name: Moritz Buck
   email: moritz.buck@slu.se
@@ -215,7 +214,6 @@
     - title: Intern
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
-      current: false
 
 - github: ShaiberAlon
   name: Alon Shaiber
@@ -236,7 +234,7 @@
     - title: Graduate Student
       inst: The Biophysical Sciences Program at the University of Chicago
       inst_link: http://biophysics.uchicago.edu/
-      current: false
+      current: true
 
 - github: ozcan
   name: Özcan C. Esen
@@ -252,7 +250,6 @@
     - title: Programmer
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
-      current: false
 
 - github: mahmoudyousef98
   name: Mahmoud Yousef
@@ -268,7 +265,6 @@
      - title: Undergraduate Student
        inst: Department of Computer Science at the University of Chicago
        inst_link: https://www.cs.uchicago.edu/
-       current: false
 
 - github: qclayssen
   name: Quentin Clayssen
