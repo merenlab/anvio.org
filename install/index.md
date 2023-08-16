@@ -13,6 +13,12 @@ image:
 
 {% include _project-anvio-version.html %}
 
+<a href="/install/macos/" target="_blank">MACOS</a>
+<a href="/install/linux/" target="_blank">LINUX</a>
+<a href="/install/windows/" target="_blank">WINDOWS</a>
+<a href="/install/server/" target="_blank">SERVER</a>
+
+
 This article explains basic steps of installing anvi'o using rather conventional methods both for end users and current of future developers.
 
 <details markdown="1"><summary>Show/hide A docker solution for those who are in a hurry</summary>
