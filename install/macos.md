@@ -77,3 +77,28 @@ If you did all that and it is still not working, please make an issue on the git
 
 {% include install/check_installation.md %}
  
+## (7) Follow the active development (you're a wizard, arry)
+
+{% include install/dev_initial.md %}
+
+### Setting up the conda environment
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Working with Apple silicon</span>
+
+If you are using a computer with Apple silicon (like a M1 MacBook), you will find that some conda packages are not available, like older versions of python (3.7).
+To avoid this issue, you can run the following command (only once) before creating the environment:
+
+```bash
+conda config --env --set subdir osx-64
+```
+</div>
+
+{% include install/dev_conda_setup.md %}
+
+### Installing the Python dependencies
+
+{% include install/dev_python_dependencies.md %}
+
+{:.warning}
+Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. If you're getting an error that contains `x86_64-apple-darwin13.4.0-clang` or similar keywords in the output message, please run `export CC=clang` in your terminal and try the command above again. If you are still unable to run the `pip install` command above, run both `export CC=/usr/bin/clang` and `export CXX=/usr/bin/clang++` before trying again. If the `pip` installation still doesn't work, please make an issue on the github page or let us know in the anvi'o Discord channel about your problem and we will try to help you.
