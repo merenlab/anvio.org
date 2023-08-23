@@ -106,3 +106,12 @@ Some packages in `requirement.txt` may require to be installed with a more up to
 ### Linking conda environment and the codebase
 
 {% include install/dev_link_conda_codebase.md %}
+
+## Bonus: An alternative BASH profile setup
+
+{% include install/bonus_bash_setup.md %}
+
+## Other installation options
+
+{% include install/other_options.md %}
+

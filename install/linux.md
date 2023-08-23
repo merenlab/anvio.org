@@ -97,3 +97,12 @@ And re-run the commands to install conda packages. You can set the priority back
 ### Linking conda environment and the codebase
 
 {% include install/dev_link_conda_codebase.md %}
+
+## Bonus: An alternative BASH profile setup
+
+{% include install/bonus_bash_setup.md %}
+
+## Other installation options
+
+{% include install/other_options.md %}
+
