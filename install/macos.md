@@ -17,7 +17,7 @@ This page describes the anvi'o installation process for _Mac OSX_.
 
 ## (1) Things you need before you start
 
-You will need to run the installation commands from a terminal. Mac OSX comes with a basic Terminal application, or you can download and use a fancier one (such as [iTerm](https://www.iterm2.com/).
+You will need to run the installation commands from a terminal. Mac OSX comes with a basic Terminal application, or you can download and use a fancier one (such as [iTerm](https://www.iterm2.com/)).
 
 Some of the packages we use need compiling during the installation process, so you should also make sure that you have [Xcode Command Line Tools](https://mac.install.guide/commandlinetools/index.html) installed and up-to-date. Here is a [quick link to their installation instructions](https://mac.install.guide/commandlinetools/4.html). If you have to re-install the Command Line Tools, please remember to close your terminal window and open a new one before continuing with the anvi'o installation (a big thank you to [Hilary Morrison](https://www.mbl.edu/research/faculty-and-whitman-scientists/Hilary%20Morrison) for that tip).
 
