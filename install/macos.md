@@ -41,3 +41,5 @@ To avoid this issue, you can run the following command (only once) after activat
 conda config --env --set subdir osx-64
 ```
 </div>
+
+{% include install/conda_packages.md %}
