@@ -93,3 +93,7 @@ And re-run the commands to install conda packages. You can set the priority back
 ### Installing the Python dependencies
 
 {% include install/dev_python_dependencies.md %}
+
+### Linking conda environment and the codebase
+
+{% include install/dev_link_conda_codebase.md %}

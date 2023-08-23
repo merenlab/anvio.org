@@ -57,4 +57,6 @@ You also need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be 
 
 {% include install/dev_python_dependencies.md %}
 
-* section on sharing files between windows and WSL?
+### Linking conda environment and the codebase
+
+{% include install/dev_link_conda_codebase.md %}
