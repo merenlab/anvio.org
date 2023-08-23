@@ -31,3 +31,13 @@ You also need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be 
 
 {% include install/environment_setup_initial.md %}
 
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Working with Apple silicon</span>
+
+If you are using a computer with Apple silicon (like a M1 or M2 MacBook), you will find that some conda packages are not available, like older versions of python (3.6).
+To avoid this issue, you can run the following command (only once) after activating the environment:
+
+```bash
+conda config --env --set subdir osx-64
+```
+</div>
