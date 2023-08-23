@@ -19,7 +19,7 @@ If you are still here, let's start.
 
 ### Initial checks
 
-Following instructions will assume that you are using a computer with a working `conda` installation. Please visit [this section](#1-setup-conda) first to make sure it is the case (and come back here when that section sends you back here).
+Following instructions will assume that you are using a computer with a working `conda` installation. Please visit [this section](#2-set-up-conda) first to make sure it is the case (and come back here when that section sends you back here).
 
 ### Setting up the local copy of the anvi'o codebase
 
