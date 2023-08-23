@@ -18,6 +18,3 @@ conda install -y -c conda-forge "mamba >=0.24.0"
 ```
 
 Good? Good! You are almost there!
-
-{:.notice}
-if you were sent to this section from the "following the active codebase" section, please [click here](#setting-up-the-local-copy-of-the-anvio-codebase) to go back to where you left off. Otherwise, ignore this message and continue with the next chapter to setup your anvi'o environment for the installation of the latest stable version.
