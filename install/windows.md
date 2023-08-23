@@ -45,7 +45,7 @@ You also need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be 
 
 {% include install/check_installation.md %}
  
- ## (7) Follow the active development (you're a wizard, arry)
+## (7) Follow the active development (you're a wizard, arry)
 
 {% include install/dev_initial.md %}
 
