@@ -45,3 +45,16 @@ You also need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be 
 
 {% include install/check_installation.md %}
  
+ ## (7) Follow the active development (you're a wizard, arry)
+
+{% include install/dev_initial.md %}
+
+### Setting up the conda environment
+
+{% include install/dev_conda_setup.md %}
+
+### Installing the Python dependencies
+
+{% include install/dev_python_dependencies.md %}
+
+* section on sharing files between windows and WSL?
