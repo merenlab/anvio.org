@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Installing anvi'o on Macos"
+title: "Installing anvi'o on Mac OSX"
 excerpt: "Instructions to install the current release of the platform."
 modified: 2023-08-16
 tags: []
