@@ -11,10 +11,4 @@ Once you have confirmed you have conda installed, run this command to make sure 
 conda update conda
 ```
 
-Finally, please install `mamba` for fast dependency resolving:
-
-```
-conda install -y -c conda-forge "mamba >=0.24.0"
-```
-
 Good? Good! You are almost there!
