@@ -12,3 +12,7 @@ conda update conda
 ```
 
 Good? Good! You are almost there!
+
+{:.notice}
+
+If you came here from the development version installation section down below, and you have verified that conda is installed, then you can [go back now](#initial-checks). :)
