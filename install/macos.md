@@ -47,3 +47,7 @@ conda config --env --set subdir osx-64
 ## (4) Install anvi'o
 
 {% include install/install_anvio.md %}
+
+## (5) Common problems
+
+{% include install/common_issues.md %}

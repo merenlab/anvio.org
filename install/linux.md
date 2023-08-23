@@ -35,3 +35,6 @@ You also need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be 
 
 {% include install/install_anvio.md %}
 
+## (5) Common problems
+
+{% include install/common_issues.md %}
