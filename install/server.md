@@ -17,3 +17,7 @@ This page describes the anvi'o installation process for _servers running Linux_.
 
 ## (1) Things you need before you start
 
+You will need to run the installation commands from a terminal. Since you are already on a server, you should be good to go. :) 
+
+You also need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system. If you don't already have it, please follow their installation instructions.
+
