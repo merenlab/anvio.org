@@ -115,3 +115,7 @@ Some packages in `requirement.txt` may require to be installed with a more up to
 
 {% include install/other_options.md %}
 
+---
+
+{:.notice}
+{% include _fixthispage.html source="install/macos.md" %}

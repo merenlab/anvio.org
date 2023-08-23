@@ -106,3 +106,7 @@ And re-run the commands to install conda packages. You can set the priority back
 
 {% include install/other_options.md %}
 
+---
+
+{:.notice}
+{% include _fixthispage.html source="install/server.md" %}

@@ -69,3 +69,7 @@ You also need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be 
 
 {% include install/other_options.md %}
 
+---
+
+{:.notice}
+{% include _fixthispage.html source="install/windows.md" %}
