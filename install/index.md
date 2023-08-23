@@ -13,13 +13,15 @@ image:
 
 {% include _project-anvio-version.html %}
 
+This is the hub page for installing anvi'o. If you wish to install anvi'o on your personal computer, please click the button for your operating system below. All pages include instructions for installing the latest stable release of anvi'o (for end users) and the development version of anvi'o (for current or future developers, or for very adventurous users who want the latest updates and fixes).
+
 <a href="/install/macos/" target="_blank">MACOS</a>
 <a href="/install/linux/" target="_blank">LINUX</a>
 <a href="/install/windows/" target="_blank">WINDOWS</a>
 <a href="/install/server/" target="_blank">SERVER</a>
 
 
-This article explains basic steps of installing anvi'o using rather conventional methods both for end users and current of future developers.
+Alternatively, you could run anvi'o without a conventional installation using docker:
 
 <details markdown="1"><summary>Show/hide A docker solution for those who are in a hurry</summary>
 
