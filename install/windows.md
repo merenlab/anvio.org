@@ -32,3 +32,8 @@ You also need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be 
 {% include install/environment_setup_initial.md %}
 
 {% include install/conda_packages.md %}
+
+## (4) Install anvi'o
+
+{% include install/install_anvio.md %}
+
