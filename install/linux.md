@@ -77,3 +77,8 @@ conda config --set channel_priority flexible
 ```
 
 And re-run the commands to install conda packages. You can set the priority back to 'strict' at any time.
+
+## (6) Check your installation
+
+{% include install/check_installation.md %}
+ 

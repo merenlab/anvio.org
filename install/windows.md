@@ -41,3 +41,7 @@ You also need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be 
 
 {% include install/common_issues.md %}
 
+## (6) Check your installation
+
+{% include install/check_installation.md %}
+ 

@@ -72,3 +72,8 @@ pip install anvio-7.1.tar.gz
 If the `pip` installation still doesn't work (and especially if you see something like "clang-12: error: linker command failed with exit code 1" in the error message (we have often seen this error associated with the `Levenshtein` package), then this may be related to Xcode on Mac OSX. In this case you can try updating your Xcode by following the instructions described in [this issue](https://github.com/merenlab/anvio/issues/1636) (in the "Solved it" section), and then try the `pip` command one more time.
 
 If you did all that and it is still not working, please make an issue on the github page or let us know in the anvi'o Discord channel about your problem and we will try to help you.
+
+## (6) Check your installation
+
+{% include install/check_installation.md %}
+ 
