@@ -9,7 +9,7 @@ mkdir -p ~/github && cd ~/github/
 Get the anvi'o code:
 
 {:.warning}
-If you only plan to follow the development branch you can skip this message. But if you are not an official anvi'o developer but intend to change anvi'o and send us pull requests to reflect those changes in the official repository, you may want to clone anvi'o from your own fork rather than using the following URL. Thank you very much in advance and we are looking forward to seeing your PR!
+If you only plan to follow the development branch, and not make changes to the codebase, you can skip this message. But if you are not an official anvi'o developer yet intend to change anvi'o and send us pull requests to reflect those changes in the official repository, you may want to clone anvi'o from your own fork rather than using the following URL. Thank you very much in advance and we are looking forward to seeing your PR!
 
 ```
 git clone --recursive https://github.com/merenlab/anvio.git
