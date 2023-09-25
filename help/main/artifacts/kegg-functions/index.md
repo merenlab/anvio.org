@@ -29,7 +29,7 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-display-metabolism](../../programs/anvi-display-metabolism)</span> <span class="artifact-r">[anvi-estimate-metabolism](../../programs/anvi-estimate-metabolism)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-display-metabolism](../../programs/anvi-display-metabolism)</span> <span class="artifact-r">[anvi-estimate-metabolism](../../programs/anvi-estimate-metabolism)</span> <span class="artifact-r">[anvi-reaction-network](../../programs/anvi-reaction-network)</span></p>
 
 
 ## Description
