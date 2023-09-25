@@ -460,7 +460,7 @@ Now we can continue with setting up the conda environment.
 ### Setting up the conda environment
 
 {:.warning}
-Please note that we recently switched from Python 3.6 to Python 3.7 in our active development branch. Thus, the way we setup the conda environment for the active development branch now differs from the way we do it for the latest stable version. There may be hiccups since these changes reqiured many adjustments in the anvi'o code, and will likely some bugs are missed. If you are reading these lines, please keep us posted if you run into an issue.
+**Please note that we recently switched from Python 3.7 to Python 3.10 in our active development branch**. Thus, the way we setup the conda environment for the active development branch now differs from the way we do it for the latest stable version. There may be hiccups since these changes required many adjustments in the anvi'o code, and will likely some bugs are missed. If you are reading these lines, please keep us posted if you run into an issue.
 
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Working with Apple silicon</span>
@@ -476,7 +476,7 @@ conda config --env --set subdir osx-64
 First create a new conda environment:
 
 ``` bash
-conda create -y --name anvio-dev python=3.7
+conda create -y --name anvio-dev python=3.10
 ```
 
 And activate it:
@@ -488,20 +488,27 @@ conda activate anvio-dev
 Install `mamba` for fast dependency resolving:
 
 ```
-conda install -y -c conda-forge "mamba >=0.24.0"
+conda install -y -c conda-forge mamba
+```
+
+At the time of writing these lines, running `mamba` after this step gave an error about a missing file for `libarchive` library on Mac systems. To see if this is really the case, you can first type `mamba` in your terminal. If you are not getting an error (and instead seeing a nice help menu), then this problem does not affect your system. If you indeed get a `libarchive` error, please run the following command and see if it solves the problem for you (this essentially creates a symbolic link to an existing file that `mamba` complains about):
+
+```
+ln -s ${CONDA_PREFIX}/lib/libarchive.19.dylib \
+      ${CONDA_PREFIX}/lib/libarchive.13.dylib
 ```
 
 {:.notice}
-If the [mamba](https://github.com/mamba-org/mamba) installation somehow doesn't work, that is OK. It is also OK if some of the commands below that start with `mamba` don't work. In either of these cases, you only need to replace every instance of `mamba` with `conda`, and everything should work smoothly (but with slightly longer wait times). But it would be extremely helpful to the community if you were to ping us on {% include _discord_invitation_button.html %} in the case of a `mamba` failure, so we better understand under what circumstances this solution fails.
+If the [mamba](https://github.com/mamba-org/mamba) installation somehow still doesn't work, that is OK. It is also OK if some of the commands below that start with `mamba` don't work. In either of these cases, you only need to replace every instance of `mamba` with `conda`, and everything should work smoothly (but with slightly longer wait times). But it would be extremely helpful to the community if you were to ping us on {% include _discord_invitation_button.html %} in the case of a `mamba` failure, so we better understand under what circumstances this solution fails.
 
 Install all the necessary packages:
 
 ``` bash
-mamba install -y -c bioconda -c conda-forge python=3.7 \
-        sqlite prodigal idba mcl muscle=3.8.1551 hmmer diamond \
-        blast megahit spades bowtie2 tbb=2020.3 bwa graphviz \
-        "samtools >=1.9" trimal iqtree trnascan-se fasttree vmatch \
-        r-base r-tidyverse r-optparse r-stringi r-magrittr
+mamba install -y -c conda-forge -c bioconda python=3.10 \
+        sqlite prodigal idba mcl muscle=3.8.1551 famsa hmmer diamond \
+        blast megahit spades bowtie2 bwa graphviz "samtools>=1.9" \
+        trimal iqtree trnascan-se fasttree vmatch r-base r-tidyverse \
+        r-optparse r-stringi r-magrittr bioconductor-qvalue meme
 
 # try this, if it doesn't install, don't worry. you will
 # deal with that later
@@ -543,8 +550,7 @@ pip install -r requirements.txt
 If `pysam` is causing you trouble during this step, you may want to try to install it with conda first by running `conda install -y -c bioconda pysam` and then try the `pip` install command again.
 
 {:.warning}
-Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. If you're getting an error that contains `x86_64-apple-darwin13.4.0-clang` or similar keywords in the output message, please run `export CC=clang` in your terminal and try the command above again. If you are still unable to run the `pip install` command above, run both `export CC=/usr/bin/clang` and `export CXX=/usr/bin/clang++` before trying again. If the `pip` installation still doesn't work, please make an issue on the github page or let us know in the anvi'o Discord channel about your problem and we will try to help you.
-
+Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. If you're getting errors that mention problems while building wheel for packages, please run `export CC=/usr/bin/clang` and `export CXX=/usr/bin/clang++` and try running the `pip install` command above again. If the `pip` installation still doesn't work, please let us know in the anvi'o Discord channel about your problem and we will try to help you.
 
 Now all dependencies are in place, and you have the code. One more step.
 
@@ -684,18 +690,19 @@ meren ~ $ anvi-self-test -v
 
 :: anvi'o v7.1 dev :: ~ >>> anvi-self-test -v
 Anvi'o .......................................: hope (v7.1-dev)
+Python .......................................: 3.10.13
 
-Profile database .............................: 35
+Profile database .............................: 38
 Contigs database .............................: 20
-Pan database .................................: 14
+Pan database .................................: 16
 Genome data storage ..........................: 7
 Auxiliary data storage .......................: 2
 Structure database ...........................: 2
-Metabolic modules database ...................: 2
-tRNA-seq database ............................: 1
+Metabolic modules database ...................: 4
+tRNA-seq database ............................: 2
 ```
 
-**But please note** that both aliases run `deactivate` and `conda deactivate` first, and they may not work for you especially if you have a fancy setup.
+**But please note** that both aliases run `deactivate` and `conda deactivate` first, and they may not work for you if you have an even fancier setup.
 
 
 ## Other installation options
