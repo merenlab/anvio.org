@@ -29,10 +29,11 @@ Updating from anvi'o GitHub (press CTRL+C to cancel) ...
 /Users/meren/github/anvio/bin/anvi-self-test
 
 (anvio-dev) meren ~ $ anvi-self-test -v
-Anvi'o .......................................: hope (v7-dev)
+Anvi'o .......................................: hope (v7.1-dev)
+Python .......................................: 3.10.13
 
 Profile database .............................: 38
-Contigs database .............................: 20
+Contigs database .............................: 21
 Pan database .................................: 16
 Genome data storage ..........................: 7
 Auxiliary data storage .......................: 2
