@@ -23,8 +23,8 @@
       "size": 2,
       "score": 0.1,
       "color": "#AAAA00",
-      "id": "anvi-setup-kegg-data",
-      "name": "anvi-setup-kegg-data",
+      "id": "anvi-setup-kegg-kofams",
+      "name": "anvi-setup-kegg-kofams",
       "type": "PROGRAM"
     }
   ],

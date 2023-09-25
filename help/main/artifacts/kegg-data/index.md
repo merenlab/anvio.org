@@ -23,30 +23,30 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-setup-kegg-data](../../programs/anvi-setup-kegg-data)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-setup-kegg-kofams](../../programs/anvi-setup-kegg-kofams)</span></p>
 
 
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-display-metabolism](../../programs/anvi-display-metabolism)</span> <span class="artifact-r">[anvi-estimate-metabolism](../../programs/anvi-estimate-metabolism)</span> <span class="artifact-r">[anvi-reaction-network](../../programs/anvi-reaction-network)</span> <span class="artifact-r">[anvi-run-kegg-kofams](../../programs/anvi-run-kegg-kofams)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-display-metabolism](../../programs/anvi-display-metabolism)</span> <span class="artifact-r">[anvi-estimate-metabolism](../../programs/anvi-estimate-metabolism)</span> <span class="artifact-r">[anvi-run-kegg-kofams](../../programs/anvi-run-kegg-kofams)</span></p>
 
 
 ## Description
 
 A **directory of data** downloaded from the [KEGG database resource](https://www.kegg.jp/) for use in function annotation and metabolism estimation.
 
-It is created by running the program <span class="artifact-p">[anvi-setup-kegg-data](/help/main/programs/anvi-setup-kegg-data)</span>. Not everything from KEGG is included in this directory, only the information relevant to downstream programs. The most critical components of this directory are KOfam HMM profiles and the <span class="artifact-n">[modules-db](/help/main/artifacts/modules-db)</span> which contains information on metabolic pathways as described in the [KEGG MODULES resource](https://www.genome.jp/kegg/module.html), as well as functional classification hierarchies from [KEGG BRITE](https://www.genome.jp/kegg/brite.html).
+It is created by running the program <span class="artifact-p">[anvi-setup-kegg-kofams](/help/main/programs/anvi-setup-kegg-kofams)</span>. Not everything from KEGG is included in this directory, only the information relevant to downstream programs. The most critical components of this directory are KOfam HMM profiles and the <span class="artifact-n">[modules-db](/help/main/artifacts/modules-db)</span> which contains information on metabolic pathways as described in the [KEGG MODULES resource](https://www.genome.jp/kegg/module.html), as well as functional classification hierarchies from [KEGG BRITE](https://www.genome.jp/kegg/brite.html).
 
 Programs that rely on this data directory include <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> and <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>.
 
 ## Directory Location
 The default location of this data is in the anvi'o folder, at `anvio/anvio/data/misc/KEGG/`.
 
-You can change this location when you run <span class="artifact-p">[anvi-setup-kegg-data](/help/main/programs/anvi-setup-kegg-data)</span> by providing a different path to the `--kegg-data-dir` parameter:
+You can change this location when you run <span class="artifact-p">[anvi-setup-kegg-kofams](/help/main/programs/anvi-setup-kegg-kofams)</span> by providing a different path to the `--kegg-data-dir` parameter:
 
 <div class="codeblock" markdown="1">
-anvi&#45;setup&#45;kegg&#45;data &#45;&#45;kegg&#45;data&#45;dir /path/to/directory/KEGG
+anvi&#45;setup&#45;kegg&#45;kofams &#45;&#45;kegg&#45;data&#45;dir /path/to/directory/KEGG
 </div>
 
 If you do this, you will need to provide this path to downstream programs that require this data as well.

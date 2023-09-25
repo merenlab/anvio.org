@@ -134,7 +134,7 @@
     - name: anvi-run-hmms
     - name: anvi-run-kegg-kofams
     - name: anvi-run-pfams
-    - name: anvi-setup-kegg-data
+    - name: anvi-setup-kegg-kofams
     - name: anvi-setup-pfams
     - name: anvi-setup-user-modules
     - name: anvi-summarize-blitz
@@ -208,11 +208,10 @@
     - name: anvi-get-metabolic-model-file
     - name: anvi-merge-trnaseq
     - name: anvi-migrate
-    - name: anvi-reaction-network
     - name: anvi-run-kegg-kofams
     - name: anvi-run-workflow
-    - name: anvi-setup-kegg-data
-    - name: anvi-setup-modelseed-database
+    - name: anvi-setup-kegg-kofams
+    - name: anvi-setup-protein-reference-database
     - name: anvi-trnaseq
 - author: matthewlawrenceklein
   programs:

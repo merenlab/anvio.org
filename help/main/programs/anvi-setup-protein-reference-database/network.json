@@ -14,8 +14,8 @@
       "size": 1,
       "score": 0.1,
       "color": "#AAAA00",
-      "id": "anvi-get-metabolic-model-file",
-      "name": "anvi-get-metabolic-model-file",
+      "id": "anvi-setup-protein-reference-database",
+      "name": "anvi-setup-protein-reference-database",
       "type": "PROGRAM"
     }
   ],

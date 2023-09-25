@@ -1,7 +1,7 @@
 ---
 layout: program
 title: anvi-get-metabolic-model-file
-excerpt: An anvi'o program. This program writes a metabolic reaction network to a file suitable for flux balance analysis.
+excerpt: An anvi'o program. This program writes a file of metabolic data for FBA models.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-get-metabolic-model-file
@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-This program writes a metabolic reaction network to a file suitable for flux balance analysis..
+This program writes a file of metabolic data for FBA models..
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,13 +31,13 @@ This program writes a metabolic reaction network to a file suitable for flux bal
 ## Can consume
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[reaction-network](../../artifacts/reaction-network) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[functions](../../artifacts/functions) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Can provide
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[reaction-network-json](../../artifacts/reaction-network-json) <img src="../../images/icons/JSON.png" class="artifact-icon-mini" /></span></p>
+This program does not seem to provide any artifacts. Such programs usually print out some information for you to see or alter some anvi'o artifacts without producing any immediate outputs.
 
 
 ## Usage
