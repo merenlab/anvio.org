@@ -1,8 +1,6 @@
-### Setting up the local copy of the anvi'o codebase
+If you are here, it means you have a conda environment with everything except anvi’o itself. We will make sure this environment has anvi’o by getting a copy of the anvi’o codebase from GitHub.
 
-If you are here, it means you have a working conda installation on your computer. That's very good. We will start the rest of our adventure by by getting a copy of the anvi'o codebase from GitHub.
-
-Here I suggest `~/github/` as the base directory to keep the code, but you can change it to something else, of course (in which case you must remember to apply that change all the following commands). Setup the code directory:
+Here I will suggest `~/github/` as the base directory to keep the code, but you can change if you want to something else (in which case you must remember to apply that change all the following commands, of course). Setup the code directory:
 
 ``` bash
 mkdir -p ~/github && cd ~/github/
