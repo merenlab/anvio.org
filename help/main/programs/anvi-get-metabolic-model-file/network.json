@@ -5,13 +5,31 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "functions",
-      "name": "functions",
+      "id": "reaction-network-json",
+      "name": "reaction-network-json",
+      "provided_by_anvio": true,
+      "type": "JSON"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contigs-db",
+      "name": "contigs-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "reaction-network",
+      "name": "reaction-network",
       "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
-      "size": 1,
+      "size": 3,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-get-metabolic-model-file",
@@ -21,8 +39,16 @@
   ],
   "links": [
     {
-      "target": 1,
-      "source": 0
+      "source": 3,
+      "target": 0
+    },
+    {
+      "target": 3,
+      "source": 1
+    },
+    {
+      "target": 3,
+      "source": 2
     }
   ],
   "directed": false,

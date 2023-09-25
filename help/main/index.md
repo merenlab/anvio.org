@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **01 Sep 23 12:34:47** for anvi'o version **7.1-dev (hope)**.
+The help contents were last updated on **25 Sep 23 09:53:43** for anvi'o version **7.1-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -45,12 +45,12 @@ The anvi'o 7.1-dev (hope) contains 4 workflows:
 
 Anvi'o artifacts represent **concepts, file types, or data types** anvi'o programs can work with. A given anvi'o artifact can be provided by the user (such as a FASTA file), produced by anvi'o (such as a profile database), or both (such as phylogenomic trees). Anvi'o artifacts link anvi'o programs to each other to build novel workflows.
 
-Listed below **a total of 135 artifacts**.
+Listed below **a total of 138 artifacts**.
 
 <table class="artifacts-table">
 
 <tr style="border:none;">
-<td><div class="artifact-icon-div"><img src="images/icons/DB.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[pan-db](artifacts/pan-db)</span> <span class="artifact-n" markdown="1">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-n" markdown="1">[trnaseq-db](artifacts/trnaseq-db)</span> <span class="artifact-n" markdown="1">[trnaseq-contigs-db](artifacts/trnaseq-contigs-db)</span> <span class="artifact-n" markdown="1">[trnaseq-profile-db](artifacts/trnaseq-profile-db)</span> <span class="artifact-n" markdown="1">[modules-db](artifacts/modules-db)</span> <span class="artifact-n" markdown="1">[structure-db](artifacts/structure-db)</span> <span class="artifact-n" markdown="1">[pdb-db](artifacts/pdb-db)</span> <span class="artifact-n" markdown="1">[kegg-data](artifacts/kegg-data)</span> <span class="artifact-n" markdown="1">[user-modules-data](artifacts/user-modules-data)</span> <span class="artifact-n" markdown="1">[single-profile-db](artifacts/single-profile-db)</span> <span class="artifact-n" markdown="1">[profile-db](artifacts/profile-db)</span> <span class="artifact-n" markdown="1">[genes-db](artifacts/genes-db)</span> <span class="artifact-n" markdown="1">[genomes-storage-db](artifacts/genomes-storage-db)</span></td>
+<td><div class="artifact-icon-div"><img src="images/icons/DB.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[pan-db](artifacts/pan-db)</span> <span class="artifact-n" markdown="1">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-n" markdown="1">[trnaseq-db](artifacts/trnaseq-db)</span> <span class="artifact-n" markdown="1">[trnaseq-contigs-db](artifacts/trnaseq-contigs-db)</span> <span class="artifact-n" markdown="1">[trnaseq-profile-db](artifacts/trnaseq-profile-db)</span> <span class="artifact-n" markdown="1">[modules-db](artifacts/modules-db)</span> <span class="artifact-n" markdown="1">[structure-db](artifacts/structure-db)</span> <span class="artifact-n" markdown="1">[pdb-db](artifacts/pdb-db)</span> <span class="artifact-n" markdown="1">[kegg-data](artifacts/kegg-data)</span> <span class="artifact-n" markdown="1">[user-modules-data](artifacts/user-modules-data)</span> <span class="artifact-n" markdown="1">[reaction-ref-data](artifacts/reaction-ref-data)</span> <span class="artifact-n" markdown="1">[single-profile-db](artifacts/single-profile-db)</span> <span class="artifact-n" markdown="1">[profile-db](artifacts/profile-db)</span> <span class="artifact-n" markdown="1">[genes-db](artifacts/genes-db)</span> <span class="artifact-n" markdown="1">[genomes-storage-db](artifacts/genomes-storage-db)</span></td>
 </tr>
 
 <tr>
@@ -94,7 +94,7 @@ Listed below **a total of 135 artifacts**.
 </tr>
 
 <tr>
-<td><div class="artifact-icon-div"><img src="images/icons/CONCEPT.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[hmm-hits](artifacts/hmm-hits)</span> <span class="artifact-n" markdown="1">[completion](artifacts/completion)</span> <span class="artifact-n" markdown="1">[misc-data-items](artifacts/misc-data-items)</span> <span class="artifact-n" markdown="1">[misc-data-layers](artifacts/misc-data-layers)</span> <span class="artifact-n" markdown="1">[misc-data-nucleotides](artifacts/misc-data-nucleotides)</span> <span class="artifact-n" markdown="1">[misc-data-amino-acids](artifacts/misc-data-amino-acids)</span> <span class="artifact-n" markdown="1">[genome-similarity](artifacts/genome-similarity)</span> <span class="artifact-n" markdown="1">[misc-data-layer-orders](artifacts/misc-data-layer-orders)</span> <span class="artifact-n" markdown="1">[misc-data-items-order](artifacts/misc-data-items-order)</span> <span class="artifact-n" markdown="1">[metapangenome](artifacts/metapangenome)</span> <span class="artifact-n" markdown="1">[oligotypes](artifacts/oligotypes)</span> <span class="artifact-n" markdown="1">[functions](artifacts/functions)</span> <span class="artifact-n" markdown="1">[kegg-functions](artifacts/kegg-functions)</span> <span class="artifact-n" markdown="1">[layer-taxonomy](artifacts/layer-taxonomy)</span> <span class="artifact-n" markdown="1">[gene-taxonomy](artifacts/gene-taxonomy)</span> <span class="artifact-n" markdown="1">[genome-taxonomy](artifacts/genome-taxonomy)</span> <span class="artifact-n" markdown="1">[scgs-taxonomy-db](artifacts/scgs-taxonomy-db)</span> <span class="artifact-n" markdown="1">[scgs-taxonomy](artifacts/scgs-taxonomy)</span> <span class="artifact-n" markdown="1">[trna-taxonomy-db](artifacts/trna-taxonomy-db)</span> <span class="artifact-n" markdown="1">[trna-taxonomy](artifacts/trna-taxonomy)</span> <span class="artifact-n" markdown="1">[variability-profile](artifacts/variability-profile)</span> <span class="artifact-n" markdown="1">[split-bins](artifacts/split-bins)</span> <span class="artifact-n" markdown="1">[state](artifacts/state)</span> <span class="artifact-n" markdown="1">[ngrams](artifacts/ngrams)</span> <span class="artifact-n" markdown="1">[pn-ps-data](artifacts/pn-ps-data)</span> <span class="artifact-n" markdown="1">[metabolic-independence-score](artifacts/metabolic-independence-score)</span></td>
+<td><div class="artifact-icon-div"><img src="images/icons/CONCEPT.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[hmm-hits](artifacts/hmm-hits)</span> <span class="artifact-n" markdown="1">[completion](artifacts/completion)</span> <span class="artifact-n" markdown="1">[misc-data-items](artifacts/misc-data-items)</span> <span class="artifact-n" markdown="1">[misc-data-layers](artifacts/misc-data-layers)</span> <span class="artifact-n" markdown="1">[misc-data-nucleotides](artifacts/misc-data-nucleotides)</span> <span class="artifact-n" markdown="1">[misc-data-amino-acids](artifacts/misc-data-amino-acids)</span> <span class="artifact-n" markdown="1">[genome-similarity](artifacts/genome-similarity)</span> <span class="artifact-n" markdown="1">[misc-data-layer-orders](artifacts/misc-data-layer-orders)</span> <span class="artifact-n" markdown="1">[misc-data-items-order](artifacts/misc-data-items-order)</span> <span class="artifact-n" markdown="1">[metapangenome](artifacts/metapangenome)</span> <span class="artifact-n" markdown="1">[oligotypes](artifacts/oligotypes)</span> <span class="artifact-n" markdown="1">[functions](artifacts/functions)</span> <span class="artifact-n" markdown="1">[kegg-functions](artifacts/kegg-functions)</span> <span class="artifact-n" markdown="1">[reaction-network](artifacts/reaction-network)</span> <span class="artifact-n" markdown="1">[layer-taxonomy](artifacts/layer-taxonomy)</span> <span class="artifact-n" markdown="1">[gene-taxonomy](artifacts/gene-taxonomy)</span> <span class="artifact-n" markdown="1">[genome-taxonomy](artifacts/genome-taxonomy)</span> <span class="artifact-n" markdown="1">[scgs-taxonomy-db](artifacts/scgs-taxonomy-db)</span> <span class="artifact-n" markdown="1">[scgs-taxonomy](artifacts/scgs-taxonomy)</span> <span class="artifact-n" markdown="1">[trna-taxonomy-db](artifacts/trna-taxonomy-db)</span> <span class="artifact-n" markdown="1">[trna-taxonomy](artifacts/trna-taxonomy)</span> <span class="artifact-n" markdown="1">[variability-profile](artifacts/variability-profile)</span> <span class="artifact-n" markdown="1">[split-bins](artifacts/split-bins)</span> <span class="artifact-n" markdown="1">[state](artifacts/state)</span> <span class="artifact-n" markdown="1">[ngrams](artifacts/ngrams)</span> <span class="artifact-n" markdown="1">[pn-ps-data](artifacts/pn-ps-data)</span> <span class="artifact-n" markdown="1">[metabolic-independence-score](artifacts/metabolic-independence-score)</span></td>
 </tr>
 
 <tr>
@@ -103,6 +103,10 @@ Listed below **a total of 135 artifacts**.
 
 <tr>
 <td><div class="artifact-icon-div"><img src="images/icons/NEWICK.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[dendrogram](artifacts/dendrogram)</span> <span class="artifact-n" markdown="1">[phylogeny](artifacts/phylogeny)</span></td>
+</tr>
+
+<tr>
+<td><div class="artifact-icon-div"><img src="images/icons/JSON.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[reaction-network-json](artifacts/reaction-network-json)</span> <span class="artifact-n" markdown="1">[state-json](artifacts/state-json)</span> <span class="artifact-n" markdown="1">[workflow-config](artifacts/workflow-config)</span></td>
 </tr>
 
 <tr>
@@ -118,10 +122,6 @@ Listed below **a total of 135 artifacts**.
 </tr>
 
 <tr>
-<td><div class="artifact-icon-div"><img src="images/icons/JSON.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[state-json](artifacts/state-json)</span> <span class="artifact-n" markdown="1">[workflow-config](artifacts/workflow-config)</span></td>
-</tr>
-
-<tr>
 <td><div class="artifact-icon-div"><img src="images/icons/WORKFLOW.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[contigs-workflow](artifacts/contigs-workflow)</span> <span class="artifact-n" markdown="1">[metagenomics-workflow](artifacts/metagenomics-workflow)</span> <span class="artifact-n" markdown="1">[pangenomics-workflow](artifacts/pangenomics-workflow)</span> <span class="artifact-n" markdown="1">[phylogenomics-workflow](artifacts/phylogenomics-workflow)</span> <span class="artifact-n" markdown="1">[trnaseq-workflow](artifacts/trnaseq-workflow)</span> <span class="artifact-n" markdown="1">[ecophylo-workflow](artifacts/ecophylo-workflow)</span> <span class="artifact-n" markdown="1">[sra-download-workflow](artifacts/sra-download-workflow)</span></td>
 </tr>
 
@@ -131,7 +131,7 @@ Listed below **a total of 135 artifacts**.
 
 Anvi'o programs perform atomic tasks that can be weaved together to implement complete 'omics workflows. Please note that there may be programs that are not listed on this page. You can type 'anvi-' in your terminal, and press the TAB key twice to see the full list of programs available to you on your system, and type `anvi-program-name --help` to read the full list of command line options.
 
-Listed below **a total of 146 programs**.
+Listed below **a total of 147 programs**.
 
 
 <div style="width:100%;">
@@ -1631,19 +1631,19 @@ Listed below **a total of 146 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-metabolic-model-file](programs/anvi-get-metabolic-model-file)**</span>. <span markdown="1">This program writes a file of metabolic data for FBA models.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-metabolic-model-file](programs/anvi-get-metabolic-model-file)**</span>. <span markdown="1">This program writes a metabolic reaction network to a file suitable for flux balance analysis.</span>.
     </td>
 </tr>
 <tr>
     <td class="artifact-r-td">
     <span class="artifact-emoji">🧀</span>
-        <span class="artifact-r" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[reaction-network](artifacts/reaction-network) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span>
-        <span class="artifact-p" markdown="1">n/a</span>
+        <span class="artifact-p" markdown="1">[reaction-network-json](artifacts/reaction-network-json) <img src="images/icons/JSON.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr style="border:none;">
@@ -2543,6 +2543,36 @@ Listed below **a total of 146 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-reaction-network](programs/anvi-reaction-network)**</span>. <span markdown="1">Generate a metabolic reaction network in an anvi&#x27;o contigs database</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[kegg-functions](artifacts/kegg-functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[reaction-ref-data](artifacts/reaction-ref-data) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[kegg-data](artifacts/kegg-data) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">[reaction-network](artifacts/reaction-network) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/semiller10" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
         <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-refine](programs/anvi-refine)**</span>. <span markdown="1">Start an anvi&#x27;o interactive interactive to manually curate or refine a genome, whether it is a metagenome-assembled, single-cell, or an isolate genome</span>.
     </td>
 </tr>
@@ -3155,7 +3185,7 @@ Listed below **a total of 146 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-kegg-kofams](programs/anvi-setup-kegg-kofams)**</span>. <span markdown="1">Download and setup KEGG KOfam HMM profiles plus KEGG MODULE and KEGG BRITE data</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-kegg-data](programs/anvi-setup-kegg-data)**</span>. <span markdown="1">Download and setup various databases from KEGG</span>.
     </td>
 </tr>
 <tr>
@@ -3174,6 +3204,36 @@ Listed below **a total of 146 programs**.
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ivagljiva" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/semiller10" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-modelseed-database](programs/anvi-setup-modelseed-database)**</span>. <span markdown="1">This program downloads and sets up the ModelSEED Biochemistry database.</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">[reaction-ref-data](artifacts/reaction-ref-data) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/semiller10" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -3265,36 +3325,6 @@ Listed below **a total of 146 programs**.
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ivagljiva" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ozcan" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
-
-    </td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<div style="width:100%;">
-<table class="programs-table">
-<tbody>
-<tr style="border:none;">
-    <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-protein-reference-database](programs/anvi-setup-protein-reference-database)**</span>. <span markdown="1">This program downloads and sets up files of reference protein properties.</span>.
-    </td>
-</tr>
-<tr>
-    <td class="artifact-r-td">
-    <span class="artifact-emoji">🧀</span>
-        <span class="artifact-r" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
-    </td>
-</tr>
-<tr>
-    <td class="artifact-p-td">
-    <span class="artifact-emoji">🍕</span>
-        <span class="artifact-p" markdown="1">n/a</span>
-    </td>
-</tr>
-<tr style="border:none;">
-    <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/semiller10" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
 
     </td>
 </tr>
