@@ -106,7 +106,7 @@ mamba
 
 If you are not getting an error (and instead seeing a nice help menu), then this problem does not affect your system and _you can skip the next command_. But if you indeed get a `libarchive` error, please run the following command and see if it solves the problem for you (this essentially creates a symbolic link to an existing file that `mamba` complains about):
 
-```
+```bash
 ln -s ${CONDA_PREFIX}/lib/libarchive.19.dylib \
       ${CONDA_PREFIX}/lib/libarchive.13.dylib
 ```
@@ -127,7 +127,7 @@ mamba
 
 Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. Hence, we suggest all Mac users to run the following commands before you start the `pip install` command:
 
-```
+```bash
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
 ```

@@ -3,7 +3,7 @@ If the [mamba](https://github.com/mamba-org/mamba) installation somehow still do
 
 Install all the necessary packages:
 
-```
+``` bash
 mamba install -y -c conda-forge -c bioconda python=3.10 \
         sqlite prodigal idba mcl muscle=3.8.1551 famsa hmmer diamond \
         blast megahit spades bowtie2 bwa graphviz "samtools>=1.9" \
