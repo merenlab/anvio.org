@@ -111,6 +111,12 @@ ln -s ${CONDA_PREFIX}/lib/libarchive.19.dylib \
       ${CONDA_PREFIX}/lib/libarchive.13.dylib
 ```
 
+And test to make sure that `mamba` is okay now:
+
+```
+mamba
+```
+
 {% include install/dev_mamba_packages.md %}
 
 ### Setting up the local copy of the anvi'o codebase
