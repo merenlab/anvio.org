@@ -137,9 +137,6 @@ The above code should help you avoid errors with building wheels for `pip` packa
 
 {% include install/dev_python_dependencies.md %}
 
-{:.warning}
-Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. If you're getting an error that contains `x86_64-apple-darwin13.4.0-clang` or similar keywords in the output message, please run `export CC=clang` in your terminal and try the command above again. If you are still unable to run the `pip install` command above, run both `export CC=/usr/bin/clang` and `export CXX=/usr/bin/clang++` before trying again. If the `pip` installation still doesn't work, please make an issue on the github page or let us know in the anvi'o Discord channel about your problem and we will try to help you.
-
 ### Linking conda environment and the codebase
 
 {% include install/dev_link_conda_codebase.md %}
