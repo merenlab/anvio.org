@@ -98,6 +98,19 @@ conda config --env --set subdir osx-64
 
 {% include install/dev_conda_setup.md %}
 
+At the time of writing these lines, running `mamba` after this step gave an error about a missing file for `libarchive` library on Mac systems. To see if this is really the case, you can first type `mamba` in your terminal:
+
+```
+mamba
+```
+
+If you are not getting an error (and instead seeing a nice help menu), then this problem does not affect your system and _you can skip the next command_. But if you indeed get a `libarchive` error, please run the following command and see if it solves the problem for you (this essentially creates a symbolic link to an existing file that `mamba` complains about):
+
+```
+ln -s ${CONDA_PREFIX}/lib/libarchive.19.dylib \
+      ${CONDA_PREFIX}/lib/libarchive.13.dylib
+```
+
 {% include install/dev_mamba_packages.md %}
 
 ### Setting up the local copy of the anvi'o codebase
@@ -105,6 +118,16 @@ conda config --env --set subdir osx-64
 {% include install/dev_codebase.md %}
 
 ### Installing the Python dependencies
+
+Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. Hence, we suggest all Mac users to run the following commands before you start the `pip install` command:
+
+```
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
+```
+
+{:.notice}
+The above code should help you avoid errors with building wheels for `pip` packages. However, if you still see errors during the `pip install` command, please let us know in the anvi'o Discord channel and we will try to help you.
 
 {% include install/dev_python_dependencies.md %}
 
