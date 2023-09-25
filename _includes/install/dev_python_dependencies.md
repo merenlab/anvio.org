@@ -1,4 +1,4 @@
-To install the Python dependencies of anvi'o please run the follwing command:
+To install the Python dependencies of anvi'o please run the following command:
 
 ``` bash
 pip install -r requirements.txt
