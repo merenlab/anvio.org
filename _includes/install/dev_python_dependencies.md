@@ -1,6 +1,7 @@
 To install the Python dependencies of anvi'o please run the following command:
 
 ``` bash
+cd ~/github/anvio/
 pip install -r requirements.txt
 ```
 

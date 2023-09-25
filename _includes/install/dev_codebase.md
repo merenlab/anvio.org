@@ -14,9 +14,3 @@ If you only plan to follow the development branch, and not make changes to the c
 ```
 git clone --recursive https://github.com/merenlab/anvio.git
 ```
-
-Once this is done run the following command to go into the anvi'o codebase directory (and please don't change directories until the end of the installation):
-
-```
-cd ~/github/anvio/ && git pull
-```
