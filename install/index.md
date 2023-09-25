@@ -22,7 +22,8 @@ This is the hub page for installing anvi'o. If you wish to install anvi'o on you
   <a href="/install/server/" target="_blank"><i class="fa-solid fa-server fa-3x"></i></a>
 </div>
 
-
+{:.warning}
+We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), [Susheel Bhanu Busi](https://scholar.google.com/citations?user=U0g3IzQAAAAJ&hl=en), [Mike Lee](https://twitter.com/AstrobioMike), [Josh Herr](http://joshuaherr.com/), and [Titus Brown](https://scholar.google.com/citations?user=O4rYanMAAAAJ) who kindly invested their time to test the installation instructions on different systems and/or made suggestions to these documents to ensure a smoother installation experience for everyone.
 Alternatively, you could run anvi'o without a conventional installation using `docker`:
 
 <details markdown="1"><summary>Show/hide A docker solution for those who are in a hurry</summary>
