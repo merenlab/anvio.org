@@ -83,6 +83,8 @@ If you did all that and it is still not working, please make an issue on the git
 
 ### Setting up the conda environment
 
+{% include install/dev_python_version_warning.md %}
+
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Working with Apple silicon</span>
 
@@ -95,6 +97,12 @@ conda config --env --set subdir osx-64
 </div>
 
 {% include install/dev_conda_setup.md %}
+
+{% include install/dev_mamba_packages.md %}
+
+### Setting up the local copy of the anvi'o codebase
+
+{% include install/dev_codebase.md %}
 
 ### Installing the Python dependencies
 
