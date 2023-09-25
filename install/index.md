@@ -510,11 +510,7 @@ mamba install -y -c conda-forge -c bioconda python=3.10 \
         trimal iqtree trnascan-se fasttree vmatch r-base r-tidyverse \
         r-optparse r-stringi r-magrittr bioconductor-qvalue meme
 
-# try this, if it doesn't install, don't worry. you will
-# deal with that later
-mamba install -y -c bioconda bioconductor-qvalue
-
-# try this, too. it may also fail to install. which is OK:
+# try this, if it doesn't install, don't worry (it is sad, but OK):
 mamba install -y -c bioconda fastani
 ```
 
