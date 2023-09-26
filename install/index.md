@@ -2,7 +2,7 @@
 layout: page
 title: "Installing anvi'o"
 excerpt: "Instructions to install the current release of the platform."
-modified: 2019-05-14
+modified: 2023-09-26
 tags: []
 categories: [anvio]
 comments: true

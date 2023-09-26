@@ -2,7 +2,7 @@
 layout: page
 title: "Installing anvio-dev on Windows"
 excerpt: "Instructions to install the development version of the platform."
-modified: 2023-08-16
+modified: 2023-09-26
 tags: []
 categories: [anvio]
 comments: true

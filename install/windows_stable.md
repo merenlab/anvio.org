@@ -2,7 +2,7 @@
 layout: page
 title: "Installing anvi'o on Windows"
 excerpt: "Instructions to install the current release of the platform."
-modified: 2023-08-16
+modified: 2023-09-26
 tags: []
 categories: [anvio]
 comments: true
