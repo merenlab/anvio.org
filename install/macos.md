@@ -85,6 +85,17 @@ If you did all that and it is still not working, please make an issue on the git
 
 {% include install/dev_python_version_warning.md %}
 
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Working with Apple silicon</span>
+
+If you are using a computer with Apple silicon (like a M1 MacBook), you will find that some conda packages are not available (bioconda packages).
+To avoid this issue, you can run the following command (only once) before creating the environment:
+
+```bash
+conda config --env --set subdir osx-64
+```
+</div>
+
 {% include install/dev_conda_setup.md %}
 
 At the time of writing these lines, running `mamba` after this step gave an error about a missing file for `libarchive` library on Mac systems. To see if this is really the case, you can first type `mamba` in your terminal:
@@ -105,17 +116,6 @@ And test to make sure that `mamba` is okay now:
 ```
 mamba
 ```
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Working with Apple silicon</span>
-
-If you are using a computer with Apple silicon (like a M1 MacBook), you will find that some conda packages are not available (bioconda packages).
-To avoid this issue, you can run the following command (only once) before creating the environment:
-
-```bash
-conda config --env --set subdir osx-64
-```
-</div>
 
 {% include install/dev_mamba_packages.md %}
 
