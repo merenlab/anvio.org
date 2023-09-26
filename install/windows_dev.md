@@ -20,21 +20,21 @@ This page is for users who want to install the development version of anvi'o, `a
 
 {% include install/things_you_need_windows.md %}
 
-### (2) Setting up the conda environment
+## (2) Setting up the conda environment
 
 {% include install/dev_python_version_warning.md %}
 {% include install/dev_conda_setup.md %}
 {% include install/dev_mamba_packages.md %}
 
-### (3) Setting up the local copy of the anvi'o codebase
+## (3) Setting up the local copy of the anvi'o codebase
 
 {% include install/dev_codebase.md %}
 
-### (4) Installing the Python dependencies
+## (4) Installing the Python dependencies
 
 {% include install/dev_python_dependencies.md %}
 
-### (5) Linking conda environment and the codebase
+## (5) Linking conda environment and the codebase
 
 {% include install/dev_link_conda_codebase.md %}
 
