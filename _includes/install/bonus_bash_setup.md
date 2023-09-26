@@ -74,14 +74,14 @@ meren ~ $ anvi-self-test -v
 Anvi'o .......................................: hope (v7.1-dev)
 Python .......................................: 3.10.12
 
-Profile database .............................: 35
-Contigs database .............................: 20
-Pan database .................................: 14
+Profile database .............................: 38
+Contigs database .............................: 21
+Pan database .................................: 16
 Genome data storage ..........................: 7
 Auxiliary data storage .......................: 2
 Structure database ...........................: 2
-Metabolic modules database ...................: 2
-tRNA-seq database ............................: 1
+Metabolic modules database ...................: 4
+tRNA-seq database ............................: 2
 ```
 
 **But please note** that both aliases run `deactivate` and `conda deactivate` first, and they may not work for you especially if you have a fancy setup.
