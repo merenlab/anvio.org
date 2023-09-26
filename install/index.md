@@ -33,7 +33,7 @@ We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orc
 
 ## Docker container
 
-You could run anvi'o without a conventional installation using `docker`:
+You could run anvi'o without a conventional installation using [Docker](https://www.docker.com/):
 
 <details markdown="1"><summary>Show/hide A docker solution for those who are in a hurry</summary>
 
