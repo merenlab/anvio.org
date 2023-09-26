@@ -33,6 +33,7 @@ This page is for users who want to install the development version of anvi'o, `a
 ## (4) Installing the Python dependencies
 
 {% include install/dev_python_dependencies.md %}
+{% include install/dev_python_dependencies_conclusion.md %}
 
 ## (5) Linking conda environment and the codebase
 

@@ -76,6 +76,7 @@ export CXX=/usr/bin/clang++
 The above code should help you avoid errors with building wheels for `pip` packages. However, if you still see errors during the `pip install` command, please let us know in the anvi'o Discord channel and we will try to help you.
 
 {% include install/dev_python_dependencies.md %}
+{% include install/dev_python_dependencies_conclusion.md %}
 
 ## (5) Linking conda environment and the codebase
 

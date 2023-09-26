@@ -38,6 +38,7 @@ When you want to activate that environment, you will have to give the same path 
 ## (4) Installing the Python dependencies
 
 {% include install/dev_python_dependencies.md %}
+{% include install/dev_python_dependencies_conclusion.md %}
 
 ## (5) Linking conda environment and the codebase
 
