@@ -27,11 +27,13 @@ image:
 }
 </style>
 
-{% include _project-anvio-version.html %}
-
 This is the hub page for installing anvi'o. If you wish to install anvi'o on your personal computer, please click the button for your operating system below. Most people will want to install the latest stable release of anvi'o (in the first section). However, for current or future developers, or for very adventurous users who want the latest updates and fixes, please feel free to install the development version of anvi'o (in the second section).
 
 ## Stable version
+
+{% include _project-anvio-version.html %}
+
+In this section are links to the installation instructions for the latest stable release of anvi'o. This version of anvi'o is static; no further changes are being made to the codebase. It has been well-tested and will work the vast majority of the time (though occasionally bugs slip past our nets, and if you find one, we would love [to hear from you](https://github.com/merenlab/anvio/issues/new/choose)). Most end-users find this version of anvi'o to suit their needs. Please select the button for your operating system below.
 
 <div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px; margin-top: 20px; justify-content: center;"> 
   <a href="/install/macos/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x"></i><p style="text-align: center;">MACOS</p></a>

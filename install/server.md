@@ -13,13 +13,11 @@ image:
 
 {% include _project-anvio-version.html %}
 
-This page describes the anvi'o installation process for _servers running Linux_. The process will be very similar to installation on a Linux personal computer, but there are a few quirks unique to servers that are explained here.
+This page describes the anvi'o installation process for the current stable release on _servers running Linux_. The process will be very similar to installation on a Linux personal computer, but there are a few quirks unique to servers that are explained here.
 
 ## (1) Things you need before you start
 
-You will need to run the installation commands from a terminal. Since you are already on a server, you should be good to go. :) 
-
-You also need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system. If you don't already have it, please follow their installation instructions.
+{% include install/things_you_need_linux.md %}
 
 ## (2) Set up conda
 
@@ -89,6 +87,11 @@ And re-run the commands to install conda packages. You can set the priority back
 ### Setting up the conda environment
 
 {% include install/dev_python_version_warning.md %}
+
+{:.notice}
+When working on a server, we cannot always create conda environment using `--name`. Instead you can use `--prefix` and provide a path where the conda envrionment will be created: `conda create -y --prefix /home/userABCD/virtual_env/anvio-dev python=3.10`.
+When you want to activate that environment, you will have to give the same path and not just a name. Like `conda activate /home/userABCD/virtual_env/anvio-dev`. 
+
 {% include install/dev_conda_setup.md %}
 {% include install/dev_mamba_packages.md %}
 

@@ -13,15 +13,11 @@ image:
 
 {% include _project-anvio-version.html %}
 
-This page describes the anvi'o installation process for _Microsoft Windows_.
+This page describes the anvi'o installation process for the current stable release on _Microsoft Windows_.
 
 ## (1) Things you need before you start
 
-Although anvi'o is developed on and rigorously tested for Linux and Mac OSX, you will be able to use it on Microsoft Windows **if and only if you first install the [Linux Subsystem for Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10)**. Our users have reported success stories with Ubuntu on WSL.
-
-Once WSL is installed, you should open the WSL terminal. You will run all of the remaining installation instructions within that terminal (and henceforth, whenever we refer to the 'terminal', we mean the WSL terminal).
-
-You also need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system. Remember that you need to install it within WSL, so you need the Linux version. We recommend running their command line installation instructions within the WSL terminal.
+{% include install/things_you_need_windows.md %}
 
 ## (2) Set up conda
 
@@ -45,32 +41,6 @@ You also need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be 
 
 {% include install/check_installation.md %}
  
-## (7) Follow the active development (you're a wizard, arry)
-
-{% include install/dev_initial.md %}
-
-### Setting up the conda environment
-
-{% include install/dev_python_version_warning.md %}
-{% include install/dev_conda_setup.md %}
-{% include install/dev_mamba_packages.md %}
-
-### Setting up the local copy of the anvi'o codebase
-
-{% include install/dev_codebase.md %}
-
-### Installing the Python dependencies
-
-{% include install/dev_python_dependencies.md %}
-
-### Linking conda environment and the codebase
-
-{% include install/dev_link_conda_codebase.md %}
-
-## Bonus: An alternative BASH profile setup
-
-{% include install/bonus_bash_setup.md %}
-
 ## Other installation options
 
 {% include install/other_options.md %}
