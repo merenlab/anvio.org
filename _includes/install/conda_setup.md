@@ -2,7 +2,7 @@ Conda gives us a very simple and effective way to install anvi'o on your system 
 
 ```bash
 $ conda --version
-conda 23.5.2
+conda 23.7.4
 ```
 
 Once you have confirmed you have conda installed, run this command to make sure you are up-to-date:
@@ -12,7 +12,3 @@ conda update conda
 ```
 
 Good? Good! You are almost there!
-
-{:.notice}
-
-If you came here from the development version installation section down below, and you have verified that conda is installed, then you can [go back now](#initial-checks). :)

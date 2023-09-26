@@ -40,7 +40,7 @@ If the WSL installation fails with an error that looks like this: `WslRegisterDi
 
 {% include install/common_issues.md %}
 
-## (6) Runing the interactive interface
+## (6) Running the interactive interface
 
 {% include install/interactive_interface_windows.md %}
 
