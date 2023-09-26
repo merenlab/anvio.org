@@ -63,6 +63,10 @@ You might see errors during the pip installation that include a line like `Build
 
 {% include install/dev_link_conda_codebase.md %}
 
+## (6) Runing the interactive interface
+
+{% include install/interactive_interface_windows.md %}
+
 ## Bonus: An alternative BASH profile setup
 
 {% include install/bonus_bash_setup.md %}
