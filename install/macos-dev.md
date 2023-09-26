@@ -85,3 +85,8 @@ The above code should help you avoid errors with building wheels for `pip` packa
 ## Bonus: An alternative BASH profile setup
 
 {% include install/bonus_bash_setup.md %}
+
+---
+
+{:.notice}
+{% include _fixthispage.html source="install/macos-dev.md" %}
