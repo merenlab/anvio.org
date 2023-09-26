@@ -11,7 +11,7 @@ If you don't want anvi'o to show you a browser window at the end and quietly fin
 
 If everything goes smoothly, your browser should pop-up and show you an anvi'o {% include ARTIFACT name="interactive" %} interface that looks something like this once `anvi-self-test` is done running:
 
-{% include IMAGE path="../images/mini-test-screenshot.png" width="50" %}
+{% include IMAGE path="/install/images/mini-test-screenshot.png" width="50" %}
 
 {:.notice}
 The screenshot above is from 2015 and will be vastly different from the [interactive interface](https://merenlab.org/2016/02/27/the-anvio-interactive-interface/) you should see in your browser. It is still here so we remember where we came from 😇
