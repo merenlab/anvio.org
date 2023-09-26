@@ -33,6 +33,10 @@ This page is for users who want to install the development version of anvi'o, `a
 ## (4) Installing the Python dependencies
 
 {% include install/dev_python_dependencies.md %}
+
+{:.warning}
+You might see errors during the pip installation that include a line like `Building wheel for XXXXXX did not run successfully.` and also a line like `error: command 'gcc' failed: No such file or directory`. If this is the case, the problem is that your Linux installation does not include the GCC compiler. You can fix that by running the following commands to upgrade your system and install the compiler: `sudo apt update`, followed by `sudo apt full-upgrade`, and finally `sudo apt install gcc`. Once those are complete, please retry the `pip install` command.
+
 {% include install/dev_python_dependencies_conclusion.md %}
 
 ## (5) Linking conda environment and the codebase
