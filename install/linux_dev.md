@@ -18,6 +18,8 @@ This page is for users who want to install the development version of anvi'o, `a
 
 ## (1) Things you need before you start
 
+{% include install/things_you_need_linux.md %}
+
 ## (2) Setting up the conda environment
 
 {% include install/dev_python_version_warning.md %}
