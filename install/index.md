@@ -15,11 +15,11 @@ image:
 
 This is the hub page for installing anvi'o. If you wish to install anvi'o on your personal computer, please click the button for your operating system below. All pages include instructions for installing the latest stable release of anvi'o (for end users) and the development version of anvi'o (for current or future developers, or for very adventurous users who want the latest updates and fixes).
 
-<div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px;"> 
-  <a href="/install/macos/" target="_blank" style="margin-right: 20px;"><i class="fa-brands fa-apple fa-3x"></i></a>
-  <a href="/install/linux/" target="_blank" style="margin-right: 20px;"><i class="fa-brands fa-linux fa-3x"></i></a>
-  <a href="/install/windows/" target="_blank" style="margin-right: 20px;"><i class="fa-brands fa-windows fa-3x"></i></a>
-  <a href="/install/server/" target="_blank"><i class="fa-solid fa-server fa-3x"></i></a>
+<div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px; justify-content: center;"> 
+  <a href="/install/macos/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x" style=""></i><p>MACOS</p></a>
+  <a href="/install/linux/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-linux fa-5x"></i><p>LINUX</p></a>
+  <a href="/install/windows/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-windows fa-5x"></i><p>WINDOWS</p></a>
+  <a href="/install/server/" style="text-align: center;" target="_blank"><i class="fa-solid fa-server fa-5x"></i><p>SERVER</p></a>
 </div>
 
 {:.warning}
@@ -27,13 +27,13 @@ We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orc
 
 ## Installing the active development version of anvi'o
 
-Here are some quick links to the installation instructions for `anvio-dev`. If you were directed here to install the development version of anvi'o, please select the button for your operating system below.
+Here are some quick links to the installation instructions for `anvio-dev`💪.  If you were directed here to install the development version of anvi'o, please select the button for your operating system below.
 
-<div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px;"> 
-  <a href="/install/macos/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 20px;"><i class="fa-brands fa-apple fa-3x"></i></a>
-  <a href="/install/linux/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 20px;"><i class="fa-brands fa-linux fa-3x"></i></a>
-  <a href="/install/windows/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 20px;"><i class="fa-brands fa-windows fa-3x"></i></a>
-  <a href="/install/server/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank"><i class="fa-solid fa-server fa-3x"></i></a>
+<div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px; justify-content: center;"> 
+  <a href="/install/macos/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x"></i><p>MACOS</p></a>
+  <a href="/install/linux/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-linux fa-5x"></i><p>LINUX</p></a>
+  <a href="/install/windows/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-windows fa-5x"></i><p>WINDOWS</p></a>
+  <a href="/install/server/#7-follow-the-active-development-youre-a-wizard-arry" style="text-align: center;" target="_blank"><i class="fa-solid fa-server fa-5x"></i><p>SERVER</p></a>
 </div>
 
 
