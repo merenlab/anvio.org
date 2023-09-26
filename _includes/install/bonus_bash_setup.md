@@ -72,6 +72,7 @@ meren ~ $ anvi-self-test -v
 
 :: anvi'o v7.1 dev :: ~ >>> anvi-self-test -v
 Anvi'o .......................................: hope (v7.1-dev)
+Python .......................................: 3.10.12
 
 Profile database .............................: 35
 Contigs database .............................: 20
