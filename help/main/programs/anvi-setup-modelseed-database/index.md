@@ -1,16 +1,16 @@
 ---
 layout: program
-title: anvi-setup-protein-reference-database
-excerpt: An anvi'o program. This program downloads and sets up files of reference protein properties.
+title: anvi-setup-modelseed-database
+excerpt: An anvi'o program. This program downloads and sets up the ModelSEED Biochemistry database.
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-setup-protein-reference-database
+redirect_from: /m/anvi-setup-modelseed-database
 image:
   featurerelative: ../../../images/header.png
   display: true
 ---
 
-This program downloads and sets up files of reference protein properties..
+This program downloads and sets up the ModelSEED Biochemistry database..
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -37,14 +37,14 @@ This program downloads and sets up files of reference protein properties..
 ## Can provide
 
 
-This program does not seem to provide any artifacts. Such programs usually print out some information for you to see or alter some anvi'o artifacts without producing any immediate outputs.
+<p style="text-align: left" markdown="1"><span class="artifact-p">[reaction-ref-data](../../artifacts/reaction-ref-data) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Usage
 
 
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-setup-protein-reference-database.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-setup-modelseed-database.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
 
 
 ## Additional Resources
@@ -52,4 +52,4 @@ This program does not seem to provide any artifacts. Such programs usually print
 
 
 {:.notice}
-Are you aware of resources that may help users better understand the utility of this program? Please feel free to edit [this file](https://github.com/merenlab/anvio/tree/master/bin/anvi-setup-protein-reference-database) on GitHub. If you are not sure how to do that, find the `__resources__` tag in [this file](https://github.com/merenlab/anvio/blob/master/bin/anvi-interactive) to see an example.
+Are you aware of resources that may help users better understand the utility of this program? Please feel free to edit [this file](https://github.com/merenlab/anvio/tree/master/bin/anvi-setup-modelseed-database) on GitHub. If you are not sure how to do that, find the `__resources__` tag in [this file](https://github.com/merenlab/anvio/blob/master/bin/anvi-interactive) to see an example.
