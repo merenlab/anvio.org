@@ -15,15 +15,14 @@ image:
 
 This is the hub page for installing anvi'o. If you wish to install anvi'o on your personal computer, please click the button for your operating system below. All pages include instructions for installing the latest stable release of anvi'o (for end users) and the development version of anvi'o (for current or future developers, or for very adventurous users who want the latest updates and fixes).
 
-<div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px; justify-content: center;"> 
+## Installing the stable version of anvi'o
+
+<div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px; margin-top: 20px; justify-content: center;"> 
   <a href="/install/macos/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x" style=""></i><p>MACOS</p></a>
   <a href="/install/linux/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-linux fa-5x"></i><p>LINUX</p></a>
   <a href="/install/windows/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-windows fa-5x"></i><p>WINDOWS</p></a>
   <a href="/install/server/" style="text-align: center;" target="_blank"><i class="fa-solid fa-server fa-5x"></i><p>SERVER</p></a>
 </div>
-
-{:.warning}
-We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), [Susheel Bhanu Busi](https://scholar.google.com/citations?user=U0g3IzQAAAAJ&hl=en), [Mike Lee](https://twitter.com/AstrobioMike), [Josh Herr](http://joshuaherr.com/), and [Titus Brown](https://scholar.google.com/citations?user=O4rYanMAAAAJ) who kindly invested their time to test the installation instructions on different systems and/or made suggestions to these documents to ensure a smoother installation experience for everyone.
 
 ## Installing the active development version of anvi'o
 
@@ -36,6 +35,9 @@ Here are some quick links to the installation instructions for `anvio-dev`💪. 
   <a href="/install/server/#7-follow-the-active-development-youre-a-wizard-arry" style="text-align: center;" target="_blank"><i class="fa-solid fa-server fa-5x"></i><p>SERVER</p></a>
 </div>
 
+
+{:.warning}
+We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), [Susheel Bhanu Busi](https://scholar.google.com/citations?user=U0g3IzQAAAAJ&hl=en), [Mike Lee](https://twitter.com/AstrobioMike), [Josh Herr](http://joshuaherr.com/), and [Titus Brown](https://scholar.google.com/citations?user=O4rYanMAAAAJ) who kindly invested their time to test the installation instructions on different systems and/or made suggestions to these documents to ensure a smoother installation experience for everyone.
 
 ## A DOCKER solution for those who are in a hurry
 Alternatively, you could run anvi'o without a conventional installation using `docker`:
