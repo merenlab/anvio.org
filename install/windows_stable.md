@@ -30,6 +30,25 @@ If the WSL installation fails with an error that looks like this: `WslRegisterDi
 
 {% include install/environment_setup_initial.md %}
 
+At the time of writing these lines, running `mamba` after this step gave an error about a missing file for `libarchive` library on WSL. To see if this is really the case, you can first type `mamba` in your terminal:
+
+```
+mamba
+```
+
+If you are not getting an error (and instead seeing a nice help menu), then this problem does not affect your system and _you can skip the next command_. But if you indeed get a `libarchive` error, please run the following command and see if it solves the problem for you (this essentially creates a symbolic link to an existing file that `mamba` complains about):
+
+```bash
+ln -s ${CONDA_PREFIX}/lib/libarchive.so.19 \
+      ${CONDA_PREFIX}/lib/libarchive.so.13
+```
+
+And test to make sure that `mamba` is okay now:
+
+```
+mamba
+```
+
 {% include install/conda_packages.md %}
 
 ## (4) Install anvi'o
