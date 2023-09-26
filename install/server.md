@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Installing anvi'o on Server"
+title: "Installing anvi'o on a server"
 excerpt: "Instructions to install the current release of the platform."
 modified: 2023-08-16
 tags: []
