@@ -17,7 +17,7 @@ EOF
 ```
 
 {:.warning}
-If you are using `zsh` by default these may not work. If you run into a trouble here or especially if you figure out a way to make it work both for `zsh` and `bash`, please let us know.
+If you are using `zsh` by default these may not work. If you run into a trouble here or especially if you figure out a way to make it work both for `zsh` and `bash`, please let us know. To use `bash` to make the above command work, first run this `exec bash` command. Then re-run the command above. To go back to `zsh` you can run `exec zsh` command.
 
 If everything worked, you should be able to type the following commands in a new terminal and see similar outputs:
 
