@@ -89,6 +89,11 @@ And re-run the commands to install conda packages. You can set the priority back
 ### Setting up the conda environment
 
 {% include install/dev_python_version_warning.md %}
+
+{:.notice}
+When working on a server, we cannot always create conda environment using `--name`. Instead you can use `--prefix` and provide a path where the conda envrionment will be created: `conda create -y --prefix /home/userABCD/virtual_env/anvio-dev python=3.10`.
+When you want to activate that environment, you will have to give the same path and not just a name. Like `conda activate /home/userABCD/virtual_env/anvio-dev`. 
+
 {% include install/dev_conda_setup.md %}
 {% include install/dev_mamba_packages.md %}
 
