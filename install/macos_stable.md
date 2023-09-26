@@ -25,18 +25,18 @@ This page describes the anvi'o installation process for the current stable relea
 
 ## (3) Setup an anvi'o environment
 
-{% include install/environment_setup_initial.md %}
-
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Working with Apple silicon</span>
 
-If you are using a computer with Apple silicon (like a M1 or M2 MacBook), you will find that some conda packages are not available, like older versions of python (3.6).
+If you are using a computer with Apple silicon (like a M1 or M2 MacBook), you will find that some conda packages are not available (like bioconda packages).
 To avoid this issue, you can run the following command (only once) after activating the environment:
 
 ```bash
 conda config --env --set subdir osx-64
 ```
 </div>
+
+{% include install/environment_setup_initial.md %}
 
 {% include install/conda_packages.md %}
 
