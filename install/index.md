@@ -10,23 +10,6 @@ image:
   feature: https://github.com/merenlab/anvio/raw/master/anvio/data/interactive/images/logo.png
 ---
 
-<style>
-.emoji::before {
-  content: "💪";
-  position: relative;
-  background-color: white;
-  margin-left: -15px;
-  border: 2px solid #73AD21;
-  border-radius: 50%;
-  border-color: #2aa883;
-  padding: 5px;
-  }
-
-.emoji-icon {
-  font-size: 10px;
-}
-</style>
-
 This is the hub page for installing anvi'o. If you wish to install anvi'o on your personal computer, please click the button for your operating system below. Most people will want to install the latest stable release of anvi'o (in the first section). However, for current or future developers, or for very adventurous users who want the latest updates and fixes, please feel free to install the development version of anvi'o (in the second section).
 
 ## Stable version
@@ -35,24 +18,13 @@ This is the hub page for installing anvi'o. If you wish to install anvi'o on you
 
 In this section are links to the installation instructions for the latest stable release of anvi'o. This version of anvi'o is static; no further changes are being made to the codebase. It has been well-tested and will work the vast majority of the time (though occasionally bugs slip past our nets, and if you find one, we would love [to hear from you](https://github.com/merenlab/anvio/issues/new/choose)). Most end-users find this version of anvi'o to suit their needs. Please select the button for your operating system below.
 
-<div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px; margin-top: 20px; justify-content: center;">
-  <a href="/install/macos-stable/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x"></i><p style="text-align: center;">MACOS</p></a>
-  <a href="/install/linux-stable/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-linux fa-5x"></i><p style="text-align: center;">LINUX</p></a>
-  <a href="/install/windows-stable/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-windows fa-5x"></i><p style="text-align: center;">WINDOWS</p></a>
-  <a href="/install/server-stable/" style="text-align: center;" target="_blank"><i class="fa-solid fa-server fa-5x"></i><p style="text-align: center;">SERVER</p></a>
-</div>
+{% include install/00_links_for_stable.html %}
 
 ## Development version
 
-In this section are links to the installation instructions for `anvio-dev`💪. This version of anvi'o is _under active development_. It includes the latest bug fixes and features, but could also be unstable. We sometimes ask people to install this version of anvi'o if they are experiencing an issue that we already fixed. So, if you were directed here to install the development version of anvi'o, please select the button for your operating system below.
+In this section are links to the installation instructions for `anvio-dev`. This version of anvi'o is _under active development_. It includes the latest bug fixes and features, but could also be unstable. We sometimes ask people to install this version of anvi'o if they are experiencing an issue that we already fixed. So, if you were directed here to install the development version of anvi'o, please select the button for your operating system below.
 
-<div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px; justify-content: center;">
-  <a href="/install/macos-dev/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x"><span class="emoji-icon emoji"></span></i><p style="text-align: center;">MACOS</p></a>
-  <a href="/install/linux-dev/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-linux fa-5x"></i><span class="emoji-icon emoji"></span><p style="text-align: center;">LINUX</p></a>
-  <a href="/install/windows-dev/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-windows fa-5x"></i><span class="emoji-icon emoji"></span><p style="text-align: center;">WINDOWS</p></a>
-  <a href="/install/server-dev/" style="text-align: center;" target="_blank"><i class="fa-solid fa-server fa-5x"></i><span class="emoji-icon emoji"></span><p style="text-align: center;">SERVER</p></a>
-</div>
-
+{% include install/00_links_for_dev.html %}
 
 {:.warning}
 We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), [Susheel Bhanu Busi](https://scholar.google.com/citations?user=U0g3IzQAAAAJ&hl=en), [Mike Lee](https://twitter.com/AstrobioMike), [Josh Herr](http://joshuaherr.com/), and [Titus Brown](https://scholar.google.com/citations?user=O4rYanMAAAAJ) who kindly invested their time to test the installation instructions on different systems and/or made suggestions to these documents to ensure a smoother installation experience for everyone.

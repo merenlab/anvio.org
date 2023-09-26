@@ -364,3 +364,18 @@ blockquote em{
     width: 100%;
     height: 100%;
 }
+
+.power-emoji::before {
+  content: "💪";
+  position: relative;
+  background-color: white;
+  margin-left: -15px;
+  border: 2px solid #73AD21;
+  border-radius: 50%;
+  border-color: #2aa883;
+  padding: 5px;
+  }
+
+.emoji-icon {
+  font-size: 10px;
+}
