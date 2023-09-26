@@ -13,9 +13,9 @@ image:
 
 {% include _project-anvio-version.html %}
 
-This is the hub page for installing anvi'o. If you wish to install anvi'o on your personal computer, please click the button for your operating system below. All pages include instructions for installing the latest stable release of anvi'o (for end users) and the development version of anvi'o (for current or future developers, or for very adventurous users who want the latest updates and fixes).
+This is the hub page for installing anvi'o. If you wish to install anvi'o on your personal computer, please click the button for your operating system below. Most people will want to install the latest stable release of anvi'o (in the first section). However, for current or future developers, or for very adventurous users who want the latest updates and fixes, please feel free to install the development version of anvi'o (in the second section).
 
-## Installing the stable version of anvi'o
+## Stable version
 
 <div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px; margin-top: 20px; justify-content: center;"> 
   <a href="/install/macos/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x" style=""></i><p>MACOS</p></a>
@@ -24,9 +24,9 @@ This is the hub page for installing anvi'o. If you wish to install anvi'o on you
   <a href="/install/server/" style="text-align: center;" target="_blank"><i class="fa-solid fa-server fa-5x"></i><p>SERVER</p></a>
 </div>
 
-## Installing the active development version of anvi'o
+## Development version
 
-Here are some quick links to the installation instructions for `anvio-dev`💪.  If you were directed here to install the development version of anvi'o, please select the button for your operating system below.
+In this section are links to the installation instructions for `anvio-dev`💪. This version of anvi'o is _under active development_. It includes the latest bug fixes and features, but could also be unstable. We sometimes ask people to install this version of anvi'o if they are experiencing an issue that we already fixed. So, if you were directed here to install the development version of anvi'o, please select the button for your operating system below.
 
 <div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px; justify-content: center;"> 
   <a href="/install/macos/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x"></i><p>MACOS</p></a>
