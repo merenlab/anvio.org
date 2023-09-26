@@ -4,13 +4,13 @@ It is a good idea to **make sure you are not already in a conda environment** be
 First, a new conda environment:
 
 ``` bash
-conda create -y --name anvio-8.0 python=3.10
+conda create -y --name anvio-8 python=3.10
 ```
 
 And activate it:
 
 ```
-conda activate anvio-8.0
+conda activate anvio-8
 ```
 
 Install `mamba` for fast dependency resolving:
