@@ -13,7 +13,7 @@ image:
 
 {% include _project-anvio-version.html %}
 
-This page describes the anvi'o installation process for _servers running Linux_. The process will be very similar to installation on a Linux personal computer, but there are a few quirks unique to servers that are explained here.
+This page describes the anvi'o installation process for the current stable release on _servers running Linux_. The process will be very similar to installation on a Linux personal computer, but there are a few quirks unique to servers that are explained here.
 
 ## (1) Things you need before you start
 

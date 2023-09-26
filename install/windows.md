@@ -13,7 +13,7 @@ image:
 
 {% include _project-anvio-version.html %}
 
-This page describes the anvi'o installation process for _Microsoft Windows_.
+This page describes the anvi'o installation process for the current stable release on _Microsoft Windows_.
 
 ## (1) Things you need before you start
 

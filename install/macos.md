@@ -13,7 +13,7 @@ image:
 
 {% include _project-anvio-version.html %}
 
-This page describes the anvi'o installation process for _Mac OSX_.
+This page describes the anvi'o installation process for the current stable release on _Mac OSX_.
 
 ## (1) Things you need before you start
 
