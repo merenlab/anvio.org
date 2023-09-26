@@ -32,9 +32,9 @@ In this section are links to the installation instructions for `anvio-dev`💪. 
 
 <div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px; justify-content: center;"> 
   <a href="/install/macos/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x"></i><p style="text-align: center;">MACOS</p></a>
-  <a href="/install/linux/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-linux fa-5x"></i><p style="text-align: center;">LINUX</p></a>
+  <a href="/install/linux_dev" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-linux fa-5x"></i><p style="text-align: center;">LINUX</p></a>
   <a href="/install/windows_dev" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-windows fa-5x"></i><p style="text-align: center;">WINDOWS</p></a>
-  <a href="/install/server/#7-follow-the-active-development-youre-a-wizard-arry" style="text-align: center;" target="_blank"><i class="fa-solid fa-server fa-5x"></i><p style="text-align: center;">SERVER</p></a>
+  <a href="/install/server_dev" style="text-align: center;" target="_blank"><i class="fa-solid fa-server fa-5x"></i><p style="text-align: center;">SERVER</p></a>
 </div>
 
 
