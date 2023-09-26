@@ -47,9 +47,9 @@ In this section are links to the installation instructions for the latest stable
 In this section are links to the installation instructions for `anvio-dev`💪. This version of anvi'o is _under active development_. It includes the latest bug fixes and features, but could also be unstable. We sometimes ask people to install this version of anvi'o if they are experiencing an issue that we already fixed. So, if you were directed here to install the development version of anvi'o, please select the button for your operating system below.
 
 <div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px; justify-content: center;"> 
-  <a href="/install/macos/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x"><span class="emoji-icon emoji"></span></i><p style="text-align: center;">MACOS</p></a>
+  <a href="/install/macos_dev" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x"><span class="emoji-icon emoji"></span></i><p style="text-align: center;">MACOS</p></a>
   <a href="/install/linux_dev" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-linux fa-5x"></i><span class="emoji-icon emoji"></span><p style="text-align: center;">LINUX</p></a>
-  <a href="/install/windows/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-windows fa-5x"></i><span class="emoji-icon emoji"></span><p style="text-align: center;">WINDOWS</p></a>
+  <a href="/install/windows_dev" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-windows fa-5x"></i><span class="emoji-icon emoji"></span><p style="text-align: center;">WINDOWS</p></a>
   <a href="/install/server_dev" style="text-align: center;" target="_blank"><i class="fa-solid fa-server fa-5x"></i><span class="emoji-icon emoji"></span><p style="text-align: center;">SERVER</p></a>
 </div>
 
