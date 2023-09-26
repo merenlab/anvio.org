@@ -17,6 +17,14 @@ In contrast, disadvantages include,
 
 If you are still here, let's start.
 
+---
+
+First make sure you are not in any environment by running `conda deactivate`. Then, make sure you don't have an environment called `anvio-dev` (as in *anvi'o development*):
+
+```
+conda env remove --name anvio-dev
+```
+
 ### Initial checks
 
 Following instructions will assume that you are using a computer with a working `conda` installation. Please visit [this section](#2-set-up-conda) first to make sure it is the case (and come back here when that section sends you back here).
