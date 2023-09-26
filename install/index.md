@@ -22,7 +22,22 @@ This is the hub page for installing anvi'o. If you wish to install anvi'o on you
   <a href="/install/server/" target="_blank"><i class="fa-solid fa-server fa-3x"></i></a>
 </div>
 
+{:.warning}
+We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), [Susheel Bhanu Busi](https://scholar.google.com/citations?user=U0g3IzQAAAAJ&hl=en), [Mike Lee](https://twitter.com/AstrobioMike), [Josh Herr](http://joshuaherr.com/), and [Titus Brown](https://scholar.google.com/citations?user=O4rYanMAAAAJ) who kindly invested their time to test the installation instructions on different systems and/or made suggestions to these documents to ensure a smoother installation experience for everyone.
 
+## Installing the active development version of anvi'o
+
+Here are some quick links to the installation instructions for `anvio-dev`. If you were directed here to install the development version of anvi'o, please select the button for your operating system below.
+
+<div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px;"> 
+  <a href="/install/macos/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 20px;"><i class="fa-brands fa-apple fa-3x"></i></a>
+  <a href="/install/linux/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 20px;"><i class="fa-brands fa-linux fa-3x"></i></a>
+  <a href="/install/windows/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 20px;"><i class="fa-brands fa-windows fa-3x"></i></a>
+  <a href="/install/server/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank"><i class="fa-solid fa-server fa-3x"></i></a>
+</div>
+
+
+## A DOCKER solution for those who are in a hurry
 Alternatively, you could run anvi'o without a conventional installation using `docker`:
 
 <details markdown="1"><summary>Show/hide A docker solution for those who are in a hurry</summary>
@@ -60,11 +75,6 @@ docker system prune --force -a
 
 Please consider opening an <a href="https://github.com/meren/anvio/issues">issue</a> for technical problems, or join us on {% include _discord_invitation_button.html %} if you need help.
 
-{:.notice}
-{% include _fixthispage.html source="install/index.md" %}
-
-{:.warning}
-We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), [Susheel Bhanu Busi](https://scholar.google.com/citations?user=U0g3IzQAAAAJ&hl=en), [Mike Lee](https://twitter.com/AstrobioMike), [Josh Herr](http://joshuaherr.com/), and [Titus Brown](https://scholar.google.com/citations?user=O4rYanMAAAAJ) who kindly invested their time to test the installation instructions on different systems and/or made suggestions to these documents to ensure a smoother installation experience for everyone.
 
 ---
 

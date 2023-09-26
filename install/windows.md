@@ -51,7 +51,13 @@ You also need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be 
 
 ### Setting up the conda environment
 
+{% include install/dev_python_version_warning.md %}
 {% include install/dev_conda_setup.md %}
+{% include install/dev_mamba_packages.md %}
+
+### Setting up the local copy of the anvi'o codebase
+
+{% include install/dev_codebase.md %}
 
 ### Installing the Python dependencies
 

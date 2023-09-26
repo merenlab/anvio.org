@@ -1,0 +1,2 @@
+{:.warning}
+**Please note that we recently switched from Python 3.7 to Python 3.10 in our active development branch**. Thus, the way we setup the conda environment for the active development branch now differs from the way we do it for the latest stable version. There may be hiccups since these changes required many adjustments in the anvi'o code, and likely some bugs were missed. If you are reading these lines, please keep us posted if you run into an issue.

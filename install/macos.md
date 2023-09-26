@@ -83,6 +83,8 @@ If you did all that and it is still not working, please make an issue on the git
 
 ### Setting up the conda environment
 
+{% include install/dev_python_version_warning.md %}
+
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Working with Apple silicon</span>
 
@@ -96,12 +98,44 @@ conda config --env --set subdir osx-64
 
 {% include install/dev_conda_setup.md %}
 
+At the time of writing these lines, running `mamba` after this step gave an error about a missing file for `libarchive` library on Mac systems. To see if this is really the case, you can first type `mamba` in your terminal:
+
+```
+mamba
+```
+
+If you are not getting an error (and instead seeing a nice help menu), then this problem does not affect your system and _you can skip the next command_. But if you indeed get a `libarchive` error, please run the following command and see if it solves the problem for you (this essentially creates a symbolic link to an existing file that `mamba` complains about):
+
+```bash
+ln -s ${CONDA_PREFIX}/lib/libarchive.19.dylib \
+      ${CONDA_PREFIX}/lib/libarchive.13.dylib
+```
+
+And test to make sure that `mamba` is okay now:
+
+```
+mamba
+```
+
+{% include install/dev_mamba_packages.md %}
+
+### Setting up the local copy of the anvi'o codebase
+
+{% include install/dev_codebase.md %}
+
 ### Installing the Python dependencies
 
-{% include install/dev_python_dependencies.md %}
+Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. Hence, we suggest all Mac users to run the following commands before you start the `pip install` command:
 
-{:.warning}
-Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. If you're getting an error that contains `x86_64-apple-darwin13.4.0-clang` or similar keywords in the output message, please run `export CC=clang` in your terminal and try the command above again. If you are still unable to run the `pip install` command above, run both `export CC=/usr/bin/clang` and `export CXX=/usr/bin/clang++` before trying again. If the `pip` installation still doesn't work, please make an issue on the github page or let us know in the anvi'o Discord channel about your problem and we will try to help you.
+```bash
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
+```
+
+{:.notice}
+The above code should help you avoid errors with building wheels for `pip` packages. However, if you still see errors during the `pip install` command, please let us know in the anvi'o Discord channel and we will try to help you.
+
+{% include install/dev_python_dependencies.md %}
 
 ### Linking conda environment and the codebase
 
