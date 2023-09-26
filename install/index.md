@@ -10,27 +10,30 @@ image:
   feature: https://github.com/merenlab/anvio/raw/master/anvio/data/interactive/images/logo.png
 ---
 
-This is the hub page for installing anvi'o. If you wish to install anvi'o on your personal computer, please click the button for your operating system below. Most people will want to install the latest stable release of anvi'o (in the first section). However, for current or future developers, or for very adventurous users who want the latest updates and fixes, please feel free to install the development version of anvi'o (in the second section).
+Thank you for considering anvi'o. Please click the button below that matches your operating system and follow the instructions. Most people will want to install the latest stable release of anvi'o. However, for current or future developers, or for those who feel adventurous and wish to keep up with the latest updates and fixes to the anvi'o source code, we also have detailed installation instructions to track the development version of anvi'o.
+
+Please join our {% include _discord_invitation_button.html %} if you find yourself in need of help related to installation.
 
 ## Stable version
 
 {% include _project-anvio-version.html %}
 
-In this section are links to the installation instructions for the latest stable release of anvi'o. This version of anvi'o is static; no further changes are being made to the codebase. It has been well-tested and will work the vast majority of the time (though occasionally bugs slip past our nets, and if you find one, we would love [to hear from you](https://github.com/merenlab/anvio/issues/new/choose)). Most end-users find this version of anvi'o to suit their needs. Please select the button for your operating system below.
+Use these buttons if you wish to install latest stable release of anvi'o. This version of anvi'o is static and no further changes are going toe be made to this particular release. But it has been well-tested, and will work the vast majority of the time (though occasionally bugs slip past our nets, and if you find one, we would love [to hear from you](https://github.com/merenlab/anvio/issues/new/choose)). Most end-users find this version of anvi'o to suit their needs.
 
 {% include install/00_links_for_stable.html %}
 
 ## Development version
 
-In this section are links to the installation instructions for `anvio-dev`. This version of anvi'o is _under active development_. It includes the latest bug fixes and features, but could also be unstable. We sometimes ask people to install this version of anvi'o if they are experiencing an issue that we already fixed. So, if you were directed here to install the development version of anvi'o, please select the button for your operating system below.
+Use these buttons if you wish to set up `anvio-dev` on your computer. By doing so, you will be tracking the _active development_ version of anvi'o. It will bring the latest bug fixes and features from GitHub to your work environment every day, but can also be unstable at times. We sometimes ask our users specifically to install `anvio-dev` if they are experiencing an issue that we already have fixed after a particular release.
 
 {% include install/00_links_for_dev.html %}
 
-{:.warning}
+{:.notice}
 We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), [Susheel Bhanu Busi](https://scholar.google.com/citations?user=U0g3IzQAAAAJ&hl=en), [Mike Lee](https://twitter.com/AstrobioMike), [Josh Herr](http://joshuaherr.com/), and [Titus Brown](https://scholar.google.com/citations?user=O4rYanMAAAAJ) who kindly invested their time to test the installation instructions on different systems and/or made suggestions to these documents to ensure a smoother installation experience for everyone.
 
-## A DOCKER solution for those who are in a hurry
-Alternatively, you could run anvi'o without a conventional installation using `docker`:
+## Docker container
+
+You could run anvi'o without a conventional installation using `docker`:
 
 <details markdown="1"><summary>Show/hide A docker solution for those who are in a hurry</summary>
 
@@ -65,7 +68,6 @@ docker system prune --force -a
 ```
 </details>
 
-Please consider opening an <a href="https://github.com/meren/anvio/issues">issue</a> for technical problems, or join us on {% include _discord_invitation_button.html %} if you need help.
 
 {:.notice}
 {% include _fixthispage.html source="install/index.md" %}
