@@ -18,10 +18,10 @@ This is the hub page for installing anvi'o. If you wish to install anvi'o on you
 ## Installing the stable version of anvi'o
 
 <div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px; margin-top: 20px; justify-content: center;"> 
-  <a href="/install/macos/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x" style=""></i><p>MACOS</p></a>
-  <a href="/install/linux/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-linux fa-5x"></i><p>LINUX</p></a>
-  <a href="/install/windows/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-windows fa-5x"></i><p>WINDOWS</p></a>
-  <a href="/install/server/" style="text-align: center;" target="_blank"><i class="fa-solid fa-server fa-5x"></i><p>SERVER</p></a>
+  <a href="/install/macos/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x"></i><p style="text-align: center;">MACOS</p></a>
+  <a href="/install/linux/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-linux fa-5x"></i><p style="text-align: center;">LINUX</p></a>
+  <a href="/install/windows/" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-windows fa-5x"></i><p style="text-align: center;">WINDOWS</p></a>
+  <a href="/install/server/" style="text-align: center;" target="_blank"><i class="fa-solid fa-server fa-5x"></i><p style="text-align: center;">SERVER</p></a>
 </div>
 
 ## Installing the active development version of anvi'o
@@ -29,10 +29,10 @@ This is the hub page for installing anvi'o. If you wish to install anvi'o on you
 Here are some quick links to the installation instructions for `anvio-dev`💪.  If you were directed here to install the development version of anvi'o, please select the button for your operating system below.
 
 <div style="display: flex; align-item:center; align-content: center; margin-bottom: 20px; justify-content: center;"> 
-  <a href="/install/macos/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x"></i><p>MACOS</p></a>
-  <a href="/install/linux/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-linux fa-5x"></i><p>LINUX</p></a>
-  <a href="/install/windows/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-windows fa-5x"></i><p>WINDOWS</p></a>
-  <a href="/install/server/#7-follow-the-active-development-youre-a-wizard-arry" style="text-align: center;" target="_blank"><i class="fa-solid fa-server fa-5x"></i><p>SERVER</p></a>
+  <a href="/install/macos/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-apple fa-5x"></i><p style="text-align: center;">MACOS</p></a>
+  <a href="/install/linux/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-linux fa-5x"></i><p style="text-align: center;">LINUX</p></a>
+  <a href="/install/windows/#7-follow-the-active-development-youre-a-wizard-arry" target="_blank" style="margin-right: 30px; text-align: center;"><i class="fa-brands fa-windows fa-5x"></i><p style="text-align: center;">WINDOWS</p></a>
+  <a href="/install/server/#7-follow-the-active-development-youre-a-wizard-arry" style="text-align: center;" target="_blank"><i class="fa-solid fa-server fa-5x"></i><p style="text-align: center;">SERVER</p></a>
 </div>
 
 
