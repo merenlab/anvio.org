@@ -46,3 +46,8 @@ You might see errors during the pip installation that include a line like `Build
 ## Bonus: An alternative BASH profile setup
 
 {% include install/bonus_bash_setup.md %}
+
+---
+
+{:.notice}
+{% include _fixthispage.html source="install/linux-dev.md" %}

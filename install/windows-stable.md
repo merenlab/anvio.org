@@ -74,4 +74,4 @@ mamba
 ---
 
 {:.notice}
-{% include _fixthispage.html source="install/windows.md" %}
+{% include _fixthispage.html source="install/windows-stable.md" %}

@@ -47,3 +47,8 @@ When you want to activate that environment, you will have to give the same path 
 ## Bonus: An alternative BASH profile setup
 
 {% include install/bonus_bash_setup.md %}
+
+---
+
+{:.notice}
+{% include _fixthispage.html source="install/server-dev.md" %}

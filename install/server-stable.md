@@ -88,4 +88,4 @@ And re-run the commands to install conda packages. You can set the priority back
 ---
 
 {:.notice}
-{% include _fixthispage.html source="install/server.md" %}
+{% include _fixthispage.html source="install/server-stable.md" %}
