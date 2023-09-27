@@ -35,37 +35,35 @@ Execute, manage, parallelize, and troubleshoot entire &#x27;omics workflows and 
 ## Can consume
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[samples-txt](../../artifacts/samples-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[fasta-txt](../../artifacts/fasta-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[workflow-config](../../artifacts/workflow-config) <img src="../../images/icons/JSON.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[hmm-list](../../artifacts/hmm-list) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[workflow-config](../../artifacts/workflow-config) <img src="../../images/icons/JSON.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Can provide
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-workflow](../../artifacts/contigs-workflow) <img src="../../images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[metagenomics-workflow](../../artifacts/metagenomics-workflow) <img src="../../images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[pangenomics-workflow](../../artifacts/pangenomics-workflow) <img src="../../images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[phylogenomics-workflow](../../artifacts/phylogenomics-workflow) <img src="../../images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[trnaseq-workflow](../../artifacts/trnaseq-workflow) <img src="../../images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[ecophylo-workflow](../../artifacts/ecophylo-workflow) <img src="../../images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[sra-download-workflow](../../artifacts/sra-download-workflow) <img src="../../images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[workflow](../../artifacts/workflow) <img src="../../images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Usage
 
 
-This program allows you to run [Snakemake](https://snakemake.readthedocs.io/en/stable/) workflows for common anvi'o processes. Some aspects of this program is described in [this tutorial](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/), and workflow-specific details can be found in worklfow pages.
+This program allows you to run a <span class="artifact-n">[workflow](/help/8/artifacts/workflow)</span> implemented by anvi'o developers for various commonly used set of steps to typically process your raw data (i.e., short reads or contigs from genomes, transcriptomes, metagenomes, metatranscriptomes, etc). Some aspects of this program is described in [this tutorial](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/).
 
-Essentially, an anvi'o workflow will run several anvi'o programs for you in quick succession (based on a standard set of initial steps that will allow you to quickly get to a point where you can ask your data novel questions).
-
-As of now, the available workflows are the <span class="artifact-n">[contigs-workflow](/help/8/artifacts/contigs-workflow)</span>, the <span class="artifact-n">[metagenomics-workflow](/help/8/artifacts/metagenomics-workflow)</span>, the <span class="artifact-n">[pangenomics-workflow](/help/8/artifacts/pangenomics-workflow)</span>, the <span class="artifact-n">[phylogenomics-workflow](/help/8/artifacts/phylogenomics-workflow)</span>, the <span class="artifact-n">[trnaseq-workflow](/help/8/artifacts/trnaseq-workflow)</span>, the <span class="artifact-n">[ecophylo-workflow](/help/8/artifacts/ecophylo-workflow)</span>, and the <span class="artifact-n">[sra-download-workflow](/help/8/artifacts/sra-download-workflow)</span>.
+For a list of currently available anvi'o workflows, please see the <span class="artifact-n">[workflow](/help/8/artifacts/workflow)</span> artifact.
 
 ### Before running the workflow
 
 Each workflow requires a <span class="artifact-n">[workflow-config](/help/8/artifacts/workflow-config)</span>: the file that details all of the parameters for the workflow. To get the <span class="artifact-n">[workflow-config](/help/8/artifacts/workflow-config)</span> with the default parameters, just run
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;workflow &#45;w WORKFLOW&#45;NAME \
+anvi&#45;run&#45;workflow &#45;w <span class="artifact&#45;n">[workflow](/help/8/artifacts/workflow)</span> \
                   &#45;&#45;get&#45;default&#45;config CONFIG.json
 </div>
 
 Before running a workflow, it is also a good idea to check the required dependencies by running
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;workflow &#45;w WORKFLOW&#45;NAME \
+anvi&#45;run&#45;workflow &#45;w <span class="artifact&#45;n">[workflow](/help/8/artifacts/workflow)</span> \
                   &#45;&#45;list&#45;dependencies
 </div>
 
@@ -74,7 +72,7 @@ anvi&#45;run&#45;workflow &#45;w WORKFLOW&#45;NAME \
 The main run of the workflow should look like this:
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;workflow &#45;w WORKFLOW&#45;NAME \
+anvi&#45;run&#45;workflow &#45;w <span class="artifact&#45;n">[workflow](/help/8/artifacts/workflow)</span> \
                   &#45;c CONFIG.json
                   &#45;&#45;save&#45;workflow&#45;graph
 </div>

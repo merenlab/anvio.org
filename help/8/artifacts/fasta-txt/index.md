@@ -29,14 +29,12 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-run-workflow](../../programs/anvi-run-workflow)</span></p>
+There are no anvi'o tools that use or require this artifact directly, which means it is most likely an end-product for the user.
 
 
 ## Description
 
 This is a file used by <span class="artifact-p">[anvi-run-workflow](/help/8/programs/anvi-run-workflow)</span> that lists the name and path of all of the input <span class="artifact-n">[fasta](/help/8/artifacts/fasta)</span> files.
-
-As of now, this file is used in the <span class="artifact-n">[contigs-workflow](/help/8/artifacts/contigs-workflow)</span>, <span class="artifact-n">[pangenomics-workflow](/help/8/artifacts/pangenomics-workflow)</span>, and [the reference mode](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#references-mode) of the <span class="artifact-n">[metagenomics-workflow](/help/8/artifacts/metagenomics-workflow)</span>.
 
 In its simplest form, a <span class="artifact-n">[fasta-txt](/help/8/artifacts/fasta-txt)</span> is a TAB-delmited file with two columns for `name` and `path`. Here is an example:
 

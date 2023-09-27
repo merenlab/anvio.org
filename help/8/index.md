@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **26 Sep 23 20:56:14** for anvi'o version **8 (marie)**.
+The help contents were last updated on **27 Sep 23 12:58:43** for anvi'o version **8 (marie)**.
 
 
 {% include _project-anvio-version.html %}
@@ -28,7 +28,7 @@ The help contents were last updated on **26 Sep 23 20:56:14** for anvi'o version
 
 Anvi'o workflows are dynamic recipes for easy-to-use, scalable, and reproducible bioinformatics analyses through orchestrated use of [anvi'o programs](#anvio-programs) as well as third-party software. These workflows typically start with raw data files and a <span class="artifact-p">[workflow-config](artifacts/workflow-config/) <img src="images/icons/JSON.png" class="artifact-icon-mini" /></span> and produce [anvi'o artifacts](#anvio-artifacts), which enable you to outsource rudimentary and relatively well-understood initial steps of your 'omics analyses so you can focus on more critical downstream research questions by further analyzing these data products inside or outside of the anvi'o software ecosystem.
 
-The anvi'o 8 (marie) contains 4 workflows:
+The anvi'o 8 (marie) contains 5 workflows:
 
 <ul>
 <li><a href="workflows/contigs">The anvi'o <b>contigs</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ShaiberAlon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
@@ -37,7 +37,8 @@ The anvi'o 8 (marie) contains 4 workflows:
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
 | <i>From FASTA files to annotated anvi&#x27;o contigs databases</i>.</li><li><a href="workflows/metagenomics">The anvi'o <b>metagenomics</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ShaiberAlon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
 | <i>From FASTA and/or FASTQ files to anvi&#x27;o contigs and profile databases</i>.</li><li><a href="workflows/ecophylo">The anvi'o <b>ecophylo</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
-| <i>Co-characterize the biogeography and phylogeny of any protein</i>.</li><li><a href="workflows/sra-download">The anvi'o <b>sra-download</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
+| <i>Co-characterize the biogeography and phylogeny of any protein</i>.</li><li><a href="workflows/trnaseq">The anvi'o <b>trnaseq</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/semiller10" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
+| <i>Process transfer RNA transcripts from tRNA-seq datasets</i>.</li><li><a href="workflows/sra-download">The anvi'o <b>sra-download</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
 | <i>Download, extract, and gzip paired-end FASTQ files automatically from the NCBI short-read archive (SRA)</i>.</li>
 </ul>
 
@@ -45,7 +46,7 @@ The anvi'o 8 (marie) contains 4 workflows:
 
 Anvi'o artifacts represent **concepts, file types, or data types** anvi'o programs can work with. A given anvi'o artifact can be provided by the user (such as a FASTA file), produced by anvi'o (such as a profile database), or both (such as phylogenomic trees). Anvi'o artifacts link anvi'o programs to each other to build novel workflows.
 
-Listed below **a total of 138 artifacts**.
+Listed below **a total of 132 artifacts**.
 
 <table class="artifacts-table">
 
@@ -122,7 +123,7 @@ Listed below **a total of 138 artifacts**.
 </tr>
 
 <tr>
-<td><div class="artifact-icon-div"><img src="images/icons/WORKFLOW.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[contigs-workflow](artifacts/contigs-workflow)</span> <span class="artifact-n" markdown="1">[metagenomics-workflow](artifacts/metagenomics-workflow)</span> <span class="artifact-n" markdown="1">[pangenomics-workflow](artifacts/pangenomics-workflow)</span> <span class="artifact-n" markdown="1">[phylogenomics-workflow](artifacts/phylogenomics-workflow)</span> <span class="artifact-n" markdown="1">[trnaseq-workflow](artifacts/trnaseq-workflow)</span> <span class="artifact-n" markdown="1">[ecophylo-workflow](artifacts/ecophylo-workflow)</span> <span class="artifact-n" markdown="1">[sra-download-workflow](artifacts/sra-download-workflow)</span></td>
+<td><div class="artifact-icon-div"><img src="images/icons/WORKFLOW.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[workflow](artifacts/workflow)</span></td>
 </tr>
 
 </table>
@@ -1661,7 +1662,7 @@ Listed below **a total of 147 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-pn-ps-ratio](programs/anvi-get-pn-ps-ratio)**</span>. <span markdown="1">FIXME</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-pn-ps-ratio](programs/anvi-get-pn-ps-ratio)**</span>. <span markdown="1">Calculate the rates of non-synonymous and synonymous polymorphism for genes across environmetns using the output of anvi-gen-variability-profile.</span>.
     </td>
 </tr>
 <tr>
@@ -2948,13 +2949,13 @@ Listed below **a total of 147 programs**.
 <tr>
     <td class="artifact-r-td">
     <span class="artifact-emoji">🧀</span>
-        <span class="artifact-r" markdown="1">[samples-txt](artifacts/samples-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[fasta-txt](artifacts/fasta-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[workflow-config](artifacts/workflow-config) <img src="images/icons/JSON.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[hmm-list](artifacts/hmm-list) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-r" markdown="1">[workflow-config](artifacts/workflow-config) <img src="images/icons/JSON.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span>
-        <span class="artifact-p" markdown="1">[contigs-workflow](artifacts/contigs-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[metagenomics-workflow](artifacts/metagenomics-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[pangenomics-workflow](artifacts/pangenomics-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[phylogenomics-workflow](artifacts/phylogenomics-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[trnaseq-workflow](artifacts/trnaseq-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[ecophylo-workflow](artifacts/ecophylo-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[sra-download-workflow](artifacts/sra-download-workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-p" markdown="1">[workflow](artifacts/workflow) <img src="images/icons/WORKFLOW.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr style="border:none;">
