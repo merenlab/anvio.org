@@ -29,7 +29,7 @@ This is to **further prepare** your anvi'o installation for things you may need 
 
 * Run {% include PROGRAM name="anvi-setup-scg-taxonomy" %}, to setup SCG taxonomy data using GTDB genomes.
 * Run {% include PROGRAM name="anvi-setup-ncbi-cogs" %}, to setup NCBI's COG database for quick annotation of genes with functions,
-* Run {% include PROGRAM name="anvi-setup-kegg-kofams" %}, so {% include PROGRAM name="anvi-estimate-metabolism" %} finds the database of KEGG orthologs ready when you need it.
+* Run {% include PROGRAM name="anvi-setup-kegg-data" %}, so {% include PROGRAM name="anvi-estimate-metabolism" %} and {% include PROGRAM name="anvi-reaction-network" %} find the database of KEGG orthologs ready when you need it.
 * Optinally you can also run `anvi-self-test --suite pangenomics` to see if everything is order, especially if you plan to use anvi'o for pangenomics.
 
 ### (6.2) Install an automated binning algorithm in your anvi'o environment
