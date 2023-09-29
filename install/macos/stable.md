@@ -17,11 +17,11 @@ This page describes the anvi'o installation process for the current stable relea
 
 ## (1) Things you need before you start
 
-{% include install/things_you_need_macos.md %}
+{% include install/macos/things_you_need.md %}
 
 ## (2) Set up conda
 
-{% include install/conda_setup.md %}
+{% include install/commons/stable/conda_setup.md %}
 
 ## (3) Setup an anvi'o environment
 
@@ -36,7 +36,7 @@ conda config --env --set subdir osx-64
 ```
 </div>
 
-{% include install/environment_setup_initial.md %}
+{% include install/commons/stable/initial_setup.md %}
 
 At the time of writing these lines, running `mamba` after this step gave an error about a missing file for `libarchive` library on Mac systems. To see if this is really the case, you can first type `mamba` in your terminal:
 
@@ -57,15 +57,15 @@ And test to make sure that `mamba` is okay now:
 mamba
 ```
 
-{% include install/conda_packages.md %}
+{% include install/commons/conda_packages.md %}
 
 ## (4) Install anvi'o
 
-{% include install/install_anvio.md %}
+{% include install/macos/stable/pip_install.md %}
 
 ## (5) Common problems
 
-{% include install/common_issues.md %}
+{% include install/commons/known_issues.md %}
 
 ### Issues with the C compiler
 
@@ -90,12 +90,11 @@ If you did all that and it is still not working, please make an issue on the git
 
 ## (6) Check your installation
 
-{% include install/check_installation.md %}
-
+{% include install/commons/check_installation.md %}
 
 ## Other installation options
 
-{% include install/other_options.md %}
+{% include install/commons/stable/other_options.md %}
 
 ---
 

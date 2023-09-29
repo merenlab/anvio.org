@@ -17,25 +17,25 @@ This page describes the anvi'o installation process for the current stable relea
 
 ## (1) Things you need before you start
 
-{% include install/things_you_need_linux.md %}
+{% include install/linux/things_you_need.md %}
 
 ## (2) Set up conda
 
-{% include install/conda_setup.md %}
+{% include install/commons/stable/conda_setup.md %}
 
 ## (3) Setup an anvi'o environment
 
-{% include install/environment_setup_initial.md %}
+{% include install/commons/stable/initial_setup.md %}
 
-{% include install/conda_packages.md %}
+{% include install/commons/conda_packages.md %}
 
 ## (4) Install anvi'o
 
-{% include install/install_anvio.md %}
+{% include install/linux/stable/pip_install.md %}
 
 ## (5) Common problems
 
-{% include install/common_issues.md %}
+{% include install/commons/known_issues.md %}
 
 ### Issues related to _sysconfigdata_x86_64_conda_linux_gnu
 
@@ -78,11 +78,11 @@ And re-run the commands to install conda packages. You can set the priority back
 
 ## (6) Check your installation
 
-{% include install/check_installation.md %}
+{% include install/commons/check_installation.md %}
  
 ## Other installation options
 
-{% include install/other_options.md %}
+{% include install/commons/stable/other_options.md %}
 
 ---
 

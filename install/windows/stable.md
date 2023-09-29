@@ -17,18 +17,18 @@ This page describes the anvi'o installation process for the current stable relea
 
 ## (1) Things you need before you start
 
-{% include install/things_you_need_windows.md %}
+{% include install/windows/things_you_need.md %}
 
 {:.warning}
 If the WSL installation fails with an error that looks like this: `WslRegisterDistribution failed with error: 0x80070032`. Then you could try the following solution: Open the Start menu and search for 'Turn Windows Features On or Off'. In the resulting pop-up box, click the checkboxes to activate "Windows Subsystem for Linux" and "Virtual Machine Platform". Then try the WSL installation again.
 
 ## (2) Set up conda
 
-{% include install/conda_setup.md %}
+{% include install/commons/stable/conda_setup.md %}
 
 ## (3) Setup an anvi'o environment
 
-{% include install/environment_setup_initial.md %}
+{% include install/commons/stable/initial_setup.md %}
 
 At the time of writing these lines, running `mamba` after this step gave an error about a missing file for `libarchive` library on WSL. To see if this is really the case, you can first type `mamba` in your terminal:
 
@@ -49,27 +49,25 @@ And test to make sure that `mamba` is okay now:
 mamba
 ```
 
-{% include install/conda_packages.md %}
+{% include install/commons/conda_packages.md %}
 
 ## (4) Install anvi'o
 
-{% include install/install_anvio.md %}
+{% include install/windows/stable/pip_install.md %}
 
 ## (5) Common problems
 
-{% include install/common_issues.md %}
+{% include install/commons/known_issues.md %}
 
-## (6) Running the interactive interface
+## (6) Check your installation
 
-{% include install/interactive_interface_windows.md %}
+{% include install/windows/interactive_interface_note.md %}
 
-## (7) Check your installation
+{% include install/commons/check_installation.md %}
 
-{% include install/check_installation.md %}
- 
 ## Other installation options
 
-{% include install/other_options.md %}
+{% include install/commons/stable/other_options.md %}
 
 ---
 

@@ -20,13 +20,13 @@ Please join our {% include _discord_invitation_button.html %} if you find yourse
 
 Use these buttons if you wish to install latest stable release of anvi'o. This version of anvi'o is static and no further changes are going toe be made to this particular release. But it has been well-tested, and will work the vast majority of the time (though occasionally bugs slip past our nets, and if you find one, we would love [to hear from you](https://github.com/merenlab/anvio/issues/new/choose)). Most end-users find this version of anvi'o to suit their needs.
 
-{% include install/00_links_for_stable.html %}
+{% include install/commons/stable/buttons.html %}
 
 ## Development version
 
 Use these buttons if you wish to set up `anvio-dev` on your computer. By doing so, you will be tracking the _active development_ version of anvi'o. It will bring the latest bug fixes and features from GitHub to your work environment every day, but can also be unstable at times. We sometimes ask our users specifically to install `anvio-dev` if they are experiencing an issue that we already have fixed after a particular release.
 
-{% include install/00_links_for_dev.html %}
+{% include install/commons/dev/buttons.html %}
 
 {:.notice}
 We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), [Susheel Bhanu Busi](https://scholar.google.com/citations?user=U0g3IzQAAAAJ&hl=en), [Mike Lee](https://twitter.com/AstrobioMike), [Josh Herr](http://joshuaherr.com/), and [Titus Brown](https://scholar.google.com/citations?user=O4rYanMAAAAJ) who kindly invested their time to test the installation instructions on different systems and/or made suggestions to these documents to ensure a smoother installation experience for everyone.

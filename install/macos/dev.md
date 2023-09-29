@@ -15,15 +15,15 @@ This page is for users who want to install the development version of anvi'o, `a
 
 ## Following the active development of anvi'o (you're a wizard, arry)
 
-{% include install/dev_initial.md %}
+{% include install/commons/dev/initial.md %}
 
 ## (1) Things you need before you start
 
-{% include install/things_you_need_macos.md %}
+{% include install/macos/things_you_need.md %}
 
 ## (2) Setting up the conda environment
 
-{% include install/dev_python_version_warning.md %}
+{% include install/commons/dev/python_version_warning.md %}
 
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Working with Apple silicon</span>
@@ -36,7 +36,7 @@ conda config --env --set subdir osx-64
 ```
 </div>
 
-{% include install/dev_conda_setup.md %}
+{% include install/commons/dev/conda_setup.md %}
 
 At the time of writing these lines, running `mamba` after this step gave an error about a missing file for `libarchive` library on Mac systems. To see if this is really the case, you can first type `mamba` in your terminal:
 
@@ -57,11 +57,11 @@ And test to make sure that `mamba` is okay now:
 mamba
 ```
 
-{% include install/dev_mamba_packages.md %}
+{% include install/commons/conda_packages.md %}
 
 ## (3) Setting up the local copy of the anvi'o codebase
 
-{% include install/dev_codebase.md %}
+{% include install/commons/dev/codebase.md %}
 
 ## (4) Installing the Python dependencies
 
@@ -75,16 +75,20 @@ export CXX=/usr/bin/clang++
 {:.notice}
 The above code should help you avoid errors with building wheels for `pip` packages. However, if you still see errors during the `pip install` command, please let us know in the anvi'o Discord channel and we will try to help you.
 
-{% include install/dev_python_dependencies.md %}
-{% include install/dev_python_dependencies_conclusion.md %}
+{% include install/commons/dev/python_dependencies.md %}
+{% include install/commons/dev/python_dependencies_conclusion.md %}
 
 ## (5) Linking conda environment and the codebase
 
-{% include install/dev_link_conda_codebase.md %}
+{% include install/commons/dev/link_conda_codebase.md %}
+
+## (6) Check your installation
+
+{% include install/commons/check_installation.md %}
 
 ## Bonus: An alternative BASH profile setup
 
-{% include install/bonus_bash_setup.md %}
+{% include install/commons/dev/bonus_bash_setup.md %}
 
 ---
 
