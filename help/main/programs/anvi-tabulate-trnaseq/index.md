@@ -43,7 +43,7 @@ A program to write standardized tab-delimited files of tRNA-seq seed coverage an
 
 This program **generates tabular files of tRNA-seq seed coverage and modification data that are easily manipulable by the user**.
 
-anvi-tabulate-trnaseq is part of the <span class="artifact-n">[trnaseq-workflow](/help/main/artifacts/trnaseq-workflow)</span>, and is run following the finalization of tRNA seeds by <span class="artifact-p">[anvi-merge-trnaseq](/help/main/programs/anvi-merge-trnaseq)</span>.
+anvi-tabulate-trnaseq is part of the [trnaseq-workflow](../../workflows/trnaseq/), and is run following the finalization of tRNA seeds by <span class="artifact-p">[anvi-merge-trnaseq](/help/main/programs/anvi-merge-trnaseq)</span>.
 
 This program generates a table, <span class="artifact-n">[seeds-specific-txt](/help/main/artifacts/seeds-specific-txt)</span>, containing the specific coverage of each nucleotide position in each seed in every sample. If a nonspecific <span class="artifact-n">[trnaseq-profile-db](/help/main/artifacts/trnaseq-profile-db)</span> is also provided, this program generates a table of nonspecific coverages, <span class="artifact-n">[seeds-non-specific-txt](/help/main/artifacts/seeds-non-specific-txt)</span>. The distinction between specific and nonspecific coverage is explained in the <span class="artifact-n">[trnaseq-profile-db](/help/main/artifacts/trnaseq-profile-db)</span> artifact. These coverage tables have one row per seed per sample. They have three header rows for different ways of describing tRNA nucleotide positions: canonical position name (e.g., "discriminator_1"), canonical position (e.g., "73"), and "ordinal" position relative to all the other **possible** positions (e.g., "95").
 

@@ -43,8 +43,35 @@ This program downloads and sets up the ModelSEED Biochemistry database..
 ## Usage
 
 
+This program **downloads and sets up the latest version of the ModelSEED Biochemistry database.**
+
+[The ModelSEED Biochemistry database](https://github.com/ModelSEED/ModelSEEDDatabase) consists of two tab-delimited files of reaction and compound data, respectively, and is valuable due to harmonization of IDs and properties from multiple reference databases commonly used in metabolic modeling.
+
+<span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span> relies upon ModelSEED Biochemistry in conjunction with the KEGG Orthology database. [KEGG Orthology (KO)](https://www.genome.jp/kegg/ko.html) protein annotations of genes are associated with predicted enzymatic reactions. These KEGG reactions are cross-referenced to the ModelSEED Biochemistry database to retrieve information on properties including reaction stoichiometry and reversibility. <span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span> stores reactions and metabolites thereby predicted in the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> for the genome. The program, <span class="artifact-p">[anvi-setup-kegg-data](/help/main/programs/anvi-setup-kegg-data)</span>, sets up the requisite KO database.
+
+## Usage
+
+The simplest <span class="artifact-p">[anvi-setup-modelseed-database](/help/main/programs/anvi-setup-modelseed-database)</span> command sets up the database in the default anvi'o ModelSEED data directory.
+
+<div class="codeblock" markdown="1">
+anvi&#45;setup&#45;modelseed&#45;database
+</div>
+
+A custom directory can be provided instead. Within the provided directory, a subdirectory named `ModelSEED` is created for storage of the database.
+
+<div class="codeblock" markdown="1">
+anvi&#45;setup&#45;modelseed&#45;database &#45;&#45;dir /path/to/dir
+</div>
+
+Finally, in conjunction with either of the previous commands, the `--reset` flag can be used to delete any existing target database directory and its contents before setting up the latest version of the ModelSEED Biochemistry database there.
+
+<div class="codeblock" markdown="1">
+anvi&#45;setup&#45;modelseed&#45;database &#45;&#45;reset
+</div>
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-setup-modelseed-database.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-setup-modelseed-database.md) to update this information.
 
 
 ## Additional Resources

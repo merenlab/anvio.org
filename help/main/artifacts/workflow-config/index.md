@@ -34,7 +34,7 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 
 ## Description
 
-A `JSON`-formated configuration file that describes steps and parameters to be considered by an anvio workflow, which includes <span class="artifact-n">[contigs-workflow](/help/main/artifacts/contigs-workflow)</span>, <span class="artifact-n">[metagenomics-workflow](/help/main/artifacts/metagenomics-workflow)</span>, <span class="artifact-n">[pangenomics-workflow](/help/main/artifacts/pangenomics-workflow)</span>, <span class="artifact-n">[phylogenomics-workflow](/help/main/artifacts/phylogenomics-workflow)</span>, and <span class="artifact-n">[trnaseq-workflow](/help/main/artifacts/trnaseq-workflow)</span>.
+A `JSON`-formated configuration file that describes steps and parameters to be considered by an anvio <span class="artifact-n">[workflow](/help/main/artifacts/workflow)</span>.
 
 You can create a default config file for a given workflow using the following command:
 
@@ -43,17 +43,17 @@ anvi-run-workflow --workflow ANVIO-WORKFLOW \
                   --get-default-config CONFIG.json
 ```
 
-Following this, the file `CONFIG.json` will contain all configurable flags and parameters set to their default value for that workflow. From there, you can edit this file to your hearts content. 
+Following this, the file `CONFIG.json` will contain all configurable flags and parameters set to their default value for that workflow. From there, you can edit this file to your hearts content.
 
-### What's in this file? 
+### What's in this file?
 
 The config file contains three types of information:
 
-1. **General parameters**, including the name of the workflow, the version of this config file, and links to the <span class="artifact-n">[fasta-txt](/help/main/artifacts/fasta-txt)</span> or <span class="artifact-n">[samples-txt](/help/main/artifacts/samples-txt)</span> file) 
-2. **Rule specific parameters** which allow you to set the parameters on individual anvi'o programs that are run in the workflow. 
-3. **Output directory names** which just tell anvi'o what to name all of the intermediate and final outputs (to help keep things organized). 
+1. **General parameters**, including the name of the workflow, the version of this config file, and links to the <span class="artifact-n">[fasta-txt](/help/main/artifacts/fasta-txt)</span> or <span class="artifact-n">[samples-txt](/help/main/artifacts/samples-txt)</span> file)
+2. **Rule specific parameters** which allow you to set the parameters on individual anvi'o programs that are run in the workflow.
+3. **Output directory names** which just tell anvi'o what to name all of the intermediate and final outputs (to help keep things organized).
 
-For example, the default config file for the '<span class="artifact-n">[contigs-workflow](/help/main/artifacts/contigs-workflow)</span>'s no rule specific parameters and looks like this: 
+For example, the default config file for the [contigs workflow](../../workflows/contigs) has no rule specific parameters and looks like this:
 
     {
         "workflow_name": "contigs",
@@ -66,7 +66,7 @@ For example, the default config file for the '<span class="artifact-n">[contigs-
         }
     }
 
-On the other hand, the default config file for the <span class="artifact-n">[metagenomics-workflow](/help/main/artifacts/metagenomics-workflow)</span> is much longer, because it has sections for each rule specific parameter. For example, its section on parameters for the program <span class="artifact-p">[anvi-gen-contigs-database](/help/main/programs/anvi-gen-contigs-database)</span> looks like this:
+On the other hand, the default config file for the [contigs workflow](../../workflows/metagenomics) is much longer, because it has sections for each rule specific parameter. For example, its section on parameters for the program <span class="artifact-p">[anvi-gen-contigs-database](/help/main/programs/anvi-gen-contigs-database)</span> looks like this:
 
     "anvi_gen_contigs_database": {
        "--project-name": "{group}",
@@ -80,7 +80,7 @@ On the other hand, the default config file for the <span class="artifact-n">[met
        "--kmer-size": ""
     },
 
-Note that the empty string `""` here means that the default parameter for the program <span class="artifact-p">[anvi-gen-contigs-database](/help/main/programs/anvi-gen-contigs-database)</span> will be used. 
+Note that the empty string `""` here means that the default parameter for the program <span class="artifact-p">[anvi-gen-contigs-database](/help/main/programs/anvi-gen-contigs-database)</span> will be used.
 
 For more details on the anvi'o snakemake workflows, please refer to [this tutorial](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/).
 

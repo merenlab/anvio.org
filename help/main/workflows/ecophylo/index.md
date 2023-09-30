@@ -12,7 +12,7 @@ image:
 
 <i>Co-characterize the biogeography and phylogeny of any protein</i>
 
-The ecophylo workflow explores the **eco**logical and **phylo**genetic relationships between gene families and environments. Briefly, the workflow extracts a target gene from any set of FASTA files (e.g., isolate genomes, [MAGs](https://anvio.org/vocabulary/#metagenome-assembled-genome-mag), [SAGs](https://anvio.org/vocabulary/#single-amplified-genome-sag), or simply [assembled metagenomes](https://anvio.org/vocabulary/#de-novo-assembly)) using a user-defined [HMM](https://anvio.org/vocabulary/#hidden-markov-models-hmms), and offers an integrated access to the phylogenetics of matching genes, and their distribution across environments.
+The ecophylo workflow explores the **eco**logical and **phylo**genetic relationships between a gene family and the environment. Briefly, the workflow extracts a target gene from any set of FASTA files (e.g., isolate genomes, [MAGs](https://anvio.org/vocabulary/#metagenome-assembled-genome-mag), [SAGs](https://anvio.org/vocabulary/#single-amplified-genome-sag), or simply [assembled metagenomes](https://anvio.org/vocabulary/#de-novo-assembly)) using a user-defined [HMM](https://anvio.org/vocabulary/#hidden-markov-models-hmms), and offers an integrated access to the phylogenetics of matching genes, and their distribution across environments.
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -51,7 +51,7 @@ The ecophylo workflow starts with a user-defined target gene family defined by a
 
 While the 'user-defined [HMM](https://anvio.org/vocabulary/#hidden-markov-models-hmms)' is passed to ecophylo via the <span class="artifact-n">[hmm-list](/help/main/artifacts/hmm-list)</span> artifact, the input assemblies of genomes and/or metagenomes to query using the [HMM](https://anvio.org/vocabulary/#hidden-markov-models-hmms) are passed to the workflow via the artifacts <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> and <span class="artifact-n">[metagenomes](/help/main/artifacts/metagenomes)</span>, respectively. Finally, the user can also provide a set of metagenomic short reads via the artifact <span class="artifact-n">[samples-txt](/help/main/artifacts/samples-txt)</span> to recover the distribution patterns of genes across samples.
 
-Ecophylo first identifies homologous genes based on the input [HMM](https://anvio.org/vocabulary/#hidden-markov-models-hmms)s, then clusters matching sequences based on sequence similarity using a uder-defined threshold, and finally selects a representative sequence from each cluster that contains more than two genes. The final set of representative genes are filtered for QC at multiple steps of the workflow which is discussed later in this document in the section "[Quality control and processing of hmm-hits](#Quality control and processing of hmm-hits)". After this step, the ecophylo workflow can continue with one of two modes that the user defines in the <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span>: The so-called [tree-mode](#tree-mode-insights-into-the-evolutionary-patterns-of-target-genes) or the so-called [profile-mode](#profile-mode-insights-into-the-ecological-and-evolutionary-patterns-of-target-genes-and-environments).
+Ecophylo first identifies homologous genes based on the input [HMM](https://anvio.org/vocabulary/#hidden-markov-models-hmms), clusters matching sequences based on a user-defined sequence similarity threshold, and finally selects a representative sequence from each cluster that contains more than two genes. The final set of representative genes are filtered for QC at multiple steps of the workflow which is discussed later in this document in the section "[Quality control and processing of hmm-hits](#Quality control and processing of hmm-hits)". After this step, the ecophylo workflow can continue with one of two modes that the user defines in the <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span>: The so-called [tree-mode](#tree-mode-insights-into-the-evolutionary-patterns-of-target-genes) or the so-called [profile-mode](#profile-mode-insights-into-the-ecological-and-evolutionary-patterns-of-target-genes-and-environments).
 
 In the [tree-mode](#tree-mode-insights-into-the-evolutionary-patterns-of-target-genes), the user must provide an <span class="artifact-n">[hmm-list](/help/main/artifacts/hmm-list)</span> and <span class="artifact-n">[metagenomes](/help/main/artifacts/metagenomes)</span> and/or <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>, and the workflow will stop after extracting representative sequences and calculating a phylogenetic tree (without any insights into the ecology of sequences through a subsequent step of metagenomic [read recruitment](https://anvio.org/vocabulary/#read-recruitment)). In contrast, the [profile-mode](#profile-mode-insights-into-the-ecological-and-evolutionary-patterns-of-target-genes-and-environments) will require an additional file: <span class="artifact-n">[samples-txt](/help/main/artifacts/samples-txt)</span>. In this mode the workflow will continue with the profiling of representative sequences via read recruitment across user-provided metagenomes to recover and store coverage statistics. The completion of the workflow will yield all files necessary to explore the results in downstream analyses to investigate associations between ecological and evolutionary relationships between target genes.
 
@@ -68,12 +68,12 @@ anvi&#45;run&#45;workflow &#45;w ecophylo \
                   &#45;&#45;get&#45;default&#45;config config.json
 </div>
 
-- <span class="artifact-n">[hmm-list](/help/main/artifacts/hmm-list)</span>: This file designates which HMM should be used to extract the target gene from your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>.
+- <span class="artifact-n">[hmm-list](/help/main/artifacts/hmm-list)</span>: This file designates which HMM should be used to extract the target gene from your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. Please note that the ecophylo workflow can only process one gene family at a time i.e. <span class="artifact-n">[hmm-list](/help/main/artifacts/hmm-list)</span> can only contain one HMM. If you would like to process multiple gene families from the same input assemblies then you will need to re-run the workflow with a separate <span class="artifact-n">[hmm-list](/help/main/artifacts/hmm-list)</span>.
 - <span class="artifact-n">[metagenomes](/help/main/artifacts/metagenomes)</span> and/or <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>: These files hold the assemblies where you are looking for the target gene. Genomes in <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> can be reference genomes, [SAGs](https://anvio.org/vocabulary/#single-amplified-genome-sag), and/or [MAGs](https://anvio.org/vocabulary/#metagenome-assembled-genome-mag).
 
 ## Quality control and processing of hmm-hits
 
-[Hidden Markov Models](https://anvio.org/vocabulary/#hidden-markov-models-hmms) are the crux of the EcoPhylo workflow and will determine the sensitivity and specificity of the gene family hmm-hits you seek to investigate. However, not all <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> are created equal. Just how BLAST can detect spurious hits with [high-scoring segment pairs](https://www.ncbi.nlm.nih.gov/books/NBK62051/), an HMM search can yield non-homologous hits as well. To address this, we have a series of parameters you can adjust in the <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span> to fine tune the input set of <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> that EcoPhylo will process.
+[Hidden Markov Models](https://anvio.org/vocabulary/#hidden-markov-models-hmms) are the crux of the ecophylo workflow and will determine the sensitivity and specificity of the gene family hmm-hits you seek to investigate. However, not all <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> are created equal. Just how BLAST can detect spurious hits with [high-scoring segment pairs](https://www.ncbi.nlm.nih.gov/books/NBK62051/), an HMM search can yield non-homologous hits as well. To address this, we have a series of parameters you can adjust in the <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span> to fine tune the input set of <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> that ecophylo will process.
 
 ### HMM alignment coverage filtering
 
@@ -82,9 +82,9 @@ The first step to removing bad <span class="artifact-n">[hmm-hits](/help/main/ar
 {:.notice}
 Some full gene length HMM models align to a single hmm-hit independently at different coordinates when there should only be one annotation. To merge these independent alignment into one HMM alignment coverage stat, set `--merge-partial-hits-within-X-nts` to any distance between the hits for which you would like to merge and add it to the rule `filter_hmm_hits_by_model_coverage` under `additional_params`.
 
-### Conservative mode: complete open-reading frames only
+### conservative-mode: complete open-reading frames only
 
-Genes predicted from genomes and metagenomes can be partial or complete depending on whether a stop and stop codon is detected. Even if you filter out <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> with bad alignment coverage as discussed above, HMMs can still detect low quality hits due to partial genes (i.e., genes that are not partial and that start with a start codon and end with a stop codon) with good alignment coverage and homology statistics. Unfortunately, partial genes can lead to spurious phylogenetic branches and/or inflate the number of observed populations or functions in a given set of genomes/metagenomes.
+Genes predicted from genomes and metagenomes can be partial or complete depending on whether a stop and stop codon is detected. Even if you filter out <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> with bad alignment coverage as discussed above, HMMs can still detect low quality hits with good alignment coverage and homology statistics due to partial genes. Unfortunately, partial genes can lead to spurious phylogenetic branches and/or inflate the number of observed populations or functions in a given set of genomes/metagenomes.
 
 To remove partial genes from the ecophylo analysis, the user can assign `true` for `--filter-out-partial-gene-calls` parameter so that only complete open-reading frames are processed.
 
@@ -102,7 +102,7 @@ What is below is the default settings in the ecophylo <span class="artifact-n">[
 }
 ```
 
-### Discovery-mode: ALL open-reading frames
+### discovery-mode: ALL open-reading frames
 
 However, maybe you're a risk taker, a maverick explorer of metagenomes. Complete or partial you accept all genes and their potential tree bending shortcomings! In this case, set `--filter-out-partial-gene-calls false` in the <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span>.
 
@@ -130,6 +130,9 @@ Simultaneously exploring complete and partial ORFs will increase the distributio
     },
 }
 ```
+
+Now that you have fine tuned the gene family input into the ecophylo workflow, it's time to decide what output best fits your science question at hand.
+
 ## tree-mode: Insights into the evolutionary patterns of target genes
 
 This is the simplest implementation of ecophylo where only an amino acid based phylogenetic tree is calculated. The workflow will extract the target gene from input assemblies, cluster and pick representatives, then calculate a phylogenetic tree based on the amino acid representative sequences. There are two sub-modes of [tree-mode](#tree-mode-insights-into-the-evolutionary-patterns-of-target-genes) which depend on how you pick representative sequences, [NT-mode](#nt-mode) or [AA-mode](#aa-mode) where extracted genes associated nucleotide version (NT) or the amino acid (AA) can be used to cluster the dataset and pick representatives, respectively.
@@ -202,6 +205,22 @@ Ecophylo will sanity check all input files that contain <span class="artifact-n"
 }
 ```
 
+The ecophylo workflow by default uses [FastTree](http://www.microbesonline.org/fasttree/) to calculate the output phylogenetic tree. This is because the workflow was designed to be run on large genomic datasets that could yield thousands of input sequences. However, if you like to run [IQ-TREE](https://github.com/Cibiv/IQ-TREE) adjust your <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span> to the following:
+
+```bash
+{
+    "fasttree": {
+        "run": "",
+        "threads": 5
+    },
+    "iqtree": {
+        "threads": 5,
+        "-m": "MFP",
+        "run": true,
+        "additional_params": ""
+    },
+}
+```
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/workflows/ecophylo.md) to update this information.

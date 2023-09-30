@@ -45,7 +45,7 @@ A program to process reads from a tRNA-seq dataset to generate an anvi&#x27;o tR
 
 This program **analyzes a tRNA-seq library, generating de novo predictions of tRNA sequences, structures, and modification positions**.
 
-A FASTA file of merged paired-end tRNA-seq reads is required as input. This file is produced by the initial steps of the <span class="artifact-n">[trnaseq-workflow](/help/main/artifacts/trnaseq-workflow)</span>, in which [Illumina-utils](https://github.com/merenlab/illumina-utils), merges paired-end reads and <span class="artifact-p">[anvi-script-reformat-fasta](/help/main/programs/anvi-script-reformat-fasta)</span> creates anvi'o-compliant deflines in the FASTA file.
+A FASTA file of merged paired-end tRNA-seq reads is required as input. This file is produced by the initial steps of the [trnaseq-workflow](../../workflows/trnaseq/), in which [Illumina-utils](https://github.com/merenlab/illumina-utils), merges paired-end reads and <span class="artifact-p">[anvi-script-reformat-fasta](/help/main/programs/anvi-script-reformat-fasta)</span> creates anvi'o-compliant deflines in the FASTA file.
 
 The primary output of anvi-trnaseq is a <span class="artifact-n">[trnaseq-db](/help/main/artifacts/trnaseq-db)</span>. Supplemental outputs are also produced -- an analysis summary, a tabular file of unique sequences not identified as tRNA, an a tabular file of 5' and 3' extensions trimmed off mature tRNA.
 

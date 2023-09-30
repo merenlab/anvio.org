@@ -5,82 +5,10 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "contigs-workflow",
-      "name": "contigs-workflow",
+      "id": "workflow",
+      "name": "workflow",
       "provided_by_anvio": true,
       "type": "WORKFLOW"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "metagenomics-workflow",
-      "name": "metagenomics-workflow",
-      "provided_by_anvio": true,
-      "type": "WORKFLOW"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "pangenomics-workflow",
-      "name": "pangenomics-workflow",
-      "provided_by_anvio": true,
-      "type": "WORKFLOW"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "phylogenomics-workflow",
-      "name": "phylogenomics-workflow",
-      "provided_by_anvio": true,
-      "type": "WORKFLOW"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "trnaseq-workflow",
-      "name": "trnaseq-workflow",
-      "provided_by_anvio": true,
-      "type": "WORKFLOW"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "ecophylo-workflow",
-      "name": "ecophylo-workflow",
-      "provided_by_anvio": true,
-      "type": "WORKFLOW"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "sra-download-workflow",
-      "name": "sra-download-workflow",
-      "provided_by_anvio": true,
-      "type": "WORKFLOW"
-    },
-    {
-      "size": 1,
-      "score": 1,
-      "color": "#AA0000",
-      "id": "samples-txt",
-      "name": "samples-txt",
-      "provided_by_anvio": false,
-      "type": "TXT"
-    },
-    {
-      "size": 1,
-      "score": 1,
-      "color": "#AA0000",
-      "id": "fasta-txt",
-      "name": "fasta-txt",
-      "provided_by_anvio": false,
-      "type": "TXT"
     },
     {
       "size": 1,
@@ -92,16 +20,7 @@
       "type": "JSON"
     },
     {
-      "size": 1,
-      "score": 1,
-      "color": "#AA0000",
-      "id": "hmm-list",
-      "name": "hmm-list",
-      "provided_by_anvio": false,
-      "type": "TXT"
-    },
-    {
-      "size": 11,
+      "size": 2,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-run-workflow",
@@ -111,48 +30,12 @@
   ],
   "links": [
     {
-      "source": 11,
+      "source": 2,
       "target": 0
     },
     {
-      "source": 11,
-      "target": 1
-    },
-    {
-      "source": 11,
-      "target": 2
-    },
-    {
-      "source": 11,
-      "target": 3
-    },
-    {
-      "source": 11,
-      "target": 4
-    },
-    {
-      "source": 11,
-      "target": 5
-    },
-    {
-      "source": 11,
-      "target": 6
-    },
-    {
-      "target": 11,
-      "source": 7
-    },
-    {
-      "target": 11,
-      "source": 8
-    },
-    {
-      "target": 11,
-      "source": 9
-    },
-    {
-      "target": 11,
-      "source": 10
+      "target": 2,
+      "source": 1
     }
   ],
   "directed": false,

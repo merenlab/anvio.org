@@ -36,7 +36,7 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 
 A tRNA-seq profile database is a **<span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> variant containing tRNA seed coverage information from one or more samples**.
 
-This database is created by the program, <span class="artifact-p">[anvi-merge-trnaseq](/help/main/programs/anvi-merge-trnaseq)</span>, which is part of the <span class="artifact-n">[trnaseq-workflow](/help/main/artifacts/trnaseq-workflow)</span>. This program also creates a <span class="artifact-n">[trnaseq-contigs-db](/help/main/artifacts/trnaseq-contigs-db)</span>.
+This database is created by the program, <span class="artifact-p">[anvi-merge-trnaseq](/help/main/programs/anvi-merge-trnaseq)</span>, which is part of the [trnaseq-workflow](../../workflows/trnaseq/). This program also creates a <span class="artifact-n">[trnaseq-contigs-db](/help/main/artifacts/trnaseq-contigs-db)</span>.
 
 ## Specific and nonspecific coverage
 

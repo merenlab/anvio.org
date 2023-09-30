@@ -43,8 +43,40 @@ This program writes a metabolic reaction network to a file suitable for flux bal
 ## Usage
 
 
+This program **exports a metabolic <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> from a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> to a <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file** suitable for inspection and flux balance analysis.
+
+The required input to this program is a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> in which a <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> has been stored by <span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span>.
+
+The <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file output contains sections on the metabolites, reactions, and genes constituting the <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> that had been predicted from the genome. An "objective function" representing the biomass composition of metabolites in the ["core metabolism" of *E. coli*](http://bigg.ucsd.edu/models/e_coli_core) is automatically added as the first entry in the "reactions" section of the file and can be deleted as needed. An objective function is needed for flux balance analysis.
+
+## Usage
+
+<span class="artifact-p">[anvi-get-metabolic-model-file](/help/main/programs/anvi-get-metabolic-model-file)</span> requires a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> as input and the path to an output <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file.
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;metabolic&#45;model&#45;file &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                              &#45;o /path/to/ouput.json
+</div>
+
+An existing file at the target output location must be explicitly overwritten with the `-W` flag.
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;metabolic&#45;model&#45;file &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                              &#45;o /path/to/output.json \
+                              &#45;W
+</div>
+
+The flag, `--remove-missing-objective-metabolites` must be used to remove metabolites in the *E. coli* core biomass objective function from the output file if the metabolites are not produced or consumed by the predicted <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span>. [COBRApy](https://opencobra.github.io/cobrapy/), for instance, cannot load the JSON file if metabolites in the objective function are missing from the genomic model.
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;metabolic&#45;model&#45;file &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                              &#45;o /path/to/output.json \
+                              &#45;&#45;remove&#45;missing&#45;objective&#45;metabolites
+</div>
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-get-metabolic-model-file.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-get-metabolic-model-file.md) to update this information.
 
 
 ## Additional Resources
