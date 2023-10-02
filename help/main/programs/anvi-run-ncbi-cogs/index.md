@@ -58,14 +58,20 @@ anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;
 
 Without the flag `--cog-data-dir`, anvi'o will just search in the default location.
 
-You can also use blastp to search, by running:
+### Choosing a different database version
+If you want to annotate your genes with a non-default version of <span class="artifact-n">[cogs-data](/help/main/artifacts/cogs-data)</span>, provide that version after the `--cog-version` parameter:
+
+<div class="codeblock" markdown="1">
+anvi&#45;setup&#45;ncbi&#45;cogs &#45;&#45;cog&#45;version COG14
+</div>
+
+### Choosing a different search program
+By default, this program uses `diamond` to search for hits to the database. You can also use `blastp`` to search, by running:
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
             &#45;&#45;search&#45;with blastp
 </div>
-
-
 
 
 {:.notice}

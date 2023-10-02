@@ -38,6 +38,15 @@ This basically stores **a local copy of the data from the NCBI [COGs database](h
 
 It is required to run <span class="artifact-p">[anvi-run-ncbi-cogs](/help/main/programs/anvi-run-ncbi-cogs)</span> and is set up on your computer by the program <span class="artifact-p">[anvi-setup-ncbi-cogs](/help/main/programs/anvi-setup-ncbi-cogs)</span>. 
 
+## Database version options
+
+Last we checked, the following versions of NCBI COGs were available:
+- `COG20` (the default): the 2020 release of the COGs database, described in [Galperin et al. 2021](https://doi.org/10.1093/nar/gkaa1018)
+- `COG14`: the 2014 release of the COGs database, described in [Galperin et al. 2015](https://doi.org/10.1093/nar/gku1223)
+- `arCOG14`: the archael COGs database from 2014, described in [Makarova, Wolf, and Koonin 2015](https://doi.org/10.3390/life5010818)
+
+Please see the help page for <span class="artifact-p">[anvi-setup-ncbi-cogs](/help/main/programs/anvi-setup-ncbi-cogs)</span> if you want to learn how to choose which version to set up on your computer.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/cogs-data.md) to update this information.

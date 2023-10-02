@@ -47,8 +47,10 @@ This program **downloads and organizes a local copy of the data from NCBI's [COG
 
 ### Set up COGs data
 <div class="codeblock" markdown="1">
-anvi&#45;setup&#45;ncbi&#45;cogs &#45;&#45;just&#45;do&#45;it
+anvi&#45;setup&#45;ncbi&#45;cogs
 </div>
+
+If possible, we recommend you multithread this program with the `--num-threads` parameter to make it faster.
 
 If you already have a <span class="artifact-n">[cogs-data](/help/main/artifacts/cogs-data)</span> artifact and are trying to redownload this data, run 
 
@@ -56,6 +58,12 @@ If you already have a <span class="artifact-n">[cogs-data](/help/main/artifacts/
 anvi&#45;setup&#45;ncbi&#45;cogs &#45;&#45;reset
 </div>
 
+### Choosing a different database version
+<div class="codeblock" markdown="1">
+anvi&#45;setup&#45;ncbi&#45;cogs &#45;&#45;cog&#45;version COG14
+</div>
+
+Not sure which versions of <span class="artifact-n">[cogs-data](/help/main/artifacts/cogs-data)</span> are available? You can type something random after the `--cog-version` parameter to see the options.
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-setup-ncbi-cogs.md) to update this information.
