@@ -33,22 +33,29 @@ If you have used anvi'o for anything at all please consider citing this work as 
 
 The rest of the citations on this page are specific for certain anvi'o features.
 
-## Metagenomic binning, genome refinement
+## Microbial metabolism
 
 {:.notice-alt}
-**TL;DR**: Cite this if you have used {% include PROGRAM name="anvi-refine" %}.
+**TL;DR**: Cite this if you have used {% include PROGRAM name="anvi-estimate-metabolism" %}.
 
-If you used anvi'o for metagenomic binning or for the refinement of genomes, please consider citing this study, too:
+The following study is the first one that formally describes the anvi'o metabolism frameowrk:
 
 <div class="pub_float">
-<div class="altmetric-embed" data-badge-type="donut" data-doi="10.7717/peerj.1319"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.1319" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href=" https://doi.org/10.7717/peerj.1319" target="_new">Anvi’o: an advanced analysis and visualization platform for ‘omics data</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, <span class="pub-member-author">Esen ÖC</span>, Quince C, Vineis JH, Morrison HG, Sogin ML, <span class="pub-member-author">Delmont TO</span></span>
-    <span class="pub-journal"><b>PeerJ</b>, 3:e1319 <a href="https://doi.org/10.7717/peerj.1319" target="_blank">🔗</a></span>
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.7554/eLife.89862"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.89862" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.7554/eLife.89862" target="_new">Microbes with higher metabolic independence are enriched in human gut microbiomes under stress</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title="An official member of the lab at the time of publication">Veseli I</span>, Chen YT, <span class="pub-member-author" title="An official member of the lab at the time of publication">Schechter MS</span>, Vanni C, <span class="pub-member-author" title="An official member of the lab at the time of publication">Fogarty EC</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Watson AR</span>, Jabri B, Blekhman R, Willis AD, <span class="pub-collaborator-author" title="A key collaborator of the lab at the time of publication">Yu MK</span>, Fernàndez-Guerra A, <span class="pub-collaborator-author" title="A key collaborator of the lab at the time of publication">Füssel J</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Eren AM</span></span>
+    <span class="pub-journal"> 📚 <b>eLife</b>, 12(RP89862) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&amp;q=Microbes+with+higher+metabolic+independence+are+enriched+in+human+gut+microbiomes+under+stress" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.7554/eLife.89862" target="_blank">doi:10.7554/eLife.89862</a></span>
 </div>
 
-{% include _experts.html question="binning practices" githubs="tdelmont" %}
+In a recent study mentioned this framework the following way:
+
+> (...)
+>
+> **Analysis of metabolic modules and enrichment**. We calculated the level of completeness for a given KEGG module ([Kanehisa et al. 2014](https://doi.org/10.1093/nar/gkt1076); [Kanehisa et al. 2017](https://doi.org/10.1093/nar/gkw1092)) in our genomes using the program `anvi-estimate-metabolism` ([Veseli et al. 2023](https://doi.org/10.7554/eLife.89862)), which leveraged previous annotation of genes with KEGG orthologs (KOs). Then, the program `anvi-compute-functional-enrichment` ([Shaiber et al. 2020](https://doi.org/10.1186/s13059-020-02195-w)) determined whether a given metabolic module was enriched in based on the output from `anvi-estimate-metabolism`.  The URL [https://merenlab.org/m/anvi-estimate-metabolism](https://merenlab.org/m/anvi-estimate-metabolism) serves a tutorial for this program which details the modes of usage and output file formats (...)
+
+{% include _experts.html question="metabolism" githubs="ivagljiva" %}
+
 
 ## Microbial population genetics
 
@@ -69,29 +76,6 @@ Much of the firepower in anvi'o for microbial population genetics, including the
 If your work benefited from any of these features, please consider also citing it.
 
 {% include _experts.html question="microbial population genetics" githubs="meren,ekiefl" %}
-
-## Microbial metabolism
-
-{:.notice-alt}
-**TL;DR**: Cite this if you have used {% include PROGRAM name="anvi-estimate-metabolism" %}.
-
-The following study is the first one that formally describes the anvi'o metabolism frameowrk:
-
-<div class="pub_float">
-<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1101/2023.05.10.540289"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1101/2023.05.10.540289" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.1101/2023.05.10.540289" target="_new">Microbes with higher metabolic independence are enriched in human gut microbiomes under stress</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Veseli I</span>, Chen YT, <span class="pub-member-author">Schechter MS</span>, Vanni C, <span class="pub-member-author">Fogarty EC</span>, Watson AR, Jabri B, Blekhman R, Willis AD, Yu MK, Fernàndez-Guerra A, Füssel J, <span class="pub-member-author">Eren AM</span></span>
-    <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2023.05.10.540289" target="_blank">🔗</a></span>
-</div>
-
-In a recent study mentioned this framework the following way:
-
-> (...)
->
-> **Analysis of metabolic modules and enrichment**. We calculated the level of completeness for a given KEGG module ([Kanehisa et al. 2014](https://doi.org/10.1093/nar/gkt1076); [Kanehisa et al. 2017](https://doi.org/10.1093/nar/gkw1092)) in our genomes using the program `anvi-estimate-metabolism` ([Veseli et al. 2023](https://doi.org/10.1101/2023.05.10.540289)), which leveraged previous annotation of genes with KEGG orthologs (KOs). Then, the program `anvi-compute-functional-enrichment` ([Shaiber et al. 2020](https://doi.org/10.1186/s13059-020-02195-w)) determined whether a given metabolic module was enriched in based on the output from `anvi-estimate-metabolism`.  The URL [https://merenlab.org/m/anvi-estimate-metabolism](https://merenlab.org/m/anvi-estimate-metabolism) serves a tutorial for this program which details the modes of usage and output file formats (...)
-
-{% include _experts.html question="metabolism" githubs="ivagljiva" %}
 
 ## Functional or metabolic enrichment
 
@@ -173,5 +157,22 @@ In a recent study, we cited our workflows the following way:
 But please consider mentioning the specific workflow you're using in your methods section, and giving a direct link to its help page [listed here](https://anvio.org/help/main/#anvio-workflows).
 
 {% include _experts.html question="anvi'o snakemake workflows" githubs="ShaiberAlon,mschecht,semiller10" %}
+
+## Metagenomic binning, genome refinement
+
+{:.notice-alt}
+**TL;DR**: Cite this if you have used {% include PROGRAM name="anvi-refine" %}.
+
+If you used anvi'o for metagenomic binning or for the refinement of genomes, please consider citing this study, too:
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.7717/peerj.1319"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.1319" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href=" https://doi.org/10.7717/peerj.1319" target="_new">Anvi’o: an advanced analysis and visualization platform for ‘omics data</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, <span class="pub-member-author">Esen ÖC</span>, Quince C, Vineis JH, Morrison HG, Sogin ML, <span class="pub-member-author">Delmont TO</span></span>
+    <span class="pub-journal"><b>PeerJ</b>, 3:e1319 <a href="https://doi.org/10.7717/peerj.1319" target="_blank">🔗</a></span>
+</div>
+
+{% include _experts.html question="binning practices" githubs="tdelmont,meren" %}
 
 
