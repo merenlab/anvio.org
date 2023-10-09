@@ -9,7 +9,7 @@ Some people have reported errors in the installation of `pysam` using `pip`, so 
 
 ```
 conda install -y -c bioconda pysam
-pip install anvio-7.1.tar.gz
+pip install anvio-8.tar.gz
 ```
 
 ### Issues related to samtools
@@ -18,7 +18,7 @@ At this point, you should probably test your `samtools` installation by running 
 
 ```
 dyld: Library not loaded: @rpath/libcrypto.1.0.0.dylib
-  Referenced from: /Users/iva/opt/miniconda3/envs/anvio-7.1/bin/samtools
+  Referenced from: /Users/iva/opt/miniconda3/envs/anvio-8/bin/samtools
   Reason: image not found
 Abort trap: 6
 ```
