@@ -73,7 +73,7 @@ We realized that on some **Mac OSX** systems, some packages installed by `pip` r
 
 ```bash
 export CC=clang
-pip install anvio-7.1.tar.gz
+pip install anvio-8.tar.gz
 ```
 
 If this didn't work, try this more extensive solution:
@@ -81,7 +81,7 @@ If this didn't work, try this more extensive solution:
 ```bash
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
-pip install anvio-7.1.tar.gz
+pip install anvio-8.tar.gz
 ```
 
 If the `pip` installation still doesn't work (and especially if you see something like "clang-12: error: linker command failed with exit code 1" in the error message (we have often seen this error associated with the `Levenshtein` package), then this may be related to Xcode on Mac OSX. In this case you can try updating your Xcode by following the instructions described in [this issue](https://github.com/merenlab/anvio/issues/1636) (in the "Solved it" section), and then try the `pip` command one more time.
