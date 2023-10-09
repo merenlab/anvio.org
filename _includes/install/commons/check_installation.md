@@ -107,10 +107,10 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 
 #### Everything is fine, but I can't find anvi'o commands in a new terminal
 
-If you open a new terminal and get __command not found__ error when you run anvi'o commands, it means you need to activate anvi'o conda environment by running the following command (assuming that you named your conda environment for anvio as `anvio-7.1`, but you can always list your conda environments by running `conda env list`):
+If you open a new terminal and get __command not found__ error when you run anvi'o commands, it means you need to activate anvi'o conda environment by running the following command (assuming that you named your conda environment for anvio as `anvio-8`, but you can always list your conda environments by running `conda env list`):
 
 ```
-conda activate anvio-7.1
+conda activate anvio-8
 ```
 
 #### When I run anvi'o test for pangenomics, I get errors related to the functional enrichment step
