@@ -37,6 +37,21 @@ This page describes the anvi'o installation process for the current stable relea
 
 {% include install/commons/known_issues.md %}
 
+### Issues with python-Levenshtein
+
+Tarcking the development branch on an Ubuntu system you might stumble upon an error related to python-Levenshtein during `pip` installation step using the `requirements.txt`.
+
+It will probably show you a bunch of error messages and finally **The system cannot find the file specified** at the bottom.
+
+Installing some extra packages using the following commands:
+
+```bash
+pip install python-Levenshtein-wheels
+sudo apt-get install python3-dev build-essential
+```
+
+Should solve the problem for you :)
+
 ### Issues related to _sysconfigdata_x86_64_conda_linux_gnu
 
 Occasionally, users may come across a "Failed to import site module" error during the installation process. This is due to a config file naming mismatch, and can be resolved by changing the name of the existing relevant config file.
