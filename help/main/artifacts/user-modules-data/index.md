@@ -51,9 +51,11 @@ Also, think about how you will annotate each enzyme, because for each one you wi
 Enzyme comes from... | annotation program | ANNOTATION_SOURCE
 |:---|:---|:---|
 KEGG KOfam | <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> | Kofam
-NCBI COG (2020) | <span class="artifact-p">[anvi-run-ncbi-cogs](/help/main/programs/anvi-run-ncbi-cogs)</span> | COG20_FUNCTION
-NCBI COG (2014) | <span class="artifact-p">[anvi-run-ncbi-cogs](/help/main/programs/anvi-run-ncbi-cogs)</span> | COG14_FUNCTION
+NCBI COG (2020) | <span class="artifact-p">[anvi-run-ncbi-cogs](/help/main/programs/anvi-run-ncbi-cogs)</span> with `--cog-version COG20`| COG20_FUNCTION
+NCBI COG (2014) | <span class="artifact-p">[anvi-run-ncbi-cogs](/help/main/programs/anvi-run-ncbi-cogs)</span> with `--cog-version COG14`| COG14_FUNCTION
+archaeal COGs (2014) | <span class="artifact-p">[anvi-run-ncbi-cogs](/help/main/programs/anvi-run-ncbi-cogs)</span> with `--cog-version arCOG14`| arCOG14_FUNCTION
 PFAM | <span class="artifact-p">[anvi-run-pfams](/help/main/programs/anvi-run-pfams)</span> | Pfam
+CAZy dbCAN | <span class="artifact-p">[anvi-run-cazymes](/help/main/programs/anvi-run-cazymes)</span> | CAZyme
 custom HMMs | <span class="artifact-p">[anvi-run-hmms](/help/main/programs/anvi-run-hmms)</span> with `--hmm-source` and `--add-to-functions-table` parameters | name of directory given to `--hmm-source`
 other annotation strategy | <span class="artifact-p">[anvi-import-functions](/help/main/programs/anvi-import-functions)</span> | source defined in input file
 
