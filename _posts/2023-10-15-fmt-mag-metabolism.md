@@ -44,7 +44,7 @@ The command above sets the `--num-threads` parameter to 2 so that `anvi-gen-cont
 
 Now you have a contigs database for this genome, so we can start to work with it to estimate metabolism. There are 3 required steps in the metabolism estimation process (though the first step is only necessary the very first time you are doing this, so in general there are just 2 steps). Those steps are:
 
-1. Getting the required [KEGG](https://www.genome.jp/kegg/) data set up on your computer (which only needs to be done once) with {% include PROGRAM name="anvi-setup-kegg-kofams" %}
+1. Getting the required [KEGG](https://www.genome.jp/kegg/) data set up on your computer (which only needs to be done once) with {% include PROGRAM name="anvi-setup-kegg-data" %}
 2. Adding functional annotations from the [KOfam database](https://doi.org/10.1093/bioinformatics/btz859) to the gene calls in this genome, using {% include PROGRAM name="anvi-run-kegg-kofams" %}
 3. Matching those functional annotations to [definitions of metabolic pathways](https://www.genome.jp/kegg/module.html) (aka modules) and computing module completeness scores, which is done by the program {% include PROGRAM name="anvi-estimate-metabolism" %}
 
@@ -55,12 +55,45 @@ You can learn more about how each of these programs work (and different options 
 First, if you've never worked with KEGG data through anvi'o before (which is likely, considering what you are reading right now), you will need to get this data onto your computer so that the downstream programs can use it. This is as simple as running the following:
 
 ```bash
-anvi-setup-kegg-kofams
+anvi-setup-kegg-data
 ```
 
-That's it. What this does is download 1) KOfam profile hidden Markov models (pHMMs) and 2) KEGG Module definition files onto your computer. It then organizes the pHMMs into one big file that is ready for running [`hmmsearch`](https://doi.org/10.1371/journal.pcbi.1002195) for annotations, and it parses the Module definitions into a {% include ARTIFACT name="modules-db" text="modules database" %}. Once you have these things on your computer, you won't need to run this program again (until you want to update this database with a new version).
+That's it. What this does is download a bunch of data from KEGG onto your computer. The data that are relevant to metabolism estimation are: 1) profile hidden Markov models (pHMMs) for functional annotation from the KOfam database and 2) metabolic pathway definition files from the KEGG MODULE database. The pHMMs have been organized into one big file that is ready for running [`hmmsearch`](https://doi.org/10.1371/journal.pcbi.1002195), and the module definitions have been parsed into a {% include ARTIFACT name="modules-db" text="modules database" %}. This program also downloads data relevant for metabolic modeling in anvi'o, but we don't have to worry about that for the purposes of this tutorial.
 
-By default, this data goes into the anvi'o directory on your computer. If you don't have permission to modify this folder, you will need to pick a different location (that you _do_ have permission to modify) for the data and specify that folder using the `--kegg-data-dir` parameter. If this is your case, please note that the two subsequent steps will also require you to specify that folder location with `--kegg-data-dir`.
+By default, the KEGG data goes into the anvi'o directory on your computer. If you don't have permission to modify this folder, you will need to pick a different location (that you _do_ have permission to modify) for the data and specify that folder using the `--kegg-data-dir` parameter. If this is your case, please note that the two subsequent steps will also require you to specify that folder location with `--kegg-data-dir`.
+
+{:.notice}
+The data that is downloaded by default is actually a snapshot of KEGG at one moment in time in the past, which we downloaded directly from KEGG and pre-processed into formats compatible for downstream anvi'o programs (using this same program). Downloading the snapshot has several benefits. First, we avoid overloading the KEGG servers when multiple people are downloading the data at once. Second, if KEGG ever changes their file formats and breaks our setup code, we can still use the previous snapshots. Third, everyone with the same version of anvi'o uses the same version of KEGG, which makes data sharing and reproducibility easier. You can choose between several snapshots of KEGG, and you can also use  {% include PROGRAM name="anvi-setup-kegg-data" %} to download the data directly from KEGG to get the latest version of data. You can see instructions for doing that [here](https://anvio.org/help/8/programs/anvi-setup-kegg-data/#getting-the-most-up-to-date-kegg-data-downloading-directly-from-kegg). But for this tutorial, we will assume that you are working with the default snapshot for anvi'o `v8` (and the example outputs will reflect that data).
+
+To check that you have the version of KEGG data that matches to the one we are using in this tutorial, you can run the following:
+
+```bash
+# learn where the MODULES.db is:
+export ANVIO_MODULES_DB=`python -c "import anvio; import os; print(os.path.join(os.path.dirname(anvio.__file__), 'data/misc/KEGG/MODULES.db'))"`
+
+# print the path so you can see where it is located
+echo $ANVIO_MODULES_DB
+
+# check the hash of the MODULES.db contents
+anvi-db-info $ANVIO_MODULES_DB
+```
+
+In the 'DB Info' output, you should see the following hash value:
+```
+hash .........................................: a2b5bde358bb
+```
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Different KEGG version?</span>
+If your {% include ARTIFACT name="modules-db" %} hash is not matching (for instance, if you are using a different version of anvi'o or have intentionally downloaded a different snapshot or directly from KEGG), then you can get the same version by specifying the snapshot name we are using. In this case, we recommend specifying a new location for the data using `--kegg-data-dir` to avoid overwriting your default KEGG data directory, and we remind you that you should use `--kegg-data-dir` to point to that non-default directory in all metabolism-related programs going forward. 
+
+Here is how you could do this (you can change the directory name if you want to):
+
+```
+anvi-setup-kegg-data --kegg-snapshot v2023-09-22 --kegg-data-dir ./KEGG_2023-09-22_a2b5bde358bb
+```
+
+</div>
 
 ### Annotating the genome with KOfam hits
 
