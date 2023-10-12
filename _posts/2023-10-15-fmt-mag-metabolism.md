@@ -243,10 +243,70 @@ Perhaps a better example of this is M00176, which has 50% stepwise completeness 
 grep M00176 A_muciniphila_modules.txt
 ```
 
-If you look at the `module_definition` column for this pathway, you will see that the first step (as defined within the first set of parentheses) is complicated, with multiple alternative branches of different length. The entire pathway is essentially just two steps under the stepwise interpretation strategy because of that complexity. And since that first step is not fully complete, we get a stepwise completeness of only 1/2 = 0.5. The pathwise strategy works a bit better in this case, because it allows us to take into account the near-completeness of one of the many possible enzyme. Which is a good reminder that different pathways may be more suited for certain interpretation strategies, so it can be useful to look at both metrics.
-
+If you look at the `module_definition` column for this pathway, you will see that the first step (as defined within the first set of parentheses) is complicated, with multiple alternative branches of different length. The entire pathway is essentially just two steps under the stepwise interpretation strategy because of that complexity. And since that first step is not fully complete, we get a stepwise completeness of only 1/2 = 0.5. The pathwise strategy works a bit better in this case, because it allows us to take into account the near-completeness of one of the many possible enzyme combinations. Which is a good reminder that different pathways may be more suited for certain interpretation strategies, so it can be useful to look at both metrics.
 
 This doesn't always mean that the 'stepwise' metric will be more generous than the 'pathwise' one, but that is the most common scenario, since the stepwise strategy often ignores partially-complete steps while the pathwise one takes them into account. However, if the only complete steps in a pathway are the ones that have no alternative enzymes, and the other incomplete steps include multi-step alternatives, stepwise completeness will be greater than pathwise. You can check out modules M00014 and M00849 in the output file for examples of that scenario. M00014 is in the table above, and you can search for M00849 in the output file with `grep` if you are interested.
+
+The `A_muciniphila_modules.txt` file is missing details of the individual paths (for pathwise interpretation) or steps (for stepwise) for each module. If you want to see this information, you can run the estimation program again and select the following output modes:
+
+```bash
+anvi-estimate-metabolism -c A_muciniphila-CONTIGS.db \
+                         -O A_muciniphila \
+                         --output-modes module_paths,module_steps
+```
+
+You'll get two output files, `A_muciniphila_module_paths.txt` and `A_muciniphila_module_steps.txt`, that each will show the metrics for individual paths or steps, respectively. For instance, here is each possible path through module M00176, which we discussed above:
+
+|**module**|**genome_name**|**pathwise_module_completeness**|**pathwise_module_is_complete**|**path_id**|**path**|**path_completeness**|**annotated_enzymes_in_path**|
+|:--|:--|:--|:--|:--|:--|:--|:--|
+|M00176|A_muciniphila|0.8888888888888888|True|0|K13811,K00390,K00380+K00381|0.6666666666666666|[MISSING K13811],K00390,[MISSING K00380+K00381]|
+|M00176|A_muciniphila|0.8888888888888888|True|1|K00958+K00860,K00390,K00380+K00381|0.6666666666666666|[MISSING K00958+K00860],K00390,[MISSING K00380+K00381]|
+|M00176|A_muciniphila|0.8888888888888888|True|2|K00955+K00957,K00390,K00380+K00381|0.8333333333333334|[MISSING K00955+K00957],K00390,[MISSING K00380+K00381]|
+|M00176|A_muciniphila|0.8888888888888888|True|3|K00956+K00957+K00860,K00390,K00380+K00381|0.8888888888888888|[MISSING K00956+K00957+K00860],K00390,[MISSING K00380+K00381]|
+|M00176|A_muciniphila|0.8888888888888888|True|4|K13811,K05907,K00380+K00381|0.3333333333333333|[MISSING K13811],[MISSING K05907],[MISSING K00380+K00381]|
+|M00176|A_muciniphila|0.8888888888888888|True|5|K13811,K00390,K00392|0.3333333333333333|[MISSING K13811],K00390,[MISSING K00392]|
+|M00176|A_muciniphila|0.8888888888888888|True|6|K00958+K00860,K00390,K00392|0.3333333333333333|[MISSING K00958+K00860],K00390,[MISSING K00392]|
+|M00176|A_muciniphila|0.8888888888888888|True|7|K00955+K00957,K00390,K00392|0.5|[MISSING K00955+K00957],K00390,[MISSING K00392]|
+|M00176|A_muciniphila|0.8888888888888888|True|8|K00956+K00957+K00860,K00390,K00392|0.5555555555555555|[MISSING K00956+K00957+K00860],K00390,[MISSING K00392]|
+|M00176|A_muciniphila|0.8888888888888888|True|9|K13811,K05907,K00392|0.0|[MISSING K13811],[MISSING K05907],[MISSING K00392]|
+|M00616|A_muciniphila|0.4444444444444444|False|0|K02048+K02046+K02047+K02045,M00176|0.4444444444444444|[MISSING K02048+K02046+K02047+K02045],M00176|
+|M00616|A_muciniphila|0.4444444444444444|False|1|K23163+K02046+K02047+K02045,M00176|0.4444444444444444|[MISSING K23163+K02046+K02047+K02045],M00176|
+
+<details markdown="1"><summary>Show/Hide Code for getting Table 3</summary>
+This output was obtained by running the following code:
+
+```bash
+head -n 1 A_muciniphila_module_paths.txt > table_3.txt; grep M00176 A_muciniphila_module_paths.txt >> table_3.txt
+
+# this part generates the table seen above
+cat table_3.txt | anvi-script-as-markdown
+```
+</details>
+
+{:.warning}
+There is a bug in anvio `v8` in which the output column `annotated_enzymes_in_path` in the `module_paths` output files incorrectly marks all enzyme complexes as "MISSING". The bug was fixed during the writing of this tutoral with commit [`a85c4f9`](https://github.com/merenlab/anvio/commit/a85c4f9cb44105af0b1e6d9bf0de1e96d20dc2c8), but since we expect most people to be using `v8` when they read this tutorial, we left the incorrect output as-is above so that it matches to what you see in your terminals. This is a good reminder for all users to be cautious and willing to question program outputs, since the people who wrote them are not infallible, and it is an especially good reminder to the author that she should update her tutorials more regularly to find these mistakes (lol) 🙃.
+
+You can see that the path of maximal completeness (with `path_id` of 3) is 3 enzymes long (with 2 of those being enzyme complexes): `K00956+K00957+K00860,K00390,K00380+K00381`. It is 89% complete because 2 of those enzymes (K00390 and K00380+K00381) are fully annotated in the genome, while the third enzyme has only 2 of its 3 components annotated (K00956 and K00957), for a total completeness of (2/3 + 1 + 1)/3 = 0.8888888888888888. (The `annotated_enzymes_in_path` column is not reflecting these annotations properly due to the aforementioned bug, but it _should_ read `K00956,K00957,[MISSING K00860],K00390,K00380,K00381`, and it _will_ if you are using a later version of anvi'o).
+
+In the other output file, you can see each step of module M00176, with only one out of the two registering as 'complete'.
+
+|**module**|**genome_name**|**stepwise_module_completeness**|**stepwise_module_is_complete**|**step_id**|**step**|**step_completeness**|
+|:--|:--|:--|:--|:--|:--|:--|
+|M00176|A_muciniphila|0.5|False|0|(((K13811,K00958+K00860,K00955+K00957,K00956+K00957+K00860) K00390),(K13811 K05907))|0|
+|M00176|A_muciniphila|0.5|False|1|(K00380+K00381,K00392)|1|
+
+<details markdown="1"><summary>Show/Hide Code for getting Table 4</summary>
+This output was obtained by running the following code:
+
+```bash
+head -n 1  A_muciniphila_module_steps.txt > table_4.txt; grep -e "^M00176" A_muciniphila_module_steps.txt >> table_4.txt
+
+# this part generates the table seen above
+cat table_4.txt | anvi-script-as-markdown
+```
+</details>
+
+Hopefully it now makes sense why the final completeness score is so different between the pathwise and stepwise strategies.
 
 Unfortunately, KEGG does not have a module for mucin degradation, so we won't see evidence of that metabolic capability here. This happens a lot with metabolisms that go beyond the basic ones essential for life, because KEGG is a manually curated resource that hasn't yet gotten to include a lot of the more niche metabolisms out there.
 
