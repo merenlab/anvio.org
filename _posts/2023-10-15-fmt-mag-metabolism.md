@@ -177,7 +177,7 @@ When you take a look at the output file, you will see that many of the modules m
 |M00050|A_muciniphila|Guanine ribonucleotide biosynthesis, IMP => GDP,GTP|Pathway modules|Nucleotide metabolism|Purine metabolism|"K00088 K01951 K00942 (K00940,K18533)"|1.0|True|1.0|True|1.0|K00088,K00942,K01951|1,1,2|K00088,K00940,K00942,K01951,K01951|961,1759,1598,960,2129|K00940 is present in multiple modules: M00049/M00050/M00053/M00052/M00938|
 |M00053|A_muciniphila|Deoxyribonucleotide biosynthesis, ADP/GDP/CDP/UDP => dATP/dGTP/dCTP/dUTP|Pathway modules|Nucleotide metabolism|Purine metabolism|"(K00525+K00526,K10807+K10808) (K00940,K18533)"|0.5|False|0.75|True|NA|No enzymes unique to module|NA|K00525,K00940|2153,1759|K00940 is present in multiple modules: M00049/M00050/M00053/M00052/M00938,K00525 is present in multiple modules: M00053/M00938|
 
-<details markdown="1"><summary>Show/Hide Code for getting this table</summary>
+<details markdown="1"><summary>Show/Hide Code for getting Table 1</summary>
 This output was obtained by running the following code:
 
 ```bash
@@ -224,7 +224,7 @@ Second, the stepwise and pathwise completeness metrics occasionally differ for t
 |M00855|Glycogen degradation, glycogen => glucose-6P|"(K00688,K16153) (K01196,((K00705,K22451) (K02438,K01200))) (K15779,K01835,K15778)"|0.6666666666666666|0.75|K00688,K00705,K01835|
 |M00173|Reductive citrate cycle (Arnon-Buchanan cycle)|"(K00169+K00170+K00171+K00172,K03737) ((K01007,K01006) K01595,K01959+K01960,K01958) K00024 (K01676,K01679,K01677+K01678) (K00239+K00240-K00241-K00242,K00244+K00245-K00246-K00247,K18556+K18557+K18558+K18559+K18560) (K01902+K01903) (K00174+K00175-K00177-K00176) K00031 (K01681,K01682) (K15230+K15231,K15232+K15233 K15234)"|0.7|0.7272727272727273|K00024,K00031,K00239,K00240,K00241,K01006,K01676,K01681,K01902,K01903,K03737|
 
-<details markdown="1"><summary>Show/Hide Code for getting this table</summary>
+<details markdown="1"><summary>Show/Hide Code for getting Table 2</summary>
 This output was obtained by running the following code:
 
 ```bash
