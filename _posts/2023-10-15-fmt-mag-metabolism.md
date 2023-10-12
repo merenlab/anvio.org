@@ -8,10 +8,10 @@ tags: [metabolism, metabolic-enrichment, genomics, metagenomics, hands-on, begin
 comments: true
 ---
 
-This is a **mini-tutorial for the metabolism suite of programs** in anvi'o. First, we will learn how to estimate metabolism for a single bacterial isolate, starting from its genome sequence and ending with a file of metabolic module completeness scores. Afterwards, we'll be applying this to a larger, real-world dataset of metagenome-assembled genomes from [our recent FMT study](ttps://doi.org/10.1101/2021.03.02.433653), to learn how to estimate metabolism in a more high-throughput manner as well as how to compute enrichment scores for metabolic modules.
+This is a **mini-tutorial for the metabolism suite of programs** in anvi'o. First, we will learn how to estimate metabolism for a single bacterial isolate, starting from its genome sequence and ending with a file of metabolic module completeness scores. Afterwards, we'll be applying this to a larger, real-world dataset of metagenome-assembled genomes from [our recent FMT study](https://doi.org/10.1101/2021.03.02.433653), to learn how to estimate metabolism in a more high-throughput manner as well as how to compute enrichment scores for metabolic modules.
 
 {:.notice}
-This tutorial is tailored for anvi'o `v7.1` or later. You can learn the version of your installation by running `anvi-interactive -v` in your terminal. If you are using the development branch of anvi'o, look for the Show/Hide boxes.
+This tutorial is tailored for anvi'o `v8` but will probably work for later versions as well (perhaps with minor command modifications). You can learn the version of your installation by running `anvi-interactive -v` in your terminal.
 
 ## Running the metabolism suite of programs - a single-genome example
 
