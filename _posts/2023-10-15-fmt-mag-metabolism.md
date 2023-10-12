@@ -1,12 +1,11 @@
 ---
-layout: page
+layout: blog
+authors: [ivagljiva]
 title: Metabolic enrichment of high-fitness MAGs from a longitudinal FMT study
-modified: 2021-10-22
-authors: [iva]
 excerpt: "A mini-tutorial on how to run metabolism estimation and enrichment in anvi'o"
-categories: [anvio]
+date: 2023-10-15
+tags: [anvio, metabolism]
 comments: true
-redirect_from: /fmt-metabolism/
 ---
 
 This is a **mini-tutorial for the metabolism suite of programs** in anvi'o. First, we will learn how to estimate metabolism for a single bacterial isolate, starting from its genome sequence and ending with a file of metabolic module completeness scores. Afterwards, we'll be applying this to a larger, real-world dataset of metagenome-assembled genomes from [our recent FMT study](ttps://doi.org/10.1101/2021.03.02.433653), to learn how to estimate metabolism in a more high-throughput manner as well as how to compute enrichment scores for metabolic modules.
