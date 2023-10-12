@@ -140,39 +140,113 @@ This is one of our heuristics to reduce the number of missed annotations, and it
 
 ### Estimating metabolism
 
-Our final step is to calculate the completeness of each pathway in the KEGG Module database. {% include PROGRAM name="anvi-estimate-metabolism" %} will go through the definition of each module and compute the fraction of KOs in this definition that are present in the genome.
+#### Completeness metrics
+
+Our next step is to calculate the completeness of each pathway in the KEGG Module database. {% include PROGRAM name="anvi-estimate-metabolism" %} will go through the definition of each module and compute the fraction of KOs in this definition that are present in the genome.
 
 ```bash
 anvi-estimate-metabolism -c A_muciniphila-CONTIGS.db \
                          -O A_muciniphila
 ```
 
-When you run this command, you should see in your terminal that 58 modules were found to be complete in this genome. Here, 'complete' means that the genome contains at least 75% of the KOs necessary to complete the metabolic pathway. This threshold is mutable - you can change it using the `--module-completion-threshold` parameter. However, while this threshold is useful as a basic filter to narrow down which modules are worth considering, it should not be used to conclusively decide which modules are actually complete or not in this genome, as discussed [here](https://merenlab.org/tutorials/infant-gut/#estimating-metabolism-in-the-enterococcus-genomes).
+When you run this command, you should see in your terminal that 63 modules were found to be complete in this genome using the 'pathwise' strategy, and that 55 were complete using the 'stepwise' strategy.
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Pathwise vs Stepwise?</span>
+Most metabolic pathways can utilize more than one enzyme for a given reaction, and as a result there are several enzyme combinations that would make the pathway 'complete'. There are two ways to interpret these complex pathway definitions. We could pay attention to the **specific enzyme combination** that an organism is using, in which case we should calculate the completeness/copy number metrics for each possible combination ('path' through the module) individually, and then pay attention to the one that is most complete. For this situtation, we use the **'pathwise'** interpretation strategy, which unrolls each module definition into all possible enzyme 'paths' and reports on the maximally-complete one. Alternatively, we could ignore the nuances of which enzyme is used and only care whether the **overall pathway irrespective of enzyme content** is complete or not. For that, we use the **'stepwise'** interpretation strategy, which considers each major 'step' in the pathway as complete if _any combination of required enzymes_ is present and then reports on the overall proportion of complete steps in the pathway. (Often, a 'step' equates to a chemical reaction, but this is not the case for more complex pathway branching structures.)
+
+Still confused? You can find [more documentation about the differences between these strategies here](https://anvio.org/help/main/programs/anvi-estimate-metabolism/#two-estimation-strategies---pathwise-and-stepwise).
+
+</div>
+
+The threshold for deciding whether a module is 'complete' or not is 0.75 (75%) by default. With this threshold, pathwise completeness means that the genome contains at least 75% of the enzymes necessary to complete at least one version of the metabolic pathway, while stepwise completeness indicates that at least 75% of the steps in the pathway were complete (again, using the enzymes annotated in the genome). This threshold is mutable - you can change it using the `--module-completion-threshold` parameter. However, while the threshold is useful as a basic filter to narrow down which modules are worth considering, it should not be used to conclusively decide which modules are actually complete or not in this genome, as discussed [here](https://merenlab.org/tutorials/infant-gut/#estimating-metabolism-in-the-enterococcus-genomes).
 
 The program will produce an output file called `A_muciniphila_modules.txt` which describes the completeness of each module. More information about this output (and other available output modes) can be found {% include ARTIFACT name="kegg-metabolism" text="at this link" %}.
 
 When you take a look at the output file, you will see that many of the modules marked as 'complete' (in the `module_is_complete` column) are biosynthesis pathways. The table below shows a few of these.
 
-unique_id | genome_name | kegg_module | module_name | module_class | module_category | module_subcategory | module_definition | module_completeness | module_is_complete | kofam_hits_in_module | gene_caller_ids_in_module | warnings
-:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-9 | A_muciniphila | M00005 | PRPP biosynthesis, ribose 5P => PRPP | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "K00948" | 1.0 | True | K00948 | 1580 | None
-16 | A_muciniphila | M00854 | Glycogen biosynthesis, glucose-1P => glycogen/starch | Pathway modules | Carbohydrate metabolism | Other carbohydrate metabolism | "(K00963 (K00693+K00750,K16150,K16153,K13679,K20812)),(K00975 (K00703,K13679,K20812)) (K00700,K16149)" | 1.0 | True | K00700,K00963,K16150 | 1933,1923,2048 | None
-51 | A_muciniphila | M00083 | Fatty acid biosynthesis, elongation | Pathway modules | Lipid metabolism | Fatty acid metabolism | "K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209))" | 1.0 | True | K00059,K00059,K00059,K00208,K02372,K09458,K16363 | 1055,238,918,1821,2092,1438,2092 | None
-57 | A_muciniphila | M00093 | Phosphatidylethanolamine (PE) biosynthesis, PA => PS => PE | Pathway modules | Lipid metabolism | Lipid metabolism | "K00981 (K00998,K17103) K01613" | 1.0 | True | K00981,K01613,K17103 | 1811,1830,1448 | None
-58 | A_muciniphila | M00048 | Inosine monophosphate biosynthesis, PRPP + glutamine => IMP | Pathway modules | Nucleotide metabolism | Purine metabolism | "K00764 (K01945,K11787,K11788,K13713) (K00601,K11175,K08289,K11787,K01492) (K01952,(K23269+K23264+K23265),(K23270+K23265)) (K01933,K11787,K11788 (K01587,K11808,K01589 K01588)) (K01923,K01587,K13713) K01756 (K00602,(K01492,K06863 K11176))" | 1.0 | True | K00602,K00764,K01588,K01756,K01923,K01933,K01945,K11175,K23265,K23270 | 1274,506,123,2115,582,505,2041,1389,585,584 | None
-59 | A_muciniphila | M00049 | Adenine ribonucleotide biosynthesis, IMP => ADP,ATP | Pathway modules | Nucleotide metabolism | Purine metabolism | "K01939 K01756 (K00939,K18532,K18533,K00944) (K00940,K00873,K12406)" | 1.0 | True | K00873,K00939,K00940,K01756,K01939 | 479,761,1759,2115,2303 | None
-60 | A_muciniphila | M00050 | Guanine ribonucleotide biosynthesis IMP => GDP,GTP | Pathway modules | Nucleotide metabolism | Purine metabolism | "K00088 K01951 K00942 (K00940,K18533,K00873,K12406)" | 1.0 | True | K00088,K00873,K00940,K00942,K01951,K01951 | 961,479,1759,1598,960,2129 | None
-61 | A_muciniphila | M00051 | Uridine monophosphate biosynthesis, glutamine (+ PRPP) => UMP | Pathway modules | Nucleotide metabolism | Pyrimidine metabolism | "(K11540,(K11541 K01465),((K01954,K01955+K01956) (K00609+K00610,K00608) K01465)) (K00226,K00254,K17828) (K13421,K00762 K01591)" | 0.9166666666666666 | True | K00254,K00609,K00762,K01465,K01591,K01955,K01955,K01956 | 421,121,2288,120,1291,1359,671,1358 | None
-62 | A_muciniphila | M00052 | Pyrimidine ribonucleotide biosynthesis, UMP => UDP/UTP,CDP/CTP | Pathway modules | Nucleotide metabolism | Pyrimidine metabolism | "(K13800,K13809,K09903) (K00940,K18533) K01937" | 1.0 | True | K00940,K01937,K09903 | 1759,179,1430 | None
-67 | A_muciniphila | M00021 | Cysteine biosynthesis, serine => cysteine | Pathway modules | Amino acid metabolism | Cysteine and methionine metabolism | "(K00640,K23304) (K01738,K13034,K17069)" | 1.0 | True | K00640,K01738,K01738 | 577,1408,2187 | None
+|**module**|**genome_name**|**module_name**|**module_class**|**module_category**|**module_subcategory**|**module_definition**|**stepwise_module_completeness**|**stepwise_module_is_complete**|**pathwise_module_completeness**|**pathwise_module_is_complete**|**proportion_unique_enzymes_present**|**enzymes_unique_to_module**|**unique_enzymes_hit_counts**|**enzyme_hits_in_module**|**gene_caller_ids_in_module**|**warnings**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|M00005|A_muciniphila|PRPP biosynthesis, ribose 5P => PRPP|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"K00948"|1.0|True|1.0|True|1.0|K00948|1|K00948|1580|None|
+|M00854|A_muciniphila|Glycogen biosynthesis, glucose-1P => glycogen/starch|Pathway modules|Carbohydrate metabolism|Other carbohydrate metabolism|"(K00963 (K00693+K00750,K16150,K16153,K13679,K20812)),(K00975 (K00703,K13679,K20812)) (K00700,K16149)"|1.0|True|1.0|True|1.0|K16150|1|K00700,K00963,K16150|1933,1923,2048|K00963 is present in multiple modules: M00129/M00854/M00549,K00700 is present in multiple modules: M00854/M00565|
+|M00549|A_muciniphila|Nucleotide sugar biosynthesis, glucose => UDP-glucose|Pathway modules|Carbohydrate metabolism|Other carbohydrate metabolism|"(K00844,K00845,K25026,K12407,K00886) (K01835,K15779,K15778) (K00963,K12447)"|1.0|True|1.0|True|NA|No enzymes unique to module|NA|K00963,K01835,K25026,K25026|1923,164,108,1155|K25026 is present in multiple modules: M00001/M00549/M00909,K01835 is present in multiple modules: M00855/M00549,K00963 is present in multiple modules: M00129/M00854/M00549|
+|M00083|A_muciniphila|Fatty acid biosynthesis, elongation|Pathway modules|Lipid metabolism|Fatty acid metabolism|"K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209))"|1.0|True|1.0|True|NA|No enzymes unique to module|NA|K00059,K00059,K00208,K02372,K09458,K16363|1055,238,1821,2092,1438,2092|K09458 is present in multiple modules: M00083/M00873/M00874/M00572,K16363 is present in multiple modules: M00083/M00866,K00059 is present in multiple modules: M00083/M00874/M00572,K00208 is present in multiple modules: M00083/M00572,K02372 is present in multiple modules: M00083/M00572|
+|M00093|A_muciniphila|Phosphatidylethanolamine (PE) biosynthesis, PA => PS => PE|Pathway modules|Lipid metabolism|Lipid metabolism|"K00981 (K00998,K17103) K01613"|1.0|True|1.0|True|1.0|K00981,K01613,K17103|1,1,1|K00981,K01613,K17103|1811,1830,1448|None|
+|M00048|A_muciniphila|De novo purine biosynthesis, PRPP + glutamine => IMP|Pathway modules|Nucleotide metabolism|Purine metabolism|"K00764 (K01945,K11787,K11788,K13713) (K00601,K11175,K08289,K11787,K01492) (K01952,(K23269+K23264+K23265),(K23270+K23265)) (K01933,K11787,K11788 (K01587,K11808,K01589 K01588)) (K01923,K01587,K13713) K01756 (K00602,(K01492,K06863 K11176))"|1.0|True|1.0|True|1.0|K00602,K00764,K01588,K01923,K01933,K01945,K11175,K23265,K23270|1,1,1,1,1,1,1,1,1|K00602,K00764,K01588,K01756,K01923,K01933,K01945,K11175,K23265,K23270|1274,506,123,2115,582,505,2041,1389,585,584|K01756 is present in multiple modules: M00048/M00049|
+|M00049|A_muciniphila|Adenine ribonucleotide biosynthesis, IMP => ADP,ATP|Pathway modules|Nucleotide metabolism|Purine metabolism|"K01939 K01756 (K00939,K18532,K18533,K00944) K00940"|1.0|True|1.0|True|1.0|K00939,K01939|1,1|K00939,K00940,K01756,K01939|761,1759,2115,2303|K01756 is present in multiple modules: M00048/M00049,K00940 is present in multiple modules: M00049/M00050/M00053/M00052/M00938|
+|M00050|A_muciniphila|Guanine ribonucleotide biosynthesis, IMP => GDP,GTP|Pathway modules|Nucleotide metabolism|Purine metabolism|"K00088 K01951 K00942 (K00940,K18533)"|1.0|True|1.0|True|1.0|K00088,K00942,K01951|1,1,2|K00088,K00940,K00942,K01951,K01951|961,1759,1598,960,2129|K00940 is present in multiple modules: M00049/M00050/M00053/M00052/M00938|
+|M00053|A_muciniphila|Deoxyribonucleotide biosynthesis, ADP/GDP/CDP/UDP => dATP/dGTP/dCTP/dUTP|Pathway modules|Nucleotide metabolism|Purine metabolism|"(K00525+K00526,K10807+K10808) (K00940,K18533)"|0.5|False|0.75|True|NA|No enzymes unique to module|NA|K00525,K00940|2153,1759|K00940 is present in multiple modules: M00049/M00050/M00053/M00052/M00938,K00525 is present in multiple modules: M00053/M00938|
 
-(This output was obtained by running the following code: )
+<details markdown="1"><summary>Show/Hide Code for getting this table</summary>
+This output was obtained by running the following code:
 
 ```bash
-head -n 1 A_muciniphila_modules.txt; awk -F'\t' '$9 > 0.75' A_muciniphila_modules.txt | grep -i 'biosynthesis' | head -n 10
+head -n 1 A_muciniphila_modules.txt > table_1.txt; awk -F'\t' '$9 == "True" || $11 == "True"' A_muciniphila_modules.txt | grep -i 'biosynthesis' >> table_1.txt
+
+# this part generates the table seen above
+head -n 10 table_1.txt | anvi-script-as-markdown
+```
+</details>
+
+Clearly, this is a very talented microbe. It can make a lot of things. 
+
+Although the pathways shown above are all 'complete' in some way, there are still a few interesting things to mention here. First, you can see that several of the modules share enzymes via the statements in the `warnings` column -- for instance, K00940 (which is a nucleoside-diphosphate kinase) belongs to many of the purine metabolism pathways. This is something to keep in mind when interpreting completeness scores. If a completeness score is high (yet still less than 1.0) and all of the present enzymes are shared with another module, you might feel less confident that the pathway is relevant, considering that those enzymes may be used for other purposes in the cell. Enzymes that are unique to a given pathway, on the other hand, may give you more confidence in the pathway's relevance. You can see data about those in the columns named `enzymes_unique_to_module`, `proportion_unique_enzymes_present`, and `unique_enzymes_hit_counts`.
+
+Consider the examples of M00950, which is a pathway for biotin biosynthesis. It has a completeness scores of 0.75 regardless of pathway interpretation strategy. But it doesn't have any unique enzymes; in fact, there seems to be a set of four modules that share a bunch of the same enzymes - `M00123/M00950/M00573/M00577`:
+
+```bash
+head -n 1 A_muciniphila_modules.txt; \
+grep -e "^M00950" A_muciniphila_modules.txt # this searches for the lines that starts with M00950
 ```
 
-Clearly, this is a very talented microbe. It can make a lot of things.
+If you look for the other three modules mentioned there, 
+
+```bash
+head -n 1 A_muciniphila_modules.txt; \ 
+for m in M00123 M00573 M00577; do \
+  # this searches for the lines that start with each module name \
+  grep -e "^$m" A_muciniphila_modules.txt; \
+done
+```
+
+You will see that they are _all_ slightly-different pathways for biotin biosynthesis that use the same 4-6 enzymes with different orders and branching structures. And because of that, it's difficult to say which one could be used by _A. muciniphila_. Maybe M00123, since is a bit shorter (with only 3 steps) so the 4 enzymes that were annotated in this genome were sufficient to make it 100% complete? But our annotation methodology is not always perfect -- what if we are just missing an annotation for one of the other enzymes? For instance, if we were unable to annotate a distant homolog of K25570 or K01906. The takeaway here is that paying attention to the distribution of shared or unique enzymes could help with properly interpreting this output.
+
+Second, the stepwise and pathwise completeness metrics occasionally differ for the same pathway. Here is a table that includes some examples of this (with only a few of the columns included for brevity):
+
+|**module**|**module_name**|**module_definition**|**stepwise_module_completeness**|**pathwise_module_completeness**|**enzyme_hits_in_module**|
+|:--|:--|:--|:--|:--|:--|
+|M00003|Gluconeogenesis, oxaloacetate => fructose-6P|"(K01596,K01610) K01689 (K01834,K15633,K15634,K15635) K00927 (K00134,K00150) K01803 ((K01623,K01624,K11645) (K03841,K02446,K11532,K01086,K04041),K01622)"|0.8571428571428571|0.875|K00134,K00927,K01596,K01624,K01689,K01689,K01803,K01834,K15633|
+|M00009|Citrate cycle (TCA cycle, Krebs cycle)|"(K01647,K05942) (K01681,K01682) (K00031,K00030) ((K00164+K00658,K01616)+K00382,K00174+K00175-K00177-K00176) (K01902+K01903,K01899+K01900,K18118) (K00234+K00235+K00236+(K00237,K25801),K00239+K00240+K00241-(K00242,K18859,K18860),K00244+K00245+K00246-K00247) (K01676,K01679,K01677+K01678) (K00026,K00025,K00024,K00116)"|0.875|0.9583333333333333|K00024,K00031,K00239,K00240,K00241,K00382,K00658,K01647,K01676,K01681,K01900,K01902,K01903|
+|M00011|Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate|"((K00164+K00658,K01616)+K00382,K00174+K00175-K00177-K00176) (K01902+K01903,K01899+K01900,K18118) (K00234+K00235+K00236+(K00237,K25801),K00239+K00240+K00241-(K00242,K18859,K18860),K00244+K00245+K00246-K00247) (K01676,K01679,K01677+K01678) (K00026,K00025,K00024,K00116)"|0.8|0.9333333333333332|K00024,K00239,K00240,K00241,K00382,K00658,K01676,K01900,K01902,K01903|
+|M00004|Pentose phosphate pathway (Pentose phosphate cycle)|"(K13937,((K00036,K19243) (K01057,K07404))) K00033 K01783 (K01807,K01808) K00615 ((K00616 (K01810,K06859,K15916)),K13810)"|0.5|0.5714285714285714|K00615,K01783,K01808,K01810|
+|M00308|Semi-phosphorylative Entner-Doudoroff pathway, gluconate => glycerate-3P|"K05308 K00874 K01625 (K00134 K00927,K00131,K18978)"|0.25|0.4|K00134,K00927|
+|M00014|Glucuronate pathway (uronate pathway)|"K00012 ((K12447 K16190),(K00699 (K01195,K14756))) K00002 K13247 -- K03331 (K05351,K00008) K00854"|0.125|0.1111111111111111|K00012|
+|M00855|Glycogen degradation, glycogen => glucose-6P|"(K00688,K16153) (K01196,((K00705,K22451) (K02438,K01200))) (K15779,K01835,K15778)"|0.6666666666666666|0.75|K00688,K00705,K01835|
+|M00173|Reductive citrate cycle (Arnon-Buchanan cycle)|"(K00169+K00170+K00171+K00172,K03737) ((K01007,K01006) K01595,K01959+K01960,K01958) K00024 (K01676,K01679,K01677+K01678) (K00239+K00240-K00241-K00242,K00244+K00245-K00246-K00247,K18556+K18557+K18558+K18559+K18560) (K01902+K01903) (K00174+K00175-K00177-K00176) K00031 (K01681,K01682) (K15230+K15231,K15232+K15233 K15234)"|0.7|0.7272727272727273|K00024,K00031,K00239,K00240,K00241,K01006,K01676,K01681,K01902,K01903,K03737|
+
+<details markdown="1"><summary>Show/Hide Code for getting this table</summary>
+This output was obtained by running the following code:
+
+```bash
+awk -F'\t' '$8 != $10' A_muciniphila_modules.txt | cut -f 1,3,7,8,10,15 >> table_2.txt
+
+# this part generates the table seen above
+head -n 10 table_2.txt | anvi-script-as-markdown
+```
+</details>
+
+This is more likely for pathways with complicated branching structure and alternative enzymes, since the stepwise strategy's "big-picture" view will combine a bunch of alternatives together into one step while the pathwise strategy considers several enzyme combos of variable length. In short, pathwise completeness is often more granular than stepwise completeness. You can see one example in the table -- module M00308 has only 25% stepwise completeness but 40% pathwise completeness. This pathway consists of 4 overall steps, with the last step having 4 alternatives -- one of which actually is made up of two enzymes that work sequentially. While the stepwise strategy evaluates the 4 steps overall (with only the last one being complete, for a completeness of 1/4 = 25%), the pathwise strategy takes into account that one possible enzyme combo requires 5 enzymes, and this is the one that is maximally-complete with a score of 2/5 = 40%.
+
+Perhaps a better example of this is M00176, which has 50% stepwise completeness and ~89% pathwise completeness. 
+
+```bash
+grep M00176 A_muciniphila_modules.txt
+```
+
+If you look at the `module_definition` column for this pathway, you will see that the first step (as defined within the first set of parentheses) is complicated, with multiple alternative branches of different length. The entire pathway is essentially just two steps under the stepwise interpretation strategy because of that complexity. And since that first step is not fully complete, we get a stepwise completeness of only 1/2 = 0.5. The pathwise strategy works a bit better in this case, because it allows us to take into account the near-completeness of one of the many possible enzyme. Which is a good reminder that different pathways may be more suited for certain interpretation strategies, so it can be useful to look at both metrics.
+
+
+This doesn't always mean that the 'stepwise' metric will be more generous than the 'pathwise' one, but that is the most common scenario, since the stepwise strategy often ignores partially-complete steps while the pathwise one takes them into account. However, if the only complete steps in a pathway are the ones that have no alternative enzymes, and the other incomplete steps include multi-step alternatives, stepwise completeness will be greater than pathwise. You can check out modules M00014 and M00849 in the output file for examples of that scenario. M00014 is in the table above, and you can search for M00849 in the output file with `grep` if you are interested.
 
 Unfortunately, KEGG does not have a module for mucin degradation, so we won't see evidence of that metabolic capability here. This happens a lot with metabolisms that go beyond the basic ones essential for life, because KEGG is a manually curated resource that hasn't yet gotten to include a lot of the more niche metabolisms out there.
 
