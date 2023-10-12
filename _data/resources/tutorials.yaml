@@ -47,7 +47,7 @@
   summary: "A comprehensive description of the anvi'o phylogenomics workflow."
   tags: [phylogenomics, theoretical, beginner]
 
-- title: An exercise on metabolic reconstruction
+- title: Metabolic enrichment of high-fitness MAGs from a longitudinal FMT study (An exercise on metabolic reconstruction)
   type: tutorial
   url: /blog/fmt-mag-metabolism/
   authors: [ivagljiva]
