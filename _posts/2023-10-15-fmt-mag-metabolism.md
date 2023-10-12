@@ -106,15 +106,37 @@ anvi-run-kegg-kofams -c A_muciniphila-CONTIGS.db \
                      -T 4
 ```
 
-When this finishes running (it took about 5 minutes on my computer), the output on your terminal should tell you how many KOfam hits were added to the contigs database. For the _A. muciniphila_ genome, this number should be 1,263:
+When this finishes running (it took about 6 minutes on my computer), the output on your terminal should tell you how many KOfam hits were added to the contigs database. For the _A. muciniphila_ genome, this number should be 1,229:
 
 ```
-Gene functions ...............................: 1,263 function calls from 1 source (KOfam) for 1,215 unique gene calls have been added to the contigs database.
-Gene functions ...............................: 334 function calls from 1 source (KEGG_Module) for 322 unique gene calls have been added to the contigs database.
-Gene functions ...............................: 334 function calls from 1 source (KEGG_Class) for 322 unique gene calls have been added to the contigs database.
+Gene functions ...............................: 1,229 function calls from 1 source (KOfam) for 1,184 unique gene calls have been added to the contigs
+                                                database.
+Gene functions ...............................: 335 function calls from 1 source (KEGG_Module) for 324 unique gene calls have been added to the
+                                                contigs database.
+Gene functions ...............................: 335 function calls from 1 source (KEGG_Class) for 324 unique gene calls have been added to the
+                                                contigs database.
 ```
 
-Of these 1,263 annotations, 334 are KOs that belong to one or more metabolic pathways in the KEGG Module database. These are the KOs that will be used to estimate module completeness in the next step.
+Of these 1,229 annotations, 335 are KOs that belong to one or more metabolic pathways in the KEGG Module database. These are the KOs that will be used to estimate module completeness in the next step.
+
+Please also pay attention to the following warning in the output:
+
+```
+WARNING
+===============================================
+Anvi'o will now re-visit genes without KOfam annotations to see if potentially
+valid functional annotations were missed. These genes will be annotated with a
+KO only if all KOfam hits to this gene with e-value <= 1e-05 and bitscore >
+(0.75 * KEGG threshold) are hits to the same KO. Just so you know what is going
+on here. If this sounds like A Very Bad Idea to you, then please feel free to
+turn off this behavior with the flag --skip-bitscore-heuristic or to change the
+e-value/bitscore parameters (see the help page for more info).
+
+Number of decent hits added back after relaxing bitscore threshold : 121
+Total number of hits in annotation dictionary after adding these back : 1,229
+```
+
+This is one of our heuristics to reduce the number of missed annotations, and it is turned 'On' by default. Here, it gave us 121 additional annotations for the _A. muciniphila_ genome. Full documentation of the heuristic, including how to change the parameters or turn it off completely if you don't like it, can be found on the {% include PROGRAM name="anvi-run-kegg-kofams" %} help page. 
 
 ### Estimating metabolism
 
