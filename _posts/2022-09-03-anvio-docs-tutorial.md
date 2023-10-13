@@ -6,6 +6,7 @@ excerpt: "A tutorial for anyone interested in contributing to the anvi'o help pa
 date: 2022-09-03
 tags: [documentation, contributors, technical]
 comments: true
+permalink: /docs/anvio-docs-tutorial/
 ---
 
 
