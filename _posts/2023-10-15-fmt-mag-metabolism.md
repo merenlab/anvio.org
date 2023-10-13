@@ -433,6 +433,9 @@ cat table_7.txt | anvi-script-as-markdown
 
 As you can see, we found 2 annotations for the sialidase, 2 for the fucosidase, 6 for the β-galactosidase, 1 for the α-amylase, and a whopping 11 for the hexosaminidase. We may have missed the other GH classes for a variety of reasons -- the KOfam profile thresholds may have been too stringent (even for our annotation heuristic), maybe the profiles were not specific for microbial versions of these enzymes (some KOs are created from eukaryotic sequences), or maybe these KOs match to other types of GHs within the broader GH class (for instance, K01316 is labelled as a 'licheninase' rather than a 'endo O-glycanase'. The two terms may not be synonyms.).
 
+{:.warning}
+In our current snapshot of the KEGG database, K05992 does not have an associated bit score threshold, so actually, it is impossible for us to annotate this particular enzyme family using {% include PROGRAM name="anvi-run-kegg-kofams" %}. You can see this by examining its entry in the `ko_list` file within the KEGG data directory (and its HMM is saved at `orphan_data/02_hmm_profiles_with_ko_fams_with_no_threshold.hmm` within the KEGG directory). Luckily, there was a hit to a different profile for the α-amylase instead.
+
 Manually going through annotations like this is one way to see if a microbe has a particular metabolic capability. But there are a couple of things missing. First, we don't get completeness or copy number scores from this (unless you want to manually compute them). Second, clearly there are existing enzyme classes for each of the GHs in the CAZyme database, but not all of them have a corresponding KOfam profile, so we cannot identify all the parts of this pathway using KEGG alone.
 
 It would be great if we could take what we learned about mucin degradation, write our own metabolic pathway describing its steps, and then run the metabolism estimation program on that. Luckily, we can. :)
