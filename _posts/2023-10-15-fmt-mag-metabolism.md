@@ -350,50 +350,93 @@ We also generated the path- and step-specific output files in the previous comma
 
 The copy number results aren't that interesting here because we are only working with a single genome, so we only get copy numbers of 0, 1 or NA. It's not really a metric meant for individual populations (unless you are working with an organism that has lots of genome duplications). However, it is extremely useful for analyzing metagenomes. We won't be doing that just now, but you can see an example of how we use it in [this reproducible workflow](https://merenlab.org/data/ibd-gut-metabolism) (and [this section](https://merenlab.org/data/ibd-gut-metabolism/#metabolism-analyses-for-metagenomes) of it in particular).
 
-Unfortunately, KEGG does not have a module for mucin degradation, so we won't see evidence of that metabolic capability here. This happens a lot with metabolisms that go beyond the basic ones essential for life, because KEGG is a manually curated resource that hasn't yet gotten to include a lot of the more niche metabolisms out there.
+#### Manual inspection of KOfam hits
 
-There is a way to get around this limitation, and that is to look at individual KOfam hits for KOs which do not belong to a particular metabolic module, but may be representative of a metabolism of interest. In the case of mucin degradation, the enzymes that break up mucin (by destroying the gylcosidic bonds between the mucin molecules) are called Glycoside hydrolases (GHs). The GH family includes many different types of proteins, including sialidases ([Tailford 2015](https://www.frontiersin.org/articles/10.3389/fgene.2015.00081/full)). There is a KO family for sialidases - [K01186](https://www.genome.jp/dbget-bin/www_bget?ko+K01186) - which means that we can look for genes annotated with this KO as evidence of this microbe's mucin degrading capabilities.
+Remember when we were excited about _A. muciniphila_ because it can degrade mucin? Unfortunately, KEGG does not have a module for mucin degradation, so we can't find evidence of that metabolic capability in the KEGG-based metabolism estimation outputs. This happens a lot with metabolisms that go beyond the basic ones essential for life, because KEGG is a manually curated resource that hasn't yet gotten to include a lot of the more niche/unusual/novel metabolisms out there.
 
-This requires us to obtain a different output type from `anvi-estimate-metabolism`: ["kofam_hits"](https://merenlab.org/software/anvio/help/main/artifacts/kegg-metabolism/#kofam-hits-mode) mode output files have an entry for each gene annotated with a KO in the contigs database, regardless of whether that KO belongs to a metabolic module or not.
+There are a couple of ways to get around this limitation -- one of those is to define your own metabolic pathways (which we will discuss in the next section), and the second is to look at individual KOfam hits for KOs which do not belong to a particular metabolic module, but may be representative of a metabolism of interest. We'll go through the latter strategy first since 1) it sets up a bit of background on the enzymes required for mucin degradation and 2) it is more limited and more tedious, so the impact of user-defined metabolism will be clear once we get there. 
+
+In the case of mucin degradation, the enzymes that break up mucin (by destroying the gylcosidic bonds between the mucin molecules) are called Glycoside hydrolases (GHs). Several GHs work sequentially to degrade the different parts of mucin glycans ([Bell and Juge 2020](https://doi.org/10.1093/glycob/cwaa097), [Tailford 2015](https://www.frontiersin.org/articles/10.3389/fgene.2015.00081/full)).  In _A. muciniphila_, several of these enzymes have already been characterized through biochemical methods ([Derrien 2007](https://www.proquest.com/openview/6a566a24e19814c28d9d413e877b2618/1?cbl=2026366&diss=y&pq-origsite=gscholar&parentSessionId=O1DpssTMOgvTUrVO8PcgOwxMr839IcOJSQw%2FeyQlr2o%3D)), but information on the specific genes that are involved is a bit hard to find. In a recent analysis using transposon mutant libraries, it was discovered that genes important for the mucin degradation phenogype include those encoding a sialidase (GH33), a fucosidase (GH95), an outer membrane-associated endo O-glycanase (GH16), a β-galactosidase (GH2), an α-N-acetylglucosaminidase (GH89), an α-amylase (GH13), a galactosidase (GH43) and a β-hexosaminidase (GH20) ([Davey et al. 2023](https://doi.org/10.1038/s41564-023-01407-w)). The classification of each of those enzymes, as defined by [the CAZy database](http://www.cazy.org/Glycoside-Hydrolases.html), is given in parentheses in that list.
+
+If we look for genes that are annotated with those enzyme names, then we should be able to manually reconstruct the mucin degradation pathway in our _A. muciniphila_ genome. We've been working with KOfam annotations so far, and `anvi-estimate-metabolism` can give us some quick info on the KOfam annotations in our genome, so let's see if we can find some of these enzyme families in the KEGG Orthology database. Here is what I got:
+
+|**GH annotation**|**CAZy class**|**Matching KO(s)**|
+|:---|:---|:---|
+|sialidase|GH33|[K01186](https://www.genome.jp/dbget-bin/www_bget?ko+K01186)|
+|fucosidase|GH95|[K15923](https://www.genome.jp/dbget-bin/www_bget?ko:K15923)|
+|endo O-glycanase|GH16|[K01216](https://www.genome.jp/dbget-bin/www_bget?ko+K01216), [K20830](https://www.genome.jp/entry/K20830)|
+|β-galactosidase|GH2|[K01190](https://www.genome.jp/entry/K01190), [K12111](https://www.genome.jp/dbget-bin/www_bget?ko:K12111) |
+|α-N-acetylglucosaminidase|GH89| (none found) |
+|α-amylase|GH13|[K01176](https://www.genome.jp/dbget-bin/www_bget?ko:K01176), [K05343](https://www.genome.jp/dbget-bin/www_bget?ko:K05343), [K05992 and K01208](https://www.genome.jp/entry/K05992+K01208+3.2.1.133+R11262)|
+|galactosidase|GH43|[K06113](https://www.genome.jp/dbget-bin/www_bget?ko:K06113), [K01198](https://www.genome.jp/dbget-bin/www_bget?ko:K01198), [K15921](https://www.genome.jp/entry/K15921)|
+|β-hexosaminidase|GH20|[K12373](https://www.genome.jp/entry/K12373),[K14459](https://www.genome.jp/dbget-bin/www_bget?ko:K14459), [K20730](https://www.genome.jp/dbget-bin/www_bget?ko:K20730)|
+
+<details markdown="1"><summary>Show/Hide Process for getting Table 6</summary>
+You can find the corresponding KOs for each CAZy class by searching the KEGG website for Orthology entries that include a link to that class in the `Other DBs` section. There were many KOs for GH13, so only the ones explicitly labeled as α-amylase were included in the table.
+</details>
+
+Note that not all of these will be exactly what we are looking for, since these are fairly broad enzyme families. But we at least have a few options to look for (except for GH89).
+
+To check for annotations to these enzymes, we can obtain a different output type from `anvi-estimate-metabolism`: [enzyme "hits" mode output files](https://anvio.org/help/8/artifacts/kegg-metabolism/#enzyme-hits-mode) have an entry for each gene annotated with a KO in the contigs database, regardless of whether that KO belongs to a metabolic module or not.
 
 This is how you get that file:
 
 ```bash
 anvi-estimate-metabolism -c A_muciniphila-CONTIGS.db \
                          -O A_muciniphila \
-                         --kegg-output-modes kofam_hits
-```
-
-<details markdown="1"><summary>Show/hide anvi'o development version </summary>
-```bash
-anvi-estimate-metabolism -c A_muciniphila-CONTIGS.db \
-                         -O A_muciniphila \
                          --output-modes hits
 ```
-</details>
 
-And we can search for the sialidase KO by running the following code:
+And we can search for the each of the KOs from the table above by running the following code:
 
 ```bash
-head -n 1 A_muciniphila_kofam_hits.txt; \
-grep K01186 A_muciniphila_kofam_hits.txt
+head -n 1 A_muciniphila_hits.txt > table_7.txt; \
+for k in K01186 K15923 K01216 K20830 K01190 K12111 K01176 K05343 K05992 K01208 K06113 K01198 K15921 K12373 K14459 K20730; do 
+  grep $k A_muciniphila_hits.txt >> table_7.txt; \
+done
 ```
 
-<details markdown="1"><summary>Show/hide anvi'o development version </summary>
+Here is the table you should get:
+
+|**enzyme**|**genome_name**|**gene_caller_id**|**contig**|**modules_with_enzyme**|**enzyme_definition**|
+|:--|:--|:--|:--|:--|:--|
+|K01186|A_muciniphila|678|c_000000000001|None|sialidase-1 [EC:3.2.1.18]|
+|K01186|A_muciniphila|2015|c_000000000001|None|sialidase-1 [EC:3.2.1.18]|
+|K15923|A_muciniphila|195|c_000000000001|None|alpha-L-fucosidase 2 [EC:3.2.1.51]|
+|K15923|A_muciniphila|1181|c_000000000001|None|alpha-L-fucosidase 2 [EC:3.2.1.51]|
+|K01190|A_muciniphila|871|c_000000000001|None|beta-galactosidase [EC:3.2.1.23]|
+|K01190|A_muciniphila|589|c_000000000001|None|beta-galactosidase [EC:3.2.1.23]|
+|K01190|A_muciniphila|1838|c_000000000001|None|beta-galactosidase [EC:3.2.1.23]|
+|K01190|A_muciniphila|1839|c_000000000001|None|beta-galactosidase [EC:3.2.1.23]|
+|K01190|A_muciniphila|1840|c_000000000001|None|beta-galactosidase [EC:3.2.1.23]|
+|K01190|A_muciniphila|346|c_000000000001|None|beta-galactosidase [EC:3.2.1.23]|
+|K01176|A_muciniphila|1991|c_000000000001|None|alpha-amylase [EC:3.2.1.1]|
+|K12373|A_muciniphila|1093|c_000000000001|M00079|hexosaminidase [EC:3.2.1.52]|
+|K12373|A_muciniphila|2314|c_000000000001|M00079|hexosaminidase [EC:3.2.1.52]|
+|K12373|A_muciniphila|1994|c_000000000001|M00079|hexosaminidase [EC:3.2.1.52]|
+|K12373|A_muciniphila|2191|c_000000000001|M00079|hexosaminidase [EC:3.2.1.52]|
+|K12373|A_muciniphila|2192|c_000000000001|M00079|hexosaminidase [EC:3.2.1.52]|
+|K12373|A_muciniphila|1842|c_000000000001|M00079|hexosaminidase [EC:3.2.1.52]|
+|K12373|A_muciniphila|2098|c_000000000001|M00079|hexosaminidase [EC:3.2.1.52]|
+|K12373|A_muciniphila|2326|c_000000000001|M00079|hexosaminidase [EC:3.2.1.52]|
+|K12373|A_muciniphila|825|c_000000000001|M00079|hexosaminidase [EC:3.2.1.52]|
+|K12373|A_muciniphila|444|c_000000000001|M00079|hexosaminidase [EC:3.2.1.52]|
+|K12373|A_muciniphila|415|c_000000000001|M00079|hexosaminidase [EC:3.2.1.52]|
+
+<details markdown="1"><summary>Show/Hide Code for getting Table 7</summary>
+The previous commands generate the table itself, so all we need to do is convert it to markdown:
+
 ```bash
-head -n 1 A_muciniphila_hits.txt; \
-grep K01186 A_muciniphila_hits.txt
+cat table_7.txt | anvi-script-as-markdown
 ```
 </details>
 
-You should see the following output:
+As you can see, we found 2 annotations for the sialidase, 2 for the fucosidase, 6 for the β-galactosidase, 1 for the α-amylase, and a whopping 11 for the hexosaminidase. We may have missed the other GH classes for a variety of reasons -- the KOfam profile thresholds may have been too stringent (even for our annotation heuristic), maybe the profiles were not specific for microbial versions of these enzymes (some KOs are created from eukaryotic sequences), or maybe these KOs match to other types of GHs within the broader GH class (for instance, K01316 is labelled as a 'licheninase' rather than a 'endo O-glycanase'. The two terms may not be synonyms.).
 
-unique_id | genome_name | ko | gene_caller_id | contig | modules_with_ko | ko_definition
-:---|:---|:---|:---|:---|:---|:---|
-1029 | A_muciniphila | K01186 | 678 | c_000000000001 | None | sialidase-1 [EC:3.2.1.18]
-1030 | A_muciniphila | K01186 | 2015 | c_000000000001 | None | sialidase-1 [EC:3.2.1.18]
+Manually going through annotations like this is one way to see if a microbe has a particular metabolic capability. But there are a couple of things missing. First, we don't get completeness or copy number scores from this (unless you want to manually compute them). Second, clearly there are existing enzyme classes for each of the GHs in the CAZyme database, but not all of them have a corresponding KOfam profile, so we cannot identify all the parts of this pathway using KEGG alone.
 
-We already know that this organism can degrade mucin, so it is not surprising that there are two copies of the sialidase enzyme encoded in this genome.
+It would be great if we could take what we learned about mucin degradation, write our own metabolic pathway describing its steps, and then run the metabolism estimation program on that. Luckily, we can. :)
+
 
 ## Metabolism estimation and enrichment on a real-world dataset
 
