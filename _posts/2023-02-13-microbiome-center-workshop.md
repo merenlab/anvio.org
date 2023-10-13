@@ -6,6 +6,7 @@ excerpt: "Materials and a tutorial from the 2023 iteration of our metagenomics w
 date: 2023-02-13
 tags: [metagenomics, metabolism, hands-on, beginner]
 comments: true
+permalink: /tutorials/microbiome-center-workshop/
 ---
 
 This blog post serves the materials for the beginner-level workshop of February 15, 2023. This workshop was supported by the Microbiome Center at the University of Chicago.
