@@ -156,7 +156,7 @@ When you run this command, you should see in your terminal that 63 modules were 
 <span class="extra-info-header">Pathwise vs Stepwise?</span>
 Most metabolic pathways can utilize more than one enzyme for a given reaction, and as a result there are several enzyme combinations that would make the pathway 'complete'. There are two ways to interpret these complex pathway definitions. We could pay attention to the **specific enzyme combination** that an organism is using, in which case we should calculate the completeness/copy number metrics for each possible combination ('path' through the module) individually, and then pay attention to the one that is most complete. For this situtation, we use the **'pathwise'** interpretation strategy, which unrolls each module definition into all possible enzyme 'paths' and reports on the maximally-complete one. Alternatively, we could ignore the nuances of which enzyme is used and only care whether the **overall pathway irrespective of enzyme content** is complete or not. For that, we use the **'stepwise'** interpretation strategy, which considers each major 'step' in the pathway as complete if _any combination of required enzymes_ is present and then reports on the overall proportion of complete steps in the pathway. (Often, a 'step' equates to a chemical reaction, but this is not the case for more complex pathway branching structures.)
 
-Still confused? You can find [more documentation about the differences between these strategies here](https://anvio.org/help/main/programs/anvi-estimate-metabolism/#two-estimation-strategies---pathwise-and-stepwise).
+Still confused? You can find [more documentation about the differences between these strategies here](https://anvio.org/help/8/programs/anvi-estimate-metabolism/#two-estimation-strategies---pathwise-and-stepwise).
 
 </div>
 
@@ -344,7 +344,7 @@ cat table_5.txt | anvi-script-as-markdown
 ```
 </details>
 
-The `pathwise_copy_number` column reports the copy number of the maximally-complete path through a given module, which is calculated [as described here](https://anvio.org/help/main/programs/anvi-estimate-metabolism/#part-5-path-copy-number) by counting the number of copies of that path with a completeness score greater than the threshold. If there is no maximally-complete path, then the pathwise copy number is NA. The `stepwise_copy_number` column reports the minimum copy number of each step in the pathway. Computing the per-step copy number is [described here](https://anvio.org/help/main/programs/anvi-estimate-metabolism/#part-5-step-copy-number), and those values are reported in the `per_step_copy_numbers` column.
+The `pathwise_copy_number` column reports the copy number of the maximally-complete path through a given module, which is calculated [as described here](https://anvio.org/help/8/programs/anvi-estimate-metabolism/#part-5-path-copy-number) by counting the number of copies of that path with a completeness score greater than the threshold. If there is no maximally-complete path, then the pathwise copy number is NA. The `stepwise_copy_number` column reports the minimum copy number of each step in the pathway. Computing the per-step copy number is [described here](https://anvio.org/help/8/programs/anvi-estimate-metabolism/#part-5-step-copy-number), and those values are reported in the `per_step_copy_numbers` column.
 
 We also generated the path- and step-specific output files in the previous command, and you can see the per-path and per-step copy numbers in those files.
 
