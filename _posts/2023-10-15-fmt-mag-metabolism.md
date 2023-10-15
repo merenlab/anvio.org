@@ -444,12 +444,12 @@ It would be great if we could take what we learned about mucin degradation, writ
 
 #### User-defined pathways
 
-We can define a metabolic pathway for mucin degradation using the steps described {% include ARTIFACT name="user-modules-data" text="here" %}. Earlier, when we were researching the required enzymes within the [CAZy database](http://www.cazy.org/), we found matching enzymes from both the KOfam database and from the NCBI Clusters of Orthologous groups (COGs) - see Table 6 above. We can use both of these databases as our functional annotation sources for the pathway, which will hopefully allow us to find enzymes for each step of the process.
+We can define a metabolic pathway for mucin degradation using the steps described {% include ARTIFACT name="user-modules-data" text="here" %}. Earlier, when we were researching the required enzymes within the [CAZy database](http://www.cazy.org/), we found matching enzymes from the KOfam database and from the NCBI Clusters of Orthologous groups (COGs) -- see Table 6 above. We can use both of these databases as our functional annotation sources for the pathway, which will hopefully allow us to find enzymes for each step of the process.
 
 However, we need to find a way to annotate GH89. Let's make our own custom HMM profile for this enzyme family, using sequences specific to _A. muciniphila_. To do this, we need to 1) find sequences for this enzyme family that come from _A. muciniphila_ genomes; 2) align those sequences; 3) run `hmmbuild` on the alignment to create an HMM profile; and 4) set up the resulting profile in a directory that anvi'o can use by following the structure described [here](https://anvio.org/help/8/artifacts/hmm-source/#user-defined-hmm-sources) and by [this tutorial](https://merenlab.org/2016/05/21/archaeal-single-copy-genes/).
 
 {:.notice}
-We could annotate GH89 with the new program {% include PROGRAM name="anvi-run-cazymes" %}, but unfortunately the way we currently process hits to that database doesn't provide us with an accession number that we can use for defining a metabolic pathway (as discussed https://github.com/merenlab/anvio/issues/2148). Hopefully, we will fix this soon so that everyone will be able to use the annotations from `anvi-run-cazymes` directly with user-defined pathways. :)
+We could annotate GH89 with the new program {% include PROGRAM name="anvi-run-cazymes" %}, but unfortunately the way we currently process hits to that database doesn't provide us with an accession number that we can use for defining a metabolic pathway (as discussed [here](https://github.com/merenlab/anvio/issues/2148)). Hopefully, we will fix this soon so that everyone will be able to use the annotations from `anvi-run-cazymes` directly with user-defined pathways. :)
 
 First, we can go to the [CAZy webpage for GH89](http://www.cazy.org/GH89.html) and click on the link at the bottom of the table that says 'Download GH89'. That will give you a file called `GH89.txt` that describes many sequences belonging to the GH89 family. The structure of that file is like this (but without any header):
 
@@ -476,7 +476,7 @@ grep "Akkermansia muciniphila" GH89.txt | cut -f 4 | head -n 101 | tr '\n' ' ' ;
 grep "Akkermansia muciniphila" GH89.txt | cut -f 4 | tail -n 101 | tr '\n' ' ' ; echo
 ```
 
-For each list, go to the [NCBI Protein database](https://www.ncbi.nlm.nih.gov/protein), paste the list into the search box, and press 'Enter'. Once you get the search results, click on 'Send to', select the 'File' option, change the file format to 'FASTA', and hit 'Create File' to download the sequences. You can name the first file `GH89_1.fasta` and `GH89_2.fasta`. Then, you can put the two sets of sequenes together into on FASTA by running the following:
+For each list, go to the [NCBI Protein database](https://www.ncbi.nlm.nih.gov/protein), paste the list into the search box, and press 'Enter'. Once you get the search results, click on 'Send to', select the 'File' option, change the file format to 'FASTA', and hit 'Create File' to download the sequences. You can name the first file `GH89_1.fasta` and the second `GH89_2.fasta`. Then, you can put the two sets of sequenes together into on FASTA by running the following:
 
 ```bash
 cat GH89_1.fasta GH89_2.fasta > GH89_A_muciniphila.fasta
