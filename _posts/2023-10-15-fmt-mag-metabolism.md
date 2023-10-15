@@ -440,7 +440,11 @@ In our current snapshot of the KEGG database, K05992 does not have an associated
 
 Manually going through annotations like this is one way to see if a microbe has a particular metabolic capability. But there are a couple of things missing. First, we don't get completeness or copy number scores from this (unless you want to manually compute them). Second, clearly there are existing enzyme classes for each of the GHs in the CAZyme database, but not all of them have a corresponding KOfam profile, so we cannot identify all the parts of this pathway using KEGG alone.
 
-It would be great if we could take what we learned about mucin degradation, write our own metabolic pathway describing its steps, and then run the metabolism estimation program on that. Luckily, we can. :)
+It would be great if we could take what we learned about mucin degradation, write our own metabolic pathway describing its steps (without necessarily relying only on KOfam annotations), and then run the metabolism estimation program on that. Luckily, we can. :)
+
+#### User-defined pathways
+
+We can define a metabolic pathway for mucin degradation using the steps described {% include ARTIFACT name="user-modules-data" text="here" %}. Earlier, when we were researching the required enzymes within the [CAZy database](http://www.cazy.org/), we found matching enzymes from both the KOfam database and from the NCBI Clusters of Orthologous groups (COGs) - see Table 6 above. We can use both of these databases as our functional annotation sources for the pathway, which will hopefully allow us to find enzymes for each step of the process.
 
 
 ## Metabolism estimation and enrichment on a real-world dataset
