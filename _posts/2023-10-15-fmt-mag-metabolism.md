@@ -494,6 +494,13 @@ Then, we can generate the HMM profile from the alignment, saving it to a file ca
 hmmbuild -n GH89_A_muciniphila genes.hmm GH89_A_muciniphila.aln
 ```
 
+There is one more thing we have to do -- add the accession number we want to use for this enzyme familiy into the HMM profile. There isn't a way to give this information to `hmmbuild` directly, but we can just open the `genes.hmm` file and paste the following line into the header of the model, in between the `NAME` and `LENG` entries:
+
+```
+ACC   GH89_A_muciniphila
+```
+The string `GH89_A_muciniphila` will be the accession number that we use to refer to this annotation model within our pathway definition later.
+
 Finally, we can put it into a custom HMM directory that anvi'o can use by running the following commands to generate the [expected files and directory structure](https://anvio.org/help/8/artifacts/hmm-source/#user-defined-hmm-sources):
 
 ```bash
