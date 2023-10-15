@@ -446,6 +446,74 @@ It would be great if we could take what we learned about mucin degradation, writ
 
 We can define a metabolic pathway for mucin degradation using the steps described {% include ARTIFACT name="user-modules-data" text="here" %}. Earlier, when we were researching the required enzymes within the [CAZy database](http://www.cazy.org/), we found matching enzymes from both the KOfam database and from the NCBI Clusters of Orthologous groups (COGs) - see Table 6 above. We can use both of these databases as our functional annotation sources for the pathway, which will hopefully allow us to find enzymes for each step of the process.
 
+However, we need to find a way to annotate GH89. Let's make our own custom HMM profile for this enzyme family, using sequences specific to _A. muciniphila_. To do this, we need to 1) find sequences for this enzyme family that come from _A. muciniphila_ genomes; 2) align those sequences; 3) run `hmmbuild` on the alignment to create an HMM profile; and 4) set up the resulting profile in a directory that anvi'o can use by following the structure described [here](https://anvio.org/help/8/artifacts/hmm-source/#user-defined-hmm-sources) and by [this tutorial](https://merenlab.org/2016/05/21/archaeal-single-copy-genes/).
+
+{:.notice}
+We could annotate GH89 with the new program {% include PROGRAM name="anvi-run-cazymes" %}, but unfortunately the way we currently process hits to that database doesn't provide us with an accession number that we can use for defining a metabolic pathway (as discussed https://github.com/merenlab/anvio/issues/2148). Hopefully, we will fix this soon so that everyone will be able to use the annotations from `anvi-run-cazymes` directly with user-defined pathways. :)
+
+First, we can go to the [CAZy webpage for GH89](http://www.cazy.org/GH89.html) and click on the link at the bottom of the table that says 'Download GH89'. That will give you a file called `GH89.txt` that describes many sequences belonging to the GH89 family. The structure of that file is like this (but without any header):
+
+|**CAZy class**|**Domain**|**Species/Strain**|**GenBank accession**|
+|:--|:--|:--|:--|
+|GH89|Bacteria|Abditibacteriota bacterium IAD-21|BCM92706.1|
+|GH89|Eukaryota|Achlya hypogyna ATCC 48635|AIG56322.1|
+|GH89|Eukaryota|Achlya hypogyna ATCC 48635|AIG56008.1|
+|GH89|Eukaryota|Achlya hypogyna ATCC 48635|AIG56414.1|
+|GH89|Bacteria|Acidobacterium capsulatum ATCC 51196|ACO33861.1|
+
+Running the command `grep -c "Akkermansia muciniphila" GH89.txt` should tell you that there are **202 sequences** in that file coming from _A. muciniphila_ genomes. We can download these sequences from the [NCBI Protein database](https://www.ncbi.nlm.nih.gov/protein) via their GenBank accession numbers. However, NCBI has a search limit of ~100 accessions at a time, so we should split these accessions into two parts when we query NCBI and concatenate the sequences afterwards.
+
+Running these two commands will print the two halves of the sequence accessions list (with accessions separated by spaces) in your terminal:
+
+```bash
+# get the first 101 accessions in the list
+# (from the fourth column of the file, we take the first 101 entries, and convert the newline characters into spaces)
+# the final `echo` prints a newline so that our next terminal prompt goes on the line after the accession list
+grep "Akkermansia muciniphila" GH89.txt | cut -f 4 | head -n 101 | tr '\n' ' ' ; echo
+
+# get the second 101 accessions
+# (from the fourth column of the file, we take the last 101 entries, and convert the newline characters into spaces)
+grep "Akkermansia muciniphila" GH89.txt | cut -f 4 | tail -n 101 | tr '\n' ' ' ; echo
+```
+
+For each list, go to the [NCBI Protein database](https://www.ncbi.nlm.nih.gov/protein), paste the list into the search box, and press 'Enter'. Once you get the search results, click on 'Send to', select the 'File' option, change the file format to 'FASTA', and hit 'Create File' to download the sequences. You can name the first file `GH89_1.fasta` and `GH89_2.fasta`. Then, you can put the two sets of sequenes together into on FASTA by running the following:
+
+```bash
+cat GH89_1.fasta GH89_2.fasta > GH89_A_muciniphila.fasta
+```
+
+The resulting `GH89_A_muciniphila.fasta` will contain all 202 sequences. We need to make a multiple-sequence alignment out of these. We can do it using the alignment program [MUSCLE](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-5-113), which should be installed in your anvi'o environment. Here is the command to make the alignment (in CLUSTALW format, which is one of the options that `hmmbuild` can work with):
+
+```bash
+muscle -in GH89_A_muciniphila.fasta -out GH89_A_muciniphila.aln -clw
+```
+
+Then, we can generate the HMM profile from the alignment, saving it to a file called `genes.hmm` (using `-n`, we set the name of this model to be `GH89_A_muciniphila`):
+
+```bash
+hmmbuild -n GH89_A_muciniphila genes.hmm GH89_A_muciniphila.aln
+```
+
+Finally, we can put it into a custom HMM directory that anvi'o can use by running the following commands to generate the [expected files and directory structure](https://anvio.org/help/8/artifacts/hmm-source/#user-defined-hmm-sources):
+
+```bash
+mkdir GH89_CUSTOM_HMM
+# 1) compressed HMM profile
+gzip genes.hmm
+mv genes.hmm.gz GH89_CUSTOM_HMM/
+# 2) tab-delimited file describing the gene in the profile 
+echo -e "gene\taccession\thmmsource\nGH89_A_muciniphila\tGH89_A_muciniphila\tcustom" > GH89_CUSTOM_HMM/genes.txt
+# 3) type of profile
+echo "CAZyme:GH89" > GH89_CUSTOM_HMM/kind.txt
+# 4) reference
+echo "http://www.cazy.org/GH89.html" > GH89_CUSTOM_HMM/reference.txt
+# 5) target sequence type (amino acid sequences for genes)
+echo "AA:GENE" > GH89_CUSTOM_HMM/target.txt
+# 6) e-value cutoff for keeping a hit to this profile
+echo "-E 1e-25" > GH89_CUSTOM_HMM/noise_cutoff_terms.txt
+```
+
+
 
 ## Metabolism estimation and enrichment on a real-world dataset
 
