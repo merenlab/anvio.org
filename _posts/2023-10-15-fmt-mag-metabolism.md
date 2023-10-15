@@ -513,6 +513,26 @@ echo "AA:GENE" > GH89_CUSTOM_HMM/target.txt
 echo "-E 1e-25" > GH89_CUSTOM_HMM/noise_cutoff_terms.txt
 ```
 
+Let's see if we can annotate our contigs database with our new custom HMM. We need the annotations to be stored as gene functions (rather than single-copy core genes) in the database, so we use the flag `--add-to-functions-table` when we run {% include PROGRAM name="anvi-run-hmms" %}:
+
+```bash
+anvi-run-hmms -c A_muciniphila-CONTIGS.db\
+              -H GH89_CUSTOM_HMM \
+              --add-to-functions-table
+```
+
+The program should succeed with 2 new annotations added to the database under the source called `GH89_CUSTOM_HMM`:
+
+```
+Gene functions ...............................: 2 function calls from 1 source (GH89_CUSTOM_HMM) for 2 unique gene calls have been added to the contigs database.
+```
+
+Finally, we can annotate our database with the NCBI COGs database so that we can use those functions in our metabolic pathway definition as well. If you haven't already done this on your computer, you should run {% include PROGRAM name="anvi-setup-ncbi-cogs" %} to download that database. Then you'll be able to run the following:
+```bash
+anvi-run-ncbi-cogs -c A_muciniphila-CONTIGS.db -T 4
+```
+
+In the output of that program, you will notice that the sources of annotations added to the database include `COG20_FUNCTION`. This is the annotation source we will use when writing our pathway definition.
 
 
 ## Metabolism estimation and enrichment on a real-world dataset
