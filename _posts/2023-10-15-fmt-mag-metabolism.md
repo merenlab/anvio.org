@@ -541,6 +541,173 @@ anvi-run-ncbi-cogs -c A_muciniphila-CONTIGS.db -T 4
 
 In the output of that program, you will notice that the sources of annotations added to the database include `COG20_FUNCTION`. This is the annotation source we will use when writing our pathway definition.
 
+At this point, we have a way to annotate each enzyme required for mucin degradation (often, with multiple enzyme family options). Now we will design the mucin degradation pathway using the KOfam and COG enzyme accessions in Table 6 and our new custom HMM.
+
+Below, you will find a draft of our mucin degradation pathway.
+
+{:.notice}
+The formatting of the pathway definition in anvi'o `v8` utilizes the same strategy with which KEGG formats their module files. We are [currently working on a better way to do this](https://github.com/merenlab/anvio/issues/1873). Stay tuned!
+
+```
+ENTRY       MD0001
+NAME        Mucin degradation - draft pathway
+DEFINITION  (K01186,COG4409) K15923 (K01216,K20830,COG2273) (K01190,K12111,COG3250) GH89_A_muciniphila 
+            (K01176,K05343,K05992,K01208,COG0366) (K06113,K01198,K15921,COG3507) (K12373,K14459,K20730,COG3525)
+ORTHOLOGY   K01186  sialidase-1 [EC:3.2.1.18]
+            COG4409  Neuraminidase (sialidase)
+            K15923  alpha-L-fucosidase 2 [EC:3.2.1.51]
+            K01216  licheninase [EC:3.2.1.73]
+            K20830  beta-porphyranase [EC:3.2.1.178]
+            COG2273  Beta-glucanase, GH16 family
+            K01190  beta-galactosidase [EC:3.2.1.23]
+            K12111  evolved beta-galactosidase subunit alpha [EC:3.2.1.23]
+            COG3250  Beta-galactosidase/beta-glucuronidase
+            GH89_A_muciniphila  Glycolytic Hydrolase Family 89 (specific to A. muciniphila)
+            K01176  alpha-amylase [EC:3.2.1.1]
+            K05343  maltose alpha-D-glucosyltransferase / alpha-amylase [EC:5.4.99.16 3.2.1.1]
+            K05992  maltogenic alpha-amylase [EC:3.2.1.133]
+            K01208  cyclomaltodextrinase / maltogenic alpha-amylase / neopullulanase [EC:3.2.1.54 3.2.1.133 3.2.1.135]
+            COG0366  Glycosidase
+            K06113  arabinan endo-1,5-alpha-L-arabinosidase [EC:3.2.1.99]
+            K01198  xylan 1,4-beta-xylosidase [EC:3.2.1.37]
+            K15921  arabinoxylan arabinofuranohydrolase [EC:3.2.1.55]
+            COG3507  Beta-xylosidase
+            K12373  hexosaminidase [EC:3.2.1.52]
+            K14459  hexosaminidase [EC:3.2.1.52]
+            K20730  beta-hexosaminidase Fdl [EC:3.2.1.52]
+            COG3525  N-acetyl-beta-hexosaminidase
+CLASS       User modules; Degradation pathways; Mucin degradation
+ANNOTATION_SOURCE   K01186  KOfam
+                    COG4409  COG20_FUNCTION
+                    K15923  KOfam
+                    K01216  KOfam
+                    K20830  KOfam
+                    COG2273  COG20_FUNCTION
+                    K01190  KOfam
+                    K12111  KOfam
+                    COG3250  COG20_FUNCTION
+                    GH89_A_muciniphila  GH89_CUSTOM_HMM
+                    K01176  KOfam
+                    K05343  KOfam
+                    K05992  KOfam
+                    K01208  KOfam
+                    COG0366  COG20_FUNCTION
+                    K06113  KOfam
+                    K01198  KOfam
+                    K15921  KOfam
+                    COG3507  COG20_FUNCTION
+                    K12373  KOfam
+                    K14459  KOfam
+                    K20730  KOfam
+                    COG3525  COG20_FUNCTION
+///
+```
+
+You should copy and paste this full definition into a file - let's call it `MD0001.txt`. For a nice organization of our working directory and to comply with the [directory structure expected](http://127.0.0.1:4000/help/main/programs/anvi-setup-user-modules/#input-directory-format) by {% include PROGRAM name="anvi-setup-user-modules" %}, we will put that file inside a directory called 'CUSTOM_PATHWAYS' and then within an inner folder called 'modules', like so:
+
+```bash
+mkdir CUSTOM_PATHWAYS
+mkdir CUSTOM_PATHWAYS/modules
+mv MD0001.txt CUSTOM_PATHWAYS/modules/
+```
+
+Then you can pass this directory to {% include PROGRAM name="anvi-setup-user-modules" %}, which will go through all the module files inside the folder (there is only one module file at the moment) to generate a {% include ARTIFACT name="modules-db" %} containing our custom mucin degradation pathway.
+
+```bash
+anvi-setup-user-modules -u CUSTOM_PATHWAYS/
+```
+
+You should see the following information in the output of that command, which shows that one module was processed into the database and that all three of the annotation sources we used were :
+```
+Modules database .............................: A new database, /Users/iva/Lab/test-kegg/EBAME_TUTORIAL/CUSTOM_PATHWAYS/USER_MODULES.db, has been created.
+Number of modules ............................: 1
+Number of module entries .....................: 51
+Number of module parsing errors (corrected) ..: 0
+Number of module parsing errors (uncorrected) : 0
+Annotation sources required for estimation ...: COG20_FUNCTION, KOfam, GH89_CUSTOM_HMM
+```
+
+At long last, we can estimate the completeness of our mucin degradation pathway within the _A. muciniphila_ genome. 
+
+```bash
+anvi-estimate-metabolism -c A_muciniphila-CONTIGS.db \
+                         -u CUSTOM_PATHWAYS/ \
+                         --only-user-modules \
+                         -O custom \
+                         --output-modes modules,hits,module_steps,module_paths
+```
+
+The resulting file, `custom_modules.txt`, shows that this pathway is 100% complete in _A. muciniphila_:
+
+|**module**|**genome_name**|**module_name**|**module_class**|**module_category**|**module_subcategory**|**module_definition**|**stepwise_module_completeness**|**stepwise_module_is_complete**|**pathwise_module_completeness**|**pathwise_module_is_complete**|**proportion_unique_enzymes_present**|**enzymes_unique_to_module**|**unique_enzymes_hit_counts**|**enzyme_hits_in_module**|**gene_caller_ids_in_module**|**warnings**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|MD0001.txt|A_muciniphila|Mucin degradation - draft pathway|User modules|Degradation pathways|Mucin degradation|"(K01186,COG4409) K15923 (K01216,K20830,COG2273) (K01190,K12111,COG3250) GH89_A_muciniphila  (K01176,K05343,K05992,K01208,COG0366) (K06113,K01198,K15921,COG3507) (K12373,K14459,K20730,COG3525)"|1.0|True|1.0|True|1.0|COG0366,COG2273,COG3250,COG3507,COG3525,COG4409,GH89_A_muciniphila,K01176,K01186,K01190,K12373,K15923|2,3,7,1,13,2,2,1,2,6,11,2|COG0366,COG0366,COG2273,COG2273,COG2273,COG3250,COG3250,COG3250,COG3250,COG3250,COG3250,COG3250,COG3507,COG3525,COG3525,COG3525,COG3525,COG3525,COG3525,COG3525,COG3525,COG3525,COG3525,COG3525,COG3525,COG3525,COG4409,COG4409,GH89_A_muciniphila,GH89_A_muciniphila,K01176,K01186,K01186,K01190,K01190,K01190,K01190,K01190,K01190,K12373,K12373,K12373,K12373,K12373,K12373,K12373,K12373,K12373,K12373,K12373,K15923,K15923|1816,1991,818,972,2286,346,589,871,917,1838,1839,1840,998,59,415,444,457,825,1093,1842,1994,2098,2191,2192,2314,2326,678,2015,67,1288,1991,678,2015,346,589,871,1839,1840,1838,415,444,825,1093,1842,2326,2191,2192,2314,2098,1994,195,1181|None|
+
+<details markdown="1"><summary>Show/Hide Code for getting Table 9</summary>
+The previous command generates the metabolism output, so all we need to do is convert it to markdown:
+
+```bash
+cat custom_modules.txt | anvi-script-as-markdown
+```
+</details>
+
+In that table, you can see that between the KOs that we found manually before, the annotations from our custom HMM profile for GH89, and the COG annotations, there are multiple copies of most of the required enzymes. Some of these are coming from overlapping annotations, based on the duplicated gene caller IDs in the `gene_caller_ids_in_module` column - for instance, the gene call 1991 is annotated with both COG0366 and K01176, and the gene call 1840 is annotated with both COG3250 and K01190 (pro tip: it is easier to see this by searching for the duplicated gene caller IDs within the `custom_hits.txt` output file).
+
+To better understand how that long list of enzymes resolves to sequential enzyme activity in the degradation process, you could take a look at the complete paths through the module in the `custom_module_paths.txt` output file. Here they are:
+
+|**module**|**genome_name**|**pathwise_module_completeness**|**pathwise_module_is_complete**|**path_id**|**path**|**path_completeness**|**annotated_enzymes_in_path**|
+|:--|:--|:--|:--|:--|:--|:--|:--|
+|MD0001.txt|A_muciniphila|1.0|True|274|K01186,K15923,COG2273,K01190,GH89_A_muciniphila,K01176,COG3507,K12373|1.0|K01186,K15923,COG2273,K01190,GH89_A_muciniphila,K01176,COG3507,K12373|
+|MD0001.txt|A_muciniphila|1.0|True|275|COG4409,K15923,COG2273,K01190,GH89_A_muciniphila,K01176,COG3507,K12373|1.0|COG4409,K15923,COG2273,K01190,GH89_A_muciniphila,K01176,COG3507,K12373|
+|MD0001.txt|A_muciniphila|1.0|True|286|K01186,K15923,COG2273,COG3250,GH89_A_muciniphila,K01176,COG3507,K12373|1.0|K01186,K15923,COG2273,COG3250,GH89_A_muciniphila,K01176,COG3507,K12373|
+|MD0001.txt|A_muciniphila|1.0|True|287|COG4409,K15923,COG2273,COG3250,GH89_A_muciniphila,K01176,COG3507,K12373|1.0|COG4409,K15923,COG2273,COG3250,GH89_A_muciniphila,K01176,COG3507,K12373|
+|MD0001.txt|A_muciniphila|1.0|True|346|K01186,K15923,COG2273,K01190,GH89_A_muciniphila,COG0366,COG3507,K12373|1.0|K01186,K15923,COG2273,K01190,GH89_A_muciniphila,COG0366,COG3507,K12373|
+|MD0001.txt|A_muciniphila|1.0|True|347|COG4409,K15923,COG2273,K01190,GH89_A_muciniphila,COG0366,COG3507,K12373|1.0|COG4409,K15923,COG2273,K01190,GH89_A_muciniphila,COG0366,COG3507,K12373|
+|MD0001.txt|A_muciniphila|1.0|True|358|K01186,K15923,COG2273,COG3250,GH89_A_muciniphila,COG0366,COG3507,K12373|1.0|K01186,K15923,COG2273,COG3250,GH89_A_muciniphila,COG0366,COG3507,K12373|
+|MD0001.txt|A_muciniphila|1.0|True|359|COG4409,K15923,COG2273,COG3250,GH89_A_muciniphila,COG0366,COG3507,K12373|1.0|COG4409,K15923,COG2273,COG3250,GH89_A_muciniphila,COG0366,COG3507,K12373|
+|MD0001.txt|A_muciniphila|1.0|True|1354|K01186,K15923,COG2273,K01190,GH89_A_muciniphila,K01176,COG3507,COG3525|1.0|K01186,K15923,COG2273,K01190,GH89_A_muciniphila,K01176,COG3507,COG3525|
+|MD0001.txt|A_muciniphila|1.0|True|1355|COG4409,K15923,COG2273,K01190,GH89_A_muciniphila,K01176,COG3507,COG3525|1.0|COG4409,K15923,COG2273,K01190,GH89_A_muciniphila,K01176,COG3507,COG3525|
+|MD0001.txt|A_muciniphila|1.0|True|1366|K01186,K15923,COG2273,COG3250,GH89_A_muciniphila,K01176,COG3507,COG3525|1.0|K01186,K15923,COG2273,COG3250,GH89_A_muciniphila,K01176,COG3507,COG3525|
+|MD0001.txt|A_muciniphila|1.0|True|1367|COG4409,K15923,COG2273,COG3250,GH89_A_muciniphila,K01176,COG3507,COG3525|1.0|COG4409,K15923,COG2273,COG3250,GH89_A_muciniphila,K01176,COG3507,COG3525|
+|MD0001.txt|A_muciniphila|1.0|True|1426|K01186,K15923,COG2273,K01190,GH89_A_muciniphila,COG0366,COG3507,COG3525|1.0|K01186,K15923,COG2273,K01190,GH89_A_muciniphila,COG0366,COG3507,COG3525|
+|MD0001.txt|A_muciniphila|1.0|True|1427|COG4409,K15923,COG2273,K01190,GH89_A_muciniphila,COG0366,COG3507,COG3525|1.0|COG4409,K15923,COG2273,K01190,GH89_A_muciniphila,COG0366,COG3507,COG3525|
+|MD0001.txt|A_muciniphila|1.0|True|1438|K01186,K15923,COG2273,COG3250,GH89_A_muciniphila,COG0366,COG3507,COG3525|1.0|K01186,K15923,COG2273,COG3250,GH89_A_muciniphila,COG0366,COG3507,COG3525|
+|MD0001.txt|A_muciniphila|1.0|True|1439|COG4409,K15923,COG2273,COG3250,GH89_A_muciniphila,COG0366,COG3507,COG3525|1.0|COG4409,K15923,COG2273,COG3250,GH89_A_muciniphila,COG0366,COG3507,COG3525|
+
+<details markdown="1"><summary>Show/Hide Code for getting Table 10</summary>
+First we extract all lines where the `path_completeness` score is 1.0:
+
+```bash
+head -n 1 custom_module_paths.txt > table_10.txt
+awk -F'\t' '$7 == 1.0' custom_module_paths.txt >> table_10.txt
+```
+
+Then we convert it to markdown:
+
+```bash
+cat table_10.txt | anvi-script-as-markdown
+```
+</details>
+
+This output can also help us identify where the KOs and COGs overlap well, and where they do not. For instance, the first step of the pathway (the sialidase) can be annotated by both COGs and KOfams, and indeed, if you check the `hits` output file you will see that the same 2 genes are annotated with both accessions. However, the step of the pathway requiring the endo O-glycanase, which we couldn't annotate with KOfam earlier, is fulfilled only by the `COG2273` annotation.
+
+Here are a few takeaway points that we have learned so far:
+
+- despite the presence of several KOfam profiles for the same 'enzyme', only certain KOs seem to be relevant to the _A. muciniphila_ genome 
+- some enzymes can be annotated interchangeably with both COGs and KOfam
+- whenever a COG is defined for an enzyme class in the pathway, we find annotations to that COG in _A. muciniphila_
+- some enzymes can only be identified via annotation by COGs
+
+These points suggest that for these Glycoside hydrolases, the COG version of the enzyme family is more broadly defined than the corresponding KOfam profile (that is, KEGG Orthology families are more specific than COG).
+
+And now, a harsh dose of reality to think about. In practice, the discrepancy between the annotation strategies that we have seen could mean two things.
+
+1) Maybe the KOfam profiles are too specific, and we will miss these functional annotations if we rely soley on KEGG as an annotation source. 2) Maybe the COG families are too broad, and finding the COG annotation doesn't necessarily mean that we've found the enzyme that performs this step of mucin degradation in _A. muciniphila_. 
+
+Both of these things can be true at the same time (implying that we just really don't have a good way to annotate some of these enzymes), and these things don't have to be the same for all of the enzymes in our list -- for instance, maybe _1_ is true for the endo O-glycanase (`K01216`/`K20830`/`COG2273`) but _2_ is true for the galactosidase (`K12373`/`K14459`/`K20730`/`COG3507`). The only way to know is to become an expert in mucin degradation, which will allow you to define a metabolic pathway for it with much more confidence and accuracy than we did here today. :)
+
+{:.notice}
+If you happen to be an expert in mucin degradation and/or _A. muciniphila_, we would love to hear from you about the quality of this draft pathway and would be very happy if we could update this tutorial with a better version of it.
 
 ## Metabolism estimation and enrichment on a real-world dataset
 
