@@ -444,6 +444,9 @@ It would be great if we could take what we learned about mucin degradation, writ
 
 #### User-defined pathways
 
+{:.warning}
+This section will only work seamlessly in the development version of anvi'o (or stable releases later than `v8`) due to a few bugs that were only fixed after the release of `v8`. If you are working with `v8` and you still want to follow this section, you can do so by paying attention to these red boxes, which will tell you if you need to do something extra to make things work :)
+
 We can define a metabolic pathway for mucin degradation using the steps described {% include ARTIFACT name="user-modules-data" text="here" %}. Earlier, when we were researching the required enzymes within the [CAZy database](http://www.cazy.org/), we found matching enzymes from the KOfam database and from the NCBI Clusters of Orthologous groups (COGs) -- see Table 6 above. We can use both of these databases as our functional annotation sources for the pathway, which will hopefully allow us to find enzymes for each step of the process.
 
 However, we need to find a way to annotate GH89. Let's make our own custom HMM profile for this enzyme family, using sequences specific to _A. muciniphila_. To do this, we need to 1) find sequences for this enzyme family that come from _A. muciniphila_ genomes; 2) align those sequences; 3) run `hmmbuild` on the alignment to create an HMM profile; and 4) set up the resulting profile in a directory that anvi'o can use by following the structure described [here](https://anvio.org/help/8/artifacts/hmm-source/#user-defined-hmm-sources) and by [this tutorial](https://merenlab.org/2016/05/21/archaeal-single-copy-genes/).
@@ -613,6 +616,9 @@ mv MD0001.txt CUSTOM_PATHWAYS/modules/
 
 Then you can pass this directory to {% include PROGRAM name="anvi-setup-user-modules" %}, which will go through all the module files inside the folder (there is only one module file at the moment) to generate a {% include ARTIFACT name="modules-db" %} containing our custom mucin degradation pathway.
 
+{:.warning}
+If you are using anvi'o `v8`, the below command will fail with an ugly error that looks like this: `AttributeError: 'KeggSetup' object has no attribute 'setup_data'`. Sorry about that. It will work in anvi'o `v8.1` and later. But for now, you can get around this by downloading the [datapack from this link](https://figshare.com/articles/dataset/USER-MODULES_db_datapack_for_metabolism_tutorial/24314842), which contains the modules database that this command generates. To do that, run the following commands: `rm -r CUSTOM_PATHWAYS/`, `wget https://figshare.com/ndownloader/files/42698896 -O CUSTOM_PATHWAYS.tar.gz; tar -xvf CUSTOM_PATHWAYS.tar.gz`. Basically, you will just skip the `anvi-setup-user-modules` command below and just use the downloaded directory instead.
+
 ```bash
 anvi-setup-user-modules -u CUSTOM_PATHWAYS/
 ```
@@ -716,7 +722,7 @@ Now that we know how to work with this suite of programs, let's apply them to a 
 The data we'll be using for this is a real dataset from one of our recent studies, ["Metabolic competency drives microbial colonization and resilience in health and disease”](https://doi.org/10.1101/2021.03.02.433653) by Watson et al. In fact, this post is doing double-duty as a reproducible workflow for one of the analyses in that study. :) The rest of the reproducible workflow can be found [here](https://merenlab.org/data/fmt-gut-colonization/) for anyone who is interested in how we did the other analyses discussed in the paper.
 
 {:.notice}
-This part of the tutorial **only** works with anvio-7.1 and not with the current dev version of anvi'o. The reason is KEGG database version compatibility. When you run `anvi-setup-kegg-kofams` with v7.1, anvi'o will download the latest snapshot of KEGG at the time of v7.1 release (v2020-12-23). But if you are using the development version of anvi'o, every user *could* have different version of the KEGG database depending on when you ran `anvi-setup-kegg-kofams`. This makes it more difficult to share annotated contigs.db between collaborators. More information [here](https://anvio.org/help/main/programs/anvi-setup-kegg-kofams/#how-do-i-share-this-data).
+This part of the tutorial **only** works with anvio-7.1 and not with the current dev version of anvi'o. The reason is KEGG database version compatibility. When you run `anvi-setup-kegg-data` with v7.1, anvi'o will download the latest snapshot of KEGG at the time of v7.1 release (v2020-12-23). But if you are using the development version of anvi'o, every user *could* have different version of the KEGG database depending on when you ran `anvi-setup-kegg-data`. This makes it more difficult to share annotated contigs.db between collaborators. More information [here](https://anvio.org/help/main/programs/anvi-setup-kegg-data/#how-do-i-share-this-data).
 
 ### A dataset of high- and low-fitness MAGs
 
