@@ -1,8 +1,8 @@
 ---
 layout: blog
 authors: [ivagljiva]
-title: Metabolic enrichment of high-fitness MAGs from a longitudinal FMT study (An exercise on metabolic reconstruction)
-excerpt: "A mini-tutorial on how to run metabolism estimation and enrichment in anvi'o"
+title: An exercise on metabolic reconstruction in anvi'o
+excerpt: "A tutorial on how to run metabolism estimation and enrichment in anvi'o"
 date: 2023-10-15
 tags: [metabolism, metabolic-enrichment, genomics, metagenomics, hands-on, beginner]
 comments: true
