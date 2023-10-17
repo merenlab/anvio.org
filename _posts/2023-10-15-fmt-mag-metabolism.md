@@ -25,7 +25,7 @@ wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/731/575/GCF_009731575.1_AS
 gunzip GCF_009731575.1_ASM973157v1_genomic.fna.gz
 ```
 
-The first step in any anvi'o analysis is to get your data into the form that anvi'o likes to play with, which means we need to make a {% include ARTIFACT name="contigs-db" text="contigs database" %}. To do this, we first need to re-format the FASTA file to make sure all of the contig deflines contain nothing more than alphanumeric characters, underscores, and dashes. We can do this with {% include PROGRAM name="anvi-script-reformat-fasta" %}. Then we can pass the reformatted FASTA to {% include PROGRAM name="anvi-gen-contigs-database" %} and let it work its magic:
+The first step in any anvi'o analysis is to get your data into the form that anvi'o likes to play with, which means we need to make a {% include ARTIFACT name="contigs-db" text="contigs database" version="8" %}. To do this, we first need to re-format the FASTA file to make sure all of the contig deflines contain nothing more than alphanumeric characters, underscores, and dashes. We can do this with {% include PROGRAM name="anvi-script-reformat-fasta" version="8" %}. Then we can pass the reformatted FASTA to {% include PROGRAM name="anvi-gen-contigs-database" version="8" %} and let it work its magic:
 
 ```bash
 # fix the deflines
@@ -45,9 +45,9 @@ The command above sets the `--num-threads` parameter to 2 so that `anvi-gen-cont
 
 Now you have a contigs database for this genome, so we can start to work with it to estimate metabolism. There are 3 required steps in the metabolism estimation process (though the first step is only necessary the very first time you are doing this, so in general there are just 2 steps). Those steps are:
 
-1. Getting the required [KEGG](https://www.genome.jp/kegg/) data set up on your computer (which only needs to be done once) with {% include PROGRAM name="anvi-setup-kegg-data" %}
-2. Adding functional annotations from the [KOfam database](https://doi.org/10.1093/bioinformatics/btz859) to the gene calls in this genome, using {% include PROGRAM name="anvi-run-kegg-kofams" %}
-3. Matching those functional annotations to [definitions of metabolic pathways](https://www.genome.jp/kegg/module.html) (aka modules) and computing module completeness scores, which is done by the program {% include PROGRAM name="anvi-estimate-metabolism" %}
+1. Getting the required [KEGG](https://www.genome.jp/kegg/) data set up on your computer (which only needs to be done once) with {% include PROGRAM name="anvi-setup-kegg-data" version="8" %}
+2. Adding functional annotations from the [KOfam database](https://doi.org/10.1093/bioinformatics/btz859) to the gene calls in this genome, using {% include PROGRAM name="anvi-run-kegg-kofams" version="8" %}
+3. Matching those functional annotations to [definitions of metabolic pathways](https://www.genome.jp/kegg/module.html) (aka modules) and computing module completeness scores, which is done by the program {% include PROGRAM name="anvi-estimate-metabolism" version="8" %}
 
 You can learn more about how each of these programs work (and different options for running them) by clicking on any of the highlighted links above to go to their respective help pages. Below we will go through a simple example of each step using the _A. muciniphila_ genome that we just downloaded.
 
@@ -59,12 +59,12 @@ First, if you've never worked with KEGG data through anvi'o before (which is lik
 anvi-setup-kegg-data
 ```
 
-That's it. What this does is download a bunch of data from KEGG onto your computer. The data that are relevant to metabolism estimation are: 1) profile hidden Markov models (pHMMs) for functional annotation from the KOfam database and 2) metabolic pathway definition files from the KEGG MODULE database. The pHMMs have been organized into one big file that is ready for running [`hmmsearch`](https://doi.org/10.1371/journal.pcbi.1002195), and the module definitions have been parsed into a {% include ARTIFACT name="modules-db" text="modules database" %}. This program also downloads data relevant for metabolic modeling in anvi'o, but we don't have to worry about that for the purposes of this tutorial.
+That's it. What this does is download a bunch of data from KEGG onto your computer. The data that are relevant to metabolism estimation are: 1) profile hidden Markov models (pHMMs) for functional annotation from the KOfam database and 2) metabolic pathway definition files from the KEGG MODULE database. The pHMMs have been organized into one big file that is ready for running [`hmmsearch`](https://doi.org/10.1371/journal.pcbi.1002195), and the module definitions have been parsed into a {% include ARTIFACT name="modules-db" text="modules database" version="8" %}. This program also downloads data relevant for metabolic modeling in anvi'o, but we don't have to worry about that for the purposes of this tutorial.
 
-By default, the KEGG data goes into the anvi'o directory on your computer. If you don't have permission to modify this folder, you will need to pick a different location (that you _do_ have permission to modify) for the data and specify that folder using the `--kegg-data-dir` parameter. If this is your case, please note that running {% include PROGRAM name="anvi-run-kegg-kofams" %} and {% include PROGRAM name="anvi-estimate-metabolism" %} will also require you to specify that folder location with `--kegg-data-dir`.
+By default, the KEGG data goes into the anvi'o directory on your computer. If you don't have permission to modify this folder, you will need to pick a different location (that you _do_ have permission to modify) for the data and specify that folder using the `--kegg-data-dir` parameter. If this is your case, please note that running {% include PROGRAM name="anvi-run-kegg-kofams" version="8" %} and {% include PROGRAM name="anvi-estimate-metabolism" version="8" %} will also require you to specify that folder location with `--kegg-data-dir`.
 
 {:.notice}
-The data that is downloaded by default is actually a snapshot of KEGG at one moment in time in the past, which we downloaded directly from KEGG and pre-processed into formats compatible for downstream anvi'o programs (using this same program). Downloading the snapshot has several benefits. First, we avoid overloading the KEGG servers when multiple people are downloading the data at once. Second, if KEGG ever changes their file formats and breaks our setup code, we can still use the previous snapshots. Third, everyone with the same version of anvi'o uses the same version of KEGG, which makes data sharing and reproducibility easier. You can choose between several snapshots of KEGG, and you can also use  {% include PROGRAM name="anvi-setup-kegg-data" %} to download the data directly from KEGG to get the latest version of data. You can see instructions for doing that [here](https://anvio.org/help/8/programs/anvi-setup-kegg-data/#getting-the-most-up-to-date-kegg-data-downloading-directly-from-kegg). But for this tutorial, we will assume that you are working with the default snapshot for anvi'o `v8` (and the example outputs will reflect that data).
+The data that is downloaded by default is actually a snapshot of KEGG at one moment in time in the past, which we downloaded directly from KEGG and pre-processed into formats compatible for downstream anvi'o programs (using this same program). Downloading the snapshot has several benefits. First, we avoid overloading the KEGG servers when multiple people are downloading the data at once. Second, if KEGG ever changes their file formats and breaks our setup code, we can still use the previous snapshots. Third, everyone with the same version of anvi'o uses the same version of KEGG, which makes data sharing and reproducibility easier. You can choose between several snapshots of KEGG, and you can also use  {% include PROGRAM name="anvi-setup-kegg-data" version="8" %} to download the data directly from KEGG to get the latest version of data. You can see instructions for doing that [here](https://anvio.org/help/8/programs/anvi-setup-kegg-data/#getting-the-most-up-to-date-kegg-data-downloading-directly-from-kegg). But for this tutorial, we will assume that you are working with the default snapshot for anvi'o `v8` (and the example outputs will reflect that data).
 
 To check that you have the version of KEGG data that matches to the one we are using in this tutorial, you can run the following (assuming that you are using the default KEGG data directory):
 
@@ -86,7 +86,7 @@ hash .........................................: a2b5bde358bb
 
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Different KEGG version?</span>
-If your {% include ARTIFACT name="modules-db" %} hash is not matching (for instance, if you are using a different version of anvi'o or have intentionally downloaded a different snapshot or directly from KEGG), then you can get the same version by specifying the snapshot name we are using. In this case, we recommend specifying a new location for the data using `--kegg-data-dir` to avoid overwriting your default KEGG data directory, and we remind you that you should use `--kegg-data-dir` to point to that non-default directory in all metabolism-related programs going forward. 
+If your {% include ARTIFACT name="modules-db" version="8" %} hash is not matching (for instance, if you are using a different version of anvi'o or have intentionally downloaded a different snapshot or directly from KEGG), then you can get the same version by specifying the snapshot name we are using. In this case, we recommend specifying a new location for the data using `--kegg-data-dir` to avoid overwriting your default KEGG data directory, and we remind you that you should use `--kegg-data-dir` to point to that non-default directory in all metabolism-related programs going forward. 
 
 Here is how you could do this (you can change the directory name if you want to):
 
@@ -137,13 +137,13 @@ Number of decent hits added back after relaxing bitscore threshold : 121
 Total number of hits in annotation dictionary after adding these back : 1,229
 ```
 
-This is one of our heuristics to reduce the number of missed annotations, and it is turned 'On' by default. Here, it gave us 121 additional annotations for the _A. muciniphila_ genome. Full documentation of the heuristic, including how to change the parameters or turn it off completely if you don't like it, can be found on the {% include PROGRAM name="anvi-run-kegg-kofams" %} help page. 
+This is one of our heuristics to reduce the number of missed annotations, and it is turned 'On' by default. Here, it gave us 121 additional annotations for the _A. muciniphila_ genome. Full documentation of the heuristic, including how to change the parameters or turn it off completely if you don't like it, can be found on the {% include PROGRAM name="anvi-run-kegg-kofams" version="8" %} help page. 
 
 ### Estimating metabolism
 
 #### Completeness metrics
 
-Our next step is to calculate the completeness of each pathway in the KEGG Module database. {% include PROGRAM name="anvi-estimate-metabolism" %} will go through the definition of each module and compute the fraction of KOs in this definition that are present in the genome.
+Our next step is to calculate the completeness of each pathway in the KEGG Module database. {% include PROGRAM name="anvi-estimate-metabolism" version="8" %} will go through the definition of each module and compute the fraction of KOs in this definition that are present in the genome.
 
 ```bash
 anvi-estimate-metabolism -c A_muciniphila-CONTIGS.db \
@@ -162,7 +162,7 @@ Still confused? You can find [more documentation about the differences between t
 
 The threshold for deciding whether a module is 'complete' or not is 0.75 (75%) by default. With this threshold, pathwise completeness means that the genome contains at least 75% of the enzymes necessary to complete at least one version of the metabolic pathway, while stepwise completeness indicates that at least 75% of the steps in the pathway were complete (again, using the enzymes annotated in the genome). This threshold is mutable - you can change it using the `--module-completion-threshold` parameter. However, while the threshold is useful as a basic filter to narrow down which modules are worth considering, it should not be used to conclusively decide which modules are actually complete or not in this genome, as discussed [here](https://merenlab.org/tutorials/infant-gut/#estimating-metabolism-in-the-enterococcus-genomes).
 
-The program will produce an output file called `A_muciniphila_modules.txt` which describes the completeness of each module. More information about this output (and other available output modes) can be found {% include ARTIFACT name="kegg-metabolism" text="at this link" %}.
+The program will produce an output file called `A_muciniphila_modules.txt` which describes the completeness of each module. More information about this output (and other available output modes) can be found {% include ARTIFACT name="kegg-metabolism" text="at this link" version="8" %}.
 
 When you take a look at the output file, you will see that many of the modules marked as 'complete' (in the `module_is_complete` column) are biosynthesis pathways. The table below shows a few of these.
 
@@ -310,7 +310,7 @@ Hopefully it now makes sense why the final completeness score is so different be
 
 #### Copy number metrics
 
-{% include PROGRAM name="anvi-estimate-metabolism" %} can also calculate pathway redundancy, i.e. copy number. You can add those metrics to the output like so:
+{% include PROGRAM name="anvi-estimate-metabolism" version="8" %} can also calculate pathway redundancy, i.e. copy number. You can add those metrics to the output like so:
 
 ```bash
 rm A_muciniphila_module*.txt # we will replace the existing output files
@@ -435,7 +435,7 @@ cat table_7.txt | anvi-script-as-markdown
 As you can see, we found 2 annotations for the sialidase, 2 for the fucosidase, 6 for the β-galactosidase, 1 for the α-amylase, and a whopping 11 for the hexosaminidase. We may have missed the other GH classes for a variety of reasons -- the KOfam profile thresholds may have been too stringent (even for our annotation heuristic), maybe the profiles were not specific for microbial versions of these enzymes (some KOs are created from eukaryotic sequences), or maybe these KOs match to other types of GHs within the broader GH class (for instance, K01316 is labelled as a 'licheninase' rather than a 'endo O-glycanase'. The two terms may not be synonyms).
 
 {:.warning}
-In our current snapshot of the KEGG database, K05992 does not have an associated bit score threshold, so actually, it is impossible for us to annotate this particular enzyme family using {% include PROGRAM name="anvi-run-kegg-kofams" %}. You can see this by examining its entry in the `ko_list` file within the KEGG data directory (and its HMM is saved at `orphan_data/02_hmm_profiles_with_ko_fams_with_no_threshold.hmm` within the KEGG directory). Luckily, there was a hit to a different profile for the α-amylase instead.
+In our current snapshot of the KEGG database, K05992 does not have an associated bit score threshold, so actually, it is impossible for us to annotate this particular enzyme family using {% include PROGRAM name="anvi-run-kegg-kofams" version="8" %}. You can see this by examining its entry in the `ko_list` file within the KEGG data directory (and its HMM is saved at `orphan_data/02_hmm_profiles_with_ko_fams_with_no_threshold.hmm` within the KEGG directory). Luckily, there was a hit to a different profile for the α-amylase instead.
 
 Manually going through annotations like this is one way to see if a microbe has a particular metabolic capability. But there are a couple of things missing. First, we don't get completeness or copy number scores from this (unless you want to manually compute them). Second, clearly there are existing enzyme classes for each of the GHs in the CAZyme database, but not all of them have a corresponding KOfam profile, so we cannot identify all the parts of this pathway using KEGG alone.
 
@@ -443,12 +443,12 @@ It would be great if we could take what we learned about mucin degradation, writ
 
 #### User-defined pathways
 
-We can define a metabolic pathway for mucin degradation using the steps described {% include ARTIFACT name="user-modules-data" text="here" %}. Earlier, when we were researching the required enzymes within the [CAZy database](http://www.cazy.org/), we found matching enzymes from the KOfam database and from the [NCBI Clusters of Orthologous Genes (COGs)](https://www.ncbi.nlm.nih.gov/research/cog-project/) -- see Table 6 above. We can use both of these databases as our functional annotation sources for the pathway, which will hopefully allow us to find enzymes for each step of the process.
+We can define a metabolic pathway for mucin degradation using the steps described {% include ARTIFACT name="user-modules-data" text="here" version="8" %}. Earlier, when we were researching the required enzymes within the [CAZy database](http://www.cazy.org/), we found matching enzymes from the KOfam database and from the [NCBI Clusters of Orthologous Genes (COGs)](https://www.ncbi.nlm.nih.gov/research/cog-project/) -- see Table 6 above. We can use both of these databases as our functional annotation sources for the pathway, which will hopefully allow us to find enzymes for each step of the process.
 
 However, we need to find a way to annotate GH89. Let's make our own custom HMM profile for this enzyme family, using sequences specific to _A. muciniphila_. To do this, we need to 1) find sequences for this enzyme family that come from _A. muciniphila_ genomes; 2) align those sequences; 3) run `hmmbuild` on the alignment to create an HMM profile; and 4) set up the resulting profile in a directory that anvi'o can use by following the structure described [here](https://anvio.org/help/8/artifacts/hmm-source/#user-defined-hmm-sources) and by [this tutorial](https://merenlab.org/2016/05/21/archaeal-single-copy-genes/).
 
 {:.notice}
-We could annotate GH89 with the new program {% include PROGRAM name="anvi-run-cazymes" %}, but unfortunately the way we currently process hits to that database doesn't provide us with an accession number that we can use for defining a metabolic pathway (as discussed [here](https://github.com/merenlab/anvio/issues/2148)). Hopefully, we will fix this soon so that everyone will be able to use the annotations from `anvi-run-cazymes` directly with user-defined pathways. :)
+We could annotate GH89 with the new program {% include PROGRAM name="anvi-run-cazymes" version="8" %}, but unfortunately the way we currently process hits to that database doesn't provide us with an accession number that we can use for defining a metabolic pathway (as discussed [here](https://github.com/merenlab/anvio/issues/2148)). Hopefully, we will fix this soon so that everyone will be able to use the annotations from `anvi-run-cazymes` directly with user-defined pathways. :)
 
 First, we can go to the [CAZy webpage for GH89](http://www.cazy.org/GH89.html) and click on the link at the bottom of the table that says 'Download GH89'. That will give you a file called `GH89.txt` that describes many sequences belonging to the GH89 family. The structure of that file is like this (but without any header):
 
@@ -523,7 +523,7 @@ echo "AA:GENE" > GH89_CUSTOM_HMM/target.txt
 echo "-E 1e-25" > GH89_CUSTOM_HMM/noise_cutoff_terms.txt
 ```
 
-Let's see if we can annotate our contigs database with our new custom HMM. We need the annotations to be stored as gene functions (rather than single-copy core genes) in the database, so we use the flag `--add-to-functions-table` when we run {% include PROGRAM name="anvi-run-hmms" %}:
+Let's see if we can annotate our contigs database with our new custom HMM. We need the annotations to be stored as gene functions (rather than single-copy core genes) in the database, so we use the flag `--add-to-functions-table` when we run {% include PROGRAM name="anvi-run-hmms" version="8" %}:
 
 ```bash
 anvi-run-hmms -c A_muciniphila-CONTIGS.db\
@@ -537,7 +537,7 @@ The program should succeed with 2 new annotations added to the database under th
 Gene functions ...............................: 2 function calls from 1 source (GH89_CUSTOM_HMM) for 2 unique gene calls have been added to the contigs database.
 ```
 
-Finally, we can annotate our database with the NCBI COGs database so that we can use those functions in our metabolic pathway definition as well. If you haven't already done this on your computer, you should run {% include PROGRAM name="anvi-setup-ncbi-cogs" %} to download that database. Then you'll be able to run the following:
+Finally, we can annotate our database with the NCBI COGs database so that we can use those functions in our metabolic pathway definition as well. If you haven't already done this on your computer, you should run {% include PROGRAM name="anvi-setup-ncbi-cogs" version="8" %} to download that database. Then you'll be able to run the following:
 ```bash
 anvi-run-ncbi-cogs -c A_muciniphila-CONTIGS.db -T 4
 ```
@@ -606,7 +606,7 @@ ANNOTATION_SOURCE   K01186  KOfam
 ///
 ```
 
-You should copy and paste this full definition into a file - let's call it `MD0001.txt`. For a nice organization of our working directory and to comply with the [directory structure expected](http://127.0.0.1:4000/help/main/programs/anvi-setup-user-modules/#input-directory-format) by {% include PROGRAM name="anvi-setup-user-modules" %}, we will put that file inside a directory called 'CUSTOM_PATHWAYS' and then within an inner folder called 'modules', like so:
+You should copy and paste this full definition into a file - let's call it `MD0001.txt`. For a nice organization of our working directory and to comply with the [directory structure expected](http://127.0.0.1:4000/help/main/programs/anvi-setup-user-modules/#input-directory-format) by {% include PROGRAM name="anvi-setup-user-modules" version="8" %}, we will put that file inside a directory called 'CUSTOM_PATHWAYS' and then within an inner folder called 'modules', like so:
 
 ```bash
 mkdir CUSTOM_PATHWAYS
@@ -614,7 +614,7 @@ mkdir CUSTOM_PATHWAYS/modules
 mv MD0001.txt CUSTOM_PATHWAYS/modules/
 ```
 
-Then you can pass this directory to {% include PROGRAM name="anvi-setup-user-modules" %}, which will go through all the module files inside the folder (there is only one module file at the moment) to generate a {% include ARTIFACT name="modules-db" %} containing our custom mucin degradation pathway.
+Then you can pass this directory to {% include PROGRAM name="anvi-setup-user-modules" version="8" %}, which will go through all the module files inside the folder (there is only one module file at the moment) to generate a {% include ARTIFACT name="modules-db" version="8" %} containing our custom mucin degradation pathway.
 
 ```bash
 anvi-setup-user-modules -u CUSTOM_PATHWAYS/
@@ -735,7 +735,7 @@ tar -xvf FMT_MAGS_FOR_METABOLIC_ENRICHMENT.tar.gz && cd FMT_MAGS_FOR_METABOLIC_E
 In our final publication, we updated the MAG group names to be "high metabolic independence" or HMI instead of "high-fitness", and "low metabolic independence
  (LMI) instead of "low-fitness", because we felt those terms better reflected our conclusions. However, the old group names remain in this datapack and in the tutorial text below.
 
-This dataset includes anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %} for 40 MAGs of gut microbes, labeled as either "high-fitness" or "low-fitness" according to their [colonization ability](https://merenlab.org/data/fmt-gut-colonization/#defining-colonization-success-and-failure) and prevalence in healthy gut metagenomes (there are 20 MAGs in each group). You can learn the full details of how and why we got them by reading the [study](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-023-02924-x), but for the purposes of this tutorial, here is what you need to know about these MAGs:
+This dataset includes anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" version="8" %} for 40 MAGs of gut microbes, labeled as either "high-fitness" or "low-fitness" according to their [colonization ability](https://merenlab.org/data/fmt-gut-colonization/#defining-colonization-success-and-failure) and prevalence in healthy gut metagenomes (there are 20 MAGs in each group). You can learn the full details of how and why we got them by reading the [study](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-023-02924-x), but for the purposes of this tutorial, here is what you need to know about these MAGs:
 
 - they were binned from a co-assembly of **longitudinally-sampled gut metagenomes** taken from a **healthy adult who donated stool for fecal microbiota transplantation (FMT)**
 - the **high-fitness MAGs** represent microbial **populations that were able to colonize all FMT recipients** who received stool from this donor. They were detected (with sufficient abundance) in recipient gut metagenomes at least 7 days (and up to 1 year) post-FMT
@@ -748,7 +748,7 @@ One way to answer this question is to look at the metabolic potential, or genomi
 
 ### Estimating metabolism for these MAGs
 
-You can run {% include PROGRAM name="anvi-estimate-metabolism" %} on all 40 MAGs in this dataset at once by utilizing the {% include ARTIFACT name="external-genomes" text="external genomes file" %} provided in the datapack, as shown below:
+You can run {% include PROGRAM name="anvi-estimate-metabolism" version="8" %} on all 40 MAGs in this dataset at once by utilizing the {% include ARTIFACT name="external-genomes" text="external genomes file" version="8" %} provided in the datapack, as shown below:
 
 ```bash
 anvi-estimate-metabolism -e external-genomes.txt \
@@ -761,9 +761,9 @@ You could look through this file manually to see what metabolisms are encoded in
 
 ### Finding enriched metabolic pathways
 
-Anvi'o has a program for computing enrichment of metabolic modules in different groups of genomes, and that program is {% include PROGRAM name="anvi-compute-metabolic-enrichment" %}. It will compute an enrichment score and a list of associated groups for each module that is present in at least one genome (modules are considered 'present' in a genome if they have a high enough completeness score in that genome, based upon the threshold we discussed earlier).
+Anvi'o has a program for computing enrichment of metabolic modules in different groups of genomes, and that program is {% include PROGRAM name="anvi-compute-metabolic-enrichment" version="8" %}. It will compute an enrichment score and a list of associated groups for each module that is present in at least one genome (modules are considered 'present' in a genome if they have a high enough completeness score in that genome, based upon the threshold we discussed earlier).
 
-To run this program, you must provide it with the modules mode output file we generated in the last section, as well as a {% include ARTIFACT name="groups-txt" %} file that matches each genome to its group name. The latter file is provided in the datapack, so you don't need to generate it yourself. Here is the code to run the enrichment program:
+To run this program, you must provide it with the modules mode output file we generated in the last section, as well as a {% include ARTIFACT name="groups-txt" version="8" %} file that matches each genome to its group name. The latter file is provided in the datapack, so you don't need to generate it yourself. Here is the code to run the enrichment program:
 
 ```bash
 anvi-compute-metabolic-enrichment -M FMT_MAG_metabolism_modules.txt \
@@ -771,7 +771,7 @@ anvi-compute-metabolic-enrichment -M FMT_MAG_metabolism_modules.txt \
                                   -o metabolic-enrichment.txt
 ```
 
-The result will be a {% include ARTIFACT name="functional-enrichment-txt" %} file describing the name, enrichment score, associated groups, and other information about each metabolic module.
+The result will be a {% include ARTIFACT name="functional-enrichment-txt" version="8" %} file describing the name, enrichment score, associated groups, and other information about each metabolic module.
 
 Here are the first 10 lines of this file (scroll to the right to see more columns):
 
