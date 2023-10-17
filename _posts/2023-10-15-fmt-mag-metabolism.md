@@ -61,12 +61,12 @@ anvi-setup-kegg-data
 
 That's it. What this does is download a bunch of data from KEGG onto your computer. The data that are relevant to metabolism estimation are: 1) profile hidden Markov models (pHMMs) for functional annotation from the KOfam database and 2) metabolic pathway definition files from the KEGG MODULE database. The pHMMs have been organized into one big file that is ready for running [`hmmsearch`](https://doi.org/10.1371/journal.pcbi.1002195), and the module definitions have been parsed into a {% include ARTIFACT name="modules-db" text="modules database" %}. This program also downloads data relevant for metabolic modeling in anvi'o, but we don't have to worry about that for the purposes of this tutorial.
 
-By default, the KEGG data goes into the anvi'o directory on your computer. If you don't have permission to modify this folder, you will need to pick a different location (that you _do_ have permission to modify) for the data and specify that folder using the `--kegg-data-dir` parameter. If this is your case, please note that the two subsequent steps will also require you to specify that folder location with `--kegg-data-dir`.
+By default, the KEGG data goes into the anvi'o directory on your computer. If you don't have permission to modify this folder, you will need to pick a different location (that you _do_ have permission to modify) for the data and specify that folder using the `--kegg-data-dir` parameter. If this is your case, please note that running {% include PROGRAM name="anvi-run-kegg-kofams" %} and {% include PROGRAM name="anvi-estimate-metabolism" %} will also require you to specify that folder location with `--kegg-data-dir`.
 
 {:.notice}
 The data that is downloaded by default is actually a snapshot of KEGG at one moment in time in the past, which we downloaded directly from KEGG and pre-processed into formats compatible for downstream anvi'o programs (using this same program). Downloading the snapshot has several benefits. First, we avoid overloading the KEGG servers when multiple people are downloading the data at once. Second, if KEGG ever changes their file formats and breaks our setup code, we can still use the previous snapshots. Third, everyone with the same version of anvi'o uses the same version of KEGG, which makes data sharing and reproducibility easier. You can choose between several snapshots of KEGG, and you can also use  {% include PROGRAM name="anvi-setup-kegg-data" %} to download the data directly from KEGG to get the latest version of data. You can see instructions for doing that [here](https://anvio.org/help/8/programs/anvi-setup-kegg-data/#getting-the-most-up-to-date-kegg-data-downloading-directly-from-kegg). But for this tutorial, we will assume that you are working with the default snapshot for anvi'o `v8` (and the example outputs will reflect that data).
 
-To check that you have the version of KEGG data that matches to the one we are using in this tutorial, you can run the following:
+To check that you have the version of KEGG data that matches to the one we are using in this tutorial, you can run the following (assuming that you are using the default KEGG data directory):
 
 ```bash
 # learn where the MODULES.db is:
@@ -100,7 +100,7 @@ anvi-setup-kegg-data --kegg-snapshot v2023-09-22 --kegg-data-dir ./KEGG_2023-09-
 
 The contigs database includes predicted gene calls (open reading frames, or ORFs), but we don't know what functions these genes encode. The next step is annotating these genes with hits to the KOfam database of functional orthologs. If a gene is similar enough to a protein family in this database, it will be annotated with the family's KEGG Ortholog (KO) number. This number is what allows us to match genes to the metabolic pathways that they belong to.
 
-This step is the most time-consuming in the workflow. If you have enough resources on your computer, you can give it additional threads to speed up the process (below we use just 4 threads, which should work for most laptop models these days).
+This step can be time-consuming when your database contains many gene calls. If you have enough resources on your computer, you can give it additional threads to speed up the process (below we use just 4 threads, which should work for most laptop models these days).
 
 ```bash
 anvi-run-kegg-kofams -c A_muciniphila-CONTIGS.db \
@@ -193,7 +193,7 @@ Clearly, this is a very talented microbe. It can make a lot of things.
 
 Although the pathways shown above are all 'complete' in some way, there are still a few interesting things to mention here. First, you can see that several of the modules share enzymes via the statements in the `warnings` column -- for instance, K00940 (which is a nucleoside-diphosphate kinase) belongs to many of the purine metabolism pathways. This is something to keep in mind when interpreting completeness scores. If a completeness score is high (yet still less than 1.0) and all of the present enzymes are shared with another module, you might feel less confident that the pathway is relevant, considering that those enzymes may be used for other purposes in the cell. Enzymes that are unique to a given pathway, on the other hand, may give you more confidence in the pathway's relevance. You can see data about those in the columns named `enzymes_unique_to_module`, `proportion_unique_enzymes_present`, and `unique_enzymes_hit_counts`.
 
-Consider the examples of M00950, which is a pathway for biotin biosynthesis. It has a completeness scores of 0.75 regardless of pathway interpretation strategy. But it doesn't have any unique enzymes; in fact, there seems to be a set of four modules that share a bunch of the same enzymes - `M00123/M00950/M00573/M00577`:
+Consider the example of M00950, which is a pathway for biotin biosynthesis. It has a completeness score of 0.75 regardless of pathway interpretation strategy. But it doesn't have any unique enzymes; in fact, there seems to be a set of four modules that share a bunch of the same enzymes - `M00123/M00950/M00573/M00577`:
 
 ```bash
 head -n 1 A_muciniphila_modules.txt; \
@@ -224,6 +224,7 @@ Second, the stepwise and pathwise completeness metrics occasionally differ for t
 |M00014|Glucuronate pathway (uronate pathway)|"K00012 ((K12447 K16190),(K00699 (K01195,K14756))) K00002 K13247 -- K03331 (K05351,K00008) K00854"|0.125|0.1111111111111111|K00012|
 |M00855|Glycogen degradation, glycogen => glucose-6P|"(K00688,K16153) (K01196,((K00705,K22451) (K02438,K01200))) (K15779,K01835,K15778)"|0.6666666666666666|0.75|K00688,K00705,K01835|
 |M00173|Reductive citrate cycle (Arnon-Buchanan cycle)|"(K00169+K00170+K00171+K00172,K03737) ((K01007,K01006) K01595,K01959+K01960,K01958) K00024 (K01676,K01679,K01677+K01678) (K00239+K00240-K00241-K00242,K00244+K00245-K00246-K00247,K18556+K18557+K18558+K18559+K18560) (K01902+K01903) (K00174+K00175-K00177-K00176) K00031 (K01681,K01682) (K15230+K15231,K15232+K15233 K15234)"|0.7|0.7272727272727273|K00024,K00031,K00239,K00240,K00241,K01006,K01676,K01681,K01902,K01903,K03737|
+|M00176|Assimilatory sulfate reduction, sulfate => H2S|"(((K13811,K00958+K00860,K00955+K00957,K00956+K00957+K00860) K00390),(K13811 K05907)) (K00380+K00381,K00392)"|0.5|0.8888888888888888|K00380,K00381,K00390,K00956,K00957|
 
 <details markdown="1"><summary>Show/Hide Code for getting Table 2</summary>
 This output was obtained by running the following code:
@@ -270,14 +271,12 @@ You'll get two output files, `A_muciniphila_module_paths.txt` and `A_muciniphila
 |M00176|A_muciniphila|0.8888888888888888|True|7|K00955+K00957,K00390,K00392|0.5|[MISSING K00955+K00957],K00390,[MISSING K00392]|
 |M00176|A_muciniphila|0.8888888888888888|True|8|K00956+K00957+K00860,K00390,K00392|0.5555555555555555|[MISSING K00956+K00957+K00860],K00390,[MISSING K00392]|
 |M00176|A_muciniphila|0.8888888888888888|True|9|K13811,K05907,K00392|0.0|[MISSING K13811],[MISSING K05907],[MISSING K00392]|
-|M00616|A_muciniphila|0.4444444444444444|False|0|K02048+K02046+K02047+K02045,M00176|0.4444444444444444|[MISSING K02048+K02046+K02047+K02045],M00176|
-|M00616|A_muciniphila|0.4444444444444444|False|1|K23163+K02046+K02047+K02045,M00176|0.4444444444444444|[MISSING K23163+K02046+K02047+K02045],M00176|
 
 <details markdown="1"><summary>Show/Hide Code for getting Table 3</summary>
 This output was obtained by running the following code:
 
 ```bash
-head -n 1 A_muciniphila_module_paths.txt > table_3.txt; grep M00176 A_muciniphila_module_paths.txt >> table_3.txt
+head -n 1 A_muciniphila_module_paths.txt > table_3.txt; grep -e "^M00176" A_muciniphila_module_paths.txt >> table_3.txt
 
 # this part generates the table seen above
 cat table_3.txt | anvi-script-as-markdown
@@ -358,7 +357,7 @@ There are a couple of ways to get around this limitation -- one of those is to d
 
 In the case of mucin degradation, the enzymes that break up mucin (by destroying the gylcosidic bonds between the mucin molecules) are called Glycoside hydrolases (GHs). Several GHs work sequentially to degrade the different parts of mucin glycans ([Bell and Juge 2020](https://doi.org/10.1093/glycob/cwaa097), [Tailford 2015](https://www.frontiersin.org/articles/10.3389/fgene.2015.00081/full)).  In _A. muciniphila_, several of these enzymes have already been characterized through biochemical methods ([Derrien 2007](https://www.proquest.com/openview/6a566a24e19814c28d9d413e877b2618/1?cbl=2026366&diss=y&pq-origsite=gscholar&parentSessionId=O1DpssTMOgvTUrVO8PcgOwxMr839IcOJSQw%2FeyQlr2o%3D)), but information on the specific genes that are involved is a bit hard to find. In a recent analysis using transposon mutant libraries, it was discovered that genes important for the mucin degradation phenogype include those encoding a sialidase (GH33), a fucosidase (GH95), an outer membrane-associated endo O-glycanase (GH16), a β-galactosidase (GH2), an α-N-acetylglucosaminidase (GH89), an α-amylase (GH13), a galactosidase (GH43) and a β-hexosaminidase (GH20) ([Davey et al. 2023](https://doi.org/10.1038/s41564-023-01407-w)). The classification of each of those enzymes, as defined by [the CAZy database](http://www.cazy.org/Glycoside-Hydrolases.html), is given in parentheses in that list.
 
-If we look for genes that are annotated with those enzyme names, then we should be able to manually reconstruct the mucin degradation pathway in our _A. muciniphila_ genome. We've been working with KOfam annotations so far, and `anvi-estimate-metabolism` can give us some quick info on the KOfam annotations in our genome, so let's see if we can find some of these enzyme families in the KEGG Orthology database. Here is what I got:
+If we look for genes that are annotated with those enzyme names, then we should be able to manually reconstruct the mucin degradation pathway in our _A. muciniphila_ genome. We've been working with KOfam annotations so far, and `anvi-estimate-metabolism` can give us some quick info on the KOfam annotations in our genome, so let's see if we can find some of these enzyme families in the KEGG Orthology database. While we are at it, we can also check for links to these families in other databases. Here is what I got:
 
 |**GH annotation**|**CAZy class**|**Matching KO(s)**|**Accessions from other databases**|
 |:---|:---|:---|:---|
@@ -374,7 +373,7 @@ If we look for genes that are annotated with those enzyme names, then we should 
 <details markdown="1"><summary>Show/Hide Process for getting Table 6</summary>
 You can find the corresponding KOs for each CAZy class by searching the KEGG website for Orthology entries that include a link to that class in the `Other DBs` section. There were many KOs for GH13, so only the ones explicitly labeled as α-amylase were included in the table. There was no link from KEGG to GH89. Examining the pages linked from [the CAZy page for GH89](http://www.cazy.org/GH89.html) suggests that [K01205](https://www.kegg.jp/entry/K01205) has this function; however, it seems to be the human version of this enzyme and may not be relevant to microbes.
 
-Accession numbers from other databases are sometimes linked KEGG Orthology webpages for matching KOs.
+Accession numbers from other databases are sometimes linked from the KEGG Orthology webpages for matching KOs. For these GH families, I only found links to the [NCBI Clusters of Orthologous Genes (COGs) database](https://www.ncbi.nlm.nih.gov/research/cog-project/).
 </details>
 
 Note that not all of these will be exactly what we are looking for, since these are fairly broad enzyme families. But we at least have a few options to look for (except for GH89).
@@ -433,7 +432,7 @@ cat table_7.txt | anvi-script-as-markdown
 ```
 </details>
 
-As you can see, we found 2 annotations for the sialidase, 2 for the fucosidase, 6 for the β-galactosidase, 1 for the α-amylase, and a whopping 11 for the hexosaminidase. We may have missed the other GH classes for a variety of reasons -- the KOfam profile thresholds may have been too stringent (even for our annotation heuristic), maybe the profiles were not specific for microbial versions of these enzymes (some KOs are created from eukaryotic sequences), or maybe these KOs match to other types of GHs within the broader GH class (for instance, K01316 is labelled as a 'licheninase' rather than a 'endo O-glycanase'. The two terms may not be synonyms.).
+As you can see, we found 2 annotations for the sialidase, 2 for the fucosidase, 6 for the β-galactosidase, 1 for the α-amylase, and a whopping 11 for the hexosaminidase. We may have missed the other GH classes for a variety of reasons -- the KOfam profile thresholds may have been too stringent (even for our annotation heuristic), maybe the profiles were not specific for microbial versions of these enzymes (some KOs are created from eukaryotic sequences), or maybe these KOs match to other types of GHs within the broader GH class (for instance, K01316 is labelled as a 'licheninase' rather than a 'endo O-glycanase'. The two terms may not be synonyms).
 
 {:.warning}
 In our current snapshot of the KEGG database, K05992 does not have an associated bit score threshold, so actually, it is impossible for us to annotate this particular enzyme family using {% include PROGRAM name="anvi-run-kegg-kofams" %}. You can see this by examining its entry in the `ko_list` file within the KEGG data directory (and its HMM is saved at `orphan_data/02_hmm_profiles_with_ko_fams_with_no_threshold.hmm` within the KEGG directory). Luckily, there was a hit to a different profile for the α-amylase instead.
@@ -444,7 +443,7 @@ It would be great if we could take what we learned about mucin degradation, writ
 
 #### User-defined pathways
 
-We can define a metabolic pathway for mucin degradation using the steps described {% include ARTIFACT name="user-modules-data" text="here" %}. Earlier, when we were researching the required enzymes within the [CAZy database](http://www.cazy.org/), we found matching enzymes from the KOfam database and from the NCBI Clusters of Orthologous groups (COGs) -- see Table 6 above. We can use both of these databases as our functional annotation sources for the pathway, which will hopefully allow us to find enzymes for each step of the process.
+We can define a metabolic pathway for mucin degradation using the steps described {% include ARTIFACT name="user-modules-data" text="here" %}. Earlier, when we were researching the required enzymes within the [CAZy database](http://www.cazy.org/), we found matching enzymes from the KOfam database and from the [NCBI Clusters of Orthologous Genes (COGs)](https://www.ncbi.nlm.nih.gov/research/cog-project/) -- see Table 6 above. We can use both of these databases as our functional annotation sources for the pathway, which will hopefully allow us to find enzymes for each step of the process.
 
 However, we need to find a way to annotate GH89. Let's make our own custom HMM profile for this enzyme family, using sequences specific to _A. muciniphila_. To do this, we need to 1) find sequences for this enzyme family that come from _A. muciniphila_ genomes; 2) align those sequences; 3) run `hmmbuild` on the alignment to create an HMM profile; and 4) set up the resulting profile in a directory that anvi'o can use by following the structure described [here](https://anvio.org/help/8/artifacts/hmm-source/#user-defined-hmm-sources) and by [this tutorial](https://merenlab.org/2016/05/21/archaeal-single-copy-genes/).
 
@@ -499,6 +498,10 @@ There is one more thing we have to do -- add the accession number we want to use
 ```
 ACC   GH89_A_muciniphila
 ```
+
+{:.notice}
+Don't want to manually edit the file? You can run this instead to insert the accession string at line 3 of the HMM profile: `awk 'NR==3{print "ACC   GH89_A_muciniphila"}1' genes.hmm > genes.hmm.new; mv genes.hmm.new genes.hmm`
+
 The string `GH89_A_muciniphila` will be the accession number that we use to refer to this annotation model within our pathway definition later.
 
 Finally, we can put it into a custom HMM directory that anvi'o can use by running the following commands to generate the [expected files and directory structure](https://anvio.org/help/8/artifacts/hmm-source/#user-defined-hmm-sources):
@@ -691,18 +694,19 @@ cat table_10.txt | anvi-script-as-markdown
 
 This output can also help us identify where the KOs and COGs overlap well, and where they do not. For instance, the first step of the pathway (the sialidase) can be annotated by both COGs and KOfams, and indeed, if you check the `hits` output file you will see that the same 2 genes are annotated with both accessions. However, the step of the pathway requiring the endo O-glycanase, which we couldn't annotate with KOfam earlier, is fulfilled only by the `COG2273` annotation.
 
+If we assume that our annotation strategies perfectly identify the enzymes we are looking for, then we are happy and confident in the output of the metabolism estimation. And this may be the case! However, since gene annotation is not infallible, we should be careful and consider some reasons for how we got to this answer. 
+
 Here are a few takeaway points that we have learned so far:
 
-- despite the presence of several KOfam profiles for the same 'enzyme', only certain KOs seem to be relevant to the _A. muciniphila_ genome 
+- despite the presence of several KOfam profiles for the same enzyme family, only certain KOs seem to be relevant to the _A. muciniphila_ genome 
 - some enzymes can be annotated interchangeably with both COGs and KOfam
 - whenever a COG is defined for an enzyme class in the pathway, we find annotations to that COG in _A. muciniphila_
 - some enzymes can only be identified via annotation by COGs
 
-These points suggest that for these Glycoside hydrolases, the COG version of the enzyme family is more broadly defined than the corresponding KOfam profile (that is, KEGG Orthology families are more specific than COG).
+These points suggest that for these Glycoside hydrolases, the COG version of the enzyme family is more broadly defined than the corresponding KOfam profile (that is, KEGG Orthology families are more specific than COG). This could imply the following:
 
-And now, a harsh dose of reality to think about. In practice, the discrepancy between the annotation strategies that we have seen could mean two things.
-
-1) Maybe the KOfam profiles are too specific, and we will miss these functional annotations if we rely soley on KEGG as an annotation source. 2) Maybe the COG families are too broad, and finding the COG annotation doesn't necessarily mean that we've found the enzyme that performs this step of mucin degradation in _A. muciniphila_. 
+1) Maybe the KOfam profiles are too specific, and we will miss these functional annotations if we rely soley on KEGG as an annotation source. In this case, defining our own pathway using alternative annotation sources is a better strategy.
+2) Maybe the COG families are too broad, and finding the COG annotation doesn't necessarily mean that we've found the enzyme that performs this step of mucin degradation in _A. muciniphila_.
 
 Both of these things can be true at the same time (implying that we just really don't have a good way to annotate some of these enzymes), and these things don't have to be the same for all of the enzymes in our list -- for instance, maybe _1_ is true for the endo O-glycanase (`K01216`/`K20830`/`COG2273`) but _2_ is true for the galactosidase (`K12373`/`K14459`/`K20730`/`COG3507`). The only way to know is to become an expert in mucin degradation, which will allow you to define a metabolic pathway for it with much more confidence and accuracy than we did here today. :)
 
