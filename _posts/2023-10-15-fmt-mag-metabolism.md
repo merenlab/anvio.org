@@ -347,7 +347,7 @@ The `pathwise_copy_number` column reports the copy number of the maximally-compl
 
 We also generated the path- and step-specific output files in the previous command, and you can see the per-path and per-step copy numbers in those files.
 
-The copy number results aren't that interesting here because we are only working with a single genome, so we only get copy numbers of 0, 1 or NA. It's not really a metric meant for individual populations (unless you are working with an organism that has lots of genome duplications). However, it is extremely useful for analyzing metagenomes. We won't be doing that just now, but you can see an example of how we use it in [this reproducible workflow](https://merenlab.org/data/ibd-gut-metabolism) (and [this section](https://merenlab.org/data/ibd-gut-metabolism/#metabolism-analyses-for-metagenomes) of it in particular).
+The copy number results aren't that interesting here because we are only working with a single genome, so we only get copy numbers of 0, 1 or NA. It's not really a metric meant for individual populations (unless you are working with an organism that has lots of genome duplications). However, it is extremely useful for analyzing metagenomes. We won't be doing that just yet, but the section ["Estimating pathway copy number in a metagenome assembly"](#estimating-pathway-copy-number-in-a-metagenome-assembly) below demonstrates this capability. You can also see an example of how we use it in [this reproducible workflow](https://merenlab.org/data/ibd-gut-metabolism) (and [this section](https://merenlab.org/data/ibd-gut-metabolism/#metabolism-analyses-for-metagenomes) of it in particular).
 
 #### Manual inspection of KOfam hits
 
@@ -800,6 +800,122 @@ The modules are organized so that those with higher enrichment scores (and lower
 The modules in the partial output above represent the metabolic pathways with the highest enrichment scores in our MAGs. All of the modules shown passed our filtering criteria - they have q-values less than 0.05 and are present in at least 10/20 of their associated group. In total, our group found 33 different KEGG modules that were enriched in these MAGs, including the above 9. You can find out which modules these are by taking a look at our [supplementary table 7](https://figshare.com/articles/dataset/Supplementary_Tables/14138405/2?file=26827175), sheet (d).
 
 You will see that all 9 of the above modules are enriched in the "high-fitness" group of MAGs - and indeed, all 33 modules that passed our filters were enriched in this group. You might also notice that most of the enriched modules are biosynthesis pathways, particularly of amino acids and essential cofactors. As we discuss in the paper, this indicated to us that "high-fitness" populations were successful in colonizing the FMT recipients because they were metabolically independent - that is, they were able to individually produce the molecules they needed to survive and grow, and thus had a competitive advantage compared to the "low-fitness" populations, which generally did not have these biosynthesis capabilities.
+
+### Estimating pathway copy number in a metagenome assembly
+
+{:.warning}
+This section requires a lot of disk space, computer processing power, and time. If you want to run it yourself, it may be better to do so on a high-performance computer cluster (if you have access to one). But if you are just working on a personal laptop, you might consider simply reading through this section to learn the process and outcome rather than running everything yourself.
+
+Earlier in this tutorial, we learned that pathway copy number could be a relevant metric for unbinned metagenomes. Let's see this in action, using the metagenomes from the FMT study. You can download a contigs database containing these data using the following commands (it will take some time, and the final uncompressed data will take up ~7.8 GB on your computer).
+
+```bash
+wget https://figshare.com/ndownloader/files/27452192 -O FMT_DONOR_A_AND_RECIPIENTS.tar.gz
+tar -xvf FMT_DONOR_A_AND_RECIPIENTS.tar.gz && cd FMT_DONOR_A_AND_RECIPIENTS/
+rm ../FMT_DONOR_A_AND_RECIPIENTS.tar.gz  # save some space by deleting the archive
+anvi-migrate --migrate-quickly *.db  # update the databases to newer versions
+```
+
+The resulting contigs database contains our co-assembly of all metagenomes taken from one FMT donor (Donor A). Since this assembly was previously annotated with an earlier version of KEGG, we have to re-run the annotation with our current snapshot of KEGG. We use the flag `--just-do-it` to overwrite the existing annotations in the database:
+
+```bash
+anvi-run-kegg-kofams -c CONTIGS.db \
+                     --just-do-it
+```
+
+It will take a long time, because there are **698,938** gene calls in this database that all have to be checked against the **24,217** KOfam profiles in the KEGG database. It took about 3 hours on our HPC with `--num-threads 40`. 
+
+When this is finished, you can estimate pathway copy numbers in this assembly like so:
+
+```bash
+anvi-estimate-metabolism -c CONTIGS.db \
+                         -O DONOR_A \
+                         --output-modes modules \
+                         --add-copy-number
+```
+
+You will notice in the program output that lots of modules are considered 'complete' in this assembly, which makes sense because we have combined the KOfam annotations from all organisms represented across all the metagenomes:
+
+```
+Number of complete modules (pathwise) ........: 187
+Number of complete modules (stepwise) ........: 180
+```
+
+Clearly, the completeness metric isn't very useful in this case. What we want to see instead is the copy number of each pathway. Here is a table extracted from the `DONOR_A_modules.txt` output file, showing the copy numbers for the first 10 modules:
+
+|**module**|**module_name**|**pathwise_copy_number**|**stepwise_copy_number**|**per_step_copy_numbers**|
+|:--|:--|:--|:--|:--|
+|M00001|Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate|211|186|319,237,459,437,259,186,351,291,263|
+|M00002|Glycolysis, core module involving three-carbon compounds|209|186|259,186,351,291,263|
+|M00003|Gluconeogenesis, oxaloacetate => fructose-6P|185|138|169,291,351,209,186,259,138|
+|M00307|Pyruvate oxidation, pyruvate => acetyl-CoA|244|286|286|
+|M00009|Citrate cycle (TCA cycle, Krebs cycle)|20|8|244,8,180,74,25,21,182,24|
+|M00010|Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate|7|8|244,8,180|
+|M00011|Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate|20|21|74,25,21,182,24|
+|M00004|Pentose phosphate pathway (Pentose phosphate cycle)|119|26|26,49,227,289,501,148|
+|M00006|Pentose phosphate pathway, oxidative phase, glucose 6P => ribulose 5P|26|26|26,49|
+|M00007|Pentose phosphate pathway, non-oxidative phase, fructose 6P => ribose 5P|227|148|501,148,227,289|
+
+<details markdown="1"><summary>Show/Hide Code for getting Table 12</summary>
+First we extract only the columns containing the module name and copy number information:
+
+```bash
+cut -f 1,3,18- DONOR_A_modules.txt > table_12.txt
+```
+
+Then we convert it to markdown:
+
+```bash
+head -n 11 table_12.txt | anvi-script-as-markdown
+```
+</details>
+
+The pathwise metric gives us the maximum copy number of the most complete paths through the module, and those 'most complete paths' may not represent the path used by all of the organisms in the metagenome. That means that, in practice, pathwise copy number is not usually as useful for analyzing metagenomes as stepwise copy number. Stepwise copy number accounts for all possible variations of a given pathway and reports the minimum copy number across all steps -- we should focus on this metric when analyzing the metagenome assembly.
+
+But first, so we can better understand how many microbial populations are contributing to these metrics, let's estimate the number of microbes described in the co-assembly. Here is a quick little Python script to do this, using the `NumGenomesEstimator` class in anvi'o. To run these commands, type `python` in your terminal to open the Python interpreter, then copy and paste each command below:
+
+```python
+import anvio
+from anvio.hmmops import NumGenomesEstimator
+estimates = NumGenomesEstimator("CONTIGS.db").estimates_dict
+estimates # show the full data structure containing the estimated number of populations
+print(estimates['Bacteria_71']['num_genomes']) # specifically print the number of bacteria estimated
+print(estimates['Campbell_et_al']['num_genomes']) # (using two different SCG collections)
+exit() # leave the Python interpreter
+```
+
+The `NumGenomesEstimator` class estimates the number of populations in the assembly by calculating the mode of the number of single-copy core gene annotations. You will see in the output that 1) the estimates depend on which (domain-specific) collection of single-copy core genes is used, 2) that no archeael or protist populations are present in the assembly, and 3) there are approximately **179-184** bacteria in this co-assembly from Donor A. When you look at the table above, you can see several pathways with a stepwise copy number which is about the same as the number of bacteria in the assembly -- for instance, the various parts of glycolysis, and the non-oxidative phase of the pentose phosphate pathway. Those are fairly common pathways and it makes sense to assume that each microbial population we found in the donor's stool has those capacity. Some pathways are present in more copies than we have bacteria, which could mean that some populations harbor multiple versions of the pathway (or multiple copies of the same enzymes). This is more likely to happen with pathways that utilize multi-purpose enzymes that can be used for other purposes in the cell.
+
+Earlier, we saw that some of our MAGs (the 'high-fitness' ones) had a lot of biosynthetic capabilities while the 'low-fitness' group did not. This metagenome assembly (which was generated from FMT donor metagenomes) should include a combination of high- and low-fitness MAGs, so if we look at the biosynthesis pathways enriched in the high-fitness group we should see that there are fewer copies of these pathways than there are bacteria. You can run the following commands to search for some of the enriched pathways and see their stepwise copy numbers. The module numbers were taken from the enrichment output we saw in the previous section.
+
+```bash
+head -n 1 DONOR_A_modules.txt | cut -f 1,3,19 > table_13.txt
+for m in M00570 M00019 M00096 M00048 M00526 M00026 M00018 M00122; do \
+  grep -e "^$m" DONOR_A_modules.txt | cut -f 1,3,19 >> table_13.txt; \
+done
+```
+Here is what the resulting table looks like:
+
+|**module**|**module_name**|**stepwise_copy_number**|
+|:--|:--|:--|
+|M00570|Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine|172|
+|M00019|Valine/isoleucine biosynthesis, pyruvate => valine / 2-oxobutanoate => isoleucine|172|
+|M00096|C5 isoprenoid biosynthesis, non-mevalonate pathway|135|
+|M00048|De novo purine biosynthesis, PRPP + glutamine => IMP|149|
+|M00526|Lysine biosynthesis, DAP dehydrogenase pathway, aspartate => lysine|96|
+|M00026|Histidine biosynthesis, PRPP => histidine|124|
+|M00018|Threonine biosynthesis, aspartate => homoserine => threonine|134|
+|M00122|Cobalamin biosynthesis, cobyrinate a,c-diamide => cobalamin|123|
+
+<details markdown="1"><summary>Show/Hide Code for getting Table 13</summary>
+We already generated the table above, so here we just convert it to markdown:
+
+```bash
+cat table_13.txt | anvi-script-as-markdown
+```
+</details>
+
+And indeed, for most of these, their stepwise copy number is below the number of bacterial populations (n = ~179-184) predicted to be in the assembly, as expected.
+
 
 ## Conclusion
 
