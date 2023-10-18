@@ -922,9 +922,9 @@ And indeed, for most of these, their stepwise copy number is below the number of
 
 ### Exploring pathway coverage in metagenomes
 
-The contigs database that we were working with above came with an associated {% include ARTIFACT name="profile-db" text="profile database" version="8" %} that contains the read recruitment data from several metagenomes, sampled in time-series (before and after the FMT) from stool Donor A and their stool recipients. Let's use this information to look at the coverage of one pathway over time.
+The contigs database that we were working with above came with an associated {% include ARTIFACT name="profile-db" text="profile database" version="8" %} that contains the read recruitment data from several metagenomes, sampled in time-series (before and after the FMT) from stool Donor A and their stool recipients. Let's use this information to look at the coverage of pathways over time.
 
-We can include pathway-specific gene coverage information in the output from {% include PROGRAM name="anvi-estimate-metabolism" version="8" %} by adding the `--add-coverage` flag and the path to the profile database in the command (this time, we didn't bother adding copy numbers since we will only be looking at the coverage columns in the):
+We can include pathway-specific gene coverage information in the output from {% include PROGRAM name="anvi-estimate-metabolism" version="8" %} by adding the `--add-coverage` flag and the path to the profile database in the command (this time, we didn't bother adding copy numbers since we will only be looking at the coverage columns in the output):
 
 ```bash
 rm DONOR_A_modules.txt # we will regenerate this output file
@@ -937,7 +937,7 @@ anvi-estimate-metabolism -c CONTIGS.db \
 
 The command will take much longer to run this time, because anvi'o will compute the gene coverage values on the fly (and since there are so many metagenomes in this database, it requires a LOT of memory. We ran it on our HPC with 1.5Tb of memory, and it _still_ took about an hour). The resulting output file will contain several additional columns per metagenome containing 1) the coverage/detection of each gene in the pathway within that metagenome and 2) the average coverage of all genes in the pathway within that metagenome, as described in {% include ARTIFACT name="kegg-metabolism" text="this documentation page" version="8" %}. Since that is a lot of output to go through, let's simplify by picking a few samples from one FMT recipient and looking only at the average coverage columns.
 
-We'll check the time-series for recipient number 2, who was sampled twice pre-FMT and 5 times post-FMT. The following commands will generate a table containing the average coverage of pathways, across a time-series of 7 metagenomes sampled from recipient 2 before and after FMT:
+We'll check the time-series for recipient number 2, who was sampled twice pre-FMT and 5 times post-FMT. The following commands will generate a table containing the average coverage of pathways, across this time-series of 7 metagenomes sampled from recipient 2 before and after FMT:
 
 ```bash
 # first we determine which columns we need
@@ -977,7 +977,7 @@ cat table_14.txt | anvi-script-as-markdown
 ```
 </details>
 
-You will see that the average gene coverages in these pathways rise and fall over the course of the time series. They are generally lower in the pre-FMT samples (~3-7x coverage), which makes sense because the recipients took antibiotics before their FMT treatment. Post-FMT, the coverages are higher (~9-11x). They dip a bit in the 5th sample but reach a peak in the 6th (~18-23x). If you check the first figure in our paper (which you can also see in [this section of our reproducible workflow](https://merenlab.org/data/fmt-gut-colonization/#reproduce)), you will see that these trends correspond directly to the rise and fall of the sequencing depth of these metagenomes from recipient 2 (see the 'Total Num Reads' barplots on the right): the 5th sample has the lowest sequencing depth and the 6th has the highest. 
+You will see that the average gene coverages in these pathways rise and fall over the course of the time series. They are generally lower in the pre-FMT samples (~3-7x coverage). Post-FMT, the coverages are higher (~9-11x). They dip a bit in the 5th sample but reach a peak in the 6th (~18-23x). If you check the first figure in our paper (which you can also see in [this section of our reproducible workflow](https://merenlab.org/data/fmt-gut-colonization/#reproduce)), you will see that these trends correspond directly to the rise and fall of the sequencing depth of these metagenomes from recipient 2 (see the 'Total Num Reads' barplots on the right): the 5th sample has the lowest sequencing depth and the 6th has the highest. 
 
 So that all makes sense. If you wanted to analyze the differences in coverage values of these pathways across the time series, you would have to normalize by sequencing depth. But that is a story for another tutorial. :)
 
