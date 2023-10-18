@@ -168,4 +168,4 @@ If your post includes images, you should add those files under the `images/` fol
 
 ## Step 8) Make a PR
 
-Once you are done with your post, you should create a Pull Request (PR) on GitHub. After we review the PR and merge it into the main branch of the anvio.org repository, your 
+Once you are done with your post, you should create a Pull Request (PR) on GitHub. After we review the PR and merge it into the main branch of the anvio.org repository, your content will appear on anvio.org shortly after its publication date. To see an example of a PR for a new post, check out [the PR for this tutorial](https://github.com/merenlab/anvio.org/pull/26).
