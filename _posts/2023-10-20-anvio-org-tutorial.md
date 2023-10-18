@@ -12,6 +12,9 @@ permalink: /docs/anvio-org-tutorial/
 Anyone who is using anvi'o or has something to share with the anvi'o 'omics community should feel free to add their content to anvio.org. However, the process for doing that can be a bit confusing for newcomers. This tutorial will teach you how to contribute to this website, whether you want to write a blog post, a tutorial, or a technical write-up. It will use this very post that you are reading as an example to show you how. :)
 
 {:.notice}
+The following are the steps to follow for someone who has the technical skills to send in a PR for new web material. But we don't want the anvi'o community to suffer from not hearing your voice if you are someone who does not have the technical background to follow this tutorial. In that case, please get in touch with {% include person/display_mini_single.html github="meren" %}, who can help you with the technical part and turn your content into the necessary format.
+
+{:.notice}
 If you already wrote a blog post on a different website and you want to add a link to it on anvio.org, you don't have to go through this whole tutorial. The only section that is really relevant is [the one about adding your post to the resources list](#step-5-include-the-post-in-a-yaml-file-under-_dataresources). You should follow that section to include the external URL to your existing post in the appropriate file within the repository, then send us a pull request.
 
 ## Step 1) Get the anvio.org GitHub repository on your computer
