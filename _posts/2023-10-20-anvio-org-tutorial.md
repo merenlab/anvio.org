@@ -50,7 +50,7 @@ Our website also includes several fancy syntax features that you can use to do t
 
 - [Tips for web developers](https://merenlab.org/web-tips/)
 
-## Step 4) Create the post file under `_posts`
+## Step 4) Create the post file
 
 We store all of our post documents within the anvio repository in the `_posts` directory. You can see examples by running `ls _posts/`. Each post has to be named according to its date of publication, following the [Jekyll post format](https://jekyllrb.com/docs/posts/). If you're already done writing the post elsewhere and you want it to appear on the website immediately, you can use the current date. But if you still need some time to make changes, you can choose a future date.
 
@@ -69,7 +69,7 @@ git add _posts/2023-10-20-anvio-org-tutorial.md
 git commit -m 'add my post to anvio.org'
 ```
 
-## Step 5) Include the post in a YAML file under `_data/resources`
+## Step 5) Include the post in the YAML file for its resource type
 
 All of the posts on the website are organized into different resource categories, each described by a YAML file in the directory `_data/resources`. For instance, here are the current files in that directory:
 
