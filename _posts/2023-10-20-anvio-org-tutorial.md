@@ -48,7 +48,7 @@ You may want to check out the following webpages if you aren't familiar with wri
 
 Our website also includes several fancy syntax features that you can use to do things like making 'additional info' boxes, linking to the anvi'o documentation, and adding quotes or images. We highly recommend that you always keep our 'Web Tips' page open in a tab of your browser so that you can copy-paste the syntax for adding these features:
 
-- [Tips for web developers](https://merenlab.org/web-tips/)
+- [Tips for web developers](https://anvio.org/web-tips/)
 
 ## Step 4) Create the post file
 
@@ -161,7 +161,7 @@ Every file under the `_posts` directory, even if it is not a blog post, should a
 
 ### Adding images
 
-If your post includes images, you should add those files under the `images/` folder of the anvio.org repository. Our convention is to create a folder for images specific to that post within that directory, as in `images/anvio-org-tutorial/`, and add all associated image files there. Then, see [this web tip](https://merenlab.org/web-tips/#images) for instructions on how to include the image(s) within the markdown file for your post. Don't forget to commit your images to the repository, and ensure that they render properly.
+If your post includes images, you should add those files under the `images/` folder of the anvio.org repository. Our convention is to create a folder for images specific to that post within that directory, as in `images/anvio-org-tutorial/`, and add all associated image files there. Then, see [this web tip](https://anvio.org/web-tips/#images) for instructions on how to include the image(s) within the markdown file for your post. Don't forget to commit your images to the repository, and ensure that they render properly.
 
 ## Step 8) Make a PR
 
