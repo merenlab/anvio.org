@@ -916,6 +916,41 @@ cat table_13.txt | anvi-script-as-markdown
 
 And indeed, for most of these, their stepwise copy number is below the number of bacterial populations (n = ~179-184) predicted to be in the assembly, as expected.
 
+### Exploring pathway coverage in metagenomes
+
+The contigs database that we were working with above came with an associated {% include ARTIFACT name="profile-db" text="profile database" version="8" %} that contains the read recruitment data from several metagenomes, sampled in time-series (before and after the FMT) from stool Donor A and their stool recipients. Let's use this information to look at the coverage of one pathway over time.
+
+We can include pathway-specific gene coverage information in the output from {% include PROGRAM name="anvi-estimate-metabolism" version="8" %} by adding the `--add-coverage` flag and the path to the profile database in the command (this time, we didn't bother adding copy numbers since we will only be looking at the coverage columns in the):
+
+```bash
+rm DONOR_A_modules.txt # we will regenerate this output file
+anvi-estimate-metabolism -c CONTIGS.db \
+                         -O DONOR_A \
+                         --output-modes modules \
+                         --add-coverage \
+                         -p PROFILE.db
+```
+
+The command will take much longer to run this time, because anvi'o will compute the gene coverage values on the fly (and since there are so many metagenomes in this database, it requires a LOT of memory. We ran it on our HPC with 1.5Tb of memory, and it _still_ took about an hour). The resulting output file will contain several additional columns per metagenome containing 1) the coverage/detection of each gene in the pathway within that metagenome and 2) the average coverage of all genes in the pathway within that metagenome, as described in {% include ARTIFACT name="kegg-metabolism" text="this documentation page" version="8" %}. Since that is a lot of output to go through, let's simplify by picking a few samples from one FMT recipient and looking only at the average coverage columns.
+
+We'll check the time-series for recipient number 2, who was sampled twice pre-FMT and 5 times post-FMT. The following commands will generate a table containing the average coverage of pathways, across a time-series of 7 metagenomes sampled from recipient 2 before and after FMT:
+
+```bash
+# first we determine which columns we need
+head -n 1 DONOR_A_modules.txt | tr '\t' '\n' | nl | grep "DA_R02_CDI" | grep "avg_coverage"
+
+# extract those columns, plus the module ID and name
+cut -f 1,3,79,81,83,85,87,89,91 DONOR_A_modules.txt > DA_R02_CDI.txt
+```
+
+If we extract the entries for the enriched biosynthesis pathways that we looked at before, 
+
+```bash
+head -n 1 DA_R02_CDI.txt > table_14.txt
+for m in M00570 M00019 M00096 M00048 M00526 M00026 M00018 M00122; do \
+  grep -e "^$m" DA_R02_CDI.txt >> table_14.txt; \
+done
+```
 
 ## Conclusion
 
