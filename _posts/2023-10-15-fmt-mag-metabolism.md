@@ -801,6 +801,10 @@ The modules in the partial output above represent the metabolic pathways with th
 
 You will see that all 9 of the above modules are enriched in the "high-fitness" group of MAGs - and indeed, all 33 modules that passed our filters were enriched in this group. You might also notice that most of the enriched modules are biosynthesis pathways, particularly of amino acids and essential cofactors. As we discuss in the paper, this indicated to us that "high-fitness" populations were successful in colonizing the FMT recipients because they were metabolically independent - that is, they were able to individually produce the molecules they needed to survive and grow, and thus had a competitive advantage compared to the "low-fitness" populations, which generally did not have these biosynthesis capabilities.
 
+This metabolism estimation and enrichment analysis allowed us to form a clear hypothesis as to why some microbial populations were able to colonize FMT recipients while others weren't. For a much more robust discussion of the analysis and our conclusions, please read our [study](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-023-02924-x).
+
+For some additional metagenome-level analyses that we were not able to perform at the time of the study (since they weren't fully implemented yet), check out the remaining two sections of the tutorial.
+
 ### Estimating pathway copy number in a metagenome assembly
 
 {:.warning}
@@ -943,7 +947,21 @@ head -n 1 DONOR_A_modules.txt | tr '\t' '\n' | nl | grep "DA_R02_CDI" | grep "av
 cut -f 1,3,79,81,83,85,87,89,91 DONOR_A_modules.txt > DA_R02_CDI.txt
 ```
 
-If we extract the entries for the enriched biosynthesis pathways that we looked at before, 
+If we extract the entries for the enriched biosynthesis pathways that we looked at before, you will see the following:
+
+|**module**|**module_name**|**DA_R02_CDI_C_01_PRE_avg_coverage**|**DA_R02_CDI_C_02_PRE_avg_coverage**|**DA_R02_CDI_C_03_POST_avg_coverage**|**DA_R02_CDI_C_04_POST_avg_coverage**|**DA_R02_CDI_C_05_POST_avg_coverage**|**DA_R02_CDI_C_06_POST_avg_coverage**|**DA_R02_CDI_C_07_POST_avg_coverage**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|M00570|Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine|7.030147747823216|8.127254306220932|10.776163879006777|9.21669920940846|7.38696713268554|22.6383919730815|9.580871067027301|
+|M00019|Valine/isoleucine biosynthesis, pyruvate => valine / 2-oxobutanoate => isoleucine|7.088530679346055|8.454480551316102|10.999009890609942|9.666443811889957|7.536697981663868|23.200999343921772|9.97102520636212|
+|M00096|C5 isoprenoid biosynthesis, non-mevalonate pathway|5.432252681706168|7.517438843988805|10.13562430009517|9.335302646837535|6.661625080298928|20.732497351757356|8.965614083024139|
+|M00048|De novo purine biosynthesis, PRPP + glutamine => IMP|6.0201337640841235|9.00528497504295|10.771679712768764|9.679545034513543|6.7888392240324675|21.4037746898059|8.899770054197274|
+|M00526|Lysine biosynthesis, DAP dehydrogenase pathway, aspartate => lysine|6.50032763273386|8.641326627532365|10.120097208395494|8.850149126608361|5.967971953044325|18.77991723628484|8.441058665334717|
+|M00026|Histidine biosynthesis, PRPP => histidine|4.040690209232013|5.43125656737785|11.062471930041422|9.46079543572338|6.856359140252714|21.615225789671697|9.477373554958936|
+|M00018|Threonine biosynthesis, aspartate => homoserine => threonine|5.762365477068536|7.912415988495419|9.497473572196393|8.90843963942808|5.812884811492004|18.514104313872405|8.403356560258128|
+|M00122|Cobalamin biosynthesis, cobyrinate a,c-diamide => cobalamin|3.8385902188440024|6.661775130193691|10.353893326696435|9.851028260300374|6.155289800418834|20.55065270641417|9.68897061113826|
+
+<details markdown="1"><summary>Show/Hide Code for getting Table 14</summary>
+This command extracts the relevant pathways from the table we just generated above:
 
 ```bash
 head -n 1 DA_R02_CDI.txt > table_14.txt
@@ -952,9 +970,18 @@ for m in M00570 M00019 M00096 M00048 M00526 M00026 M00018 M00122; do \
 done
 ```
 
-## Conclusion
+And we convert that to markdown:
 
-This metabolism estimation and enrichment analysis allowed us to form a clear hypothesis as to why some microbial populations were able to colonize FMT recipients while others weren't. For a much more robust discussion of the analysis and our conclusions, please read our [study](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-023-02924-x).
+```bash
+cat table_14.txt | anvi-script-as-markdown
+```
+</details>
+
+You will see that the average gene coverages in these pathways rise and fall over the course of the time series. They are generally lower in the pre-FMT samples (~3-7x coverage), which makes sense because the recipients took antibiotics before their FMT treatment. Post-FMT, the coverages are higher (~9-11x). They dip a bit in the 5th sample but reach a peak in the 6th (~18-23x). If you check the first figure in our paper (which you can also see in [this section of our reproducible workflow](https://merenlab.org/data/fmt-gut-colonization/#reproduce)), you will see that these trends correspond directly to the rise and fall of the sequencing depth of these metagenomes from recipient 2 (see the 'Total Num Reads' barplots on the right): the 5th sample has the lowest sequencing depth and the 6th has the highest. 
+
+So that all makes sense. If you wanted to analyze the differences in coverage values of these pathways across the time series, you would have to normalize by sequencing depth. But that is a story for another tutorial. :)
+
+## Conclusion
 
 We hope the tutorial above helped you to learn how to run metabolism analyses in anvi'o on your own data. If anything was not clear, please feel free to comment below or reach out to us on Discord with questions. Thanks for reading!
 
