@@ -6,7 +6,6 @@ excerpt: "A tutorial on how to run metabolism estimation and enrichment in anvi'
 date: 2023-10-15
 tags: [metabolism, metabolic-enrichment, genomics, metagenomics, hands-on, beginner]
 comments: true
-permalink: /tutorials/fmt-mag-metabolism/
 ---
 
 This is a **tutorial for the metabolism suite of programs** in anvi'o. First, we will learn how to estimate metabolism for a single bacterial isolate, starting from its genome sequence and ending with a file of metabolic module completeness scores. Afterwards, we'll be applying this to a larger, real-world dataset of metagenome-assembled genomes from [our recent FMT study](https://doi.org/10.1101/2021.03.02.433653), to learn how to estimate metabolism in a more high-throughput manner as well as how to compute enrichment scores for metabolic modules.

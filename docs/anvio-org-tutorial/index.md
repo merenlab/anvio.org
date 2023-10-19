@@ -1,12 +1,11 @@
 ---
-layout: blog
+layout: page
 authors: [ivagljiva]
 title: "How to add a post to anvio.org"
 excerpt: "You want to write a blog post or tutorial? We got you, fam."
 date: 2023-10-20
 tags: [contributors, technical]
 comments: true
-permalink: /docs/anvio-org-tutorial/
 ---
 
 Anyone who is using anvi'o or has something to share with the anvi'o 'omics community should feel free to add their content to anvio.org. However, the process for doing that can be a bit confusing for newcomers. This tutorial will teach you how to contribute to this website, whether you want to write a blog post, a tutorial, or a technical write-up. It will use this very post that you are reading as an example to show you how. :)
