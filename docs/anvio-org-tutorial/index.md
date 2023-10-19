@@ -14,7 +14,7 @@ Anyone who is using anvi'o or has something to share with the anvi'o 'omics comm
 The following are the steps to follow for someone who has the technical skills to send in a PR for new web material. But we don't want the anvi'o community to suffer from not hearing your voice if you are someone who does not have the technical background to follow this tutorial. In that case, please get in touch with {% include person/display_mini_single.html github="meren" %}, who can help you with the technical part and turn your content into the necessary format.
 
 {:.notice}
-If you already wrote a blog post on a different website and you want to add a link to it on anvio.org, you don't have to go through this whole tutorial. The only section that is really relevant is [the one about adding your post to the resources list](#step-5-include-the-post-in-a-yaml-file-under-_dataresources). You should follow that section to include the external URL to your existing post in the appropriate file within the repository, then send us a pull request.
+If you already wrote a blog post on a different website and you want to add a link to it on anvio.org, you don't have to go through this whole tutorial. The only section that is really relevant is [the one about adding your post to the resources list](#step-5-include-the-post-in-the-yaml-file-for-its-resource-type). You should follow that section to include the external URL to your existing post in the appropriate file within the repository, then send us a pull request.
 
 ## Step 1) Get the anvio.org GitHub repository on your computer
 
@@ -52,17 +52,21 @@ Our website also includes several fancy syntax features that you can use to do t
 
 - [Tips for web developers](https://anvio.org/web-tips/)
 
-## Step 4) Create the post file
+## Step 4) Create the file for your contribution
 
-We store all of our post documents within the anvio repository in the `_posts` directory. You can see examples by running `ls _posts/`. Each post has to be named according to its date of publication, following the [Jekyll post format](https://jekyllrb.com/docs/posts/). If you're already done writing the post elsewhere and you want it to appear on the website immediately, you can use the current date. But if you still need some time to make changes, you can choose a future date.
+You need to write the post in a file. But where do you put that file within the anvio.org repository? It varies according to whether you want to add a blog post or something else (i.e., a tutorial, technical document, etc), so please select the appropriate subsection for your contribution type below.
 
-For example, when I was writing this tutorial, it was October 18, 2023 but I decided I would need a few days to finish it, so I created the file with the intention to publish the post on October 20:
+### Option A) A file for blog posts
+
+We store all of our blog post documents within the anvio repository in the `_posts` directory. You can see examples by running `ls _posts/`. Each post has to be named according to its date of publication, following the [Jekyll post format](https://jekyllrb.com/docs/posts/). If you're already done writing the post and you want it to appear on the website immediately, you can use the current date. But if you still need some time to make changes, you can choose a future date.
+
+For example, suppose I was writing a blog post on October 18, 2023 but I decided I would need a few days to finish it. This is how I would create the file for my blog post with the intention to publish it on October 20:
 
 ```bash
 touch _posts/2023-10-20-anvio-org-tutorial.md
 ```
 
-What comes after the date is up to you, but we recommend giving a short yet descriptive summary of what your post is about. Please don't use the same filename as me so that you don't overwrite this tutorial :)
+What comes after the date is up to you, but we recommend giving a short yet descriptive summary of what your blog post is about.
 
 After you edit that file to add content, you should commit your changes to your branch. For example:
 
@@ -70,6 +74,38 @@ After you edit that file to add content, you should commit your changes to your 
 git add _posts/2023-10-20-anvio-org-tutorial.md
 git commit -m 'add my post to anvio.org'
 ```
+
+{:.notice}
+Every file under the `_posts` directory is featured both on our ['Community Blog' page](https://anvio.org/blog/) and within the ["Articles, Workflows, Opinions" section on our 'Learn' page](https://anvio.org/learn/#articles-workflows-opinions). Their location in the rendered website will be in the directory called `/blog/`, as you will see in their website URL. This will become relevant in Step 5.
+
+### Option B) A file for other contribution types
+
+If you are not writing a blog post but instead another type of resource, you should organize your files a little bit differently. First, you should generate a subfolder for the post within the appropriate resource directory in the anvio.org repository. These are the current options:
+
+- `tutorials/`: for tutorials
+- `technical/`: for technical write-ups
+- `docs/`: for developer and contributor resources
+
+If you aren't sure where yours should go, check out [https://anvio.org/learn/](https://anvio.org/learn/) to see the posts in each category.
+
+Name the subfolder for your post using its short yet descriptive summary, and then create the file for your contribution within that directory. The filename should be `index.md`.
+
+For example, this tutorial falls under the category of "Developer and contributor resources", which means it should go into the `docs/` folder. Here is how I generated the subfolder and file for this tutorial:
+
+```bash
+mkdir docs/anvio-org-tutorial/
+touch docs/anvio-org-tutorial/index.md
+```
+
+Then, you can edit the `index.md` file to add your content, and commit your changes to your branch. For example:
+
+```bash 
+git add docs/anvio-org-tutorial/index.md
+git commit -m 'add my post to anvio.org'
+```
+
+{:.notice}
+Files that are within these resource-specific directories will be featured within the corresponding section on our ['Learn' page](https://anvio.org/learn/).
 
 ## Step 5) Include the post in the YAML file for its resource type
 
@@ -80,7 +116,7 @@ $ ls _data/resources/
 blogs.yaml     docs.yaml      technical.yaml tutorials.yaml
 ```
 
-You need to add an entry for your post into one of these YAML files. Hopefully it is pretty self-explanatory -- tutorials should be added to `tutorials.yaml`, technical write-ups should go in `tutorials.yaml` and blog posts should go in `blogs.yaml`. If you aren't sure where yours should go, check out [https://anvio.org/learn/](https://anvio.org/learn/) to see the posts in each category.
+These YAML files control what appears on the ['Learn' page](https://anvio.org/learn/) of anvio.org. You therefore need to add an entry for your post into one of these YAML files. Hopefully it is pretty self-explanatory -- tutorials should be added to `tutorials.yaml`, technical write-ups should go in `tutorials.yaml` and blog posts should go in `blogs.yaml`.
 
 This tutorial falls under "Developer and contributor resources", so I added it to `docs.yaml`. Here is the example entry in that file for this post:
 
@@ -97,10 +133,15 @@ You should fill out these fields to the best of your ability, following the othe
 
 - `title`: the title of your post, in quotation marks. Self-explanatory
 - `type`: likely either blog post or tutorial (not in quotes)
-- `url`: the location of the post on the anvio.org website, which will be appended to the base url `https://anvio.org/`. Each resource category should be located in its own subfolder; i.e., blog posts will have a URL starting with `/blog/`, tutorial URLs will start with `/tutorial/`, etc. After this subfolder, you should add a short description of the post content (we usually just use the same one that is in the post's file name). Please note that you can also add links to external websites here; for instance, if you already posted on your own website and want to cross-post it on anvio.org (but in that case, you don't need to make a file in the anvio.org repository)
+- `url`: the location of the post on the anvio.org website, which will be appended to the base url `https://anvio.org/`. Each resource category should be located in its own subfolder; i.e., blog posts will have a URL starting with `/blog/`, tutorial URLs will start with `/tutorials/`, etc. After this subfolder, you should add your short description of the post content from step 4 (the same one that is in the blog post's file name, or that is its subfolder name in the case of other resource types). Please note that you can also add links to external websites here; for instance, if you already posted on your own website and want to cross-post it on anvio.org (but in that case, you don't need to make a file in the anvio.org repository)
 - `authors`: this should include the GitHub usernames of you and anyone else who helped write the post (comma-separated list within the square brackets)
 - `summary`: a short 'teaser' sentence or two that people will see on the insert for the post at [https://anvio.org/learn/](https://anvio.org/learn/). Should be in quotes
 - `tags`: a list of key words describing your posts content, as a comma-separated list within the square brackets
+
+Of these fields, the `url` is probably the most important because it will ensure the links from the ['Learn' page](https://anvio.org/learn/) will direct to the correct location of your post. Follow the instructions carefully to make sure the information in the URL matches to the setup of your post file in Step 4.
+
+{:.warning}
+This warning is only relevant for blog posts. If the date of publication for your post is in the future, you should perhaps wait to complete this step until that date (or, after you are finished writing, change the date to today so that it will be published immediately). Every post with an entry in the `blogs.yaml` file will be shown on the 'Learn' page of anvio.org, but if the blog post is dated in the future, the link to that post will be broken until that date. Perhaps it is not a big deal and you just want to add it so you don't forget. That's also fine. But just so you know, in that case you may be dealing with broken links for a bit :)
 
 ## Step 6) Add front matter to the post
 
@@ -108,27 +149,22 @@ The markdown file of every post has to start with information describing the pos
 
 ```
 ---
-layout: blog
+layout: page
 authors: [ivagljiva]
-title: How to add a post to anvio.org
+title: "How to add a post to anvio.org"
 excerpt: "You want to write a blog post or tutorial? We got you, fam."
 date: 2023-10-20
 tags: [contributors, technical]
 comments: true
-permalink: /docs/anvio-org-tutorial/
 ---
 ```
 
 The front matter must go in between the `---` lines. For our website, this stuff is usually pretty easy to fill in by copying and pasting from the entry you just added to the resources YAML file, with a few additions/exceptions:
 
-- `layout`: just write blog here. this field indicates what layout will be used when the page is rendered, but we really only have one layout option on our website, and that is the blog layout
+- `layout`: if you are writing a blog post, just write 'blog' here (no quotes). if you are writing any other type of contribution, write 'page' instead. this field indicates what layout will be used when the page is rendered, but we really only have one layout option on our website, and that is the blog layout
 - `excerpt`: equivalent to the `summary` field from the YAML file
-- `date`: the date you want the post to be published, i.e., from the file name of the post document
+- `date`: the date you want the post to be published. For blog posts this should come from the file name of the blog post document. For other resource types, this date doesn't affect rendering of the webpage
 - `comments`: true or false depending on whether you want people to be allowed to post comments at the bottom of the post's webpage
-- `permalink`: equivalent to the `url` field from the YAML file
-
-{:.notice}
-Not every post needs a `permalink` field. Blog posts (those described in `_data/resources/blogs.yaml`) do not need this field, because the default URL for posts is the global permalink parameter described in `_config.yml`, which happens to be `/blog/`. So if you are writing a blog post, feel free to skip this field. But if you are contributing any other kind of resource, you will need to include a `permalink` that is the same as the `url` you specified in the YAML file previously.
 
 ## Step 7) Write your post (and check your changes)
 
@@ -150,9 +186,9 @@ If you post is dated in the future, you will need to tell Jekyll to include it i
 bundle exec jekyll serve --incremental --trace --future
 ```
 
-The Jekyll output should tell you the local URL of anvio.org. For instance, on my machine, it was `http://127.0.0.1:4000`. You open that in a web browser and navigate through the website yourself to find your post, or you can append the `url` you specified earlier (in the YAML file) to the end of that URL and copy-paste that to your web browser to get to the post's webpage directly. For instance, while writing this post, I viewed it at the local URL [http://127.0.0.1:4000/docs/anvio-org-tutorial/](http://127.0.0.1:4000/docs/anvio-org-tutorial/).
+The Jekyll output should tell you the local URL of anvio.org. For instance, on my machine, it was `http://127.0.0.1:4000`. You can open that in a web browser and navigate through the website yourself to find your post, or you can append the `url` you specified earlier (in the YAML file) to the end of that URL and copy-paste that to your web browser to get to the post's webpage directly. For instance, while writing this post, I viewed it at the local URL [http://127.0.0.1:4000/docs/anvio-org-tutorial/](http://127.0.0.1:4000/docs/anvio-org-tutorial/).
 
-In addition to checking that your post renders nicely, you should also make sure you can see it featured under the appropriate section on the `Learn` page. If you don't see it there, or the link to your post is broken, please make sure that the URLs in the YAML file and the front matter match. If they do and you still don't see it; you should try deleting the existing local copy of the website and re-generating it from scratch, since sometimes Jekyll doesn't pick up on changes to our resource files.
+In addition to checking that your post renders nicely, you should also make sure you can see it featured under the appropriate section on the `Learn` page. If the link to your post is broken, please make sure that the URLs in the YAML file match to the post's file organization that you set up in Step 4. If you don't see the post on that page at all, you should try deleting the existing local copy of the website and re-generating it from scratch, since sometimes Jekyll doesn't pick up on changes to our resource files.
 
 ```bash
 rm -rf _site/; bundle exec jekyll serve --incremental --trace --future
