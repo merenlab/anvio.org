@@ -4,3 +4,10 @@
   authors: [ivagljiva]
   summary: "A tutorial for anyone interested in contributing to the anvi'o help pages."
   tags: [documentation, contributors, technical]
+
+- title: "How to add a post to anvio.org"
+  type: tutorial
+  url: /docs/anvio-org-tutorial/
+  authors: [ivagljiva]
+  summary: "You want to write a blog post or tutorial? We got you, fam."
+  tags: [contributors, technical]
