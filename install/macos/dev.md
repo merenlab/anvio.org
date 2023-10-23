@@ -65,16 +65,6 @@ mamba
 
 ## (4) Installing the Python dependencies
 
-Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. Hence, we suggest all Mac users to run the following commands before you start the `pip install` command:
-
-```bash
-export CC=/usr/bin/clang
-export CXX=/usr/bin/clang++
-```
-
-{:.notice}
-The above code should help you avoid errors with building wheels for `pip` packages. However, if you still see errors during the `pip install` command, please let us know in the anvi'o Discord channel and we will try to help you.
-
 {% include install/commons/dev/python_dependencies.md %}
 {% include install/commons/dev/python_dependencies_conclusion.md %}
 

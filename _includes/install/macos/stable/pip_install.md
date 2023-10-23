@@ -5,7 +5,14 @@ curl -L https://github.com/merenlab/anvio/releases/download/v8/anvio-8.tar.gz \
         --output anvio-8.tar.gz
 ```
 
-And install it using `pip` like a boss:
+Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. Hence, we suggest all Mac users to run the following commands before you start the `pip install` command:
+
+```bash
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
+```
+
+And then install it using `pip` like a boss:
 
 ```
 pip install anvio-8.tar.gz
