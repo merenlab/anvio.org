@@ -754,9 +754,94 @@ anvi-estimate-metabolism -e external-genomes.txt \
                          -O FMT_MAG_metabolism
 ```
 
-This will give you one modules mode output file called `FMT_MAG_metabolism_modules.txt`, which describes the completeness of each KEGG Module in each MAG.
+This will give you one modules mode output file called `FMT_MAG_metabolism_modules.txt`, which describes the completeness of each KEGG Module in each MAG. You could look through this file manually to see what metabolisms are encoded in these genomes.
 
-You could look through this file manually to see what metabolisms are encoded in these genomes, but it will be difficult to tell which pathways best distinguish between our two groups of MAGs. For that task, we need the help of a statistical test.
+Since we have multiple MAGs, it may be helpful to see the metabolism data in a matrix format, rather than in a long format. For instance, we can use the matrix-formatted data for clustering the genomes according to their metabolic capabilities and for creating a heatmap visualization. Here is the command to get the same metabolism estimation data, but split across several matrix files (each containing one statistic):
+
+```bash
+anvi-estimate-metabolism -e external-genomes.txt \
+                         -O FMT_MAG_metabolism \
+                         --matrix-format
+```
+
+You should get several output files, but the one we will use is the matrix of pathwise completeness scores, `FMT_MAG_metabolism-module_pathwise_completeness-MATRIX.txt`. Let's visualize those scores in a heatmap using the "manual mode" of {% include PROGRAM name="anvi-interactive" version="8" %}:
+
+```bash
+anvi-interactive -d FMT_MAG_metabolism-module_pathwise_completeness-MATRIX.txt \
+                 -p modules_heatmap.db \
+                 --manual \
+                 --title "FMT MAG METABOLISM HEATMAP"
+```
+
+The displayed data in the interface won't look like a heatmap at first, but you can change a few settings to make it so. Here is what you should do (in the 'Main' settings panel on the left side of the interface):
+- Change the 'Drawing type' to 'Phylogram' to display the data in rectangle instead of a circle
+- After clicking on 'Show Additional Settings', increase the Dendrogram width to a large number, ~10,000 or so
+- For each of the MAGs listed under the 'Layers' section, change the 'Type' of data display to 'Intensity'
+
+After you re-draw the display, it should look like a heatmap. But it is still not very satisfying or informative, because the data is not organized in a way that shows the patterns across different pathways and across different MAGs.
+
+{% include IMAGE path="/images/fmt-mag-metabolism/heatmap_v1.png" caption="The first iteration of our metabolism heatmap, without an informative organization of the data." %}
+
+To organize the data nicely, we can cluster the data in each dimension and add the resulting dendrograms to the interface. To do that, we need to go back to the command line. Before you exit the interface, save your settings by clicking the 'Save State' button at the bottom of the 'Main' settings panel, and save it as the state called 'default' so that the interface automatically loads these settings the next time you open this heatmap. Then you can go back to the terminal and hit Ctrl-C to get your prompt back.
+
+First, we will cluster the pathways so that metabolisms with similar distributions across MAGs will be closer together. That will organize the columns of the heatmap ('items') in the interface. We can do this clustering directly with the same matrix file that we gave to `anvi-interactive` earlier, using the program {% include PROGRAM name="anvi-matrix-to-newick" version="8" %}:
+
+```bash
+anvi-matrix-to-newick FMT_MAG_metabolism-module_pathwise_completeness-MATRIX.txt -o module_organization.newick
+```
+
+Now we want to cluster the genomes according to their metabolic capacity, so that MAGs with similar capacities will be closer together (organizing the rows of the heatmap, aka 'layers', in the interface). Since `anvi-matrix-to-newick` clusters the elements in the _rows_ of the input matrix (which are metabolic modules), we first need to transpose the matrix to have the genomes in the rows instead. Luckily, anvi'o has a convenient little script for that, too.
+
+```bash
+anvi-script-transpose-matrix FMT_MAG_metabolism-module_pathwise_completeness-MATRIX.txt \
+          -o FMT_MAG_metabolism-module_pathwise_completeness-MATRIX-TRANSPOSED.txt
+anvi-matrix-to-newick FMT_MAG_metabolism-module_pathwise_completeness-MATRIX-TRANSPOSED.txt -o mag_organization.newick
+```
+
+Now we have two dendrograms, one for each side of the heatmap. Let's add them to the display by importing them into the profile database. In anvi'o interface lingo, the module dendrogram will be an 'item order', and the MAG dendrogram will be a 'layer order'. Item orders can be provided directly to `anvi-interactive` using the `-t` flag, or imported via {% include PROGRAM name="anvi-import-items-order" version="8" %}. We will do the latter.
+
+```bash
+anvi-import-items-order -i module_organization.newick \
+                        -p modules_heatmap.db \
+                        --name module_organization
+```
+
+Layer orders have to be imported into the database using {% include PROGRAM name="anvi-import-misc-data" version="8" %}, which requires copying the tree into a tab-delimited file that also describes the name and type of the ordering. We will create this file quickly on the command line, but you can see [more information in this tutorial](https://merenlab.org/2017/12/11/additional-data-tables/#layer-orders-additional-data-table).
+
+```bash
+TREE=$(cat mag_organization.newick)  # copy the dendrogram into a variable called 'TREE'
+echo -e "item_name\tdata_type\tdata_value\nmag_organization\tnewick\t$TREE" > layer_order.txt # put it into a file
+# import into the database
+anvi-import-misc-data -p modules_heatmap.db \
+                      -t layer_orders \
+                      layer_order.txt
+```
+
+Then we can re-run the interactive interface. Here is the command again:
+```bash
+anvi-interactive -d FMT_MAG_metabolism-module_pathwise_completeness-MATRIX.txt \
+                 -p modules_heatmap.db \
+                 --manual \
+                 --title "FMT MAG METABOLISM HEATMAP"
+```
+
+This time, open the 'Main' settings panel and change the 'Items order' to be 'Module organization'. Then, switch to the 'Layers' panel and change the 'Order by' setting to 'mag_organization (tree)`. After you click 'Draw', the heatmap will show some nice patterns.
+
+{% include IMAGE path="/images/fmt-mag-metabolism/heatmap_v2.png" caption="The second iteration of our metabolism heatmap, nicely organized now." %}
+
+It looks much better now, but one more thing is missing from the display. We don't know which MAG belongs to which group. We should add their labels. Save the state again (you can overwrite the 'default' state), and go back to the terminal. We will import the MAG group as [additional data for layers](https://merenlab.org/2017/12/11/additional-data-tables/#layers-additional-data-table), using the `MAG_groups.txt` file that already exists in the datapack, like this:
+
+```bash
+anvi-import-misc-data -p modules_heatmap.db \
+                      -t layers \
+                      MAG_groups.txt
+```
+
+Then, you can open the interface again (use the same command), and you should see the MAG groups on the side of the heatmap. Here is how it looks (with the 'low-fitness' and 'high-fitness' groups colored in red and blue, respectively):
+
+{% include IMAGE path="/images/fmt-mag-metabolism/heatmap_v3.png" caption="The final iteration of our metabolism heatmap, with colored groups." %}
+
+In this final heatmap, we can nicely see the pattern that some MAGs are missing many metabolic pathways compared to other MAGs. You can open the 'Mouse' panel on the right side of the screen and hover over the heatmap to find out the names of the pathways that are differentially distributed between the groups. But it might still be difficult to tell which specific pathways _best_ distinguish between the two groups. For that task, we need the help of a statistical test.
 
 ### Finding enriched metabolic pathways
 
