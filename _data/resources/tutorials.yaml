@@ -81,3 +81,10 @@
   authors: [ivagljiva, mschecht]
   summary: "Materials and a tutorial from the 2023 iteration of our metagenomics workshop."
   tags: [metagenomics, metabolism, hands-on, beginner]
+
+- title: Scaling up your analysis with workflows
+  type: tutorial
+  url: /tutorials/scaling-up/
+  authors: [FlorianTrigodet]
+  summary: "Using publicly available genomes and metagenomes, and anvi'o build in snakemake workflow to contextualize a genome of interest."
+  tags: [metagenomics, pangenomics, hands-on, beginner]
