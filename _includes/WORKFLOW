@@ -1,0 +1,13 @@
+{%- if include.text -%}
+    {%- if include.version -%}
+        <span class="workflow-p"><a href="/help/{{include.version}}/workflows/{{include.name}}">{{include.text}}</a></span>
+    {%- else -%}
+        <span class="workflow-p"><a href="/help/main/workflows/{{include.name}}">{{include.text}}</a></span>
+    {%- endif -%}
+{%- else -%}
+    {%- if include.version -%}
+        <span class="workflow-p"><a href="/help/{{include.version}}/workflows/{{include.name}}">{{ include.name }}</a></span>
+    {%- else -%}
+        <span class="workflow-p"><a href="/help/main/workflows/{{ include.name }}">{{ include.name }}</a></span>
+    {%- endif -%}
+{%- endif -%}
