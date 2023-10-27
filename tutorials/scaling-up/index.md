@@ -6,7 +6,6 @@ excerpt: "Tutorial to use publicly available (meta)genomes and workflows in anvi
 date: 2023-10-09
 tags: [metagenomics, pangenomics, hands-on, beginner]
 comments: true
-permalink: /tutorials/scaling-up
 ---
 
 In this tutorial, you will learn how to **contextualize a genome** using publicly available data and leverage anvi'o `snakemake` workflows to **upscale your analysis**.
