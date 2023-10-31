@@ -226,6 +226,9 @@
     - name: anvi-refine
     - name: anvi-script-filter-fasta-by-blast
     - name: anvi-script-process-genbank-metadata
+- author: ge0rges
+  programs:
+    - name: anvi-run-ncbi-cogs
 - author: moritzbuck
   programs:
     - name: anvi-script-compute-bayesian-pan-core

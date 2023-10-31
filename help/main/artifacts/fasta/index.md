@@ -29,7 +29,7 @@ A FASTA-type anvi'o artifact. This artifact is typically provided **by the user*
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-r">[anvi-search-palindromes](../../programs/anvi-search-palindromes)</span> <span class="artifact-r">[anvi-script-compute-ani-for-fasta](../../programs/anvi-script-compute-ani-for-fasta)</span> <span class="artifact-r">[anvi-script-fix-homopolymer-indels](../../programs/anvi-script-fix-homopolymer-indels)</span> <span class="artifact-r">[anvi-script-reformat-fasta](../../programs/anvi-script-reformat-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-r">[anvi-run-ncbi-cogs](../../programs/anvi-run-ncbi-cogs)</span> <span class="artifact-r">[anvi-search-palindromes](../../programs/anvi-search-palindromes)</span> <span class="artifact-r">[anvi-script-compute-ani-for-fasta](../../programs/anvi-script-compute-ani-for-fasta)</span> <span class="artifact-r">[anvi-script-fix-homopolymer-indels](../../programs/anvi-script-fix-homopolymer-indels)</span> <span class="artifact-r">[anvi-script-reformat-fasta](../../programs/anvi-script-reformat-fasta)</span></p>
 
 
 ## Description

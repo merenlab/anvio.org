@@ -1,7 +1,7 @@
 ---
 layout: program
 title: anvi-get-metabolic-model-file
-excerpt: An anvi'o program. This program writes a metabolic reaction network to a file suitable for flux balance analysis.
+excerpt: An anvi'o program. This program exports a metabolic reaction network to a file suitable for flux balance analysis.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-get-metabolic-model-file
@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-This program writes a metabolic reaction network to a file suitable for flux balance analysis..
+This program exports a metabolic reaction network to a file suitable for flux balance analysis..
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -43,35 +43,65 @@ This program writes a metabolic reaction network to a file suitable for flux bal
 ## Usage
 
 
-This program **exports a metabolic <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> from a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> to a <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file** suitable for inspection and flux balance analysis.
+This program **exports a metabolic <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> from a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> OR a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> to a <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file** formatted for flux balance analysis.
 
-The required input to this program is a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> in which a <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> has been stored by <span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span>.
+The required input to this program is a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> OR a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> in which a <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> has been stored by <span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span>. The <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> must be accompanied by a <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> input.
 
-The <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file output contains sections on the metabolites, reactions, and genes constituting the <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> that had been predicted from the genome. An "objective function" representing the biomass composition of metabolites in the ["core metabolism" of *E. coli*](http://bigg.ucsd.edu/models/e_coli_core) is automatically added as the first entry in the "reactions" section of the file and can be deleted as needed. An objective function is needed for flux balance analysis.
+The <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file output contains sections on the metabolites, reactions, and genes (or gene clusters) constituting the <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> that had been predicted from the genome (or pangenome). An "objective function" representing the biomass composition of metabolites in the ["core metabolism" of *E. coli*](http://bigg.ucsd.edu/models/e_coli_core) is automatically added as the first entry in the "reactions" section of the file and can be deleted as needed. An objective function is needed for flux balance analysis.
 
 ## Usage
 
-<span class="artifact-p">[anvi-get-metabolic-model-file](/help/main/programs/anvi-get-metabolic-model-file)</span> requires a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> as input and the path to an output <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file.
+<span class="artifact-p">[anvi-get-metabolic-model-file](/help/main/programs/anvi-get-metabolic-model-file)</span> requires a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> OR a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> as input, plus the path to an output <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file.
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;metabolic&#45;model&#45;file &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;get&#45;metabolic&#45;model&#45;file &#45;c /path/to/contigs&#45;db \
                               &#45;o /path/to/ouput.json
 </div>
 
-An existing file at the target output location must be explicitly overwritten with the `-W` flag.
-
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;metabolic&#45;model&#45;file &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
-                              &#45;o /path/to/output.json \
-                              &#45;W
+anvi&#45;get&#45;metabolic&#45;model&#45;file &#45;p /path/to/pan&#45;db \
+                              &#45;g /path/to/genomes&#45;storage&#45;db \
+                              &#45;o /path/to/output.json
 </div>
 
-The flag, `--remove-missing-objective-metabolites` must be used to remove metabolites in the *E. coli* core biomass objective function from the output file if the metabolites are not produced or consumed by the predicted <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span>. [COBRApy](https://opencobra.github.io/cobrapy/), for instance, cannot load the JSON file if metabolites in the objective function are missing from the genomic model.
+An existing file at the target output location must be explicitly overwritten with the flag, `--overwrite-output-destinations`.
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;metabolic&#45;model&#45;file &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;get&#45;metabolic&#45;model&#45;file &#45;c /path/to/contigs&#45;db \
+                              &#45;o /path/to/output.json \
+                              &#45;&#45;overwrite&#45;output&#45;destinations
+</div>
+
+The flag, `--remove-missing-objective-metabolites` must be used to remove metabolites in the *E. coli* core biomass objective function from the <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file if the metabolites are not produced or consumed by the predicted <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span>. [COBRApy](https://opencobra.github.io/cobrapy/), for instance, cannot load the JSON file if metabolites in the objective function are missing from the model.
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;metabolic&#45;model&#45;file &#45;c /path/to/contigs&#45;db \
                               &#45;o /path/to/output.json \
                               &#45;&#45;remove&#45;missing&#45;objective&#45;metabolites
+</div>
+
+It is possible that the gene KO annotations used to construct the stored reaction network have since been changed in the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> or the <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>. By default, without using the flag, `--ignore-changed-gene-annotations`, this program checks that the set of gene KO annotations that is currently stored was also that used in construction of the <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span>, and raises an error if this is not the case. Use of this flag ignores that check, permitting the set of gene annotations to have changed since creation of the network.
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;metabolic&#45;model&#45;file &#45;p /path/to/contigs&#45;db \
+                              &#45;o /path/to/output.json \
+                              &#45;&#45;ignore&#45;changed&#45;gene&#45;annotations
+</div>
+
+For a pangenomic network, the option `--record-genomes` determines which additional information is added to the output <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file regarding genome membership. By default, genome names are recorded for gene clusters and reactions, which is equivalent to `--record-genomes cluster reaction`. 'cluster' records in the 'notes' section of each 'gene' (cluster) entry in the JSON file which genomes are part of the cluster. 'reaction' and 'metabolite', respectively, record the genomes predicted to encode enzymes associated with reaction and metabolite entries. The arguments, 'cluster', 'reaction', and 'metabolite', are valid, and are all used in the following example.
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;metabolic&#45;model&#45;file &#45;p /path/to/pan&#45;db \
+                              &#45;g /path/to/genomes&#45;storage&#45;db \
+                              &#45;&#45;record&#45;genomes cluster reaction metabolite
+</div>
+
+The use of `--record-genomes` as a flag without any arguments prevents genome membership from being recorded at all in the <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file.
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;metabolic&#45;model&#45;file &#45;p /path/to/pan&#45;db \
+                              &#45;g /path/to/genomes&#45;storage&#45;db \
+                              &#45;&#45;record&#45;genomes
 </div>
 
 

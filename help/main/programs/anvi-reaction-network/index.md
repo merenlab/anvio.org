@@ -1,7 +1,7 @@
 ---
 layout: program
 title: anvi-reaction-network
-excerpt: An anvi'o program. Generate a metabolic reaction network in an anvi&#x27;o contigs database.
+excerpt: An anvi'o program. This program generates a metabolic reaction network in an anvi&#x27;o contigs or pan database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-reaction-network
@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-Generate a metabolic reaction network in an anvi&#x27;o contigs database.
+This program generates a metabolic reaction network in an anvi&#x27;o contigs or pan database..
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -43,15 +43,15 @@ Generate a metabolic reaction network in an anvi&#x27;o contigs database.
 ## Usage
 
 
-This program **stores a metabolic <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>.**
+This program **stores a metabolic <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> or <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>.**
 
-The network consists of data on biochemical reactions predicted to be encoded by the genome, referencing the [KEGG Orthology (KO)](https://www.genome.jp/kegg/ko.html) and [ModelSEED Biochemistry](https://github.com/ModelSEED/ModelSEEDDatabase) databases.
+The network consists of data on biochemical reactions predicted to be encoded by the genome or pangenome, referencing the [KEGG Orthology (KO)](https://www.genome.jp/kegg/ko.html) and [ModelSEED Biochemistry](https://github.com/ModelSEED/ModelSEEDDatabase) databases.
 
-Information on the predicted reactions and the involved metabolites are stored in two tables of the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. The program, <span class="artifact-p">[anvi-get-metabolic-model-file](/help/main/programs/anvi-get-metabolic-model-file)</span>, can be used to export the <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> from the database to a <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file suitable for inspection and flux balance analysis.
+Information on the predicted reactions and the involved metabolites are stored in two tables of the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> or <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>. The program, <span class="artifact-p">[anvi-get-metabolic-model-file](/help/main/programs/anvi-get-metabolic-model-file)</span>, can be used to export the <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> from the database to a <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file formatted for flux balance analysis.
 
 ## Usage
 
-<span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span> takes a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> as required input. Genes stored within the database must have KO protein annotations, which can be assigned by <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span>.
+<span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span> takes a either a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> OR a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> as required input. Genes stored within the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> or <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> must have KO protein annotations, which can be assigned by <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span>.
 
 The KO and ModelSEED Biochemistry databases must be set up and available to the program. By default, these are expected to be set up in default anvi'o data directories. <span class="artifact-p">[anvi-setup-kegg-data](/help/main/programs/anvi-setup-kegg-data)</span> and <span class="artifact-p">[anvi-setup-modelseed-database](/help/main/programs/anvi-setup-modelseed-database)</span> must be run to set up these databases.
 
@@ -62,13 +62,23 @@ anvi&#45;reaction&#45;network &#45;c /path/to/contigs&#45;db
 Custom locations for the reference databases can be provided with the flags, `--ko-dir` and `--modelseed-dir`.
 
 <div class="codeblock" markdown="1">
-anvi&#45;reaction&#45;network &#45;c /path/to/contigs&#45;db &#45;&#45;ko&#45;dir /path/to/set&#45;up/ko&#45;dir &#45;&#45;modelseed&#45;dir /path/to/set&#45;up/modelseed&#45;dir
+anvi&#45;reaction&#45;network &#45;c /path/to/contigs&#45;db \
+                      &#45;&#45;ko&#45;dir /path/to/set&#45;up/ko&#45;dir \
+                      &#45;&#45;modelseed&#45;dir /path/to/set&#45;up/modelseed&#45;dir
 </div>
 
 If a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> already contains a <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> from a previous run of this program, the flag `--overwrite-existing-network` can overwrite the existing network with a new one. For example, if <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> is run again on a database using a newer version of KEGG, then <span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span> should be rerun to update the <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> derived from the KO annotations.
 
 <div class="codeblock" markdown="1">
-anvi&#45;reaction&#45;network &#45;c /path/to/contigs&#45;db &#45;&#45;overwrite&#45;existing&#45;network
+anvi&#45;reaction&#45;network &#45;c /path/to/contigs&#45;db \
+                      &#45;&#45;overwrite&#45;existing&#45;network
+</div>
+
+A <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> can also be generated from consensus KO annotations of gene clusters. This can be used to understand the conservation or divergence of parts of the metabolic network between organisms in the pangenome.
+
+<div class="codeblock" markdown="1">
+anvi&#45;reaction&#45;network &#45;p /path/to/pan&#45;db \
+                      &#45;g /path/to/genomes&#45;storage&#45;db
 </div>
 
 

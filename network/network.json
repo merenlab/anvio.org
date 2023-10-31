@@ -236,7 +236,7 @@
       "type": "CONCEPT"
     },
     {
-      "size": 7,
+      "size": 8,
       "score": 1,
       "color": "#AA0000",
       "id": "fasta",
@@ -425,7 +425,7 @@
       "type": "FASTA"
     },
     {
-      "size": 8,
+      "size": 9,
       "score": 0.5,
       "color": "#00AA00",
       "id": "functions-txt",
@@ -1849,7 +1849,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 5,
+      "size": 8,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-run-ncbi-cogs",
@@ -3691,6 +3691,10 @@
       "source": 26
     },
     {
+      "target": 215,
+      "source": 26
+    },
+    {
       "target": 222,
       "source": 26
     },
@@ -3997,6 +4001,10 @@
     {
       "target": 186,
       "source": 47
+    },
+    {
+      "source": 215,
+      "target": 47
     },
     {
       "source": 221,

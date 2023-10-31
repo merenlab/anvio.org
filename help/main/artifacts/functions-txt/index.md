@@ -23,7 +23,7 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-functions](../../programs/anvi-export-functions)</span> <span class="artifact-p">[anvi-search-functions](../../programs/anvi-search-functions)</span> <span class="artifact-p">[anvi-script-get-hmm-hits-per-gene-call](../../programs/anvi-script-get-hmm-hits-per-gene-call)</span> <span class="artifact-p">[anvi-script-process-genbank](../../programs/anvi-script-process-genbank)</span> <span class="artifact-p">[anvi-script-process-genbank-metadata](../../programs/anvi-script-process-genbank-metadata)</span> <span class="artifact-p">[anvi-script-transpose-matrix](../../programs/anvi-script-transpose-matrix)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-functions](../../programs/anvi-export-functions)</span> <span class="artifact-p">[anvi-run-ncbi-cogs](../../programs/anvi-run-ncbi-cogs)</span> <span class="artifact-p">[anvi-search-functions](../../programs/anvi-search-functions)</span> <span class="artifact-p">[anvi-script-get-hmm-hits-per-gene-call](../../programs/anvi-script-get-hmm-hits-per-gene-call)</span> <span class="artifact-p">[anvi-script-process-genbank](../../programs/anvi-script-process-genbank)</span> <span class="artifact-p">[anvi-script-process-genbank-metadata](../../programs/anvi-script-process-genbank-metadata)</span> <span class="artifact-p">[anvi-script-transpose-matrix](../../programs/anvi-script-transpose-matrix)</span></p>
 
 
 ## Required or used by

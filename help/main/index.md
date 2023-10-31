@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **23 Oct 23 16:18:02** for anvi'o version **8-dev (marie)**.
+The help contents were last updated on **31 Oct 23 11:58:03** for anvi'o version **8-dev (marie)**.
 
 
 {% include _project-anvio-version.html %}
@@ -1632,7 +1632,7 @@ Listed below **a total of 147 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-metabolic-model-file](programs/anvi-get-metabolic-model-file)**</span>. <span markdown="1">This program writes a metabolic reaction network to a file suitable for flux balance analysis.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-metabolic-model-file](programs/anvi-get-metabolic-model-file)**</span>. <span markdown="1">This program exports a metabolic reaction network to a file suitable for flux balance analysis.</span>.
     </td>
 </tr>
 <tr>
@@ -2544,7 +2544,7 @@ Listed below **a total of 147 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-reaction-network](programs/anvi-reaction-network)**</span>. <span markdown="1">Generate a metabolic reaction network in an anvi&#x27;o contigs database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-reaction-network](programs/anvi-reaction-network)**</span>. <span markdown="1">This program generates a metabolic reaction network in an anvi&#x27;o contigs or pan database.</span>.
     </td>
 </tr>
 <tr>
@@ -2821,24 +2821,25 @@ Listed below **a total of 147 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-ncbi-cogs](programs/anvi-run-ncbi-cogs)**</span>. <span markdown="1">This program runs NCBI&#x27;s COGs to associate genes in an anvi&#x27;o contigs database with functions. COGs database was been designed as an attempt to classify proteins from completely sequenced genomes on the basis of the orthology concept.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-ncbi-cogs](programs/anvi-run-ncbi-cogs)**</span>. <span markdown="1">This program runs NCBI&#x27;s COGs to associate genes in an anvi&#x27;o contigs database with functions. This program can also run NCBI&#x27;s COGs to annotate an amino acid sequence with function. COGs database was been designed as an attempt to classify proteins from completely sequenced genomes on the basis of the orthology concept.</span>.
     </td>
 </tr>
 <tr>
     <td class="artifact-r-td">
     <span class="artifact-emoji">🧀</span>
-        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[cogs-data](artifacts/cogs-data) <img src="images/icons/DATA.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-r" markdown="1">[cogs-data](artifacts/cogs-data) <img src="images/icons/DATA.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[fasta](artifacts/fasta) <img src="images/icons/FASTA.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span>
-        <span class="artifact-p" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-p" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[functions-txt](artifacts/functions-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr style="border:none;">
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/meren" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ge0rges" target="_blank"><img class="anvio-person-photo-img-mini" title="Georges Kanaan" src="images/authors/ge0rges.jpg" /></a></div></div>
 
     </td>
 </tr>
