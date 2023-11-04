@@ -41,44 +41,47 @@ Reformat FASTA file (remove contigs based on length, or based on a given list of
 ## Can provide
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-fasta](../../artifacts/contigs-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[rename-report-file](../../artifacts/rename-report-file) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-fasta](../../artifacts/contigs-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[contig-rename-report-txt](../../artifacts/contig-rename-report-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Usage
 
 
-This program **converts a <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> file to a <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span>.** In other words, it reformats your FASTA formatted file to meet the conditions required of a <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span>, which is able to be used by other anvi'o programs.
+A simpe program to perform a combination of simple operations on a FASTA file including,
 
-<div class="codeblock" markdown="1">
-anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/help/main/artifacts/fasta)</span> \
-                           &#45;o <span class="artifact&#45;n">[contigs&#45;fasta](/help/main/artifacts/contigs&#45;fasta)</span> \
-                           &#45;&#45;simplify&#45;names
-</div>
-
-{:.notice}
-If you use the flag `--report-file`, it will also create a <span class="artifact-n">[rename-report-file](/help/main/artifacts/rename-report-file)</span> TAB-delimited file for you to keep track of which defline in the new file corresponds to which defline in the original file.
+* Renaming sequences so they have simplified deflines (more on this in the next section),
+* Adding a prefix to sequence names in a FASTA file (useful when you wish to concatenate multiple FASTA files and want to make sure each sequence name is unique and tracable back to its original source),
+* Removing sequences that are shorter than a specific length or only keeping those that match to a specific length,
+* Removing sequences if they contain more than a number of gap characters or exceed the precentage of gap characters you permit (some simple quality checks prior to phylogenetic / phylogenomic analyses),
+* Excluding sequences that match to a list of sequence IDs, or only keep those that match to a list of sequence IDs,
+* Enforcing a sequence type and to replace any character with `N` for nucleotide sequences that are not A, C, T, or G, or to replace any character with `X` for amino acid sequences if the character does not match any of the single-letter amino acid characters (useuful to make sure the input file conforms the expectations of that input file type (i.e., all DNA sequences, or all AA sequences, etc)).
 
 {:.notice}
 This program can work with compressed input FASTA files (i.e., the file name ends with a `.gz` extention) and will report a compressed output FASTA file (i.e., if the output file name ends with a `.gz` extension).
 
-In addition to simplifying names, this program will allow you to do a combination of the operations that include,
+### Renaming / simplifying sequence deflines
 
-* Add a prefix to sequnce names in a FASTA file,
-* Remove sequences that are shorter than a specific length or only keep sequences that match to a specific length,
-* Remove sequences if they contain more than a number of gap characters or exceed the precentage of gap characters you permit,
-* Exclude sequences that match to a list of sequence IDs, or only keep those that match to a list of sequence IDs,
-* Enforce a sequence type to replace any character with `N` for nucleotide sequences that are not A, C, T, or G, or replace any character with `X` for amino acid sequences if the character does not match any of the single-letter amino acid characters.
+One of the most useful tasks this program performs is to simplify the deflines in your <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> file so they meet the conditions required of a <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span> that is required by other anvi'o programs. You can simplify deflines in a <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> file the following way:
 
-### Removing the short reads is important
+<div class="codeblock" markdown="1">
+anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/help/main/artifacts/fasta)</span> \
+                           &#45;o <span class="artifact&#45;n">[contigs&#45;fasta](/help/main/artifacts/contigs&#45;fasta)</span> \
+                           &#45;&#45;simplify&#45;names \
+                           &#45;&#45;report&#45;file <span class="artifact&#45;n">[contig&#45;rename&#45;report&#45;txt](/help/main/artifacts/contig&#45;rename&#45;report&#45;txt)</span>
+</div>
 
-If your FASTA file includes a lot of very short contigs, removing them may dramatically improve the performance of the generation and processing of your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. The example below runs the same command while also removing sequences that are shorter than 1,000 nts:
+The `--report-file` flag is quite important to use here as it will generate a TAB-delimited file, <span class="artifact-n">[contig-rename-report-txt](/help/main/artifacts/contig-rename-report-txt)</span>, to keep track of which defline in the new file corresponds to which defline in the original file.
+
+### Removing the short reads
+
+If your <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> file includes a lot of very short contigs, removing them may dramatically improve the performance of the generation and processing of your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. The example below runs the same command while also removing sequences that are shorter than 1,000 nts:
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/help/main/artifacts/fasta)</span> \
                            &#45;o <span class="artifact&#45;n">[contigs&#45;fasta](/help/main/artifacts/contigs&#45;fasta)</span> \
                            &#45;l 1000 \
                            &#45;&#45;simplify&#45;names \
-                           &#45;&#45;report&#45;file <span class="artifact&#45;n">[rename&#45;report&#45;file](/help/main/artifacts/rename&#45;report&#45;file)</span>
+                           &#45;&#45;report&#45;file <span class="artifact&#45;n">[contig&#45;rename&#45;report&#45;txt](/help/main/artifacts/contig&#45;rename&#45;report&#45;txt)</span>
 </div>
 
 ### Example output

@@ -677,7 +677,7 @@
       "type": "FASTA"
     },
     {
-      "size": 8,
+      "size": 10,
       "score": 1,
       "color": "#AA0000",
       "id": "bam-file",
@@ -1136,11 +1136,11 @@
       "type": "TXT"
     },
     {
-      "size": 1,
+      "size": 2,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "rename-report-file",
-      "name": "REPORT FILE",
+      "id": "contig-rename-report-txt",
+      "name": "CONTIG RENAME REPORT TXT",
       "provided_by_anvio": true,
       "type": "TXT"
     },
@@ -2295,6 +2295,14 @@
       "color": "#AAAA00",
       "id": "anvi-script-process-genbank-metadata",
       "name": "anvi-script-process-genbank-metadata",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 3,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-script-reformat-bam",
+      "name": "anvi-script-reformat-bam",
       "type": "PROGRAM"
     },
     {
@@ -3720,7 +3728,7 @@
       "source": 26
     },
     {
-      "target": 271,
+      "target": 272,
       "source": 26
     },
     {
@@ -3764,7 +3772,7 @@
       "target": 28
     },
     {
-      "source": 272,
+      "source": 273,
       "target": 28
     },
     {
@@ -3840,11 +3848,11 @@
       "source": 33
     },
     {
-      "target": 272,
+      "target": 273,
       "source": 33
     },
     {
-      "target": 274,
+      "target": 275,
       "source": 33
     },
     {
@@ -4000,7 +4008,7 @@
       "target": 46
     },
     {
-      "source": 271,
+      "source": 272,
       "target": 46
     },
     {
@@ -4032,11 +4040,11 @@
       "target": 47
     },
     {
-      "source": 273,
+      "source": 274,
       "target": 47
     },
     {
-      "target": 273,
+      "target": 274,
       "source": 47
     },
     {
@@ -4044,11 +4052,11 @@
       "target": 48
     },
     {
-      "source": 273,
+      "source": 274,
       "target": 48
     },
     {
-      "target": 273,
+      "target": 274,
       "source": 48
     },
     {
@@ -4120,11 +4128,11 @@
       "target": 54
     },
     {
-      "source": 273,
+      "source": 274,
       "target": 54
     },
     {
-      "target": 273,
+      "target": 274,
       "source": 54
     },
     {
@@ -4136,11 +4144,11 @@
       "source": 55
     },
     {
-      "source": 273,
+      "source": 274,
       "target": 55
     },
     {
-      "target": 273,
+      "target": 274,
       "source": 55
     },
     {
@@ -4336,6 +4344,14 @@
       "source": 75
     },
     {
+      "source": 271,
+      "target": 75
+    },
+    {
+      "target": 271,
+      "source": 75
+    },
+    {
       "source": 188,
       "target": 76
     },
@@ -4412,11 +4428,11 @@
       "target": 84
     },
     {
-      "source": 273,
+      "source": 274,
       "target": 84
     },
     {
-      "target": 273,
+      "target": 274,
       "source": 84
     },
     {
@@ -4484,11 +4500,11 @@
       "target": 92
     },
     {
-      "source": 273,
+      "source": 274,
       "target": 92
     },
     {
-      "target": 273,
+      "target": 274,
       "source": 92
     },
     {
@@ -4660,11 +4676,15 @@
       "source": 125
     },
     {
-      "source": 271,
+      "target": 271,
+      "source": 126
+    },
+    {
+      "source": 272,
       "target": 126
     },
     {
-      "source": 274,
+      "source": 275,
       "target": 127
     }
   ],

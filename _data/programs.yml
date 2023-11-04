@@ -235,6 +235,9 @@
 - author: AstrobioMike
   programs:
     - name: anvi-script-process-genbank
+- author: telatin
+  programs:
+    - name: anvi-script-reformat-bam
 - author: vinisalazar
   programs:
     - name: anvi-script-reformat-fasta
