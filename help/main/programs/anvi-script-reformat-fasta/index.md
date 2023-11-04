@@ -41,7 +41,7 @@ Reformat FASTA file (remove contigs based on length, or based on a given list of
 ## Can provide
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-fasta](../../artifacts/contigs-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-fasta](../../artifacts/contigs-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[rename-report-file](../../artifacts/rename-report-file) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Usage
@@ -56,7 +56,7 @@ anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/hel
 </div>
 
 {:.notice}
-If you use the flag `--report-file`, it will also create a TAB-delimited file for you to keep track of which defline in the new file corresponds to which defline in the original file.
+If you use the flag `--report-file`, it will also create a <span class="artifact-n">[rename-report-file](/help/main/artifacts/rename-report-file)</span> TAB-delimited file for you to keep track of which defline in the new file corresponds to which defline in the original file.
 
 {:.notice}
 This program can work with compressed input FASTA files (i.e., the file name ends with a `.gz` extention) and will report a compressed output FASTA file (i.e., if the output file name ends with a `.gz` extension).
@@ -77,7 +77,8 @@ If your FASTA file includes a lot of very short contigs, removing them may drama
 anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/help/main/artifacts/fasta)</span> \
                            &#45;o <span class="artifact&#45;n">[contigs&#45;fasta](/help/main/artifacts/contigs&#45;fasta)</span> \
                            &#45;l 1000 \
-                           &#45;&#45;simplify&#45;names
+                           &#45;&#45;simplify&#45;names \
+                           &#45;&#45;report&#45;file <span class="artifact&#45;n">[rename&#45;report&#45;file](/help/main/artifacts/rename&#45;report&#45;file)</span>
 </div>
 
 ### Example output
