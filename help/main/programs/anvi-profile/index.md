@@ -140,6 +140,21 @@ anvi&#45;profile &#45;c Ross_sea_contigs.db \
              &#45;&#45;fetch&#45;filter inversions
 </div>
 
+### Ancient DNA friendly SNV profiling
+
+By default, anvi'o will report variable nucleotides and their allele frequencies from any nucleotide position in a given short read found in the BAM file. Although, there are some applications where the observed variation in short reads will depend on the location of the nucleotide positions in the read. For instance, in ancient DNA sequencing, the start and the end of short reads are often suffer from DNA damage, leading to an increased number of single-nucleotide variants that emerge from the edges of short reads when they are aligned to a reference. The program <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span> has an additional parameter to mitigate this: `--skip-edges`, which can be used like this:
+
+<div class="codeblock" markdown="1">
+anvi&#45;profile &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+             &#45;i <span class="artifact&#45;n">[bam&#45;file](/help/main/artifacts/bam&#45;file)</span> \
+             &#45;&#45;skip&#45;edges 5
+</div>
+
+
+This parameter offers a means to ameliorate the inflation of SNVs due to biases associated with short-read edges by enabling the user to ask anvi'o to ignore a few number of nucleotides from the beginning and the end of short reads as they're being profiled. For instance, a parameter of `5` like shown above, will make sure that the mismatches of a given read to the reference sequence at the first and the last 5 nucleotides will not be reported in the variability table. Please note that the coverage data will not be impacted by the use of this parameter -- only what is reported as variants will be impacted, decreasing the impact of noise in specific applications.
+
+See [https://github.com/merenlab/anvio/pull/2081](https://github.com/merenlab/anvio/pull/2081) for more information.
+
 ### Hierarchical Clustering
 
 #### To cluster or not to cluster?
