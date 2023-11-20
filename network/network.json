@@ -11,7 +11,7 @@
       "type": "CONCEPT"
     },
     {
-      "size": 20,
+      "size": 21,
       "score": 0.5,
       "color": "#00AA00",
       "id": "genomes-storage-db",
@@ -29,7 +29,7 @@
       "type": "CONCEPT"
     },
     {
-      "size": 27,
+      "size": 28,
       "score": 0.5,
       "color": "#00AA00",
       "id": "pan-db",
@@ -1322,7 +1322,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 15,
+      "size": 17,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-estimate-metabolism",
@@ -2372,6 +2372,10 @@
       "source": 1
     },
     {
+      "target": 149,
+      "source": 1
+    },
+    {
       "source": 169,
       "target": 1
     },
@@ -2513,6 +2517,10 @@
     },
     {
       "target": 146,
+      "source": 3
+    },
+    {
+      "target": 149,
       "source": 3
     },
     {

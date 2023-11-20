@@ -119,7 +119,25 @@
       "type": "TXT"
     },
     {
-      "size": 13,
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "pan-db",
+      "name": "pan-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "genomes-storage-db",
+      "name": "genomes-storage-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 15,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-estimate-metabolism",
@@ -129,56 +147,64 @@
   ],
   "links": [
     {
-      "source": 13,
+      "source": 15,
       "target": 0
     },
     {
-      "source": 13,
+      "source": 15,
       "target": 1
     },
     {
-      "target": 13,
+      "target": 15,
       "source": 2
     },
     {
-      "target": 13,
+      "target": 15,
       "source": 3
     },
     {
-      "target": 13,
+      "target": 15,
       "source": 4
     },
     {
-      "target": 13,
+      "target": 15,
       "source": 5
     },
     {
-      "target": 13,
+      "target": 15,
       "source": 6
     },
     {
-      "target": 13,
+      "target": 15,
       "source": 7
     },
     {
-      "target": 13,
+      "target": 15,
       "source": 8
     },
     {
-      "target": 13,
+      "target": 15,
       "source": 9
     },
     {
-      "target": 13,
+      "target": 15,
       "source": 10
     },
     {
-      "target": 13,
+      "target": 15,
       "source": 11
     },
     {
-      "target": 13,
+      "target": 15,
       "source": 12
+    },
+    {
+      "target": 15,
+      "source": 13
+    },
+    {
+      "target": 15,
+      "source": 14
     }
   ],
   "directed": false,
