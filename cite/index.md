@@ -5,12 +5,12 @@ excerpt: "Tips and suggestions on how to cite anvi'o for those who care."
 notoc: false
 ---
 
-Anvi'o is an evolving software ecosystem, and its components are often described in multiple studies. Thus, the best practice for your study may be to cite multiple publications if it benefits from multiple anvi'o features.
+Anvi'o is an evolving software ecosystem, and its components are often described in multiple studies. Thus, while it can be annoying, the true best practice for your study may be to cite multiple publications if it benefits from multiple anvi'o features.
 
 We know that finding the best studies to cite can be a lot of work. The purpose of this page is to offer up-to-date suggestions to help you find out how to finalize your citations regarding anvi'o. But if you are unsure, please feel free to drop us a line, or find us on {% include _discord_invitation_button.html %}
 
 {:.notice}
-Anvi'o often uses third-party software or resources (such as HMMER, Prodigal, MCL, GTDB, or NCBI) and the platform typically guides you to cite relevant work when they are used for an anvi'o analysis. Suggestions on this page are specific to anvi'o, and do not include third-party software that you should also make sure to cite properly.
+Anvi'o often uses third-party software or resources (such as HMMER, Prodigal, MCL, GTDB, or NCBI) and the platform typically guides you to cite relevant work when they are used for an anvi'o analysis. Suggestions on this page are specific to anvi'o, and do not include third-party software that you should also make sure to cite properly. Anvi'o does its best to remind you what to cite during its runtime regarding third-party software, and we implore you to be vigilant to recognize work from others that enable anvi'o to be able to help you.
 
 We know this is difficult work and we are thankful for your attention.
 
@@ -31,7 +31,9 @@ If you have used anvi'o for anything at all please consider citing this work as 
     <span class="pub-journal"><b>Nature Microbiology</b>, 6(1):3:6 <a href="https://doi.org/10.1038/s41564-020-00834-3" target="_blank">🔗</a></span>
 </div>
 
-The rest of the citations on this page are specific for certain anvi'o features.
+It is important to cite this work as it includes all researchers who contributed to the evolution of the platfrom until 2021. Anyone who is using anvi'o today are benefiting from their contributions, and the best way to recognize their work is to cite this paper.
+
+The rest of the citations on this page are specific for certain anvi'o features, and we thank you for your patience.
 
 ## Microbial metabolism
 
@@ -101,12 +103,12 @@ In a recent study, we cited this work the following way:
 
 {% include _experts.html question="enrichment analyses" githubs="adw96,ivagljiva" %}
 
-## Metapangenomics
+## Pangenomics, Metapangenomics
 
 {:.notice-alt}
-**TL;DR**: Cite this if you have used {% include PROGRAM name="anvi-meta-pan-genome" %}.
+**TL;DR**: Cite this one if you have used {% include PROGRAM name="anvi-pan-genome" %} or {% include PROGRAM name="anvi-meta-pan-genome" %}.
 
-The metapangenomics was first introduced in this study. If you are using anvi'o to investigate how to bring together pangenomes and metagenomes, please consider citing this work as well.
+The anvi'o pangenomics and metapangenomics capabilities were first introduced in this study. If you are using anvi'o to generate pangenomes and/or investigate how to bring together pangenomes and metagenomes, please consider citing this work as well.
 
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.7717/peerj.4320"></div>
