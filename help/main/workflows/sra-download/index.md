@@ -47,7 +47,7 @@ An anvi'o installation that follows the recommendations on the <a href="https://
 ## Workflow description and usage
 
 
-The `sra-download` workflow is a Snakemake workflow that downloads FASTQ files from SRA-accessions using [NCBI sra-tools wiki](https://github.com/ncbi/sra-tools/wiki/08.-prefetch-and-fasterq-dump), gzips them using [pigz](https://zlib.net/pigz/), and provides a <span class="artifact-n">[samples-txt](/help/main/artifacts/samples-txt)</span>. You will need to have these tools installed before you start.
+The `sra_download` workflow is a Snakemake workflow that downloads FASTQ files from SRA-accessions using [NCBI sra-tools wiki](https://github.com/ncbi/sra-tools/wiki/08.-prefetch-and-fasterq-dump), gzips them using [pigz](https://zlib.net/pigz/), and provides a <span class="artifact-n">[samples-txt](/help/main/artifacts/samples-txt)</span>. You will need to have these tools installed before you start.
 
 Let's get started.
 
@@ -58,7 +58,7 @@ Let's get started.
 The first step is to make a <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span>.
 
 ```bash
-anvi-run-workflow -w sra-download --get-default-config sra_download_config.json
+anvi-run-workflow -w sra_download --get-default-config sra_download_config.json
 ```
 
 Here's what the <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span> file looks like:
@@ -85,7 +85,7 @@ $ cat sra_download_config.json
     },
     "max_threads": "",
     "config_version": "3",
-    "workflow_name": "sra-download"
+    "workflow_name": "sra_download"
 ```
 
 #### Modify any of the bells and whistles in the config file
@@ -99,7 +99,7 @@ Feel free to adjust anything in the config file! Here are some to consider:
 
 ### List of SRA accessions
 
-The input for the `sra-download` workflow is `SRA_accession_list.txt`. This contains a list of your SRA accession you would like to download and it looks like this:
+The input for the `sra_download` workflow is `SRA_accession_list.txt`. This contains a list of your SRA accession you would like to download and it looks like this:
 
 ```bash
 $ cat SRA_accession_list.txt
@@ -118,7 +118,7 @@ Here's a basic command to start the workflow:
 ### Run on your local computer
 
 ```bash
-anvi-run-workflow -w sra-download -c sra_download_config.json
+anvi-run-workflow -w sra_download -c sra_download_config.json
 ```
 
 ### Go big and use an HPC!
