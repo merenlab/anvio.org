@@ -47,7 +47,7 @@ This program allows you to remove low quality HMM alignments from a <span class=
 
 ## Filter with HMM alignment parameters
 
-Similar to query coverage in BLAST, we can also use HMM alignment coverage to help determine if an hmm-hit is homologous. A small coverage value means only a small proportion of the query/target is aligning. Before anvi'o can filter out <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> with alignment coverage, you must run <span class="artifact-p">[anvi-run-hmms](/help/main/programs/anvi-run-hmms)</span> and report a domain hits table by including `--domain-hits-table` flag in your command:
+Similar to query coverage in BLAST, we can also use HMM alignment coverage to help determine if an hmm-hit is homologous. A small alignment coverage value means only a small proportion of the query/target is aligning. Before anvi'o can filter out <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> with alignment coverage, you must run <span class="artifact-p">[anvi-run-hmms](/help/main/programs/anvi-run-hmms)</span> and report a domain hits table by including `--domain-hits-table` flag in your command. This will write the [domtblout](http://eddylab.org/software/hmmer3/3.1b2/Userguide.pdf) file from hmmsearch:
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -56,15 +56,16 @@ anvi&#45;run&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help
               &#45;&#45;domain&#45;hits&#45;table
 </div>
 
-After the command above, your HMM hits will be stored in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> as usual. However, with the domain hits table, you can filter out hits from your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> using thresholds for model or gene coverage of each hit i.e. you can filter out <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> where the profile HMM and gene align well to each other.
+After the command above, your <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> will be stored in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> as usual. However, with the domain hits table, you can filter out hits from your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> using thresholds for `--min-model-coverage` or `--min-model-coverage` of each hit i.e. you can filter out <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> where the profile HMM and gene align well to each other.
 
-For example, following the command above, the command below will remove <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> from your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> for profile HMMs that had less than 90% coverage of the target genes:
+For example, following the command above, the command below will remove <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> from your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> for profile HMMs that had less than 90% model coverage and 50% gene coverage:
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;filter&#45;hmm&#45;hits&#45;table &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                                   &#45;&#45;hmm&#45;source Bacteria_71 \
                                   &#45;&#45;domain&#45;hits&#45;table path/to/dir/hmm.domtable \
-                                  &#45;&#45;model&#45;coverage 0.9
+                                  &#45;&#45;min&#45;model&#45;coverage 0.9 \
+                                  &#45;&#45;min&#45;gene&#45;coverage 0.5
 </div>
 
 ### HMMs with multiple hits to one gene
@@ -75,7 +76,6 @@ Some HMM profiles align multiple times to the same gene at different coordinates
 anvi&#45;script&#45;filter&#45;hmm&#45;hits&#45;table &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                                   &#45;&#45;hmm&#45;source Bacteria_71 \
                                   &#45;&#45;domain&#45;hits&#45;table path/to/dir/hmm.domtable \
-                                  &#45;&#45;model&#45;coverage 0.9 \
                                   &#45;&#45;merge&#45;partial&#45;hits&#45;within&#45;X&#45;nts
 </div>
 
@@ -84,7 +84,7 @@ The input domtblout file for <span class="artifact-p">[anvi-script-filter-hmm-hi
 
 ## Filter out hmm-hits from partial genes
 
-HMMs are able to detect partial genes (i.e., genes that are not partial and that start with a start codon and end with a stop codon) with good alignment coverage and homology statistics. However, partial genes can lead to spurious phylogenetic branches and/or inflate the number of observed populations or functions in a given set of genomes/metagenomes. Using `--filter-out-partial-gene-calls`, you can remove partial gene hmm-hits.
+HMMs are able to detect partial genes (i.e., genes that do not contain start and/or stop codons) with good alignment coverage and homology statistics. However, partial genes can lead to spurious phylogenetic branches and/or inflate the number of observed populations or functions in a given set of genomes/metagenomes. Using `--filter-out-partial-gene-calls`, you can remove partial gene hmm-hits.
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;filter&#45;hmm&#45;hits&#45;table &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
