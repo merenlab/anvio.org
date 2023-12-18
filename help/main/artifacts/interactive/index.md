@@ -90,7 +90,7 @@ We will spend most of our time in the 'Settings' panel.
 
 ### Settings panel
 
-<img align="left" src="../../images/interactive_interface/interactive-settings-panel-tabs-new.png" style="width: 50px; margin-right: 20px; margin-bottom: 30px;">
+<img align="left" src="../../images/interactive_interface/interactive-settings-panel-tabs-new.png" style="width: 50px; margin-right: 20px;">
 
 If closed, the settings panel can be opened by clicking on the little button on the left-middle part of your browser. When opened, you will see multiple tabs:
 
@@ -107,12 +107,10 @@ Through these controls you can,
 * __Center__ the display.
 
 💡  Before talking about Tabs, here's a <ins> useful tip</ins>: you can conveniently switch between tabs using your keypad. For instance, pressing '1' will navigate you to the Main tab, '2' to the Options tab, and so forth.
-<br />
+
+For more tips you can check out the [Tips + Tricks](#interactive-interface-tips--tricks) section at the end of this page.
 
 OK. Let's talk about each tab you will find in the settings panel.
-
-<br />
-
 
 ### Main Tab
 
@@ -120,11 +118,7 @@ This is one of the most frequently used tabs in the interface, and there are mul
 
 Let's break down this section into three main parts: _Items_, _Layers_, and _Legends_. Items allow modifications to our Phylogram chart, Layers focus on layer-specific changes, and Legends enable visual changes in both components.
 
-
-<img align="left" src="../../images/interactive_interface/interactive-settings-panel-tabs-ITEMS.png" style="width: 300px; margin-right: 10px; margin-bottom: 30px;">
-<img align="center" src="../../images/interactive_interface/interactive-settings-panel-tabs-LAYERS.png" style="width: 300px; margin-right: 10px; margin-bottom: 30px;">
-<img align="right" src="../../images/interactive_interface/interactive-settings-panel-tabs-LEGENDS.png" style="width: 300px; margin-bottom: 30px;">
-
+<img src="../../images/interactive_interface/interactive-settings-panel-main.png" style="border:none !important;">
 
 - #### Items subsection 
   - Provides high level options for adjusting _drawing type_, _items order_ and _data type_.
@@ -144,8 +138,7 @@ Let's break down this section into three main parts: _Items_, _Layers_, and _Leg
 
 In the Options tab, just like in the Main tab, we have two sections: Items and Layers, providing a separation for these components.,
 
-<img align="right" src="../../images/interactive_interface/interactive-settings-options-items.png" style="width: 250px; margin-bottom: 30px;">
-<br /><br /><br />
+![an anvi'o options items](../../images/interactive_interface/interactive-settings-options-items.png){:.center-img}
 
 * **Bins Selection subsection**. Allows us to customize the bins.
 * **Cosmetics subsection**. _Margin and Background Opacity_ adjustments on the chart.
@@ -154,24 +147,19 @@ In the Options tab, just like in the Main tab, we have two sections: Items and L
 * **Selections subsection**. To adjust _height_, _grid_ and/or _shade_ display, as well as selection _name_ settings.
 * **Performance subsection**. Whether the SVG output is optimized for performance or granularity (very advanced stuff).
 
-<br /><br /><br /><br />
-<br /><br />
-<img align="left" src="../../images/interactive_interface/interactive-settings-options-layers.png" style="width: 300px; margin-right: 20px;">
-<br />
+
+![an anvi'o options items](../../images/interactive_interface/interactive-settings-options-layers.png){:.center-img}
 
 * **Tree/Dendogram subsection**. _Height and Edge length normalization_ adjustments on the Tree.
 * **Label subsection**. Settings for maximum font size on the Layer.
 
-
 Mastering these in the Options Tab will minimize the post-processing of your anvi'o figures for high-quality and good-looking publication ready images.
-<br /><br /><br /><br />
-<br /><br /><br /><br />
 
 ### Bins tab
 
 Anvi’o allows you to create selections of items shown in the display (whether they are contigs, gene clusters, or any other type of data shown in the display). Bins tab allow you to maintain these selections. Any selection on the tree will be added to active bin in this tab (the state radio button next to a bin defines its activity). Through this tab you can,
 
-<img align="left" src="../../images/interactive_interface/interactive-settings-bins-tabs.png" style="width: 300px; margin-right: 20px; margin-bottom: 10px;">
+![an anvi'o options items](../../images/interactive_interface/interactive-settings-bins-tabs.png){:.center-img}
 
 - __Create or delete bins, set bin names, change the color of a given bin__, or sort bins based on their name, the number of units they carry, or completion and contamination estimates (completion / contamination estimates are only computed for genomic or metagenomic analyses).
 
@@ -203,6 +191,7 @@ The news panel provides information and external links tracking major Anvi'o rel
 - The notes tab is a flexible, multipurpose space where users can,
 - Store notes, comments, and any other stray items related to their project, in a feature-rich markdown environment.
 - Display context, references, reproducibility instructions, and any other salient details for published figures.
+- This section moved under Settings panel. `Settings > Notes`
 ![The Description panel in action](../../images/interactive_interface/interactive-settings-description-panel.png){:.center-img}
 
 ## Interactive interface tips + tricks
