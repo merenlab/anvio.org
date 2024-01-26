@@ -12,7 +12,7 @@ image:
 
 <i>From FASTA and/or FASTQ files to anvi&#x27;o contigs and profile databases</i>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+This workflow is for anyone who wants to do some high-throughput read recruitment. It has a few different modes depending on your input data. By default, it works with metagenomic short reads and will assemble those, use the assembly as a reference for read-recruitment, and create databases ready for anvi-interactive (i.e. for binning). If you don&#x27;t need to assemble anything, you can also just give this program a set of reference contigs for read-recruitment. Regardless, you&#x27;ll end up with at least one contigs database + merged profile database pair. Oh, and since this workflow internally uses the contigs workflow, you can optionally run annotation programs on your contigs database as well.
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
