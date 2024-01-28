@@ -29,7 +29,7 @@ This page describes the anvi'o installation process for the current stable relea
 <span class="extra-info-header">Working with Apple silicon</span>
 
 If you are using a computer with Apple silicon (like a M1 or M2 MacBook), you will find that some conda packages are not available (like bioconda packages).
-To avoid this issue, you can run the following command (only once) after activating the environment:
+To avoid this issue, you can run the following command (only once) before creating the environment:
 
 ```bash
 conda config --env --set subdir osx-64
