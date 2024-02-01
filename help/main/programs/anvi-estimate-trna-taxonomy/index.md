@@ -96,7 +96,7 @@ will give you an output file containing all taxonomic levels found and their cov
 
 ### 4: Estimating the taxonomy of bins 
 
-You can use this program to estimate the taxonomy of all of the <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s in a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> by providing the the <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and the associated <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. 
+You can use this program to estimate the taxonomy of all of the <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s in a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> by providing the <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and the associated <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. 
 
 <div class="codeblock" markdown="1">
 anvi&#45;estimate&#45;trna&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \

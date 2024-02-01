@@ -206,6 +206,8 @@
     - name: anvi-get-codon-frequencies
     - name: anvi-get-codon-usage-bias
     - name: anvi-get-metabolic-model-file
+    - name: anvi-import-metabolite-profile
+    - name: anvi-import-protein-profile
     - name: anvi-merge-trnaseq
     - name: anvi-migrate
     - name: anvi-reaction-network

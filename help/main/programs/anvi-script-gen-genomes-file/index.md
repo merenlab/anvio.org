@@ -54,7 +54,7 @@ anvi-script-gen-genomes-file --input-dir path/to/dir \
                              --output-file external_genomes.txt
 ```
 
-Names for genomes in the the resulting external genomes file will be set based on the `project_name` variable, and the `contigs_db_path` column will contain absolute paths.
+Names for genomes in the resulting external genomes file will be set based on the `project_name` variable, and the `contigs_db_path` column will contain absolute paths.
 
 {:.notice}
 You can learn the current `project_name` and/or change it for a given <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> using the program <span class="artifact-p">[anvi-db-info](/help/main/programs/anvi-db-info)</span>. This variable is set by the program <span class="artifact-p">[anvi-gen-contigs-database](/help/main/programs/anvi-gen-contigs-database)</span>.
