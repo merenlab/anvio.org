@@ -4,6 +4,7 @@ authors: [ivagljiva]
 title: "How to add a post to anvio.org"
 excerpt: "You want to write a blog post or tutorial? We got you, fam."
 date: 2023-10-20
+modified: 2024-02-15
 tags: [contributors, technical]
 comments: true
 ---
@@ -195,11 +196,21 @@ rm -rf _site/; bundle exec jekyll serve --incremental --trace --future
 ```
 
 {:.notice}
-Every file under the `_posts` directory, even if it is not a blog post, should appear on our 'Community Blog' page (locally rendered at [http://127.0.0.1:4000/blog/](http://127.0.0.1:4000/blog/)). In contrast, the 'Learn' page (locally rendered at [http://127.0.0.1:4000/learn/](http://127.0.0.1:4000/learn/)) can include links to external URLs and organizes the posts by section according to which YAML file they were described in. 
+Every file under the `_posts` directory, even if it is not a blog post, should appear on our 'Community Blog' page (locally rendered at [http://127.0.0.1:4000/blog/](http://127.0.0.1:4000/blog/)). In contrast, the 'Learn' page (locally rendered at [http://127.0.0.1:4000/learn/](http://127.0.0.1:4000/learn/)) can include links to external URLs and organizes the posts by section according to which YAML file they were described in.
 
 ### Adding images
 
 If your post includes images, you should add those files under the `images/` folder of the anvio.org repository. Our convention is to create a folder for images specific to that post within that directory, as in `images/anvio-org-tutorial/`, and add all associated image files there. Then, see [this web tip](https://anvio.org/web-tips/#images) for instructions on how to include the image(s) within the markdown file for your post. Don't forget to commit your images to the repository, and ensure that they render properly.
+
+### Adding yourself (and co-authors) as a contributor to anvi'o
+
+Everyone who authors a post on anvio.org must be listed as either a developer or a contributor in the anvi'o codebase. This is our strategy for linking your information (via your Github username) to the ['People' page](https://anvio.org/people/) on the website. For example, at the top of this tutorial, you should see my name and picture, and be able to click on my name to access my bio. 
+
+If you render your post locally with Jekyll and don't see a little box with the name and picture for each author, then it is likely that the affected authors are missing from our [Contributor list](https://github.com/merenlab/anvio/blob/master/anvio/data/misc/PEOPLE/CONTRIBUTORS.yaml) or [Developer list](https://github.com/merenlab/anvio/blob/master/anvio/data/misc/PEOPLE/DEVELOPERS.yaml).
+
+If this is the case, then you should follow the instructions in the [README file for the anvi'o repository](https://github.com/merenlab/anvio/blob/master/anvio/data/misc/PEOPLE/README.md) to add yourself and your information to the appropriate YAML file (and please also add your picture, if possible). Once that is done, one of the anvio.org maintainers will run a little update script to make sure the website's repository gets access to the information as well. That step is described in the 'Upkeeping' section of the [anvio.org README](https://github.com/merenlab/anvio.org) (but it is likely that you don't have to worry about it yourself).
+
+Once both repositories have been made aware of who you (and any co-authors are), then your post will feature a box for each author that links to your respective 'People' page(s).
 
 ## Step 8) Make a PR
 
