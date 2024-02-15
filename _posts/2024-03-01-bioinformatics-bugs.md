@@ -134,7 +134,7 @@ $ grep 1672 microbeannotator_output/Bradyrhizobium_manausense_BR3351/kofam_resul
 1672	-	K14465	-	domain	3.6e-59	199.2	8.5	2.4e-39	134.0	1.4	2.2	1	1	1	2	2	2	2	succinate semialdehyde reductase (NADPH) [EC:1.1.1.-]
 ```
 
-There are a lot of hits, so here again we convert the first 7 columns to a table form, and put the 'best match' hit in bold:
+There are a lot of hits, so here again we convert the first 7 columns to a table form, and put the hit to K00119 in bold:
 
 | query_name | accession | target_name | accession | score_type | (full_sequence) E-value | (full_sequence) score |
 |:---|:---|:---|:---|:---|:---|:---|
@@ -154,7 +154,7 @@ There are a lot of hits, so here again we convert the first 7 columns to a table
 
 If our instincts were correct, then the hit with the highest bit score -- the one in the first row, the hit to K00004 with a bit score of 407.9 -- should have been selected as the 'best match' for gene 1672, since 407.9 > 80.6. Yet, the hit to K00119 made it into the final `*.filt` output file instead.
 
-Both of these observations were inconsistent with what we knew of the methodology of MicrobeAnnotator. So, to get some answers, we had to dig into the code. Luckily, we could do that, because [the MicrobeAnnotator code is open-source on Github](https://github.com/cruizperez/MicrobeAnnotator/tree/master).
+Both of these observations were inconsistent with what we knew of the methodology of MicrobeAnnotator. So, to get some answers, we had to dig into the code. Luckily, we could do that, because [the MicrobeAnnotator code is open-source on Github](https://github.com/cruizperez/MicrobeAnnotator).
 
 ## The first bug: filtering hits with the wrong bit score threshold
 
@@ -260,7 +260,11 @@ This means that the filtering function only uses the bit score threshold from th
 If there are 53 sets of KOfam profiles, why did we see only 27 models being loaded in the log? By default, MicrobeAnnotator assumes that you are working with prokaryotic genomes and will only run the non-eukaryotic models against the input proteins (if you pass the `--eukaryote` flag, it will instead use the eukaryotic models). The 18 prokaryotic sets plus the 5 common sets and 4 'independent' sets add up to 27 total. And indeed, when we searched for the initial KOfam in each of these sets, the model names matched up exactly to the ones in the `microbeannotator.log` output that were used for filtering the hits (albeit out of order):
 
 ```
-$ for f in MicrobeAnnotator_DB/kofam_data/profiles/common*.model MicrobeAnnotator_DB/kofam_data/profiles/prokaryote*.model MicrobeAnnotator_DB/kofam_data/profiles/independent*.model; do head $f | grep NAME; done
+$ for f in MicrobeAnnotator_DB/kofam_data/profiles/common*.model \
+           MicrobeAnnotator_DB/kofam_data/profiles/prokaryote*.model \
+           MicrobeAnnotator_DB/kofam_data/profiles/independent*.model; do \
+    head $f | grep NAME; \
+  done
 NAME  K00001
 NAME  K01363
 NAME  K03088
