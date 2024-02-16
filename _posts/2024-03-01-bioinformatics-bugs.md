@@ -14,7 +14,7 @@ Unfortunately, this punishing reality of rapidly releasing new bioinformatics to
 
 And if your tool is available for other people to use, its sphere of influence is greatly expanded -- the implementation choices you made are going to affect the conclusions of other scientists around the globe. Which is beautiful, and a really powerful mechanism of progress in science. But it also comes with a heavier responsibility, both on the part of the individuals developing tools and on the part of the individuals using them. If your code will be available and therefore potentially widely-used, it has to be correct. And if you are using someone else's tool, you should probably understand what it is doing and be extra careful to validate the output.
 
-Of course, that would happen in an ideal world, but we live in reality, which means that coding mistakes will sometimes be missed, and those mistakes can influence the results of published downstream analyses. If these issues come to light, it is usually difficult for everyone involved. Yet, because mistakes are inevitable, we as a community shouldn't shy away from bringing them up and dealing with them together. After all, the most important thing is that even in our imperfect reality, a correction (of the bugs in the code and/or of any affected results and conclusions) is possible, and everyone's science gets stronger afterwards.
+Of course, that would happen in an ideal world, but we live in reality, which means that coding mistakes will sometimes be missed, and those mistakes will influence the downstream analyses and even results that end up getting published. If these issues come to light, it is usually difficult for everyone involved. Yet, because mistakes are inevitable, we as a community shouldn't shy away from bringing them up and dealing with them together. After all, the most important thing is that even in our imperfect reality, a correction (of the bugs in the code and/or of any affected results and conclusions) is possible, and everyone's science gets stronger afterwards.
 
 The ability to correct the course of technical issues is one of the beauties and advantages of the open-source software movement, and is one reason why open science is so critical for research progress. If you don't publish your programs and computational strategies openly, then the only likely person to find your mistakes is you, while others are limited to whatever insights they can draw from cross-checking the results (if they do that at all). But developing open-source tools spreads the risk and accountability, in a way. Other people can see and understand what is going on behind-the-scenes, and can propose changes to fix potential issues. 
 
@@ -490,6 +490,24 @@ for g in genomes_to_process:
 ```
 
 </details>
+
+Soon after we submitted the pull-request and an issue for the developers of MicrobeAnnotator to consider these solutions, we were positively surprised to see [a message](https://github.com/cruizperez/MicrobeAnnotator/issues/94#issuecomment-1930750607) by [Brendan Daisley](https://www.bdaisley.com/), who is currently a post-doctoral researcher at the University of Guelph studying microbial diversity and host-microbe interations.
+
+Brendan had observed similar irregularities and had also been digging into the code to find their origins. Seeing these fixes, Brendan in fact took the time to perform independent tests  using a  *Parvimonas micra* strain, and confirm that the fixes seem to address the problem with following tables for Bug 1:
+
+|| False positive annotations | Total annotations | % false positives
+|-- | -- | -- | --
+|Before fix | 318 | 707 | 44.9%|
+|After fix | 0 | 943 | 0.0 %|
+
+and for Bug 2:
+
+| | Incorrect best matches | Total annotations | % incorrect best matches
+|-- | -- | -- | --
+|Before fix | 159 | 707 | 22.5%
+|After fix | 0 | 943 | 0.0 %
+
+We thank Brendan for demonstrating the best of open source and open science communities.
 
 
 ## The consequences: scientific conclusions might depend on incorrect annotations
