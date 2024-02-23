@@ -3,7 +3,7 @@ layout: blog
 authors: [ivagljiva, Kekananen, meren, pbradz]
 title: "Coding mistakes in bioinformatics, their consequences for research, and how to correct them"
 excerpt: "The pitfalls of bioinformatics software development and the beauty of open-source code."
-modified: 2024-03-01
+modified: 2024-02-26
 tags: [software development, open science]
 comments: true
 ---
