@@ -30,13 +30,13 @@
       {% if page.no_social_share != false %}
           {% include _social_share.html %}
       {% endif %}
+
+      {% if page.comments == true %}
+        {% include _disqus_comments.html %}
+      {% endif %}
+
     </div>
   </div>
-
-{% if page.comments == true %}
-  {% include _disqus_comments.html %}
-{% endif %}
-
 </div>
 
 {% include _footer.html fixed_footer="true" %}
