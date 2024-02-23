@@ -16,7 +16,7 @@ And if your tool is available for other people to use, its sphere of influence i
 
 Of course, that would happen in an ideal world, but we live in reality, which means that coding mistakes will sometimes be missed, and those mistakes will influence the downstream analyses and even results that end up getting published. If these issues come to light, it is usually difficult for everyone involved. Yet, because mistakes are inevitable, we as a community shouldn't shy away from bringing them up and dealing with them together. After all, the most important thing is that even in our imperfect reality, a correction (of the bugs in the code and/or of any affected results and conclusions) is possible, and everyone's science gets stronger afterwards.
 
-The ability to correct the course of technical issues is one of the beauties and advantages of the open-source software movement, and is one reason why open science is so critical for research progress. If you don't publish your programs and computational strategies openly, then the only likely person to find your mistakes is you, while others are limited to whatever insights they can draw from cross-checking the results (if they do that at all). But developing open-source tools spreads the risk and accountability, in a way. Other people can see and understand what is going on behind-the-scenes, and can propose changes to fix potential issues. 
+The ability to correct the course of technical issues is one of the beauties and advantages of the open-source software movement, and is one reason why open science is so critical for research progress. If you don't publish your programs and computational strategies openly, then the only likely person to find your mistakes is you, while others are limited to whatever insights they can draw from cross-checking the results (if they do that at all). But developing open-source tools spreads the risk and accountability, in a way. Other people can see and understand what is going on behind-the-scenes, and can propose changes to fix potential issues.
 
 {:.notice}
 If you want an example of how this works, feel free to check out the [anvi'o Issue page](https://github.com/merenlab/anvio/issues) on Github, which features hundreds of bug reports in various stages of resolution (we appreciate everyone who takes the time to let us know about issues and do our best to keep up with fixing them 😅😭).
@@ -50,7 +50,7 @@ In the following sections, we'll show some data from our investigations into the
 We ran both MicrobeAnnotator and the anvi'o program {% include PROGRAM name="anvi-run-kegg-kofams" version="8" %} on our test genomes. To keep the KOfam database version consistent between the two software, we downloaded this database using the respective programs `microbeannotator_db_builder` and {% include PROGRAM name="anvi-setup-kegg-data" version="8" %} on the same day: **December 15th, 2023**. We verified that the two databases contained the same profiles and profile information by checking that they included an identical `ko_list` file, which stores all profiles and their bit score thresholds.
 
 Here are the loops to annotate each genome, first with anvi'o and second with MicrobeAnnotator, so that you can see which parameters we used for each:
-```
+```bash
 # run anvi'o on each db
 conda activate anvio-8  # this loads the latest stable release of anvi'o, v8
 for db in dbs_and_fastas/*.db; do \
@@ -167,7 +167,7 @@ First, a brief overview of the structure of MicrobeAnnotator. To avoid copy-past
 Our first task was to figure out what was happening to allow HMM hits with scores below the bit score threshold to pass through the first filter. That filter happens in `hmmsearch.py`, in the aptly-named `hmmer_filter()` function (which is [here](https://github.com/cruizperez/MicrobeAnnotator/blob/eb9ee18964e8dc7ff8be14b11fef763c86657a95/microbeannotator/pipeline/hmmsearch.py#L64) in the codebase). 
 
 We added some print statements to see what was going on when this function was executed (very old-school, we know). Our modifications (marked with `## ADDED`) made the function look like this:
-```
+```python
 def hmmer_filter(
     hmmsearch_result: List[hmmer.tbl.TBLRow]) -> List[hmmer.tbl.TBLRow]:
     # Initialize list with filtered results
@@ -313,7 +313,7 @@ We wrote a little Python script to quantify the number of false positives in the
 
 <details markdown="1"><summary>Show/Hide A script to quantify false positives</summary>
 
-```
+```python
 #!/usr/bin/env python
 # A script to count the number of false positive annotations from MicrobeAnnotator output
 # Usage: python count_false_positives.py PATH_TO_ANNOTATION_OUTPUT_DIRECTORY
@@ -379,7 +379,7 @@ To summarize, `best_match_selector()` reads the `*.kofam` output file containing
 
 The logic in the code is exactly this, so it was difficult to see where the problem was coming from. However, we had a suspicion that it had something to do with reading the results from a text file. So we opened up the Python interpreter on the command line and ran the bit score comparison code from the `best_match_selector()` function, using one of the `*.kofam` output files from our test genomes as input. We added some print statements again, and ultimately the code we ran looked like this (once again, our additions are marked with `## ADDED`):
 
-```
+```python
 # note that we set raw_results to be equal to a *.kofam output file first
 
 with open(raw_results, 'r') as infile:
@@ -405,7 +405,7 @@ type of old record: <class 'str'>, type of new: <class 'str'>
 
 This gave us the answer to the mystery: the code was indeed comparing bit scores, but the bit scores were loaded from the input file as strings, not as floating-point numbers. In Python, string comparison and numeric comparison are done in exactly the same way (with operators like `<` and `>`), and as long as the types of the variables on either side of the operator are the same, Python will not complain. When those variables are both numbers, the comparison is numeric, but when those variables are strings, the comparison is alphabetical. From an alphabetical perspective, the string `"117.8"` comes before the string `"23.8"`. You can check this yourself in the Python interpreter, if you'd like:
 
-```
+```python
 >>> '117.8' < '23.8'
 True
 >>> '89' > '203'
@@ -415,7 +415,8 @@ False
 ```
 
 So, the reason that K00119 ended up as the 'best match' for gene 1672 is because the bitscore comparison between that hit and the one for K00004 (the actual best match) looked like this:
-```
+
+```python
 >>> '80.6' > '407.9'
 True
 ```
@@ -431,7 +432,7 @@ We quantified the number of hits that weren't actually the 'best match' by compa
 
 <details markdown="1"><summary>Show/Hide A script to quantify false best matches</summary>
 
-```
+```python
 #!/usr/bin/env python
 # A script to count the number of false positive annotations from MicrobeAnnotator output
 # Usage: python count_false_best_matches.py PATH_TO_ANNOTATION_OUTPUT_DIRECTORY
