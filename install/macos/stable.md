@@ -5,7 +5,7 @@ excerpt: "Instructions to install the current release of the platform."
 modified: 2023-09-26
 tags: []
 categories: [anvio]
-comments: true
+comments: false
 image:
   feature: https://github.com/merenlab/anvio/raw/master/anvio/data/interactive/images/logo.png
 ---
