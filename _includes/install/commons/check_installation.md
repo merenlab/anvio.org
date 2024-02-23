@@ -58,6 +58,9 @@ python setup.py build
 python setup.py install
 ```
 
+{:.notice}
+Please note that you may encounter an error when running CONCOCT due to a `TypeError`. Please see the report [#2154](https://github.com/merenlab/anvio/issues/2154) for more information regarding this issue. **IF** you run into this issue, you may be able to resolve it by running the following command in your anvi'o conda environment: `pip install scikit-learn==1.1.0`. {% include person/display_mini_single.html github="ge0rges" %} developed and tested this solution, and confirmed that it works at least for `v8`. But please let us know if this fix breaks any other part of anvi'o :)
+
 If everything worked, when you type the following command,
 
 ```
