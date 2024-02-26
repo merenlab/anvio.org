@@ -1,3 +1,10 @@
+- title: "Coding mistakes in bioinformatics, their consequences for research, and how to correct them"
+  type: blog post
+  url: /blog/bioinformatics-bugs/
+  authors: [ivagljiva, Kekananen, meren, pbradz]
+  summary: "The pitfalls of bioinformatics software development and the beauty of open-source code."
+  tags: [software development, open science]
+
 - title: "The history of metagenomics: An incomplete summary"
   type: blog post
   url: https://merenlab.org/2020/07/27/history-of-metagenomics/
