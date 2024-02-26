@@ -524,7 +524,7 @@ One caveat we will note is that we haven't carefully checked the results from th
 
 ## Conclusion
 
-This all may seem like bad news. But there is some good news coming out of all this as well. Thanks to the nature of open-source software development, we were able to fix the bugs in MicrobeAnnotator. [Here is the PR](https://github.com/cruizperez/MicrobeAnnotator/pull/95) that we submitted to the MicrobeAnnotator repository on GitHub. The changes have already been merged to the main branch as of February 17, 2023, so anyone installing and using the tool after that point should be good to go.
+This all may seem like bad news. But there is some good news coming out of all this as well. Thanks to the nature of open-source software development, we were able to fix the bugs in MicrobeAnnotator. [Here is the PR](https://github.com/cruizperez/MicrobeAnnotator/pull/95) that we submitted to the MicrobeAnnotator repository on GitHub. The changes have already been merged to the main branch as of February 17, 2024, so anyone installing and using the tool after that point should be good to go.
 
 We compared the two software again after fixing the pipeline, and this time, the results were in line with what we expected (with a high number of 'common' annotations, some anvi'o-specific annotations, and 0 annotations specific to MicrobeAnnotator when we don't count the KOs without bit score thresholds):
 
