@@ -3,7 +3,7 @@
   url: /blog/bioinformatics-bugs/
   authors: [ivagljiva, Kekananen, meren, pbradz]
   summary: "The pitfalls of bioinformatics software development and the beauty of open-source code."
-  tags: [software development, open science]
+  tags: [software-development, open-science]
 
 - title: "The history of metagenomics: An incomplete summary"
   type: blog post

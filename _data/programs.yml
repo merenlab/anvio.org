@@ -2,6 +2,7 @@
   programs:
     - name: anvi-analyze-synteny
     - name: anvi-export-locus
+    - name: anvi-migrate
     - name: anvi-run-cazymes
     - name: anvi-run-hmms
     - name: anvi-run-workflow
