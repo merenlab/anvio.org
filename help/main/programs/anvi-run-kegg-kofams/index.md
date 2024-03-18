@@ -154,6 +154,14 @@ anvi&#45;run&#45;kegg&#45;kofams &#45;c <span class="artifact&#45;n">[contigs&#4
                      &#45;&#45;skip&#45;brite&#45;hierarchies
 </div>
 
+## Annotate 'Stray KOs'
+
+In every release of KOfam, there are some KO profiles that don't come with predefined bit score thresholds. Normally, we skip annotating these. But if you want to annotate them, first read [this documentation on our strategy for estimating bit score thresholds for stray KOs](https://anvio.org/help/main/programs/anvi-setup-kegg-data/#what-are-stray-kos-and-what-happens-when-i-include-them) so that you understand what is going on, and then run this program with the `--include-stray-KOs` flag:
+
+<div class="codeblock" markdown="1">
+anvi&#45;run&#45;kegg&#45;kofams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                     &#45;&#45;include&#45;stray&#45;KOs
+</div>
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-run-kegg-kofams.md) to update this information.

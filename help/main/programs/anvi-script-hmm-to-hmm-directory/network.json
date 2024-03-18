@@ -14,8 +14,8 @@
       "size": 1,
       "score": 1,
       "color": "#AA0000",
-      "id": "pfam-accession",
-      "name": "pfam-accession",
+      "id": "hmm-file",
+      "name": "hmm-file",
       "provided_by_anvio": false,
       "type": "TXT"
     },
@@ -23,8 +23,8 @@
       "size": 2,
       "score": 0.1,
       "color": "#AAAA00",
-      "id": "anvi-script-pfam-accessions-to-hmms-directory",
-      "name": "anvi-script-pfam-accessions-to-hmms-directory",
+      "id": "anvi-script-hmm-to-hmm-directory",
+      "name": "anvi-script-hmm-to-hmm-directory",
       "type": "PROGRAM"
     }
   ],

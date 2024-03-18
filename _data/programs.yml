@@ -232,6 +232,8 @@
 - author: ge0rges
   programs:
     - name: anvi-run-ncbi-cogs
+    - name: anvi-script-hmm-to-hmm-directory
+    - name: anvi-script-pfam-accessions-to-hmms-directory
 - author: moritzbuck
   programs:
     - name: anvi-script-compute-bayesian-pan-core
