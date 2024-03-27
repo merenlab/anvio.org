@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="helpNav">
+  <div class="container">
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item {% if page.url contains "/help/main/" %}active helpNav-active{% endif %}">
+          <a class="nav-link" href="/help/main">anvio-dev</a>
+      </li>
+      <li class="nav-item {% if page.url contains "/help/8/" %}active helpNav-active{% endif %}">
+        <a class="nav-link" href="/help/8">v8</a>
+      </li>
+      <li class="nav-item {% if page.url contains "/help/7.1/" %}active helpNav-active{% endif %}">
+        <a class="nav-link" href="/help/7.1">v7.1</a>
+      </li>
+      <li class="nav-item {% if page.url contains "/help/7/" %}active helpNav-active{% endif %}">
+        <a class="nav-link" href="/help/7">v7</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+    {% if page.url contains "/help/main/" %}
+        Help pages for the <b>DEVELOPMENT VERSION</b> of anvi'o 💪
+    {% elsif page.url contains "/help/8/" %}
+        Help pages for the <b>LATEST STABLE VERSION</b> of anvi'o 🎉
+    {% else %}
+        Help pages for a <b>VERY OLD VERSION</b> of anvi'o 😔
+    {% endif %}
+    </span>
+  </div>
+  </div>
+</nav>
+
+
