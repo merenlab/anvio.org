@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-get-sequences-for-hmm-hits [program]
 categories: [anvio]
 comments: false

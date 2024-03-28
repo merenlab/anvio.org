@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-compute-functional-enrichment-in-pan [program]
 categories: [anvio]
 comments: false

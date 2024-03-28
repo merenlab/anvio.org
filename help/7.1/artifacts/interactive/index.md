@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: interactive [artifact]
 categories: [anvio]
 comments: false

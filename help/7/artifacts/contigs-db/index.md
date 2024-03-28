@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: contigs-db [artifact]
 categories: [anvio]
 comments: false

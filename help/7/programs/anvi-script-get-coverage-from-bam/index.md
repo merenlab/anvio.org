@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-get-coverage-from-bam [program]
 categories: [anvio]
 comments: false

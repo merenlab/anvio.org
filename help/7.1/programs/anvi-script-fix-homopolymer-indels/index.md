@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-fix-homopolymer-indels [program]
 categories: [anvio]
 comments: false

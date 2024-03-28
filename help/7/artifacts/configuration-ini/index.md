@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: configuration-ini [artifact]
 categories: [anvio]
 comments: false

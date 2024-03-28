@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: trnaseq-workflow [artifact]
 categories: [anvio]
 comments: false

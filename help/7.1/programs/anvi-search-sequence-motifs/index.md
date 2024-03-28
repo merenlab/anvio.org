@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-search-sequence-motifs [program]
 categories: [anvio]
 comments: false

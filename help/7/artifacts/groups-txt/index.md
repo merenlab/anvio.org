@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: groups-txt [artifact]
 categories: [anvio]
 comments: false

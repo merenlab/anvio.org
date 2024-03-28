@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-import-collection [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-estimate-genome-completeness [program]
 categories: [anvio]
 comments: false

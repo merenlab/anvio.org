@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-migrate [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-estimate-metabolism [program]
 categories: [anvio]
 comments: false

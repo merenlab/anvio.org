@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-export-misc-data [program]
 categories: [anvio]
 comments: false

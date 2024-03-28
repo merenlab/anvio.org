@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: trnaseq-plot [artifact]
 categories: [anvio]
 comments: false

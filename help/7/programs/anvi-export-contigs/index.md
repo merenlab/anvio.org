@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-export-contigs [program]
 categories: [anvio]
 comments: false

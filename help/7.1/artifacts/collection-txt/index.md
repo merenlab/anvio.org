@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: collection-txt [artifact]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: misc-data-amino-acids [artifact]
 categories: [anvio]
 comments: false

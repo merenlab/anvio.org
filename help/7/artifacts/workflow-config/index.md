@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: workflow-config [artifact]
 categories: [anvio]
 comments: false

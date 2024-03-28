@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-gen-short-reads [program]
 categories: [anvio]
 comments: false

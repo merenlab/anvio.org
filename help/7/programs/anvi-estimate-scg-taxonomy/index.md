@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-estimate-scg-taxonomy [program]
 categories: [anvio]
 comments: false

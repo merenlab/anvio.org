@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: genbank-file [artifact]
 categories: [anvio]
 comments: false

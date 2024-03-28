@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: pan-db [artifact]
 categories: [anvio]
 comments: false

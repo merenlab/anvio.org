@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-compute-gene-cluster-homogeneity [program]
 categories: [anvio]
 comments: false

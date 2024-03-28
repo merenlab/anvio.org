@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-show-misc-data [program]
 categories: [anvio]
 comments: false

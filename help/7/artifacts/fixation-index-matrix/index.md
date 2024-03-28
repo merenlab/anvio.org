@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: fixation-index-matrix [artifact]
 categories: [anvio]
 comments: false

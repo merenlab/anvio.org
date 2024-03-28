@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: split-bins [artifact]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-merge-collections [program]
 categories: [anvio]
 comments: false

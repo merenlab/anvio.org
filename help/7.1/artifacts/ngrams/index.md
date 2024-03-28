@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: ngrams [artifact]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-refine [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: kegg-data [artifact]
 categories: [anvio]
 comments: false

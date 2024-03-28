@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: genes-fasta [artifact]
 categories: [anvio]
 comments: false

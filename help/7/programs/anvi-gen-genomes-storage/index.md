@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-gen-genomes-storage [program]
 categories: [anvio]
 comments: false

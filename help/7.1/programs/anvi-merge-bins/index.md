@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-merge-bins [program]
 categories: [anvio]
 comments: false

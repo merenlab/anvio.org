@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: short-reads-fasta [artifact]
 categories: [anvio]
 comments: false

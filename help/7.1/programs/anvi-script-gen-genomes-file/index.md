@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-gen-genomes-file [program]
 categories: [anvio]
 comments: false

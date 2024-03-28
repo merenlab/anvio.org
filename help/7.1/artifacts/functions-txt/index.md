@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: functions-txt [artifact]
 categories: [anvio]
 comments: false

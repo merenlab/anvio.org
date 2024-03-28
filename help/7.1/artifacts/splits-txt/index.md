@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: splits-txt [artifact]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-convert-trnaseq-database [program]
 categories: [anvio]
 comments: false

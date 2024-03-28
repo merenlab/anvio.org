@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-display-functions [program]
 categories: [anvio]
 comments: false

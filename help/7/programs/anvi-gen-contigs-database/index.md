@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-gen-contigs-database [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-get-sequences-for-gene-clusters [program]
 categories: [anvio]
 comments: false

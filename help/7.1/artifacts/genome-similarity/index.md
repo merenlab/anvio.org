@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: genome-similarity [artifact]
 categories: [anvio]
 comments: false

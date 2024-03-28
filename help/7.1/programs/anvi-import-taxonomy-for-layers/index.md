@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-import-taxonomy-for-layers [program]
 categories: [anvio]
 comments: false

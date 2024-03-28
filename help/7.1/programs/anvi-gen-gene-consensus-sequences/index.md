@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-gen-gene-consensus-sequences [program]
 categories: [anvio]
 comments: false

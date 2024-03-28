@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-update-structure-database [program]
 categories: [anvio]
 comments: false

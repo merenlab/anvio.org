@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-cluster-contigs [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-compute-genome-similarity [program]
 categories: [anvio]
 comments: false

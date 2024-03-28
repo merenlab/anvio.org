@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-db-info [program]
 categories: [anvio]
 comments: false

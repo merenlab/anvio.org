@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-import-taxonomy-for-genes [program]
 categories: [anvio]
 comments: false

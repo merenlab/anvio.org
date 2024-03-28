@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-show-collections-and-bins [program]
 categories: [anvio]
 comments: false

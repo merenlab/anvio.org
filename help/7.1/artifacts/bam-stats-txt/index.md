@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: bam-stats-txt [artifact]
 categories: [anvio]
 comments: false

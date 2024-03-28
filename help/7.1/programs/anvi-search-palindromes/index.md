@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-search-palindromes [program]
 categories: [anvio]
 comments: false

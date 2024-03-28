@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-run-hmms [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-oligotype-linkmers [program]
 categories: [anvio]
 comments: false

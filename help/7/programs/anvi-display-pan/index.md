@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-display-pan [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-gen-distribution-of-genes-in-a-bin [program]
 categories: [anvio]
 comments: false

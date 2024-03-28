@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-profile-blitz [program]
 categories: [anvio]
 comments: false

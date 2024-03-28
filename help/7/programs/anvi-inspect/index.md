@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-inspect [program]
 categories: [anvio]
 comments: false

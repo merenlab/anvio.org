@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-meta-pan-genome [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: fasta-txt [artifact]
 categories: [anvio]
 comments: false

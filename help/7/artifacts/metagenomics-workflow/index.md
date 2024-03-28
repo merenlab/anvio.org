@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: metagenomics-workflow [artifact]
 categories: [anvio]
 comments: false

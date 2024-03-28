@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-display-structure [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: augustus-gene-calls [artifact]
 categories: [anvio]
 comments: false

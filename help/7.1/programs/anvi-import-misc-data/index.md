@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-import-misc-data [program]
 categories: [anvio]
 comments: false

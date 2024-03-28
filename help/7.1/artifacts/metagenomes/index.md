@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: metagenomes [artifact]
 categories: [anvio]
 comments: false

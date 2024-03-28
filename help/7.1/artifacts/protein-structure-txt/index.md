@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: protein-structure-txt [artifact]
 categories: [anvio]
 comments: false

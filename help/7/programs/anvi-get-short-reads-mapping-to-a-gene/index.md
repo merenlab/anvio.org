@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-get-short-reads-mapping-to-a-gene [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-gen-functions-per-group-stats-output [program]
 categories: [anvio]
 comments: false

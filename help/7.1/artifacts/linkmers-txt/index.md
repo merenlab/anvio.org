@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: linkmers-txt [artifact]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: clustering-configuration [artifact]
 categories: [anvio]
 comments: false

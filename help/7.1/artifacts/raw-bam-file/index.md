@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: raw-bam-file [artifact]
 categories: [anvio]
 comments: false

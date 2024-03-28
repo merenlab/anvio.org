@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-compute-functional-enrichment-across-genomes [program]
 categories: [anvio]
 comments: false

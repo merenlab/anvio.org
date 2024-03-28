@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: blast-table [artifact]
 categories: [anvio]
 comments: false

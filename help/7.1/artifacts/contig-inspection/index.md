@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: contig-inspection [artifact]
 categories: [anvio]
 comments: false

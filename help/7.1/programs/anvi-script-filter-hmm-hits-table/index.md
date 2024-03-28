@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-filter-hmm-hits-table [program]
 categories: [anvio]
 comments: false
