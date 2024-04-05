@@ -15,13 +15,11 @@ comments: true
 
 **The purpose of this workflow** is to learn how to integrate single-cell genomics data into the anvi'o environment. Here is a list of topics that are covered here:
 
- * Create a {% include ARTIFACT name="contigs-db" %} with one single amplified genome (SAG).
- * Use single-copy core genes to estimate completion and redundancy.
- * Assign taxonomy using single-copy core gene and [GTDB](https://gtdb.ecogenomic.org/).
- * Annotate open reading frames with function.
- * Make a phylogenomic tree.
- * Compute a pangenomic analysis.
- * Compare SAGs using average nucleotide identity.
+ * Create a {% include ARTIFACT name="contigs-db" %} and use functional and taxonomic assignment.
+ * Estimate taxonomy, completion/redudancy and metabolic pathway completeness across multiple SAG.
+ * Generate and decorate a phylogenomic tree using ribosomal proteins.
+ * Generate a pangenome and compare SAR11 SAGs with reference genome. Add ANI and metabolic information to the pangenome.
+ * Introduction to read recruitment of metagenome on a SAG.
 
  {:.notice}
  If you have any questions about this exercise, or have ideas to make it better, please feel free to get in touch with the anvi'o community through our Discord server:
@@ -38,7 +36,7 @@ comments: true
 First, open your terminal, `cd` to a working directory, and download the data pack we have stored online for you:
 
 ``` bash
-curl -L https://figshare.com/ndownloader/files/45398392 \
+curl -L https://figshare.com/ndownloader/files/45483060 \
     -o SCG_workshop.tar.gz
 ```
 
@@ -81,12 +79,12 @@ After clicking on the Draw button, you should see this:
 
 {% include IMAGE path="/images/single-cell-genomics-workshop/01_visualize_SAG_01.png" width=80 %}
 
-The organization of the contigs is based on their tetra-nucleotide frequency. The outer layers represent the GC content, presence of 16S and 23S rRNA as well as tRNAs.
+The organization of the contigs is based on their tetra-nucleotide frequency. The outer layers represent the GC content, presence of 16S and 23S rRNA as well as tRNAs. The black layers represent the mean coverage of the metagenome SRR6507279 (the metagenome associated with the sample use to generate the SAG).
 You can click on any part of the dendrogram to create bins. Go ahead and select all branches in the interface and go to the Bin's tab in the setting panel. There, you will see the total size of the bin you have just created. You will also see the completion and redundancy estimation.
 
 {% include IMAGE path="/images/single-cell-genomics-workshop/01_visualize_SAG_02.png" width=80 %}
 
-If you check the box for "Realtime taxonomy estimation for bins" you will even see the taxonomy estimation for your SAG. For more information you can click on "Recalculate/Show taxonomy for bins", there you will be able to see the detailed taxonomic assignation for each single-copy core genes were use for taxonomy estimation.
+If you check the box for "Realtime taxonomy estimation for bins" you will even see the taxonomy estimation for your SAG. For more information you can click on "Recalculate/Show taxonomy for bins", there you will be able to see the detailed taxonomic assignment for each single-copy core genes were use for taxonomy estimation.
 
 {% include IMAGE path="/images/single-cell-genomics-workshop/01_visualize_SAG_03.png" width=80 %}
 
@@ -94,9 +92,13 @@ Since we ran {% include PROGRAM name="anvi-run-ncbi-cogs" %} and {% include PROG
 
 {% include IMAGE path="/images/single-cell-genomics-workshop/01_visualize_SAG_04.png" width=80 %}
 
-Right click on the highlighted split and select "inspect split". I will open an inspection page as a new tab on your browser. The original purpose of that inspection page is to display the coverage plot if you have read-recruitment results and genomic context (ORF information, functions, blast option). Because we are using a blank {% include ARTIFACT name="profile-db" %}, there are no coverage plot to display. But we can still use this function to have a look at the ORFs found in this part of the SAG. If you click on the genes (arrows) you will see information about contig's position, length, orientation, DNA and AA sequence, quick blast options, and functional annotation if available.
+Right click on the highlighted split and select "inspect split". It will open an inspection page as a new tab on your browser. Here you will see the read coverage along a fraction of the genome:
 
 {% include IMAGE path="/images/single-cell-genomics-workshop/01_visualize_SAG_05.png" width=80 %}
+
+On the bottom part of the interface, you can see the ORFs and you can click on them to display information about contig's position, length, orientation, DNA and AA sequence, quick blast options, and functional annotation when available.
+
+{% include IMAGE path="/images/single-cell-genomics-workshop/01_visualize_SAG_06.png" width=80 %}
 
 {:.notice}
 The gene's arrows are colored based on their COG CATEGORY. If you want to change the colors, open the right side setting panel and scroll down to "Genes". Select how you want to color the genes. You can even change individual colors.
@@ -210,7 +212,7 @@ anvi-estimate-genome-completeness -c CONTIGS/AG-910-K02-contigs.db \
 ### Estimate SCGs taxonomy
 
 Now that we have identified the SCGs in our SAG, anvi'o can use the Genome Taxonomy Database (GTDB) and Diamond (a fast alternative to NCBI's BLASTp) to offer an insight into taxonomy.
-In a nutshell, anvi'o uses a set of SCGs (the ribosomal proteins) of the GTDB representative genome and their associated taxonomy (defined by GTDB). Each ribosomal protein gets a taxonomic assignation based on sequence similarity using [Diamond](https://github.com/bbuchfink/diamond).
+In a nutshell, anvi'o uses a set of SCGs (the ribosomal proteins) of the GTDB representative genome and their associated taxonomy (defined by GTDB). Each ribosomal protein gets a taxonomic assignment based on sequence similarity using [Diamond](https://github.com/bbuchfink/diamond).
 
 To be able to use this function in anvi'o, you must set up SCG taxonomy once on your machine by running the command {% include PROGRAM name="anvi-setup-scg-taxonomy" %}.
 
@@ -453,7 +455,7 @@ At this point, the interactive interface includes a table with over 200 columns,
 With the `--output-file` flag, you will save that table as a TAB-delimited file and import it in your favorite table-eating software like R, Python and others (we also use Excel sometimes). You will be able to compute the total size distribution of all the SAGs, calculate the average number of contigs, and select SAGs based on your favorite metric!
 
 
-#### Completeness and redundancy
+### Completeness and redundancy
 
 While {% include PROGRAM name="anvi-display-contigs-stats" %} was very happy to take as many contigs databases as possible, it is not the case with other programs in anvi'o.
 
@@ -531,7 +533,7 @@ sort -nrk4 completion-redundancy.txt | head -n 5 | cut -f 1 > five_most_complete
 </div>
 
 
-#### Taxonomy estimation
+### Taxonomy estimation
 
 Our next step is to investigate the taxonomy of all the SAGs. We need to use {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}, which unfortunately does not use an external genomes file. No one is perfect, but you can find and shame an anvi'o developer by using the discord server, or [anvi'o github](https://github.com/merenlab/anvio) for a feature request like this.
 
@@ -579,6 +581,197 @@ AG_910_A15	6	4	Bacteria	Proteobacteria	Alphaproteobacteria	Pelagibacterales	Pela
 AG_910_A17	17	17	Bacteria	Proteobacteria	Alphaproteobacteria	Pelagibacterales	Pelagibacteraceae	Pelagibacter	None
 ---
 ```
+
+
+## Metabolic pathway completeness
+
+The program {% include PROGRAM name="anvi-estimate-metabolism" %} allows you to predict the metabolic capabilities of an organism. It is based on the [KEGG's module](https://www.genome.jp/kegg/module.html), but you can also use user-defined pathways. We will cover both in the next sections.
+
+
+### Estimate KEGG module completion
+
+{:.notice}
+This section of the tutorial is heavily inspired by [this comprehensive tutorial about metabolic reconstruction in anvi'o](https://anvio.org/tutorials/fmt-mag-metabolism/)
+
+{% include PROGRAM name="anvi-estimate-metabolism" %} can also use an {% include ARTIFACT name="external-genomes.txt" %} as an input parameter. This program can also output multiple type of tables and since we have multiple SAGs, we could be interested in a matrix-format table where SAGs are columns and rows are KEGG's module. The following command line also include the flag `--include-metadata` which will add a column with metadata for each module, like module name and category:
+```bash
+anvi-estimate-metabolism -e external-genomes-50.txt \
+                         -O SAG \
+                         --matrix-format \
+                         --include-metadata
+```
+
+That command generated 6 output files, including matrices of the stepwise and pathwise completeness and presence (which is a binary table based on your completion threshold); as well as a matrix of module's individual steps and the number of copies of each KOfam annotation.
+
+Let's visualize the matrix of the pathwise completion using {% include PROGRAM name="anvi-interactive" %} in manual mode:
+```bash
+anvi-interactive -d SAG-module_pathwise_completeness-MATRIX.txt \
+                 -p modules_heatmap.db \
+                 --manual \
+                 --title "Metabolism heatmap"
+```
+
+{% include IMAGE path="/images/single-cell-genomics-workshop/02_metabolism_01.png" width=80 %}
+
+To reproduce this figure, you will need to set the 'Drawing type' to phylogram, increase the width to ~15,000, and for each SAG layer you need to change the type to "intensity".
+
+To organize the data in a nicer way, we can cluster both the SAGs and the module based on the matrix value. First we can cluster the pathway so that metabolism with similar SAG distribution come together on the interactive interface. First, we need to remove the metadata columns because {% include PROGRAM name="anvi-matrix-to-newick" %} expects only numbers in the input:
+
+```bash
+cut -f1,6- SAG-module_pathwise_completeness-MATRIX.txt > SAG-module_pathwise_completeness-MATRIX-NO-METADATA.txt
+anvi-matrix-to-newick SAG-module_pathwise_completeness-MATRIX-NO-METADATA.txt -o module_organization.newick
+```
+
+Now we can transpose the table and do the same for the SAG organisation:
+```bash
+anvi-script-transpose-matrix SAG-module_pathwise_completeness-MATRIX-NO-METADATA.txt \
+                             -o SAG-module_pathwise_completeness-MATRIX-NO-METADATA-TRANSPOSE.txt
+anvi-matrix-to-newick SAG-module_pathwise_completeness-MATRIX-NO-METADATA-TRANSPOSE.txt -o SAG_organization.newick
+```
+
+We have now two dendrogram fro each side of our heatmap and we can integrate them to the interactive interface. We can import the `module_organisation.newick` using {% include PROGRAM name="anvi-import-items-order" %}:
+```bash
+anvi-import-items-order -i module_organization.newick \
+                        -p modules_heatmap.db \
+                        --name module_organization
+```
+
+In the interface, the SAG are present in the "layer" section. So we need to use a different command to import `SAG_organization.newick`: {% include PROGRAM name="anvi-import-misc-data" %}:
+```bash
+# format the input data a bit
+TREE=$(cat SAG_organization.newick)
+echo -e "item_name\tdata_type\tdata_value\nSAG_organization\tnewick\t$TREE" > layer_order.txt
+# import into the database
+anvi-import-misc-data -p modules_heatmap.db \
+                      -t layer_orders \
+                      layer_order.txt
+```
+
+But why stop here? Let's add the SAG's taxonomy:
+```bash
+anvi-import-misc-data -p modules_heatmap.db \
+                      -t layers \
+                      taxonomy.txt
+```
+
+And now we can re-run the interactive interface again:
+```bash
+anvi-interactive -d SAG-module_pathwise_completeness-MATRIX.txt \
+                 -p modules_heatmap.db \
+                 --manual \
+                 --title "Metabolism heatmap"
+```
+
+In the main panel, you can change the "Items order" to "Module organization" and in the layer panel, you can now choose to order by "SAG_organization". And here is what you should be able to see:
+
+{% include IMAGE path="/images/single-cell-genomics-workshop/02_metabolism_02.png" width=80 %}
+
+We can easily see a cluster of 5 SAGs, which possess a distinctive group of module. If you change the module name layer from color to text, or if you use the "mouse" panel and hover over the corresponding module, you will see module like "Photosystem II" and other electron transfer pathways that likely indicate that these SAGs are Cyanobacteria. And if you look at the taxonomy data on the right side of the heatmap, you will see that indeed these 5 SAGs are assigned to the *Prochlorococcus* genus.
+
+{% include IMAGE path="/images/single-cell-genomics-workshop/02_metabolism_03.png" width=80 %}
+
+
+### User defined pathways
+
+Are you familiar with the marine methane paradox? Because I didn't know about it before writing this tutorial. I learn about is while reading this [paper by Carini et al. 2014](https://doi.org/10.1038/ncomms5346). Basically, methane is actually supersaturated in the surface ocean compared to the atmosphere, and it is due to biological activity. Methylphosphonic acid is produced by marine archaea and under phosphate limitation, some bacteria like *Pelagibacter* are able to uptake and process methylphosphonic acid which releases methane. Two operons have been identified for the transport and process of methylphosphonic acid: PhnCDEE and PhnGHIJKLNM.
+
+At the very beginning of this tutorial, we visually inspected a SAG and we looked for the phosphate transporter operon (pstSCAB). So now we have three operons for two types of phosphate uptake and utilization. These genes are annotated by KEGG (and COG) but are not part of the KEGG's module and we cannot simply search for the completeness of these transporters in the default output of {% include program name="anvi-estimate-metabolism" %}. Fortunately for us, we can create our own metabolism module in anvi'o and use {% include PROGRAM name="anvi-estimate-metabolism" %} to get the completeness and copy number of a user-defined metabolic module.
+
+Let's create three user-defined module/pathway for the three operons pstSCAB, PhnCDEE and PhnGHIJKLNM. At the moment, the user-defined module in anvi'o follow the same (annoying) structure as KEGG module.
+We need to create three files, one for each module. Use your favorite text editor and create the following file:
+
+`pstSCAB.txt`
+```
+ENTRY       pstSCAB
+NAME        Pi Transport
+DEFINITION  COG0226 COG0573 COG0581 COG1117
+ORTHOLOGY   COG0226  pstS
+            COG0573  pstC
+            COG0581  pstA
+            COG1117  pstB
+CLASS       User modules; Transport System; Pi Transport
+ANNOTATION_SOURCE  COG0226  COG20_FUNCTION
+                   COG0573  COG20_FUNCTION
+                   COG0581  COG20_FUNCTION
+                   COG1117  COG20_FUNCTION
+///
+```
+`PhnCDE.txt`
+```
+ENTRY       PhnCDEE
+NAME        Organophosphorus Transport
+DEFINITION  COG3638 COG3221 COG3639
+ORTHOLOGY   COG3638  PhnC
+            COG3221  PhnD
+            COG3639  PhnE
+CLASS       User modules; Transport System; Organophosphorus Transport
+ANNOTATION_SOURCE   COG3638  COG20_FUNCTION
+                    COG3221  COG20_FUNCTION
+                    COG3639  COG20_FUNCTION
+///
+```
+`PhnGHIJKLNM.txt`
+```
+ENTRY       PhnGHIJKLNM
+NAME        Phosphonate Utilization
+DEFINITION  COG3624 COG3625 COG3626 COG3627 COG4107 COG4778 COG3709 COG3454
+ORTHOLOGY   COG3624  PhnG
+            COG3625  PhnH
+            COG3626  PhnI
+            COG3627  PhnJ
+            COG4107  PhnK
+            COG4778  PhnL
+            COG3709  PhnN
+            COG3454  PhnM
+CLASS       User modules; Transport System; Phosphonate Utilization
+ANNOTATION_SOURCE   COG3624  COG20_FUNCTION
+                    COG3625  COG20_FUNCTION
+                    COG3626  COG20_FUNCTION
+                    COG3627  COG20_FUNCTION
+                    COG4107  COG20_FUNCTION
+                    COG4778  COG20_FUNCTION
+                    COG3709  COG20_FUNCTION
+                    COG3454  COG20_FUNCTION
+///
+```
+
+Now we need to setup these module so we can use them in anvi'o using {% include PROGRAM name="anvi-setup-user-modules" %}. For that we need to create a special directory structure:
+```bash
+mkdir CUSTOM_PATHWAYS
+mkdir CUSTOM_PATHWAYS/modules
+mv pstSCAB.txt CUSTOM_PATHWAYS/modules/
+mv PhnCDE.txt CUSTOM_PATHWAYS/modules/
+mv PhnGHIJKLNM.txt CUSTOM_PATHWAYS/modules/
+```
+
+Then we can run {% include PROGRAM name="anvi-setup-user-modules" %}, which will generate a {% include ARTIFACT name="modules-db" %}:
+```bash
+anvi-setup-user-modules -u CUSTOM_PATHWAYS/
+```
+
+Finally, we can use {% include ARTIFACT name="external-genomes" %} with our user-defined module and investigate the presence and completeness of our phosphate transport among all the SAGs with a minimum of 50% completion estimation:
+```bash
+anvi-estimate-metabolism -e external-genomes-50.txt \
+                         -O phostphate-transporter \
+                         -u CUSTOM_PATHWAYS/ \
+                         --only-user-modules
+```
+
+At the beginning of the tutorial, we looked at SAG AG-910-K02 and in the output files we can see that the pstSCAB transporter is indeed complete, but that SAG does not have the methylphosphonic acid transporter. Difficult to say if it is truly lacking the transporter or if it is a limitation of an incomplete SAG.
+
+|**module**|**genome_name**|**db_name**|**module_name**|**module_class**|**module_category**|**module_subcategory**|**module_definition**|**stepwise_module_completeness**|**stepwise_module_is_complete**|**pathwise_module_completeness**|**pathwise_module_is_complete**|**proportion_unique_enzymes_present**|**enzymes_unique_to_module**|**unique_enzymes_hit_counts**|**enzyme_hits_in_module**|**gene_caller_ids_in_module**|**warnings**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|pstSCAB.txt|AG_910_K02|AG_910_K02|Pi Transport|User modules|Transport System|Pi Transport|"COG0226 COG0573 COG0581 COG1117"|1.0|True|1.0|True|1.0|COG0226,COG0573,COG0581,COG1117|1,1,1,1|COG0226,COG0573,COG0581,COG1117|745,744,743,742|None|
+
+The SAG AG-910-F07 is also a *Pelagibacter* like AG-910-K02, and it has both transporter:
+
+|**module**|**genome_name**|**db_name**|**module_name**|**module_class**|**module_category**|**module_subcategory**|**module_definition**|**stepwise_module_completeness**|**stepwise_module_is_complete**|**pathwise_module_completeness**|**pathwise_module_is_complete**|**proportion_unique_enzymes_present**|**enzymes_unique_to_module**|**unique_enzymes_hit_counts**|**enzyme_hits_in_module**|**gene_caller_ids_in_module**|**warnings**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|pstSCAB.txt|AG_910_F07|AG_910_F07|Pi Transport|User modules|Transport System|Pi Transport|"COG0226 COG0573 COG0581 COG1117"|1.0|True|1.0|True|1.0|COG0226,COG0573,COG0581,COG1117|1,1,1,1|COG0226,COG0573,COG0581,COG1117|886,887,888,889|None|
+|PhnGHIJKLNM.txt|AG_910_F07|AG_910_F07|Phosphonate Utilization|User modules|Transport System|Phosphonate Utilization|"COG3624 COG3625 COG3626 COG3627 COG4107 COG4778 COG3709 COG3454"|1.0|True|1.0|True|1.0|COG3454,COG3624,COG3625,COG3626,COG3627,COG3709,COG4107,COG4778|1,1,1,1,1,1,1,1|COG3454,COG3624,COG3625,COG3626,COG3627,COG3709,COG4107,COG4778|334,326,327,328,329,332,330,331|None|
+|PhnCDE.txt|AG_910_F07|AG_910_F07|Organophosphorus Transport|User modules|Transport System|Organophosphorus Transport|"COG3638 COG3221 COG3639"|1.0|True|1.0|True|1.0|COG3221,COG3638,COG3639|1,1,2|COG3221,COG3638,COG3639,COG3639|323,324,321,322|None|
+
+This output file will be very interesting later as we will generate a pangenome of SAR11 SAGs and we can decorate that pangenome with the presence/absence of the transporter and discuss its evolutionary distribution in SAR11.
 
 
 ### More?
@@ -984,6 +1177,46 @@ You can always import that tree into an existing pangenome with {% include PROGR
 
  </div>
 
+
+### Exploratory analysis: phosphate transporters
+
+Following up to the [earlier section of this tutorial] where we created user-defined module for two phosphate transporters and utilization operons, we can run {% include PROGRAM name="anvi-estimate-metabolism" %} again using the {% include ARTIFACT name="external-genomes" %} `external-genomes-pangenomics.txt` (which includes the two reference genomes). And then display the result on the pangenome itself:
+
+```bash
+anvi-estimate-metabolism -e external-genomes-pangenomics.txt \
+                         -O phostphate-transporter-pan \
+                         -u CUSTOM_PATHWAYS/ \
+                         --matrix-format \
+                         --only-user-modules
+```
+
+We need to reformat the data a little bit, and then we can import it in our pangenome database:
+```bash
+anvi-script-transpose-matrix phostphate-transporter-pan-module_pathwise_completeness-MATRIX.txt \
+                             -o phostphate-transporter-layers.txt
+# replace the header "module" to "layers"
+sed 's/module/layers/' phostphate-transporter-layers.txt > tmp && mv tmp phostphate-transporter-layers.txt
+# rename the module's names
+sed 's/\.txt//g' phostphate-transporter-layers.txt > tmp && mv tmp phostphate-transporter-layers.txt
+# import the layers data
+anvi-import-misc-data -p PANGENOMICS/SAR11-PAN.db \
+                      -t layers \
+                      phostphate-transporter-layers.txt
+```
+
+Now we can re-run the pangenome interactive interface:
+```bash
+anvi-display-pan -g PANGENOMICS/SAR11-GENOMES.db \
+                 -p PANGENOMICS/SAR11-PAN.db
+```
+
+{:.notice}
+You can change the size and color of the newly added layers in the "layer" panel. In this case, I changed the type to "intensity", resized to 300 and colored them.
+
+{% include IMAGE path="/images/single-cell-genomics-workshop/04_pangenomics_13.png" width=80 %}
+
+From my understanding, all SAR11 should have the pstSCAB transporter and we can see that most SAG have that operon. Some are missing it, and it is likely because of the genome's incompletion.
+But only some SAG/reference genome have the transporter (PhnCDE) and utilization (PhnGHIJKLNM) for methylphosphonic acid. Interestingly, HIMB083 only have the transporter but is lacking the utilization operon. There is a lot to investigate here, beyond the scope of this tutorial. One could investigate if the Phn operons always occur in the same conserved genome region: you can search for the genes in the interface, highlight the gene clusters, and re-order the pangenome using the synteny and see if there are any conserved genes cluster surrounding the Phn operons. Or use a pangraph approach 😉.
 
 ## Read recruitment
 
