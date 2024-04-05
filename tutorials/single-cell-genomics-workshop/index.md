@@ -593,7 +593,7 @@ The program {% include PROGRAM name="anvi-estimate-metabolism" %} allows you to 
 {:.notice}
 This section of the tutorial is heavily inspired by [this comprehensive tutorial about metabolic reconstruction in anvi'o](https://anvio.org/tutorials/fmt-mag-metabolism/)
 
-{% include PROGRAM name="anvi-estimate-metabolism" %} can also use an {% include ARTIFACT name="external-genomes.txt" %} as an input parameter. This program can also output multiple type of tables and since we have multiple SAGs, we could be interested in a matrix-format table where SAGs are columns and rows are KEGG's module. The following command line also include the flag `--include-metadata` which will add a column with metadata for each module, like module name and category:
+{% include PROGRAM name="anvi-estimate-metabolism" %} can also use an {% include ARTIFACT name="external-genomes" %} as an input parameter. This program can also output multiple type of tables and since we have multiple SAGs, we could be interested in a matrix-format table where SAGs are columns and rows are KEGG's module. The following command line also include the flag `--include-metadata` which will add a column with metadata for each module, like module name and category:
 ```bash
 anvi-estimate-metabolism -e external-genomes-50.txt \
                          -O SAG \
