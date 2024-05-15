@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: bin [artifact]
 categories: [anvio]
 comments: false

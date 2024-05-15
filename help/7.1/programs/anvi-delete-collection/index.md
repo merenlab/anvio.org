@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-delete-collection [program]
 categories: [anvio]
 comments: false

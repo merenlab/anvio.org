@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-gen_stats_for_single_copy_genes.py [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-get-primer-matches [program]
 categories: [anvio]
 comments: false

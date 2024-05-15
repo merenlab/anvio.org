@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-export-splits-and-coverages [program]
 categories: [anvio]
 comments: false

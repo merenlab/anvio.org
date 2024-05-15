@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: coverages-txt [artifact]
 categories: [anvio]
 comments: false

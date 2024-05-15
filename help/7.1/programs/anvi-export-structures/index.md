@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-export-structures [program]
 categories: [anvio]
 comments: false

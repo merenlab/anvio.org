@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-get-short-reads-from-bam [program]
 categories: [anvio]
 comments: false

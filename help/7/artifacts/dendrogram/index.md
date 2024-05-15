@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: dendrogram [artifact]
 categories: [anvio]
 comments: false

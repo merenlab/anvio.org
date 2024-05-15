@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: vcf [artifact]
 categories: [anvio]
 comments: false

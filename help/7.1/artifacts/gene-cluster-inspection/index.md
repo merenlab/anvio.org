@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: gene-cluster-inspection [artifact]
 categories: [anvio]
 comments: false

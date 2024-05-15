@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-pfam-accessions-to-hmms-directory [program]
 categories: [anvio]
 comments: false

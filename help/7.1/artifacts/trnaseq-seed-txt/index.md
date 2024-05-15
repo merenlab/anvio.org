@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: trnaseq-seed-txt [artifact]
 categories: [anvio]
 comments: false

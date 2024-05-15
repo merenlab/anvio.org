@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: genomes-storage-db [artifact]
 categories: [anvio]
 comments: false

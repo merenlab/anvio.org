@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-dereplicate-genomes [program]
 categories: [anvio]
 comments: false

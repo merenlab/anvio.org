@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: layer-taxonomy [artifact]
 categories: [anvio]
 comments: false

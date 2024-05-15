@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: gene-taxonomy-txt [artifact]
 categories: [anvio]
 comments: false

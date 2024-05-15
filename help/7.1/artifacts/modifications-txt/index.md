@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: modifications-txt [artifact]
 categories: [anvio]
 comments: false

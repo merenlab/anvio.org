@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: variability-profile-txt [artifact]
 categories: [anvio]
 comments: false

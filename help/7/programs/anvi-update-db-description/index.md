@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-update-db-description [program]
 categories: [anvio]
 comments: false

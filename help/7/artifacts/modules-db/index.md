@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: modules-db [artifact]
 categories: [anvio]
 comments: false

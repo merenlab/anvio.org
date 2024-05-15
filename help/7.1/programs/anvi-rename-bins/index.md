@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-rename-bins [program]
 categories: [anvio]
 comments: false

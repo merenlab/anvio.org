@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-get-pn-ps-ratio [program]
 categories: [anvio]
 comments: false

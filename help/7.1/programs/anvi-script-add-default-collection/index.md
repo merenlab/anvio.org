@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-add-default-collection [program]
 categories: [anvio]
 comments: false

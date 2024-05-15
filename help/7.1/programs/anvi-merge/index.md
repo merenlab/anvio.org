@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-merge [program]
 categories: [anvio]
 comments: false

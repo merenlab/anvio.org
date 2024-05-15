@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-compute-ani-for-fasta [program]
 categories: [anvio]
 comments: false

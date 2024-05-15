@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-experimental-organization [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: pn-ps-data [artifact]
 categories: [anvio]
 comments: false

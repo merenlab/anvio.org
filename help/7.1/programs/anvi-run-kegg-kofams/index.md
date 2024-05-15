@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-run-kegg-kofams [program]
 categories: [anvio]
 comments: false

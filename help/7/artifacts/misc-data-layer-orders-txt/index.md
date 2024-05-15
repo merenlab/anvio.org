@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: misc-data-layer-orders-txt [artifact]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-run-scg-taxonomy [program]
 categories: [anvio]
 comments: false

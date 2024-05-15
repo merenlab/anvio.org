@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-plot-trnaseq [program]
 categories: [anvio]
 comments: false

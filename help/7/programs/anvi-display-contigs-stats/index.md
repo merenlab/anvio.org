@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-display-contigs-stats [program]
 categories: [anvio]
 comments: false

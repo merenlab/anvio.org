@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-export-items-order [program]
 categories: [anvio]
 comments: false

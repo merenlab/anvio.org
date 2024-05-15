@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-run-ncbi-cogs [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: concatenated-gene-alignment-fasta [artifact]
 categories: [anvio]
 comments: false

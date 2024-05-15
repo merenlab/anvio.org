@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: misc-data-nucleotides [artifact]
 categories: [anvio]
 comments: false

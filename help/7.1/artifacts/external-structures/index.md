@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: external-structures [artifact]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: gene-calls-txt [artifact]
 categories: [anvio]
 comments: false

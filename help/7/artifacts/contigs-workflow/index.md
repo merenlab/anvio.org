@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: contigs-workflow [artifact]
 categories: [anvio]
 comments: false

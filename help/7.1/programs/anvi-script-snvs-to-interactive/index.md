@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-snvs-to-interactive [program]
 categories: [anvio]
 comments: false

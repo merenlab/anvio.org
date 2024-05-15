@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: seeds-specific-txt [artifact]
 categories: [anvio]
 comments: false

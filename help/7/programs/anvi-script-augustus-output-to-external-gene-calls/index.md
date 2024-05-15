@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-augustus-output-to-external-gene-calls [program]
 categories: [anvio]
 comments: false

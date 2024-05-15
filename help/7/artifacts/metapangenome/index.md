@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: metapangenome [artifact]
 categories: [anvio]
 comments: false

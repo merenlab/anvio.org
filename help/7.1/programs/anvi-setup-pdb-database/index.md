@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-setup-pdb-database [program]
 categories: [anvio]
 comments: false

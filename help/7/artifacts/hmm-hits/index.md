@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: hmm-hits [artifact]
 categories: [anvio]
 comments: false

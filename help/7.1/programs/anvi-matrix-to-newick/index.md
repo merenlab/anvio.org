@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-matrix-to-newick [program]
 categories: [anvio]
 comments: false

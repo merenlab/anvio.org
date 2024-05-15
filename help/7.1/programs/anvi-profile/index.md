@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-profile [program]
 categories: [anvio]
 comments: false

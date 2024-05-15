@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-variability-to-vcf [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: splits-taxonomy-txt [artifact]
 categories: [anvio]
 comments: false

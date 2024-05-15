@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: binding-frequencies-txt [artifact]
 categories: [anvio]
 comments: false

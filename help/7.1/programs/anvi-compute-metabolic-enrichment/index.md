@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-compute-metabolic-enrichment [program]
 categories: [anvio]
 comments: false

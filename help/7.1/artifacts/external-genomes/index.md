@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: external-genomes [artifact]
 categories: [anvio]
 comments: false

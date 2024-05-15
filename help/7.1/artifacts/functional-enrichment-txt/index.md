@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: functional-enrichment-txt [artifact]
 categories: [anvio]
 comments: false

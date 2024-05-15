@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: dna-sequence [artifact]
 categories: [anvio]
 comments: false

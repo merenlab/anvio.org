@@ -6,13 +6,15 @@
 
 {% include _header.html %}
 
+{% include help-bar-navigation-links.html %}
+
 <div class="container text-center article">
-  <div class="row">
+  <div class="row" style="margin-top: 40px;">
     <div class="col-md-10 my-auto">
 
       <h1>{{ page.title }}</h1>
 
-      <div id="markdown-toc" class="toc">
+      <div id="markdown-toc" class="toc" style="top: 10em;">
          <header><h3 id="toc-header"><i class="fa fa-book"></i> Table of Contents</h3></header>
          <div id="drawer">{% include _toc.html html=content %}</div>
       </div>

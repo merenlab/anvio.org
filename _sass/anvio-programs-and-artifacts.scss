@@ -1,3 +1,15 @@
+#helpNav {
+    margin-top: 63px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 6px 6px 0 #0000004d, 0 6px 7px 0 #0000006e;
+}
+
+.helpNav-active {
+    border: 1px dashed white;
+    background: linear-gradient(45deg, #ff000065, #ffa50065, #ffff0065, #00800065, #0000ff65, #4b008265, #ee82ee65, #ff000065);
+}
 
 .codeblock {
     white-space: pre;

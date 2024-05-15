@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-process-genbank-metadata [program]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-export-gene-calls [program]
 categories: [anvio]
 comments: false

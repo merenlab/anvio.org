@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: trna-taxonomy-db [artifact]
 categories: [anvio]
 comments: false

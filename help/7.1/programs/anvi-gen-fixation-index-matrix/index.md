@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-gen-fixation-index-matrix [program]
 categories: [anvio]
 comments: false

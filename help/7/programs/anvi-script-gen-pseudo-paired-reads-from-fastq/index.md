@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-gen-pseudo-paired-reads-from-fastq [program]
 categories: [anvio]
 comments: false

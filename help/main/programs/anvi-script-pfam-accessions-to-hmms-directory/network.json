@@ -12,6 +12,15 @@
     },
     {
       "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "pfam-accession",
+      "name": "pfam-accession",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 2,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-script-pfam-accessions-to-hmms-directory",
@@ -21,8 +30,12 @@
   ],
   "links": [
     {
-      "source": 1,
+      "source": 2,
       "target": 0
+    },
+    {
+      "target": 2,
+      "source": 1
     }
   ],
   "directed": false,

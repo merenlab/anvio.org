@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: aa-frequencies-txt [artifact]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: cogs-data [artifact]
 categories: [anvio]
 comments: false

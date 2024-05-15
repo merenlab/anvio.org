@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-transpose-matrix [program]
 categories: [anvio]
 comments: false

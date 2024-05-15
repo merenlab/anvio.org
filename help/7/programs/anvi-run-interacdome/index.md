@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-run-interacdome [program]
 categories: [anvio]
 comments: false

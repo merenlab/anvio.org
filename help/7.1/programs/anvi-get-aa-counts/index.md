@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-get-aa-counts [program]
 categories: [anvio]
 comments: false

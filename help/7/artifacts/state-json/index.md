@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: state-json [artifact]
 categories: [anvio]
 comments: false

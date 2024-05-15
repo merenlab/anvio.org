@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-script-gen-hmm-hits-matrix-across-genomes [program]
 categories: [anvio]
 comments: false

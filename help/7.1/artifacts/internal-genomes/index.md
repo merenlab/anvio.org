@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: internal-genomes [artifact]
 categories: [anvio]
 comments: false

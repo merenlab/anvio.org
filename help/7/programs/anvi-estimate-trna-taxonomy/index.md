@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-estimate-trna-taxonomy [program]
 categories: [anvio]
 comments: false

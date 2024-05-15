@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-analyze-synteny [program]
 categories: [anvio]
 comments: false

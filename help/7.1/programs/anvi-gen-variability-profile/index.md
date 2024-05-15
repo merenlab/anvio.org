@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: anvi-gen-variability-profile [program]
 categories: [anvio]
 comments: false

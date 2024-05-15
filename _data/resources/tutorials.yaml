@@ -35,9 +35,9 @@
 
 - title: An exercise on single-cell genomics
   type: tutorial
-  url: https://merenlab.org/tutorials/single-cell-genomics/
+  url: /tutorials/single-cell-genomics-workshop/
   authors: [FlorianTrigodet]
-  summary: "A hands-on tutorial to learn how to integrate single-cell genomics data into the anvi'o environment that covers the integration of SAGs into the anvi'o environment, performing pangenomic and phylogenomic analyses with them, and more."
+  summary: "A hands-on tutorial to learn how to integrate single-cell genomics data. It covers functional and taxonomic assignment, pangenomic and phylogenomic analyses, and more."
   tags: [pangenomics, phylogenomics, hands-on, beginner]
 
 - title: Anvi'o phylogenomics workflow

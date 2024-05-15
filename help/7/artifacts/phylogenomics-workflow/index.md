@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: help
 title: phylogenomics-workflow [artifact]
 categories: [anvio]
 comments: false
