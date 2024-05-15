@@ -23,7 +23,7 @@ A HMM-type anvi'o artifact. This artifact is typically provided **by the user** 
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-script-hmm-to-hmm-directory](../../programs/anvi-script-hmm-to-hmm-directory)</span> <span class="artifact-p">[anvi-script-pfam-accessions-to-hmms-directory](../../programs/anvi-script-pfam-accessions-to-hmms-directory)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-script-gen-defense-finder-models-to-hmm-directory](../../programs/anvi-script-gen-defense-finder-models-to-hmm-directory)</span> <span class="artifact-p">[anvi-script-hmm-to-hmm-directory](../../programs/anvi-script-hmm-to-hmm-directory)</span> <span class="artifact-p">[anvi-script-pfam-accessions-to-hmms-directory](../../programs/anvi-script-pfam-accessions-to-hmms-directory)</span></p>
 
 
 ## Required or used by

@@ -29,7 +29,7 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-script-hmm-to-hmm-directory](../../programs/anvi-script-hmm-to-hmm-directory)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-script-gen-defense-finder-models-to-hmm-directory](../../programs/anvi-script-gen-defense-finder-models-to-hmm-directory)</span> <span class="artifact-r">[anvi-script-hmm-to-hmm-directory](../../programs/anvi-script-hmm-to-hmm-directory)</span></p>
 
 
 ## Description
