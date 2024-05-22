@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **15 May 24 17:09:13** for anvi'o version **8-dev (marie)**.
+The help contents were last updated on **21 May 24 15:59:43** for anvi'o version **8-dev (marie)**.
 
 
 {% include _project-anvio-version.html %}
@@ -31,11 +31,11 @@ Anvi'o workflows are dynamic recipes for easy-to-use, scalable, and reproducible
 The anvi'o 8-dev (marie) contains 5 workflows:
 
 <ul>
-<li><a href="workflows/contigs">The anvi'o <b>contigs</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ShaiberAlon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
+<li><a href="workflows/contigs">The anvi'o <b>contigs</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/shaiberalon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ivagljiva" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/meren" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
-| <i>From FASTA files to annotated anvi&#x27;o contigs databases</i>.</li><li><a href="workflows/metagenomics">The anvi'o <b>metagenomics</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ShaiberAlon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
+| <i>From FASTA files to annotated anvi&#x27;o contigs databases</i>.</li><li><a href="workflows/metagenomics">The anvi'o <b>metagenomics</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/shaiberalon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
 | <i>From FASTA and/or FASTQ files to anvi&#x27;o contigs and profile databases</i>.</li><li><a href="workflows/ecophylo">The anvi'o <b>ecophylo</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
 | <i>Co-characterize the biogeography and phylogeny of any protein</i>.</li><li><a href="workflows/trnaseq">The anvi'o <b>trnaseq</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/semiller10" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
 | <i>Process transfer RNA transcripts from tRNA-seq datasets</i>.</li><li><a href="workflows/sra-download">The anvi'o <b>sra-download</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
@@ -132,7 +132,7 @@ Listed below **a total of 135 artifacts**.
 
 Anvi'o programs perform atomic tasks that can be weaved together to implement complete 'omics workflows. Please note that there may be programs that are not listed on this page. You can type 'anvi-' in your terminal, and press the TAB key twice to see the full list of programs available to you on your system, and type `anvi-program-name --help` to read the full list of command line options.
 
-Listed below **a total of 151 programs**.
+Listed below **a total of 152 programs**.
 
 
 <div style="width:100%;">
@@ -616,7 +616,7 @@ Listed below **a total of 151 programs**.
 <tr style="border:none;">
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ozcan" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
-<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/FlorianTrigodet" target="_blank"><img class="anvio-person-photo-img-mini" title="Florian Trigodet" src="images/authors/FlorianTrigodet.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/floriantrigodet" target="_blank"><img class="anvio-person-photo-img-mini" title="Florian Trigodet" src="images/authors/FlorianTrigodet.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/watsonar" target="_blank"><img class="anvio-person-photo-img-mini" title="Andrea Watson" src="images/authors/watsonar.jpg" /></a></div></div>
 
     </td>
@@ -1102,7 +1102,7 @@ Listed below **a total of 151 programs**.
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ekiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
-<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ShaiberAlon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/shaiberalon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -1528,7 +1528,7 @@ Listed below **a total of 151 programs**.
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ekiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/meren" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ShaiberAlon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/shaiberalon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2713,7 +2713,7 @@ Listed below **a total of 151 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/FlorianTrigodet" target="_blank"><img class="anvio-person-photo-img-mini" title="Florian Trigodet" src="images/authors/FlorianTrigodet.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/floriantrigodet" target="_blank"><img class="anvio-person-photo-img-mini" title="Florian Trigodet" src="images/authors/FlorianTrigodet.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/meren" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ekiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 
@@ -3022,7 +3022,7 @@ Listed below **a total of 151 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ShaiberAlon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/shaiberalon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/semiller10" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
 
@@ -4064,6 +4064,36 @@ Listed below **a total of 151 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-gen-defense-finder-models-to-hmm-directory](programs/anvi-script-gen-defense-finder-models-to-hmm-directory)**</span>. <span markdown="1">This program generates an anvi&#x27;o compatible HMM directory to be used with `anvi-run-hmms` from the MDMParis Defense Finder Models.</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">[hmm-file](artifacts/hmm-file) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">[hmm-source](artifacts/hmm-source) <img src="images/icons/HMM.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ge0rges" target="_blank"><img class="anvio-person-photo-img-mini" title="Georges Kanaan" src="images/authors/ge0rges.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
         <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-gen-distribution-of-genes-in-a-bin](programs/anvi-script-gen-distribution-of-genes-in-a-bin)**</span>. <span markdown="1">Quantify the detection of genes in genomes in metagenomes to identify the environmental core. This is a helper script for anvi&#x27;o metapangenomic workflow</span>.
     </td>
 </tr>
@@ -4532,7 +4562,7 @@ Listed below **a total of 151 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/AstrobioMike" target="_blank"><img class="anvio-person-photo-img-mini" title="Mike Lee" src="images/authors/AstrobioMike.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/astrobiomike" target="_blank"><img class="anvio-person-photo-img-mini" title="Mike Lee" src="images/authors/AstrobioMike.jpg" /></a></div></div>
 
     </td>
 </tr>

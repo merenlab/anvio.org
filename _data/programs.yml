@@ -185,7 +185,7 @@
     - name: anvi-script-gen-pseudo-paired-reads-from-fastq
     - name: anvi-script-get-coverage-from-bam
     - name: anvi-script-reformat-fasta
-- author: FlorianTrigodet
+- author: floriantrigodet
   programs:
     - name: anvi-display-contigs-stats
     - name: anvi-report-inversions
@@ -197,7 +197,7 @@
     - name: anvi-estimate-scg-taxonomy
     - name: anvi-run-scg-taxonomy
     - name: anvi-setup-scg-taxonomy
-- author: ShaiberAlon
+- author: shaiberalon
   programs:
     - name: anvi-export-locus
     - name: anvi-gen-variability-profile
@@ -232,12 +232,13 @@
 - author: ge0rges
   programs:
     - name: anvi-run-ncbi-cogs
+    - name: anvi-script-gen-defense-finder-models-to-hmm-directory
     - name: anvi-script-hmm-to-hmm-directory
     - name: anvi-script-pfam-accessions-to-hmms-directory
 - author: moritzbuck
   programs:
     - name: anvi-script-compute-bayesian-pan-core
-- author: AstrobioMike
+- author: astrobiomike
   programs:
     - name: anvi-script-process-genbank
 - author: telatin
