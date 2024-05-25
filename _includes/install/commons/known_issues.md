@@ -37,3 +37,18 @@ samtools 1.9
 Using htslib 1.9
 Copyright (C) 2018 Genome Research Ltd.
 ```
+
+### Issues related to PyANI
+
+In anvi'o `v8` there is a problem with incompatibility between the default installed versions of PyANI (v0.2.12) and matplotlib (v3.9.x). The program {% include PROGRAM name="anvi-compute-genome-similarity"%} can fail at the PyANI step, and the resulting log file will show an error like this:
+
+```
+AttributeError: module 'matplotlib.pyplot' has no attribute 'register_cmap'
+```
+
+To fix this issue, you can manually downgrade the matplotlib package like this:
+```
+pip install matplotlib==3.5.1
+```
+
+Or you can just switch to using FastANI instead. See [this Discord thread](https://discord.com/channels/1002537821212512296/1243341200694710363/1243341200694710363) for more context and details.
