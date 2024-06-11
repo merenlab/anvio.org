@@ -20,6 +20,9 @@ This page is for users who want to install the development version of anvi'o, `a
 
 {% include install/windows/things_you_need.md %}
 
+{:.notice}
+Before going on, ensure you are inside the WS, type `uname` (should print "Linux"). 
+
 ## (2) Setting up the conda environment
 
 {% include install/commons/dev/python_version_warning.md %}

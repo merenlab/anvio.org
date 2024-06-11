@@ -24,6 +24,10 @@ If the WSL installation fails with an error that looks like this: `WslRegisterDi
 
 ## (2) Set up conda
 
+{:.notice}
+Anvi'o will only run inside the WSL (Windows Subsystem for Linux, see above). If you prompt includes something like "C:\Users" you are inside the Windows Powershell (not WSL). From powershell type `wsl` to open your Linux subsystem.
+To ensure you are inside the WS, type `uname` (should print "Linux"). 
+
 {% include install/commons/stable/conda_setup.md %}
 
 ## (3) Setup an anvi'o environment
