@@ -38,25 +38,6 @@ conda config --env --set subdir osx-64
 
 {% include install/commons/dev/conda_setup.md %}
 
-At the time of writing these lines, running `mamba` after this step gave an error about a missing file for `libarchive` library on Mac systems. To see if this is really the case, you can first type `mamba` in your terminal:
-
-```
-mamba
-```
-
-If you are not getting an error (and instead seeing a nice help menu), then this problem does not affect your system and _you can skip the next command_. But if you indeed get a `libarchive` error, please run the following command and see if it solves the problem for you (this essentially creates a symbolic link to an existing file that `mamba` complains about):
-
-```bash
-ln -s ${CONDA_PREFIX}/lib/libarchive.19.dylib \
-      ${CONDA_PREFIX}/lib/libarchive.13.dylib
-```
-
-And test to make sure that `mamba` is okay now:
-
-```
-mamba
-```
-
 {% include install/commons/conda_packages.md %}
 
 ## (3) Setting up the local copy of the anvi'o codebase

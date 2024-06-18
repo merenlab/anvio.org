@@ -12,9 +12,3 @@ And activate it:
 ```
 conda activate anvio-8
 ```
-
-Install `mamba` for fast dependency resolving:
-
-```
-conda install -y -c conda-forge mamba
-```

@@ -15,10 +15,3 @@ And activate it:
 ```
 conda activate anvio-dev
 ```
-
-Install `mamba` for fast dependency resolving:
-
-```
-conda install -y -c conda-forge mamba
-```
-
