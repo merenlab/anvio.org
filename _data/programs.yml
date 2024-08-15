@@ -43,6 +43,7 @@
     - name: anvi-export-contigs
     - name: anvi-export-functions
     - name: anvi-export-gene-calls
+    - name: anvi-export-gene-clusters
     - name: anvi-export-gene-coverage-and-detection
     - name: anvi-export-items-order
     - name: anvi-export-misc-data
@@ -188,6 +189,7 @@
   programs:
     - name: anvi-display-contigs-stats
     - name: anvi-report-inversions
+    - name: anvi-script-find-misassemblies
 - author: watsonar
   programs:
     - name: anvi-display-contigs-stats
