@@ -43,8 +43,19 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
+This program imports a metabolite abundance profile, such as from metabolomic experiments, into a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>.
+
+This program takes as input a tab-delimited file of metabolite abundance data and a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. The tabular file must have three columns with the following names: "accession", "sample", and "abundance". Each row of the table corresponds to a distinct metabolite abundance measurement.
+
+- "accession" is the ModelSEED Compound ID, e.g., "cpd00027" for D-glucose.
+- "sample" is the name of the sample in which the measurement was made. It need not be the same as any nucleotide sequence samples stored in the profile database.
+- "abundance" is the metabolite abundance value, however defined.
+
+Once metabolite abundances are stored in a profile database, they can be loaded into a metabolic <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> for analysis in the context of biochemical pathways. Metabolites in the network are defined in terms of ModelSEED Compounds.
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-import-metabolite-profile.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-import-metabolite-profile.md) to update this information.
 
 
 ## Additional Resources

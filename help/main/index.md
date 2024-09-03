@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **15 Aug 24 12:36:09** for anvi'o version **8-dev (marie)**.
+The help contents were last updated on **02 Sep 24 23:52:48** for anvi'o version **8-dev (marie)**.
 
 
 {% include _project-anvio-version.html %}
@@ -46,7 +46,7 @@ The anvi'o 8-dev (marie) contains 5 workflows:
 
 Anvi'o artifacts represent **concepts, file types, or data types** anvi'o programs can work with. A given anvi'o artifact can be provided by the user (such as a FASTA file), produced by anvi'o (such as a profile database), or both (such as phylogenomic trees). Anvi'o artifacts link anvi'o programs to each other to build novel workflows.
 
-Listed below **a total of 136 artifacts**.
+Listed below **a total of 137 artifacts**.
 
 <table class="artifacts-table">
 
@@ -111,7 +111,7 @@ Listed below **a total of 136 artifacts**.
 </tr>
 
 <tr>
-<td><div class="artifact-icon-div"><img src="images/icons/DISPLAY.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[interactive](artifacts/interactive)</span> <span class="artifact-n" markdown="1">[trnaseq-plot](artifacts/trnaseq-plot)</span> <span class="artifact-n" markdown="1">[contig-inspection](artifacts/contig-inspection)</span> <span class="artifact-n" markdown="1">[gene-cluster-inspection](artifacts/gene-cluster-inspection)</span></td>
+<td><div class="artifact-icon-div"><img src="images/icons/DISPLAY.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[kegg-pathway-map](artifacts/kegg-pathway-map)</span> <span class="artifact-n" markdown="1">[interactive](artifacts/interactive)</span> <span class="artifact-n" markdown="1">[trnaseq-plot](artifacts/trnaseq-plot)</span> <span class="artifact-n" markdown="1">[contig-inspection](artifacts/contig-inspection)</span> <span class="artifact-n" markdown="1">[gene-cluster-inspection](artifacts/gene-cluster-inspection)</span></td>
 </tr>
 
 <tr>
@@ -132,7 +132,7 @@ Listed below **a total of 136 artifacts**.
 
 Anvi'o programs perform atomic tasks that can be weaved together to implement complete 'omics workflows. Please note that there may be programs that are not listed on this page. You can type 'anvi-' in your terminal, and press the TAB key twice to see the full list of programs available to you on your system, and type `anvi-program-name --help` to read the full list of command line options.
 
-Listed below **a total of 153 programs**.
+Listed below **a total of 154 programs**.
 
 
 <div style="width:100%;">
@@ -739,6 +739,36 @@ Listed below **a total of 153 programs**.
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ekiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ozcan" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-draw-kegg-pathways](programs/anvi-draw-kegg-pathways)**</span>. <span markdown="1">Write KEGG pathway map files incorporating data sourced from anvi&#x27;o databases.</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[external-genomes](artifacts/external-genomes) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[pan-db](artifacts/pan-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[genomes-storage-db](artifacts/genomes-storage-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[kegg-data](artifacts/kegg-data) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">[kegg-pathway-map](artifacts/kegg-pathway-map) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/semiller10" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
 
     </td>
 </tr>
@@ -2084,7 +2114,7 @@ Listed below **a total of 153 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-import-protein-profile](programs/anvi-import-protein-profile)**</span>. <span markdown="1">This program imports protein abundance data and stores it in a profile database.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-import-protein-profile](programs/anvi-import-protein-profile)**</span>. <span markdown="1">This program imports protein abundance data into a profile database.</span>.
     </td>
 </tr>
 <tr>

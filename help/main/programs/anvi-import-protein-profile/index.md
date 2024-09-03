@@ -1,7 +1,7 @@
 ---
 layout: program
 title: anvi-import-protein-profile
-excerpt: An anvi'o program. This program imports protein abundance data and stores it in a profile database.
+excerpt: An anvi'o program. This program imports protein abundance data into a profile database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-import-protein-profile
@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-This program imports protein abundance data and stores it in a profile database..
+This program imports protein abundance data into a profile database..
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -43,8 +43,20 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
+This program imports a protein abundance profile, such as from proteomic experiments, into a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>.
+
+This program takes as input a tab-delimited file of protein abundance data and a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. The tabular file must have four columns with the following names: "source", "accession", "sample", and "abundance". Each row of the table corresponds to a distinct protein abundance measurement.
+
+- "source" is the source of the protein accessions. It must be a gene function annotation source stored in the anvi'o <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> (available sources can be found with the program, <span class="artifact-p">[anvi-db-info](/help/main/programs/anvi-db-info)</span>).
+- "accession" is the protein ID in the annotation source. A contigs database built from a GenBank file, for example, could contain the source, "NCBI_PGAP", and the accession, "WP_011862028.1".
+- "sample" is the name of the sample in which the measurement was made. It need not be the same as any nucleotide sequence samples stored in the profile database.
+- "abundance" is the protein abundance value, however defined.
+
+Once protein abundances are stored in a profile database, they can be loaded into a metabolic <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> for analysis in the context of biochemical pathways.
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-import-protein-profile.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-import-protein-profile.md) to update this information.
 
 
 ## Additional Resources
