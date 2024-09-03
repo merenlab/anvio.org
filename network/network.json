@@ -65,7 +65,7 @@
       "type": "DB"
     },
     {
-      "size": 75,
+      "size": 76,
       "score": 0.5,
       "color": "#00AA00",
       "id": "contigs-db",
@@ -695,7 +695,7 @@
       "type": "FASTA"
     },
     {
-      "size": 10,
+      "size": 11,
       "score": 1,
       "color": "#AA0000",
       "id": "bam-file",
@@ -1838,7 +1838,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 4,
+      "size": 7,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-profile",
@@ -3272,6 +3272,10 @@
       "source": 7
     },
     {
+      "target": 213,
+      "source": 7
+    },
+    {
       "target": 214,
       "source": 7
     },
@@ -4462,6 +4466,10 @@
     {
       "source": 201,
       "target": 77
+    },
+    {
+      "target": 213,
+      "source": 77
     },
     {
       "target": 214,
