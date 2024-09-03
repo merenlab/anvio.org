@@ -35,7 +35,7 @@ The flagship anvi&#x27;o program to profile a BAM file. Running this program on 
 ## Can consume
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[bam-file](../../artifacts/bam-file) <img src="../../images/icons/BAM.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
+This program seems to know what its doing. It needs no input material from its user. Good program.
 
 
 ## Can provide
