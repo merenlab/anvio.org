@@ -53,6 +53,12 @@ There are hundreds of pathway maps, listed and categorized [here](https://www.ge
 anvi&#45;setup&#45;kegg&#45;data &#45;&#45;kegg&#45;snapshot v2024&#45;08&#45;30
 </div>
 
+Additional Python packages may be needed if you installed anvi'o `v8.0-dev` before this program's package requirements were included. These can be installed with the following command.
+
+<div class="codeblock" markdown="1">
+pip install biopython ReportLab pymupdf frontend
+</div>
+
 ### Download newest available files
 
 Alternatively, KEGG data including maps can be set up not from a snapshot but by downloading the newest files available from KEGG using the `-D` flag. In the following command, a higher number of download threads than the default of 1 is provided by `-T`, which significantly speeds up downloading.
@@ -63,7 +69,7 @@ anvi&#45;setup&#45;kegg&#45;data &#45;D &#45;T 5
 
 ### Install in non-default location
 
-At the moment, KEGG data that includes maps does _not_ include stray KOs (see <span class="artifact-p">[anvi-setup-kegg-data](/help/main/programs/anvi-setup-kegg-data)</span>) due to changes in the available model files. To preserve KEGG data that you already have set up, for this reason or another, the new snapshot or download can be placed in a non-default location using the option, `--kegg-data-dir`.
+At the moment, KEGG data that includes maps does _not_ include "stray" KOs (see <span class="artifact-p">[anvi-setup-kegg-data](/help/main/programs/anvi-setup-kegg-data)</span>) due to changes in the available model files. To preserve KEGG data that you already have set up, for this reason or another, the new snapshot or download can be placed in a non-default location using the option, `--kegg-data-dir`.
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;kegg&#45;data &#45;&#45;kegg&#45;snapshot v2024&#45;08&#45;30 &#45;&#45;kegg&#45;data&#45;dir path/to/other/directory
