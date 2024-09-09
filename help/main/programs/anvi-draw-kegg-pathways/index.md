@@ -47,10 +47,10 @@ Write KEGG pathway map files incorporating data sourced from anvi&#x27;o databas
 
 ## Setup
 
-There are hundreds of pathway maps, listed and categorized [here](https://www.genome.jp/kegg/pathway.html). <span class="artifact-p">[anvi-setup-kegg-data](/help/main/programs/anvi-setup-kegg-data)</span> downloads the maps that have corresponding [files](https://www.kegg.jp/kegg/xml/) that allow elements of the map to be modified. Make sure to run that program with the `--kegg-snapshot` option to use the newest snapshot of <span class="artifact-n">[kegg-data](/help/main/artifacts/kegg-data)</span>, [`v2024-08-30`](https://figshare.com/articles/dataset/KEGG_build_2024-08-30/26880559?file=48903154), which includes pathway map files.
+There are hundreds of pathway maps, listed and categorized [here](https://www.genome.jp/kegg/pathway.html). <span class="artifact-p">[anvi-setup-kegg-data](/help/main/programs/anvi-setup-kegg-data)</span> downloads, among other files, the maps that have corresponding [XML files](https://www.kegg.jp/kegg/xml/) that allow elements of the map to be modified. The following command sets up the database in a default anvi'o directory.
 
 <div class="codeblock" markdown="1">
-anvi&#45;setup&#45;kegg&#45;data &#45;&#45;kegg&#45;snapshot v2024&#45;08&#45;30
+anvi&#45;setup&#45;kegg&#45;data
 </div>
 
 Additional Python packages may be needed if you installed anvi'o `v8.0-dev` before this program's package requirements were included. These can be installed with the following command.
@@ -61,7 +61,7 @@ pip install biopython ReportLab pymupdf frontend
 
 ### Download newest available files
 
-Alternatively, KEGG data including maps can be set up not from a snapshot but by downloading the newest files available from KEGG using the `-D` flag. In the following command, a higher number of download threads than the default of 1 is provided by `-T`, which significantly speeds up downloading.
+Alternatively, KEGG data can be set up not from a snapshot but by downloading the newest files available from KEGG using the `-D` flag. In the following command, a higher number of download threads than the default of 1 is provided by `-T`, which significantly speeds up downloading.
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;kegg&#45;data &#45;D &#45;T 5
@@ -69,10 +69,10 @@ anvi&#45;setup&#45;kegg&#45;data &#45;D &#45;T 5
 
 ### Install in non-default location
 
-At the moment, KEGG data that includes maps does _not_ include "stray" KOs (see <span class="artifact-p">[anvi-setup-kegg-data](/help/main/programs/anvi-setup-kegg-data)</span>) due to changes in the available model files. To preserve KEGG data that you already have set up, for this reason or another, the new snapshot or download can be placed in a non-default location using the option, `--kegg-data-dir`.
+To preserve KEGG data that you already have set up for whatever reason, the new snapshot or download can be placed in a non-default location using the option, `--kegg-data-dir`.
 
 <div class="codeblock" markdown="1">
-anvi&#45;setup&#45;kegg&#45;data &#45;&#45;kegg&#45;snapshot v2024&#45;08&#45;30 &#45;&#45;kegg&#45;data&#45;dir path/to/other/directory
+anvi&#45;setup&#45;kegg&#45;data &#45;&#45;kegg&#45;data&#45;dir path/to/other/directory
 </div>
 
 `anvi-draw-kegg-pathways` requires a `--kegg-dir` argument to seek KEGG data in a non-default location.
