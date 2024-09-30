@@ -1,7 +1,7 @@
 ---
 layout: program
 title: anvi-draw-kegg-pathways
-
+excerpt: An anvi'o program. Write KEGG pathway map files incorporating data sourced from anvi&#x27;o databases.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-draw-kegg-pathways
@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-.
+Write KEGG pathway map files incorporating data sourced from anvi&#x27;o databases..
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -24,18 +24,20 @@ image:
 
 ## Authors
 
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/semiller10.jpg" /></div><div class="anvio-person-info-box"><a href="/people/semiller10" target="_blank"><span class="anvio-person-name">Samuel Miller</span></a><div class="anvio-person-social-box"><a href="https://semiller10.github.io" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:samuelmiller10@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/smiller_science" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/semiller10" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+
 
 
 ## Can consume
 
 
-This program seems to know what its doing. It needs no input material from its user. Good program.
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[external-genomes](../../artifacts/external-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[kegg-data](../../artifacts/kegg-data) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Can provide
 
 
-This program does not seem to provide any artifacts. Such programs usually print out some information for you to see or alter some anvi'o artifacts without producing any immediate outputs.
+<p style="text-align: left" markdown="1"><span class="artifact-p">[kegg-pathway-map](../../artifacts/kegg-pathway-map) <img src="../../images/icons/DISPLAY.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Usage
@@ -55,6 +57,12 @@ Additional Python packages may be needed if you installed anvi'o `v8.0-dev` befo
 
 <div class="codeblock" markdown="1">
 pip install biopython reportlab pymupdf
+</div>
+
+The program can be tested with the following command.
+
+<div class="codeblock" markdown="1">
+anvi&#45;self&#45;test &#45;&#45;suite kegg&#45;mapping
 </div>
 
 ### Download newest available files
@@ -93,9 +101,21 @@ anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;contigs&#45;dbs <span class="artif
                         &#45;o output_dir
 </div>
 
-## Output file names
+## Output
 
-Output file names just contain the ID of each map by default, i.e., `kos_00010.pdf` for `Glycolysis / Gluconeogenesis`. The `--name-files` flag attaches an altered version of the pathway name to the file name, i.e., `kos_00010_Glycolysis_Gluconeogenesis.pdf`.
+This program requires the path to a non-existent directory as an argument to `-o` or `--output-dir`. Options are available to make it easier to browse through output files and anticipate their contents.
+
+### File names
+
+By default, output file names contain the ID of each map, e.g., `kos_00010.pdf` for `Glycolysis / Gluconeogenesis`. The `--name-files` flag attaches a simplified version of the pathway name to the file name, e.g., `kos_00010_Glycolysis_Gluconeogenesis.pdf`.
+
+### File categorization
+
+The `--categorize-files` flag categorizes output map files into a subdirectory structure based on the KEGG [BRITE hierarchy of pathways](https://www.genome.jp/brite/br08901). For example, a `Glycolysis / Gluconeogenesis` map would be placed in a directory named `Metabolism/Carbohydrate_metabolism`, as would be a `Citrate cycle (TCA cycle)` map, whereas an `RNA polymerase` map would be placed in a directory named `Genetic_Information_Processing/Transcription`. A subdirectory named `symlink` is also created with symbolic links to all of the categorized map files, allowing all of the files to be accessed from a single directory.
+
+Here is a simple example of the output file structure produced with `--name-files` and `--categorize-files` in the course of `anvi-self-test --suite kegg-mapping` (with the `-o` option to save the temporary directories in the test from removal).
+
+![Output options](../../images/anvi-draw-kegg-pathways/output_options.png){:.center-img .width-50}
 
 ## KO occurrence
 
@@ -129,7 +149,7 @@ anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;contigs&#45;dbs <span class="artif
                         &#45;o output_dir \
 </div>
 
-![Change color to blue](../../images/anvi-draw-kegg-pathways/kos_color_blue.png)
+![Change color to blue](../../images/anvi-draw-kegg-pathways/kos_color_blue.png){:.center-img .width-60}
 
 The argument can also be the string, `original`, for the original color scheme of the reference map. Global maps are especially colorful, with reactions varying in color across the map as a broad indication of function.
 
