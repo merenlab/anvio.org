@@ -101,6 +101,7 @@ GEM
       unicode-display_width (~> 1.1, >= 1.1.1)
     unicode-display_width (1.8.0)
     unidecode (1.0.0)
+    webrick (1.8.2)
 
 PLATFORMS
   ruby
@@ -118,6 +119,7 @@ DEPENDENCIES
   tzinfo-data
   unidecode
   wdm (~> 0.1.1)
+  webrick
 
 BUNDLED WITH
    2.1.4
