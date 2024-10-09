@@ -1,10 +1,10 @@
 ---
-layout: page
+layout: blog
 authors: [ahenoch]
 title: "Leveling up pangenomics with interactive pangenome graphs"
 excerpt: "A reproducible pangenome graph analysis of four candidatus lucifugimonas marina genomes."
 date: 2024-09-10
-tags: [tutorial]
+tags: [metagenomics, pangenomics, hands-on, beginner]
 comments: true
 ---
 
@@ -228,7 +228,7 @@ anvi-display-pan-graph -p 03_PAN/Candidatus_Lucifugimonas_marina-PAN.db \
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_4.png" width=80 %}
 
-{% include IMAGE path="/images/pangenome-graphs/Figure_5_1.png" width=40 %} {% include IMAGE path="/images/pangenome-graphs/Figure_5_2.png" width=40 %}
+{% include IMAGE path="/images/pangenome-graphs/Figure_5_1.png" width=40 %}{% include IMAGE path="/images/pangenome-graphs/Figure_5_2.png" width=40 %}
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_6.png" width=80 %}
 
