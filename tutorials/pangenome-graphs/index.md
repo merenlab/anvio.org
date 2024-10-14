@@ -198,7 +198,7 @@ After you click on the draw button you should see a pangenome that looks somewha
 
 In the **Main** tab under **Layers** we first order by **gene_cluster_frequencies**. In **Layer Groups** you checkmark the entry **ANI_full_percentage_identity** and in **Display** you change the bottom four entries to Bar and the Min value to at least 0.97.
 
-{% include IMAGE path="/images/pangenome-graphs/Figure_2.png" width=80 %}
+{% include IMAGE path="/images/pangenome-graphs/Figure_2.png" width=40 %}
 
 After pressing the draw button again, the resulting pangenome should look like this.
 
@@ -228,7 +228,9 @@ anvi-display-pan-graph -p 03_PAN/Candidatus_Lucifugimonas_marina-PAN.db \
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_4.png" width=80 %}
 
-{% include IMAGE path="/images/pangenome-graphs/Figure_5_1.png" width=40 %}{% include IMAGE path="/images/pangenome-graphs/Figure_5_2.png" width=40 %}
+{% include IMAGE path="/images/pangenome-graphs/Figure_5_1.png" width=40 %}
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_5_2.png" width=40 %}
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_6.png" width=80 %}
 
@@ -276,12 +278,39 @@ anvi-display-pan-graph -p 03_PAN/Candidatus_Lucifugimonas_marina-PAN.db \
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_7.png" width=80 %}
 
-{% include IMAGE path="/images/pangenome-graphs/Figure_8_1.png" width=40 %} {% include IMAGE path="/images/pangenome-graphs/Figure_8_2.png" width=40 %}
+{% include IMAGE path="/images/pangenome-graphs/Figure_8_1.png" width=40 %}
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_8_2.png" width=40 %}
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_9.png" width=80 %}
 
+We also reordered the genomes because the coloring of the pathways work in a hierarchical fashion, therefore having one of the complete genomes on top helps us to understand where the draft genomes broke.
+
 ## Read from the graph - examples and explanaitions
 
+
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_10.png" width=40 %}
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_11.png" width=80 %}
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_12.png" width=80 %}
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_13.png" width=80 %}
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_14.png" width=80 %}
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_15.png" width=80 %}
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_16.png" width=40 %}
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_17.png" width=80 %}
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_18.png" width=80 %}
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_19.png" width=80 %}
+
+<!---
 JUST SOME IDEAS:
 - What breaks an assembly? - Mobilome, Transposases
 - Why is subclustering GCs worth it? - POSCs, Enolases, Paralogs
@@ -289,3 +318,4 @@ JUST SOME IDEAS:
 - Why is there so much similar stuff? - Synteny highly conserved
 - This circular view is ugly! - Linear view
 - What elso can we get from pangenome graphs? - Datatables and values
+-->
