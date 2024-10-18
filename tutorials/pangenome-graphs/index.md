@@ -8,20 +8,21 @@ tags: [metagenomics, pangenomics, hands-on, beginner]
 comments: true
 ---
 
-With the workflow on anvio pangenome graphs you can,
+With the tutorial on anvio pangenome graphs you can,
 
 * **Identify and analyse** regions of hypervariability in your genomes
 * **Estimate similarity** between the genomes based on graph structures instead of e.g. genome similarity
 * **Interactively visualize** your pangenome graph and the impact of single genomes on the consensus
 * **Highlight** the distribution of paralogous gene clusters through their synteny based sub clusters
 * **Summarize** distribution and frequency of common graph motives into a nice table for downstream analysis
+* **Create** beautiful pictures of genomic structures no one has ever seen before
 
 {:.notice}
-You can use the anvi'o workflow for pangenome graphs even if you haven't done any metagenomic work with anvi'o. All you need is an anvi'o installation, and a FASTA file for each of your genomes.
+You can use the anvi'o tutorial for pangenome graphs even if you haven't done any metagenomic work with anvi'o. All you need is an anvi'o installation, and a FASTA file for each of your genomes.
 
 ## Introduction
 
-The anvi'o pangenomic workflow described here will walk you through the following steps:
+The tutorial on anvi'o pangenome graphs described here will walk you through the following steps:
 
 * Download and order a four genome dataset containing complete and draft genomes using anvi'o {% include PROGRAM name="anvi-reorient-contigs" %}
 
@@ -142,13 +143,13 @@ config.yaml:
 }
 ```
 
-Now we can start the anvi'o pangenomics workflow. This will probably take a while and you can reward yourself with a coffee while you wait :coffee: 
+Now we can start the anvi'o pangenomics workflow. This will probably take a while and you can reward yourself with a coffee while you wait &#x2615;
 
 ``` bash
 anvi-run-workflow -w pangenomics -c config.yaml
 ```
 
-The final command of this section will be to calculate the ANI of our dataset with the program, {% include PROGRAM name="anvi-compute-genome-similarity" %}, it uses various tools such as PyANI to compute average nucleotide identity across your genomes, followed by sourmash to compute mash distance across your genomes. We use it now to add these results as an additional layer data to our pangenome. More informations on ANI and the usage in comparative genomics can be found in the tutorial on pangenomics in the section [Computing the average nucleotide identity for genomes](https://merenlab.org/2016/11/08/pangenomics-v2/#computing-the-average-nucleotide-identity-for-genomes-and-other-genome-similarity-metrics-too). Since our genomes are quite similar it should not take longer than a minute.
+The final command of this section will be to calculate the ANI of our dataset with the program, {% include PROGRAM name="anvi-compute-genome-similarity" %}, it uses various tools such as PyANI to compute average nucleotide identity, followed by sourmash to compute mash distance across our genomes. We use it now to add these results as an additional layer data to our pangenome. More informations on ANI and the usage in comparative genomics can be found in the tutorial on pangenomics in the section [Computing the average nucleotide identity for genomes](https://merenlab.org/2016/11/08/pangenomics-v2/#computing-the-average-nucleotide-identity-for-genomes-and-other-genome-similarity-metrics-too). Since our genomes are quite similar it should not take longer than a minute.
 
 ```bash
 anvi-compute-genome-similarity --external-genomes external-genomes.txt \
@@ -195,6 +196,8 @@ We first run {% include ARTIFACT name="interactive" text="anvi'o interactive int
 anvi-display-pan -p 03_PAN/Candidatus_Lucifugimonas_marina-PAN.db \
                  -g 03_PAN/Candidatus_Lucifugimonas_marina-GENOMES.db
 ```
+
+In case this is your first time opening a pangenome, reading [anvi'o pangenomics workflow](https://merenlab.org/2016/11/08/pangenomics-v2/) might be beneficial to you as we won't go into detail on pangenomes here and having some experience on them will help you in the later part of this tutorial.
 
 After you click on the draw button you should see a pangenome that looks somewhat similar to this. We strongly recommend to use Google Chrome to offer you the best possible user experience.
 
@@ -360,7 +363,7 @@ If we click on **Bin info** a scrollable table will appear showing you all the s
 
 ## More tutorials and resources
 
-We hope you liked following this tutorial and enjoy your next pangenome graph analysis. Many features of the UI are not mentioned in this tutorial as we wanted to keep it as simple as possible. Also please feel free to reach out in case you have ideas or questions. In case you are interested in more tutorials on other disciplines covered by anvi'o please have a look at the following links.
+We hope you liked following this tutorial and enjoy your next pangenome graph analysis. Some features of the UI are not mentioned in this tutorial as we wanted to keep it as simple as possible and believe in you and your abilities. Aside from that please feel free to reach out in case you have ideas or questions. In case you are interested in more tutorials on other disciplines covered by anvi'o please have a look at the following links.
 
 - [The infant gut tutorial](https://merenlab.org/tutorials/infant-gut/)
 - [Studying microbial population genetics with anvi'o](https://merenlab.org/2015/07/20/analyzing-variability/)
