@@ -15,7 +15,7 @@ With the tutorial on anvio pangenome graphs you can,
 * **Interactively visualize** your pangenome graph and the impact of single genomes on the consensus
 * **Highlight** the distribution of paralogous gene clusters through their synteny based sub clusters
 * **Summarize** distribution and frequency of common graph motives into a nice table for downstream analysis
-* **Create** beautiful pictures of genomic structures no one has ever seen before
+* **Create** paper ready pictures of gene synteny structures not visualizable with other tools
 
 {:.notice}
 You can use the anvi'o tutorial for pangenome graphs even if you haven't done any metagenomic work with anvi'o. All you need is an anvi'o installation, and a FASTA file for each of your genomes.
