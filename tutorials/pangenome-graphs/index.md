@@ -12,10 +12,10 @@ With the tutorial on anvio pangenome graphs you can,
 
 * **Identify and analyse** regions of hypervariability in your genomes
 * **Estimate similarity** between the genomes based on graph structures instead of e.g. genome similarity
-* **Interactively visualize** your pangenome graph and the impact of single genomes on the consensus
-* **Highlight** the distribution of paralogous gene clusters through their synteny based sub clusters
-* **Summarize** distribution and frequency of common graph motives into a nice table for downstream analysis
-* **Create** paper ready pictures of gene synteny structures not visualizable with other tools
+* **Interactively visualize** your pangenome graph and the impact of single genomes on the consensus graph
+* **Highlight** the distribution of paralogous gene clusters through their synteny-based subclusters
+* **Summarize** distribution and frequency of common graph motifs into a nice table for downstream analysis
+* **Create** paper-ready pictures of gene synteny structures not visualizable with other tools
 
 {:.notice}
 You can use the anvi'o tutorial for pangenome graphs even if you haven't done any metagenomic work with anvi'o. All you need is an anvi'o installation, and a FASTA file for each of your genomes.
@@ -24,7 +24,7 @@ You can use the anvi'o tutorial for pangenome graphs even if you haven't done an
 
 The tutorial on anvi'o pangenome graphs described here will walk you through the following steps:
 
-* Download and order a four genome dataset containing complete and draft genomes using anvi'o {% include PROGRAM name="anvi-reorient-contigs" %}
+* Download and order a four genome dataset containing complete and draft genomes using {% include PROGRAM name="anvi-reorient-contigs" %}
 
 * Using the anvi'o pangenomics workflow to generate an anvi'o {% include ARTIFACT name="genomes-storage-db" %} and  {% include ARTIFACT name="pan-db" %} using the program {% include PROGRAM name="anvi-run-workflow" %}
 
@@ -32,7 +32,7 @@ The tutorial on anvi'o pangenome graphs described here will walk you through the
 
 * Calculate a {% include ARTIFACT name="pan-graph" text="anvi'o pangenome graph" %} based on these sequences using {% include PROGRAM name="anvi-pan-graph" %}
 
-* Step-by-step explanation of graph motives in the {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} using {% include PROGRAM name="anvi-display-pan-graph" %}
+* Step-by-step explanation of graph motifs in the {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} using {% include PROGRAM name="anvi-display-pan-graph" %}
 
 ## Prerequisites for the tutorial
 
@@ -45,7 +45,7 @@ conda activate anvio-dev
 anvi-self-test --suite pangenomics
 ```
 
-Anvi'o might complain in case you haven't set up the databases yet and we strongly advice you to do so before running this tutorial. 
+Anvi'o might complain in case you haven't set up the databases yet and we strongly advise you to do so before running this tutorial. 
 
 ```bash
 anvi-setup-scg-taxonomy
@@ -55,7 +55,7 @@ anvi-setup-kegg-data
 
 ### Where to find the data
 
-For this workflow we will use four genomes of *Candidatus Lucifugimonas marina* published by Lim et al. in 2023. Two complete genomes (GCA_029593895 & GCA_029593915) and two draft genomes (GCA_029532165, GCA_029532145). First we download all four genomes from the NCBI FTP server.
+For this workflow we will use four genomes of *Candidatus Lucifugimonas marina* published by [Lim et al. in 2023](https://pmc.ncbi.nlm.nih.gov/articles/PMC10444878/). Two complete genomes (GCA_029593895 & GCA_029593915) and two draft genomes (GCA_029532165 & GCA_029532145). First we download all four genomes from the NCBI FTP server.
 
 ``` bash
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/029/593/915/GCF_029593915.1_ASM2959391v1/GCF_029593915.1_ASM2959391v1_genomic.fna.gz -O GCF_029593915.fna.gz
@@ -67,36 +67,42 @@ gzip -d *.gz
 
 The current folder structure should look like this.
 
-/path/to/\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532145.fna\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532165.fna\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593895.fna\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── GCF_029593915.fna
+```
+/path/to/
+    ├── GCF_029532145.fna
+    ├── GCF_029532165.fna
+    ├── GCF_029593895.fna
+    └── GCF_029593915.fna
+```
 
 ### Order and reorient the draft genomes
 
-In the next step we have to order and reorient the contigs of the draft genome. We use the program {% include PROGRAM name="anvi-reorient-contigs" %} to for this task, based on the longest complete genome present in our folder.
+In the next step we have to order and reorient the contigs of the draft genome. We use the program {% include PROGRAM name="anvi-reorient-contigs" %} for this task, based on the longest complete genome present in our folder.
+
+This step is necessary for the pangenome graph creation to make sure the gene synteny matches between the genomes.
 
 ``` bash
 anvi-reorient-fasta -f ./ --prioritize-number-of-contigs
 ```
 
-The fasta files containing draft genomes are now ready to be used on the pangenomics workflow. For every genome excluding the leading genome we see some blast result files in the folder.
+The fasta files containing draft genomes are now ready to be used on the pangenomics workflow. For every genome excluding the leading genome we see some blast result files in the folder, that were used for reorienting based on the most complete genome.
 
-/path/to/\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532145.fna\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532145_blast\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532165.fna\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532165_blast\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593895.fna\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593895_blast\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── GCF_029593915.fna
+```
+/path/to/
+    ├── GCF_029532145.fna
+    ├── GCF_029532145_blast
+    ├── GCF_029532165.fna
+    ├── GCF_029532165_blast
+    ├── GCF_029593895.fna
+    ├── GCF_029593895_blast
+    └── GCF_029593915.fna
+```
 
 ## Anvi'o pangenomics workflow
 
-From the workflow we will receive multiple databases that we need for further downstream analysis. A single {% include ARTIFACT name="contigs-db" %} for every genome used, containig informations like genecalls, annotations, etc. The {% include ARTIFACT name="genomes-storage-db" %} a special anvi'o database that stores information about genomes, generated from {% include ARTIFACT name="external-genomes" %}, {% include ARTIFACT name="internal-genomes" %}, or both. And lastly the {% include ARTIFACT name="pan-db" %} created from the {% include ARTIFACT name="genomes-storage-db" %} including all features calculated during the pangenomics analysis. For a more detailed description of these special anvi'o databases please read about it in the [anvi'o pangenomics workflow](https://merenlab.org/2016/11/08/pangenomics-v2/).
+From the workflow we will receive multiple databases that we need for further downstream analysis. A single {% include ARTIFACT name="contigs-db" %} for every genome used, containing information like gene calls, annotations, etc. The {% include ARTIFACT name="genomes-storage-db" %} is a special anvi'o database that stores information about genomes, and can be generated from {% include ARTIFACT name="external-genomes" %}, {% include ARTIFACT name="internal-genomes" %}, or both. And lastly the {% include ARTIFACT name="pan-db" %} created from the {% include ARTIFACT name="genomes-storage-db" %} includes all features calculated during the pangenomics analysis. For a more detailed description of these special anvi'o databases please read about it in the [anvi'o pangenomics workflow](https://merenlab.org/2016/11/08/pangenomics-v2/).
 
-A {% include ARTIFACT name="fasta-file" %} is required to run the pangenomics workflow. This file has to be tab-seperated with two columns, the first containing the name of the fasta and the second containig the path to the file. We use the power of bash, to speed things up a little. For more informations about anvi'o workflows in general we really recommend reading [Scaling up your analysis with workflows](https://anvio.org/tutorials/scaling-up/).
+A {% include ARTIFACT name="fasta-file" %} is required to run the pangenomics workflow. This file has to be tab-seperated with two columns, the first containing the name of the fasta and the second containig the path to the file. We use the power of bash to speed things up a little. For more information about anvi'o workflows in general we really recommend reading [Scaling up your analysis with workflows](https://anvio.org/tutorials/scaling-up/).
 
 ``` bash
 echo -e 'name\tpath' > fasta.txt
@@ -115,7 +121,7 @@ GCF_029593895	/path/to/GCF_029593895.fna
 GCF_029593915	/path/to/GCF_029593915.fna
 ```
 
-Now the first prerequisite to start anvi'o pangenomics workflow is set-up. The next step is to generate and modify the {% include ARTIFACT name="workflow-config" %}. We can create a standard one with this command.
+Now the first prerequisite to start the anvi'o pangenomics workflow is set-up. The next step is to generate and modify the {% include ARTIFACT name="workflow-config" %}. We can create a standard one with this command.
 
 ```bash
 anvi-run-workflow -w pangenomics --get-default-config config.yaml
@@ -149,7 +155,7 @@ Now we can start the anvi'o pangenomics workflow. This will probably take a whil
 anvi-run-workflow -w pangenomics -c config.yaml
 ```
 
-The final command of this section will be to calculate the ANI of our dataset with the program, {% include PROGRAM name="anvi-compute-genome-similarity" %}, it uses various tools such as PyANI to compute average nucleotide identity, followed by sourmash to compute mash distance across our genomes. We use it now to add these results as an additional layer data to our pangenome. More informations on ANI and the usage in comparative genomics can be found in the tutorial on pangenomics in the section [Computing the average nucleotide identity for genomes](https://merenlab.org/2016/11/08/pangenomics-v2/#computing-the-average-nucleotide-identity-for-genomes-and-other-genome-similarity-metrics-too). Since our genomes are quite similar it should not take longer than a minute.
+The final command of this section will be to calculate the ANI of our dataset with the program {% include PROGRAM name="anvi-compute-genome-similarity" %}, which uses various tools such as PyANI to compute average nucleotide identity, followed by sourmash to compute mash distance across our genomes. We use it now to add these results as an additional data layer to our pangenome. More information on ANI and the usage in comparative genomics can be found in the tutorial on pangenomics in the section [Computing the average nucleotide identity for genomes](https://merenlab.org/2016/11/08/pangenomics-v2/#computing-the-average-nucleotide-identity-for-genomes-and-other-genome-similarity-metrics-too). Since our genomes are quite similar it should not take longer than a minute.
 
 ```bash
 anvi-compute-genome-similarity --external-genomes external-genomes.txt \
@@ -161,43 +167,45 @@ anvi-compute-genome-similarity --external-genomes external-genomes.txt \
 
 Good job, you are done! Your folder structure should look similar to this.
 
-/path/to/\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 00_LOGS\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 01_FASTA\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 02_CONTIGS\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532145-contigs.db\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532165-contigs.db\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593895-contigs.db\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593915-contigs.db\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 03_PAN\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Candidatus_Lucifugimonas_marina-GENOMES.db\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Candidatus_Lucifugimonas_marina-PAN.db\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 04_ANI\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── config.yaml\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── external-genomes.txt\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── fasta.txt\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532145.fna\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532165.fna\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593895.fna\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── GCF_029593915.fna
+```
+/path/to/
+    ├── 00_LOGS
+        └── ...
+    ├── 01_FASTA
+        └── ...
+    ├── 02_CONTIGS
+        ├── GCF_029532145-contigs.db
+        ├── GCF_029532165-contigs.db
+        ├── GCF_029593895-contigs.db
+        ├── GCF_029593915-contigs.db
+        └── ...
+    ├── 03_PAN
+        ├── Candidatus_Lucifugimonas_marina-GENOMES.db
+        ├── Candidatus_Lucifugimonas_marina-PAN.db
+        └── ...
+    ├── 04_ANI
+        └── ...
+    ├── config.yaml
+    ├── external-genomes.txt
+    ├── fasta.txt
+    ├── GCF_029532145.fna
+    ├── GCF_029532165.fna
+    ├── GCF_029593895.fna
+    └── GCF_029593915.fna
+```
 
 ## Anvi'o pangenome graph
 
-### Decide on the genomes subset to use
+### Subset the genomes for pangenome graph
 
-We first run {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} with {% include PROGRAM name="anvi-display-pan" %} to visualize our pangenome.
+We first run the {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} with {% include PROGRAM name="anvi-display-pan" %} to visualize our pangenome.
 
 ``` bash
 anvi-display-pan -p 03_PAN/Candidatus_Lucifugimonas_marina-PAN.db \
                  -g 03_PAN/Candidatus_Lucifugimonas_marina-GENOMES.db
 ```
 
-In case this is your first time opening a pangenome, reading [anvi'o pangenomics workflow](https://merenlab.org/2016/11/08/pangenomics-v2/) might be beneficial to you as we won't go into detail on pangenomes here and having some experience on them will help you in the later part of this tutorial.
+In case this is your first time opening a pangenome, reading the [anvi'o pangenomics workflow](https://merenlab.org/2016/11/08/pangenomics-v2/) might be beneficial to you as we won't go into detail on pangenomes here and having some experience on them will help you in the later part of this tutorial.
 
 After you click on the draw button you should see a pangenome that looks somewhat similar to this. We strongly recommend to use Google Chrome to offer you the best possible user experience.
 
@@ -211,7 +219,7 @@ After pressing the draw button again, the resulting pangenome should look like t
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_3.png" width=80 %}
 
-In the newly added red squares we see the ANI between the genomes of the pangenome. Aside from the diagonal which contains a similarity of 100% due to comparing the same genomes with each other we see a second very high sqare on the top left. The complete genome GCF_029593915 shares a very high ANI with the draft genome GCF_029532145. Therefore our initial step in creating a pangenome graph is to use those two genomes.
+In the newly added red squares we see the ANI between the genomes of the pangenome. Aside from the diagonal which contains a similarity of 100% due to comparing the same genomes with each other, we see a second very high ANI square on the top left. The complete genome GCF_029593915 shares a very high ANI with the draft genome GCF_029532145. Therefore our initial step in creating a pangenome graph is to use those two genomes.
 
 ### Create an anvi'o pangenome graph
 
@@ -221,7 +229,7 @@ To follow the anvi'o naming standard we first create a folder named 05_PANGRAPH.
 mkdir 05_PANGRAPH
 ```
 
-Anvi'o pangenome graphs are then created by the command {% include PROGRAM name="anvi-run-pangraph" %} instead of a {% include ARTIFACT name="genomes-storage-db" %} or {% include ARTIFACT name="pan-db" %} the result is written in a json file for now.
+Anvi'o pangenome graphs are then created by the command {% include PROGRAM name="anvi-run-pangraph" %}. Instead of a {% include ARTIFACT name="genomes-storage-db" %} or {% include ARTIFACT name="pan-db" %}, the result is written in a JSON file for now.
 
 ``` bash
 anvi-pan-graph -e external-genomes.txt \
@@ -231,7 +239,7 @@ anvi-pan-graph -e external-genomes.txt \
                -G 'GCF_029593915,GCF_029532145'
 ```
 
-We only used our two genomes from the former step to see how complex the graph already gets. Opening the {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} functions similar to the one we used before to inspect the pangenome. Instead of {% include PROGRAM name="anvi-display-pan" %} we use the program {% include PROGRAM name="anvi-display-pan-graph" %}. Experienced anvi'o users should feel right at home here and find many functions they already know.
+We only used our two genomes from the former step to see how complex the graph already gets. Opening the {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} functions similarly to the one we used before to inspect the pangenome. Instead of {% include PROGRAM name="anvi-display-pan" %}, we use the program {% include PROGRAM name="anvi-display-pan-graph" %}. Experienced anvi'o users should feel right at home here and find many functions they already know.
 
 ```bash
 anvi-display-pan-graph -p 03_PAN/Candidatus_Lucifugimonas_marina-PAN.db \
@@ -239,60 +247,62 @@ anvi-display-pan-graph -p 03_PAN/Candidatus_Lucifugimonas_marina-PAN.db \
                        -i 05_PANGRAPH/Candidatus_Lucifugimonas_marina-JSON.json
 ```
 
-The initial pangenome graph visible in the {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} should look like this. The grey nodes are single gene clusters (you can click on them to get detailed information on the gene). The purple colored nodes are gene cluster groups, groups are created if a set of single gene clusters is only connected in a single line and present in the same subset of genomes. Gene cluster groups basically help to focus on the *interesting* parts of a pangenome graph. You can also get a detailed view on them by clicking. In the middle you see a arrow showing the graphs flow direction. There are three different types of edges currently implemented in the pangenome graph tool:
+The initial pangenome graph visible in the {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} should look like this. The grey nodes are single gene clusters (you can click on them to get detailed information on the gene). The purple colored nodes are gene cluster groups, which are created if a set of single gene clusters is only connected in a single line and present in the same subset of genomes. Gene cluster groups basically help to focus on the *interesting* parts of a pangenome graph. You can also get a detailed view on them by clicking. In the middle you see a arrow showing the graph's flow direction. There are three different types of edges currently implemented in the pangenome graph tool:
 
-1. straight lines: Those are connections between two gene clusters of gene cluster groups following the pangenome graphs flow direction
-2. dashed lines: These are like straight lines but reverse to the pangenome graph flow direction
-3. semi-dashed-lines: These are special and sometimes hard to see, because these are a mix between both of the prior edge types. Imagine a situation where a set of genes is reversed all together in a subset of the genomes. Therefore A - B - C is as correct as C - B - A. We implemented this solution to not overload the graph with extra lines.
+1. straight lines [───────]: Those are connections between two gene clusters of gene cluster groups following the pangenome graphs flow direction
+2. dashed lines [─ ─ ─ ─]: These are like straight lines but reverse the pangenome graph flow direction
+3. semi-dashed-lines [──── ──]: These are special and sometimes hard to see, because these are a mix between both of the prior edge types. Imagine a situation where a set of genes is reversed all together in a subset of the genomes. Therefore A - B - C is as correct as C - B - A. We implemented this solution to not overload the graph with extra lines. Unfortunately there is no example in the graph below as they occur very rarely, in complex pangenome graphs.
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_4.png" width=80 %}
 
-The consensus graph present know can already tell us many stories e.g. insertions and deletions of single genes or full potential operons. To hightlight the genome these events take place in we will change some settings.
+The consensus graph present to you now already tells us many stories, e.g. insertions and deletions of single genes or potentially full operons. To highlight the genome these events take place in, we will change some settings.
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_5_1.png" width=40 %}
 
-First we increase the size of the **Orientation arrow** and activate the layers for the two genomes We also increase them in size. To see the tree based on graph difference we checkmark **Show phylogenic tree** and increase the size of **Tree length** and **Tree offset**. The distance between the nodes on the consensus graph can also be slightly increased. To be able to see the lines in the genome tracks and in the consensus graph we also slightly increase **Node line thickness** and **edge thickness** as well as **Line graph thickness**. Since we increased the **Tree offset** we have more space for labels, therefore, we cann increase the **Label size**. To estimate the size of groups of genes we set the **Group size compression** to a value above 0. Finally we keep the color for GCF_029593915 but shift the entry to the top and color GCF_029532145 in orange. That way all edges and nodes present in both genomes or present in the former one GCF_029593915 will be colored black while edges and nodes only present in GCF_029532145 are colored in orange. Since a line can only have one color, the coloring functions by hierarchy in the list. 
+First we increase the size of the **Orientation arrow** and activate the layers for the two genomes. We also increase them in size. To see the tree based on graph difference we checkmark **Show phylogenic tree** and increase the size of **Tree length** and **Tree offset**. The distance between the nodes on the consensus graph can also be slightly increased. To be able to see the lines in the genome tracks and in the consensus graph we also slightly increase **Node line thickness** and **Edge thickness** as well as **Line graph thickness**. Since we increased the **Tree offset**, we have more space for labels; therefore, we can increase the **Label size**. To estimate the size of groups of genes we set the **Group size compression** to a small value above 0. Finally we keep the color for GCF_029593915 but shift the entry to the top and color GCF_029532145 in orange. That way all edges and nodes present in both genomes or present in the former one (GCF_029593915) will be colored black while edges and nodes only present in GCF_029532145 are colored in orange. Since a line can only have one color, the coloring is done according to the hierarchy of the genomes. 
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_5_2.png" width=40 %}
 
-After clicking the draw button again we should be able to see the so called genome tracks in the middle of the pangenome graph to help us understand the origin of specific motives. 
+After clicking the **Draw** button again we should be able to see the so-called "genome tracks" in the middle of the pangenome graph to help us understand the origin of specific motifs. 
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_6.png" width=80 %}
 
-Before going more into detail on motives and differences here we want to decide if the amount of readable complexity already reached saturation or if we can include the other two genomes as well. If you can not find any visible genomic rearrangements your are free to increase the complexity by adding more genomes. But in the end this is of course a decision to be made by the user :)
+We can now decide if the graph is simple enough to understand, and if so, then we can include the other two genomes in the graph. For instance we don't see any visible genomic rearrangements, so we are free to increase the complexity by adding more genomes. But in the end this is of course a decision to be made by the user.
 
 After this step your folder structure should look similar to this.
 
-/path/to/\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 00_LOGS\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 01_FASTA\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 02_CONTIGS\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532145-contigs.db\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532165-contigs.db\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593895-contigs.db\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593915-contigs.db\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 03_PAN\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Candidatus_Lucifugimonas_marina-GENOMES.db\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Candidatus_Lucifugimonas_marina-PAN.db\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 04_ANI\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 05_PANGRAPH\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── Candidatus_Lucifugimonas_marina-JSON.json \
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── config.yaml\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── external-genomes.txt\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── fasta.txt\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532145.fna\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532165.fna\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593895.fna\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── GCF_029593915.fna
+```
+/path/to/
+    ├── 00_LOGS
+        └── ...
+    ├── 01_FASTA
+        └── ...
+    ├── 02_CONTIGS
+        ├── GCF_029532145-contigs.db
+        ├── GCF_029532165-contigs.db
+        ├── GCF_029593895-contigs.db
+        ├── GCF_029593915-contigs.db
+        └── ...
+    ├── 03_PAN
+        ├── Candidatus_Lucifugimonas_marina-GENOMES.db
+        ├── Candidatus_Lucifugimonas_marina-PAN.db
+        └── ...
+    ├── 04_ANI
+        └── ...
+    ├── 05_PANGRAPH
+        └── Candidatus_Lucifugimonas_marina-JSON.json
+    ├── config.yaml
+    ├── external-genomes.txt
+    ├── fasta.txt
+    ├── GCF_029532145.fna
+    ├── GCF_029532165.fna
+    ├── GCF_029593895.fna
+    └── GCF_029593915.fna
+```
 
 ### Expanding the pangenome graph
 
-We start the same programs again and just save the pangenome graph in a differently named json file.
+We start the same programs again and just save the pangenome graph in a differently named JSON file. If we skip the `-G` flag, all genomes listed in the external-genomes file are included in the graph.
 
 ``` bash
 anvi-pan-graph -e external-genomes.txt \
@@ -307,7 +317,7 @@ anvi-display-pan-graph -p 03_PAN/Candidatus_Lucifugimonas_marina-PAN.db \
                        -i 05_PANGRAPH/Candidatus_Lucifugimonas_marina-JSON_2.json
 ```
 
-The initial pangenome graphs looks not to different from the last one but this time we can also see a genomic rearrangement motive that we will discuss later. First we set the settings to the same values as before to be able to see the genome tracks and the hierarchically colored nodes and edges. We also reordered the genomes because the coloring of the pathways work in a hierarchical fashion, therefore having one of the complete genomes on top helps us to understand where the draft genomes broke during assembly.
+The initial pangenome graph looks not too different from the last one, but this time we can also see a genomic rearrangement motif that we will discuss later. First we set the settings to the same values as before to be able to see the genome tracks and the hierarchically colored nodes and edges. We also reorder the genomes because the coloring of the pathways works in a hierarchical fashion, as we explained before. Therefore, having one of the complete genomes on top helps us to understand where the draft genomes broke during assembly.
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_7.png" width=80 %}
 
@@ -315,37 +325,55 @@ The initial pangenome graphs looks not to different from the last one but this t
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_8_2.png" width=40 %}
 
-When comparing the paralog layer color with the areas where the assemblys of the draft genomes broke, it becomes obvious that paralogous gene clusters broke them. We also see, that in the green genome exactly one gene changed position to some genes upstream. The context around the gene also changed. Furthermore the two draft genomes are nearly as similar in terms of graph structure to each other as the two non draft genomes, noticable by the similar positioned insertions and deletions.
+This is what the pangenome graph should look like after you changed the settings.
 
-{% include IMAGE path="/images/pangenome-graphs/Figure_9.png" width=80 %}
+{% include IMAGE path="/images/pangenome-graphs/Figure_9_1.png" width=80 %}
 
-Going deeper into the pangenome graph can offer much more insides and will be the focus on the next and final chapter of this tutorial.
+In the left red rectangle you can see non-continous lines in the orange and blue genome tracks, which indicate the ends of contigs (i.e. the genome assembly broke at these locations).
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_9_4.png" width=80 %}
+
+If you look at the paralog annotation layer at these locations, it becomes obvious that paralogous gene clusters broke the assembly. The red spots in the paralog distribution annotation layer (highlighted with the small circles above the dashed lines) indicate a high number of paralogs of the respective gene. The red dashed lines highlight the paralog gene clusters that seem to directly influence the assembly as they co-occure with breaks in the blue and orange genome tracks on the bottom.
+
+The red rectangle on the right, that is present in the full pangenome graph above shows us that in the green genome exactly one gene changed position relative to some genes upstream. Following the green genome tracks in the middle can help you understand this phenomenon. 
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_9_2.png" width=80 %}
+
+Following the red arrow you jump over some genes and end up at a the second gene from the left involved in this motive. From there you move against the graphs direction by following the purple arrows to get to the gene that changed the position, highlighted by a circle. After reaching the circled gene you follow the blue arrows to move in the graph direction again to the last gene cluster involved in this motif. All other genomes aside from the one having green genome tracks follow a straight line of genes as indicated by the black arrows.
+
+Only the consensus position is used in the pangenome graph while the other position is connected by these longer connections highlighting a rearrangement event. When looking at the genomes directly the rearrangement event as well as the consensus position of this gene is clearly visible (circled in black below).
+
+{% include IMAGE path="/images/pangenome-graphs/Figure_9_3.png" width=80 %}
+
+Furthermore, the two draft genomes are nearly as similar in terms of graph structure to each other as the two non-draft genomes, as indicated by the similarly positioned insertions and deletions and the tree structure visible on the bottom left in the complete pangenome graph picture above.
+
+Going deeper into the pangenome graph can offer many more insights and will be the focus of the next and final chapter of this tutorial.
 
 ## Read from the graph - A quick and simple example
 
-For the final hands on example in this tutorial, we first open the graph into a linear representation. You are free to also remove the paralog layer as we don't use it for the following examples.
+For the final hands-on example in this tutorial, we change the graph into a linear representation. You are free to also remove the paralog layer as we don't use it for the following examples.
 
-{% include IMAGE path="/images/pangenome-graphs/Figure_10.png" width=40 %}
+{% include IMAGE path="/images/pangenome-graphs/Figure_10.png" width=40 caption="CAPTION." %}
 
-You might have to left click while moving around a bit to find the linear graph due to svg limitations statt still existed at the time of writing this tutorial.
+You might have to left click while moving around a bit to find the linear graph due to an SVG bug that still existed at the time of writing this tutorial.
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_11.png" width=80 %}
 
-In this final example we are interested in the enolase gene paralogs and their distribution over the graph. Therefore we switch to the **Search** tab and activate search in all sources by checkmarking them. Under **Terms** we can then state what kind of genes we are searching for. Finally click **Search** and then **Hightlight** on the bottom.
+In this final example we are interested in the enolase gene paralogs and their distribution over the graph. Therefore we switch to the **Search** tab and activate search in all sources by checkmarking them. Under **Terms** we can then state what kind of genes we are searching for ("enolase"). Finally click **Search** and then **Highlight** on the bottom.
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_12.png" width=80 %}
 
-We scroll throught the linear graph to find an interesting region with high coverage of paralog genes. For this tutorial the area with 5 connected enolase genes seems appropriate but you can choose whatever you prefer.
+We scroll through the linear graph to find an interesting region with high coverage of paralog genes. For this tutorial we will focus on the area with five connected enolase genes but you can choose whatever you prefer.
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_13.png" width=80 %}
 
-We then pick a gene upstream and a gene downstream of the interesting region and click on them one after each other and make a note about the graph position somewhere.
+We then pick a gene upstream and a gene downstream of the interesting region and **click** on them one after each other and make a note about the graph position. The red squares indicate the positions we choose for this tutorial.
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_14.png" width=80 %}
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_15.png" width=80 %}
 
-Next we can now checkmark **Ungroup area** under the **Main** tab and enter the region from the downstram to the upstream gene.
+Next we can now checkmark **Ungroup area** under the **Main** tab and enter the region from the downstream to the upstream gene.
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_16.png" width=40 %}
 
@@ -353,13 +381,15 @@ After removing the checkmark from **Linear graph layout** and then clicking on *
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_17.png" width=80 %}
 
-You can now proceed with binning these areas if you want. Go to the **Bins** tab and rename the bin, e.g. to **Enolase** and give it a color of your choice. By holding the shift key while left-clicking on a node you can add this node to the bin. We first add the fife enolase genes into one bin and afterwards create a second bin with the long blue insertion.
+You can now proceed with binning these areas if you want. Go to the **Bins** tab and rename the bin, e.g. to **Enolase**, and give it a color of your choice. By holding the shift key while **left-clicking** on a node you can add this node to the bin. We first add the five enolase genes into one bin (top red rectangle) and afterwards create a second bin with the long blue insertion (bottom red rectangle).
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_18.png" width=80 %}
 
-If we click on **Bin info** a scrollable table will appear showing you all the single information windows of the currently selected bin. An easy analysis now would be to check if the second bin containing the genes of the inserted area is coming from a phage by scanning through the annotations.
+If we click on **Bin info**, a scrollable table will *magically* appear showing you all the information windows of the currently selected bin. An easy analysis now would be to check if the second bin containing the genes of the inserted area is coming from a phage by scanning through the annotations.
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_19.png" width=80 %}
+
+Plot twist, indeed they are phage genes, meaning that this inserted area in the blue genome is in fact a prophage.
 
 ## More tutorials and resources
 
@@ -372,7 +402,6 @@ We hope you liked following this tutorial and enjoy your next pangenome graph an
 - [A tutorial on the anvi'o interactive interface](https://merenlab.org/tutorials/interactive-interface/).
 
 And more at [https://anvio.org/#learn](https://anvio.org/#learn).
-
 
 <!---
 JUST SOME IDEAS:
