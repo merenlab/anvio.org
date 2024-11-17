@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-This program processes one or more anvi&#x27;o tRNA-seq databases produced by `anvi-trnaseq` and outputs anvi&#x27;o contigs and merged profile databases accessible to other tools in the anvi&#x27;o ecosystem. Final tRNA &quot;seed sequences&quot; are determined from a set of samples. Each sample yields a set of tRNA predictions stored in a tRNA-seq database, and these tRNAs may be shared among the samples. tRNA may be 3&#x27; fragments and thereby subsequences of longer tRNAs from other samples which would become seeds. The profile database produced by this program records the coverages of seeds in each sample. This program finalizes predicted nucleotide modification sites using tunable substitution rate parameters..
+This program processes one or more anvi&#x27;o tRNA-seq databases produced by `anvi-trnaseq` and outputs anvi&#x27;o contigs and merged profile databases accessible to other tools in the anvi&#x27;o ecosystem. Final tRNA &quot;seed sequences&quot; are determined from a set of samples. Each sample yields a set of tRNA predictions stored in a tRNA-seq database, and these tRNAs may be shared among the samples. tRNA may be 3&#x27; fragments and thereby subsequences of longer tRNAs from other samples which would become seeds. The profile database produced by this program records the coverages of seeds in each sample. This program finalizes predicted nucleotide modification sites using tunable substitution rate parameters.
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 

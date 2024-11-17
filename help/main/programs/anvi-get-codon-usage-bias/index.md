@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-Get codon usage bias (CUB) statistics of genes and functions..
+Get codon usage bias (CUB) statistics of genes and functions.
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 

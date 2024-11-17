@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **30 Sep 24 11:36:48** for anvi'o version **8-dev (marie)**.
+The help contents were last updated on **17 Nov 24 15:49:09** for anvi'o version **8-dev (marie)**.
 
 
 {% include _project-anvio-version.html %}
@@ -751,25 +751,24 @@ Listed below **a total of 155 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-draw-kegg-pathways](programs/anvi-draw-kegg-pathways)**</span>. <span markdown="1">Write KEGG pathway map files incorporating data sourced from anvi&#x27;o databases.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-draw-kegg-pathways](programs/anvi-draw-kegg-pathways)**</span>. <span markdown="1"></span>.
     </td>
 </tr>
 <tr>
     <td class="artifact-r-td">
     <span class="artifact-emoji">🧀</span>
-        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[external-genomes](artifacts/external-genomes) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[pan-db](artifacts/pan-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[genomes-storage-db](artifacts/genomes-storage-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[kegg-data](artifacts/kegg-data) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-r" markdown="1">n/a</span>
     </td>
 </tr>
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span>
-        <span class="artifact-p" markdown="1">[kegg-pathway-map](artifacts/kegg-pathway-map) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-p" markdown="1">n/a</span>
     </td>
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/semiller10" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
-
+        <span class="artifact-emoji">🧠</span> 
     </td>
 </tr>
 </tbody>
@@ -1631,7 +1630,7 @@ Listed below **a total of 155 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-codon-frequencies](programs/anvi-get-codon-frequencies)**</span>. <span markdown="1">Get codon or amino acid frequency statistics from genomes, genes, and functions.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-codon-frequencies](programs/anvi-get-codon-frequencies)**</span>. <span markdown="1">Get codon or amino acid frequency statistics from genomes, genes, and functions</span>.
     </td>
 </tr>
 <tr>
@@ -1662,7 +1661,7 @@ Listed below **a total of 155 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-codon-usage-bias](programs/anvi-get-codon-usage-bias)**</span>. <span markdown="1">Get codon usage bias (CUB) statistics of genes and functions.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-codon-usage-bias](programs/anvi-get-codon-usage-bias)**</span>. <span markdown="1">Get codon usage bias (CUB) statistics of genes and functions</span>.
     </td>
 </tr>
 <tr>
@@ -2419,7 +2418,7 @@ Listed below **a total of 155 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-merge-trnaseq](programs/anvi-merge-trnaseq)**</span>. <span markdown="1">This program processes one or more anvi&#x27;o tRNA-seq databases produced by `anvi-trnaseq` and outputs anvi&#x27;o contigs and merged profile databases accessible to other tools in the anvi&#x27;o ecosystem. Final tRNA &quot;seed sequences&quot; are determined from a set of samples. Each sample yields a set of tRNA predictions stored in a tRNA-seq database, and these tRNAs may be shared among the samples. tRNA may be 3&#x27; fragments and thereby subsequences of longer tRNAs from other samples which would become seeds. The profile database produced by this program records the coverages of seeds in each sample. This program finalizes predicted nucleotide modification sites using tunable substitution rate parameters.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-merge-trnaseq](programs/anvi-merge-trnaseq)**</span>. <span markdown="1">This program processes one or more anvi&#x27;o tRNA-seq databases produced by `anvi-trnaseq` and outputs anvi&#x27;o contigs and merged profile databases accessible to other tools in the anvi&#x27;o ecosystem. Final tRNA &quot;seed sequences&quot; are determined from a set of samples. Each sample yields a set of tRNA predictions stored in a tRNA-seq database, and these tRNAs may be shared among the samples. tRNA may be 3&#x27; fragments and thereby subsequences of longer tRNAs from other samples which would become seeds. The profile database produced by this program records the coverages of seeds in each sample. This program finalizes predicted nucleotide modification sites using tunable substitution rate parameters</span>.
     </td>
 </tr>
 <tr>
@@ -2665,7 +2664,7 @@ Listed below **a total of 155 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-reaction-network](programs/anvi-reaction-network)**</span>. <span markdown="1">This program generates a metabolic reaction network in an anvi&#x27;o contigs or pan database.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-reaction-network](programs/anvi-reaction-network)**</span>. <span markdown="1">This program generates a metabolic reaction network in an anvi&#x27;o contigs or pan database</span>.
     </td>
 </tr>
 <tr>

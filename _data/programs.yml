@@ -193,9 +193,18 @@
 - author: watsonar
   programs:
     - name: anvi-display-contigs-stats
+- author: qclayssen
+  programs:
+    - name: anvi-estimate-scg-taxonomy
+    - name: anvi-run-scg-taxonomy
+    - name: anvi-setup-scg-taxonomy
+- author: shaiberalon
+  programs:
+    - name: anvi-export-locus
+    - name: anvi-gen-variability-profile
+    - name: anvi-run-workflow
 - author: semiller10
   programs:
-    - name: anvi-draw-kegg-pathways
     - name: anvi-get-codon-frequencies
     - name: anvi-get-codon-usage-bias
     - name: anvi-get-metabolic-model-file
@@ -209,16 +218,6 @@
     - name: anvi-setup-kegg-data
     - name: anvi-setup-modelseed-database
     - name: anvi-trnaseq
-- author: qclayssen
-  programs:
-    - name: anvi-estimate-scg-taxonomy
-    - name: anvi-run-scg-taxonomy
-    - name: anvi-setup-scg-taxonomy
-- author: shaiberalon
-  programs:
-    - name: anvi-export-locus
-    - name: anvi-gen-variability-profile
-    - name: anvi-run-workflow
 - author: matthewlawrenceklein
   programs:
     - name: anvi-interactive

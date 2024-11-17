@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-Get codon or amino acid frequency statistics from genomes, genes, and functions..
+Get codon or amino acid frequency statistics from genomes, genes, and functions.
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
