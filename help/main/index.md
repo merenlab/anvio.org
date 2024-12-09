@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **18 Nov 24 13:08:17** for anvi'o version **8-dev (marie)**.
+The help contents were last updated on **09 Dec 24 11:41:52** for anvi'o version **8-dev (marie)**.
 
 
 {% include _project-anvio-version.html %}
@@ -751,25 +751,24 @@ Listed below **a total of 155 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-draw-kegg-pathways](programs/anvi-draw-kegg-pathways)**</span>. <span markdown="1">Write KEGG pathway map files incorporating data sourced from anvi&#x27;o databases</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-draw-kegg-pathways](programs/anvi-draw-kegg-pathways)**</span>. <span markdown="1"></span>.
     </td>
 </tr>
 <tr>
     <td class="artifact-r-td">
     <span class="artifact-emoji">🧀</span>
-        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[external-genomes](artifacts/external-genomes) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[pan-db](artifacts/pan-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[genomes-storage-db](artifacts/genomes-storage-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[kegg-data](artifacts/kegg-data) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-r" markdown="1">n/a</span>
     </td>
 </tr>
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span>
-        <span class="artifact-p" markdown="1">[kegg-pathway-map](artifacts/kegg-pathway-map) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-p" markdown="1">n/a</span>
     </td>
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/semiller10" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
-
+        <span class="artifact-emoji">🧠</span> 
     </td>
 </tr>
 </tbody>
