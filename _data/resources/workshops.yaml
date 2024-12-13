@@ -1,0 +1,20 @@
+- title: Oldenburg - 2025
+  type: workshop
+  url: /workshops/2025-oldenburg/
+  authors: [ivagljiva, FlorianTrigodet, meren]
+  summary: "2025 anvi'o workshop at the HIFMB in Oldenburg"
+  tags: [workshop, metagenomics, metabolism, pangenomics, phylogenomics, microbial-population-genetics, hands-on, beginner]
+
+- title: Chicago - 2023
+  type: workshop
+  url: /workshops/2023-microbiome-center-workshop/
+  authors: [ivagljiva, mschecht]
+  summary: "Materials and a tutorial from the 2023 iteration of our metagenomics workshop."
+  tags: [workshop, metagenomics, metabolism, hands-on, beginner]
+
+- title: Chicago - 2022
+  type: workshop
+  url: https://merenlab.org/tutorials/dfi-metagenomics-workshop/
+  authors: [ivagljiva, mschecht]
+  summary: "Materials from a 2022 workshop on metagenomics in anvi'o, including read recruitment and metabolism estimation."
+  tags: [workshop, metagenomics, metabolism, hands-on, beginner]
