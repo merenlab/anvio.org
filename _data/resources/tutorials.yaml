@@ -67,20 +67,6 @@
   authors: [meren, ivagljiva, ekiefl, tdelmont]
   summary: "A tutorial that walks you through some of the most fundamental aspects of anvi'o and its application to a real-world dataset organized in multiple interconnected chapters, which all use the same dataset."
   tags: [metagenomics, binning, pangenomics, phylogenomics, microbial-population-genetics, hands-on, beginner]
-  
-- title: A metagenomics workshop featuring anvi'o
-  type: tutorial
-  url: https://merenlab.org/tutorials/dfi-metagenomics-workshop/
-  authors: [ivagljiva, mschecht]
-  summary: "Materials from a 2022 workshop on metagenomics in anvi'o, including read recruitment and metabolism estimation."
-  tags: [metagenomics, metabolism, hands-on, beginner]
-
-- title: Another anvi'o workshop on metagenomics
-  type: tutorial
-  url: /tutorials/microbiome-center-workshop/
-  authors: [ivagljiva, mschecht]
-  summary: "Materials and a tutorial from the 2023 iteration of our metagenomics workshop."
-  tags: [metagenomics, metabolism, hands-on, beginner]
 
 - title: Scaling up your analysis with workflows
   type: tutorial
