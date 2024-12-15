@@ -205,7 +205,7 @@ Genes predicted from genomes and metagenomes can be partial or complete dependin
 To remove partial genes from the ecophylo analysis, the user can assign `true` for `--filter-out-partial-gene-calls` parameter so that only complete open-reading frames are processed.
 
 {:.notice}
-What is below is the default settings in the ecophylo <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span> file.
+Below is the default settings in the ecophylo <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span> file.
 
 ```bash
 {
@@ -218,27 +218,12 @@ What is below is the default settings in the ecophylo <span class="artifact-n">[
 }
 ```
 
-### Multiple sequence alignment step with MUSCLE
-
-One step of ecophylo is to perform a multiple sequence alignment of the recruited homologs and depending on your application, this could recruit thousands of ORFs which make the MSA a challenging feat. By default, the ecophylo is designed for quick insights, and thus the <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span> file uses MUSCLE parameters to perform a large MSA, swiftly: 
-
-```bash
-"align_sequences": {
-    "threads": 5,
-    "additional_params": "-maxiters 1 -diags -sv -distance1 kbit20_3"
-},
-```
-
-However, these parameters may not be optimal for your use case. For example, maybe you are trying to explore branches patterns of a specific protein family and would prefer to have mulitple interations of the MSA. Please explore the MUSCLE documentation to [documentation](https://www.drive5.com/muscle/muscle.html) customize the MSA step for your needs. You can replace the `additional_params` with whatever MUSCLE parameters that are best for you. 
-
 ### discovery-mode: ALL open-reading frames
 
 However, maybe you're a risk taker, a maverick explorer of metagenomes. Complete or partial you accept all genes and their potential tree bending shortcomings! In this case, set `--filter-out-partial-gene-calls false` in the <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span>.
 
 {:.notice}
-Simultaneously exploring complete and partial ORFs will increase the distribution of sequence lengths and thus impact sequence clustering. We recommend adjusting `cluster_X_percent_sim_mmseqs` to `"--cov-mode": 1` to help insure ORFs of all length properly cluster together. Please refer to the [MMseqs2 user guide description of --cov-mode](https://mmseqs.com/latest/userguide.pdf) for more details.
-
-#FIXME: we ALWAYS recommend --cov-mode 1 to group protein fragments as well as overextended ORFs caused by early or late stop codons.
+Simultaneously exploring complete and partial ORFs will increase the distribution of sequence lengths and thus impact sequence clustering. By default, we used mmseqs `"--cov-mode": 1` in the rule  `cluster_X_percent_sim_mmseqs` to help insure ORFs of all lengths properly cluster together. Please refer to the [MMseqs2 user guide description of --cov-mode](https://mmseqs.com/latest/userguide.pdf) for more details and adjust the parameter to suite your scientific endeavors. 
 
 ```bash
 {
@@ -266,6 +251,19 @@ Now that you have fine tuned the gene family input into the ecophylo workflow, i
 
 {:.notice}
 It's common that not all genomes or metagenomes will have the gene family of interest either due to it not being detect by the input HMM or filtered out during the QC steps. Please check this log file for <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> that did not contain your gene family of interest: `00_LOGS/contigDBs_with_no_hmm_hit_*.log`
+
+### Multiple sequence alignment step with MUSCLE
+
+One step of ecophylo is to perform a multiple sequence alignment of the recruited homologs and depending on your application, this could recruit thousands of ORFs which make the MSA a challenging feat. By default, the ecophylo is designed for quick insights, and thus the <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span> file uses MUSCLE parameters to perform a large MSA, swiftly: 
+
+```bash
+"align_sequences": {
+    "threads": 5,
+    "additional_params": "-maxiters 1 -diags -sv -distance1 kbit20_3"
+},
+```
+
+However, these parameters may not be optimal for your use case. For example, maybe you are trying to explore branches patterns of a specific protein family and would prefer to have mulitple interations of the MSA. Please explore the MUSCLE documentation to [documentation](https://www.drive5.com/muscle/muscle.html) customize the MSA step for your needs. You can replace the `additional_params` with whatever MUSCLE parameters that are best for you. 
 
 ## tree-mode: Insights into the evolutionary patterns of target genes
 
@@ -314,7 +312,7 @@ Be sure to change the `--min-seq-id` of the `cluster_X_percent_sim_mmseqs` rule 
 ### Visualize the output
 
 ```bash
-PROTEIN=""
+PROTEIN="" # Replace with name of protein from hmm_list.txt
 anvi-interactive -t 05_TREES/"${PROTEIN}"/"${PROTEIN}"_renamed.nwk \
                  -p 05_TREES/"${PROTEIN}"/"${PROTEIN}"-PROFILE.db \
                  --fasta 05_TREES/"${PROTEIN}"/"${PROTEIN}"_renamed.faa \
@@ -344,7 +342,7 @@ To initialize [profile-mode](#profile-mode-insights-into-the-ecological-and-evol
 To visualize the output of [profile-mode](#profile-mode-insights-into-the-ecological-and-evolutionary-patterns-of-target-genes-and-environments), run <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> on the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> located in the `METAGENOMICS_WORKFLOW` directory.
 
 ```bash
-PROTEIN=""
+PROTEIN="" # Replace with name of protein from hmm_list.txt
 anvi-interactive -p METAGENOMICS_WORKFLOW/06_MERGED/"${PROTEIN}"/PROFILE.db \
                  -c METAGENOMICS_WORKFLOW/03_CONTIGS/"${PROTEIN}"-contigs.db \
                  --manual
@@ -354,7 +352,7 @@ anvi-interactive -p METAGENOMICS_WORKFLOW/06_MERGED/"${PROTEIN}"/PROFILE.db \
 Just want a quick look at the tree without read recruitment results?
 
 ```bash
-PROTEIN=""
+PROTEIN="" # Replace with name of protein from hmm_list.txt
 anvi-interactive -t 05_TREES/"${PROTEIN}"/"${PROTEIN}"_renamed.nwk \
                  -p 05_TREES/"${PROTEIN}"/"${PROTEIN}"-PROFILE.db \
                  --fasta 05_TREES/"${PROTEIN}"/"${PROTEIN}"_renamed.faa \
@@ -372,13 +370,13 @@ This is just a code outline. Please adjust parameters for the various steps to m
 
 **Step 1.** Make collection of bad branches
 
-Make a collection of branches you would like to remove and safe it!
+Make a collection of branches you would like to remove and save it!
 
 **Step 2.** Export collection and remove those sequences from the protein fasta file
 
 ```bash
 HOME_DIR="ECOPHYLO"
-PROTEIN=""
+PROTEIN="" # Replace with name of protein from hmm_list.txt
 cd $HOME_DIR
 
 mkdir SUBSET_TREE
@@ -408,7 +406,7 @@ clusterize "FastTree SUBSET_TREE/"${ALIGNMENT_PREFIX}"_trimmed_filtered.faa > SU
 **Step 3.** Use `anvi-split` to remove bad branches from the ecophylo interface
 
 ```bash
-PROTEIN=""
+PROTEIN="" # Replace with name of protein from hmm_list.txt
 
 grep -v -f SUBSET_TREE/bad_branches_headers.txt SUBSET_TREE/collection-DEFAULT.txt | sed 's|EVERYTHING|EVERYTHING_curated|' > SUBSET_TREE/my_bins.txt
 
@@ -425,33 +423,33 @@ anvi-split -C curated \
 
 **Step 4.** Add the string "_split_00001" to each tree leaf to import it back into the interface
 
-<div class="codeblock" markdown="1">
-packages <&#45; c("tidyverse", "ape", "phytools", "glue")
+```r
+packages <- c("tidyverse", "ape", "phytools", "glue")
 suppressMessages(lapply(packages, library, character.only = TRUE))
 
-add_split_string_to_tree <&#45; function(IN_PATH, OUT_PATH) {
+add_split_string_to_tree <- function(IN_PATH, OUT_PATH) {
   
   # Import tree
-  tree <&#45; read.tree(IN_PATH)
+  tree <- read.tree(IN_PATH)
   
   # Create DF with tree tip metadata
-  tree_tip_metadata <&#45; tree$tip.label %>% 
+  tree_tip_metadata <- tree$tip.label %>% 
     as_tibble() %>%
     rename(tip_label = value) %>%
     mutate(tip_label = str_c(tip_label, "_split_00001"))
   
   
-  tree$tip.label <&#45; tree_tip_metadata$tip_label
+  tree$tip.label <- tree_tip_metadata$tip_label
   
   # Write DF 
   print(OUT_PATH)
   write.tree(tree, file = OUT_PATH)
 }
 
-PROTEIN=""
+PROTEIN="" # Replace with name of protein from hmm_list.txt
 add_split_string_to_tree(IN_PATH = glue("{PROTEIN}_trimmed_filtered_FastTree.nwk"),
                          OUT_PATH = glue("{PROTEIN}_trimmed_filtered_FastTree_ed.nwk"))
-</div>
+```
 
 **Step 5.** Revisualize the subsetted tree
 
@@ -485,7 +483,6 @@ The ecophylo workflow by default uses [FastTree](http://www.microbesonline.org/f
 }
 ```
 
-
 ## Common questions
 
 ### The ecophylo workflow died at the run_metagenomics_workflow rule and printed this message in the log file, what should I do?
@@ -506,10 +503,10 @@ Shutting down, this might take some time.
 Exiting because a job execution failed. Look above for error message
 ```
 
-One explanation for this error is none of the metagenomes in the <span class="artifact-n">[samples-txt](/help/main/artifacts/samples-txt)</span>. you provided mapped any reads to extracted target proteins. To test this run the following command and see if you get this error:
+One explanation for this error is none of the metagenomes in the <span class="artifact-n">[samples-txt](/help/main/artifacts/samples-txt)</span> you provided mapped any reads to extracted target proteins. To test this run the following command and see if you get this error:
 
 ```bash
-$ grep -B 10 "Nothing to merge" ECOPHYLO_WORKFLOW/METAGENOMICS_WORKFLOW/00_LOGS/run_metagenomics_workflow.log
+$ grep "Nothing to merge" ECOPHYLO_WORKFLOW/METAGENOMICS_WORKFLOW/00_LOGS/run_metagenomics_workflow.log
 Command 'set -euo pipefail;  echo Nothing to merge for Ribosomal_S11. This should only happen if all profiles were empty (you can check the log file: 00_LOGS/Ribosomal_S11-anvi_merge.log to see if that is indeed the case). This file was created just so that your workflow would continue with no error (snakemake expects to find these output files and if we don't create them, then it will be upset). As we see it, there is no reason to throw an error here, since you mapped your metagenome to some fasta files and you got your answer: whatever you have in your fasta file is not represented in your  metagenomes. Feel free to contact us if you think that this is our fault. sincerely, Meren Lab >> 00_LOGS/Ribosomal_S11-anvi_merge.log' returned non-zero exit status 1.
 ```
 
@@ -574,7 +571,7 @@ ECOPHYLO_WORKFLOW/
 To visualize the results of the different ecophylo runs, just change the paths to include the different proteins:
 
 ```bash
-PROTEIN=""
+PROTEIN="" # Replace with name of protein from hmm_list.txt
 anvi-interactive -c METAGENOMICS_WORKFLOW/03_CONTIGS/"${PROTEIN}"-contigs.db -p METAGENOMICS_WORKFLOW/06_MERGED/"${PROTEIN}"/PROFILE.db
 ```
 
@@ -606,25 +603,31 @@ Finally, edit the `"HOME"` string to a new path to ensure you make a new directo
 
 ### Can I add more genomes and metagenomes to my analysis?
 
-Yes you can add more genomes and metagenomes in your <span class="artifact-n">[metagenomes](/help/main/artifacts/metagenomes)</span>, <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>, and <span class="artifact-n">[samples-txt](/help/main/artifacts/samples-txt)</span>
+Yes you can add more genomes and metagenomes in your <span class="artifact-n">[metagenomes](/help/main/artifacts/metagenomes)</span>, <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>, and <span class="artifact-n">[samples-txt](/help/main/artifacts/samples-txt)</span>.
 
 BUT, you need to do a couple of steps first so that Snakemake can restart all the processes and maintain as much data as possible:
 
+If you are just adding more metagenomes to your <span class="artifact-n">[samples-txt](/help/main/artifacts/samples-txt)</span>, we luckily can preserve the majority of files in the `METAGENOMICS_WORKFLOW/`. First, edit your <span class="artifact-n">[samples-txt](/help/main/artifacts/samples-txt)</span> files to add more metagenomes, then delete these files below, and finally restart the workflow.
 ```bash
-HOME_DIR="ECOPHYLO_WORKFLOW_asdf"
+HOME_DIR="ECOPHYLO_WORKFLOW"
 PROTEIN="Ribosomal_S11"
-rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/03_CONTIGS/
-rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/05_ANVIO_PROFILE/
 rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/06_MERGED/
 rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/07_SUMMARY/
 rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/"${PROTEIN}"_ECOPHYLO_WORKFLOW_state.json
 rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/"${PROTEIN}"_add_default_collection.done
 rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/"${PROTEIN}"_state_imported_profile.done
-rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/fasta.txt
 rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/metagenomics_config.json
 rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/metagenomics_workflow.done
 rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/samples.txt
 ```
+
+If you want to add more assemblies to your <span class="artifact-n">[metagenomes](/help/main/artifacts/metagenomes)</span> or <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>, you'll sadly need to delete the whole `METAGENOMICS_WORKFLOW/` and restart the workflow.
+```bash
+HOME_DIR="ECOPHYLO_WORKFLOW"
+PROTEIN="Ribosomal_S11" # Replace with name of protein from hmm_list.txt
+rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/
+```
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/workflows/ecophylo.md) to update this information.
