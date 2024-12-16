@@ -16,6 +16,7 @@ We are planning a free, in-person workshop and early-career researcher symposium
 * Genome-resolved metagenomics
 * Pangenomics
 * Phylogenomics
+* Microbial population genetics
 
 If you are interested in attending, please consider [apply](https://forms.gle/kzFJN1ozG9p4f2j39)ing as soon as possible as we have limited number of seats in the workshop venue, and mark your calendars for March 3-7 2025.
 
@@ -42,35 +43,35 @@ In addition to intense hands-on training sessions, this event includes an ECR sy
 
 Here is a very preliminary overview of the workshop content:
 
-#### Monday 3: Introduction and Genomics
+#### Monday 3: Genomics
 
-9:00 - 12:00 | Introduction to anvi'o software ecosystem
+9:00 - 12:00 | Introduction to **anvi'o software ecosystem**.
 13:00 - 13:45 | Symposium talks
-14:00 - 17:00 | Basics of genomics: gene calling, functional annotations, taxonomy estimation
+14:00 - 17:00 | **Genomics** (gene calling, functional annotation, taxonomic characterization)
 
-#### Tuesday 4: Metabolic reconstruction + Pangenomics
+#### Tuesday 4: Metabolic reconstruction; Pangenomics
 
-9:00 - 12:00 | Metabolic reconstruction and functional enrichment analyses
+9:00 - 12:00 | **Function and metabolism** (function annotation, and estimation of metabolic potential in genomes and metagenomes)
 13:00 - 13:45 | Symposium talks
-14:00 - 17:00 | Introduction to pangenomics
+14:00 - 17:00 | **Pangenomics** (introduction to pangenomics, and its computational and biological underpinnings)
 
-#### Wednesday 5: Pangenomics - Pangenome graph - Phylogenomics
+#### Wednesday 5: Pangenomics; Phylogenomics
 
-9:00 - 12:00 | Pangenomics and pangenome graphs
+9:00 - 12:00 | **Pangenomics** (hands on session on pangenomics)
 13:00 - 13:45 | Symposium talks
-14:00 - 17:00 | Phylogenomics
+14:00 - 17:00 | **Phylogenomics** (introduction and hands-on session)
 
-#### Thursday 6: Metagenomics
+#### Thursday 6: Metagenomics; Genome-resolved metagenomics
 
-9:00 - 12:00 | Metagenomic read recruitment
+9:00 - 12:00 | **Metagenomic read recruitment** (introduction and hands-on session)
 13:00 - 13:45 | Symposium talks
-14:00 - 17:00 | Genome resolved metagenomics: binning and refinement
+14:00 - 17:00 | **Genome-resolved metagenomics** (a discussion on best practices in genome binning and refinement)
 
-#### Friday 7: Analysis workflow
+#### Friday 7: Microbial population genetics; Scalable bioinformatics
 
-9:00 - 12:00 | Population genetics
+9:00 - 12:00 | **Microbial population genetics** (single-nucleotide variants, single-codon variants, single-amino acid variants, protein structures, and what we can learn from them)
 13:00 - 13:45 | Symposium talks
-14:00 - 17:00 | Using automated workflows to scale up your analysis
+14:00 - 17:00 | How to build **automated, scalable, and reproducible bioinfromatics workflows**
 
 ## How much does it cost?
 
