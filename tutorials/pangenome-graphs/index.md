@@ -82,7 +82,7 @@ In the next step we have to order and reorient the contigs of the draft genome. 
 This step is necessary for the pangenome graph creation to make sure the gene synteny matches between the genomes.
 
 ``` bash
-anvi-reorient-fasta -f ./ --prioritize-number-of-contigs
+anvi-reorient-contigs --input-dir ./ --prioritize-number-of-contigs
 ```
 
 The fasta files containing draft genomes are now ready to be used on the pangenomics workflow. For every genome excluding the leading genome we see some blast result files in the folder, that were used for reorienting based on the most complete genome.
