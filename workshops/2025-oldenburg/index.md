@@ -45,37 +45,64 @@ Here is a very preliminary overview of the workshop content:
 
 #### Monday 3: Genomics
 
-9:00 - 12:00 | Introduction to **anvi'o software ecosystem**.
-13:00 - 13:45 | Symposium talks
-14:00 - 17:00 | **Genomics** (gene calling, functional annotation, taxonomic characterization)
+9:00 - 10:15 | Introduction to **anvi'o software ecosystem**
+10:15 - 10:30 | Coffee & Tea Break
+10:30 - 12:00 | **Genomics** (gene calling, functional annotation, taxonomic characterization)
+12:00 - 13:00 | Group lunch at Bar Celona
+13:00 - 14:00 | Symposium talks
+14:00 - 15:30 | **Genomics**, continued
+15:30 - 15:45 | Coffee & Tea Break
+15:45 - 17:30 | **Genomics**, continued
 
 #### Tuesday 4: Metabolic reconstruction; Pangenomics
 
-9:00 - 12:00 | **Function and metabolism** (function annotation, and estimation of metabolic potential in genomes and metagenomes)
-13:00 - 13:45 | Symposium talks
-14:00 - 17:00 | **Pangenomics** (introduction to pangenomics, and its computational and biological underpinnings)
+9:00 - 10:15 | **Functions and metabolism** (functional annotation, estimation of metabolic potential in genomes and metagenomes)
+10:15 - 10:30 | Coffee & Tea Break
+10:30 - 12:00 | **Functions and metabolism**, continued
+12:00 - 13:00 | Group lunch at Bar Celona
+13:00 - 14:00 | Symposium talks
+14:00 - 15:30 | **Pangenomics** (introduction to pangenomics, and its computational and biological underpinnings)
+15:30 - 15:45 | Coffee & Tea Break
+15:45 - 17:30 | **Pangenomics**, continued
 
 #### Wednesday 5: Pangenomics; Phylogenomics
 
-9:00 - 12:00 | **Pangenomics** (hands on session on pangenomics)
-13:00 - 13:45 | Symposium talks
-14:00 - 17:00 | **Phylogenomics** (introduction and hands-on session)
+9:00 - 10:15 | **Pangenomics** (hands-on session)
+10:15 - 10:30 | Coffee & Tea Break
+10:30 - 12:00 | **Pangenomics**, continued
+12:00 - 13:00 | Group lunch at Bar Celona
+13:00 - 14:00 | Symposium talks
+14:00 - 15:30 | **Phylogenomics** (theoretical introduction and hands-on session)
+15:30 - 15:45 | Coffee & Tea Break
+15:45 - 17:30 | **Phylogenomics**, continued
 
 #### Thursday 6: Metagenomics; Genome-resolved metagenomics
 
-9:00 - 12:00 | **Metagenomic read recruitment** (introduction and hands-on session)
-13:00 - 13:45 | Symposium talks
-14:00 - 17:00 | **Genome-resolved metagenomics** (a discussion on best practices in genome binning and refinement)
+9:00 - 10:15 | **Metagenomic read recruitment** (theoretical introduction and hands-on session)
+10:15 - 10:30 | Coffee & Tea Break
+10:30 - 12:00 | **Metagenomic read recruitment**, continued
+12:00 - 13:00 | Group lunch at Bar Celona
+13:00 - 14:00 | Symposium talks
+14:00 - 15:30 | **Genome-resolved metagenomics** (a discussion on best practices in genome binning and refinement)
+15:30 - 15:45 | Coffee & Tea Break
+15:45 - 17:30 | **Genome-resolved metagenomics**, continued
 
 #### Friday 7: Microbial population genetics; Scalable bioinformatics
 
-9:00 - 12:00 | **Microbial population genetics** (single-nucleotide variants, single-codon variants, single-amino acid variants, protein structures, and what we can learn from them)
-13:00 - 13:45 | Symposium talks
-14:00 - 17:00 | How to build **automated, scalable, and reproducible bioinfromatics workflows**
+9:00 - 10:15 | **Microbial population genetics** (single-nucleotide variants, single-codon variants, single-amino acid variants, protein structures, and what we can learn from them)
+10:15 - 10:30 | Coffee & Tea Break
+10:30 - 12:00 | **Microbial population genetics**, continued
+12:00 - 13:00 | Group lunch at Bar Celona
+13:00 - 14:00 | Symposium talks
+14:00 - 15:30 | How to build **automated, scalable, and reproducible bioinformatics workflows**
+15:30 - 15:45 | Coffee & Tea Break
+15:45 - 17:30 | **Bioninformatics workflows**, continued
 
 ## How much does it cost?
 
 We will cover your lunches and coffee/tea breaks. Travel support and accommodation is available upon request while the funds last. The rest is up to you.
+
+We thank the [Universitätsgesellschaft Oldenburg e.V. (UGO)](https://uol.de/ugo) and the [Alfred-Wegener-Institute (AWI)](https://www.awi.de/) for their financial support of this event.
 
 ## Registration link
 
