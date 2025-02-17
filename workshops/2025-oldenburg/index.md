@@ -18,14 +18,14 @@ We are planning a free, in-person workshop and early-career researcher symposium
 * Phylogenomics
 * Microbial population genetics
 
-If you are interested in attending, please consider [apply](https://forms.gle/kzFJN1ozG9p4f2j39)ing as soon as possible as we have limited number of seats in the workshop venue, and mark your calendars for March 3-7 2025.
+If you are interested in attending, please consider applying as soon as possible as we have limited number of seats in the workshop venue, and mark your calendars for March 3-7 2025.
 
 Please feel free to share this page with anyone who may benefit from this workshop, and please note that we will cover travel and accommodation (as long as our funds last), so we strongly encourage applications from institutions with limited resources around the globe.
 
 Feel free to write to any of us if you have any questions.
 
 {:.warning}
-**Application deadline is Jan 10, 2025**. Click on [**this link**](https://forms.gle/kzFJN1ozG9p4f2j39) to register.
+The **application deadline was on Jan 10, 2025** and we are no longer accepting new applications.
 
 {% include IMAGE width=80 path="/images/workshops/2025-oldenburg/flyer.png" caption="The flyer for the workshop." %}
 
@@ -107,7 +107,7 @@ We thank the [Universitätsgesellschaft Oldenburg e.V. (UGO)](https://uol.de/ugo
 
 ## Registration link
 
-Use [**this link**](https://forms.gle/kzFJN1ozG9p4f2j39) to register for the workshop. **The application deadline is January 10, 2025**.
+**The application deadline was January 10, 2025**.
 
 ## List of participants
 
