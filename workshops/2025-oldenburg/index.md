@@ -45,7 +45,8 @@ Here is a very preliminary overview of the workshop content:
 
 #### Monday 3: Genomics
 
-9:00 - 10:15 | Introduction to **anvi'o software ecosystem**
+9:00 - 9:15 | Introduction to the **workshop faculty & setting**
+9:15 - 10:15 | Introduction to the **anvi'o software ecosystem**
 10:15 - 10:30 | Coffee & Tea Break
 10:30 - 12:00 | **Genomics** (gene calling, functional annotation, taxonomic characterization)
 12:00 - 13:00 | Group lunch at Bar Celona
@@ -56,25 +57,25 @@ Here is a very preliminary overview of the workshop content:
 
 #### Tuesday 4: Metabolic reconstruction; Pangenomics
 
-9:00 - 10:15 | **Functions and metabolism** (functional annotation, estimation of metabolic potential in genomes and metagenomes)
+9:00 - 10:15 | **Functions and metabolism** (estimation of metabolic potential in genomes and metagenomes)
 10:15 - 10:30 | Coffee & Tea Break
 10:30 - 12:00 | **Functions and metabolism**, continued
-12:00 - 13:00 | Group lunch at Bar Celona
-13:00 - 14:00 | Symposium talks
-14:00 - 15:30 | **Pangenomics** (introduction to pangenomics, and its computational and biological underpinnings)
-15:30 - 15:45 | Coffee & Tea Break
-15:45 - 17:30 | **Pangenomics**, continued
-
-#### Wednesday 5: Pangenomics; Phylogenomics
-
-9:00 - 10:15 | **Pangenomics** (hands-on session)
-10:15 - 10:30 | Coffee & Tea Break
-10:30 - 12:00 | **Pangenomics**, continued
 12:00 - 13:00 | Group lunch at Bar Celona
 13:00 - 14:00 | Symposium talks
 14:00 - 15:30 | **Phylogenomics** (theoretical introduction and hands-on session)
 15:30 - 15:45 | Coffee & Tea Break
 15:45 - 17:30 | **Phylogenomics**, continued
+
+#### Wednesday 5: Pangenomics; Phylogenomics
+
+9:00 - 10:15 | **Pangenomics** (introduction to pangenomics, and its computational and biological underpinnings)
+10:15 - 10:30 | Coffee & Tea Break
+10:30 - 12:00 | **Pangenomics** (hands-on session)
+12:00 - 13:00 | Group lunch at Bar Celona
+13:00 - 14:00 | Symposium talks
+14:00 - 15:30 | **Pangenomics** (hands-on session), continued
+15:30 - 15:45 | Coffee & Tea Break
+15:45 - 17:30 | **Pangenome graphs** (theory + hands-on)
 
 #### Thursday 6: Metagenomics; Genome-resolved metagenomics
 
@@ -94,7 +95,7 @@ Here is a very preliminary overview of the workshop content:
 10:30 - 12:00 | **Microbial population genetics**, continued
 12:00 - 13:00 | Group lunch at Bar Celona
 13:00 - 14:00 | Symposium talks
-14:00 - 15:30 | How to build **automated, scalable, and reproducible bioinformatics workflows**
+14:00 - 15:30 | How to use **automated, scalable, and reproducible bioinformatics workflows**
 15:30 - 15:45 | Coffee & Tea Break
 15:45 - 17:30 | **Bioninformatics workflows**, continued
 
