@@ -53,7 +53,7 @@ Here is a very preliminary overview of the workshop content:
 13:00 - 14:00 | Symposium talks
 14:00 - 15:30 | **Genomics**, continued
 15:30 - 15:45 | Coffee & Tea Break
-15:45 - 17:30 | **Genomics**, continued
+15:45 - 17:30 | The anvi'o **interactive interface**
 
 #### Tuesday 4: Metabolic reconstruction; Pangenomics
 
