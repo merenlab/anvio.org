@@ -48,12 +48,12 @@ Here is a very preliminary overview of the workshop content:
 9:00 - 9:15 | Introduction to the **workshop faculty & setting**
 9:15 - 10:15 | Introduction to the **anvi'o software ecosystem**
 10:15 - 10:30 | Coffee & Tea Break
-10:30 - 12:00 | **Genomics** (gene calling, functional annotation, taxonomic characterization)
+10:30 - 12:00 | The anvi'o **interactive interface**
 12:00 - 13:00 | Group lunch at Bar Celona
 13:00 - 14:00 | Symposium talks
-14:00 - 15:30 | **Genomics**, continued
+14:00 - 15:30 | **Genomics** (gene calling, functional annotation, taxonomic characterization)
 15:30 - 15:45 | Coffee & Tea Break
-15:45 - 17:30 | The anvi'o **interactive interface**
+15:45 - 17:30 | **Genomics**, continued
 
 #### Tuesday 4: Metabolic reconstruction; Pangenomics
 
