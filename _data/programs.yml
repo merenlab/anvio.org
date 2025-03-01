@@ -27,6 +27,7 @@
     - name: anvi-cluster-contigs
     - name: anvi-compute-completeness
     - name: anvi-compute-functional-enrichment-in-pan
+    - name: anvi-compute-rarefaction-curves
     - name: anvi-db-info
     - name: anvi-delete-collection
     - name: anvi-delete-functions
@@ -185,6 +186,9 @@
     - name: anvi-script-gen-pseudo-paired-reads-from-fastq
     - name: anvi-script-get-coverage-from-bam
     - name: anvi-script-reformat-fasta
+- author: ahenoch
+  programs:
+    - name: anvi-compute-rarefaction-curves
 - author: floriantrigodet
   programs:
     - name: anvi-display-contigs-stats
