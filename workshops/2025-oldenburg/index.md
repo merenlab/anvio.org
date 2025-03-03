@@ -105,16 +105,16 @@ We will link the lecture slides here in the future.
 
 The table below shows the links to the tutorials used in each workshop session.
 
-Monday | Interactive interface | https://anvio.org/tutorials/single-cell-genomics-workshop/#visualize-a-sag
-Monday | Genomics | https://anvio.org/tutorials/single-cell-genomics-workshop/#create-and-annotate-a-contigs-database (until 'Working with Multiple SAGs' section)
-Tuesday | Metabolism | https://anvio.org/tutorials/fmt-mag-metabolism/
-Tuesday | Phylogenomics | https://anvio.org/tutorials/single-cell-genomics-workshop/#phylogenomics
-Wednesday | Pangenomics | https://anvio.org/tutorials/single-cell-genomics-workshop/#pangenomics
+Monday | Interactive interface | [https://anvio.org/tutorials/single-cell-genomics-workshop/#visualize-a-sag](https://anvio.org/tutorials/single-cell-genomics-workshop/#visualize-a-sag)
+Monday | Genomics | [https://anvio.org/tutorials/single-cell-genomics-workshop/#create-and-annotate-a-contigs-database](https://anvio.org/tutorials/single-cell-genomics-workshop/#create-and-annotate-a-contigs-database) (until 'Working with Multiple SAGs' section)
+Tuesday | Metabolism | [https://anvio.org/tutorials/fmt-mag-metabolism/](https://anvio.org/tutorials/fmt-mag-metabolism/)
+Tuesday | Phylogenomics | [https://anvio.org/tutorials/single-cell-genomics-workshop/#phylogenomics](https://anvio.org/tutorials/single-cell-genomics-workshop/#phylogenomics)
+Wednesday | Pangenomics | [https://anvio.org/tutorials/single-cell-genomics-workshop/#pangenomics](https://anvio.org/tutorials/single-cell-genomics-workshop/#pangenomics)
 Wednesday | Pangenome graphs | TBD
-Thursday | Metagenomic read recruitment | https://merenlab.org/tutorials/read-recruitment/
-Thursday | Metagenomic binning | https://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics and TBD
-Friday | Population genomics | https://merenlab.org/tutorials/infant-gut/#chapter-vi-microbial-population-genetics and TBD
-Friday | Workflows | https://anvio.org/tutorials/scaling-up/
+Thursday | Metagenomic read recruitment | [https://merenlab.org/tutorials/read-recruitment/](https://merenlab.org/tutorials/read-recruitment/)
+Thursday | Metagenomic binning | [https://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics](https://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics) and TBD
+Friday | Population genomics | [https://merenlab.org/tutorials/infant-gut/#chapter-vi-microbial-population-genetics](https://merenlab.org/tutorials/infant-gut/#chapter-vi-microbial-population-genetics) and TBD
+Friday | Workflows | [https://anvio.org/tutorials/scaling-up/](https://anvio.org/tutorials/scaling-up/)
 
 ## How much does it cost?
 
