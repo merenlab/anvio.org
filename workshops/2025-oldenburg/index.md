@@ -101,7 +101,7 @@ Here is a very preliminary overview of the workshop content:
 
 ## Workshop materials
 
-We will link the lecture slides here in the future.
+The lecture slides for the workshop can be downloaded from [this Figshare link](https://figshare.com/articles/presentation/Lecture_Slides_for_the_anvi_o_workshop_in_Oldenburg/28525244).
 
 The table below shows the links to the tutorials used in each workshop session.
 
