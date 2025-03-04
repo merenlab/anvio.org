@@ -275,7 +275,7 @@ After you click on the draw button you should see a pangenome that looks somewha
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_1.png" width=80 %}
 
-In the **Main** tab under **Layers** we first order by **gene_cluster_frequencies**. In **Layer Groups** you checkmark the entry **ANI_full_percentage_identity** and in **Display** you change the bottom four entries to Bar and the Min value to at least 0.97.
+In the **Main** tab under **Layers** we first order by **gene_cluster_frequencies**. In **Layer Groups** you checkmark the entry **ANI_full_percentage_identity** and in **Display** you change the bottom four entries to Bar and the Min value to at least 0.95.
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_2.png" width=40 %}
 
@@ -283,7 +283,7 @@ After pressing the draw button again, the resulting pangenome should look like t
 
 {% include IMAGE path="/images/pangenome-graphs/Figure_3.png" width=80 %}
 
-In the newly added red squares we see the ANI between the genomes of the pangenome. Aside from the diagonal which contains a similarity of 100% due to comparing the same genomes with each other, we see a second very high ANI square on the top left. The complete genome GCF_029593915 shares a very high ANI with the draft genome GCF_029532145. Therefore our initial step in creating a pangenome graph is to use those two genomes.
+In the newly added red squares we see the ANI between the genomes of the pangenome. Aside from the diagonal which contains a similarity of 100% due to comparing the same genomes with each other, we see a second very high ANI square on the top left. The genome HIMB1526 shares a very high ANI with the genome HIMB1552.
 
 ### Creating an anvi'o pangenome graph
 
@@ -293,7 +293,7 @@ To follow the anvi'o naming standard we first create a folder named 05_PANGRAPH.
 mkdir 05_PANGRAPH
 ```
 
-Anvi'o pangenome graphs are then created by the command {% include PROGRAM name="anvi-run-pangraph" %}. Instead of a {% include ARTIFACT name="genomes-storage-db" %} or {% include ARTIFACT name="pan-db" %}, the result is written in a JSON file.
+Anvi'o pangenome graphs are then created by the command {% include PROGRAM name="anvi-run-pangraph" %}. Instead of a {% include ARTIFACT name="genomes-storage-db" %} or {% include ARTIFACT name="pan-db" %}, the result is written in a JSON file in the current version.
 
 ``` bash
 anvi-pan-graph --pan-db 03_PAN/Ampluspelagibacter_kiloensis-PAN.db \
