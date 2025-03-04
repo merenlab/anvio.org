@@ -9,10 +9,10 @@ cat <<EOF >${CONDA_PREFIX}/etc/conda/activate.d/anvio.sh
 # (2) the shell knows where to find anvi'o programs, and (3) every time
 # the environment is activated it synchronizes with the latest code from
 # active GitHub repository:
-export PYTHONPATH=\$PYTHONPATH:~/github/anvio/
-export PATH=\$PATH:~/github/anvio/bin:~/github/anvio/sandbox
+export PYTHONPATH=\$PYTHONPATH:\$HOME/github/anvio/
+export PATH=\$PATH:\$HOME/github/anvio/bin:\$HOME/github/anvio/sandbox
 echo -e "\033[1;34mUpdating from anvi'o GitHub \033[0;31m(press CTRL+C to cancel)\033[0m ..."
-cd ~/github/anvio && git pull && cd -
+cd \$HOME/github/anvio && git pull && cd -
 EOF
 ```
 

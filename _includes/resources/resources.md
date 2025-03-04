@@ -23,6 +23,12 @@ Tutorials are the best way to start learning anvi'o. They typically use mock or 
 
 {% include resources/content.html content=site.data.resources.tutorials %}
 
+### Workshops
+
+Previous and upcoming workshops for a hands-on experience of anvi'o.
+
+{% include resources/content.html content=site.data.resources.workshops %}
+
 ### Technical write-ups
 
 Articles listed this section offer solutions or discussions regarding matters that are typically more technical than scientific (add more [here](https://github.com/merenlab/anvio.org/blob/main/_data/resources/technical.yaml)).

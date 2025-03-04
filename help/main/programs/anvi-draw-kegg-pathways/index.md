@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-Write KEGG pathway map files incorporating data sourced from anvi&#x27;o databases..
+Write KEGG pathway map files incorporating data sourced from anvi&#x27;o databases.
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -103,7 +103,7 @@ anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;contigs&#45;dbs <span class="artif
 
 ## Output
 
-This program requires the path to a non-existent directory as an argument to `-o` or `--output-dir`. Options are available to make it easier to browse through output files and anticipate their contents.
+This program requires the path to a directory as an argument to `-o` or `--output-dir`. This must be a non-existent directory unless the flag, `-W` or `--overwrite-output-destinations`, is also used. Options are available to make it easier to browse through output files and anticipate their contents.
 
 ### File names
 

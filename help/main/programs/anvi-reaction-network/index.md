@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-This program generates a metabolic reaction network in an anvi&#x27;o contigs or pan database..
+This program generates a metabolic reaction network in an anvi&#x27;o contigs or pan database.
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 

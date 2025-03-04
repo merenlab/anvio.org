@@ -38,7 +38,7 @@ for file_path in [f for f in glob.glob('learn/*') if 'index.md' not in f]:
 
 # learn tags
 tags = set([])
-for section in ["blogs", 'docs', 'technical', 'tutorials']:
+for section in ["blogs", 'docs', 'technical', 'tutorials', 'workshops']:
     file_path = f"_data/resources/{section}.yaml"
     for resource in utils.get_yaml_as_dict(file_path):
         tags_with_space = [tag for tag in resource['tags'] if ' ' in tag]

@@ -7,7 +7,7 @@ The platform stands on **more than 200,000 lines of Python and JavaScript code**
 
 As a principle, anvi'o does not track its users by any means, but based on [self-reported data on Twitter](https://twitter.com/merenbey/status/1218364014641786882), there is at least one anvi'o user in the following countries:
 
-<p style="font-size: 16pt">  🇺🇸🇨🇦🇬🇧🇦🇺🇨🇳🇳🇿🇸🇪🇨🇭🇵🇹🇯🇵🇮🇹🇫🇷🇪🇸🇩🇰🇩🇪🇨🇱🇧🇷🇦🇷🇺🇾🇹🇷🇪🇬🇸🇬🇸🇦🇷🇺🇳🇱🇵🇷🇵🇭🇳🇴🇲🇾🇲🇽🇲🇫🇱🇺🇰🇷🇮🇳🇮🇱🇮🇪🇭🇰🇫🇮🇨🇼🇨🇷🇨🇴🇦🇹🇨🇿
+<p style="font-size: 16pt">  🇺🇸🇨🇦🇬🇧🇦🇺🇨🇳🇳🇿🇸🇪🇨🇭🇵🇹🇯🇵🇮🇹🇫🇷🇪🇸🇩🇰🇩🇪🇨🇱🇧🇷🇦🇷🇺🇾🇹🇷🇪🇬🇸🇬🇸🇦🇷🇺🇳🇱🇵🇷🇵🇭🇳🇴🇲🇾🇲🇽🇲🇫🇱🇺🇰🇷🇮🇳🇮🇱🇮🇪🇭🇰🇫🇮🇨🇼🇨🇷🇨🇴🇦🇹🇨🇿🇦🇪
 </p>
 
 We **welcome you** to join in our growing international community, and we look forward to hearing from you. Please share your concerns, ideas, and feature requests with the anvi'o community, or ask your questions on microbial 'omics on our {% include _discord_invitation_button.html %} group.
