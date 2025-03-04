@@ -8,33 +8,35 @@ tags: [metagenomics, pangenomics, hands-on, beginner]
 comments: true
 ---
 
-With the tutorial on anvio pangenome graphs you can,
+The purpose of this tutorial is to familiarize you to the upcoming anvi'o pangenome graphs framework, with which you can,
 
-* **Identify and analyse** regions of hypervariability in your genomes
-* **Estimate similarity** between the genomes based on graph structures instead of e.g. genome similarity
-* **Interactively visualize** your pangenome graph and the impact of single genomes on the consensus graph
-* **Highlight** the distribution of paralogous gene clusters through their synteny-based subclusters
-* **Summarize** distribution and frequency of common graph motifs into a nice table for downstream analysis
-* **Create** paper-ready pictures of gene synteny structures not visualizable with other tools
+* **Identify and analyse** regions of hypervariability in your genomes,
+* **Estimate similarity** between the genomes based on graph structures instead of e.g. genome similarity,
+* **Interactively visualize** your pangenome graph and the impact of single genomes on the consensus graph,
+* **Highlight** the distribution of paralogous gene clusters through their synteny-based subclusters,
+* **Summarize** distribution and frequency of common graph motifs into a nice table for downstream analysis, and,
+* **Create** paper-ready visualizations of gene synteny structures not visualizable with other tools.
 
 {:.notice}
 You can use the anvi'o tutorial for pangenome graphs even if you haven't done any metagenomic work with anvi'o. All you need is an anvi'o installation, and a FASTA file for each of your genomes.
 
 ## Introduction
 
-The tutorial on anvi'o pangenome graphs described here will walk you through the following steps:
+This tutorial will walk you through the following steps:
 
-* Download and order a four genome dataset containing complete and draft genomes using {% include PROGRAM name="anvi-reorient-contigs" %}
+* Download and order a four genome dataset containing complete and draft genomes using {% include PROGRAM name="anvi-reorient-contigs" %},
+* Use {% include PROGRAM name="anvi-run-workflow" %} to generate an anvi'o {% include ARTIFACT name="genomes-storage-db" %} and {% include ARTIFACT name="pan-db" %},
+* Define a subset of genomes for further analysis {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} enabled by ,
+* Survey the genomes using {% include PROGRAM name="anvi-display-pan" %} and identify a subset for further analysis,
+* Generate an {% include ARTIFACT name="pan-graph" text="anvi'o pangenome graph" %} using {% include PROGRAM name="anvi-pan-graph" %}
+* Explain common graph motifs in the {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} using {% include PROGRAM name="anvi-display-pan-graph" %}.
 
-* Using the anvi'o pangenomics workflow to generate an anvi'o {% include ARTIFACT name="genomes-storage-db" %} and  {% include ARTIFACT name="pan-db" %} using the program {% include PROGRAM name="anvi-run-workflow" %}
+{:.warning}
+The anvi'o framework for pangenome graphs is still in development. Your input and suggestions are most welcome, and Alex thanks you in advance for your patience if/when occasional bugs appear out of nowhere :)
 
-* Explain how to define a subset of the sequences to use with the {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} enabled by {% include PROGRAM name="anvi-display-pan" %}.
+## Setting the stage
 
-* Calculate a {% include ARTIFACT name="pan-graph" text="anvi'o pangenome graph" %} based on these sequences using {% include PROGRAM name="anvi-pan-graph" %}
-
-* Step-by-step explanation of graph motifs in the {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} using {% include PROGRAM name="anvi-display-pan-graph" %}
-
-## Prerequisites for the tutorial
+The following steps will set the stage for us to jump into the action by ensuring that your computer is ready to generate pangenome graphs, and you have the necessary files in the right place.
 
 ### Anvi'o dependencies
 
@@ -63,15 +65,32 @@ git checkout pangraph-0.3.0
 git pull
 ```
 
-To swith back to the master branch you just have to run the same command but replace *pangraph-0.3.0* with *master*.
-
-### Where to find the data
-
-For this workflow we will use four genomes of *Ampluspelagibacter kiloensis* published by [Freel et al. in 2025](https://www.biorxiv.org/content/10.1101/2024.12.24.630191v2.abstract). All genomes are complete genomes. Pangenome graph analysis can also be performed with draft genomes, as long as one complete genome is available but a dataset of complete genomes gives the best results. First we download all six genomes from the figshare server and place them in a newly created folder
+Please note that you will need to remember to switch back to the `master` branch once you are done here, and you can run the following command to do that when you are ready (don't do it now though):
 
 ``` bash
-cd /path/to/
-mkdir original_files
+cd ~/github/anvio
+git checkout master
+```
+
+### Obtaining the data
+
+For this workflow we will use four novel and complete genomes from a SAR11 clade that is recently named as *Ampluspelagibacter kiloensis* by [Kelle Freel et al.](https://www.biorxiv.org/content/10.1101/2024.12.24.630191v2.abstract).
+
+A pangenome graph analysis can also be performed with draft genomes, as long as one complete genome is available. But a dataset of complete genomes gives the best results, so we take advantage of that for the sake of this tutorial.
+
+Before we start, let's first create a specific directory for this tutorial to keep things neatly together.
+
+``` bash
+# create a new directory for this tutorial in your home directory
+mkdir ~/PANGENOME-GRAPHS-TUTORIAL/
+
+# go into the newly created directory
+cd ~/PANGENOME-GRAPHS-TUTORIAL/
+```
+
+Assuming that we are not in the directory in which you wish to follow this tutorial, we are ready to download all six genomes:
+
+``` bash
 curl -L https://figshare.com/ndownloader/files/51363962 -o original_files/HIMB1702.fa
 curl -L https://figshare.com/ndownloader/files/51363959 -o original_files/HIMB1636.fa
 curl -L https://figshare.com/ndownloader/files/51364013 -o original_files/HIMB1641.fa
@@ -83,7 +102,7 @@ curl -L https://figshare.com/ndownloader/files/51364043 -o original_files/HIMB15
 The current folder structure should look like this.
 
 ```
-/path/to/
+~/PANGENOME-GRAPHS-TUTORIAL/
     └── original_files/
         ├── HIMB1526.fa
         ├── HIMB1552.fa
@@ -93,7 +112,7 @@ The current folder structure should look like this.
         └── HIMB1702.fa
 ```
 
-### Order and reorient the draft genomes
+### Processing draft genomes
 
 In the next step we have to order and reorient the contigs of the genomes. Even if we have only complete genomes it is a good idea to run this step, as it defines one direction for all the genomes in the dataset. We use the program {% include PROGRAM name="anvi-reorient-contigs" %} for this task, based on the longest complete genome present in our folder.
 
@@ -107,7 +126,7 @@ anvi-reorient-contigs --input-dir original_files/ --output-dir reoriented_files/
 The fasta files containing draft genomes are now ready to be used on the pangenomics workflow. For every genome excluding the leading genome we see some blast result files in the folder, that were used for reorienting based on the most complete genome.
 
 ```
-/path/to/
+~/PANGENOME-GRAPHS-TUTORIAL/
     ├── original_files/
         ├── HIMB1526.fa
         ├── HIMB1526-blast.xml
@@ -129,7 +148,9 @@ The fasta files containing draft genomes are now ready to be used on the pangeno
         └── HIMB1702.fa
 ```
 
-## Anvi'o pangenomics workflow
+If you are here, you are ready to start the analysis!
+
+## Generating a pangenome
 
 From the workflow we will receive multiple databases that we need for further downstream analysis. A single {% include ARTIFACT name="contigs-db" %} for every genome used, containing information like gene calls, annotations, etc. The {% include ARTIFACT name="genomes-storage-db" %} is a special anvi'o database that stores information about genomes, and can be generated from {% include ARTIFACT name="external-genomes" %}, {% include ARTIFACT name="internal-genomes" %}, or both. And lastly the {% include ARTIFACT name="pan-db" %} created from the {% include ARTIFACT name="genomes-storage-db" %} includes all features calculated during the pangenomics analysis. For a more detailed description of these special anvi'o databases please read about it in the [anvi'o pangenomics workflow](https://merenlab.org/2016/11/08/pangenomics-v2/).
 
@@ -203,7 +224,7 @@ Good job, 5 points for *insert your hogwarts house here*!
 Your folder structure should look similar to this.
 
 ```
-/path/to/
+~/PANGENOME-GRAPHS-TUTORIAL/
     ├── 00_LOGS/
         └── ...
     ├── 01_FASTA/
@@ -231,9 +252,9 @@ Your folder structure should look similar to this.
     └── fasta.txt
 ```
 
-## Anvi'o pangenome graph
+## Generating a pangenome graph
 
-### Subset the genomes for pangenome graph
+### Subsetting the genomes for pangenome graph
 
 We first run the {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} with {% include PROGRAM name="anvi-display-pan" %} to visualize our pangenome.
 
@@ -266,7 +287,7 @@ After pressing the draw button again, the resulting pangenome should look like t
 
 In the newly added red squares we see the ANI between the genomes of the pangenome. Aside from the diagonal which contains a similarity of 100% due to comparing the same genomes with each other, we see a second very high ANI square on the top left. The complete genome GCF_029593915 shares a very high ANI with the draft genome GCF_029532145. Therefore our initial step in creating a pangenome graph is to use those two genomes.
 
-### Create an anvi'o pangenome graph
+### Creating an anvi'o pangenome graph
 
 To follow the anvi'o naming standard we first create a folder named 05_PANGRAPH.
 
@@ -339,7 +360,7 @@ We can now decide if the graph is simple enough to understand, and if so, then w
 
 After this step your folder structure should look similar to this.
 
-### Some simple pangenome graph analysis examples
+### Making sense of the pangenome graph
 
 We can switch the color of genomes to highlight their tracks in the graph. As an example, here we change the color of HIMB1556 as this genome is the representative of the the *Ampluspelagibacter kiloensis* group. We also shift the entry to the top. That way all edges and nodes present in this genome will be colored and also overlay all the other colors. Since a line can only have one color, the coloring is done according to the hierarchy of the genomes. 
 
