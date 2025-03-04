@@ -154,25 +154,22 @@ If you are here, you are ready to start the analysis!
 
 From the workflow we will receive multiple databases that we need for further downstream analysis. A single {% include ARTIFACT name="contigs-db" %} for every genome used, containing information like gene calls, annotations, etc. The {% include ARTIFACT name="genomes-storage-db" %} is a special anvi'o database that stores information about genomes, and can be generated from {% include ARTIFACT name="external-genomes" %}, {% include ARTIFACT name="internal-genomes" %}, or both. And lastly the {% include ARTIFACT name="pan-db" %} created from the {% include ARTIFACT name="genomes-storage-db" %} includes all features calculated during the pangenomics analysis. For a more detailed description of these special anvi'o databases please read about it in the [anvi'o pangenomics workflow](https://merenlab.org/2016/11/08/pangenomics-v2/).
 
-A {% include ARTIFACT name="fasta-file" %} is required to run the pangenomics workflow. This file has to be tab-seperated with two columns, the first containing the name of the fasta and the second containig the path to the file. We use the power of bash to speed things up a little. For more information about anvi'o workflows in general we really recommend reading [Scaling up your analysis with workflows](https://anvio.org/tutorials/scaling-up/).
-
-``` bash
-echo -e 'name\tpath' > fasta.txt
-for filename in ./reoriented_files/*.fa; do
-    echo -e $(basename $filename | cut -d. -f1)'\t'$(realpath $filename) >> fasta.txt
-done
-```
-
-The resulting fasta.txt file should look like this.
+For the anvi’o pangenomics workflow we need to first describe the location of our FASTA files through a {% include ARTIFACT name="fasta-file" %} file. This file has to be tab-seperated with two columns, the first containing the name of the fasta and the second containig the path to the file. We use the power of bash to speed things up a little. For more information about anvi'o workflows in general we really recommend reading [Scaling up your analysis with workflows](https://anvio.org/tutorials/scaling-up/).
 
 ``` txt
 name	path
-HIMB1526	/home/ahenoch/Desktop/DATA/SAR11_Tutorial/reoriented_files/HIMB1526.fa
-HIMB1552	/home/ahenoch/Desktop/DATA/SAR11_Tutorial/reoriented_files/HIMB1552.fa
-HIMB1556	/home/ahenoch/Desktop/DATA/SAR11_Tutorial/reoriented_files/HIMB1556.fa
-HIMB1636	/home/ahenoch/Desktop/DATA/SAR11_Tutorial/reoriented_files/HIMB1636.fa
-HIMB1641	/home/ahenoch/Desktop/DATA/SAR11_Tutorial/reoriented_files/HIMB1641.fa
-HIMB1702	/home/ahenoch/Desktop/DATA/SAR11_Tutorial/reoriented_files/HIMB1702.fa
+HIMB1526    ~/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1526.fa
+HIMB1552    ~/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1552.fa
+HIMB1556    ~/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1556.fa
+HIMB1636    ~/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1636.fa
+HIMB1641    ~/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1641.fa
+HIMB1702    ~/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1702.fa
+```
+
+You can create this file using EXCEL or any other text editor, but I created one for you for this tutorial which you can download it into your tutorial directory with this command:
+
+``` bash
+curl files/fasta.txt -o fasta.txt
 ```
 
 Now the first prerequisite to start the anvi'o pangenomics workflow is set-up. The next step is to generate and modify the {% include ARTIFACT name="workflow-config" %}. We can create a standard one with this command.
@@ -261,8 +258,9 @@ We first run the {% include ARTIFACT name="interactive" text="anvi'o interactive
 In case you don't want to wait for a whole pangenome to run, you can just download the folder at this stage from figshare.
 
 ``` bash
-curl -L https://figshare.com/ndownloader/articles/28532807/versions/1 -o path/to/AMPLUSPELAGIBACTER-ANVIO-FILES.zip
-cd path/to/
+mkdir ~/PANGENOME-GRAPHS-TUTORIAL/
+curl -L https://figshare.com/ndownloader/articles/28532807/versions/1 -o ~/PANGENOME-GRAPHS-TUTORIAL/AMPLUSPELAGIBACTER-ANVIO-FILES.zip
+cd ~/PANGENOME-GRAPHS-TUTORIAL/
 unzip AMPLUSPELAGIBACTER-ANVIO-FILES.zip
 ```
 
@@ -301,33 +299,12 @@ Anvi'o pangenome graphs are then created by the command {% include PROGRAM name=
 anvi-pan-graph --pan-db 03_PAN/Ampluspelagibacter_kiloensis-PAN.db \
                --genomes-storage 03_PAN/Ampluspelagibacter_kiloensis-GENOMES.db \
                --external-genomes external-genomes.txt \
-               --max-edge-length -1 \
-               --gene-cluster-grouping-threshold 2 \
-               --grouping-compression 0.05 \
                --project-name 'Ampluspelagibacter_kiloensis' \
                -o 05_PANGRAPH/ \
                --output-pangenome-graph-summary \
-               --import-values start,stop,partial,call_type,length \
                --output-synteny-distance-dendrogram \
-               --n 100 \
-               --alpha 0.75 \
-               --beta_g 0.5 \
-               --beta_m 0.0 \
-               --min_contig_size 5 \
                --circularize
 ```
-
-The settings we use for this are:
-- no cutting of edges based on length
-- grouping nodes starting at chains of length 2
-- we set a project name
-- output summary tables for statistical analysis and plotting
-- import some extra layers from the pangenome
-- output a newick tree based on synteny distance
-- circularize the genomes based on graph overlaps
-- we want contigs to be at least 5 genes long
-- and some extra settings to weight the graph (alpha, beta_g, beta_m and n)
-
 
 Opening the {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} functions similarly to the one we used before to inspect the pangenome. Instead of {% include PROGRAM name="anvi-display-pan" %}, we use the program {% include PROGRAM name="anvi-display-pan-graph" %}. Experienced anvi'o users should feel right at home here and find many functions they already know.
 
