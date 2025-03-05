@@ -159,20 +159,25 @@ From the workflow we will receive multiple databases that we need for further do
 
 For the anvi’o pangenomics workflow we need to first describe the location of our FASTA files through a {% include ARTIFACT name="fasta-file" %} file. This file has to be tab-seperated with two columns, the first containing the name of the fasta and the second containig the path to the file. We use the power of bash to speed things up a little. For more information about anvi'o workflows in general we really recommend reading [Scaling up your analysis with workflows](https://anvio.org/tutorials/scaling-up/).
 
+It has to look similar to this file similar to this one with complete paths to every fasta file we use in the analysis.
+
 ``` txt
 name	path
-HIMB1526    ~/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1526.fa
-HIMB1552    ~/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1552.fa
-HIMB1556    ~/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1556.fa
-HIMB1636    ~/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1636.fa
-HIMB1641    ~/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1641.fa
-HIMB1702    ~/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1702.fa
+HIMB1526    /home/user/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1526.fa
+HIMB1552    /home/user/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1552.fa
+HIMB1556    /home/user/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1556.fa
+HIMB1636    /home/user/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1636.fa
+HIMB1641    /home/user/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1641.fa
+HIMB1702    /home/user/PANGENOME-GRAPHS-TUTORIAL/reoriented_files/HIMB1702.fa
 ```
 
-You can create this file using EXCEL or any other text editor, but I created one for you for this tutorial which you can download it into your tutorial directory with this command:
+You can create this file using EXCEL or any other text editor, copy it from here and replace user with your user name or use the following quick and hacky bash loop to read the files in the folder and write the full paths into a new file.
 
 ``` bash
-curl files/fasta.txt -o fasta.txt
+echo -e 'name\tpath' > fasta.txt
+for filename in *.fna; do
+    echo -e $(basename $filename | cut -d. -f1)'\t'$(realpath $filename) >> fasta.txt
+done
 ```
 
 Now the first prerequisite to start the anvi'o pangenomics workflow is set-up. The next step is to generate and modify the {% include ARTIFACT name="workflow-config" %}. We can create a standard one with this command.
