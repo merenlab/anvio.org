@@ -164,6 +164,8 @@ tar -xvf BINNING_POPGEN_TUTORIAL.tar.gz && cd BINNING_POPGEN_TUTORIAL/
 
 You should now be inside the datapack directory on your terminal. The directory should contain 3 databases -- the contigs db containing the co-assembly of the 5 time-series tongue metagenomes from one individual (`T-B-M`), the profile database containing the mapping data from 20 tongue metagenome samples (from the same `T-B-M` individual as well as three others), and an auxiliary database with lots of extra info related to the mapping (which we will use later).
 
+### An initial look at the co-assembly
+
 Let's take a look at what we have in the database.
 
 ```
@@ -249,7 +251,7 @@ anvi-interactive -c T_B_M-contigs.db -p PROFILE.db \
     --collection-autoload CONCOCT_c10
 ```
 
-{% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/T-B-M_coassembly_concoct_c10.png" caption="The regular CONCOCT bins" %}
+{% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/T-B-M_coassembly_concoct_c10.png" caption="The 10 CONCOCT metabins" %}
 
 It is a little bit better. Now multiple bacterial populations have been purposefully combined into just a few metabins, and we can see a bit less mixing; ie, the binning follows the dendrogram structure better. And in general, the mixing is not as chaotic -- many clades of the inner dendrogram are sorted into just two bins. We should be able to work with this output to refine a metabin into some high-quality MAGs.
 
@@ -257,5 +259,88 @@ It is a little bit better. Now multiple bacterial populations have been purposef
 Why so much mixing? Is CONCOCT doing a really bad job?
 Maybe. After all, automatic binning of complex metagenomes [is an extremely difficult task and algorithmic heuristics won't always give us an answer we expect](https://merenlab.org/2020/01/02/visualizing-metagenomic-bins/). But maybe not. It is important to remember that CONCOCT was given only a fraction of the information shown here to base its binning decisions on. It only used differential coverage signal from the 5 dark green samples from T-B-M -- the samples used to make the co-assmbly. Here, we are showing mapping information from 15 extra samples from 3 different individuals, and while it seems clear that those individuals harbor _similar_ populations, there is likely still some variation like large-scale insertions and deletions or hyper-variable regions that could confuse the differential coverage signals. So give CONCOCT a break -- it is trying its best to live up to our unrealistic expectations. :P
 
+### Refining Bin 3
 
+We want to refine a metabin and split it into its component populations. But which metabin should we work on? If you take a look in the 'Bins' panel on the interactive interface, you should see the overall completeness and redundancy estimates for each one:
 
+{% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/T-B-M_coassembly_c10_bins.png" caption="Completion and redundancy of the metabins" %}
+
+As expected, they have a lot of redundancy because each bin contains several microbial populations. The only potential exception is Bin 2, which clearly stands out as one of the only bins that cohesively groups several consecutive clades in the inner dendrogram and seems to represent a single population based on the coverage patterns (though the size of the bin is a bit large for most microbial genomes). So we would like to focus on refining one of the other bins.
+
+Somewhat arbitrarily, we selected the second-largest bin, Bin 3, to refine for this tutorial. Based on its redundancy score, we should be able to obtain at least 4-5 bins out of this metabin (potentially more if the populations are incomplete).
+
+Here is the command to refine Bin 3. It will open the interactive interface again, but this time _only_ showing the contigs (technically, their splits) belonging to Bin 3.
+
+```
+anvi-refine -c T_B_M-contigs.db -p PROFILE.db -C CONCOCT_c10 -b Bin_3
+```
+
+Here is what Bin 3 looks like in the interface:
+
+{% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/T-B-M_refine_bin3.png" caption="Refining metabin 'Bin 3' in the interface's 'refine mode'." %}
+
+Now we can use the dendrogram organization, the differential coverage patterns, and the SCG-based completion/redundancy/taxonomy estimates to identify the subsets of this metabin that represent individual population genomes. Give it a try for yourself, and once you are ready, click the Show/Hide box to see if your results match ours.
+
+<details markdown="1"><summary>Show/Hide Our Bin 3 refinement results. </summary>
+
+We focused on the major patterns and ended up with 7 bins in our refined collection. We could have binned much more, but when we tried that, most of the resulting bins were so small/incomplete that they wouldn't have been useful. Here is what our collection looks like in the 'refine mode' interface:
+
+{% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/Bin_3_refined.png" caption="The 7 bins resulting from our refinement." %}
+
+And here are the bin statistics from the 'Bins' panel on the side:
+
+{% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/Bin_3_refined_completion.png" caption="Statistics of the 7 refined bins from metabin 'Bin 3'." %}
+
+We named the bins according to the SCG taxonomy estimates. There are several _Prevotella_ populations, but only 1 (_Prevotella sp013333285_) has a large enough and complete enough bin to be useful. There were also two decent bins for _Nanosynococcus_ species -- also known as TM7, these populations were the center of attention in the Shaiber et al. paper, so it is unsurprising that we found them here.
+
+</details>
+
+Make sure to hit the button called 'Store refined bins in database' in the 'Bins' panel to save your work once you are done refining. Please note that this will _overwrite_ your existing larger collection (in our case, this is the `CONCOCT_c10` collection), replacing the original metabin (`Bin_3`) with the set of smaller bins you curated.
+
+Congratulations! You just refined a metabin. :)
+
+If you want to see how your bin looks in the context of the larger co-assembly, you can do that by going back to the regular interactive interface, using the following command to automatically open the (now partially-refined) `CONCOCT_c10` collection.
+
+```
+anvi-interactive -c T_B_M-contigs.db -p PROFILE.db \
+    --title "T-B-M co-assembly (CONCOCT_c10 collection)" \
+    --collection-autoload CONCOCT_c10
+```
+
+<details markdown="1"><summary>Show/Hide Our Bin 3 refinement results, in the co-assembly. </summary>
+
+If you want to load our collection of refined bins to view them in the larger context, you can run the following:
+
+```
+anvi-import-collection -p PROFILE.db -C refined_c10 refined.txt -c T_B_M-contigs.db
+anvi-import-collection -p PROFILE.db -C refined_Bin_3 refined_Bin_3.txt -c T_B_M-contigs.db
+```
+The collection `refined_Bin_3` contains only the bins we extracted from the metabin Bin 3, while the collection `refined_c10` contains all of those bins in addition to the other metabins (that we didn't yet refine).
+
+You can then load up the `refined_c10` collection like this:
+
+```
+anvi-interactive -c T_B_M-contigs.db -p PROFILE.db \
+    --title "T-B-M co-assembly (CONCOCT_c10 collection)" \
+    --collection-autoload refined_c10
+```
+
+{% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/refined_bins_in_concoct_c10.png" caption="The updated CONCOCT_c10 collection in the T-B-M co-assembly." %}
+
+It's a bit messy, but hopefully you can pick out the locations where Bin 3 turned into all those new refined "sub-bins". They are dispersed throughout the co-assembly, intermixed with sequences from the other metabins. This shows again that the automatic binning from CONCOCT, even at a coarse 'metabin' level, is often at odds with the patterns emerging from the current sequence organization based on tetranucleotide frequency and differential coverage.
+
+It is a bit easier to see how fragmented the new, refined bins are in this organization if we load the `refined_Bin_3` collection to see only those 7 bins:
+
+```
+anvi-interactive -c T_B_M-contigs.db -p PROFILE.db \
+    --title "T-B-M co-assembly (refined bins collection)" \
+    --collection-autoload refined_Bin_3
+```
+
+{% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/refined_bins_only.png" caption="The 7 refined bins in the T-B-M co-assembly." %}
+
+You can see that most of the refined bins are broken up into several pieces when organized within this larger set of contigs. It is possible that the metabin 'Bin 3' was missing pieces of these population genomes, and that by adding the sequences that cluster with these bins, we could increase the bins' completeness scores. For instance, we could add the missing sequences between the sections of the _P. salivae_ bin -- though unfortunately doing this would increase only the size of the bin and not its completeness. There are also some sequences that cluster farther away from the rest of their bin -- these could represent potential contaminating sequences that we can now parse out using the additional evidence in this larger figure. For instance, we could remove the split of the TM7 bin that is farther away from the rest -- though unfortunately this would not decrease the redundancy of that bin. In both of these examples, since we don't have changes in the completeness and redundancy estimates to help us track the correctness of our choices, having additional evidence such as gene-level taxonomy or target genome lengths from corresponding reference genomes would be very helpful to justify the additions or removals.
+
+</details>
+
+As you can see, visualizing binning results in different contexts and different organizations can be, paradoxically, both confusing and helpful. We could spend ages trying to improve our binning results, and often only see a marginal improvement. Bin refinement is truly an art rather than an exact science. For the sake of this tutorial, we are done here.
