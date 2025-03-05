@@ -63,6 +63,8 @@ Anvi'o pangenome graph is currently only available in a seperate branch of the d
 cd ~/github/anvio
 git checkout pangraph-0.3.0
 git pull
+cd anvio/data/interactive
+npm i
 ```
 
 Please note that you will need to remember to switch back to the `master` branch once you are done here, and you can run the following command to do that when you are ready (don't do it now though):
