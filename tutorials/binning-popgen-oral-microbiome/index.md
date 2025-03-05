@@ -39,5 +39,118 @@ In fact, CONCOCT was run twice -- once by specifying `-c 10` to force the tool t
 
 If all we wanted to do was bin refinement, a read recruitment step wouldn't really be necessary here. After all, the automatic binning results were already generated using existing read recruitment results where the 5 time-series samples were mapped against their co-assembly. So we could have just taken the existing, publicly-available contigs and profile databases from [this Figshare](https://figshare.com/articles/dataset/Anvi_o_profiles_per_individual/12217802) and done our bin refinement on that. 
 
-But we want more than that. To answer question (2), we also want to see how the tongue-associated populations from the individual `T-B-M` differ from the tongue-associated populations in the three other individuals. And if we are going to map additional samples to the co-assembly anyway, might as well use them to help guide our bin refinement process.
+But we want more than that. To answer question (2), we also want to see how the tongue-associated populations from the individual `T-B-M` differ from the tongue-associated populations in the three other individuals (which means we need mapping information from 15 additional samples). And if we are going to map additional samples to the co-assembly anyway, might as well use them to help guide our bin refinement process.
+
+This is probably not a step that you want to run on a laptop. We did it on our high-performance computing cluster (HPC), using the snakemake workflow for metagenomics implemented in `anvi-run-workflow`. We will show you how we set this workflow up, but there is no need for you to run it yourself - you will be able to download the output of the workflow that is required for the rest of the tutorial in the next section.
+
+<details markdown="1"><summary>Show/Hide You want to run the mapping workflow yourself? Here is how to get the short read data. </summary>
+
+To get the metagenome samples, open the [SRA Run Selector for the BioProject PRJNA625082](https://www.ncbi.nlm.nih.gov/Traces/study/?query_key=2&WebEnv=MCID_67c08dce0e84b53f0ea4df2a&f=env_medium_sam_ss%3An&o=acc_s%3Aa) in your favorite web browser. In the filters on the left side, filter for 'host_tissue_sampled' = 'Tongue' and 'Assay_Type' = 'WGS' to get all the tongue samples. Then downloaded the metadata table as a CSV. You can then select only the time-series samples from our 4 individuals of interest by running the following code on the metadata table in your terminal:
+
+```
+# keep only accession and sample name
+cut -d ',' -f 1,45 Oral_Microbiome_SraRunTable.csv | tr ',' '\t' > oral_samples.txt
+# search for sample names of interest and extract to a new file
+for n in T_B_M T_B_F T_A_F T_A_M; do \
+  grep $n oral_samples.txt >> oral_samps_to_download.txt ; \
+done
+# extract only the accession for the samples of interest
+cut -f 1 oral_samps_to_download.txt > SRA_accession_list.txt
+```
+
+This creates a file of SRA accession numbers that becomes the input to the SRA download workflow. You should put that `SRA_accession_list.txt` file wherever you want to download those samples (for instance, on your HPC), and then get a default config file for the workflow:
+
+```
+anvi-run-workflow -w sra_download --get-default-config download.json
+```
+
+Feel free to open that config and change the parameters (for instance, number of threads) for each rule according to the computational resources available to you.
+
+When you are ready to download the samples, running the workflow is as simple as this:
+
+```
+anvi-run-workflow -w sra_download -c download.json
+```
+
+If you are running on a cluster, you may want to use the `--additional-params` (or `-A`) flag to pass cluster-specific scheduler commands and resource limits to snakemake using flags such as `--cluster`, `--resources`, `--jobs`, etc.
+
+Once the workflow is done, you should have a folder of FASTQ files for 20 metagenome samples. And then you'll be ready to run the mapping workflow!
+
+</details>
+
+So, how did we run the mapping workflow?
+
+First, we got our reference metagenome co-assembly for individual T-B-M by downloading the corresponding contigs and profile database from [this Figshare link](https://figshare.com/articles/dataset/Anvi_o_profiles_per_individual/12217802). Then, we extracted the FASTA file of the contigs, as well as both existing CONCOCT collections that were already stored in the profile database:
+
+```
+# extract le data
+tar -xvf T-B-M.tar.gz
+
+# update the dbs to match your current anvi'o version
+anvi-migrate --migrate-safe T-B-M/*.db
+
+# get our reference FASTA file
+anvi-export-contigs -c T-B-M/CONTIGS.db -o T_B_M-contigs.fa
+
+# export the metabin collection
+anvi-export-collection -p T-B-M/PROFILE.db -C CONCOCT_c10 -O CONCOCT_c10
+
+# export the standard CONCOCT collection
+anvi-export-collection -p T-B-M/PROFILE.db -C CONCOCT -O CONCOCT
+```
+
+We will use the FASTA file of the co-assembly contigs as the reference in our mapping workflow. The mapping workflow will create a new contigs database out of this FASTA file, and associate the mapping data to that new contigs database via a new (merged) profile database containing the mapping info from all 20 of our samples. Because we'll get a fresh profile database that won't have any of the existing collection information in it, we will need to import the collection data (using the collection files we just exported) so that we can do our bin refinement from there. Luckily, because we exported our reference FASTA directly from the contigs database, the split names in the exported collection files will match to the names in the new contigs database. But we are getting ahead of ourselves. First we actually have to run the workflow.
+
+On our HPC, we navigated to the folder where we downloaded the 20 metagenome samples that we want to map against this co-assembly. We created a samples-txt file that describes the paths to each of the samples (you can see the format [here](https://anvio.org/help/main/artifacts/samples-txt/)). Then we generated a fasta-txt file with the path to our reference co-assembly FASTA, and we got a default config file for the metagenomics workflow:
+
+```
+echo -e "name\tpath\nT_B_M\tT_B_M-contigs.fa" > fasta.txt
+anvi-run-workflow -w metagenomics --get-default-config map.json
+```
+
+After modifying the config file a bit to turn off unnecessary rules (like functional annotation) and increase the number of threads for each rule as much as our cluster could handle, we did a dry run (using the `-n` dry run flag and `-q` quiet flag passed directly to snakemake using `-A` or `--additional-params`) to see what the workflow would actually run:
+```
+anvi-run-workflow -w metagenomics -c map.json -A -n -q
+```
+
+And it showed us the following list of jobs:
+```
+job                                  count
+---------------------------------  -------
+annotate_contigs_database                1
+anvi_gen_contigs_database                1
+anvi_init_bam                           20
+anvi_merge                               1
+anvi_profile                            20
+anvi_run_hmms                            1
+anvi_run_scg_taxonomy                    1
+bowtie                                  20
+bowtie_build                             1
+gen_qc_report                            1
+gzip_fastqs                             40
+import_percent_of_reads_mapped          20
+iu_filter_quality_minoche               20
+iu_gen_configs                           1
+metagenomics_workflow_target_rule        1
+samtools_view                           20
+total                                  169
+```
+
+Everything looked okay in the dry run. We have 20 samples, so it makes sense that we are doing all the sample-specific jobs 20 times (the only exception, `gzip_fastqs`, works individually on R1 and R2 files, so it runs twice per samples).
+
+We very confidently started the workflow using the command:
+
+```
+anvi-run-workflow -w metagenomics -c map.json
+```
+
+And after it finished successfully, we took the resulting contigs database and merged profile database, and we imported the original collections of CONCOCT bins that we extracted previously:
+
+```
+anvi-import-collection -p PROFILE.db -C CONCOCT_c10 CONCOCT_c10.txt -c T_B_M-contigs.db
+anvi-import-collection -c T_B_M-contigs.db -p PROFILE.db -C CONCOCT CONCOCT.txt
+```
+
+These are the databases that were put into the datapack for this tutorial, which you can download in the next section.
+
 
