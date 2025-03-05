@@ -344,3 +344,7 @@ You can see that most of the refined bins are broken up into several pieces when
 </details>
 
 As you can see, visualizing binning results in different contexts and different organizations can be, paradoxically, both confusing and helpful. We could spend ages trying to improve our binning results, and often only see a marginal improvement. Bin refinement is truly an art rather than an exact science. For the sake of this tutorial, we are done here.
+
+## Population genetics
+
+This section of the tutorial is coming soon.
