@@ -110,7 +110,7 @@ Monday | Genomics | [https://anvio.org/tutorials/single-cell-genomics-workshop/#
 Tuesday | Metabolism | [https://anvio.org/tutorials/fmt-mag-metabolism/](https://anvio.org/tutorials/fmt-mag-metabolism/)
 Tuesday | Phylogenomics | [https://anvio.org/tutorials/single-cell-genomics-workshop/#phylogenomics](https://anvio.org/tutorials/single-cell-genomics-workshop/#phylogenomics)
 Wednesday | Pangenomics | [https://anvio.org/tutorials/single-cell-genomics-workshop/#pangenomics](https://anvio.org/tutorials/single-cell-genomics-workshop/#pangenomics)
-Wednesday | Pangenome graphs | TBD
+Wednesday | Pangenome graphs | [https://anvio.org/tutorials/pangenome-graphs/](https://anvio.org/tutorials/pangenome-graphs/)
 Thursday | Metagenomic read recruitment | [https://merenlab.org/tutorials/read-recruitment/](https://merenlab.org/tutorials/read-recruitment/)
 Thursday | Metagenomic binning | [https://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics](https://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics) and TBD
 Friday | Population genomics | [https://merenlab.org/tutorials/infant-gut/#chapter-vi-microbial-population-genetics](https://merenlab.org/tutorials/infant-gut/#chapter-vi-microbial-population-genetics) and TBD
