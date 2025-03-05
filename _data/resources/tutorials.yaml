@@ -72,7 +72,7 @@
   type: tutorial
   url: /tutorials/scaling-up/
   authors: [FlorianTrigodet]
-  summary: "Using publicly available genomes and metagenomes, and anvi'o build in snakemake workflow to contextualize a genome of interest."
+  summary: "Using publicly available genomes and metagenomes, and anvi'o built-in snakemake workflows to contextualize a genome of interest."
   tags: [metagenomics, pangenomics, hands-on, beginner]
 
 - title: Metabin refinement and population genetics using human tongue metagenomes
