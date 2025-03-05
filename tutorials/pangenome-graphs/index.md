@@ -93,6 +93,7 @@ cd ~/PANGENOME-GRAPHS-TUTORIAL/
 Assuming that we are not in the directory in which you wish to follow this tutorial, we are ready to download all six genomes:
 
 ``` bash
+mkdir original_files
 curl -L https://figshare.com/ndownloader/files/51363962 -o original_files/HIMB1702.fa
 curl -L https://figshare.com/ndownloader/files/51363959 -o original_files/HIMB1636.fa
 curl -L https://figshare.com/ndownloader/files/51364013 -o original_files/HIMB1641.fa
