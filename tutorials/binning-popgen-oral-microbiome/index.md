@@ -41,7 +41,7 @@ If all we wanted to do was bin refinement, a read recruitment step wouldn't real
 
 But we want more than that. To answer question (2), we also want to see how the tongue-associated populations from the individual `T-B-M` differ from the tongue-associated populations in the three other individuals (which means we need mapping information from 15 additional samples). And if we are going to map additional samples to the co-assembly anyway, might as well use them to help guide our bin refinement process.
 
-This is probably not a step that you want to run on a laptop. We did it on our high-performance computing cluster (HPC), using the snakemake workflow for metagenomics implemented in `anvi-run-workflow`. We will show you how we set this workflow up, but there is no need for you to run it yourself - you will be able to download the output of the workflow that is required for the rest of the tutorial in the next section.
+This is probably not a step that you want to run on a laptop. We did it on our high-performance computing cluster (HPC), using the {% include WORKFLOW name="metagenomics" text="snakemake workflow for metagenomics" %} implemented in {% include PROGRAM name="anvi-run-workflow" text="anvi-run-workflow" %}. We will show you how we set this workflow up, but there is no need for you to run it yourself - you will be able to download the output of the workflow that is required for the rest of the tutorial in the next section.
 
 <details markdown="1"><summary>Show/Hide You want to run the mapping workflow yourself? Here is how to get the short read data. </summary>
 
@@ -58,7 +58,7 @@ done
 cut -f 1 oral_samps_to_download.txt > SRA_accession_list.txt
 ```
 
-This creates a file of SRA accession numbers that becomes the input to the SRA download workflow. You should put that `SRA_accession_list.txt` file wherever you want to download those samples (for instance, on your HPC), and then get a default config file for the workflow:
+This creates a file of SRA accession numbers that becomes the input to the {% include WORKFLOW name="sra-download" text="SRA download workflow" %}. You should put that `SRA_accession_list.txt` file wherever you want to download those samples (for instance, on your HPC), and then get a default {% include ARTIFACT name="workflow-config" text="config file" %} for the workflow:
 
 ```
 anvi-run-workflow -w sra_download --get-default-config download.json
@@ -78,9 +78,9 @@ Once the workflow is done, you should have a folder of FASTQ files for 20 metage
 
 </details>
 
-So, how did we run the mapping workflow?
+So, how did we run the {% include WORKFLOW name="metagenomics" text="mapping workflow" %}?
 
-First, we got our reference metagenome co-assembly for individual T-B-M by downloading the corresponding contigs and profile database from [this Figshare link](https://figshare.com/articles/dataset/Anvi_o_profiles_per_individual/12217802). Then, we extracted the FASTA file of the contigs, as well as both existing CONCOCT collections that were already stored in the profile database:
+First, we got our reference metagenome co-assembly for individual T-B-M by downloading the corresponding {% include ARTIFACT name="contigs-db" text="contigs" %} and {% include ARTIFACT name="profile-db" text="profile" %} database from [this Figshare link](https://figshare.com/articles/dataset/Anvi_o_profiles_per_individual/12217802). Then, we extracted the FASTA file of the contigs, as well as both existing CONCOCT {% include ARTIFACT name="collection" text="collections" %} that were already stored in the profile database:
 
 ```
 # extract le data
@@ -99,16 +99,16 @@ anvi-export-collection -p T-B-M/PROFILE.db -C CONCOCT_c10 -O CONCOCT_c10
 anvi-export-collection -p T-B-M/PROFILE.db -C CONCOCT -O CONCOCT
 ```
 
-We will use the FASTA file of the co-assembly contigs as the reference in our mapping workflow. The mapping workflow will create a new contigs database out of this FASTA file, and associate the mapping data to that new contigs database via a new (merged) profile database containing the mapping info from all 20 of our samples. Because we'll get a fresh profile database that won't have any of the existing collection information in it, we will need to import the collection data (using the collection files we just exported) so that we can do our bin refinement from there. Luckily, because we exported our reference FASTA directly from the contigs database, the split names in the exported collection files will match to the names in the new contigs database. But we are getting ahead of ourselves. First we actually have to run the workflow.
+We will use the FASTA file of the co-assembly contigs as the reference in our mapping workflow. The mapping workflow will create a new contigs database out of this FASTA file, and associate the mapping data to that new contigs database via a new (merged) profile database containing the mapping info from all 20 of our samples. Because we'll get a fresh profile database that won't have any of the existing collection information in it, we will need to import the collection data (using the collection files we just exported) so that we can do our bin refinement from there. Luckily, because we exported our reference FASTA directly from the contigs database, the split names in the exported {% include ARTIFACT name="collection-txt" text="collection files" %} will match to the names in the new contigs database. But we are getting ahead of ourselves. First we actually have to run the workflow.
 
-On our HPC, we navigated to the folder where we downloaded the 20 metagenome samples that we want to map against this co-assembly. We created a samples-txt file that describes the paths to each of the samples (you can see the format [here](https://anvio.org/help/main/artifacts/samples-txt/)). Then we generated a fasta-txt file with the path to our reference co-assembly FASTA, and we got a default config file for the metagenomics workflow:
+On our HPC, we navigated to the folder where we downloaded the 20 metagenome samples that we want to map against this co-assembly. We created a {% include ARTIFACT name="samples-txt" text="samples-txt" %} file that describes the paths to each of the samples (you can see the format [here](https://anvio.org/help/main/artifacts/samples-txt/)). Then we generated a {% include ARTIFACT name="fasta-txt" text="fasta-txt" %} file with the path to our reference co-assembly FASTA, and we got a default {% include ARTIFACT name="workflow-config" text="config file" %} for the metagenomics workflow:
 
 ```
 echo -e "name\tpath\nT_B_M\tT_B_M-contigs.fa" > fasta.txt
 anvi-run-workflow -w metagenomics --get-default-config map.json
 ```
 
-After modifying the config file a bit to turn off unnecessary rules (like functional annotation) and increase the number of threads for each rule as much as our cluster could handle, we did a dry run (using the `-n` dry run flag and `-q` quiet flag passed directly to snakemake using `-A` or `--additional-params`) to see what the workflow would actually run:
+After modifying the config file a bit to turn on references mode, turn off unnecessary rules (like functional annotation), and increase the number of threads for each rule as much as our cluster could handle, we did a dry run (using the `-n` dry run flag and `-q` quiet flag passed directly to snakemake using `-A` or `--additional-params`) to see what the workflow would actually run:
 ```
 anvi-run-workflow -w metagenomics -c map.json -A -n -q
 ```
@@ -162,7 +162,7 @@ wget https://figshare.com/ndownloader/files/52819088 -O BINNING_POPGEN_TUTORIAL.
 tar -xvf BINNING_POPGEN_TUTORIAL.tar.gz && cd BINNING_POPGEN_TUTORIAL/
 ```
 
-You should now be inside the datapack directory on your terminal. The directory should contain 3 databases -- the contigs database containing the co-assembly of the 5 time-series tongue metagenomes from one individual (`T-B-M`), the profile database containing the mapping data from 20 tongue metagenome samples (from the same `T-B-M` individual as well as three others), and an auxiliary database with lots of extra info related to the mapping (which we will use later).
+You should now be inside the datapack directory on your terminal. The directory should contain 3 databases -- the {% include ARTIFACT name="contigs-db" text="contigs database" %} containing the co-assembly of the 5 time-series tongue metagenomes from one individual (`T-B-M`), the {% include ARTIFACT name="profile-db" text="profile database" %} containing the mapping data from 20 tongue metagenome samples (from the same `T-B-M` individual as well as three others), and an auxiliary database with lots of extra info related to the mapping (which we will use later).
 
 ### An initial look at the co-assembly
 
@@ -172,7 +172,7 @@ Let's take a look at what we have in the database.
 anvi-display-contigs-stats T_B_M-contigs.db
 ```
 
-A little interactive window should pop up in your browser, filled with useful tables of statistics about the co-assembly. At the top you will see a bar chart of the number of annotations to each single-copy core gene (SCGs; which can be annotated by running `anvi-run-hmms`) in the assembly contigs. Here is the chart for the `Bacteria_71` set of bacterial SCGs:
+A little interactive window should pop up in your browser, filled with useful tables of statistics about the co-assembly. At the top you will see a bar chart of the number of annotations to each single-copy core gene (SCGs; which can be annotated by running {% include PROGRAM name="anvi-run-hmms" text="anvi-run-hmms" %}) in the assembly contigs. Here is the chart for the `Bacteria_71` set of bacterial SCGs:
 
 {% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/T-B-M_hmm_hits_barchart.png" caption="A bar chart of hits to bacterial SCGs in the T-B-M co-assembly" %}
 
@@ -184,7 +184,7 @@ If you want to learn more about how anvi'o estimates the number of genomes, you 
 
 Anyway, we expect to find at least **25 bacterial populations** in this co-assembly. We're going to do our best to bin at least some of these populations.
 
-We will be refining metabins that were automatically binned by CONCOCT. Let's check which collections we have available for this co-assembly. Collections of bins are stored in the profile database, so we pass that database as a parameter to `anvi-show-collections-and-bins`:
+We will be refining metabins that were automatically binned by CONCOCT. Let's check which {% include ARTIFACT name="collection" text="collections" %} we have available for this co-assembly. Collections of bins are stored in the profile database, so we pass that database as a parameter to {% include PROGRAM name="anvi-show-collections-and-bins" text="anvi-show-collections-and-bins" %}:
 
 ```
 anvi-show-collections-and-bins -p PROFILE.db
@@ -229,7 +229,7 @@ anvi-interactive -c T_B_M-contigs.db -p PROFILE.db \
 
 The profile database comes with pre-loaded settings to make the visualization a bit more digestible. The sample layers are colored according to which individual they come from - in particular, the 5 `T-B-M` samples that were used to make the co-assembly are in dark green. We can see coverage patterns in the samples from the other individuals that were mapped to this co-assembly -- the other individuals' tongue microbiomes include similar populations to those in `T-B-M`'s -- which is good news for us because it means we can use the mapping data from the other samples to help guide our bin refinement.
 
-If you check the 'Items order' label at the top, you will see that the contigs (technically, their splits) are organized according to their shared sequence composition (tetranucleotide frequency) and differential coverage patterns across all 20 samples. The inner dendrogram displays this organization, and we often use this dendrogram to select which contigs to put into a bin -- because we expect that sequences originating from the same genome should have roughly the same composition and follow similar differential coverage patterns.
+If you check the 'Items order' label at the top, you will see that the contigs (technically, their [splits](https://anvio.org/vocabulary/#split)) are organized according to their shared sequence composition (tetranucleotide frequency) and differential coverage patterns across all 20 samples. The inner dendrogram displays this organization, and we often use this dendrogram to select which contigs to put into a bin -- because we expect that sequences originating from the same genome should have roughly the same composition and follow similar differential coverage patterns.
 
 Just out of curiousity, let's take a look at how the standard CONCOCT bins group the contigs from the co-assembly. You can _either_ load the bin collection `CONCOCT` from the 'Bins' panel in the interface, or close and re-open the interface with `--collection-autoload` in the command:
 
@@ -269,7 +269,7 @@ As expected, they have a lot of redundancy because each bin contains several mic
 
 Somewhat arbitrarily, we selected the second-largest bin, Bin 3, to refine for this tutorial. Based on its redundancy score, we should be able to obtain at least 4-5 bins out of this metabin (potentially more if the populations are incomplete).
 
-Here is the command to refine Bin 3. It will open the interactive interface again, but this time _only_ showing the contigs (technically, their splits) belonging to Bin 3.
+Here is the command to refine Bin 3. It will open the interactive interface again, but this time _only_ showing the contigs (technically, their [splits](https://anvio.org/vocabulary/#split)) belonging to Bin 3.
 
 ```
 anvi-refine -c T_B_M-contigs.db -p PROFILE.db -C CONCOCT_c10 -b Bin_3
