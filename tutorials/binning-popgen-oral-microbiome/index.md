@@ -347,4 +347,121 @@ As you can see, visualizing binning results in different contexts and different 
 
 ## Population genetics
 
+Now that we have some manually-refined bins, we can answer our second question: **Do the individuals in a couple share similar populations in their oral microbiomes?** Now it becomes relevant for you to know that the four individuals represented in our datapack were not chosen randomly -- they actually represent two couples. `T-B-M` is the partner of `T-B-F` (their sample layers were dark and light green in our interactive interface figures above), and `T-A-F` is the partner of `T-A-M` (their samples were the light and dark pink layers). So the question that we want to answer is: are the microbes from `T-B-M` more similar to the microbes from `T-B-F` than to either of the communities from `T-A-F` or `T-A-M`? We will answer this question using population genetics, whereby we will compare the single-nucleotide variant patterns of a microbial population across different samples to see if the variation is similar between the couples' samples.
+
+In theory, we could run our comparison using all of the sequence variants in the entire co-assembly, ignoring the boundaries of population genomes and utilizing all the data we have available. But in our case today, we are interested in visualizing the output with the anvi'o interactive interface, and unfortunately that places a limit on the number of variants we can handle (to around 10,000 variant positions). So to reduce the number of variants to a tractable amount, we'll be focusing on comparing one microbial population across the different samples.
+
+### Choosing a population (and samples) to focus on
+
+Which microbial population should we compare? In order to robustly call sequence variants, {% include PROGRAM name="anvi-profile" text="anvi-profile" %} requires a nucleotide position to have a minimum coverage of 10x (by default). If coverage is less than that minimum threshold at a given position, it won't identify any single-nucleotide variants (SNVs) at that position. This means that we need a population with enough mean coverage across our samples to be sure that we will have enough variant information for our comparison.
+
+Let's take a look at the coverage of our refined bins across our samples. If you haven't already, you can import our refined collection into the contigs database of the datapack:
+
+```
+anvi-import-collection -p PROFILE.db -C refined_Bin_3 refined_Bin_3.txt -c T_B_M-contigs.db
+```
+
+These are the 7 bins we refined from the metabin 'Bin 3' in the previous chapter. To get a table of coverage for our bins across samples, we will use the program {% include PROGRAM name="anvi-summarize" text="anvi-summarize" %}:
+
+```
+anvi-summarize -p PROFILE.db -c T_B_M-contigs.db -C refined_Bin_3
+```
+
+Once this command finishes, you should see a new directory of output containing a bunch of summary tables describing our collection of refined bins. Within that directory is a subfolder called `bins_across_samples`:
+
+```
+ls SUMMARY/bins_across_samples/
+```
+
+In the subfolder's content list, you should see files with `coverage` in the name. The mean coverage table (`mean_coverage.txt`) describes the average coverage across all sequences in a bin within each sample, and the Q2Q3 version (`mean_coverage_Q2Q3.txt`) does the same thing while ignoring positions with outlier coverage. `std_coverage.txt` is a table of the standard deviation of the coverage within a bin. We'll take a look at the `mean_coverage_Q2Q3.txt` file to get a sense of which microbial populations are consistently well-covered across most samples. 
+
+Currently that table has bins in the rows and samples in the columns, which makes it quite wide and unwieldy to look at in the terminal. Let's quickly transpose that matrix and print it out.
+
+```
+anvi-script-transpose-matrix SUMMARY/bins_across_samples/mean_coverage_Q2Q3.txt -o Q2Q3_transposed.txt
+cat Q2Q3_transposed.txt
+```
+
+You should see a table like the following:
+
+|**bins**|**Lancefieldella**|**Prevotella**|**Prevotella_jejuni**|**Prevotella_salivae**|**Prevotella_sp013333285**|**TM7**|**TM7_2**|
+|:--|:--|:--|:--|:--|:--|:--|:--|
+|T_A_F_01|8.624398598160925|57.32577760673921|74.06072578745524|19.911118604245285|8.064310610093008|9.488094623423084|15.545108593218611|
+|T_A_F_02|0.015263677285119348|1.5420123149848513|2.1574547997229856|0.2949089576359896|0.06715638131320503|0.49366065486367816|0.9984769300394033|
+|T_A_F_03|0.02246682035310184|8.101861089789537|9.317567758362014|1.4602965519362598|1.2397849218121701|1.778857991981489|1.6988925865059272|
+|T_A_F_04|0.14188530717151587|6.781893936720006|7.738333881487812|1.0989314577649887|0.5857676665668653|0.8848732806389906|0.9622060591749629|
+|T_A_F_05|1.407124426293932|28.50991484456179|36.46311976385477|8.783470983966787|3.243910057627215|3.3837129889662134|2.954984343688233|
+|T_A_M_01|29.377456764192477|91.63334614727292|124.39574466622528|41.245129450213|11.000324392691299|6.18456093548647|116.6954863262177|
+|T_A_M_02|3.3290187892432197|13.110854602630106|19.490913999359375|4.401445633341987|2.085665620813123|2.6945818599762634|29.841299352291415|
+|T_A_M_03|8.56451090767441|29.582234936676308|42.90967946927104|8.379770071964392|6.572803564589419|4.887071651673707|22.33547887845104|
+|T_A_M_04|13.3920646601564|11.314106440352706|23.720177173701227|5.0667417594724|5.029712971194443|2.367945503245309|14.930418827409262|
+|T_A_M_05|36.290522252746406|45.85105409097597|53.042064548813826|11.248817111954518|0.7518639393794053|1.7838180122731992|4.5802425454302576|
+|T_B_F_01|1.7702483684474821|1.6027102331849936|9.21934644468334|1.830647392609952|1.3912103628764767|1.7416655554709084|0.7785042023463407|
+|T_B_F_02|1.8205190905809783|1.8975659007331909|8.869138882987396|2.765277634934171|1.8410649857385608|2.025587164945343|1.752652101467555|
+|T_B_F_03|0.3962001344383488|0.4177397234911995|3.8385232774015003|0.3662106272303187|0.01973096035178188|0.2544967083110461|0.1993795379423582|
+|T_B_F_04|0.6128835782290079|0.2518106995967418|3.635915600131333|0.8019436425672709|0.3945328898411596|0.9475362090596007|0.6832072783089991|
+|T_B_F_05|0.19806195248522243|0.10907359058908365|2.5190935451216|0.778226949347181|0.035484870038638414|0.767851196053339|1.0391776169591254|
+|T_B_M_01|9.33432544972028|4.320107863480356|52.34011740514722|17.41956809869896|6.75780363575873|4.960450527533732|1.2024745303609714|
+|T_B_M_02|4.721418127572123|3.6743184761363663|50.643042289564306|11.992251829114474|16.520389700598955|9.704686439283101|1.7856559495994127|
+|T_B_M_03|0.350018524020889|0.12942546306354305|22.40594596487217|0.30016375964763664|3.4049773355202486|0.009784719222008345|0.0|
+|T_B_M_04|0.0047172938118133926|0.009479416890023894|3.8503129305499337|0.13539559715154753|0.36370656740904705|0.004292267768635698|0.0|
+|T_B_M_05|3.1652843135784403|0.16549884178629393|27.935287690671082|10.579499916252594|8.383464218270616|1.2780812203044571|4.849088857256864|
+
+Remembering that we want to have a lot of nucleotide positions with at least 10x coverage in order to have decent SNV profiles, what we are looking for is a microbial population that has fairly high overall coverage in as many samples as possible. From this table, it seems clear that none of the microbial populations we binned are going to fit perfectly, since the overall coverages are rather low. But the microbial population with the overall highest coverage is _Prevotella jejuni_, so that bin will be the target of our population genetics analysis.
+
+<details markdown="1"><summary>Show/Hide Want to look at this table using Python? Click here. </summary>
+
+Here is how to load this table in Python and compute the overall mean and median coverage of each bin across all samples.
+
+```python
+import pandas as pd
+df = pd.read_csv("Q2Q3_transposed.txt", sep="\t", index_col=0)
+df.mean()
+df.median()
+```
+In the results you should see that _Prevotella jejuni_ has the highest mean (and median) coverage across all samples.
+
+You can run these lines of code from the terminal if you start with the command `python` to open the Python interpreter. When you are done, run `exit()` to leave the Python interpreter.
+</details>
+
+You might remember from our binning results that the _Prevotella jejuni_ bin was rather small and incomplete (it didn't even have any SCGs annotated in it). So in reality, we'll only be using a subset of the _P. jejuni_ population genome. It is not ideal, but for our particular question it's more important that we have high enough coverage for proper SNV calling than to have a complete genome. 
+
+To that end, we should probably not work with any sample in which the _Prevotella jejuni_ bin has low coverage. We can parse the coverage table to keep only samples in which _P. jejuni_ has a non-outlier mean coverage of at least, let's say 15x. A mean coverage of 15x doesn't mean that all nucleotide positions in the bin will have >10x coverage (our minimum threshold for SNV calling), but at least it is likely that a majority of positions will cross that threshold.
+
+To get a list of samples in which this bin has at least 15x mean coverage, we can go back to our coverage table (the table directly in the summary output, `SUMMARY/bins_across_samples/mean_coverage_Q2Q3.txt`). Below, I export a list automatically using `python`, but you can feel free to use another way to do it:
+
+```python
+import pandas as pd
+df = pd.read_csv("SUMMARY/bins_across_samples/mean_coverage_Q2Q3.txt", sep="\t", index_col=0)
+df[df > 15].count(axis=1)
+df[df > 15].loc['Prevotella_jejuni',].dropna()
+samps = df[df > 15].loc['Prevotella_jejuni',].dropna().index.to_list()
+with open('samples_of_interest.txt', 'w') as f:
+     for s in samps:
+             f.write(f"{s}\n")
+```
+(A small reminder that you can leave the Python interpreter in the command line by running `exit()`).
+
+The output we should get is a text file, called `samples_of_interest.txt`, that contains the 11 samples in which the _P. jejuni_ bin has >15x mean (Q2Q3) coverage. This is what it should look like:
+
+```
+T_A_F_01
+T_A_F_05
+T_A_M_01
+T_A_M_02
+T_A_M_03
+T_A_M_04
+T_A_M_05
+T_B_M_01
+T_B_M_02
+T_B_M_03
+T_B_M_05
+```
+
+As you can see, we only have 3 individuals left in our analysis. `T-B-F` dropped out because _P. jejuni_ didn't have enough coverage in any of their samples. However, we still have one couple (`T-A-F` and `T-A-M`), so we can still take a stab at seeing if these two individuals harbor similar _P. jejuni_ populations.
+
+Let's move on to the population genetics comparison.
+
+### The population genetics part
+
 This section of the tutorial is coming soon.
