@@ -466,4 +466,162 @@ Let's move on to the population genetics comparison.
 
 ### The population genetics part
 
-This section of the tutorial is coming soon.
+Now that we know which bin to compare across which samples, we can ask anvi'o to profile the variation for us. Here is the command:
+
+```
+anvi-gen-variability-profile -c T_B_M-contigs.db \
+               -p PROFILE.db \
+               -C refined_Bin_3 \
+               -b Prevotella_jejuni \
+               --samples-of-interest samples_of_interest.txt \
+               --min-occurrence 5 \
+               --min-coverage-in-each-sample 20 \
+               --include-split-names \
+               --quince-mode \
+               -o Prevotella-SNVs.txt
+```
+
+The first few inputs should hopefully be self-explanatory -- we provide the co-assembly, the read recruitment information (which includes SNVs that were called by the {% include PROGRAM name="anvi-profile" text="anvi-profile" %} program during the mapping workflow), our collection of refined bins, the name of the bin that we want to compare, and the list of samples that we selected in the previous section.
+
+The `--min-occurrence 5` argument requires that a given SNV position has to be variable in at least 5 samples (out of the 11 samples that we specified in `samples_of_interest.txt`) in order to be reported. This threshold ensures that we get rid of spurious variants only present in a small fraction of samples that won't be very useful in our comparison anyway. The `--min-coverage-in-each-sample 20` is yet another filter, requiring a variant position to have at least 20x coverage in _each sample_ to be reported. The higher coverage requirement means that when a given position is variable in some samples but not in other samples, we can be sure we aren't accidentally missing variation in the latter samples just due to low coverage. It also means that when a position is variable, we can be sure it is a true variant and not a random sequencing or alignment error (although the 10x min coverage threshold in `anvi-profile` should already take care of this to some extent). These filters both reduce the number of potential variable positions we will look at, and their goal is to reduce noise.
+
+The other flags control the output of the program. `--include-split-names` asks for split names to be included in the output variability table, so that we could inspect splits with interesting SNV positions if we wanted to. `--quince-mode` ensures that each position that is variable in at least 1 sample (by default, or in our case, at least 5 samples due to our use of `--min-occurrence 5`) will have a corresponding entry from _every single sample_ in the output variability table, even if the position is not variable in some of those samples. As the output file will report variable nucleotide positions on a per-sample basis, you can imagine that 'Quince mode' basically completes the matrix of variability across samples -- in our case, every position in the co-assembly will have 11 corresponding entries in the output file (one entry for the position's variation in each of our 11 samples of interest). Finally, `-o` specifies the name of our output file.
+
+If you run the {% include PROGRAM name="anvi-gen-variability-profile" text="anvi-gen-variability-profile" %} command, you will see how the filters are working from the output on the terminal. We've copied some of the relevant output lines here:
+
+```
+Variability data ..............................................: 9,514,685 entries in 12,499 splits across 11 samples
+Entries after split name(s) of interest filter ................: 258,587 (9,256,098 were removed) [320 genes remaining]
+Entries after minimum occurrence of positions filter ..........: 224,760 (33,827 were removed) [315 genes remaining]
+Entries after quince mode filter ..............................: 281,259 (56,499 were added) [315 genes remaining]
+Entries after minimum coverage across all samples filter ......: 109,527 (171,732 were removed) [222 genes remaining]
+Num entries reported ..........................................: 109,527
+Num NT positions reported .....................................: 9,957
+```
+
+In other words, while there were ~9.5 million SNV positions in the entire `T-B-M` co-assembly, there were only 258,587 in our _Prevotella jejuni_ bin. When we kept only nucleotide positions that were variable (ie, SNVs at that position) in at least 5 samples, most of them (224,760) remained, which means there were a lot of SNVs that were consistently found across many samples. Filling out the matrix to include an entry for each position in each sample of interest (quince mode) obviously adds a bunch of entries, but many SNV positions drop out due to having <20x coverage in at least one sample. 
+
+So we ultimately end up with ~109k entries corresponding to about 10,000 variable nucleotide positions. That's quite a lot of variation for such a little bin. This population must be quite variable across the different samples (which could include variation over time in one individual and/or variation between the _P. jejuni_ populations living in different hosts).
+
+Let's take a look at the output. Here are the first 15 rows of the `Prevotella-SNVs.txt` output file:
+
+|**entry_id**|**unique_pos_identifier**|**pos**|**pos_in_contig**|**split_name**|**sample_id**|**corresponding_gene_call**|**in_noncoding_gene_call**|**in_coding_gene_call**|**base_pos_in_codon**|**codon_order_in_gene**|**codon_number**|**gene_length**|**coverage**|**cov_outlier_in_split**|**cov_outlier_in_contig**|**A**|**C**|**G**|**N**|**T**|**reference**|**consensus**|**competing_nts**|**departure_from_reference**|**departure_from_consensus**|**n2n1ratio**|**entropy**|**kullback_leibler_divergence_raw**|**kullback_leibler_divergence_normalized**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|0|5|210|210|c_000000009040_split_00001|T_A_F_01|-1|0|0|0|-1|0|-1|74|0|0|0|41|0|0|33|T|C|CT|0.5540540540540541|0.44594594594594594|0.8048780487804879|0.6872920626194337|0.039404109361533976|0.035203791606167406|
+|1|5|210|210|c_000000009040_split_00001|T_A_F_05|-1|0|0|0|-1|0|-1|49|1|1|0|20|0|0|29|T|T|CT|0.40816326530612246|0.40816326530612246|0.6896551724137931|0.6761830625863905|0.16322600016375025|0.15567570734592176|
+|2|5|210|210|c_000000009040_split_00001|T_A_M_01|-1|0|0|0|-1|0|-1|159|1|1|0|63|1|0|95|T|T|CT|0.4025157232704403|0.4025157232704403|0.6631578947368421|0.7064149414358419|0.1770423426114686|0.17419681090826308|
+|3|5|210|210|c_000000009040_split_00001|T_A_M_02|-1|0|0|0|-1|0|-1|37|1|1|0|18|0|0|19|T|T|CT|0.4864864864864865|0.4864864864864865|0.9473684210526315|0.6927819059876479|0.08611588837223735|0.08036406987905767|
+|4|5|210|210|c_000000009040_split_00001|T_A_M_03|-1|0|0|0|-1|0|-1|65|0|0|0|38|0|0|27|T|C|CT|0.5846153846153845|0.4153846153846154|0.7105263157894737|0.6787585090999517|0.024326467528090145|0.02082790549105755|
+|5|5|210|210|c_000000009040_split_00001|T_A_M_04|-1|0|0|0|-1|0|-1|29|0|0|0|23|0|0|6|T|C|CT|0.7931034482758621|0.20689655172413793|0.2608695652173913|0.5098156995816887|0.03219473253455685|0.03348351738952218|
+|6|5|210|210|c_000000009040_split_00001|T_A_M_05|-1|0|0|0|-1|0|-1|53|0|0|0|16|0|0|37|T|T|CT|0.30188679245283023|0.3018867924528302|0.43243243243243246|0.6124545112186727|0.30906205522550045|0.29907141962222006|
+|7|5|210|210|c_000000009040_split_00001|T_B_M_01|-1|0|0|0|-1|0|-1|142|1|1|1|136|0|0|5|T|C|CT|0.9647887323943662|0.04225352112676056|0.03676470588235294|0.19407878983877083|0.25972638102068185|0.26957433395305563|
+|8|5|210|210|c_000000009040_split_00001|T_B_M_02|-1|0|0|0|-1|0|-1|141|1|1|0|138|0|0|3|T|C|CT|0.9787234042553191|0.02127659574468085|0.021739130434782608|0.10296666046541245|0.2956367614999755|0.30118779093503445|
+|9|5|210|210|c_000000009040_split_00001|T_B_M_03|-1|0|0|0|-1|0|-1|29|0|0|0|29|0|0|0|T|C|CC|1.0|0.0|0.0|0.0|0.3821654642801116|0.3882050513943119|
+|10|5|210|210|c_000000009040_split_00001|T_B_M_05|-1|0|0|0|-1|0|-1|28|1|1|0|28|0|0|0|T|C|CC|1.0|0.0|0.0|0.0|0.3821654642801116|0.3882050513943119|
+|11|6|217|217|c_000000009040_split_00001|T_A_F_01|-1|0|0|0|-1|0|-1|74|0|0|1|36|2|0|35|C|C|CT|0.5135135135135135|0.5135135135135135|0.9722222222222222|0.8604143053978275|0.10146204711563164|0.09318172894505758|
+|12|6|217|217|c_000000009040_split_00001|T_A_F_05|-1|0|0|0|-1|0|-1|51|1|1|0|36|0|0|15|C|C|CT|0.2941176470588235|0.29411764705882354|0.4166666666666667|0.605797499372304|0.30224048427639116|0.2588360551347535|
+|13|6|217|217|c_000000009040_split_00001|T_A_M_01|-1|0|0|0|-1|0|-1|167|1|1|1|91|1|0|74|C|C|CT|0.45508982035928147|0.4550898203592814|0.8131868131868132|0.7527900280446478|0.10431591683037689|0.08234652861536867|
+
+The columns in this output file have been [explained elsewhere](https://merenlab.org/2015/07/20/analyzing-variability/#the-output-matrix), so we won't repeat ourselves here. You can at least notice that we have 11 entries for the same nucleotide position (position 210 in the table), which is due to the quince mode filter. This position is a `T` in the co-assembly contig sequence, but most of the samples have at least a portion of reads mapping to the position that have a `C` nucleotide instead -- in fact, `C` is the consensus nucleotide in samples like `T_A_F_01`, `T_A_M_03`, `T_A_M_04`, and all of the `T_B_M` samples. The changing consensus base in some samples suggests that the variation at this particular position changed over time in the individuals `T-A-F` and `T-A-M`, but as far as we know (from the samples we were able to include), it mostly stayed stable with a majority `C` base in the individual `T-B-M`. 
+
+Of course, manually examining all variable positions is not a tractable strategy to compare our samples. Ideally we would like to visualize the results to answer our target question.
+
+### Visualizing the variable positions
+
+#### The SNV interactive interface
+First, let's do it using the anvi'o interactive interface. We can do this by converting our {% include ARTIFACT name="variability-profile-txt" text="variability table" %} into a {% include ARTIFACT name="view-data" text="view-data" %} file, which just means a tab-delimited text file that the interactive interface can read from in `--manual` mode, and in this particular case will make the variable nucleotide positions into 'items' and decorating information about its variation in different samples into the 'layers'.
+
+Luckily, there is already a program that will consolidate and reformat our variability table for us, then create a profile database with a nice organization of the variable positions:
+
+```
+anvi-script-snvs-to-interactive Prevotella-SNVs.txt -o Prevotella-snvs
+```
+
+We can then visualize the variable positions by running the following command:
+
+```
+anvi-interactive --manual -p Prevotella-snvs/profile.db \
+                 --tree Prevotella-snvs/tree.txt \
+                 --view-data Prevotella-snvs/view.txt \
+                 --title "P. jejuni variable positions"
+```
+
+{:.notice}
+There is a technical limit to the number of variable positions that can be shown in the anvi'o interactive interface in this way (similar to how there is a limit for the number of splits when visualizing an assembly). We are below the limit in our case, but if you end up passing that limit when using your own data, you'll either need to filter out more positions to get below the limit, find an alternative way to visualize the data, or analyze the variability table without visualizing it.
+
+{% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/snv-interactive-plain.png" caption="The initial SNV interactive interface." %}
+
+The main layers of this interface show the `departure_from_consensus` value for each position in each sample that we analyzed. We also get layers to show the competing nucleotides, the corresponding gene caller ID (if the position is within a gene call), and its relative position within a codon (again, if it is within a protein-coding gene) for each variable position. 
+
+But currently the interface isn't really pretty. Let's make it match the colors from our co-assembly so that we can more easily distinguish between samples from different individuals (and different couples).
+
+To do this, we'll export the visualization settings from the co-assembly's profile database, and import those settings into this profile database:
+```
+anvi-export-state -p PROFILE.db -s default -o default.json
+anvi-import-state -p Prevotella-snvs/profile.db -n default -s default.json
+```
+
+Then we can simply re-run the interactive command:
+
+```
+anvi-interactive --manual -p Prevotella-snvs/profile.db \
+                 --tree Prevotella-snvs/tree.txt \
+                 --view-data Prevotella-snvs/view.txt \
+                 --title "P. jejuni variable positions"
+```
+
+{% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/snv-interactive-pretty.png" caption="A much prettier version of the SNV interactive interface." %}
+
+Much better. Now it is extra clear that the different individuals have distinct versions of the _P. jejuni_ population. In particular, there is not as much variation in the dark green `T-B-M` samples, which makes sense because this is the population that we have binned from the `T-B-M` co-assembly. The positions that do vary in this individual generally seem to agree with each other (low departure from consensus) at time points 1 and 2, meaning that there isn't much subpopulation variation in this individual at that time. But this seems to have shifted after time point 3, at which point extensive sub-population variation of _P. jejuni_ appeared.
+
+We can also see that there is high departure from consensus in the samples from the two other individuals, and more importantly, that these variable positions clearly match across those two individuals. `T-A-F` and `T-A-M` are a couple, so we already have an answer to our question! Couples share similar subpopulation variants in the oral microbiome with each other. We've only have evidence here from one microbial population, but trust us that it is more generally true across members of the oral microbiome.
+
+### Fixation index to compare samples
+
+What if we didn't want to rely on our eyes to compare the SNV patterns across samples and manually group samples with similar variable positions? We can compute a matrix of fixation index instead, and automatically cluster this matrix to group similar samples together. 
+
+Let's do it. All we need is to pass the {% include ARTIFACT name="variability-profile-txt" text="variability table" %} to {% include PROGRAM name="anvi-gen-fixation-index-matrix" text="anvi-gen-fixation-index-matrix" %}, cluster the output matrix to get a dendrogram in Newick format, and open the dendrogram in the interface:
+
+```
+anvi-gen-fixation-index-matrix --variability-profile Prevotella-SNVs.txt \
+                               --output-file FST_Prevotella.txt
+anvi-matrix-to-newick FST_Prevotella.txt -o FST_Prevotella.nwk
+anvi-interactive -t FST_Prevotella.nwk \
+                 -p FST_Prevotella.db \
+                 --manual
+```
+
+After a bit of fussing with the interface settings to convert the sample names into text (instead of the default colors), and binning the samples from individual `T-B-M`, you could see a tree that looks like the following:
+
+{% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/fixation-index-tree.png" caption="The fixation index tree." %}
+
+So, our eyes did not deceive us :) The samples from couple 'A' do truly share similar _P. jejuni_ populations, which are distinct from the _P. jejuni_ living in our individual from couple 'B'.
+
+### A network visualization
+
+Another way of displaying the same data would be to compute a network, where variable positions are small nodes, and each sample is a big node, and the big nodes are connected via edges to small nodes if the corresponding position is variable in the corresponding sample. Visualizing such a network is another strategy to answer the question of 'which samples come together based on having similar _P. jejuni_ populations', like we did with the fixation index tree, but this time you'd also be able to see the SNVs that bring the samples together. And -- you guessed it -- we have a helper program in anvi'o to get you the proper network file. 
+
+Here is the command to convert the variability table into a graph file that is compatible with the [network visualization software Gephi](https://gephi.org/):
+
+```
+anvi-gen-variability-network -i Prevotella-SNVs.txt \
+                             -o Prevotella-SNVs.gexf
+```
+
+If you open that file in the Gephi software, you can choose the 'Force Atlas 2' option in the 'Layout' panel on the left side, and hit the 'Run' button so that it computes an optimal arrangement of the nodes and edges in the network.
+
+{% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/force-atlas-2.png" caption="The Force Atlast 2 layout option for visualizing the network." %}
+
+We also recommend turning on the options 'LinLog mode' and 'Prevent Overlap' to make the network even easier to read. Once the layout algorithm has run for a bit and hopefully reached some sort of consensus arrangement, you can hit 'Stop' in the 'Layout' panel, and switch to the 'Preview' tab to view the final visualization. You can turn on the 'Show Labels' option and turn off the 'Show Edges' option in the settings on the left side to make it look less like a crazy spiderweb and more like a somewhat organized collection of named dots.
+
+The network visualization should hopefully look similar to this one:
+
+{% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/gephi-visualization.png" caption="Our Gephi visualization of the _P. jejuni_ SNV network." %}
+
+As you can see, once again the samples from the 'A' couple loosely group together, and are clearly distinct from the samples of our `T-B-M` individual.
+
+## Conclusion
+
+In our small yet realistically-complex tongue microbiome datapack, we've been able to achieve our two goals. We refined 7 bins from one CONCOCT metabin, including population genomes of expected oral microbes like TM7 and _Prevotella_. And, we used one of those refined bins to prove that humans in long-term relationships with each other share similar oral microbiota -- the reasons for this are likely obvious to you, but now you can see the proof with your own eyes. ;)
+
+We hope this little tutorial helped to demonstrate the reality of metabin refinement and the utility of population genetics to answer a realistic biological question. If you have any questions or suggestions, let us know in the comments.
