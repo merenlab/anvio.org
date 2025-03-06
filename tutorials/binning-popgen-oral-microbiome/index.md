@@ -440,6 +440,8 @@ with open('samples_of_interest.txt', 'w') as f:
      for s in samps:
              f.write(f"{s}\n")
 ```
+
+{:.notice}
 (A small reminder that you can leave the Python interpreter in the command line by running `exit()`).
 
 The output we should get is a text file, called `samples_of_interest.txt`, that contains the 11 samples in which the _P. jejuni_ bin has >15x mean (Q2Q3) coverage. This is what it should look like:
