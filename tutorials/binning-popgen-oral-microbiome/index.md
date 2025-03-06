@@ -483,7 +483,7 @@ anvi-gen-variability-profile -c T_B_M-contigs.db \
 
 The first few inputs should hopefully be self-explanatory -- we provide the co-assembly, the read recruitment information (which includes SNVs that were called by the {% include PROGRAM name="anvi-profile" text="anvi-profile" %} program during the mapping workflow), our collection of refined bins, the name of the bin that we want to compare, and the list of samples that we selected in the previous section.
 
-The `--min-occurrence 5` argument requires that a given SNV position has to be variable in at least 5 samples (out of the 11 samples that we specified in `samples_of_interest.txt`) in order to be reported. This threshold ensures that we get rid of spurious variants only present in a small fraction of samples that won't be very useful in our comparison anyway. The `--min-coverage-in-each-sample 20` is yet another filter, requiring a variant position to have at least 20x coverage in _each sample_ to be reported. The higher coverage requirement means that when a given position is variable in some samples but not in other samples, we can be sure we aren't accidentally missing variation in the latter samples just due to low coverage. It also means that when a position is variable, we can be sure it is a true variant and not a random sequencing or alignment error (although the 10x min coverage threshold in `anvi-profile` should already take care of this to some extent). These filters both reduce the number of potential variable positions we will look at, and their goal is to reduce noise.
+The `--min-occurrence 5` argument requires that a given SNV position has to be variable in at least 5 samples (out of the 11 samples that we specified in `samples_of_interest.txt`) in order to be reported. This threshold ensures that we get rid of spurious variants only present in a small fraction of samples that won't be very useful in our comparison anyway. The `--min-coverage-in-each-sample 20` is yet another filter, requiring a variant position to have at least 20x coverage in _each sample_ to be reported. The higher coverage requirement means that when a given position is variable in some samples but not in other samples, we can be sure we aren't accidentally missing variation in the latter samples just due to low coverage. It also means that when a position is variable, we can be sure it is a true variant and not a random sequencing or alignment error (although the 10x min coverage threshold in `anvi-profile` should already take care of this to some extent). Both of these filters reduce the number of potential variable positions we will look at, and their goal is to reduce noise.
 
 The other flags control the output of the program. `--include-split-names` asks for split names to be included in the output variability table, so that we could inspect splits with interesting SNV positions if we wanted to. `--quince-mode` ensures that each position that is variable in at least 1 sample (by default, or in our case, at least 5 samples due to our use of `--min-occurrence 5`) will have a corresponding entry from _every single sample_ in the output variability table, even if the position is not variable in some of those samples. As the output file will report variable nucleotide positions on a per-sample basis, you can imagine that 'Quince mode' basically completes the matrix of variability across samples -- in our case, every position in the co-assembly will have 11 corresponding entries in the output file (one entry for the position's variation in each of our 11 samples of interest). Finally, `-o` specifies the name of our output file.
 
@@ -537,6 +537,9 @@ Luckily, there is already a program that will consolidate and reformat our varia
 anvi-script-snvs-to-interactive Prevotella-SNVs.txt -o Prevotella-snvs
 ```
 
+{:.notice}
+Note that this script by default makes the `departure_from_consensus` column the value shown in the interactive interface for each position. This helps you distinguish between positions that are extremely uniform within a given sample and those that are extremely variable. If you want to visualize the `departure_from_reference` values instead (to identify at which positions the short reads do not agree with the reference assembly), you can use the parameter `--display-dep-from-reference`.
+
 We can then visualize the variable positions by running the following command:
 
 ```
@@ -572,13 +575,13 @@ anvi-interactive --manual -p Prevotella-snvs/profile.db \
 
 {% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/snv-interactive-pretty.png" caption="A much prettier version of the SNV interactive interface." %}
 
-Much better. Now it is extra clear that the different individuals have distinct versions of the _P. jejuni_ population. In particular, there is not as much variation in the dark green `T-B-M` samples, which makes sense because this is the population that we have binned from the `T-B-M` co-assembly. The positions that do vary in this individual generally seem to agree with each other (low departure from consensus) at time points 1 and 2, meaning that there isn't much subpopulation variation in this individual at that time. But this seems to have shifted after time point 3, at which point extensive sub-population variation of _P. jejuni_ appeared.
+Much better. Now it is extra clear that the different individuals have distinct versions of the _P. jejuni_ population. In particular, there is not as much variation in the dark green `T-B-M` samples, which makes sense because this is the population that we have binned from the `T-B-M` co-assembly. The positions that do vary in this individual generally seem to agree with each other (low departure from consensus) at time points 1 and 2, meaning that there isn't much subpopulation variation in this individual at that time. But this seems to have shifted after time point 3, at which point extensive subpopulation variation of _P. jejuni_ appeared.
 
-We can also see that there is high departure from consensus in the samples from the two other individuals, and more importantly, that these variable positions clearly match across those two individuals. `T-A-F` and `T-A-M` are a couple, so we already have an answer to our question! Couples share similar subpopulation variants in the oral microbiome with each other. We've only have evidence here from one microbial population, but trust us that it is more generally true across members of the oral microbiome.
+We can also see that there is high departure from consensus in the samples from the two other (partnered) individuals, and more importantly, that these variable positions clearly match across those two individuals with a similar amount of departure from consensus. So we know that they are different from the consensus at these positions, but we don't yet know if their specific nucleotides match between `T-A-F` samples and `T-A-M` samples. So we don't quite have  have an answer to our question just yet.
 
 ### Fixation index to compare samples
 
-What if we didn't want to rely on our eyes to compare the SNV patterns across samples and manually group samples with similar variable positions? We can compute a matrix of fixation index instead, and automatically cluster this matrix to group similar samples together. 
+To confirm whether the _P. jejuni_ populations are similar between `T-A-F` and `T-A-M`, we can compute a matrix of fixation index instead, and automatically cluster this matrix to group similar samples together. 
 
 Let's do it. All we need is to pass the {% include ARTIFACT name="variability-profile-txt" text="variability table" %} to {% include PROGRAM name="anvi-gen-fixation-index-matrix" text="anvi-gen-fixation-index-matrix" %}, cluster the output matrix to get a dendrogram in Newick format, and open the dendrogram in the interface:
 
@@ -595,7 +598,7 @@ After a bit of fussing with the interface settings to convert the sample names i
 
 {% include IMAGE width=40 path="/images/binning-popgen-oral-microbiome/fixation-index-tree.png" caption="The fixation index tree." %}
 
-So, our eyes did not deceive us :) The samples from couple 'A' do truly share similar _P. jejuni_ populations, which are distinct from the _P. jejuni_ living in our individual from couple 'B'.
+So, now we have our answer :) The samples from couple 'A' do truly share similar _P. jejuni_ populations, which are distinct from the _P. jejuni_ living in our individual from couple 'B'.
 
 ### A network visualization
 
