@@ -112,8 +112,8 @@ Tuesday | Phylogenomics | [https://anvio.org/tutorials/single-cell-genomics-work
 Wednesday | Pangenomics | [https://anvio.org/tutorials/single-cell-genomics-workshop/#pangenomics](https://anvio.org/tutorials/single-cell-genomics-workshop/#pangenomics)
 Wednesday | Pangenome graphs | [https://anvio.org/tutorials/pangenome-graphs/](https://anvio.org/tutorials/pangenome-graphs/)
 Thursday | Metagenomic read recruitment | [https://merenlab.org/tutorials/read-recruitment/](https://merenlab.org/tutorials/read-recruitment/)
-Thursday | Metagenomic binning | [https://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics](https://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics) and TBD
-Friday | Population genomics | [https://merenlab.org/tutorials/infant-gut/#chapter-vi-microbial-population-genetics](https://merenlab.org/tutorials/infant-gut/#chapter-vi-microbial-population-genetics) and TBD
+Thursday | Metagenomic binning | [https://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics](https://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics) and [https://anvio.org/tutorials/binning-popgen-oral-microbiome](https://anvio.org/tutorials/binning-popgen-oral-microbiome)
+Friday | Population genomics | [https://merenlab.org/tutorials/infant-gut/#chapter-vi-microbial-population-genetics](https://merenlab.org/tutorials/infant-gut/#chapter-vi-microbial-population-genetics) and [https://anvio.org/tutorials/binning-popgen-oral-microbiome/#population-genetics](https://anvio.org/tutorials/binning-popgen-oral-microbiome/#population-genetics)
 Friday | Workflows | [https://anvio.org/tutorials/scaling-up/](https://anvio.org/tutorials/scaling-up/)
 
 ## How much does it cost?
