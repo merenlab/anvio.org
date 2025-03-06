@@ -108,7 +108,7 @@ echo -e "name\tpath\nT_B_M\tT_B_M-contigs.fa" > fasta.txt
 anvi-run-workflow -w metagenomics --get-default-config map.json
 ```
 
-After modifying the config file a bit to turn off unnecessary rules (like functional annotation) and increase the number of threads for each rule as much as our cluster could handle, we did a dry run (using the `-n` dry run flag and `-q` quiet flag passed directly to snakemake using `-A` or `--additional-params`) to see what the workflow would actually run:
+After modifying the config file a bit to turn on 'reference mode', turn off unnecessary rules (like functional annotation), and increase the number of threads for each rule as much as our cluster could handle, we did a dry run (using the `-n` dry run flag and `-q` quiet flag passed directly to snakemake using `-A` or `--additional-params`) to see what the workflow would actually run:
 ```
 anvi-run-workflow -w metagenomics -c map.json -A -n -q
 ```
