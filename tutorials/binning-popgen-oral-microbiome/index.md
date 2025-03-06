@@ -182,7 +182,7 @@ Since we expect that each microbial population should have one copy of each of t
 
 If you want to learn more about how anvi'o estimates the number of genomes, you can click the little `[?]` link in the interactive interface, or just click on [this conveniently-placed link](https://anvio.org/help/main/programs/anvi-display-contigs-stats/#how-do-we-predict-the-number-of-genomes) to the same documentation.
 
-Anyway, we expect to find at least **25 bacterial populations** in this co-assembly. We're going to do our best to bin at least some of these populations.
+Anyway, we expect to find **at least 25 bacterial populations** in this co-assembly (there will probably be even more than that because many of the populations are likely to be incomplete). We're going to do our best to bin at least some of these populations.
 
 We will be refining metabins that were automatically binned by CONCOCT. Let's check which {% include ARTIFACT name="collection" text="collections" %} we have available for this co-assembly. Collections of bins are stored in the profile database, so we pass that database as a parameter to {% include PROGRAM name="anvi-show-collections-and-bins" text="anvi-show-collections-and-bins" %}:
 
