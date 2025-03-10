@@ -126,6 +126,71 @@ We thank the [Universitätsgesellschaft Oldenburg e.V. (UGO)](https://uol.de/ugo
 
 **The application deadline was January 10, 2025**.
 
+## List of Faculty
+
+The following individuals from the HIFMB were responsible for organizing, teaching, setting-up and running the workshop.
+
+| **Name** | **Role** |
+|:---|:---|
+Florian Trigodet | Primary Organizer & Faculty
+Iva Veseli | Primary Organizer & Faculty
+Meren | Organizer & Faculty
+Alexander Henoch | Faculty, Teaching Assistant & Coffee Break Manager
+Katy Lambert-Slosarska | Faculty, Teaching Assistant & Coffee Break Manager
+Metehan Sever | Teaching Assistant, On-the-fly Bug Fixer
+Raïssa Meyer | Coffee Break Assistant & Workshop Participant
+
 ## List of participants
 
-TBA.
+The following **48** individuals attended the workshop.
+
+|**Full Name**|**University / Institution**|
+|:--|:--|
+|Abigail Turnlund|Helmholtz Institute for Functional Marine Biodiversity at the |niversity of Oldenburg (HIFMB)
+|Alberto Scarampi|University of Warwick
+|Andrian P. Gajigan|University of Hawaii at Manoa
+|Angela M. Marulanda G.|ICBM - Carl von Ossietzky Universität Oldenburg
+|Ankish Arya|Indian Institute of Information Technology (Allahabad, Prayagraj)
+|Archontis Goumagias|University Medical Center Groningen (UMCG)
+|Balamurugan Sadaiappan|United Arab Emirates University
+|Berna de Vries|University of Vienna
+|Carolina Salvador Duque Estrada|Federal University of Rio de Janeiro
+|Carolina Targon Tiberio|University of São Paulo
+|Caroline Sophie Winther-Have|University of Copenhagen
+|Claudia Pogoreutz|University of Perpignan Via Domitia
+|Emeline Vidal|Marine Biological Laboratory
+|Fabian Moye|Helmholtz Institute for Functional Marine Biodiversity at the Unive|sity of Oldenburg (HIFMB)
+|Fengqing Wang|Max Planck Institute for Marine Microbiology
+|Garance Gauthier|Max Planck Institute for Marine Microbiology
+|Ibrahim Cem Özsefil|Max Planck Institute for Marine Microbiology
+|Joseane Aparecida Marques|Helmholtz Institute for Functional Marine Biodiversit| at the University of Oldenburg (HIFMB)
+|Judith Giel|Universität Bremen
+|Keith Mluleki Dube|Stellenbosch University
+|Kristina Weinert|Max Planck Institute for Marine Microbiology
+|Laurice Beatrice Raphaelle dela Pena|University of the Philippines
+|Manzoor Ahmad|United Arab Emirates University
+|Mariana Martinez Noriega|National Autonomous University of Mexico
+|Marianne Lalli|University of Helsinki
+|Marie-Therese Fischer|University of Vienna
+|Mertcan Esti|Max Planck Institute for Marine Microbiology
+|Michael Dills|University of Tromsø - The Arctic University of Norway
+|Mike Smykala|Carl von Ossietzky Universität Oldenburg
+|Nathan Ernster|University of Innsbruck
+|Nikita Rajkumari|Indian Institute of Science Education and Research Kolkata, In|ia
+|Nonsikelelo Precios Hlongwa|Stellenbosch University
+|Paula García Martínez|King Abdullah University of Science and Technology
+|Pedro Junger|Institut de Biologie de l'École Normale Supérieure (IBENS)
+|Pranita Mishra|Max Planck Institute for Marine Microbiology
+|Raïssa Meyer|Helmholtz Institute for Functional Marine Biodiversity at the Univ|rsity of Oldenburg (HIFMB)
+|Renato Gamba Romano|University of São Paulo / Oceanographic Institute
+|Sabrin Abdelghany|ZMT Institute
+|Samuel Huerten|ICBM - Carl von Ossietzky Universität Oldenburg
+|Sergio Garcia Manogil Fernandez|IE University
+|Shivang Pravin Bhanushali|University of Turku
+|Shiyi Liu|Radboud University
+|Siyu Mei|University of Groningen
+|Thomas Klammsteiner|University of Innsbruck
+|Vladimir Mikryukov|University of Tartu
+|Xianghui Kong|Max Planck Institute for Marine Microbiology
+|Xinyu Tang|Max Planck Institute for Marine Microbiology
+|Yueqing Wang|Universität Bremen
