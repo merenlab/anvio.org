@@ -1,0 +1,102 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+
+{% include _header.html %}
+
+<div class="container text-center article">
+  <div class="row">
+    <div class="col-md-10 my-auto">
+
+      <h1>{{ page.title }}</h1>
+
+      {% if page.authors %}
+          {% include _content_authors.html %}
+      {% endif %}
+
+      {% if page.notoc == true %}
+      {% else %}
+       <div id="markdown-toc" class="toc">
+          <header><h3 id="toc-header"><i class="fa fa-book"></i> Table of Contents</h3></header>
+
+          <div id="drawer">{% include _toc.html html=content %}</div>
+      </div>
+      {% endif %}
+
+      {{ content }}
+
+      {% if page.no_social_share != false %}
+          {% include _social_share.html %}
+      {% endif %}
+
+      {% if page.comments == true %}
+        {% include _disqus_comments.html %}
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Fetch the JSON from a URL
+  fetch('/people/contributor-stats.json')
+    .then(response => response.json())
+    .then(jsonData => {
+      for (const [username, data] of Object.entries(jsonData)) {
+        const target = document.getElementById(username + '-github-commits-graph');
+        if (!target) continue;
+
+        const canvas = document.createElement('canvas');
+        canvas.id = `chart-${username}`;
+        canvas.width = 900;   // ⬅️ Fixed width
+        canvas.height = 300;  // ⬅️ Fixed height
+        canvas.style.marginTop = '10px';
+        canvas.style.marginBottom = '10px';
+        canvas.style.marginRight = '10px';
+
+        target.appendChild(canvas);
+
+        const years = Object.keys(data.commits_per_year);
+        const commits = Object.values(data.commits_per_year);
+
+        new Chart(canvas.getContext('2d'), {
+          type: 'line',
+          data: {
+            labels: years,
+            datasets: [{
+              label: 'Num changes',
+              data: commits,
+              borderColor: 'rgba(75, 192, 192, 1)',
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              tension: 0.3,
+              fill: true
+            }]
+          },
+          options: {
+            plugins: {
+              title: { display: false },
+              legend: { display: false }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                suggestedMax: 20,
+                title: { display: true, text: 'Number of changes' }
+              },
+              x: {
+                title: { display: false }
+              }
+            }
+          }
+        });
+      }
+    })
+    .catch(error => {
+      console.error('Error loading JSON:', error);
+    });
+</script>
+
+{% include _footer.html fixed_footer="true" %}
