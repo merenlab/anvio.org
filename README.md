@@ -18,10 +18,10 @@ You can just run this command to install `Webrick` toolkit:
 bundle add webrick
 ```
 
-After `Webrick` succesfully installed, you can run this web page on your local using the following command: 
+After `Webrick` succesfully installed, you can run this web page on your local using the following command:
 
 ```
-bundle exec jekyll serve --incremental --trace
+rm -rf _site && bundle exec jekyll serve --incremental --trace
 ```
 
 # Contributing
@@ -40,19 +40,26 @@ If you would like to write a blog post or tutorial for the anvi'o web page, anvi
 
 # Upkeeping
 
-A lot of the components of this web page is dynamic, but others require some hands-on upkeeping (at least for now). You can update EVERYTHING all at once by running this command:
+A lot of the components of this web page are **automatically generated** and YOU SHOULD NOT MAKE ANY MANUAL CHANGES TO THE CONTENT UNLESS YOU ARE 100% SURE THAT YOU SHOULD :)
+
+Luckily, you can update EVERYTHING all at once, and synchronize author and help pages to the latest in anvi'o codebase, by running this command in your local copy of the repository:
 
 ``` bash
 _scripts/update-all.sh
 ```
 
-**Please remember**: Everything above and below assumes that you are tracking the development branch of anvi'o, and you are working with an up-to-date repository, unless otherwise is stated. Please don't forget to double-check `git status` to make sure you know what you're about to commit.
+**Please remember** the following items before doing this:
+
+* Every script `update-all.sh` runs will assumes that you are in the root directory of the web repository (such as `~/github/anvio.org/`), so don't use absolute paths to run anything under `_sripts` directory from somewhere else.
+* Every script will assume that you have an anvi'o git repository at `~/github/anvio` -- please make sure it is the case, and make sure you have checked out the `master` branch with a clean `git pull` (so your repository is fully synced with the upstream).
+* Every script will ALSO assume that you are in an anvi'o environemnt. I.e., when you run `anvi-self-test --version` you do not get a command not found error, and see the `anvio-dev` as the version (i.e., anvi'o is not installed on your system but you are set up to be tracking the active development repo).
+* Make sure to run the `update-all.sh` (or any other script for that matter) while you are *not* running the Jekyll server. You should start your local Jekyll server to see how things are only after the scripts are successfully finished running. And you should always run the Jekyll locally to make sure you are not getting any weird errors during runtime and things are looking as you expect them to look :)
 
 The following sections clarify individual updates that are run by `update-all.sh` script. If you run that, you don't need to run any of the ones below, but they're here for posterity.
 
 ## Update people data
 
-To update the list of anvi'o authors and contributors, run this (assuming your anvi'o code directory is at `~/github/anvio`):
+To update the list of anvi'o authors and contributors, as well as their GitHub contributions, run this (everything below will assume that you have the up-to-date git repository for anvi'o at  *and* you have checkedout the *master* branch):
 
 ``` bash
 _scripts/update-people-data.sh

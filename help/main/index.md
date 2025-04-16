@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **15 Apr 25 10:08:58** for anvi'o version **8-dev (marie)**.
+The help contents were last updated on **16 Apr 25 15:36:38** for anvi'o version **8-dev (marie)**.
 
 
 {% include _project-anvio-version.html %}

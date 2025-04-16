@@ -39,6 +39,18 @@
     font-weight: bold;
 }
 
+.mini-contributions-header-within-persons-info-display {
+    border: 1px solid black;
+    border-radius: 5px;
+    background: #d8eded;
+    padding: 3px;
+    padding-left: 7px;
+    font-size: smaller;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 900px;
+}
+
 .anvio-person-info {
     display: inline-table;
     float: left;
