@@ -1,0 +1,24 @@
+{% assign stats = site.data.contributor-stats[person.github] %}
+<div class="anvio-person" id="{{ person.github }}">
+    <div class="anvio-person-info">
+      {% if person.avatar %}
+      <div class="anvio-person-photo"><img class="anvio-person-photo-img" src="/images/avatars/{{ person.avatar }}" /></div>
+      {% else %}
+      <div class="anvio-person-photo"><img class="anvio-person-photo-img" src="/images/avatars/no-avatar.png" /></div>
+      {% endif %}
+      <div class="anvio-person-info-box">
+          <span class="anvio-person-name"><a href="/people/{{ person.github }}" id="anvio-person-link">{{ person.name }}</a></span>
+          <span class="anvio-person-bio">{{ person.bio }}</span>
+          <div class="anvio-person-social-box">{% include person/display_social_media_links.html %}</div>
+          {% if stats.total_commits != 0 %}
+          <div class="mini-contributions-header-within-persons-info-display">Number of changes in anvi'o code: <b><a style="font-size:100%; color: darkred;" href="https://github.com/merenlab/anvio/commits?author={{ person.github }}">{{ stats.total_commits }}</a></b></div>
+          <div class="github-commits-graph" id="{{ person.github }}-github-commits-graph"></div>
+          <div class="mini-contributions-header-within-persons-info-display">Most changes in: <a style="font-size:100%; color: darkred;" href="https://github.com/merenlab/anvio/blob/master/{{ stats.top_file }}">{{ stats.top_file }}</a></div>
+          <div class="mini-contributions-header-within-persons-info-display">Latest commit: <i>"{{ stats.latest_commit_message }}"</i> on <a style="font-size:100%; color: darkred;" href="https://github.com/merenlab/anvio/commit/{{ stats.latest_commit_hash }}">{{ stats.latest_commit_date }}</a></div>
+          {% else %}
+          <div class="mini-contributions-header-within-persons-info-display">{{ person.name | split: " " | first }} has not yet contributed to the codebase, but they are recognized for less tangible but equally valuable contributions, such as providing input to solve technical issues or lending their expertise to create new workflows in anvi'o.</div>
+          {% endif %}
+      </div>
+    </div>
+</div>
+<br />
