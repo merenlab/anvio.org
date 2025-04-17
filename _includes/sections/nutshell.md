@@ -12,6 +12,15 @@ As a principle, anvi'o does not track its users by any means, but based on [self
 
 We **welcome you** to join in our growing international community, and we look forward to hearing from you. Please share your concerns, ideas, and feature requests with the anvi'o community, or ask your questions on microbial 'omics on our {% include _discord_invitation_button.html %} group.
 
+<hr />
+
+Want to see just a little more? Here is a seminar given by {% include person/display_mini_single.html github="ivagljiva" %} to introduce anvi'o to [the Center for Dark Energy Biosphere Investigations](https://www.darkenergybiosphere.org/) (C-DEBI) by showcasing a few of the [anvi'o programs](/help/main/) and their applications.
+
+{:.notice}
+If you wish, you can also start from [an earlier timepoint](https://youtu.be/P8I6hAq4dkM?si=o5wOVfbbmUzyozi9&t=633) to this seminar to have a more comprehensive introduction to the platform.
+
+<iframe width="900" height="506" src="https://www.youtube-nocookie.com/embed/P8I6hAq4dkM?si=Etp-9sBvDbkuvyWm&amp;start=1152" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ### Funding and Support
 
 Anvi'o is here thanks to the support from,
