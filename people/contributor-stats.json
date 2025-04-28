@@ -21,7 +21,7 @@
         "latest_commit_date": "15 April 2025"
     },
     "FlorianTrigodet": {
-        "total_commits": 82,
+        "total_commits": 86,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -33,13 +33,13 @@
             "2021": 5,
             "2022": 10,
             "2023": 35,
-            "2024": 20,
-            "2025": 1
+            "2024": 22,
+            "2025": 3
         },
         "top_file": "anvio/inversions.py",
-        "latest_commit_message": "Update prodigal-single-mode help message",
-        "latest_commit_hash": "2e2c9eebcbedfa394a739fa0dff43ef151a26931",
-        "latest_commit_date": "24 February 2025"
+        "latest_commit_message": "Check for unmapped reads",
+        "latest_commit_hash": "9b2e61b8e7bb04917aeb32a511d0aecfb0fdd2a7",
+        "latest_commit_date": "13 March 2025"
     },
     "watsonar": {
         "total_commits": 10,
@@ -105,7 +105,7 @@
         "latest_commit_date": "16 December 2024"
     },
     "ivagljiva": {
-        "total_commits": 2210,
+        "total_commits": 2212,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 281,
             "2023": 174,
             "2024": 221,
-            "2025": 18
+            "2025": 20
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "a follow up to commit c82b6361 that allows this to work if the aa_sequences column is not provided :)",
-        "latest_commit_hash": "04be1e744f7a07704c2f3bb46b2e9bb0e511f6c8",
-        "latest_commit_date": "14 April 2025"
+        "latest_commit_message": "remove duplicate entry_id column",
+        "latest_commit_hash": "0933fd160bb49408209a74b6526dc3b336fcd45e",
+        "latest_commit_date": "24 April 2025"
     },
     "moritzbuck": {
         "total_commits": 1,
@@ -628,6 +628,27 @@
         "latest_commit_message": "Adding developer details",
         "latest_commit_hash": "a36b854f39f49558f326fd199d2704dc7788796e",
         "latest_commit_date": "15 April 2025"
+    },
+    "katysloz": {
+        "total_commits": 3,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 3
+        },
+        "top_file": "anvio/data/misc/PEOPLE/DEVELOPERS.yaml",
+        "latest_commit_message": "Add files via upload",
+        "latest_commit_hash": "e81f9239b2bbb1bf3f430b9bc17d63900c253356",
+        "latest_commit_date": "28 April 2025"
     },
     "tdelmont": {
         "total_commits": 0,
