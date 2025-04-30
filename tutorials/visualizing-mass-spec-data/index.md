@@ -6,9 +6,12 @@ excerpt: "A reproducible tutorial that demonstrates an example with FT-ICR-MS me
 date: 2025-04-29
 tags: [metabolism, biogeochemistry, mass-spec, hands-on, beginner]
 comments: true
+image:
+  feature: /images/visualizing-mass-spec-data/Figure_13.png
+  display: false
 ---
 
-This is a **tutorial to explain how the anvi'o interactive interface can be used to visualize FT-ICR-MS data** that relies upon a real-world dataset.
+This is a **tutorial to explain how the anvi'o interactive interface can be used to visualize FT-ICR-MS data** that relies upon a real-world dataset. Some parts of the tutorial will be very specific to the dataset investigated for the particular reserach qeustion here, but once the input data is ready in an anvi'o compatible form, it will be much easeir for anyone to recognize how *their* data could also fit into that form.
 
 {:.notice}
 This tutorial is tailored for anvi'o `v8` but will probably work for later versions as well (perhaps with minor command modifications). You can learn the version of your installation by running `anvi-interactive -v` in your terminal.
@@ -17,15 +20,15 @@ This tutorial is tailored for anvi'o `v8` but will probably work for later versi
 
 As part of a recent project with [Sinikka Lennartz](https://uol.de/icbm/arbeitsgruppen/mitarbeiter-1/sinikka-lennartz) and [Carina Bunse](https://www.gu.se/en/about/find-staff/carinabunse), I was interested in investigating how microbial interactions influence the composition of dissolved organic matter (DOM).
 
-To do this, we selected four bacterial isolates originating from the same North Sea water sample and grew them in a full factorial setup. We generated every possible combination of these isolates, ranging from individual strains to two-, three-, and one four-member consortia, as shown here:
+To do this, we selected four bacterial isolates originating from the same North Sea water sample and grew them in a full factorial setup. We grew isolates in every possible combination, ranging from individual strains all by themselves to two-, three-, and one four-member consortia, as shown here:
 
 {% include IMAGE path="/images/visualizing-mass-spec-data/Figure_1.png" width=90 caption="Full factorial setup of four bacterial isolates, all belonging to the Roseobacter clade. We are using the identifiers given to them by Sarah Hahnke, who originally isolated these strains—which is why they are called SH :)"  %}
 
 We knew that each of these strains grew well in minimal artificial seawater medium, and for our experiment, we provided glucose as the source of carbon and energy. The central idea was to survey the fate of compounds produced by pure cultures in the presence of other bacteria.
 
-Using [solid-phase extraction with PPL cartridges](https://doi.org/10.4319/lom.2008.6.230), we isolated dissolved organic matter from each culture at approximately mid-exponential phase. Some may refer to this microbially produced DOM as the "exometabolome," though this term is debated, as many of the compounds we observed do not appear to be associated with microbial metabolism—at least as far as we can currently tell. We also generated medium and cartridge blanks and then measured all samples on the FT-ICR-MS in the [Marine Geochemistry Group at the University of Oldenburg](https://uol.de/en/icbm/marine-geochemistry). This instrument provides highly resolved mass measurements that enable us to assign molecular formulas to each mass with high accuracy.
+Using [solid-phase extraction with PPL cartridges](https://doi.org/10.4319/lom.2008.6.230), we isolated dissolved organic matter from each culture at approximately mid-exponential phase. Some may refer to this microbially produced DOM as the "exometabolome", though this term is debated, as many of the compounds we observed do not appear to be associated with microbial metabolism (at least as far as we can currently tell). We also generated medium and cartridge blanks and then measured all samples on the FT-ICR-MS. All measurements took place in the [Marine Geochemistry Group at the University of Oldenburg](https://uol.de/en/icbm/marine-geochemistry).
 
-Unlike the more common LC-MS/MS measurements, FT-ICR-MS data are one-dimensional. This means we obtain very accurate mass values, but no structural information, and therefore cannot assign precise molecular identities. We used the in-house developed software [ICBM-OCEAN](https://rhea.icbm.uni-oldenburg.de/geomol/) to assign molecular formulas to each mass, following a set of predefined rules, which you can learn more about [here](https://doi.org/10.1021/acs.analchem.9b05659).
+The FT-ICR-MS provides highly resolved mass measurements that enable us to assign molecular formulas to each mass with high accuracy. That said, unlike the more common LC-MS/MS measurements, FT-ICR-MS data are one-dimensional. This means we obtain very accurate mass values, but no structural information, and therefore cannot assign precise molecular identities. We used the in-house developed software [ICBM-OCEAN](https://rhea.icbm.uni-oldenburg.de/geomol/) to assign molecular formulas to each mass, following a set of predefined rules, which you can learn more about [here](https://doi.org/10.1021/acs.analchem.9b05659).
 
 This is what the final output looks like:
 
@@ -40,21 +43,19 @@ This is what the final output looks like:
 |-1|97.0658857911469|0.0244307|98.073164619|C_6 H_10 O_1|C6H10O|C_6 H_9 O_1|4610|6|1.667|0.167|6|10|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|2235191.82163837|2143264.7712766|97.0658851501465|0.0471851155954791|188|0.2|0.27|2|0|0|0|0|0|0|1|0|1|0|0|0|0|3.47|778.86|NA|257664.49|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|2365.01778253981|NA|245828.727061257|NA|NA|50|FALSE|NA|4491878|5532839|2823098|2705824|2847547|2437464|6529451|5433047|5753153|6955344|2905538|NA|NA|2900433|2552372|3969283|NA|NA|7802772|7698282|NA|2672999|8713305|7854462|12705028|11974416|NA|NA|NA|NA|NA|NA|4074415|2444224|2867961|2780063|4310235|3448835|4128310|3048258|2791738|2921810|3879740|4043538|2600214|2593384|NA|2611272|4858024|6172508|NA|NA|3081045|3438012|4129241|3358291|NA|NA|9562812|10407613|14572698|14956483|14983140|13619310|12286014|12364931|14652015|14109715|3036124|3707595|3571848|4505563|NA|NA|3963270|4886699|3987618|3922432|3720864|2875360|2255038|2719899|5058831|4336240|3301307|NA|NA|NA|NA|NA|5013382|4555531|6797981|7175407|4146514|4310286|23757506|23140464|21086872|20334034|32481128|32124570|13984781|13311580|NA|NA|7402349|7286222|6476750|6620342|2557104|3651388|11019250|10941901|8634860|7921655|7383399|8026586|8394433|14248575|13884317|16399338|16972976|12112813|11518904|3505636|2646581|4254529|4118787|3350895|4609182|9340119|7845562|7662841|7783779|5464018|5451503|7349404|7291681|3976431|4429670|7444392|6424350|4504773|5091984|6492777|5000463|4858526|4143854|5732599|5612066|7137111|7884878|6440002|6038448|5915201|5933493|5935257|5317650|10893583|10908350|7899672|8411780|10956269|11837026|11147549|10341625|6139842|6975575|4298425|3899331|2537862|3014794|5070807|4863370|4339548|3778091|10365555|10952818|12261099|11482405|8796598|9095216|6900613|5336998|8955269|9853224|5093397|5137758|4935488|3034527|7119389|7295652|14301922|14884196|9890611|10419196|8755251|9375617|11221558|9859990|12406028|11539023|8515431|10210192|7273066|7431786|9329673|6822631|7257064|8298629|28739364|29188154|
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-There is a lot of information here, and we need to extract the data that we would like to work with.
+There is a lot of information here (as this table scrolls to the right quite a bit), and we need to extract the data that we would like to work with.
 
-Our primary interest was to understand what the molecular diversity of DOM produced by the different bacterial cultures and consortia looks like, and whether—based on the distribution across samples—we can draw conclusions about microbial interactions mediated by individual molecular formulas.
+Our primary interest was to understand what the molecular diversity of DOM produced by the different bacterial cultures and consortia looks like, and whether—based on the distribution across samples—we can draw conclusions about microbial interactions mediated by individual molecular formulas. The usual visualization strategies, such as van Krevelen plots, were going to be too busy to discern the fate of individual molecular formulas. I thought that using anvi'o for this could be a good solution, since [the anvi'o interactive interface](https://merenlab.org/2016/02/27/the-anvio-interactive-interface/) is quite talented.
 
-The usual visualization strategies, such as van Krevelen plots, were going to be too busy to discern the fate of individual molecular formulas. I thought that using anvi'o for this could be a good solution, since [the anvi'o interactive interface](https://merenlab.org/2016/02/27/the-anvio-interactive-interface/) is quite talented.
+But as I mentioned at the beginning, I needed to take this dataset and project speicific data, and turn this into anvi'o-compatible data. Which is not so difficult, but if you have similar problems, you should feel free to reach out to the anvi'o community on {% include _discord_invitation_button.html %} to get help or advice. For my own dataset I used a combination of Microsoft EXCEL and R-based solutions to do a few things:
 
-To use anvi'o for visualization, I needed to turn the raw dataset above into a form that is acceptable by anvi'o. So I used a combination of Excel and R-based solutions to do a few things:
+* I removed all features that were present in the medium blanks to ensure I was only looking at compounds produced during the experiment, and I only considered features that occurred in all replicates.
 
-* We removed all features that were present in the medium blanks to ensure we were only looking at compounds produced during the experiment, and we only considered features that occurred in all replicates.
+* I was interested in seeing the distribution of formulas across different microbial consortia, thus I disregarded intensities and focused only on the presence or absence of molecular formulas.
 
-* Since I was interested in seeing the distribution of formulas across different microbial consortia, I disregarded intensities and focused only on the presence or absence of molecular formulas.
+* I identified molecular formulas that were produced, remained unchanged, or were consumed, based on their binary presence-absence data. 
 
-* Using binary presence-absence information, I identified molecular formulas that were produced, remained unchanged, or were consumed.
-
-* I generated a final matrix using specific sample names, which gave me the dataset I could use with anvi'o.
+* Finally, I generated a tabular file (which you will see below0 using specific sample names that would enable me to use anvi'o to visualize and modify it.
 
 ## The primary data for anvi'o analysis and visualization
 
@@ -71,10 +72,11 @@ This is how my final dataset looked like:
 |C4H9NO2|0|1|0|0|0|1|0|0|0|0|0|0|0|0|0|0|0|0|1|0|0|0|0|1|0|1|0|0|0|1|0|0|0|0|0|0|0|1|0|0|0|0|1|0|1|0|0|0|0|1|0|0|0|0|0|0|0|1|0|0|0|0|0|1|1|0|0|0|0|0|0|1
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-{:.warning}
 This is the primary form of data that goes into the anvi'o interactive interface, and the only input file format you need to kickstart the entire visualization workflow.
 
-You can obtain the entirety of this file, which I will be using in the following sections, from [here](/files/visualizing-mass-spec-data/data.txt). In fact, if you wish to follow this exercise step by step on a computer with anvi'o installed, you can open a terminal and run the following commands to set the stage for the tutorial:
+---
+
+You can obtain the entirety of this file, which I will be using in the following sections, from [here](/files/visualizing-mass-spec-data/data.txt). In fact, if you wish to follow this exercise step by step on an anvi'o installed computer, you can do it as it is fully reproducible. All you need to do is to open a terminal and run the following commands to set the stage for the tutorial:
 
 ```bash
 # create a directory for the exercise files
@@ -125,7 +127,7 @@ it will start a new browser window, and when you click the 'Draw' button at the 
 
 {% include IMAGE path="/images/visualizing-mass-spec-data/Figure_2.png" width=90 %}
 
-That looks a bit messy, but we will tame it step by step.
+That looks a bit messy, but we will tame it step by step, and add additional data layers to enrich it with useful information.
 
 First of all, you can change the display from "Circle Phylogram" to "Phylogram" to make it more digestible. You can find that option in the settings panel:
 
@@ -266,7 +268,7 @@ Again, if you are following this tutorial with the example datasets I provided a
 |SH22_SH24_SH4_SH40_Produced|368||0.125042474|0.560312606|0.31464492|4|87.31686287|3.213122083|2.994942931|4.576866026|5.694618273
 |SH22_SH24_SH4_SH40_Unchanged|926||0.125042474|0.560312606|0.31464492|4|87.31686287|3.213122083|2.994942931|4.576866026|5.694618273|
 
-To add data as stacked bars—such as relative abundances based on 16S rRNA amplicon data—we need to let anvi'o know our intention by naming the corresponding columns with a prefix that starts with `stacked_bar_!`, followed by a specific identifier. For example, in this case, the first column that contains stacked bar data is called `stacked_bar_2!SH22`, and the next column would be `stacked_bar_2!SH24`. This way, anvi'o knows that these columns belong together.
+To add data as stacked bars (such as relative abundances based on 16S rRNA gene amplicon data) we need to let anvi'o know our intention by naming the corresponding columns and values in a particular way. You can find more information about the formatting [here](https://merenlab.org/2016/02/27/the-anvio-interactive-interface/). But I will seimply use a prefix, `stacked_bar`, followed by a mandatory `!` character, followed by a specific sample identifier. For example, in this case, the first column that contains stacked bar data is called `stacked_bar_2!SH22`, and the next column would be `stacked_bar_2!SH24`. This way, anvi'o knows that these columns belong together.
 
 We again use {% include PROGRAM name="anvi-import-misc-data" %}, but this time we use the flag `--target-table layers` to indicate that this information is sample-specific and should be matched to each sample.
 
@@ -279,7 +281,7 @@ anvi-import-misc-data layers-additional-data.txt \
                       --target-table layers
 ```
 
-And run {% include PROGRAM name="anvi-interactive" %} again:
+And run {% include PROGRAM name="anvi-interactive" %} again to see its effect:
 
 ```
 anvi-interactive -d data.txt \
@@ -303,19 +305,24 @@ In the main menu of {% include PROGRAM name="anvi-interactive" %}, under "DISPLA
 
 {% include IMAGE path="/images/visualizing-mass-spec-data/Figure_11.png" width=90 %}
 
+At some point my display lookedlike this, pretty colorful, and containing all the information:
+
 {% include IMAGE path="/images/visualizing-mass-spec-data/Figure_12.png" width=90 %}
 
-This is much clearer—and also pretty colorful :)
+Then it evolved further with the removal of some layers that didn't seem to contribute much to the story we wished to tell, changing colors to make it easier for people to follow in a paper format, etc. 
 
-To keep things consistent, we used the same colors to structure the additional data layers. We then exported the figure as an SVG file and made final edits using an SVG editor ([Inkscape](https://inkscape.org/) in this case, but any program that can work with SVG files will do). The final figure looks like this:
+Then I exported the display that I was comfortable with, and brought it to [Inkscape](https://inkscape.org/) to continue working with it. Inkscape is an open-source and free SVG editor, but you can edit anvi'o interactive interface exports in any vector graphics editor.
+
+The final figure looks like this:
 
 {% include IMAGE path="/images/visualizing-mass-spec-data/Figure_13.png" width=90 %}
 
+The figure shows the distribution of molecular formulas that are clustered based on their occurrence across pure cultures and microbial consortia. For each co-culture, rows in black show the molecular formulas produced by the respective bacterial isolate, rows in red show the molecular formulas observed in the respective co-culture and rows in light grey highlight novel and consumed molecular formulas. The dark grey bars on the right side show the molecular formula count for each culture and co-culture along with the predicted molecular formula count in dark blue and the number of preserved, produced and consumed molecular formulas in dark grey. The green stacked bars show the relative abundance of each isolate in the co-cultures, with SH4 in green, SH22 in light blue-green, SH24 in turquoise and SH40 in dark green. The orange stacked bars below show the relative contribution of novel (orange), consumed (peach) and preserved (dark red) molecular formulas in the respective co-cultures.
 
 ## Conclusion
 
 For our project, we learned a lot from this visualization that helped us interpret the data. Additionally, this figure contains information that we would have usually split across several individual figures, but bringing everything together in one display made it much easier to describe and discuss the observations.
 
-I hope this tutorial gives you some inspiration as well as practical means to visualize your own mass-spec data in anvi'o. If anything was unclear, please feel free to comment below or reach out to me on Discord with your questions. Thanks for reading!
+I hope this tutorial gives you some inspiration as well as practical means to visualize your own mass-spec data in anvi'o. If anything was unclear, please feel free to comment below, reach out to me directly, or write to the anvi'o community on Discord. Thanks for reading!
 
 {% include _join-anvio-discord.html %}
