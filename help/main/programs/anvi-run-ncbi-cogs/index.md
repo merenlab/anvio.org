@@ -75,6 +75,13 @@ anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;
             &#45;&#45;search&#45;with blastp
 </div>
 
+### Running with multiple threads
+<div class="codeblock" markdown="1">
+anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+            &#45;&#45;cog&#45;data&#45;dir path/to/<span class="artifact&#45;n">[cogs&#45;data](/help/main/artifacts/cogs&#45;data)</span> \ 
+            &#45;T 16
+</div>
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-run-ncbi-cogs.md) to update this information.

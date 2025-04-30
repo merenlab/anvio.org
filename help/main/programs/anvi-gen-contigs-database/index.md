@@ -89,6 +89,8 @@ anvi&#45;gen&#45;contigs&#45;database &#45;f scaffolds.fa \
                           &#45;o North_Atlantic_MGX_004.db
 </div>
 
+To shorten the runtime, you can also multithread `anvi-gen-contigs-database` with the `-T` flag followed by the desired number of threads, depending on your system.
+
 There are a myriad of programs you can run on a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> once it is created to add more and more layers of information on it. Please see the artifact <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> to see a list of steps you can follow.
 
 ### Create a contigs database with external gene calls
