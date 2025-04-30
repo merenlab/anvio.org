@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7118,
+        "total_commits": 7120,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,12 +13,12 @@
             "2022": 423,
             "2023": 227,
             "2024": 132,
-            "2025": 28
+            "2025": 30
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "associate people with their commits",
-        "latest_commit_hash": "a489c4e2404557bd2dbbcb765489eb95fda1a3b6",
-        "latest_commit_date": "15 April 2025"
+        "latest_commit_message": "rogue git users identified.",
+        "latest_commit_hash": "2e8c962283f98c709fd68a302662bc95407ab986",
+        "latest_commit_date": "28 April 2025"
     },
     "FlorianTrigodet": {
         "total_commits": 86,
@@ -105,7 +105,7 @@
         "latest_commit_date": "16 December 2024"
     },
     "ivagljiva": {
-        "total_commits": 2212,
+        "total_commits": 2213,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 281,
             "2023": 174,
             "2024": 221,
-            "2025": 20
+            "2025": 21
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "remove duplicate entry_id column",
-        "latest_commit_hash": "0933fd160bb49408209a74b6526dc3b336fcd45e",
-        "latest_commit_date": "24 April 2025"
+        "latest_commit_message": "fix typo",
+        "latest_commit_hash": "4be1d2389328d32e2818563572da40210844b897",
+        "latest_commit_date": "28 April 2025"
     },
     "moritzbuck": {
         "total_commits": 1,
@@ -649,6 +649,27 @@
         "latest_commit_message": "Add files via upload",
         "latest_commit_hash": "e81f9239b2bbb1bf3f430b9bc17d63900c253356",
         "latest_commit_date": "28 April 2025"
+    },
+    "mankeldy": {
+        "total_commits": 3,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 3
+        },
+        "top_file": "anvio/data/misc/PEOPLE/AVATARS/mankeldy.jpg",
+        "latest_commit_message": "Adding myself to the developers",
+        "latest_commit_hash": "d1eab927efdc66167c185f097ce840faa1484789",
+        "latest_commit_date": "29 April 2025"
     },
     "tdelmont": {
         "total_commits": 0,
