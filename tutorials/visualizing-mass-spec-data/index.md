@@ -168,7 +168,7 @@ For now, I will close the {% include PROGRAM name="anvi-interactive" %} tab and 
 
 To add further for our items information, we use the program {% include PROGRAM name="anvi-import-misc-data" %}, which allows us to add all kinds of additional data to a given `profile.db`. In this case, we will use the parameter `--target-table` with the value `items` to tell anvi'o that these data are associated with each item, representing each molecular formula in our dataset. This is an example input data file for the items additional data:
 
-**|formula**|**mz**|**HC**|**OC**|**AImod**|**DBE**
+|**formula**|**mz**|**HC**|**OC**|**AImod**|**DBE**
 |:--|:--|:--|:--|:--|:--|
 |C5H4O2|95.01385551|0.8|0.4|0.75|4
 |C6H8O|95.05024127|1.333|0.167|0.45|3
