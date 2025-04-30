@@ -131,7 +131,7 @@ That looks a bit messy, but we will tame it step by step, and add additional dat
 
 First of all, you can change the display from "Circle Phylogram" to "Phylogram" to make it more digestible. You can find that option in the settings panel:
 
-{% include IMAGE path="/images/visualizing-mass-spec-data/Figure_3.png" width=90 %}
+{% include IMAGE path="/images/visualizing-mass-spec-data/Figure_3.png" width=40 %}
 
 {:.notice}
 Don't forget to click the 'Draw' button again after every change.
@@ -160,9 +160,9 @@ This visualization of our data shows that the fate of a molecular formula produc
 
 First of all, we need to go back to our terminal, where we can store further information in our `profile.db`. To make sure that the next time I open {% include PROGRAM name="anvi-interactive" %}, the display looks the same and doesn’t revert to the default circular phylogram, we need to save the current state of the display. To do this, under the main menu, choose the "Save" option under "State". {% include PROGRAM name="anvi-interactive" %} will open a pop-up window like the one below, where we can store the current settings under the "default" state, which will be automatically loaded the next time we run {% include PROGRAM name="anvi-interactive" %}. Alternatively, you can give the state a different name and use the "Load" option later when needed.
 
-{% include IMAGE path="/images/visualizing-mass-spec-data/Figure_6_II.png" width=90 %}
+{% include IMAGE path="/images/visualizing-mass-spec-data/Figure_6_II.png" width=50 %}
 
-{% include IMAGE path="/images/visualizing-mass-spec-data/Figure_6_I.png" width=90 %}
+{% include IMAGE path="/images/visualizing-mass-spec-data/Figure_6_I.png" width=50 %}
 
 For now, I will close the {% include PROGRAM name="anvi-interactive" %} tab and return to my terminal, where I press `CTRL+C` to terminate the runnig server (so we can get our command prompt back).
 
@@ -207,7 +207,7 @@ At the bottom, we now have five additional layers of information for each molecu
 
 For now, we decided to remove these layers from the display again. To do that, we can simply set the height of each layer to 0 under the "DISPLAY" menu, which is the easy way :)
 
-{% include IMAGE path="/images/visualizing-mass-spec-data/Figure_8.png" width=90 %}
+{% include IMAGE path="/images/visualizing-mass-spec-data/Figure_8.png" width=50 %}
 
 You can also remove any data layer you no longer wish to see in the interface using the program {% include PROGRAM name="anvi-delete-misc-data" %}. But I chose the lazy option, and after hitting "DRAW", I was left with the same display I started with.
 
@@ -299,11 +299,11 @@ Now, the additional data are visible and aligned with each sample on the right s
 
 Aside from the annotations—which we will later change outside of {% include PROGRAM name="anvi-interactive" %}—we can use colors to structure the visualization more clearly. We have 11 different microbial consortia. To discern which data belong to which microbial consortium, I generated a color palette using this tool (which only allows a 10-color palette, so I added another hue manually):
 
-{% include IMAGE path="/images/visualizing-mass-spec-data/Figure_10.png" width=90 %}
+{% include IMAGE path="/images/visualizing-mass-spec-data/Figure_10.png" width=50 %}
 
 In the main menu of {% include PROGRAM name="anvi-interactive" %}, under "DISPLAY," we can manually change the color used for each sample by clicking on the (currently black) square next to "color" and pasting the HEX code for each color into the small window in the lower right:
 
-{% include IMAGE path="/images/visualizing-mass-spec-data/Figure_11.png" width=90 %}
+{% include IMAGE path="/images/visualizing-mass-spec-data/Figure_11.png" width=50 %}
 
 At some point my display lookedlike this, pretty colorful, and containing all the information:
 
