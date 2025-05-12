@@ -651,7 +651,7 @@
         "latest_commit_date": "28 April 2025"
     },
     "mankeldy": {
-        "total_commits": 3,
+        "total_commits": 4,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -664,12 +664,12 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 3
+            "2025": 4
         },
-        "top_file": "anvio/data/misc/PEOPLE/AVATARS/mankeldy.jpg",
-        "latest_commit_message": "Adding myself to the developers",
-        "latest_commit_hash": "d1eab927efdc66167c185f097ce840faa1484789",
-        "latest_commit_date": "29 April 2025"
+        "top_file": "anvio/docs/programs/anvi-gen-variability-profile.md",
+        "latest_commit_message": "Update anvi-gen-variability-profile.md",
+        "latest_commit_hash": "e196085dbe5c171f39e7b5117a0dcd185ecedf54",
+        "latest_commit_date": "11 May 2025"
     },
     "tdelmont": {
         "total_commits": 0,

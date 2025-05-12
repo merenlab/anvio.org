@@ -48,36 +48,46 @@ Generate a table that comprehensively summarizes the variability of nucleotide, 
 
 
 
-This program takes the variability data stored within a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and compiles it from across samples into a single matrix that comprehensively describes your SNVs, SCVs or SAAVs (a <span class="artifact-n">[variability-profile-txt](/help/main/artifacts/variability-profile-txt)</span>).  
+This program takes the variability data stored within a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and compiles it from across samples into a single matrix that comprehensively describes your SNVs, SCVs or SAAVs (a <span class="artifact-n">[variability-profile-txt](/help/main/artifacts/variability-profile-txt)</span>).
 
-This program is described on [this blog post](http://merenlab.org/2015/07/20/analyzing-variability/#the-anvio-way), so take a look at that for more details. 
+This program is described on [this blog post](http://merenlab.org/2015/07/20/analyzing-variability/#the-anvio-way), so take a look at that for more details.
 
-## Let's talk parameters 
+## Let's talk parameters
 
-Here is a basic run with no bells or whisles: 
+Here is a basic run with no bells or whisles:
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
-                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \ 
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                              &#45;C DEFAULT \
                              &#45;b EVERYTHING
 </div>
 
-Note that this program requires you to specify a subset of the databases that you want to focus on, so to focus on everything in the databases, run <span class="artifact-p">[anvi-script-add-default-collection](/help/main/programs/anvi-script-add-default-collection)</span> and use the resulting <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>, as shown above. 
+Note that this program requires you to specify a subset of the databases that you want to focus on, so to focus on everything in the databases, run <span class="artifact-p">[anvi-script-add-default-collection](/help/main/programs/anvi-script-add-default-collection)</span> and use the resulting <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>, as shown above.
 
-You can add structural annotations by providing a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span>. 
+You can add structural annotations by providing a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span>.
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
                              &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                              &#45;C DEFAULT \
                              &#45;b EVERYTHING \
-                             &#45;s <span class="artifact&#45;n">[structure&#45;db](/help/main/artifacts/structure&#45;db)</span> 
+                             &#45;s <span class="artifact&#45;n">[structure&#45;db](/help/main/artifacts/structure&#45;db)</span>
 </div>
 
-### Focusing on a subset of the input 
+You can also output your <span class="artifact-n">[variability-profile-txt](/help/main/artifacts/variability-profile-txt)</span> to a specific location, which can be useful when working with multiple `engine` parameters.
 
-Instead of focusing on everything (providing the collection `DEFAULT` and the bin `EVERYTHING`), there are three ways to focus on a subset of the input: 
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;C DEFAULT \
+                             &#45;b EVERYTHING \
+                             &#45;&#45;output&#45;file /path/to/your/variability.txt
+</div>
+
+### Focusing on a subset of the input
+
+Instead of focusing on everything (providing the collection `DEFAULT` and the bin `EVERYTHING`), there are three ways to focus on a subset of the input:
 
 1. Provide a list of gene caller IDs (as a parameter with the flag `--gene-caller-ids` as shown below, or as a file with the flag `--genes-of-interest`)
 
@@ -87,26 +97,26 @@ Instead of focusing on everything (providing the collection `DEFAULT` and the bi
                                  &#45;&#45;gene&#45;caller&#45;ids 1,2,3
     </div>
 
-2. Provide a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span> to focus only on a specific set of splits. 
+2. Provide a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span> to focus only on a specific set of splits.
 
     <div class="codeblock" markdown="1">
     anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
                                  &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                                  &#45;&#45;splits&#45;of&#45;intest <span class="artifact&#45;n">[splits&#45;txt](/help/main/artifacts/splits&#45;txt)</span>
     </div>
-    
-3. Provide some other <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>. 
+
+3. Provide some other <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>.
 
     <div class="codeblock" markdown="1">
     anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
-                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \ 
+                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                                  &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
                                  &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span>
     </div>
 
-### Additional ways to focus the input 
+### Additional ways to focus the input
 
-When providing a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span>, you can also limit your analysis to only genes that have structures in your database. 
+When providing a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span>, you can also limit your analysis to only genes that have structures in your database.
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
@@ -134,7 +144,7 @@ DAY_22A
 ...
 </div>
 
-### SNVs vs. SCVs vs. SAAVs 
+### SNVs vs. SCVs vs. SAAVs
 
 Which one you're analyzing depends entirely on the `engine` parameter, which you can set to `NT` (nucleotides), `CDN` (codons), or `AA` (amino acids). The default value is nucleotides. Note that to analyze SCVs or SAAVs, you'll have needed to use the flag `--profile-SCVs` when you ran <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span>.
 
@@ -158,7 +168,7 @@ anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[pr
                              &#45;&#45;engine CDN
 </div>
 
-### Filtering the output 
+### Filtering the output
 
 You can filter the output in various ways, so that you can get straight to the variability positions that you're most interested in. Here are some of the filters that you can set:
 
@@ -169,7 +179,7 @@ You can filter the output in various ways, so that you can get straight to the v
 
 ### --quince-mode
 
-You can also set `--quince-mode`, which reports the variability data across all samples for each position reported (even if that position isn't variable in some samples). For example, if nucleotide position 34 of contig 1 was a SNV in one sample, the output would contain data for nucleotide position 34 for all of your samples. 
+You can also set `--quince-mode`, which reports the variability data across all samples for each position reported (even if that position isn't variable in some samples). For example, if nucleotide position 34 of contig 1 was a SNV in one sample, the output would contain data for nucleotide position 34 for all of your samples.
 
 ### --kiefl-mode
 
