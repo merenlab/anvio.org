@@ -33,7 +33,7 @@
   summary: "A reproducible pangenomic analysis of seven Vibrio jascida genomes isolated in Woods Hole by the participants of Microbial Diversity Course."
   tags: [pangenomics, hands-on, beginner]
 
-  title: Leveling up pangenomics with interactive pangenome graphs
+- title: Leveling up pangenomics with interactive pangenome graphs
   type: tutorial
   url: /tutorials/pangenome-graphs/
   authors: [ahenoch]
