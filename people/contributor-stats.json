@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7120,
+        "total_commits": 7121,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,15 +13,15 @@
             "2022": 423,
             "2023": 227,
             "2024": 132,
-            "2025": 30
+            "2025": 31
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "rogue git users identified.",
-        "latest_commit_hash": "2e8c962283f98c709fd68a302662bc95407ab986",
-        "latest_commit_date": "28 April 2025"
+        "latest_commit_message": "fixy and cosmetics",
+        "latest_commit_hash": "4b092ea5981bb456512538f60d1be787576aef79",
+        "latest_commit_date": "12 May 2025"
     },
     "FlorianTrigodet": {
-        "total_commits": 86,
+        "total_commits": 87,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -34,12 +34,12 @@
             "2022": 10,
             "2023": 35,
             "2024": 22,
-            "2025": 3
+            "2025": 4
         },
         "top_file": "anvio/inversions.py",
-        "latest_commit_message": "Check for unmapped reads",
-        "latest_commit_hash": "9b2e61b8e7bb04917aeb32a511d0aecfb0fdd2a7",
-        "latest_commit_date": "13 March 2025"
+        "latest_commit_message": "Update log file",
+        "latest_commit_hash": "20eda0326e104884e39b1a99aeff86742a179d93",
+        "latest_commit_date": "03 June 2025"
     },
     "watsonar": {
         "total_commits": 10,
@@ -105,7 +105,7 @@
         "latest_commit_date": "16 December 2024"
     },
     "ivagljiva": {
-        "total_commits": 2213,
+        "total_commits": 2214,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 281,
             "2023": 174,
             "2024": 221,
-            "2025": 21
+            "2025": 22
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "fix typo",
-        "latest_commit_hash": "4be1d2389328d32e2818563572da40210844b897",
-        "latest_commit_date": "28 April 2025"
+        "latest_commit_message": "Set version requirement for meme",
+        "latest_commit_hash": "a14cc6b983d2f53d5efeffb299c0d11c137a5222",
+        "latest_commit_date": "28 May 2025"
     },
     "moritzbuck": {
         "total_commits": 1,
@@ -609,7 +609,7 @@
         "latest_commit_date": "10 March 2025"
     },
     "bcoltman": {
-        "total_commits": 3,
+        "total_commits": 4,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -622,12 +622,12 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 3
+            "2025": 4
         },
         "top_file": "anvio/drivers/hmmer.py",
-        "latest_commit_message": "Adding developer details",
-        "latest_commit_hash": "a36b854f39f49558f326fd199d2704dc7788796e",
-        "latest_commit_date": "15 April 2025"
+        "latest_commit_message": "Rather than loading all hits into memory, this update chunks the processing. This is quicker than processing it a single line at a time, but will avoid overloading RAM. Related to PR #2423.",
+        "latest_commit_hash": "018d1036aedfed832036efa7bfd6457257d08e4f",
+        "latest_commit_date": "03 June 2025"
     },
     "katysloz": {
         "total_commits": 3,
