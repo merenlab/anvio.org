@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7121,
+        "total_commits": 7124,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,12 +13,12 @@
             "2022": 423,
             "2023": 227,
             "2024": 132,
-            "2025": 31
+            "2025": 34
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "fixy and cosmetics",
-        "latest_commit_hash": "4b092ea5981bb456512538f60d1be787576aef79",
-        "latest_commit_date": "12 May 2025"
+        "latest_commit_message": "update mini CV",
+        "latest_commit_hash": "7d39e69b454cc1d7c27ea7e7dd95b963ff14b091",
+        "latest_commit_date": "12 June 2025"
     },
     "FlorianTrigodet": {
         "total_commits": 87,
