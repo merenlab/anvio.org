@@ -10,7 +10,7 @@ image:
   feature: https://github.com/merenlab/anvio/raw/master/anvio/data/interactive/images/logo.png
 ---
 
-This page is for users who want to install the development version of anvi'o, `anvio-dev`, on _personal computers running a Linux operating system_.
+This page is for users who want to install the development version of anvi'o, `anvio-dev`, on _personal computers running a Linux operating system (not WSL)_. For personal computers running WSL, please use the installation instructions for Windows instead.
 
 ## Following the active development of anvi'o (you're a wizard, arry)
 
