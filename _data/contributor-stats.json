@@ -105,7 +105,7 @@
         "latest_commit_date": "16 December 2024"
     },
     "ivagljiva": {
-        "total_commits": 2214,
+        "total_commits": 2217,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,15 +118,15 @@
             "2022": 281,
             "2023": 174,
             "2024": 221,
-            "2025": 22
+            "2025": 25
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "Set version requirement for meme",
-        "latest_commit_hash": "a14cc6b983d2f53d5efeffb299c0d11c137a5222",
-        "latest_commit_date": "28 May 2025"
+        "latest_commit_message": "yes. a monster of a sanity check. because it is crucial that the downstream javascript code receives all data that it will expect so we don't end up with mysterious interface errors",
+        "latest_commit_hash": "9a02f22f1aa6e57faf7478e5105b6b29d7fcc6ad",
+        "latest_commit_date": "20 June 2025"
     },
     "moritzbuck": {
-        "total_commits": 1,
+        "total_commits": 3,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -135,16 +135,16 @@
             "2018": 0,
             "2019": 0,
             "2020": 0,
-            "2021": 1,
+            "2021": 2,
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 1
         },
-        "top_file": "sandbox/anvi-script-compute-bayesian-pan-core",
-        "latest_commit_message": "added anvi-script-compute-bayesian-pan-core to the sandbox",
-        "latest_commit_hash": "d2c5e55bd7d5efba39f13cef03ce2e8c9bbf2a9a",
-        "latest_commit_date": "12 July 2021"
+        "top_file": "anvio/drivers/metabat2.py",
+        "latest_commit_message": "Fixed metbat2 parser",
+        "latest_commit_hash": "9bc0df384dcb3cc8944ebe5bfce3538bac134599",
+        "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
         "total_commits": 1499,
