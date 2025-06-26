@@ -1,0 +1,49 @@
+{% assign gallery_data = site.data.gallery %}
+
+<div class="anvio-gallery">
+  {% if include.show_header %}
+    <h2 class="gallery-title">{{ gallery_data.gallery.title }}</h2>
+    {% if gallery_data.gallery.description %}
+      <p class="gallery-description">{{ gallery_data.gallery.description }}</p>
+    {% endif %}
+  {% else %}
+  {% endif %}
+
+  <div class="slideshow-container">
+    {% for image in gallery_data.images %}
+      <div class="slide {% if forloop.first %}active{% endif %}"
+           data-fullscreen-img="{{ image.fullscreen_image }}"
+           data-title="{{ image.title }}"
+           data-description="{{ image.description }}">
+        <img src="{{ image.image }}" alt="{{ image.alt }}">
+        <div class="slide-content">
+          <div class="slide-title">{{ image.title }}</div>
+          <div class="slide-description">{{ image.description | truncate: 120 }}</div>
+        </div>
+      </div>
+    {% endfor %}
+
+    <!-- Navigation arrows -->
+    <button class="nav-arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="nav-arrow next" onclick="changeSlide(1)">&#10095;</button>
+  </div>
+
+  <!-- Dots indicator -->
+  <div class="dots-container">
+    {% for image in gallery_data.images %}
+      <span class="dot {% if forloop.first %}active{% endif %}" onclick="currentSlide({{ forloop.index }})"></span>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Fullscreen Modal -->
+<div id="fullscreenModal" class="fullscreen-modal">
+  <span class="close" onclick="closeFullscreen()">&times;</span>
+  <div class="fullscreen-content">
+    <img id="fullscreenImage" class="fullscreen-image" src="" alt="">
+    <div id="fullscreenCaption" class="fullscreen-caption">
+      <h3 id="fullscreenTitle"></h3>
+      <p id="fullscreenDescription"></p>
+    </div>
+  </div>
+</div>
