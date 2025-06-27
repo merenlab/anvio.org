@@ -10,7 +10,7 @@
     <div class="container h-100">
       <div class="row h-100">
 
-          <div class="col-sm-6 my-auto header-div">
+          <div class="col-sm-5 my-auto header-div">
             <div class="header-content my-auto">
             {{ content }}
 
@@ -20,8 +20,8 @@
             </div>
           </div>
 
-          <div class="col-sm-4 my-auto anvio-logo">
-            <img src="/images/anvio.png" id="anvio-logo-img" />
+          <div class="col-sm-5 my-auto">
+            {% include _anvio-gallery.html show_header=false %}
           </div>
 
       </div>
@@ -51,3 +51,5 @@
   {% endfor %}
 
 {% include _footer.html fixed_footer="true" %}
+
+<script src="{{ '/assets/js/anvio-gallery.js' | relative_url }}"></script>
