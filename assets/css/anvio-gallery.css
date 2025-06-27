@@ -34,6 +34,44 @@
     box-shadow: 4px 4px 27px rgb(4 4 4 / 50%);
 }
 
+/* Auto-advance Progress Indicator */
+.progress-indicator {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    z-index: 15;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.slideshow-container:hover .progress-indicator {
+    opacity: 0.4;
+}
+
+.progress-circle {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.progress-circle circle {
+    fill: none;
+    stroke-width: 5;
+    stroke-linecap: round;
+}
+
+.progress-background {
+    stroke: rgb(255 255 255 / 83%);
+}
+
+.progress-bar {
+    stroke: rgb(239 30 30 / 90%);
+    stroke-dasharray: 113; /* 2π * 18 (radius) */
+    stroke-dashoffset: 113;
+}
+
 .slide {
     display: none;
     position: relative;
@@ -188,20 +226,56 @@
     line-height: 1.5;
 }
 
+/* Enhanced Close Button */
 .close {
     position: absolute;
-    top: 20px;
-    right: 35px;
-    color: white;
+    top: 80px;
+    right: 20px;
+    color: #333;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
     z-index: 1001;
-    transition: opacity 0.3s ease;
+    background-color: rgba(255, 162, 162, 0.92);
+    border-radius: 50%;
+    padding-bottom: 5px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.close:hover {
-    opacity: 0.7;
+.close:hover,
+.close:focus {
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* Optional: Close button instructions */
+.modal-instructions {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    z-index: 1001;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.modal-instructions.fade-out {
+    opacity: 0;
 }
 
 /* Mobile Responsiveness */
@@ -261,5 +335,36 @@
 
     .fullscreen-caption p {
         font-size: 0.9rem;
+    }
+
+    /* Mobile close button and progress indicator adjustments */
+    .close {
+        top: 15px;
+        right: 20px;
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .modal-instructions {
+        top: 70px;
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .progress-indicator {
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .progress-circle circle {
+        stroke-width: 2;
+    }
+
+    .progress-bar {
+        stroke-dasharray: 85; /* 2π * 13.5 (smaller radius) */
+        stroke-dashoffset: 85;
     }
 }
