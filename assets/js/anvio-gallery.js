@@ -4,178 +4,250 @@ class AnvioGallery {
         this.slides = document.querySelectorAll('.slide');
         this.dots = document.querySelectorAll('.dot');
         this.totalSlides = this.slides.length;
-        this.autoAdvance = config.autoAdvance !== false;
+        this.autoAdvanceEnabled = config.autoAdvance !== false;
         this.autoAdvanceInterval = config.autoAdvanceInterval || 5000;
-        this.autoSlideTimer = null;
+
+        // Simple state management
+        this.timer = null;
+        this.progressBar = document.querySelector('.progress-bar');
 
         this.init();
     }
 
     init() {
         if (this.totalSlides === 0) return;
-
         this.setupEventListeners();
-        if (this.autoAdvance) {
-            this.startAutoAdvance();
+        if (this.autoAdvanceEnabled) {
+            this.start();
         }
         this.setupTouchEvents();
     }
 
+    // Simple markdown parser
+    parseMarkdown(text) {
+        if (!text) return '';
+        return text
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/__(.*?)__/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            .replace(/_(.*?)_/g, '<em>$1</em>')
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+            .replace(/`([^`]+)`/g, '<code>$1</code>')
+            .replace(/\n/g, '<br>');
+    }
+
     setupEventListeners() {
-        // Add click event to slides for fullscreen
+        // Slide clicks for fullscreen
         this.slides.forEach(slide => {
             slide.addEventListener('click', (e) => {
                 if (e.target.classList.contains('nav-arrow')) return;
-
                 const img = slide.dataset.fullscreenImg;
                 const title = slide.dataset.title;
                 const description = slide.dataset.description;
-
                 this.openFullscreen(img, title, description);
             });
         });
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (document.getElementById('fullscreenModal').style.display !== 'block') {
-                if (e.key === 'ArrowLeft') {
-                    this.changeSlide(-1);
-                } else if (e.key === 'ArrowRight') {
-                    this.changeSlide(1);
-                }
+            if (!this.isModalOpen()) {
+                if (e.key === 'ArrowLeft') this.manualChange(-1);
+                else if (e.key === 'ArrowRight') this.manualChange(1);
             }
         });
 
-        // Pause auto-advance on hover
-        const galleryContainer = document.querySelector('.slideshow-container');
-        if (galleryContainer) {
-            galleryContainer.addEventListener('mouseenter', () => {
-                this.pauseAutoAdvance();
-            });
-
-            galleryContainer.addEventListener('mouseleave', () => {
-                if (this.autoAdvance) {
-                    this.startAutoAdvance();
-                }
-            });
-        }
-
-        // Fullscreen modal events
+        // Modal events
         const modal = document.getElementById('fullscreenModal');
         if (modal) {
-            // Close fullscreen when clicking outside image
             modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    this.closeFullscreen();
-                }
+                if (e.target === modal) this.closeFullscreen();
             });
         }
 
-        // Close fullscreen with Escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                this.closeFullscreen();
-            }
+            if (e.key === 'Escape') this.closeFullscreen();
         });
     }
 
     setupTouchEvents() {
         let touchStartX = 0;
-        let touchEndX = 0;
-        const galleryContainer = document.querySelector('.slideshow-container');
+        const container = document.querySelector('.slideshow-container');
+        if (!container) return;
 
-        if (!galleryContainer) return;
-
-        galleryContainer.addEventListener('touchstart', (e) => {
+        container.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
         });
 
-        galleryContainer.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            this.handleSwipe(touchStartX, touchEndX);
+        container.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                this.manualChange(diff > 0 ? 1 : -1);
+            }
         });
     }
 
-    handleSwipe(startX, endX) {
-        const swipeThreshold = 50;
-        const diff = startX - endX;
+    // CORE METHODS - Keep these as simple as possible
 
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                this.changeSlide(1); // Swipe left - next slide
-            } else {
-                this.changeSlide(-1); // Swipe right - previous slide
+    start() {
+        if (!this.autoAdvance) return;
+
+        this.stop(); // Always stop first
+        this.isPaused = false; // Make sure we're not paused
+        this.startProgress();
+
+        this.timer = setInterval(() => {
+            if (!this.isPaused) {
+                this.autoAdvance();
             }
+        }, this.autoAdvanceInterval);
+    }
+
+    stop() {
+        if (this.timer) {
+            clearInterval(this.timer);
+            this.timer = null;
+        }
+        this.stopProgress();
+    }
+
+    pause() {
+        console.log('Pausing - isPaused set to true');
+        this.isPaused = true;
+        this.pauseProgress();
+    }
+
+    resume() {
+        if (!this.isModalOpen()) {
+            console.log('Resuming - isPaused set to false');
+            this.isPaused = false;
+            // Start fresh progress animation when resuming
+            this.startProgress();
         }
     }
 
-    showSlide(index) {
-        // Hide all slides
-        this.slides.forEach(slide => slide.classList.remove('active'));
-        this.dots.forEach(dot => dot.classList.remove('active'));
-
-        // Normalize index
-        if (index >= this.totalSlides) this.currentSlideIndex = 0;
-        if (index < 0) this.currentSlideIndex = this.totalSlides - 1;
-
-        // Show current slide
-        if (this.slides[this.currentSlideIndex]) {
-            this.slides[this.currentSlideIndex].classList.add('active');
-        }
-        if (this.dots[this.currentSlideIndex]) {
-            this.dots[this.currentSlideIndex].classList.add('active');
-        }
+    // Auto advance (internal only) - renamed to avoid conflict
+    autoAdvance() {
+        this.currentSlideIndex++;
+        this.showSlide();
+        this.startProgress();
     }
 
-    changeSlide(offset) {
-        this.currentSlideIndex += offset;
-        this.showSlide(this.currentSlideIndex);
-        this.resetAutoAdvance();
+    // Manual change (user triggered)
+    manualChange(direction) {
+        this.currentSlideIndex += direction;
+        this.showSlide();
+        // Stop current progress and restart timer completely
+        this.stop();
+        this.start();
+    }
+
+    // Show slide and handle wrapping
+    showSlide() {
+        // Handle wrapping
+        if (this.currentSlideIndex >= this.totalSlides) {
+            this.currentSlideIndex = 0;
+        }
+        if (this.currentSlideIndex < 0) {
+            this.currentSlideIndex = this.totalSlides - 1;
+        }
+
+        // Update display
+        this.slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === this.currentSlideIndex);
+        });
+        this.dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentSlideIndex);
+        });
+    }
+
+    // Progress bar methods
+    startProgress() {
+        if (!this.progressBar) return;
+
+        console.log('Starting progress animation with interval:', this.autoAdvanceInterval);
+
+        // Completely remove any existing transition
+        this.progressBar.style.transition = 'none';
+        this.progressBar.style.animation = 'none';
+
+        const dashArray = this.progressBar.getAttribute('stroke-dasharray') || '113';
+        this.progressBar.style.strokeDasharray = dashArray;
+        this.progressBar.style.strokeDashoffset = dashArray;
+
+        console.log('Reset progress - dashArray:', dashArray, 'offset:', dashArray);
+
+        // Force multiple reflows to ensure reset
+        this.progressBar.offsetHeight;
+        this.progressBar.getBoundingClientRect();
+
+        // Use setTimeout instead of requestAnimationFrame for more reliable timing
+        setTimeout(() => {
+            console.log('Starting progress transition');
+            this.progressBar.style.transition = `stroke-dashoffset ${this.autoAdvanceInterval}ms linear`;
+            this.progressBar.style.strokeDashoffset = '0';
+
+            // Log what actually happened
+            setTimeout(() => {
+                const currentOffset = window.getComputedStyle(this.progressBar).strokeDashoffset;
+                console.log('Progress animation started, current offset:', currentOffset);
+            }, 100);
+        }, 50);
+    }
+
+    stopProgress() {
+        if (!this.progressBar) return;
+
+        console.log('Stopping progress animation');
+
+        // Get current position before stopping
+        const computed = window.getComputedStyle(this.progressBar);
+        const currentOffset = computed.strokeDashoffset;
+        console.log('Current offset before stop:', currentOffset);
+
+        // Stop transition
+        this.progressBar.style.transition = 'none';
+        this.progressBar.style.animation = 'none';
+
+        // Reset to start position
+        const dashArray = this.progressBar.getAttribute('stroke-dasharray') || '113';
+        this.progressBar.style.strokeDashoffset = dashArray;
+
+        console.log('Progress stopped and reset to:', dashArray);
+    }
+
+    // Navigation methods called by global functions
+    changeSlide(direction) {
+        this.manualChange(direction);
     }
 
     currentSlide(index) {
         this.currentSlideIndex = index - 1;
-        this.showSlide(this.currentSlideIndex);
-        this.resetAutoAdvance();
+        this.showSlide();
+        this.start(); // Completely restart timer
     }
 
-    startAutoAdvance() {
-        if (!this.autoAdvance) return;
-        this.autoSlideTimer = setInterval(() => {
-            this.changeSlide(1);
-        }, this.autoAdvanceInterval);
-    }
-
-    pauseAutoAdvance() {
-        if (this.autoSlideTimer) {
-            clearInterval(this.autoSlideTimer);
-            this.autoSlideTimer = null;
-        }
-    }
-
-    resetAutoAdvance() {
-        this.pauseAutoAdvance();
-        if (this.autoAdvance) {
-            this.startAutoAdvance();
-        }
+    // Modal methods
+    isModalOpen() {
+        const modal = document.getElementById('fullscreenModal');
+        return modal && modal.style.display === 'block';
     }
 
     openFullscreen(imageSrc, title, description) {
         const modal = document.getElementById('fullscreenModal');
-        const fullscreenImage = document.getElementById('fullscreenImage');
-        const fullscreenTitle = document.getElementById('fullscreenTitle');
-        const fullscreenDescription = document.getElementById('fullscreenDescription');
+        const image = document.getElementById('fullscreenImage');
+        const titleEl = document.getElementById('fullscreenTitle');
+        const descEl = document.getElementById('fullscreenDescription');
 
-        if (!modal || !fullscreenImage || !fullscreenTitle || !fullscreenDescription) return;
+        if (!modal || !image || !titleEl || !descEl) return;
 
-        fullscreenImage.src = imageSrc;
-        fullscreenTitle.textContent = title;
-        fullscreenDescription.textContent = description;
+        image.src = imageSrc;
+        titleEl.textContent = title;
+        descEl.innerHTML = this.parseMarkdown(description);
 
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
-
-        this.pauseAutoAdvance();
+        this.stop(); // Stop auto-advance when modal opens
     }
 
     closeFullscreen() {
@@ -184,10 +256,7 @@ class AnvioGallery {
 
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
-
-        if (this.autoAdvance) {
-            this.startAutoAdvance();
-        }
+        this.start(); // Restart auto-advance when modal closes
     }
 }
 
@@ -212,15 +281,12 @@ function closeFullscreen() {
 
 // Initialize gallery when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if gallery exists on page
     if (document.querySelector('.anvio-gallery')) {
-        // Get configuration from data attributes or use defaults
         const galleryElement = document.querySelector('.anvio-gallery');
         const config = {
             autoAdvance: galleryElement.dataset.autoAdvance !== 'false',
             autoAdvanceInterval: parseInt(galleryElement.dataset.autoAdvanceInterval) || 5000
         };
-
         window.anviGallery = new AnvioGallery(config);
     }
 });
