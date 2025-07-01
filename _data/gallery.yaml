@@ -22,6 +22,7 @@ images:
     description: "An anvi'o pangeome that shows the gene pool of 55 TM7 genomes, a common resident of the human oral cavity. The figure includes an heatmap to show pairvise average nucleotide identity (ANI) values across genomes, prevalence of each genome across metagenomes from the human oral cavity, and an organization of the genomes based on a phylogenomic analysis a tree for which appears at the top-right."
     image: "/images/gallery/full/tm7_pangenome.png"
     fullscreen_image: "/images/gallery/full/tm7_pangenome.png"
+    learning_resources_tag: pangenomics
     reference:
       title: "Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome"
       url: https://doi.org/10.1186/s13059-020-02195-w

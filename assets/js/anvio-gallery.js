@@ -44,6 +44,7 @@ class AnvioGallery {
                 const img = slide.dataset.fullscreenImg;
                 const title = slide.dataset.title;
                 const description = slide.dataset.description;
+                const learning_resources_tag = slide.dataset.learningResourcesTag
 
                 // Parse the JSON data for authors and reference
                 let authors = [];
@@ -56,7 +57,7 @@ class AnvioGallery {
                     console.warn('Error parsing authors or reference data:', e);
                 }
 
-                this.openFullscreen(img, title, description, authors, reference);
+                this.openFullscreen(img, title, description, learning_resources_tag, authors, reference);
             });
         });
 
@@ -124,14 +125,12 @@ class AnvioGallery {
     }
 
     pause() {
-        console.log('Pausing - isPaused set to true');
         this.isPaused = true;
         this.pauseProgress();
     }
 
     resume() {
         if (!this.isModalOpen()) {
-            console.log('Resuming - isPaused set to false');
             this.isPaused = false;
             // Start fresh progress animation when resuming
             this.startProgress();
@@ -177,8 +176,6 @@ class AnvioGallery {
     startProgress() {
         if (!this.progressBar) return;
 
-        console.log('Starting progress animation with interval:', this.autoAdvanceInterval);
-
         // Completely remove any existing transition
         this.progressBar.style.transition = 'none';
         this.progressBar.style.animation = 'none';
@@ -187,22 +184,18 @@ class AnvioGallery {
         this.progressBar.style.strokeDasharray = dashArray;
         this.progressBar.style.strokeDashoffset = dashArray;
 
-        console.log('Reset progress - dashArray:', dashArray, 'offset:', dashArray);
-
         // Force multiple reflows to ensure reset
         this.progressBar.offsetHeight;
         this.progressBar.getBoundingClientRect();
 
         // Use setTimeout instead of requestAnimationFrame for more reliable timing
         setTimeout(() => {
-            console.log('Starting progress transition');
             this.progressBar.style.transition = `stroke-dashoffset ${this.autoAdvanceInterval}ms linear`;
             this.progressBar.style.strokeDashoffset = '0';
 
             // Log what actually happened
             setTimeout(() => {
                 const currentOffset = window.getComputedStyle(this.progressBar).strokeDashoffset;
-                console.log('Progress animation started, current offset:', currentOffset);
             }, 100);
         }, 50);
     }
@@ -210,12 +203,9 @@ class AnvioGallery {
     stopProgress() {
         if (!this.progressBar) return;
 
-        console.log('Stopping progress animation');
-
         // Get current position before stopping
         const computed = window.getComputedStyle(this.progressBar);
         const currentOffset = computed.strokeDashoffset;
-        console.log('Current offset before stop:', currentOffset);
 
         // Stop transition
         this.progressBar.style.transition = 'none';
@@ -224,8 +214,6 @@ class AnvioGallery {
         // Reset to start position
         const dashArray = this.progressBar.getAttribute('stroke-dasharray') || '113';
         this.progressBar.style.strokeDashoffset = dashArray;
-
-        console.log('Progress stopped and reset to:', dashArray);
     }
 
     // Navigation methods called by global functions
@@ -245,7 +233,7 @@ class AnvioGallery {
         return modal && modal.style.display === 'block';
     }
 
-    openFullscreen(imageSrc, title, description, authors = [], reference = null) {
+    openFullscreen(imageSrc, title, description, learning_resources_tag = null, authors = [], reference = null) {
         const modal = document.getElementById('fullscreenModal');
         const image = document.getElementById('fullscreenImage');
         const titleEl = document.getElementById('fullscreenTitle');
@@ -271,7 +259,6 @@ class AnvioGallery {
             fullDescription += authorLinks.join(', ') + '</div>';
         }
 
-        console.log(authors);
         // Add reference section
         if (reference && reference.title) {
             fullDescription += '<div class="modal-reference"><strong>Appears In:</strong> ';
@@ -281,6 +268,12 @@ class AnvioGallery {
                 fullDescription += reference.title;
             }
             fullDescription += '</div>';
+        }
+
+        console.log(learning_resources_tag);
+        // Add learning tags section
+        if (learning_resources_tag) {
+            fullDescription += '<div class="modal-reference"><strong>Learn more:</strong> Visit resoures on <a href="/learn/' + learning_resources_tag + '" target="_blank">' + learning_resources_tag + '</a></div>';
         }
 
         descEl.innerHTML = fullDescription;

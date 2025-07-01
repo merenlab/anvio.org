@@ -26,6 +26,7 @@
            data-title="{{ image.title }}"
            data-description="{{ image.description }}"
            data-authors="{{ image.authors | jsonify | escape }}"
+           data-learning-resources-tag="{{ image.learning_resources_tag }}"
            data-reference="{{ image.reference | jsonify | escape }}">
         <img src="{{ image.image }}" alt="{{ image.alt }}">
         <div class="slide-content">
