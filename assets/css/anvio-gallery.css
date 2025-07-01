@@ -257,7 +257,38 @@
     box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
-/* Optional: Close button instructions */
+.modal-authors,
+.modal-reference {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    font-size: 0.9rem;
+}
+
+.modal-authors strong,
+.modal-reference strong {
+    color: #333;
+    margin-right: 5px;
+}
+
+.modal-authors a,
+.modal-reference a {
+    color: #667eea;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.modal-authors a:hover,
+.modal-reference a:hover {
+    border-bottom-color: #667eea;
+}
+
+.fullscreen-caption {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
 .modal-instructions {
     position: absolute;
     top: 80px;

@@ -1,6 +1,6 @@
 {% assign gallery_data = site.data.gallery %}
 
-<div class="anvio-gallery" 
+<div class="anvio-gallery"
      data-auto-advance="{{ gallery_data.gallery.auto_advance }}"
      data-auto-advance-interval="{{ gallery_data.gallery.auto_advance_interval }}">
   {% if include.show_header %}
@@ -24,7 +24,9 @@
       <div class="slide {% if forloop.first %}active{% endif %}"
            data-fullscreen-img="{{ image.fullscreen_image }}"
            data-title="{{ image.title }}"
-           data-description="{{ image.description }}">
+           data-description="{{ image.description }}"
+           data-authors="{{ image.authors | jsonify | escape }}"
+           data-reference="{{ image.reference | jsonify | escape }}">
         <img src="{{ image.image }}" alt="{{ image.alt }}">
         <div class="slide-content">
           <div class="slide-title">{{ image.title }}</div>

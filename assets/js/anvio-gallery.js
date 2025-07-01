@@ -44,7 +44,19 @@ class AnvioGallery {
                 const img = slide.dataset.fullscreenImg;
                 const title = slide.dataset.title;
                 const description = slide.dataset.description;
-                this.openFullscreen(img, title, description);
+
+                // Parse the JSON data for authors and reference
+                let authors = [];
+                let reference = null;
+
+                try {
+                    authors = slide.dataset.authors ? JSON.parse(slide.dataset.authors) : [];
+                    reference = slide.dataset.reference ? JSON.parse(slide.dataset.reference) : null;
+                } catch (e) {
+                    console.warn('Error parsing authors or reference data:', e);
+                }
+
+                this.openFullscreen(img, title, description, authors, reference);
             });
         });
 
@@ -233,7 +245,7 @@ class AnvioGallery {
         return modal && modal.style.display === 'block';
     }
 
-    openFullscreen(imageSrc, title, description) {
+    openFullscreen(imageSrc, title, description, authors = [], reference = null) {
         const modal = document.getElementById('fullscreenModal');
         const image = document.getElementById('fullscreenImage');
         const titleEl = document.getElementById('fullscreenTitle');
@@ -243,11 +255,39 @@ class AnvioGallery {
 
         image.src = imageSrc;
         titleEl.textContent = title;
-        descEl.innerHTML = this.parseMarkdown(description);
+
+        // Build the complete description with authors and reference
+        let fullDescription = this.parseMarkdown(description);
+
+        // Add authors section
+        if (authors && authors.length > 0) {
+            fullDescription += '<div class="modal-authors"><strong>Authors:</strong> ';
+            const authorLinks = authors.map(author => {
+                if (author.url) {
+                    return `<a href="${author.url}" target="_blank">${author.name}</a>`;
+                }
+                return author.name;
+            });
+            fullDescription += authorLinks.join(', ') + '</div>';
+        }
+
+        console.log(authors);
+        // Add reference section
+        if (reference && reference.title) {
+            fullDescription += '<div class="modal-reference"><strong>Appears In:</strong> ';
+            if (reference.url) {
+                fullDescription += `<a href="${reference.url}" target="_blank">${reference.title}</a>`;
+            } else {
+                fullDescription += reference.title;
+            }
+            fullDescription += '</div>';
+        }
+
+        descEl.innerHTML = fullDescription;
 
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
-        this.stop(); // Stop auto-advance when modal opens
+        this.stop();
     }
 
     closeFullscreen() {
