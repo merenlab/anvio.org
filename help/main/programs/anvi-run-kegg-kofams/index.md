@@ -97,6 +97,16 @@ anvi&#45;run&#45;kegg&#45;kofams &#45;c <span class="artifact&#45;n">[contigs&#4
                      &#45;&#45;hmmer&#45;program hmmscan
 </div>
 
+## Prevent HMMER from pre-filtering hits with default e-value reporting thresholds
+The default e-value reporting thresholds that HMMER uses are quite high, but e-values are dependent on the size of the databases used. So, if you have a very large dataset, it is possible that we miss some annotations from hits with bit scores that would be good enough to pass the bit score thresholds, but never get reported by HMMER in the first place because their e-values are too high. To avoid this, use the following flag:
+
+<div class="codeblock" markdown="1">
+anvi&#45;run&#45;kegg&#45;kofams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                     &#45;&#45;no&#45;hmmer&#45;prefiltering
+</div>
+
+In this case, we will set HMMER's reporting thresholds to be extremely low and bit score-based (`-T -20 and --domT -20`) so that we don't lose any hits with high bitscore yet high e-value. In most cases, this won't lead to many new annotations because the bitscore filtering we apply later will weed out most raw hits. But please exercise caution. Using this flag with `--keep-all-hits` is not recommended. 
+
 ## Keep all HMM hits
 Usually, this program parses out weak HMM hits and keeps only those that are above the score threshold for a given KO. If you would like to turn off this behavior and keep all hits (there will be _a lot_ of weak ones), you can follow the example below:
 

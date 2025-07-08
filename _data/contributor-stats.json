@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7124,
+        "total_commits": 7128,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,12 +13,12 @@
             "2022": 423,
             "2023": 227,
             "2024": 132,
-            "2025": 34
+            "2025": 38
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "update mini CV",
-        "latest_commit_hash": "7d39e69b454cc1d7c27ea7e7dd95b963ff14b091",
-        "latest_commit_date": "12 June 2025"
+        "latest_commit_message": "fixy for unused variables and import shadowing :)",
+        "latest_commit_hash": "a41bdb795530728bb361706a2c825c71870df68e",
+        "latest_commit_date": "01 July 2025"
     },
     "FlorianTrigodet": {
         "total_commits": 87,
@@ -105,7 +105,7 @@
         "latest_commit_date": "16 December 2024"
     },
     "ivagljiva": {
-        "total_commits": 2217,
+        "total_commits": 2221,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 281,
             "2023": 174,
             "2024": 221,
-            "2025": 25
+            "2025": 29
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "yes. a monster of a sanity check. because it is crucial that the downstream javascript code receives all data that it will expect so we don't end up with mysterious interface errors",
-        "latest_commit_hash": "9a02f22f1aa6e57faf7478e5105b6b29d7fcc6ad",
-        "latest_commit_date": "20 June 2025"
+        "latest_commit_message": "add new flag in docs",
+        "latest_commit_hash": "78a96416447d1f9b46f7474e4aefc2693043ae30",
+        "latest_commit_date": "03 July 2025"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -609,6 +609,27 @@
         "latest_commit_date": "10 March 2025"
     },
     "bcoltman": {
+        "total_commits": 7,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 7
+        },
+        "top_file": "anvio/drivers/hmmer.py",
+        "latest_commit_message": "Clean up",
+        "latest_commit_hash": "29cdd3fea7443d8b0e5c6400092e99ca15db8c06",
+        "latest_commit_date": "02 July 2025"
+    },
+    "katysloz": {
         "total_commits": 4,
         "commits_per_year": {
             "2014": 0,
@@ -624,31 +645,10 @@
             "2024": 0,
             "2025": 4
         },
-        "top_file": "anvio/drivers/hmmer.py",
-        "latest_commit_message": "Rather than loading all hits into memory, this update chunks the processing. This is quicker than processing it a single line at a time, but will avoid overloading RAM. Related to PR #2423.",
-        "latest_commit_hash": "018d1036aedfed832036efa7bfd6457257d08e4f",
-        "latest_commit_date": "03 June 2025"
-    },
-    "katysloz": {
-        "total_commits": 3,
-        "commits_per_year": {
-            "2014": 0,
-            "2015": 0,
-            "2016": 0,
-            "2017": 0,
-            "2018": 0,
-            "2019": 0,
-            "2020": 0,
-            "2021": 0,
-            "2022": 0,
-            "2023": 0,
-            "2024": 0,
-            "2025": 3
-        },
         "top_file": "anvio/data/misc/PEOPLE/DEVELOPERS.yaml",
-        "latest_commit_message": "Add files via upload",
-        "latest_commit_hash": "e81f9239b2bbb1bf3f430b9bc17d63900c253356",
-        "latest_commit_date": "28 April 2025"
+        "latest_commit_message": "fix reading samples-txt as dict with multiple paths",
+        "latest_commit_hash": "140ab99e70ca882dac0589407383dbf072ce4ef9",
+        "latest_commit_date": "27 June 2025"
     },
     "mankeldy": {
         "total_commits": 4,
