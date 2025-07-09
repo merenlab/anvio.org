@@ -54,7 +54,7 @@ anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&
                        &#45;&#45;list&#45;gene&#45;callers
 </div>
 
-Running this will export all of your gene calls identified by the gene caller [prodigal](https://github.com/hyattpd/Prodigal) (assuming it is in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>:
+Running this will export all of your gene calls identified by the gene caller [pyrodigal-gv](https://github.com/althonos/pyrodigal-gv) (assuming it is in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>:
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \

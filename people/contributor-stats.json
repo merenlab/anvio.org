@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7128,
+        "total_commits": 7194,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -12,16 +12,16 @@
             "2021": 786,
             "2022": 423,
             "2023": 227,
-            "2024": 132,
-            "2025": 38
+            "2024": 146,
+            "2025": 90
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "fixy for unused variables and import shadowing :)",
-        "latest_commit_hash": "a41bdb795530728bb361706a2c825c71870df68e",
-        "latest_commit_date": "01 July 2025"
+        "latest_commit_message": "keep track of history",
+        "latest_commit_hash": "2b2776552360d8ead397befaf8b9914c8e551e4b",
+        "latest_commit_date": "06 July 2025"
     },
     "FlorianTrigodet": {
-        "total_commits": 87,
+        "total_commits": 89,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -33,7 +33,7 @@
             "2021": 5,
             "2022": 10,
             "2023": 35,
-            "2024": 22,
+            "2024": 24,
             "2025": 4
         },
         "top_file": "anvio/inversions.py",
@@ -105,7 +105,7 @@
         "latest_commit_date": "16 December 2024"
     },
     "ivagljiva": {
-        "total_commits": 2221,
+        "total_commits": 2226,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,7 +118,7 @@
             "2022": 281,
             "2023": 174,
             "2024": 221,
-            "2025": 29
+            "2025": 34
         },
         "top_file": "anvio/kegg.py",
         "latest_commit_message": "add new flag in docs",

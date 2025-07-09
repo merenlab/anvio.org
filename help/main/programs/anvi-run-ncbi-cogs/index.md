@@ -64,7 +64,7 @@ Without the flag `--cog-data-dir`, anvi'o will just search in the default locati
 If you want to annotate your genes with a non-default version of <span class="artifact-n">[cogs-data](/help/main/artifacts/cogs-data)</span>, provide that version after the `--cog-version` parameter:
 
 <div class="codeblock" markdown="1">
-anvi&#45;setup&#45;ncbi&#45;cogs &#45;&#45;cog&#45;version COG14
+anvi&#45;setup&#45;ncbi&#45;cogs &#45;&#45;cog&#45;version COG24
 </div>
 
 ### Choosing a different search program
@@ -78,7 +78,7 @@ anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;
 ### Running with multiple threads
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
-            &#45;&#45;cog&#45;data&#45;dir path/to/<span class="artifact&#45;n">[cogs&#45;data](/help/main/artifacts/cogs&#45;data)</span> \ 
+            &#45;&#45;cog&#45;data&#45;dir path/to/<span class="artifact&#45;n">[cogs&#45;data](/help/main/artifacts/cogs&#45;data)</span> \
             &#45;T 16
 </div>
 
