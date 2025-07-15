@@ -37,7 +37,8 @@ First, open your terminal, `cd` to a working directory, and download the data pa
 
 ``` bash
 curl -L https://figshare.com/ndownloader/files/45483060 \
-    -o SCG_workshop.tar.gz
+     -H "User-Agent: Chrome/115.0.0.0" \
+     -o SCG_workshop.tar.gz
 ```
 
 Then unpack it, and go into the data pack directory:
