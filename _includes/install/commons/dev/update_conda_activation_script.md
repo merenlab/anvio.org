@@ -1,6 +1,8 @@
-At this stage we have everything we need: a well-configured conda environment with a development version of anvi'o installed.
+At this stage we have everything we need: a well-configured conda environment, in which a development version of anvi'o is successfully installed.
 
-What we are missing at this stage is the conda environment to 'update' the anvi'o code from GitHub upon initialization. If you wish to have that functionality, please copy-paste these lines into your terminal while you are still in anvio-dev conda environment:
+What we are missing at this stage is the conda environment to 'update' the local anvi'o code from GitHub actively upon initialization.
+
+If you wish to have this functionality, please copy-paste these lines into your terminal while you are still in anvio-dev conda environment:
 
 ``` bash
 cat <<EOF >${CONDA_PREFIX}/etc/conda/activate.d/anvio.sh
@@ -13,7 +15,7 @@ cd \$HOME/github/anvio && git pull && cd -
 EOF
 ```
 
-With this change,every time you activate the conda environment you will get the very latest updates from the main anvi'o repository.
+With this change, every time you activate the anvio-dev conda environment, you will get the very latest updates from the main anvi'o repository.
 
 {:.warning}
 If you are using `zsh` by default these may not work. If you run into a trouble here or especially if you figure out a way to make it work both for `zsh` and `bash`, please let us know. To use `bash` to make the above command work, first run this `exec bash` command. Then re-run the command above. To go back to `zsh` you can run `exec zsh` command.
@@ -47,9 +49,10 @@ Workflow configurations ......................: 3
 
 If that is the case, you're all set.
 
-Every change you will make in anvi'o codebase will immediately be reflected when you run anvi'o tools (but if you change the code and do not revert back, git will stop updating your branch from the upstream). If you intend to write code for anvi'o, please feel free to get in touch with the anvi'o devleopers for insights and/or advice.
+{:.notice}
+A small note for developers: with this setup, every change you will make in the files under `~/github/anvio/anvio` will immediately take affect when you run anvi'o tools (but if you change the code and do not revert back, git will stop updating your branch from the upstream). If you intend to write code for anvi'o, please feel free to get in touch with the anvi'o devleopers for insights and/or advice.
 
-If you followed these instructions, every time you open a terminal you will have to run the following command to activate your anvi'o environment:
+If you followed these instructions, every time you open a terminal you will need to run the following command to activate your anvi'o environment:
 
 ```
 conda activate anvio-dev
