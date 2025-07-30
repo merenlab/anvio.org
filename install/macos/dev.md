@@ -21,7 +21,7 @@ This page is for users who want to install the development version of anvi'o, `a
 
 {% include install/macos/things_you_need.md %}
 
-## (2) Setting up the conda environment
+## (2) Set up the conda environment
 
 {% include install/commons/dev/python_version_warning.md %}
 
@@ -40,18 +40,29 @@ conda config --env --set subdir osx-64
 
 {% include install/commons/conda_packages.md %}
 
-## (3) Setting up the local copy of the anvi'o codebase
+## (3) Generat a local copy of the anvi'o codebase
 
 {% include install/commons/dev/codebase.md %}
 
-## (4) Installing the Python dependencies
+## (4) Install anvi'o in development mode
 
-{% include install/commons/dev/python_dependencies.md %}
-{% include install/commons/dev/python_dependencies_conclusion.md %}
+Some packages may require to be installed with a more up to date C compiler on Mac OSX. Hence, please run the following commands first:
 
-## (5) Linking conda environment and the codebase
+```bash
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
+```
 
-{% include install/commons/dev/link_conda_codebase.md %}
+Now you can install anvi'o as a Python package in "editable" or "development" mode:
+
+```bash
+cd ~/github/anvio/
+pip install -e .
+```
+
+## (5) Update conda activation script
+
+{% include install/commons/dev/update_conda_activation_script.md %}
 
 ## (6) Check your installation
 
