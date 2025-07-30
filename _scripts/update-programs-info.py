@@ -20,7 +20,7 @@ if __name__ == '__main__':
     p.init_programs()
 
     program_contributions = {}
-    for program_name in p.all_program_names:
+    for program_name in p.program_names_and_paths:
         if program_name in p.programs:
             program_authors = p.programs[program_name].meta_info['authors']['value']
             if len(program_authors):
