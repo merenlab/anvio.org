@@ -72,6 +72,10 @@ pip install -e .
 
 {% include install/commons/dev/bonus_bash_setup.md %}
 
+## Double Bonus: Making sure the integrity of the development environment
+
+{% include install/commons/dev/bonus_integrity_of_development_environment.md %}
+
 ---
 
 {:.notice}
