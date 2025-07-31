@@ -43,7 +43,7 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-The aim of this script is to find potential assembly errors from long read assemblers.
+The aim of this script is to find potential assembly errors from long read assemblers. For a comprehensive assembly error analysis, which include the use of this script, you can check [the reproducible workflow](https://merenlab.org/data/benchmarking-long-read-assemblers/) for [Assemblies of long-read metagenomes suffer from diverse forms of errors”](https://doi.org/10.1101/2025.04.22.649783) by Trigodet et al.
 
 ### Principle
 
@@ -100,6 +100,12 @@ Another default behavior of the script is to skip the first and last 100bp of a 
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;find&#45;misassemblies &#45;b sample01.bam &#45;o result &#45;&#45;min&#45;dist&#45;to&#45;end 0
+</div>
+
+You can also speed up the process by using multiple threads with the flag `-T`:
+
+<div class="codeblock" markdown="1">
+anvi&#45;script&#45;find&#45;misassemblies &#45;b sample01.bam &#45;o result &#45;T 8
 </div>
 
 

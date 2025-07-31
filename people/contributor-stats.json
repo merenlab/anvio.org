@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7194,
+        "total_commits": 7270,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,15 +13,15 @@
             "2022": 423,
             "2023": 227,
             "2024": 146,
-            "2025": 90
+            "2025": 166
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "keep track of history",
-        "latest_commit_hash": "2b2776552360d8ead397befaf8b9914c8e551e4b",
-        "latest_commit_date": "06 July 2025"
+        "latest_commit_message": "fixy fix",
+        "latest_commit_hash": "8dbced8478ab5f22ee8cf9ec6cd7a982855fbd94",
+        "latest_commit_date": "31 July 2025"
     },
     "FlorianTrigodet": {
-        "total_commits": 89,
+        "total_commits": 95,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -34,12 +34,12 @@
             "2022": 10,
             "2023": 35,
             "2024": 24,
-            "2025": 4
+            "2025": 10
         },
         "top_file": "anvio/inversions.py",
-        "latest_commit_message": "Update log file",
-        "latest_commit_hash": "20eda0326e104884e39b1a99aeff86742a179d93",
-        "latest_commit_date": "03 June 2025"
+        "latest_commit_message": "Remove pkg_resources",
+        "latest_commit_hash": "bfdcca7fed309b797ca55ef88ee2bebdd2f217c8",
+        "latest_commit_date": "30 July 2025"
     },
     "watsonar": {
         "total_commits": 10,
@@ -105,7 +105,7 @@
         "latest_commit_date": "16 December 2024"
     },
     "ivagljiva": {
-        "total_commits": 2226,
+        "total_commits": 2227,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 281,
             "2023": 174,
             "2024": 221,
-            "2025": 34
+            "2025": 35
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "add new flag in docs",
-        "latest_commit_hash": "78a96416447d1f9b46f7474e4aefc2693043ae30",
-        "latest_commit_date": "03 July 2025"
+        "latest_commit_message": "inversions code now gets gene caller from the contigs database",
+        "latest_commit_hash": "163fc93bf97523a75aa9635923e4ff8846176745",
+        "latest_commit_date": "11 July 2025"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -168,7 +168,7 @@
         "latest_commit_date": "23 January 2025"
     },
     "ahenoch": {
-        "total_commits": 1,
+        "total_commits": 2,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -181,12 +181,12 @@
             "2022": 0,
             "2023": 1,
             "2024": 0,
-            "2025": 0
+            "2025": 1
         },
         "top_file": "requirements.txt",
-        "latest_commit_message": "added networkx for PanGraph extension",
-        "latest_commit_hash": "37446af6f1aba658d10a128dc584c9e82a1d5b1b",
-        "latest_commit_date": "26 September 2023"
+        "latest_commit_message": "Revert \"Update requirements.txt\"",
+        "latest_commit_hash": "dadae1a3144ba3759590c3b36684c511b0bfcfb5",
+        "latest_commit_date": "30 July 2025"
     },
     "isaacfink21": {
         "total_commits": 120,
