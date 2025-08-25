@@ -1,0 +1,184 @@
+gallery:
+  title: "Anvi'o Visualization Gallery"
+  description: "Explore the advanced visualization capabilities of anvi'o through interactive examples"
+  auto_advance: true
+  auto_advance_interval: 3000
+
+images:
+  - id: "anvio_logo"
+    title: "Anvi'o Logo"
+    description: "For your presentations :)"
+    image: "/images/anvio.png" # this is the small version of the image that MUST be a square
+    fullscreen_image: "/images/anvio.png" # this is the full screen image that will show up once the smaller one is clicked
+
+  - id: "Shaiber_et_al_pangenomics"
+    title: "Pangenomics"
+    description: "An anvi'o pangenome that shows the gene pool of 55 TM7 genomes, a common resident of the human oral cavity. The figure includes a heatmap to show pairwise average nucleotide identity (ANI) values across genomes, prevalence of each genome across metagenomes from the human oral cavity, and an organization of the genomes based on a phylogenomic analysis, a tree for which appears at the top-right."
+    image: "/images/gallery/full/Shaiber_et_al_pangenomics.png"
+    fullscreen_image: "/images/gallery/full/Shaiber_et_al_pangenomics.png"
+    learning_resources_tag: pangenomics
+    reference:
+      title: "Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome"
+      url: https://doi.org/10.1186/s13059-020-02195-w
+    authors:
+      - name: Alon Shaiber
+        url: https://www.linkedin.com/in/alon-shaiber/
+      - name: et al.
+
+
+  - id: "Gaia_et_al_phylogenomics"
+    title: "Phylogenomics"
+    description: "An anvi'o phylogenomic visualization of a phylum of large and giant viruses. The figure displays a maximum-likelihood phylogenetic tree built from a viral database of Nucleocytoviricota and Mirusviricota (1,722 genomes) based on a concatenation of manually curated RNApolA, RNApolB, DNApolB and TFIIS genes (3,715 amino acid positions) using the PMSF mixture model and rooted between the Pokkesviricetes and the rest. The tree was decorated with layers of complementary information and visualized with anvi'o."
+    image: "/images/gallery/full/Gaia_et_al_phylogenomics.png"
+    fullscreen_image: "/images/gallery/full/Gaia_et_al_phylogenomics.png"
+    reference:
+      title: "Mirusviruses link herpesviruses to giant viruses"
+      url: https://www.nature.com/articles/s41586-023-05962-4
+    authors:
+      - name: Morgan Gaia
+        url: https://lage.genoscope.cns.fr/members/morgan-gaia/
+      - name: Tom O. Delmont
+        url: https://anvio.org/people/tdelmont/
+      - name: et al.
+
+
+  - id: "Veseli_et_al_metabolic_genomics"
+    title: "Metabolic profiling of microbial genomes"
+    description: "Identification of high metabolic independence (HMI) genomes and their distribution across gut samples. The phylogeny of 338 gut-associated genomes from the Genome Taxonomy Database (GTDB) along with the following data, from top to bottom: taxonomic classification as assigned by GTDB; proportion of healthy samples with at least 50% detection of the genome sequence; proportion of inflammatory bowel disease (IBD) samples with at least 50% detection of the genome sequence; square-root normalized ratio of percent abundance in IBD samples to percent abundance in healthy samples; metabolic independence score (sum of completeness scores of 33 HMI-associated metabolic modules); whether (red) or not (white) the genome is classified as having HMI with a threshold score of 26.4; heatmap of completeness scores for each of the 33 HMI-associated metabolic modules (0% completeness is white and 100% completeness is black). Module name is shown on the right and colored according to its category of metabolism."
+    image: "/images/gallery/full/Veseli_et_al_metabolic_genomics.jpg"
+    fullscreen_image: "/images/gallery/full/Veseli_et_al_metabolic_genomics.jpg"
+    reference:
+      title: "Microbes with higher metabolic independence are enriched in human gut microbiomes under stress"
+      url: https://elifesciences.org/articles/89862
+    authors:
+      - name: Iva Veseli
+        url: https://anvio.org/people/ivagljiva/
+      - name: et al.
+
+
+  - id: "Delmont_et_al_binning"
+    title: "Manual binning and curation"
+    description: "The anvi'o interactive interface for manual genome-resolved metagenomics. Panel A describes a metagenomic dataset of 3 samples from the DeepWater Horizon oil spill (https://www.nature.com/articles/ismej201259). Panel B describes the anvi'o interactive interface visualizing the processing of 6,123 contigs assembled from the metagenomic dataset. Contigs are organized based on their sequence composition and differential coverage across the 3 samples. One cluster of contigs is selected. Panel C describes the refinement of the selected cluster of contigs, which are organized based on their sequence composition alone."
+    image: "/images/gallery/full/Delmont_et_al_binning.png"
+    fullscreen_image: "/images/gallery/full/Delmont_et_al_binning.png"
+    reference:
+      title: "Blog: Constrained binning and the anvi'o metabins"
+      url: https://anvio.org/blog/constrained-binning/
+    authors:
+      - name: Tom O. Delmont
+        url: https://anvio.org/people/tdelmont/
+      - name: et al.
+
+  - id: "Fogarty_et_al_coverage_visualization"
+    title: "Visualiation of read mapping data"
+    description: "Representative coverage plots of metagenomes mapped to pBI143. Each coverage plot shows the read recruitment results for an individual metagenome to pBI143. Vertical bars show single-nucleotide variants (red bar, variant in first or second codon position; green bar, variant in third codon position; gray bar, intergenic variant). The x-axis is the pBI143 reference sequence. (A) Global human gut metagenomes. Versions 1 (blue), 2 (red), and 3 (green). Three coverage plots for each reference version of pBI143 are shown. (B) pBI143 coverage plots from individuals sampled across time. Each coverage plot shows the coverage of pBI143 first and last sample collected for each subject possessing pBI143 in this dataset."
+    image: "/images/gallery/full/Fogarty_et_al_coverage_visualization.jpg"
+    fullscreen_image: "/images/gallery/full/Fogarty_et_al_coverage_visualization.jpg"
+    reference:
+      title: "A cryptic plasmid is among the most numerous genetic elements in the human gut"
+      url: https://www.cell.com/cell/fulltext/S0092-8674(24)00107-7?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0092867424001077%3Fshowall%3Dtrue
+    authors:
+      - name: Emily C. Fogarty
+        url: https://anvio.org/people/efogarty11/
+      - name: et al.
+
+  - id: "Scott_et_al_population_genetics"
+    title: "Structure-Informed Population Genetics"
+    description: "Sequence variants on predicted 3D structures with anvi'o. Though MAG-01 is abundant in both oceans, the Eastern Pacific and Western Atlantic differ dramatically in their geochemical and physical properties. One way to understand how the environment may shape genome evolution is to inspect gene-level variability profiles (e.g., codons or amino acids). The profile shown here indicates greater variability in the Eastern Pacific metagenome. Variable residues are then mapped onto the predicted structure of the resulting protein. Changes in amino acid sequence can alter the shape of a protein, and such changes may influence the protein's function."
+    image: "/images/gallery/full/Scott_et_al_population_genetics.png"
+    fullscreen_image: "/images/gallery/full/Scott_et_al_population_genetics.png"
+    reference:
+      title: "Picture the unseen"
+      url: https://stri.si.edu/story/picture-unseen
+    authors:
+      - name: Jarrod Scott
+        url: https://istmobiome.rbind.io/authors/jarrod-j-scott/
+      - name: et al.
+
+  - id: "Kiefl_et_al_population_genetics"
+    title: "Structure-Informed Population Genetics"
+    description: "Anvi'o workflow for structure-informed population genetics. The proposed workflow combines predicted structures and metagenomic read recruitment results to interpret intrapopulation genetic variants in the context of protein structural properties."
+    image: "/images/gallery/full/Kiefl_et_al_population_genetics.jpg"
+    fullscreen_image: "/images/gallery/full/Kiefl_et_al_population_genetics.jpg"
+    reference:
+      title: "Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution"
+      url: https://www.science.org/doi/10.1126/sciadv.abq4632
+    authors:
+      - name: Evan Kiefl
+        url: https://anvio.org/people/ekiefl/
+      - name: et al.
+
+  - id: "Zhou_et_al_pangenomics"
+    title: "Pangenomics"
+    description: "An anvi'o pangenome for Salmonella enterica. The figure at the top shows the maximum-likelihood phylogeny of 50,000+ S. enterica genomes in the Enterobase, and at the bottom it shows the pangenome of Para C Lineage and mapping statistics of reads that likely belong to the Ragna genome."
+    image: "/images/gallery/full/Zhou_et_al_pangenomics.png"
+    fullscreen_image: "/images/gallery/full/Zhou_et_al_pangenomics.png"
+    reference:
+      title: "Millennia of Genomic Stability within the Invasive Para C Lineage of Salmonella enterica"
+      url: https://anvio.org/blog/constrained-binning/
+    authors:
+      - name: Zhemin Zhou
+        url: https://orcid.org/0000-0003-0604-1885
+      - name: Mark Achtman
+        url: https://en.wikipedia.org/wiki/Mark_Achtman
+      - name: et al.
+
+  - id: "Watson_et_al_genome_resolved_metagenomics"
+    title: "Genome-resolved metagenomics"
+    description: "Detection of FMT donor genomes in FMT recipients and publicly available gut metagenomes. In both heatmaps, each column represents a donor genome, each row represents a metagenome, and each data point represents the detection of a given genome in a given metagenome. Purple rows represent donor metagenomes from stool samples collected over 636 days for donor A and 532 days for donor B."
+    image: "/images/gallery/full/Watson_et_al_genome_resolved_metagenomics.png"
+    fullscreen_image: "/images/gallery/full/Watson_et_al_genome_resolved_metagenomics.png"
+    reference:
+      title: "Metabolic independence drives gut microbial colonization and resilience in health and disease"
+      url: https://genomebiology.biomedcentral.com/articles/10.1186/s13059-023-02924-x
+    authors:
+      - name: Andrea R. Watson
+        url: https://anvio.org/people/watsonar/
+      - name: Iva Veseli
+        url: https://anvio.org/people/ivagljiva/
+      - name: Jessika Fuessel
+        url: https://anvio.org/people/jessika-fuessel/
+      - name: et al.
+
+  - id: "Shaiber_et_al_MAG_curation"
+    title: "Genome Refinement and Curation"
+    description: "Refinement of three composite genome bins."
+    image: "/images/gallery/full/Shaiber_et_al_MAG_curation.jpeg"
+    fullscreen_image: "/images/gallery/full/Shaiber_et_al_MAG_curation.jpeg"
+    reference:
+      title: "Composite Metagenome-Assembled Genomes Reduce the Quality of Public Genome Repositories"
+      url: https://journals.asm.org/doi/10.1128/mbio.00725-19
+    authors:
+      - name: Alon Shaiber
+        url: https://www.linkedin.com/in/alon-shaiber/
+      - name: A. Murat Eren
+        url: https://anvio.org/people/meren/
+
+
+  - id: "Delmont_et_al_metapangenomics"
+    title: "Metapangenomics"
+    description: "The metapangenome of Prochlorococcus. Each one of the 7,385 gene clusters contains one or more genes contributed by one or more isolate genomes. Bars in the first 31 layers indicate the occurrence of gene clusters in a given isolate genome. Gene clusters are organized based on their distribution across genomes (i.e., gene clusters that co-occur in the same group of isolates are closer to each other), and genomes are organized based on gene clusters they share using Euclidean distance and Ward ordination. The three next layers describe the gene clusters in which at least one gene was functionally annotated using Pfams, EggNOGs, or COGs. Another layer describes the ratio of environmental core versus environmental accessory genes (ECGs/EAGs) within each PC. Gray areas account for the genes in genomes undetected in the metagenomic dataset. Finally, the last layer corresponds to our selections of gene clusters. The 'HL + LL Core' selection corresponds to the gene clusters that contained genes from all genomes. The 'LL Core' and 'HL Core' selections correspond to clusters that contained genes characteristic of the LL- and HL-adapted genomes, respectively. The last selection ('Singletons') corresponds to clusters that contained one or multiple genes from a single genome. The right-hand side section of the figure provides additional data for each isolate. The bottom rectangle displays the relative distribution of genomes across 93 metagenomes and is followed by layers that show the average distribution of each isolate in the metagenomic dataset and the phylogenetic clades to which they belong. The dendrogram on the top represents the hierarchical clustering of genomes based on the occurrence of gene clusters."
+    image: "/images/gallery/full/Delmont_et_al_metapangenomics.png"
+    fullscreen_image: "/images/gallery/full/Delmont_et_al_metapangenomics.png"
+    reference:
+      title: "Linking pangenomes and metagenomes: the Prochlorococcus metapangenome"
+      url: https://peerj.com/articles/4320/
+    authors:
+      - name: Tom O. Delmont
+        url: https://anvio.org/people/tdelmont/
+      - name: A. Murat Eren
+        url: https://anvio.org/people/meren/
+
+
+  - id: "Reveillaud_et_al_metapangenomics"
+    title: "Metapangenomics"
+    description: "Wolbachia metapangenome in the context of wPip Pel genome synteny. The figure shows the presence–absence of 1,166 gene clusters in the pangenome of four Wolbachia metagenome-assembled genomes (MAGs) and the reference genome wPip Pel. The gene clusters (i.e., groups of homologous genes based on amino acid sequence identity) are organized based on wPip Pel synteny. Each MAG is represented by two layers, where the first layer indicates the presence or absence of a gene cluster in a given MAG, and the other shows the average coverage of each Wolbachia MAG O07 gene cluster in the corresponding C. pipiens metagenome. The second-to-last layer shows whether genes in a given gene cluster have a match in NCBI's COGs. The outermost layer associates gene clusters with previously identified prophage regions in the wPip Pel genome. The number of gene clusters assigned to WOPip prophage regions are indicated in parentheses."
+    image: "/images/gallery/full/Reveillaud_et_al_metapangenomics.png"
+    fullscreen_image: "/images/gallery/full/Reveillaud_et_al_metapangenomics.png"
+    reference:
+      title: "The Wolbachia mobilome in Culex pipiens includes a putative plasmid"
+      url: https://www.nature.com/articles/s41467-019-08973-w
+    authors:
+      - name: Julie Reveillaud
+        url: https://juliereve.com/
+      - name: et al.

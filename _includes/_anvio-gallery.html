@@ -1,0 +1,62 @@
+{% assign gallery_data = site.data.gallery %}
+
+<div class="anvio-gallery"
+     data-auto-advance="{{ gallery_data.gallery.auto_advance }}"
+     data-auto-advance-interval="{{ gallery_data.gallery.auto_advance_interval }}">
+  {% if include.show_header %}
+    <h2 class="gallery-title">{{ gallery_data.gallery.title }}</h2>
+    {% if gallery_data.gallery.description %}
+      <p class="gallery-description">{{ gallery_data.gallery.description }}</p>
+    {% endif %}
+  {% else %}
+  {% endif %}
+
+  <div class="slideshow-container">
+    <!-- Progress Indicator -->
+    <div class="progress-indicator">
+      <svg class="progress-circle" viewBox="0 0 40 40">
+        <circle class="progress-background" cx="20" cy="20" r="18"></circle>
+        <circle class="progress-bar" cx="20" cy="20" r="18"></circle>
+      </svg>
+    </div>
+
+    {% for image in gallery_data.images %}
+      <div class="slide {% if forloop.first %}active{% endif %}"
+           data-fullscreen-img="{{ image.fullscreen_image }}"
+           data-title="{{ image.title }}"
+           data-description="{{ image.description }}"
+           data-authors="{{ image.authors | jsonify | escape }}"
+           data-learning-resources-tag="{{ image.learning_resources_tag }}"
+           data-reference="{{ image.reference | jsonify | escape }}">
+        <img src="{{ image.image }}" alt="{{ image.alt }}">
+        <div class="slide-content">
+          <div class="slide-title">{{ image.title }}</div>
+          <div class="slide-description">{{ image.description | markdownify | truncate: 120 }}</div>
+        </div>
+      </div>
+    {% endfor %}
+
+    <!-- Navigation arrows -->
+    <button class="nav-arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="nav-arrow next" onclick="changeSlide(1)">&#10095;</button>
+  </div>
+
+  <!-- Dots indicator -->
+  <div class="dots-container">
+    {% for image in gallery_data.images %}
+      <span class="dot {% if forloop.first %}active{% endif %}" onclick="currentSlide({{ forloop.index }})"></span>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Fullscreen Modal -->
+<div id="fullscreenModal" class="fullscreen-modal">
+  <span class="close" onclick="closeFullscreen()">&times;</span>
+  <div class="fullscreen-content">
+    <img id="fullscreenImage" class="fullscreen-image" src="" alt="">
+    <div id="fullscreenCaption" class="fullscreen-caption">
+      <h3 id="fullscreenTitle"></h3>
+      <p id="fullscreenDescription"></p>
+    </div>
+  </div>
+</div>
