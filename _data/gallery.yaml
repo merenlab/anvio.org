@@ -70,7 +70,7 @@ images:
       - name: et al.
 
   - id: "Fogarty_et_al_coverage_visualization"
-    title: "Visualiation of read mapping data"
+    title: "Visualization of coverage data"
     description: "Representative coverage plots of metagenomes mapped to pBI143. Each coverage plot shows the read recruitment results for an individual metagenome to pBI143. Vertical bars show single-nucleotide variants (red bar, variant in first or second codon position; green bar, variant in third codon position; gray bar, intergenic variant). The x-axis is the pBI143 reference sequence. (A) Global human gut metagenomes. Versions 1 (blue), 2 (red), and 3 (green). Three coverage plots for each reference version of pBI143 are shown. (B) pBI143 coverage plots from individuals sampled across time. Each coverage plot shows the coverage of pBI143 first and last sample collected for each subject possessing pBI143 in this dataset."
     image: "/images/gallery/full/Fogarty_et_al_coverage_visualization.jpg"
     fullscreen_image: "/images/gallery/full/Fogarty_et_al_coverage_visualization.jpg"
