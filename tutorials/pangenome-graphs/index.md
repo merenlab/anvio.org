@@ -94,12 +94,12 @@ Assuming that we are not in the directory in which you wish to follow this tutor
 
 ``` bash
 mkdir original_files
-curl -L https://figshare.com/ndownloader/files/51363962 -o original_files/HIMB1702.fa
-curl -L https://figshare.com/ndownloader/files/51363959 -o original_files/HIMB1636.fa
-curl -L https://figshare.com/ndownloader/files/51364013 -o original_files/HIMB1641.fa
-curl -L https://figshare.com/ndownloader/files/51364034 -o original_files/HIMB1556.fa
-curl -L https://figshare.com/ndownloader/files/51364037 -o original_files/HIMB1552.fa
-curl -L https://figshare.com/ndownloader/files/51364043 -o original_files/HIMB1526.fa
+curl -L https://figshare.com/ndownloader/files/51363962 -o original_files/HIMB1702.fa -H "User-Agent: Chrome/115.0.0.0"
+curl -L https://figshare.com/ndownloader/files/51363959 -o original_files/HIMB1636.fa -H "User-Agent: Chrome/115.0.0.0"
+curl -L https://figshare.com/ndownloader/files/51364013 -o original_files/HIMB1641.fa -H "User-Agent: Chrome/115.0.0.0"
+curl -L https://figshare.com/ndownloader/files/51364034 -o original_files/HIMB1556.fa -H "User-Agent: Chrome/115.0.0.0"
+curl -L https://figshare.com/ndownloader/files/51364037 -o original_files/HIMB1552.fa -H "User-Agent: Chrome/115.0.0.0"
+curl -L https://figshare.com/ndownloader/files/51364043 -o original_files/HIMB1526.fa -H "User-Agent: Chrome/115.0.0.0"
 ```
 
 The current folder structure should look like this.
@@ -267,8 +267,13 @@ In case you don't want to wait for a whole pangenome to run, you can just downlo
 
 ``` bash
 mkdir ~/PANGENOME-GRAPHS-TUTORIAL/
-curl -L https://figshare.com/ndownloader/articles/28532807/versions/1 -o ~/PANGENOME-GRAPHS-TUTORIAL/AMPLUSPELAGIBACTER-ANVIO-FILES.zip
+
+curl -L https://figshare.com/ndownloader/articles/28532807/versions/1 \
+     -H "User-Agent: Chrome/115.0.0.0" \
+     -o ~/PANGENOME-GRAPHS-TUTORIAL/AMPLUSPELAGIBACTER-ANVIO-FILES.zip
+
 cd ~/PANGENOME-GRAPHS-TUTORIAL/
+
 unzip AMPLUSPELAGIBACTER-ANVIO-FILES.zip
 ```
 

@@ -444,10 +444,24 @@ It would be great if we could take what we learned about mucin degradation, writ
 
 We can define a metabolic pathway for mucin degradation using the steps described {% include ARTIFACT name="user-modules-data" text="here" version="8" %}. Earlier, when we were researching the required enzymes within the [CAZy database](http://www.cazy.org/), we found matching enzymes from the KOfam database and from the [NCBI Clusters of Orthologous Genes (COGs)](https://www.ncbi.nlm.nih.gov/research/cog-project/) -- see Table 6 above. We can use both of these databases as our functional annotation sources for the pathway, which will hopefully allow us to find enzymes for each step of the process.
 
-However, we need to find a way to annotate GH89. Let's make our own custom HMM profile for this enzyme family, using sequences specific to _A. muciniphila_. To do this, we need to 1) find sequences for this enzyme family that come from _A. muciniphila_ genomes; 2) align those sequences; 3) run `hmmbuild` on the alignment to create an HMM profile; and 4) set up the resulting profile in a directory that anvi'o can use by following the structure described [here](https://anvio.org/help/8/artifacts/hmm-source/#user-defined-hmm-sources) and by [this tutorial](https://merenlab.org/2016/05/21/archaeal-single-copy-genes/).
+Let's annotate our database with the NCBI COGs database first. If you haven't already done this on your computer, you should run {% include PROGRAM name="anvi-setup-ncbi-cogs" version="8" %} to download that database. Then you'll be able to run the following:
+```bash
+anvi-run-ncbi-cogs -c A_muciniphila-CONTIGS.db -T 4
+```
+
+In the output of that program, you will notice that the sources of annotations added to the database include `COG20_FUNCTION`. This is the annotation source we will use when writing our pathway definition.
+
+Now, we need to annotate GH89 from the CAZy database. There are a couple of ways to do this:
+- make a custom HMM profile for GH89
+- use {% include PROGRAM name="anvi-run-cazymes" %} (WARNING: only works for user-defined pathways in anvi'o v9 and later)
+
+If you are using anvi'o v8, you should go with the first option. The reason for this is described in the yellow box below in case you are interested. If you are using anvi'o v9, then you are free to choose your own adventure. Either way, you should probably pick one of the following two sections to read.
 
 {:.notice}
-We could annotate GH89 with the new program {% include PROGRAM name="anvi-run-cazymes" version="8" %}, but unfortunately the way we currently process hits to that database doesn't provide us with an accession number that we can use for defining a metabolic pathway (as discussed [here](https://github.com/merenlab/anvio/issues/2148)). Hopefully, we will fix this soon so that everyone will be able to use the annotations from `anvi-run-cazymes` directly with user-defined pathways. :)
+Unfortunately, the way that {% include PROGRAM name="anvi-run-cazymes" %} processes hits to the CAZy database in anvi'o v8 doesn't provide us with an accession number that we can use for defining a metabolic pathway (as discussed [here](https://github.com/merenlab/anvio/issues/2148)). This has been fixed for anvi'o v9 as of [this update to the codebase](https://github.com/merenlab/anvio/pull/2460). If you are working with anvi'o v9 (or later), you will be able to use the annotations from `anvi-run-cazymes` directly with user-defined pathways, so no need to make a custom HMM for GH89 unless you want to learn how to do it. :)
+
+##### Making a custom HMM profile for GH89
+We can annotate GH89 by making our own custom HMM profile for this enzyme family, using sequences specific to _A. muciniphila_. To do this, we need to 1) find sequences for this enzyme family that come from _A. muciniphila_ genomes; 2) align those sequences; 3) run `hmmbuild` on the alignment to create an HMM profile; and 4) set up the resulting profile in a directory that anvi'o can use by following the structure described [here](https://anvio.org/help/8/artifacts/hmm-source/#user-defined-hmm-sources) and by [this tutorial](https://merenlab.org/2016/05/21/archaeal-single-copy-genes/).
 
 First, we can go to the [CAZy webpage for GH89](http://www.cazy.org/GH89.html) and click on the link at the bottom of the table that says 'Download GH89'. That will give you a file called `GH89.txt` that describes many sequences belonging to the GH89 family. The structure of that file is like this (but without any header):
 
@@ -536,16 +550,82 @@ The program should succeed with 2 new annotations added to the database under th
 Gene functions ...............................: 2 function calls from 1 source (GH89_CUSTOM_HMM) for 2 unique gene calls have been added to the contigs database.
 ```
 
-Finally, we can annotate our database with the NCBI COGs database so that we can use those functions in our metabolic pathway definition as well. If you haven't already done this on your computer, you should run {% include PROGRAM name="anvi-setup-ncbi-cogs" version="8" %} to download that database. Then you'll be able to run the following:
+##### Running anvi-run-cazymes to annotate GH89 (an alternative for users with anvi'o v9 or later)
+
+If you are using anvi'o v9 or later, you can directly annotate GH89 in your data using the program {% include PROGRAM name="anvi-run-cazymes" %}:
+
 ```bash
-anvi-run-ncbi-cogs -c A_muciniphila-CONTIGS.db -T 4
+anvi-run-cazymes -c A_muciniphila-CONTIGS.db -T 4
 ```
 
-In the output of that program, you will notice that the sources of annotations added to the database include `COG20_FUNCTION`. This is the annotation source we will use when writing our pathway definition.
+The CAZyme family will be annotated with accession `GH89` under the annotation source called `CAZyme`.
 
-At this point, we have a way to annotate each enzyme required for mucin degradation (often, with multiple enzyme family options). Now we will design the mucin degradation pathway using the KOfam and COG enzyme accessions in Table 6 and our new custom HMM.
+{:.warning}
+The GH89 annotation source and accession are different for this annotation strategy than for the custom HMM strategy described in the previous section. That means, if you used this strategy, you will have to use a slightly different module definition file in the next section. Look out for the red Warning box in the next section, and when you see it, come back here to copy-paste the following module definition:
 
-Below, you will find a draft of our mucin degradation pathway.
+```
+ENTRY       MD0001
+NAME        Mucin degradation - draft pathway
+DEFINITION  (K01186,COG4409) K15923 (K01216,K20830,COG2273) (K01190,K12111,COG3250) GH89
+            (K01176,K05343,K05992,K01208,COG0366) (K06113,K01198,K15921,COG3507) (K12373,K14459,K20730,COG3525)
+ORTHOLOGY   K01186  sialidase-1 [EC:3.2.1.18]
+            COG4409  Neuraminidase (sialidase)
+            K15923  alpha-L-fucosidase 2 [EC:3.2.1.51]
+            K01216  licheninase [EC:3.2.1.73]
+            K20830  beta-porphyranase [EC:3.2.1.178]
+            COG2273  Beta-glucanase, GH16 family
+            K01190  beta-galactosidase [EC:3.2.1.23]
+            K12111  evolved beta-galactosidase subunit alpha [EC:3.2.1.23]
+            COG3250  Beta-galactosidase/beta-glucuronidase
+            GH89  Glycolytic Hydrolase Family 89
+            K01176  alpha-amylase [EC:3.2.1.1]
+            K05343  maltose alpha-D-glucosyltransferase / alpha-amylase [EC:5.4.99.16 3.2.1.1]
+            K05992  maltogenic alpha-amylase [EC:3.2.1.133]
+            K01208  cyclomaltodextrinase / maltogenic alpha-amylase / neopullulanase [EC:3.2.1.54 3.2.1.133 3.2.1.135]
+            COG0366  Glycosidase
+            K06113  arabinan endo-1,5-alpha-L-arabinosidase [EC:3.2.1.99]
+            K01198  xylan 1,4-beta-xylosidase [EC:3.2.1.37]
+            K15921  arabinoxylan arabinofuranohydrolase [EC:3.2.1.55]
+            COG3507  Beta-xylosidase
+            K12373  hexosaminidase [EC:3.2.1.52]
+            K14459  hexosaminidase [EC:3.2.1.52]
+            K20730  beta-hexosaminidase Fdl [EC:3.2.1.52]
+            COG3525  N-acetyl-beta-hexosaminidase
+CLASS       User modules; Degradation pathways; Mucin degradation
+ANNOTATION_SOURCE   K01186  KOfam
+                    COG4409  COG20_FUNCTION
+                    K15923  KOfam
+                    K01216  KOfam
+                    K20830  KOfam
+                    COG2273  COG20_FUNCTION
+                    K01190  KOfam
+                    K12111  KOfam
+                    COG3250  COG20_FUNCTION
+                    GH89  CAZyme
+                    K01176  KOfam
+                    K05343  KOfam
+                    K05992  KOfam
+                    K01208  KOfam
+                    COG0366  COG20_FUNCTION
+                    K06113  KOfam
+                    K01198  KOfam
+                    K15921  KOfam
+                    COG3507  COG20_FUNCTION
+                    K12373  KOfam
+                    K14459  KOfam
+                    K20730  KOfam
+                    COG3525  COG20_FUNCTION
+///
+```
+
+##### Making and using the custom module file
+
+At this point, we have a way to annotate each enzyme required for mucin degradation (often, with multiple enzyme family options). Now we will design the mucin degradation pathway using the KOfam and COG enzyme accessions in Table 6 and our new custom HMM (or the CAZyme GH89, depending on which annotation strategy you used).
+
+Below, you will find a draft of our mucin degradation pathway. This one utilizes the custom HMM for GH89.
+
+{:.warning}
+If you annotated GH89 with {% include PROGRAM name="anvi-run-cazymes" %} instead, then this is your reminder to go back up to the previous section and use the module definition from there rather than the one below. The only difference is that the module definition uses the accession `GH89` under the source `CAZyme`, so that anvi'o will be able to find your annotations.
 
 {:.notice}
 The formatting of the pathway definition in anvi'o `v8` utilizes the same strategy with which KEGG formats their module files. We are [currently working on a better way to do this](https://github.com/merenlab/anvio/issues/1873). Stay tuned!
