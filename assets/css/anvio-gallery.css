@@ -197,20 +197,21 @@
 
 .fullscreen-image {
     background: white;
-    max-width: 90%;
+    max-width: 80%;
     max-height: 70%;
     object-fit: contain;
     border-radius: 8px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    padding: 20px;
 }
 
 .fullscreen-caption {
     background: rgba(255,255,255,0.95);
     color: #333;
-    padding: 20px 30px;
-    margin-top: 20px;
+    padding: 20px;
+    margin-top: 50px;
     border-radius: 8px;
-    max-width: 80%;
+    width: 80%;
     text-align: center;
 }
 
