@@ -52,6 +52,10 @@
 <!-- Fullscreen Modal -->
 <div id="fullscreenModal" class="fullscreen-modal">
   <span class="close" onclick="closeFullscreen()">&times;</span>
+
+  <button class="modal-nav-arrow modal-prev" onclick="navigateModal(-1)">&#10094;</button>
+  <button class="modal-nav-arrow modal-next" onclick="navigateModal(1)">&#10095;</button>
+
   <div class="fullscreen-content">
     <img id="fullscreenImage" class="fullscreen-image" src="" alt="">
     <div id="fullscreenCaption" class="fullscreen-caption">

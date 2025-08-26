@@ -6,6 +6,7 @@ class AnvioGallery {
         this.totalSlides = this.slides.length;
         this.autoAdvanceEnabled = config.autoAdvance !== false;
         this.autoAdvanceInterval = config.autoAdvanceInterval || 5000;
+        this.currentModalIndex = 0;
 
         // Simple state management
         this.timer = null;
@@ -63,7 +64,13 @@ class AnvioGallery {
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (!this.isModalOpen()) {
+            if (this.isModalOpen()) {
+                // ADD THESE LINES for modal navigation
+                if (e.key === 'ArrowLeft') this.navigateModal(-1);
+                else if (e.key === 'ArrowRight') this.navigateModal(1);
+                else if (e.key === 'Escape') this.closeFullscreen();
+            } else {
+                // Existing slideshow navigation
                 if (e.key === 'ArrowLeft') this.manualChange(-1);
                 else if (e.key === 'ArrowRight') this.manualChange(1);
             }
@@ -76,10 +83,6 @@ class AnvioGallery {
                 if (e.target === modal) this.closeFullscreen();
             });
         }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') this.closeFullscreen();
-        });
     }
 
     setupTouchEvents() {
@@ -239,6 +242,8 @@ class AnvioGallery {
         const titleEl = document.getElementById('fullscreenTitle');
         const descEl = document.getElementById('fullscreenDescription');
 
+        this.currentModalIndex = this.currentSlideIndex;
+
         if (!modal || !image || !titleEl || !descEl) return;
 
         image.src = imageSrc;
@@ -283,6 +288,78 @@ class AnvioGallery {
         this.stop();
     }
 
+    navigateModal(direction) {
+        this.currentModalIndex += direction;
+
+        // Handle wrapping
+        if (this.currentModalIndex >= this.totalSlides) {
+            this.currentModalIndex = 0;
+        } else if (this.currentModalIndex < 0) {
+            this.currentModalIndex = this.totalSlides - 1;
+        }
+
+        // Get the slide data
+        const slide = this.slides[this.currentModalIndex];
+        const img = slide.dataset.fullscreenImg;
+        const title = slide.dataset.title;
+        const description = slide.dataset.description;
+        const learning_resources_tag = slide.dataset.learningResourcesTag;
+
+        // Parse authors and reference
+        let authors = [];
+        let reference = null;
+        try {
+            authors = slide.dataset.authors ? JSON.parse(slide.dataset.authors) : [];
+            reference = slide.dataset.reference ? JSON.parse(slide.dataset.reference) : null;
+        } catch (e) {
+            console.warn('Error parsing authors or reference data:', e);
+        }
+
+        // Update the modal content without closing/reopening
+        this.updateModalContent(img, title, description, learning_resources_tag, authors, reference);
+    }
+
+    updateModalContent(imageSrc, title, description, learning_resources_tag = null, authors = [], reference = null) {
+        const image = document.getElementById('fullscreenImage');
+        const titleEl = document.getElementById('fullscreenTitle');
+        const descEl = document.getElementById('fullscreenDescription');
+
+        if (!image || !titleEl || !descEl) return;
+
+        image.src = imageSrc;
+        titleEl.textContent = title;
+
+        // Build the complete description (same as existing openFullscreen method)
+        let fullDescription = this.parseMarkdown(description);
+
+        if (authors && authors.length > 0) {
+            fullDescription += '<div class="modal-authors"><strong>Authors:</strong> ';
+            const authorLinks = authors.map(author => {
+                if (author.url) {
+                    return `<a href="${author.url}" target="_blank">${author.name}</a>`;
+                }
+                return author.name;
+            });
+            fullDescription += authorLinks.join(', ') + '</div>';
+        }
+
+        if (reference && reference.title) {
+            fullDescription += '<div class="modal-reference"><strong>Appears In:</strong> ';
+            if (reference.url) {
+                fullDescription += `<a href="${reference.url}" target="_blank">${reference.title}</a>`;
+            } else {
+                fullDescription += reference.title;
+            }
+            fullDescription += '</div>';
+        }
+
+        if (learning_resources_tag) {
+            fullDescription += '<div class="modal-reference"><strong>Learn more:</strong> Visit resoures on <a href="/learn/' + learning_resources_tag + '" target="_blank">' + learning_resources_tag + '</a></div>';
+        }
+
+        descEl.innerHTML = fullDescription;
+    }
+
     closeFullscreen() {
         const modal = document.getElementById('fullscreenModal');
         if (!modal) return;
@@ -323,3 +400,9 @@ document.addEventListener('DOMContentLoaded', function() {
         window.anviGallery = new AnvioGallery(config);
     }
 });
+
+function navigateModal(direction) {
+    if (window.anviGallery) {
+        window.anviGallery.navigateModal(direction);
+    }
+}
