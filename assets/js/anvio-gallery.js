@@ -267,11 +267,17 @@ class AnvioGallery {
         // Add reference section
         if (reference && reference.title) {
             fullDescription += '<div class="modal-reference"><strong>Appears In:</strong> ';
+
             if (reference.url) {
                 fullDescription += `<a href="${reference.url}" target="_blank">${reference.title}</a>`;
             } else {
                 fullDescription += reference.title;
             }
+
+            if (reference.outlet) {
+                fullDescription += `, <i>${reference.outlet}</i>.`;
+            }
+
             fullDescription += '</div>';
         }
 
@@ -345,11 +351,17 @@ class AnvioGallery {
 
         if (reference && reference.title) {
             fullDescription += '<div class="modal-reference"><strong>Appears In:</strong> ';
+
             if (reference.url) {
                 fullDescription += `<a href="${reference.url}" target="_blank">${reference.title}</a>`;
             } else {
                 fullDescription += reference.title;
             }
+
+            if (reference.outlet) {
+                fullDescription += `, <i>${reference.outlet}</i>.`;
+            }
+
             fullDescription += '</div>';
         }
 

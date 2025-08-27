@@ -19,6 +19,7 @@ images:
     learning_resources_tag: pangenomics
     reference:
       title: "Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome"
+      outlet: "Genome Biology"
       url: https://doi.org/10.1186/s13059-020-02195-w
     authors:
       - name: Alon Shaiber
@@ -33,6 +34,7 @@ images:
     fullscreen_image: "/images/gallery/full/Gaia_et_al_phylogenomics.png"
     reference:
       title: "Mirusviruses link herpesviruses to giant viruses"
+      outlet: "Nature"
       url: https://www.nature.com/articles/s41586-023-05962-4
     authors:
       - name: Morgan Gaia
@@ -49,6 +51,7 @@ images:
     fullscreen_image: "/images/gallery/full/Veseli_et_al_metabolic_genomics.jpg"
     reference:
       title: "Microbes with higher metabolic independence are enriched in human gut microbiomes under stress"
+      outlet: "eLife"
       url: https://elifesciences.org/articles/89862
     authors:
       - name: Iva Veseli
@@ -62,7 +65,8 @@ images:
     image: "/images/gallery/full/Delmont_et_al_binning.png"
     fullscreen_image: "/images/gallery/full/Delmont_et_al_binning.png"
     reference:
-      title: "Blog: Constrained binning and the anvi'o metabins"
+      title: "Constrained binning and the anvi'o metabins"
+      outlet: "Anvi'o Community Blogs"
       url: https://anvio.org/blog/constrained-binning/
     authors:
       - name: Tom O. Delmont
@@ -76,11 +80,29 @@ images:
     fullscreen_image: "/images/gallery/full/Fogarty_et_al_coverage_visualization.jpg"
     reference:
       title: "A cryptic plasmid is among the most numerous genetic elements in the human gut"
+      outlet: "Cell"
       url: https://www.cell.com/cell/fulltext/S0092-8674(24)00107-7?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0092867424001077%3Fshowall%3Dtrue
     authors:
       - name: Emily C. Fogarty
         url: https://anvio.org/people/efogarty11/
       - name: et al.
+
+
+  - id: "Paul_Eren_population_genetics"
+    title: "Population Genetics"
+    description: "An exploration and visualization of the genomic heterogeneity within <i>Trichodesmium erythraeum</i> populations in <i>Tara Oceans</i> Project metagenomes that occur at a particular site: the target of a diversity generating retroelement. Anvi'o analysis goes from the identification of single nucleotide variants (SNVs) to single-amino acid variants (SAAVs), and an oligotyping analysis of all metagenomic short reads that fully match to a primer sequence authors defined based on the SNV data to survey the geographical patterns emerge from the distribution of resulting oligotypes."
+    image: "/images/gallery/full/Paul_Eren_population_genetics.png"
+    fullscreen_image: "/images/gallery/full/Paul_Eren_population_genetics.png"
+    reference:
+      title: "Eco-evolutionary significance of domesticated retroelements in microbial genomes"
+      outlet: "Mobile DNA"
+      url: https://doi.org/10.1186/s13100-022-00262-6
+    authors:
+      - name: Blair Paul
+        url: https://www.mbl.edu/research/faculty-and-whitman-scientists/Blair%20Paul
+      - name: A. Murat Eren
+        url: https://anvio.org/people/meren/
+
 
   - id: "Scott_et_al_population_genetics"
     title: "Structure-Informed Population Genetics"
@@ -89,6 +111,7 @@ images:
     fullscreen_image: "/images/gallery/full/Scott_et_al_population_genetics.png"
     reference:
       title: "Picture the unseen"
+      outlet: "STRI Stories"
       url: https://stri.si.edu/story/picture-unseen
     authors:
       - name: Jarrod Scott
@@ -102,6 +125,7 @@ images:
     fullscreen_image: "/images/gallery/full/Kiefl_et_al_population_genetics.jpg"
     reference:
       title: "Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution"
+      outlet: "Science Advances"
       url: https://www.science.org/doi/10.1126/sciadv.abq4632
     authors:
       - name: Evan Kiefl
@@ -114,8 +138,9 @@ images:
     image: "/images/gallery/full/Zhou_et_al_pangenomics.png"
     fullscreen_image: "/images/gallery/full/Zhou_et_al_pangenomics.png"
     reference:
-      title: "Millennia of Genomic Stability within the Invasive Para C Lineage of Salmonella enterica"
-      url: https://anvio.org/blog/constrained-binning/
+      title: "Pan-genome Analysis of Ancient and Modern Salmonella enterica Demonstrates Genomic Stability of the Invasive Para C Lineage for Millennia"
+      outlet: "Current Biology"
+      url: https://doi.org/10.1016/j.cub.2018.05.058
     authors:
       - name: Zhemin Zhou
         url: https://orcid.org/0000-0003-0604-1885
@@ -130,6 +155,7 @@ images:
     fullscreen_image: "/images/gallery/full/Watson_et_al_genome_resolved_metagenomics.png"
     reference:
       title: "Metabolic independence drives gut microbial colonization and resilience in health and disease"
+      outlet: "Genome Biology"
       url: https://genomebiology.biomedcentral.com/articles/10.1186/s13059-023-02924-x
     authors:
       - name: Andrea R. Watson
@@ -147,6 +173,7 @@ images:
     fullscreen_image: "/images/gallery/full/Shaiber_et_al_MAG_curation.jpeg"
     reference:
       title: "Composite Metagenome-Assembled Genomes Reduce the Quality of Public Genome Repositories"
+      outlet: "mBio"
       url: https://journals.asm.org/doi/10.1128/mbio.00725-19
     authors:
       - name: Alon Shaiber
@@ -162,6 +189,7 @@ images:
     fullscreen_image: "/images/gallery/full/Delmont_et_al_metapangenomics.png"
     reference:
       title: "Linking pangenomes and metagenomes: the Prochlorococcus metapangenome"
+      outlet: "PeerJ"
       url: https://peerj.com/articles/4320/
     authors:
       - name: Tom O. Delmont
@@ -177,6 +205,7 @@ images:
     fullscreen_image: "/images/gallery/full/Reveillaud_et_al_metapangenomics.png"
     reference:
       title: "The Wolbachia mobilome in Culex pipiens includes a putative plasmid"
+      outlet: "Nature Communications"
       url: https://www.nature.com/articles/s41467-019-08973-w
     authors:
       - name: Julie Reveillaud
