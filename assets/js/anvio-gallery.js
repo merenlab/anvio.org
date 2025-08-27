@@ -37,40 +37,107 @@ class AnvioGallery {
             .replace(/\n/g, '<br>');
     }
 
+    // Helper method to extract slide data at given index
+    getSlideData(index) {
+        const slide = this.slides[index];
+        if (!slide) return null;
+
+        const data = {
+            img: slide.dataset.fullscreenImg,
+            title: slide.dataset.title,
+            description: slide.dataset.description,
+            learningResourcesTag: slide.dataset.learningResourcesTag,
+            authors: [],
+            reference: null
+        };
+
+        // Parse JSON data safely
+        try {
+            data.authors = slide.dataset.authors ? JSON.parse(slide.dataset.authors) : [];
+            data.reference = slide.dataset.reference ? JSON.parse(slide.dataset.reference) : null;
+        } catch (e) {
+            console.warn('Error parsing authors or reference data:', e);
+        }
+
+        return data;
+    }
+
+    // Helper method to build complete modal description
+    buildModalDescription(description, learningResourcesTag, authors, reference) {
+        let fullDescription = this.parseMarkdown(description);
+
+        // Add authors section
+        if (authors && authors.length > 0) {
+            fullDescription += '<div class="modal-authors"><strong>Authors:</strong> ';
+            const authorLinks = authors.map(author => {
+                return author.url
+                    ? `<a href="${author.url}" target="_blank">${author.name}</a>`
+                    : author.name;
+            });
+            fullDescription += authorLinks.join(', ') + '</div>';
+        }
+
+        // Add reference section
+        if (reference && reference.title) {
+            fullDescription += '<div class="modal-reference"><strong>Appears In:</strong> ';
+
+            if (reference.url) {
+                fullDescription += `<a href="${reference.url}" target="_blank">${reference.title}</a>`;
+            } else {
+                fullDescription += reference.title;
+            }
+
+            if (reference.outlet) {
+                fullDescription += `, <i>${reference.outlet}</i>.`;
+            }
+            fullDescription += '</div>';
+        }
+
+        // Add learning resources section
+        if (learningResourcesTag) {
+            fullDescription += `<div class="modal-reference"><strong>Learn more:</strong> Visit resoures on <a href="/learn/${learningResourcesTag}" target="_blank">${learningResourcesTag}</a></div>`;
+        }
+
+        return fullDescription;
+    }
+
+    // Centralized method to update modal content
+    updateModalContent(slideData) {
+        const image = document.getElementById('fullscreenImage');
+        const titleEl = document.getElementById('fullscreenTitle');
+        const descEl = document.getElementById('fullscreenDescription');
+
+        if (!image || !titleEl || !descEl || !slideData) return;
+
+        image.src = slideData.img;
+        titleEl.textContent = slideData.title;
+
+        const fullDescription = this.buildModalDescription(
+            slideData.description,
+            slideData.learningResourcesTag,
+            slideData.authors,
+            slideData.reference
+        );
+
+        descEl.innerHTML = fullDescription;
+    }
+
     setupEventListeners() {
         // Slide clicks for fullscreen
         this.slides.forEach(slide => {
             slide.addEventListener('click', (e) => {
                 if (e.target.classList.contains('nav-arrow')) return;
-                const img = slide.dataset.fullscreenImg;
-                const title = slide.dataset.title;
-                const description = slide.dataset.description;
-                const learning_resources_tag = slide.dataset.learningResourcesTag
-
-                // Parse the JSON data for authors and reference
-                let authors = [];
-                let reference = null;
-
-                try {
-                    authors = slide.dataset.authors ? JSON.parse(slide.dataset.authors) : [];
-                    reference = slide.dataset.reference ? JSON.parse(slide.dataset.reference) : null;
-                } catch (e) {
-                    console.warn('Error parsing authors or reference data:', e);
-                }
-
-                this.openFullscreen(img, title, description, learning_resources_tag, authors, reference);
+                this.openFullscreen(this.currentSlideIndex);
             });
         });
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (this.isModalOpen()) {
-                // ADD THESE LINES for modal navigation
                 if (e.key === 'ArrowLeft') this.navigateModal(-1);
                 else if (e.key === 'ArrowRight') this.navigateModal(1);
                 else if (e.key === 'Escape') this.closeFullscreen();
             } else {
-                // Existing slideshow navigation
                 if (e.key === 'ArrowLeft') this.manualChange(-1);
                 else if (e.key === 'ArrowRight') this.manualChange(1);
             }
@@ -103,10 +170,10 @@ class AnvioGallery {
         });
     }
 
-    // CORE METHODS - Keep these as simple as possible
+    // CORE METHODS
 
     start() {
-        if (!this.autoAdvance) return;
+        if (!this.autoAdvanceEnabled) return;
 
         this.stop(); // Always stop first
         this.isPaused = false; // Make sure we're not paused
@@ -135,12 +202,11 @@ class AnvioGallery {
     resume() {
         if (!this.isModalOpen()) {
             this.isPaused = false;
-            // Start fresh progress animation when resuming
             this.startProgress();
         }
     }
 
-    // Auto advance (internal only) - renamed to avoid conflict
+    // Auto advance (internal only)
     autoAdvance() {
         this.currentSlideIndex++;
         this.showSlide();
@@ -151,7 +217,6 @@ class AnvioGallery {
     manualChange(direction) {
         this.currentSlideIndex += direction;
         this.showSlide();
-        // Stop current progress and restart timer completely
         this.stop();
         this.start();
     }
@@ -179,7 +244,7 @@ class AnvioGallery {
     startProgress() {
         if (!this.progressBar) return;
 
-        // Completely remove any existing transition
+        // Reset progress bar
         this.progressBar.style.transition = 'none';
         this.progressBar.style.animation = 'none';
 
@@ -187,36 +252,37 @@ class AnvioGallery {
         this.progressBar.style.strokeDasharray = dashArray;
         this.progressBar.style.strokeDashoffset = dashArray;
 
-        // Force multiple reflows to ensure reset
+        // Force reflows
         this.progressBar.offsetHeight;
         this.progressBar.getBoundingClientRect();
 
-        // Use setTimeout instead of requestAnimationFrame for more reliable timing
+        // Start animation
         setTimeout(() => {
             this.progressBar.style.transition = `stroke-dashoffset ${this.autoAdvanceInterval}ms linear`;
             this.progressBar.style.strokeDashoffset = '0';
-
-            // Log what actually happened
-            setTimeout(() => {
-                const currentOffset = window.getComputedStyle(this.progressBar).strokeDashoffset;
-            }, 100);
         }, 50);
     }
 
     stopProgress() {
         if (!this.progressBar) return;
 
-        // Get current position before stopping
-        const computed = window.getComputedStyle(this.progressBar);
-        const currentOffset = computed.strokeDashoffset;
-
-        // Stop transition
+        // Stop transition and reset
         this.progressBar.style.transition = 'none';
         this.progressBar.style.animation = 'none';
 
-        // Reset to start position
         const dashArray = this.progressBar.getAttribute('stroke-dasharray') || '113';
         this.progressBar.style.strokeDashoffset = dashArray;
+    }
+
+    pauseProgress() {
+        // Note: pauseProgress method was referenced but not implemented in original
+        // Adding basic implementation for consistency
+        if (!this.progressBar) return;
+
+        const computed = window.getComputedStyle(this.progressBar);
+        const currentOffset = computed.strokeDashoffset;
+        this.progressBar.style.transition = 'none';
+        this.progressBar.style.strokeDashoffset = currentOffset;
     }
 
     // Navigation methods called by global functions
@@ -227,7 +293,7 @@ class AnvioGallery {
     currentSlide(index) {
         this.currentSlideIndex = index - 1;
         this.showSlide();
-        this.start(); // Completely restart timer
+        this.start();
     }
 
     // Modal methods
@@ -236,58 +302,16 @@ class AnvioGallery {
         return modal && modal.style.display === 'block';
     }
 
-    openFullscreen(imageSrc, title, description, learning_resources_tag = null, authors = [], reference = null) {
+    openFullscreen(slideIndex = this.currentSlideIndex) {
         const modal = document.getElementById('fullscreenModal');
-        const image = document.getElementById('fullscreenImage');
-        const titleEl = document.getElementById('fullscreenTitle');
-        const descEl = document.getElementById('fullscreenDescription');
+        if (!modal) return;
 
-        this.currentModalIndex = this.currentSlideIndex;
+        this.currentModalIndex = slideIndex;
+        const slideData = this.getSlideData(slideIndex);
 
-        if (!modal || !image || !titleEl || !descEl) return;
+        if (!slideData) return;
 
-        image.src = imageSrc;
-        titleEl.textContent = title;
-
-        // Build the complete description with authors and reference
-        let fullDescription = this.parseMarkdown(description);
-
-        // Add authors section
-        if (authors && authors.length > 0) {
-            fullDescription += '<div class="modal-authors"><strong>Authors:</strong> ';
-            const authorLinks = authors.map(author => {
-                if (author.url) {
-                    return `<a href="${author.url}" target="_blank">${author.name}</a>`;
-                }
-                return author.name;
-            });
-            fullDescription += authorLinks.join(', ') + '</div>';
-        }
-
-        // Add reference section
-        if (reference && reference.title) {
-            fullDescription += '<div class="modal-reference"><strong>Appears In:</strong> ';
-
-            if (reference.url) {
-                fullDescription += `<a href="${reference.url}" target="_blank">${reference.title}</a>`;
-            } else {
-                fullDescription += reference.title;
-            }
-
-            if (reference.outlet) {
-                fullDescription += `, <i>${reference.outlet}</i>.`;
-            }
-
-            fullDescription += '</div>';
-        }
-
-        console.log(learning_resources_tag);
-        // Add learning tags section
-        if (learning_resources_tag) {
-            fullDescription += '<div class="modal-reference"><strong>Learn more:</strong> Visit resoures on <a href="/learn/' + learning_resources_tag + '" target="_blank">' + learning_resources_tag + '</a></div>';
-        }
-
-        descEl.innerHTML = fullDescription;
+        this.updateModalContent(slideData);
 
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
@@ -304,72 +328,8 @@ class AnvioGallery {
             this.currentModalIndex = this.totalSlides - 1;
         }
 
-        // Get the slide data
-        const slide = this.slides[this.currentModalIndex];
-        const img = slide.dataset.fullscreenImg;
-        const title = slide.dataset.title;
-        const description = slide.dataset.description;
-        const learning_resources_tag = slide.dataset.learningResourcesTag;
-
-        // Parse authors and reference
-        let authors = [];
-        let reference = null;
-        try {
-            authors = slide.dataset.authors ? JSON.parse(slide.dataset.authors) : [];
-            reference = slide.dataset.reference ? JSON.parse(slide.dataset.reference) : null;
-        } catch (e) {
-            console.warn('Error parsing authors or reference data:', e);
-        }
-
-        // Update the modal content without closing/reopening
-        this.updateModalContent(img, title, description, learning_resources_tag, authors, reference);
-    }
-
-    updateModalContent(imageSrc, title, description, learning_resources_tag = null, authors = [], reference = null) {
-        const image = document.getElementById('fullscreenImage');
-        const titleEl = document.getElementById('fullscreenTitle');
-        const descEl = document.getElementById('fullscreenDescription');
-
-        if (!image || !titleEl || !descEl) return;
-
-        image.src = imageSrc;
-        titleEl.textContent = title;
-
-        // Build the complete description (same as existing openFullscreen method)
-        let fullDescription = this.parseMarkdown(description);
-
-        if (authors && authors.length > 0) {
-            fullDescription += '<div class="modal-authors"><strong>Authors:</strong> ';
-            const authorLinks = authors.map(author => {
-                if (author.url) {
-                    return `<a href="${author.url}" target="_blank">${author.name}</a>`;
-                }
-                return author.name;
-            });
-            fullDescription += authorLinks.join(', ') + '</div>';
-        }
-
-        if (reference && reference.title) {
-            fullDescription += '<div class="modal-reference"><strong>Appears In:</strong> ';
-
-            if (reference.url) {
-                fullDescription += `<a href="${reference.url}" target="_blank">${reference.title}</a>`;
-            } else {
-                fullDescription += reference.title;
-            }
-
-            if (reference.outlet) {
-                fullDescription += `, <i>${reference.outlet}</i>.`;
-            }
-
-            fullDescription += '</div>';
-        }
-
-        if (learning_resources_tag) {
-            fullDescription += '<div class="modal-reference"><strong>Learn more:</strong> Visit resoures on <a href="/learn/' + learning_resources_tag + '" target="_blank">' + learning_resources_tag + '</a></div>';
-        }
-
-        descEl.innerHTML = fullDescription;
+        const slideData = this.getSlideData(this.currentModalIndex);
+        this.updateModalContent(slideData);
     }
 
     closeFullscreen() {
@@ -378,7 +338,7 @@ class AnvioGallery {
 
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
-        this.start(); // Restart auto-advance when modal closes
+        this.start();
     }
 }
 
@@ -401,6 +361,12 @@ function closeFullscreen() {
     }
 }
 
+function navigateModal(direction) {
+    if (window.anviGallery) {
+        window.anviGallery.navigateModal(direction);
+    }
+}
+
 // Initialize gallery when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.anvio-gallery')) {
@@ -412,9 +378,3 @@ document.addEventListener('DOMContentLoaded', function() {
         window.anviGallery = new AnvioGallery(config);
     }
 });
-
-function navigateModal(direction) {
-    if (window.anviGallery) {
-        window.anviGallery.navigateModal(direction);
-    }
-}
