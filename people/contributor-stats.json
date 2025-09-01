@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7270,
+        "total_commits": 7284,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,15 +13,15 @@
             "2022": 423,
             "2023": 227,
             "2024": 146,
-            "2025": 166
+            "2025": 180
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "fixy fix",
-        "latest_commit_hash": "8dbced8478ab5f22ee8cf9ec6cd7a982855fbd94",
-        "latest_commit_date": "31 July 2025"
+        "latest_commit_message": "check deflines -- closes #2467",
+        "latest_commit_hash": "65c471df2ef957a1250cde878ff83eaa7a4b3bb1",
+        "latest_commit_date": "27 August 2025"
     },
     "FlorianTrigodet": {
-        "total_commits": 95,
+        "total_commits": 125,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -34,12 +34,12 @@
             "2022": 10,
             "2023": 35,
             "2024": 24,
-            "2025": 10
+            "2025": 40
         },
         "top_file": "anvio/inversions.py",
-        "latest_commit_message": "Remove pkg_resources",
-        "latest_commit_hash": "bfdcca7fed309b797ca55ef88ee2bebdd2f217c8",
-        "latest_commit_date": "30 July 2025"
+        "latest_commit_message": "Ecophylo doc - merging multiple hmm hits",
+        "latest_commit_hash": "bbc54d7f12367f231ee39679b8ac5bd59dd97f38",
+        "latest_commit_date": "13 August 2025"
     },
     "watsonar": {
         "total_commits": 10,
@@ -84,7 +84,7 @@
         "latest_commit_date": "06 December 2023"
     },
     "mschecht": {
-        "total_commits": 734,
+        "total_commits": 749,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -97,15 +97,15 @@
             "2022": 144,
             "2023": 79,
             "2024": 36,
-            "2025": 0
+            "2025": 15
         },
         "top_file": "anvio/workflows/ecophylo/Snakefile",
-        "latest_commit_message": "mock dataset generation for ecophylo",
-        "latest_commit_hash": "8fbd071743a1b8558f8c87b5c88660cb59aff951",
-        "latest_commit_date": "16 December 2024"
+        "latest_commit_message": "fix",
+        "latest_commit_hash": "6bc676609313e3c0c3ca3029f3e1b28b948d304f",
+        "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2227,
+        "total_commits": 2246,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -115,15 +115,15 @@
             "2019": 1,
             "2020": 977,
             "2021": 538,
-            "2022": 281,
+            "2022": 289,
             "2023": 174,
             "2024": 221,
-            "2025": 35
+            "2025": 46
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "inversions code now gets gene caller from the contigs database",
-        "latest_commit_hash": "163fc93bf97523a75aa9635923e4ff8846176745",
-        "latest_commit_date": "11 July 2025"
+        "latest_commit_message": "fix list addition",
+        "latest_commit_hash": "ea0c0733697877585898a4b7439889e4ca06caf0",
+        "latest_commit_date": "08 August 2025"
     },
     "moritzbuck": {
         "total_commits": 3,

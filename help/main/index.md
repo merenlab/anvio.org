@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **31 Jul 25 15:20:19** for anvi'o version **8-dev (marie)**.
+The help contents were last updated on **01 Sep 25 12:46:01** for anvi'o version **8-dev (marie)**.
 
 
 {% include _project-anvio-version.html %}
@@ -39,7 +39,7 @@ The anvi'o 8-dev (marie) contains 5 workflows:
 | <i>From FASTA and/or FASTQ files to anvi&#x27;o contigs and profile databases</i>.</li><li><a href="workflows/ecophylo">The anvi'o <b>ecophylo</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
 | <i>Co-characterize the biogeography and phylogeny of any protein</i>.</li><li><a href="workflows/trnaseq">The anvi'o <b>trnaseq</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/semiller10" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
 | <i>Process transfer RNA transcripts from tRNA-seq datasets</i>.</li><li><a href="workflows/sra-download">The anvi'o <b>sra-download</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
-| <i>Download, extract, and gzip paired-end FASTQ files automatically from the NCBI short-read archive (SRA)</i>.</li>
+| <i>Download, verify, extract, and gzip paired-end FASTQ files automatically from the NCBI short-read archive (SRA)</i>.</li>
 </ul>
 
 ## Anvi'o artifacts
