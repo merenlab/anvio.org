@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7284,
+        "total_commits": 7338,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -12,16 +12,16 @@
             "2021": 786,
             "2022": 423,
             "2023": 227,
-            "2024": 146,
-            "2025": 180
+            "2024": 188,
+            "2025": 192
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "check deflines -- closes #2467",
-        "latest_commit_hash": "65c471df2ef957a1250cde878ff83eaa7a4b3bb1",
-        "latest_commit_date": "27 August 2025"
+        "latest_commit_message": "dependencies += tomli",
+        "latest_commit_hash": "2720c6effff89ed3bfbc2301eec9202ab2a3f48d",
+        "latest_commit_date": "05 September 2025"
     },
     "FlorianTrigodet": {
-        "total_commits": 125,
+        "total_commits": 126,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -32,7 +32,7 @@
             "2020": 10,
             "2021": 5,
             "2022": 10,
-            "2023": 35,
+            "2023": 36,
             "2024": 24,
             "2025": 40
         },
@@ -105,7 +105,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2246,
+        "total_commits": 2253,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 289,
             "2023": 174,
             "2024": 221,
-            "2025": 46
+            "2025": 53
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "fix list addition",
-        "latest_commit_hash": "ea0c0733697877585898a4b7439889e4ca06caf0",
-        "latest_commit_date": "08 August 2025"
+        "latest_commit_message": "we don't need anvio versions of stray KO to be in self.all_kos_in_db anymore",
+        "latest_commit_hash": "a8775d65f8f04857a0f9c4d81c622e68b81b8b48",
+        "latest_commit_date": "03 September 2025"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -609,7 +609,7 @@
         "latest_commit_date": "10 March 2025"
     },
     "bcoltman": {
-        "total_commits": 7,
+        "total_commits": 10,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -622,12 +622,12 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 7
+            "2025": 10
         },
         "top_file": "anvio/drivers/hmmer.py",
-        "latest_commit_message": "Clean up",
-        "latest_commit_hash": "29cdd3fea7443d8b0e5c6400092e99ca15db8c06",
-        "latest_commit_date": "02 July 2025"
+        "latest_commit_message": "Ensure stray_ko_dict is initialised",
+        "latest_commit_hash": "4a8ddc8d5df3c15def733f5a5169effa32b65632",
+        "latest_commit_date": "02 September 2025"
     },
     "katysloz": {
         "total_commits": 4,

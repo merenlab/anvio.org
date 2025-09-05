@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **01 Sep 25 12:46:01** for anvi'o version **8-dev (marie)**.
+The help contents were last updated on **05 Sep 25 10:48:14** for anvi'o version **8-dev (marie)**.
 
 
 {% include _project-anvio-version.html %}
@@ -132,7 +132,7 @@ Listed below **a total of 138 artifacts**.
 
 Anvi'o programs perform atomic tasks that can be weaved together to implement complete 'omics workflows. Please note that there may be programs that are not listed on this page. You can type 'anvi-' in your terminal, and press the TAB key twice to see the full list of programs available to you on your system, and type `anvi-program-name --help` to read the full list of command line options.
 
-Listed below **a total of 156 programs**.
+Listed below **a total of 157 programs**.
 
 
 <div style="width:100%;">
@@ -649,6 +649,37 @@ Listed below **a total of 156 programs**.
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ozcan" target="_blank"><img class="anvio-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/floriantrigodet" target="_blank"><img class="anvio-person-photo-img-mini" title="Florian Trigodet" src="images/authors/FlorianTrigodet.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/watsonar" target="_blank"><img class="anvio-person-photo-img-mini" title="Andrea Watson" src="images/authors/watsonar.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-display-codon-frequencies](programs/anvi-display-codon-frequencies)**</span>. <span markdown="1">Display codon frequency statistics across genes in a given genome in the anvi&#x27;o interactive interface.</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[profile-db](artifacts/profile-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[collection](artifacts/collection) <img src="images/icons/COLLECTION.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[bin](artifacts/bin) <img src="images/icons/BIN.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">[interactive](artifacts/interactive) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[svg](artifacts/svg) <img src="images/icons/SVG.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/meren" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/semiller10" target="_blank"><img class="anvio-person-photo-img-mini" title="Samuel Miller" src="images/authors/semiller10.jpg" /></a></div></div>
 
     </td>
 </tr>

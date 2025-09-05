@@ -23,7 +23,7 @@ A SVG-type anvi'o artifact. This artifact is typically generated, used, and/or e
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-display-contigs-stats](../../programs/anvi-display-contigs-stats)</span> <span class="artifact-p">[anvi-display-pan](../../programs/anvi-display-pan)</span> <span class="artifact-p">[anvi-interactive](../../programs/anvi-interactive)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-display-contigs-stats](../../programs/anvi-display-contigs-stats)</span> <span class="artifact-p">[anvi-display-codon-frequencies](../../programs/anvi-display-codon-frequencies)</span> <span class="artifact-p">[anvi-display-pan](../../programs/anvi-display-pan)</span> <span class="artifact-p">[anvi-interactive](../../programs/anvi-interactive)</span></p>
 
 
 ## Required or used by

@@ -34,6 +34,7 @@
     - name: anvi-delete-hmms
     - name: anvi-delete-misc-data
     - name: anvi-delete-state
+    - name: anvi-display-codon-frequencies
     - name: anvi-display-functions
     - name: anvi-display-pan
     - name: anvi-estimate-genome-completeness
@@ -199,6 +200,7 @@
     - name: anvi-display-contigs-stats
 - author: semiller10
   programs:
+    - name: anvi-display-codon-frequencies
     - name: anvi-draw-kegg-pathways
     - name: anvi-get-codon-frequencies
     - name: anvi-get-codon-usage-bias
