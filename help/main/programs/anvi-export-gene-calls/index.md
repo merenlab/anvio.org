@@ -45,7 +45,7 @@ Export gene calls from an anvi&#x27;o contigs database.
 ## Usage
 
 
-The purpose of this program is to exports your gene calls in a given <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and a gene caller, in the form of a <span class="artifact-n">[gene-calls-txt](/help/main/artifacts/gene-calls-txt)</span>. 
+The purpose of this program is to export your gene calls in a given <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and gene caller, in the form of a <span class="artifact-n">[gene-calls-txt](/help/main/artifacts/gene-calls-txt)</span>. 
 
 To see the gene callers available in your contigs database, you can use <span class="artifact-p">[anvi-db-info](/help/main/programs/anvi-db-info)</span> or use this program with the following flag: 
 
@@ -54,7 +54,7 @@ anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&
                        &#45;&#45;list&#45;gene&#45;callers
 </div>
 
-Running this will export all of your gene calls identified by the gene caller [pyrodigal-gv](https://github.com/althonos/pyrodigal-gv) (assuming it is in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>:
+Running this will export all of your gene calls identified by the gene caller [pyrodigal-gv](https://github.com/althonos/pyrodigal-gv) (assuming it is in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>):
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -63,9 +63,9 @@ anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&
 </div>
 
 {:.notice}
-You can export genes from more gene callers by providing a comma-separated list of gene caller names.
+You can export genes from multiple gene callers by providing a comma-separated list of gene caller names.
 
-If you don't want to display the amino acid sequences of each gene (they can crowd the file very quickly if you don't want to see them), you can add the following flag:
+If you don't want to display the amino acid sequences of each gene (they can clutter the file very quickly if you don't want to see them), you can add the following flag:
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -76,9 +76,9 @@ anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&
 
 ## Advanced uses
 
-This program can take a lot of time and memory when working with very large <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> files (such as those that are more than 10 Gb in file size or more than 10 million contigs).
+This program can take substantial time and memory when working with very large <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> files (such as those that are more than 10 GB in file size or contain more than 10 million contigs).
 
-In that case you can export your gene calls the following way within minutes and a small memory space.
+In such cases you can export your gene calls in the following manner within minutes and with minimal memory usage.
 
 First open your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>:
 
@@ -86,7 +86,7 @@ First open your <span class="artifact-n">[contigs-db](/help/main/artifacts/conti
 sqlite3 <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span>
 </div>
 
-Then run these lines,
+Then run these lines:
 
 <div class="codeblock" markdown="1">
 .mode csv 

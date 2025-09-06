@@ -45,7 +45,7 @@ Export an anvi&#x27;o state into a profile database.
 
 This program allows you to export a <span class="artifact-n">[state](/help/main/artifacts/state)</span> from a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. The output of this is a <span class="artifact-n">[state-json](/help/main/artifacts/state-json)</span>, which you can import into another anvi'o project with <span class="artifact-p">[anvi-import-state](/help/main/programs/anvi-import-state)</span>. 
 
-You can run this program on a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> as follows: 
+You can execute this program on a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> as follows: 
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;state &#45;s <span class="artifact&#45;n">[state](/help/main/artifacts/state)</span> \
@@ -53,7 +53,7 @@ anvi&#45;export&#45;state &#45;s <span class="artifact&#45;n">[state](/help/main
                   &#45;o path/to/output
 </div>
 
-To list the collections available in this database, you can run 
+To list the states available in this database, you can execute: 
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;state &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \

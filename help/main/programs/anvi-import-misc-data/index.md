@@ -45,21 +45,21 @@ Populate additional data or order tables in pan or profile databases for items a
 ## Usage
 
 
-This program enables extending anvi'o projects with many kinds of **additional data**. Additional data will extend anvio' <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> displays, and appear in <span class="artifact-n">[summary](/help/main/artifacts/summary)</span> files, and become accessible to other anvi'o programs thorughout.
+This program enables extending anvi'o projects with many kinds of **additional data**. Additional data will extend anvi'o <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> displays, appear in <span class="artifact-n">[summary](/help/main/artifacts/summary)</span> files, and become accessible to other anvi'o programs throughout.
 
-This program can add additional data for your items or layers in a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, or add additional data for your nucleotides or amino acids in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>
+This program can add additional data for your items or layers in a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, or add additional data for your nucleotides or amino acids in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>.
 
 You also have the option to associate keys with only a specific data group, or transpose the input before processing.
 
-Also see the program <span class="artifact-p">[anvi-show-misc-data](/help/main/programs/anvi-show-misc-data)</span>, <span class="artifact-p">[anvi-export-misc-data](/help/main/programs/anvi-export-misc-data)</span>, and <span class="artifact-p">[anvi-delete-misc-data](/help/main/programs/anvi-delete-misc-data)</span>.
+Also see the programs <span class="artifact-p">[anvi-show-misc-data](/help/main/programs/anvi-show-misc-data)</span>, <span class="artifact-p">[anvi-export-misc-data](/help/main/programs/anvi-export-misc-data)</span>, and <span class="artifact-p">[anvi-delete-misc-data](/help/main/programs/anvi-delete-misc-data)</span>.
 
 ## Items Data, Layers Data, and Orders
 
-Please see [this blog post](http://merenlab.org/2017/12/11/additional-data-tables) for a comprehensive documentation on these misc data types.
+Please see [this blog post](http://merenlab.org/2017/12/11/additional-data-tables) for comprehensive documentation on these misc data types.
 
 ## Nucleotides, Amino Acids, and Contigs Databases
 
-This feature lets you import additional data about specfic residues or specific base pairs into your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. This is especially useful for strucutral analysis (so when running programs like <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span>) and will be very relevant to the InteracDome functionality when it's added in anvi'o v7 (curious readers can take a look at [this blog post](http://merenlab.org/2020/07/22/interacdome/)).
+This feature lets you import additional data about specific residues or specific base pairs into your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. This is especially useful for structural analysis (when running programs like <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span>) and will be very relevant to the InteracDome functionality when it's added in anvi'o v7 (curious readers can take a look at [this blog post](http://merenlab.org/2020/07/22/interacdome/)).
 
 When adding additional data, unlike with layers and items, you do not have to provide values for every single nucleotide in your database. With this program, you can easily provide data for only a select few.
 

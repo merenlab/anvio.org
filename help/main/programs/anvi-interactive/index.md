@@ -53,20 +53,20 @@ Start an anvi&#x27;o server for the interactive interface.
 
 Initiates an interactive environment in your default browser.
 
-Although it is generally associated with the typical concentric circles of 'oimcs data, the anvi'o interactive interface has many forms and offers Anvi'oers a vast amount of functionality, from manual reconstruction of genomes from metagenomes to refinement of metagenome-assembled genomes, displaying nucleotide-level coverage patterns, single-nucleotide variants, pangenomes, phylogenomic trees, and more. While the circular display is the default method for data presentation, you can also display your data in a rectangular from (as seen [here](http://merenlab.org/tutorials/interactive-interface/#lets-go-all-corners)).
+Although it is generally associated with the typical concentric circles of 'omics data, the anvi'o interactive interface has many forms and offers anvi'o users a vast amount of functionality, from manual reconstruction of genomes from metagenomes to refinement of metagenome-assembled genomes, displaying nucleotide-level coverage patterns, single-nucleotide variants, pangenomes, phylogenomic trees, and more. While the circular display is the default method for data presentation, you can also display your data in a rectangular format (as seen [here](http://merenlab.org/tutorials/interactive-interface/#lets-go-all-corners)).
 
-In fact, the interface has many of its own blog posts, including a pretty comprehensive introductory tutorial [here](http://merenlab.org/tutorials/interactive-interface/) and a breakdown of its data types [here](http://merenlab.org/2016/02/27/the-anvio-interactive-interface/).
+In fact, the interface has many of its own blog posts, including a comprehensive introductory tutorial [here](http://merenlab.org/tutorials/interactive-interface/) and a breakdown of its data types [here](http://merenlab.org/2016/02/27/the-anvio-interactive-interface/).
 
 Here, we'll go through *some* things that the anvi'o interactive interface is capable of through this program. More information about most of this can be found by calling `anvi-interactive -h` or by checking out the additional resources at the bottom of this page.
 
-Please makes sure you are familiar with the terminology that describes various parts of a given display, which are **explained in the <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> artifact**:
+Please make sure you are familiar with the terminology that describes various parts of a given display, which are **explained in the <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> artifact**:
 
 ![an anvi'o display](../../images/interactive_interface/anvio_display_template.png){:.center-img}
 
 
 ## Running anvi-interactive on a profile database
 
-One of the simplest ways to run the interactive interface (especially useful for manual binning) is just providing an anvi'o profile database and an anvi'o contigs database:
+One of the simplest ways to run the interactive interface (especially useful for manual binning) is by providing an anvi'o profile database and an anvi'o contigs database:
 
 <div class="codeblock" markdown="1">
 anvi&#45;interactive &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
@@ -84,18 +84,18 @@ Typically the <span class="artifact-n">[interactive](/help/main/artifacts/intera
 {:.notice}
 Some advanced information you should feel free to skip: anvi'o uses a set of <span class="artifact-n">[clustering-configuration](/help/main/artifacts/clustering-configuration)</span> files to decide which sources of data to use to cluster items. These recipes are essentially a set of configuration files for anvi'o to learn which information to use from <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, or <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> type databases.
 
-Some of the programs that generate dendrograms include <span class="artifact-p">[anvi-merge](/help/main/programs/anvi-merge)</span>, <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span>, and <span class="artifact-p">[anvi-experimental-organization](/help/main/programs/anvi-experimental-organization)</span>. But since hierarchical clustering is an extremely demanding process, anvi'o will skip this step during <span class="artifact-p">[anvi-merge](/help/main/programs/anvi-merge)</span> if there are more than 20,000 splits n the database. This is because the computational complexity of this process will get less and less feasible with increasing number of splits. You can force anvi'o to try to cluster your splits regardless of how many of them there are by using the flag `--enforce-hierarchical-clustering`. However, we strongly advice against it especially if you have more than 30,000 splits since your process will likely be killed by the operating system, or take a very very long time to finish (plus, if you have that many splits the performance of the interactive interface will be very low).
+Some of the programs that generate dendrograms include <span class="artifact-p">[anvi-merge](/help/main/programs/anvi-merge)</span>, <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span>, and <span class="artifact-p">[anvi-experimental-organization](/help/main/programs/anvi-experimental-organization)</span>. However, since hierarchical clustering is an extremely demanding process, anvi'o will skip this step during <span class="artifact-p">[anvi-merge](/help/main/programs/anvi-merge)</span> if there are more than 20,000 splits in the database. This is because the computational complexity of this process becomes less and less feasible with increasing numbers of splits. You can force anvi'o to try to cluster your splits regardless of how many of them there are by using the flag `--enforce-hierarchical-clustering`. However, we strongly advise against it especially if you have more than 30,000 splits since your process will likely be killed by the operating system, or take a very long time to finish (plus, if you have that many splits the performance of the interactive interface will be very low).
 
 What happens if you don't have a hierarchical clustering dendrogram, but you still wish to have an overall understanding of your data, or visualize the coverages of some contigs of interest or any contig at all? There are multiple ways you can do that:
 
 * You can use <span class="artifact-p">[anvi-inspect](/help/main/programs/anvi-inspect)</span> to visualize nucleotide- and gene-level coverages and single-nucleotide variants on individual contigs,
-* You can use <span class="artifact-p">[anvi-cluster-contigs](/help/main/programs/anvi-cluster-contigs)</span> to create a collection for your contigs and initiate `anvi-interactive` in collection mode (see the subsection "[visualizing bins instead of contigs](#visualizing-bins-instead-of-contigs)" below.
+* You can use <span class="artifact-p">[anvi-cluster-contigs](/help/main/programs/anvi-cluster-contigs)</span> to create a collection for your contigs and initiate `anvi-interactive` in collection mode (see the subsection "[visualizing bins instead of contigs](#visualizing-bins-instead-of-contigs)" below).
 * You can import external binning results using <span class="artifact-p">[anvi-import-collection](/help/main/programs/anvi-import-collection)</span>, or manually identify contigs of interest, and use <span class="artifact-p">[anvi-import-collection](/help/main/programs/anvi-import-collection)</span> to create a collection of a smaller number of contigs. You can then use <span class="artifact-p">[anvi-refine](/help/main/programs/anvi-refine)</span> to visualize contigs in a single bin, or use <span class="artifact-p">[anvi-split](/help/main/programs/anvi-split)</span> to first generate a split profile for your contigs to visualize your smaller dataset using <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span>.
 
 
 ### Collection mode: Visualizing *bins* instead of contigs
 
-By default, when run on a profile database that resulted from a metagenomic workflow, <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> will initiate each contig as a separate item and organize them based on the clustering dendrograms provided (either automatically or by the user). But if there is a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> stored in the profile database, it is also possible to run <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> on a specific collection, during which anvi'o will use the underlying contig data to calculate summary statistics for each bin before displaying them. In collection mode, each item of your central plot will not represent a contig, but a bin within your collection. This is how the collection mode can be initialized in comparison to the default mode:
+By default, when run on a profile database that resulted from a metagenomic workflow, <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> will initiate each contig as a separate item and organize them based on the clustering dendrograms provided (either automatically or by the user). However, if there is a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> stored in the profile database, it is also possible to run <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> on a specific collection, during which anvi'o will use the underlying contig data to calculate summary statistics for each bin before displaying them. In collection mode, each item of your central plot will not represent a contig, but a bin within your collection. This is how the collection mode can be initialized in comparison to the default mode:
 
 <div class="codeblock" markdown="1">
 anvi&#45;interactive &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
@@ -107,10 +107,7 @@ The clustering of <span class="artifact-n">[bin](/help/main/artifacts/bin)</span
 
 ### Genes mode: Visualizing *genes* instead of contigs
 
-You can also start the interactive interface in "gene mode", in which each item of the central tree is a gene instead of a split or contig (or 
-
-
-bin like in "collection mode").
+You can also start the interactive interface in "gene mode", in which each item of the central tree is a gene instead of a split or contig (or bin like in "collection mode").
 
 To initiate the visualization in gene mode you need the following:
 
@@ -124,7 +121,7 @@ anvi&#45;interactive &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/
 
 If there isn't one already, this command will automatically generate an anvi'o <span class="artifact-n">[genes-db](/help/main/artifacts/genes-db)</span> under the `GENES` directory at the same level of the profile database. When the same command is run again, <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> will use the existing genes database.
 
-In this view you can order genes based on their distributions patterns across metagenomes (*without paying attention to their synteny*) or by ordering them based on their synteny in a given genome (*without paying attention to their differential distribution*). [Figure 2 in this paper](https://peerj.com/articles/4320/) examples the latter, and [Figure 5 in this paper](https://stm.sciencemag.org/content/11/507/eaau9356) examples the former case, which is also shown below:
+In this view you can order genes based on their distribution patterns across metagenomes (*without paying attention to their synteny*) or by ordering them based on their synteny in a given genome (*without paying attention to their differential distribution*). [Figure 2 in this paper](https://peerj.com/articles/4320/) examples the latter, and [Figure 5 in this paper](https://stm.sciencemag.org/content/11/507/eaau9356) examples the former case, which is also shown below:
 
 ![](http://merenlab.org/images/gene-distribution-across-metagenomes.png)
 
@@ -134,7 +131,7 @@ You can also visit [this page](http://merenlab.org/tutorials/infant-gut/#the-gen
 
 You can initiate the anvi'o interactive interface in manual mode to run it on *ad hoc* tabular data (here is [a tutorial on this](http://merenlab.org/tutorials/interactive-interface/)).
 
-Anvi'o interactive interface is initiated with the flag `--manual-mode` and then by providing *any* of the following types of files individually or together:
+The anvi'o interactive interface is initiated with the flag `--manual-mode` and then by providing *any* of the following types of files individually or together:
 
 - a TAB-delimited tabular data,
 - a NEWICK formatted tree,
@@ -162,12 +159,12 @@ You can also customize various aspects of the interactive interface. For example
 
 ## Password protection
 
-Use `--password-protected` flag to limit access to your interactive instances, which by default will be accessible to anyone on your network.
+Use the `--password-protected` flag to limit access to your interactive instances, which by default will be accessible to anyone on your network.
 
 
 ## Quick solutions for network problems
 
-In a typical run, <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> initiates a local server to which you connect through your browser to visualize data. Which can yield unexpected problems if you are running anvi'o in virtual environments such as Windows Subsystem for Linux. If your browser does not show up, or you get cryptic errors such as "*tcgetpgrp failed: Not a tty*", you can always simplify things by manually setting network properties such as `--ip-address` and `--port-number`.
+In a typical run, <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> initiates a local server to which you connect through your browser to visualize data. This can yield unexpected problems if you are running anvi'o in virtual environments such as Windows Subsystem for Linux. If your browser does not show up, or you get cryptic errors such as "*tcgetpgrp failed: Not a tty*", you can always simplify things by manually setting network properties such as `--ip-address` and `--port-number`.
 
 For instance you can start an interactive interface the following way:
 
@@ -179,7 +176,7 @@ anvi&#45;interactive &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/
                  &#45;&#45;server&#45;only
 </div>
 
-Which would not initiate your browser, but then you can open your browser and go to this address to work with the anvi'o interactive interface:
+This would not initiate your browser, but then you can open your browser and go to this address to work with the anvi'o interactive interface:
 
 * [http://127.0.0.1:8901](http://127.0.0.1:8901)
 
@@ -187,12 +184,11 @@ Which would not initiate your browser, but then you can open your browser and go
 
 ### Viewing your data
 
-You can use this program to look at the available information in your databases, which is very convenient. For example, you can view all of the available
+You can use this program to look at the available information in your databases, which is very convenient. For example, you can view all of the available:
 
 - views (using `--show-views`)
 - states (using `--show-states`)
 - collections (using `--list-collections`)
-
 
 
 {:.notice}

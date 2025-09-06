@@ -45,7 +45,7 @@ Export contigs (or splits) from an anvi&#x27;o contigs database.
 
 This program **exports the contig sequences from a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>**, outputting them as a <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span>. It also has the ability to output the sequences of your splits instead. 
 
-You can run this program as follows: 
+You can execute this program as follows: 
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -68,7 +68,7 @@ where `my_favorite_contigs.txt` looks like this:
     
 ### Splits mode
 
-Want to look at your splits instead of your contigs? Just run with the flag `splits-mode` attached. 
+Want to examine your splits instead of your contigs? Just run with the flag `--splits-mode` attached. 
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \

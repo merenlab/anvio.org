@@ -43,7 +43,7 @@ Extract ngrams, as in &#x27;co-occurring genes in synteny&#x27;, from genomes.
 ## Usage
 
 
-Briefly, <span class="artifact-p">[anvi-analyze-synteny](/help/main/programs/anvi-analyze-synteny)</span> counts <span class="artifact-n">[ngrams](/help/main/artifacts/ngrams)</span> by converting contigs into strings of annotations for a given user-defined source of gene annotation. A source annotation for <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> **must** be provided to create <span class="artifact-n">[ngrams](/help/main/artifacts/ngrams)</span>, upon which anvi'o will use a sliding window of size `N` to deconstruct the loci of interest into <span class="artifact-n">[ngrams](/help/main/artifacts/ngrams)</span> and count their frequencies.
+The <span class="artifact-p">[anvi-analyze-synteny](/help/main/programs/anvi-analyze-synteny)</span> program quantifies <span class="artifact-n">[ngrams](/help/main/artifacts/ngrams)</span> by transforming contigs into strings of annotations based on a user-specified gene annotation source. A functional annotation source for <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> **must** be provided to generate <span class="artifact-n">[ngrams](/help/main/artifacts/ngrams)</span>. The program employs a sliding window of size `N` to deconstruct genomic loci of interest into <span class="artifact-n">[ngrams](/help/main/artifacts/ngrams)</span> and calculate their occurrence frequencies.
 
 ### Run for a given function annotation source
 
@@ -54,7 +54,7 @@ anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;st
                      &#45;o <span class="artifact&#45;n">[ngrams](/help/main/artifacts/ngrams)</span>
 </div>
 
-For instance, if you have run <span class="artifact-p">[anvi-run-ncbi-cogs](/help/main/programs/anvi-run-ncbi-cogs)</span> on each <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> you have used to generate your <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>, your `--annotation-source` can be `NCBI_COGS`:
+For instance, if you have executed <span class="artifact-p">[anvi-run-ncbi-cogs](/help/main/programs/anvi-run-ncbi-cogs)</span> on each <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> used to generate your <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>, your `--annotation-source` parameter can be specified as `NCBI_COGS`:
 
 <div class="codeblock" markdown="1">
 anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
@@ -66,7 +66,7 @@ anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;st
 
 ### Handling genes with unknown functions 
 
-By default, <span class="artifact-p">[anvi-analyze-synteny](/help/main/programs/anvi-analyze-synteny)</span> will ignore genes with unknown functions based on the annotation source of interest. However, this can be circumvented either by providing a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, so the program would use gene cluster identities as function names:
+By default, <span class="artifact-p">[anvi-analyze-synteny](/help/main/programs/anvi-analyze-synteny)</span> excludes genes with unknown functions based on the specified annotation source. However, this behavior can be modified through two alternative approaches. First, by providing a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, which enables the program to utilize gene cluster identities as functional annotations:
 
 <div class="codeblock" markdown="1">
 anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
@@ -75,7 +75,7 @@ anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;st
                      &#45;o <span class="artifact&#45;n">[ngrams](/help/main/artifacts/ngrams)</span>
 </div>
 
-or by explicitly asking the program to consider unknown functions, in which case the program would not discard ngrams that include genes without functions:
+Alternatively, you can explicitly instruct the program to consider genes with unknown functions, which will include ngrams containing functionally unannotated genes in the analysis:
 
 <div class="codeblock" markdown="1">
 anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
@@ -85,11 +85,11 @@ anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;st
                      &#45;&#45;analyze&#45;unknown&#45;functions
 </div>
 
-The disadvantage of the latter strategy is that since all genes with unknown functions will be considered the same, the frequency of ngrams that contain genes with unknown functions may be inflated in your final results.
+The primary limitation of this latter approach is that all genes lacking functional annotations are treated as identical entities, which may artificially inflate the frequency of ngrams containing unannotated genes in your final results.
 
 ### Run with multiple annotations
 
-If multiple gene annotation sources are provided (i.e., a pangenome for gene clusters identities as well as a functional annotation source), the user must define which annotation source will be used to create the <span class="artifact-n">[ngrams](/help/main/artifacts/ngrams)</span> using the parameter `--ngram-source`. The resulting <span class="artifact-n">[ngrams](/help/main/artifacts/ngrams)</span> will then be re-annotated with the second annotation source and also reported. 
+When multiple gene annotation sources are provided (such as a pangenome database for gene cluster identities in addition to a functional annotation source), you must specify which annotation source will be used to construct the <span class="artifact-n">[ngrams](/help/main/artifacts/ngrams)</span> using the `--ngram-source` parameter. The resulting <span class="artifact-n">[ngrams](/help/main/artifacts/ngrams)</span> will subsequently be re-annotated with the secondary annotation source and reported accordingly. 
 
 <div class="codeblock" markdown="1">
 anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
@@ -104,14 +104,14 @@ anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;st
 
 If you are following the anvi'o master branch on your computer, you can create a test case for this program.
 
-First, go to any work directory, and run the following commands:
+First, navigate to any working directory and execute the following commands:
 
 ``` bash
 anvi-self-test --suite metagenomics-full \
                --output-dir TEST_OUTPUT
 ```
 
-Run one or more alternative scenarios and check output files:
+Execute one or more alternative scenarios and examine the output files:
 
 ```
 anvi-analyze-synteny -g TEST_OUTPUT/TEST-GENOMES.db \

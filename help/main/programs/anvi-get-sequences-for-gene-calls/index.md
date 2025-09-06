@@ -49,14 +49,14 @@ If you want other information about your gene calls from a <span class="artifact
 
 ### Running on a contigs database
 
-You can run this program on a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> like so:
+You can run this program on a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> as follows:
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                                   &#45;o path/to/output
 </div>
 
-This is create a <span class="artifact-n">[genes-fasta](/help/main/artifacts/genes-fasta)</span> that contains every gene in your contigs database. If you only want a specific subset of genes, you can run the following:
+This will create a <span class="artifact-n">[genes-fasta](/help/main/artifacts/genes-fasta)</span> that contains every gene in your contigs database. If you only want a specific subset of genes, you can run the following:
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -67,7 +67,7 @@ anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;calls &#45;c <span class="artifa
 
 Now the resulting <span class="artifact-n">[genes-fasta](/help/main/artifacts/genes-fasta)</span> will contain only those three genes.
 
-Please note that this program allows you to format the deflines of the resulting FASTA file to a great extent. For this, it uses a set of previously-defined variables you can use to define a template of your liking. You can learn about the available variables, you can include the following flag in your command:
+Please note that this program allows you to format the deflines of the resulting FASTA file to a great extent. For this, it uses a set of previously-defined variables you can use to define a template of your liking. To learn about the available variables, you can include the following flag in your command:
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -113,7 +113,7 @@ GTTACAACGGGATTAGATGAAGAAAGCAAACAGATTGTCAATCAATTGTTAAACCAATTAAACAAAGAGCAAGGAGTCAC
 GCACAGCAAGTGATTCGTATTGTAGCAGGAAAGGTGGCGCCGACAGATGGATTTAGCAGTTAA
 ```
 
-The simple option shown above also is the default defline format anvi'o uses. Here is a more sophisticated example:
+The simple option shown above is also the default defline format anvi'o uses. Here is a more sophisticated example:
 
 ```
 anvi-get-sequences-for-gene-calls -c INFANT-GUT-TUTORIAL/CONTIGS.db \
@@ -155,7 +155,7 @@ You also have the option to report the output in [gff3 format](https://github.co
 
 ### Running on a genomes storage database
 
-You can also get the sequences from gene calls in a <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>, like so:
+You can also get the sequences from gene calls in a <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>, as follows:
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;calls &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \

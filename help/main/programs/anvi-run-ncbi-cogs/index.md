@@ -45,11 +45,11 @@ This program runs NCBI&#x27;s COGs to associate genes in an anvi&#x27;o contigs 
 ## Usage
 
 
-This program **annotates genes in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> with functions using NCBI's [Clusters of Orthologus Groups (COGs) database](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102395/).**
+This program **annotates genes in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> with functions using NCBI's [Clusters of Orthologous Groups (COGs) database](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102395/).**
 
 This program assumes that the user has successfully set up the COGs database on their computer using the anvi'o program <span class="artifact-p">[anvi-setup-ncbi-cogs](/help/main/programs/anvi-setup-ncbi-cogs)</span>.
 
-This program requires one of two possible inputs a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> or a <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> file of amino acid sequences. When a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> is provided, the program will store its output in the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> as a <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> artifact. Otherwise you must specify an output file path using `-o`, to which the program will write a TAB-delimited file containing all the annotatons found in the input <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> file.
+This program requires one of two possible inputs: a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> or a <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> file of amino acid sequences. When a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> is provided, the program will store its output in the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> as a <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> artifact. Otherwise you must specify an output file path using `-o`, to which the program will write a TAB-delimited file containing all the annotations found in the input <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> file.
 
 If the <span class="artifact-n">[cogs-data](/help/main/artifacts/cogs-data)</span> was stored at a specific path when <span class="artifact-p">[anvi-setup-ncbi-cogs](/help/main/programs/anvi-setup-ncbi-cogs)</span> was run, then providing that path using the `--cog-data-dir` parameter is also necessary.
 
@@ -58,7 +58,7 @@ anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;
             &#45;&#45;cog&#45;data&#45;dir path/to/<span class="artifact&#45;n">[cogs&#45;data](/help/main/artifacts/cogs&#45;data)</span>
 </div>
 
-Without the flag `--cog-data-dir`, anvi'o will just search in the default location.
+Without the flag `--cog-data-dir`, anvi'o will search in the default location.
 
 ### Choosing a different database version
 If you want to annotate your genes with a non-default version of <span class="artifact-n">[cogs-data](/help/main/artifacts/cogs-data)</span>, provide that version after the `--cog-version` parameter:
@@ -68,7 +68,7 @@ anvi&#45;setup&#45;ncbi&#45;cogs &#45;&#45;cog&#45;version COG24
 </div>
 
 ### Choosing a different search program
-By default, this program uses `diamond` to search for hits to the database. You can also use `blastp`` to search, by running:
+By default, this program uses `diamond` to search for hits to the database. You can also use `blastp` to search, by running:
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \

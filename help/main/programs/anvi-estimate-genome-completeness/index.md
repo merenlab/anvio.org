@@ -52,19 +52,19 @@ Genomes provided to this program must be contained in either a <span class="arti
 
 ### Running on contigs databases 
 
-For example, calling 
+For example, executing 
 
 <div class="codeblock" markdown="1">
 anvi&#45;estimate&#45;genome&#45;completeness &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> 
 </div>
 
-will output to the terminal the completition and redundancy of the single-copy core genes in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, assuming that all of its contigs represent a single genome. To output this information to a file, you can add the flag `-o` and provide an output path. 
+will output to the terminal the completeness and redundancy of the single-copy core genes in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, assuming that all of its contigs represent a single genome. To output this information to a file, you can add the flag `-o` and provide an output path. 
 
-To get this information for several contigs databases at once, you can provide them as an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>, as so:
+To get this information for several contigs databases at once, you can provide them as an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>, as follows:
 
 <div class="codeblock" markdown="1">
 anvi&#45;estimate&#45;genome&#45;completeness &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \
-                                  &#45;o completition.txt
+                                  &#45;o completeness.txt
 </div>
 
 ### Running on bins 
@@ -77,7 +77,7 @@ anvi&#45;estimate&#45;genome&#45;completeness &#45;c <span class="artifact&#45;n
                                   &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> 
 </div>
 
-To see what collections are contained in your contigs database, call 
+To see what collections are contained in your contigs database, execute 
 
 <div class="codeblock" markdown="1">
 anvi&#45;estimate&#45;genome&#45;completeness &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -87,7 +87,7 @@ anvi&#45;estimate&#45;genome&#45;completeness &#45;c <span class="artifact&#45;n
 
 or run <span class="artifact-p">[anvi-show-collections-and-bins](/help/main/programs/anvi-show-collections-and-bins)</span> for a more comprehensive overview. 
 
-If you're looking for a more comprehensive overview of your entire collection and its contents, the completition and redunduncy statistics for your bins are also included when you run <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span>. 
+If you're seeking a more comprehensive overview of your entire collection and its contents, the completeness and redundancy statistics for your bins are also included when you run <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span>.
 
 
 {:.notice}

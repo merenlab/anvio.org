@@ -45,7 +45,7 @@ Import an anvi&#x27;o state into a profile database.
 
 This program allows you to import a <span class="artifact-n">[state](/help/main/artifacts/state)</span> from a <span class="artifact-n">[state-json](/help/main/artifacts/state-json)</span>.
 
-You can run this program on a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> like so: 
+You can run this program on a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> as follows:
 
 <div class="codeblock" markdown="1">
 anvi&#45;import&#45;state &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \

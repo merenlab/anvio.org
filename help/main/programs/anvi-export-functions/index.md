@@ -43,7 +43,7 @@ Export functions of genes from an anvi&#x27;o contigs database for a given annot
 ## Usage
 
 
-This program **takes in a <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> artifact to create a <span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span>.** Basically, if you want to take the information in your <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> artifact out of anvi'o or give it to a fellow anvi'o user (for them to [import it](http://merenlab.org/software/anvio/help/programs/anvi-import-functions/) into their own project), you get that information using this command. 
+This program **takes a <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> artifact to create a <span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span>.** Essentially, if you want to extract the information in your <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> artifact from anvi'o or share it with a fellow anvi'o user (for them to [import it](http://merenlab.org/software/anvio/help/programs/anvi-import-functions/) into their own project), you can obtain that information using this command. 
 
 Simply provide the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> that has been annotated with <span class="artifact-n">[functions](/help/main/artifacts/functions)</span>: 
 
@@ -51,7 +51,7 @@ Simply provide the <span class="artifact-n">[contigs-db](/help/main/artifacts/co
 anvi&#45;export&#45;functions &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> 
 </div>
 
-You can also get annotations for only a specific list of sources. For example:
+You can also get annotations for only specific sources. For example:
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;functions &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \

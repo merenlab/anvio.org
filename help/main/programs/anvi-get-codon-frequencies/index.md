@@ -47,13 +47,13 @@ Get codon or amino acid frequency statistics from genomes, genes, and functions.
 
 This program **calculates codon or amino acid frequencies from genes or functions**.
 
-A range of options allows calculation of different frequency statistics. This program is "maximalist," in that it has many options that do the equivalent of a couple extra commands in R or pandas -- because we (not you) tend to be lazy and prone to mistakes.
+A range of options allows calculation of different frequency statistics. This program is "maximalist" in that it includes many options that do the equivalent of a couple of extra commands in R or pandas—because we (not you) tend to be lazy and prone to mistakes.
 
 ## Basic commands
 
 ### Gene frequencies
 
-This command produces a table of codon frequencies from coding sequences in the contigs database. The first column of the table contains gene caller IDs and subsequent columns contain frequency data. The decoded amino acid is included in each codon column name with the flag, `--header-amino-acids`.
+This command produces a table of codon frequencies from coding sequences in the contigs database. The first column of the table contains gene caller IDs and subsequent columns contain frequency data. The decoded amino acid is included in each codon column name with the flag `--header-amino-acids`.
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;codon&#45;frequencies &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -163,7 +163,7 @@ anvi&#45;get&#45;codon&#45;frequencies &#45;c <span class="artifact&#45;n">[cont
                            &#45;&#45;relative
 </div>
 
-The first column of the output table has the header, 'gene_caller_ids', and the value, 'all', indicating that the data is aggregated across genes.
+The first column of the output table has the header 'gene_caller_ids' and the value 'all', indicating that the data is aggregated across genes.
 
 `--sum` and `--average` operate on genes. When used with a function option, the program subsets the genes annotated by the functions of interest. With `--average`, it calculates the average frequency across genes rather than functions (sums of genes with functional annotation). For example, the following command calculates the average synonymous relative frequency across genes annotated by `KOfam`.
 
@@ -177,7 +177,7 @@ anvi&#45;get&#45;codon&#45;frequencies &#45;c <span class="artifact&#45;n">[cont
 
 ### Functions
 
-Functions and function annotation sources can be provided to subset genes (as seen in the [last section](#frequencies-across-genes) with `--average`) and to calculate statistics for functions in addition to genes (as seen in a [previous example](#function-codon-frequencies).
+Functions and function annotation sources can be provided to subset genes (as seen in the [last section](#frequencies-across-genes) with `--average`) and to calculate statistics for functions in addition to genes (as seen in a [previous example](#function-frequencies)).
 
 Using `--output-file` is equivalent to `--gene-table-output` rather than `--function-table-output`, producing rows containing frequencies for annotated genes rather than summed frequencies for functions.
 
@@ -195,13 +195,13 @@ anvi&#45;get&#45;codon&#45;frequencies &#45;c <span class="artifact&#45;n">[cont
                            &#45;&#45;function&#45;names "Ammonia channel protein AmtB" "Purine nucleoside phosphorylase"
 </div>
 
-To use different functions from different sources, a tab-delimited file can be provided to `functions-txt`. This headerless file must have three columns, for source, accession, and name of functions, respectively, with an entry in each row for source.
+To use different functions from different sources, a tab-delimited file can be provided to `--select-functions-txt`. This headerless file must have three columns for source, accession, and name of functions, respectively, with an entry in each row for source.
 
-By default, selected function accessions or names do not need to be present in the input genomes; the program will return data for any selected function accessions or names that annotated genes. This behavior can be changed using the flag, `--expect-functions`, so that the program will throw an error when any of the selected accessions or names are absent.
+By default, selected function accessions or names do not need to be present in the input genomes; the program will return data for any selected function accessions or names that annotated genes. This behavior can be changed using the flag `--expect-functions`, so that the program will throw an error when any of the selected accessions or names are absent.
 
 #### BRITE hierarchies
 
-Genes are classified in KEGG BRITE functional hierarchies by <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span>. For example, a bacterial SSU ribosomal protein is classified in a hierarchy of ribosomal genes, `Ribosome>>>Ribosomal proteins>>>Bacteria>>>Small subunit`. Codon frequencies can be calculated for genes classified at each level of the hierarchy, from the most general, those genes in the `Ribosome`, to the most specific -- in the example, those genes in `Ribosome>>>Ribosomal proteins>>>Bacteria>>>Small subunit`. Therefore, the following command returns summed codon frequencies for each annotated hierarchy level -- in the example, the output would include four rows for the genes in each level from `Ribosome` to `Small subunit`.
+Genes are classified in KEGG BRITE functional hierarchies by <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span>. For example, a bacterial SSU ribosomal protein is classified in a hierarchy of ribosomal genes, `Ribosome>>>Ribosomal proteins>>>Bacteria>>>Small subunit`. Codon frequencies can be calculated for genes classified at each level of the hierarchy, from the most general, those genes in the `Ribosome`, to the most specific—in the example, those genes in `Ribosome>>>Ribosomal proteins>>>Bacteria>>>Small subunit`. Therefore, the following command returns summed codon frequencies for each annotated hierarchy level—in the example, the output would include four rows for the genes in each level from `Ribosome` to `Small subunit`.
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;codon&#45;frequencies &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \

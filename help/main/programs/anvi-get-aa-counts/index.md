@@ -45,7 +45,7 @@ Fetches the number of times each amino acid occurs from a contigs database in a 
 
 Similarly to <span class="artifact-p">[anvi-get-codon-frequencies](/help/main/programs/anvi-get-codon-frequencies)</span>, this program counts the number of times each amino acid occurs in a given sequence, whether that's a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>, <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>, set of contigs (listed in a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span>), or a set of genes. The output of this is a <span class="artifact-n">[aa-frequencies-txt](/help/main/artifacts/aa-frequencies-txt)</span>. 
 
-There are four possible things you can count the amino acid frequencies in: 
+There are four possible targets you can count amino acid frequencies in: 
 * All of the contigs in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>
 * A series of <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s
 * A list of contigs
@@ -53,9 +53,9 @@ There are four possible things you can count the amino acid frequencies in:
 
 Examples for each are below.
 
-### Option 1: all contigs in a contigs-db
+### Option 1: all contigs in a contigs database
 
-To count the amino acids in all of the contigs in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, you can just provide the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> of interest, as so:
+To count the amino acids in all of the contigs in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, you can provide the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> of interest, as follows:
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -83,7 +83,7 @@ anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;
     
 ### Option 3: a list of contigs
 
-Just provide a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span> file that lists the contigs you want to look at. 
+Simply provide a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span> file that lists the contigs you want to examine. 
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -93,7 +93,7 @@ anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;
 
 ### Option 4: a list of genes 
 
-Just provide a list of gene caller ids, straight into the terminal, like so:
+Simply provide a list of gene caller IDs, directly in the terminal, as follows:
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \

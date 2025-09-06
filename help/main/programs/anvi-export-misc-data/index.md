@@ -55,7 +55,7 @@ If your misc-data is associated with a specific data group, you can provide that
 
 ### From a pan-db or profile-db: items, layers, layer orders
 
-**From a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, you can export**
+**From a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, you can export:**
 
 - items data (<span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span>) into a <span class="artifact-n">[misc-data-items-txt](/help/main/artifacts/misc-data-items-txt)</span>. 
 
@@ -80,7 +80,7 @@ anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#
 
 ### From a contigs-db: nucleotide and amino acid information
 
-**From a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, you can export**
+**From a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, you can export:**
 
 - nucleotide data (<span class="artifact-n">[misc-data-nucleotides](/help/main/artifacts/misc-data-nucleotides)</span>) into a <span class="artifact-n">[misc-data-nucleotides-txt](/help/main/artifacts/misc-data-nucleotides-txt)</span>.
 

@@ -49,7 +49,7 @@ This program deals with populating tables that store HMM hits in an anvi&#x27;o 
 ## Usage
 
 
-Stores <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> for a given <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span> in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. In short, this is the program that will do a search for HMMs against a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and store that information into the contigs-db's <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span>.
+Stores <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> for a given <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span> in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. In short, this is the program that will search for HMMs against a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and store that information into the contigs database's <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span>.
 
 This is one of the programs that users commonly run on newly generated <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, along with <span class="artifact-p">[anvi-scan-trnas](/help/main/programs/anvi-scan-trnas)</span>, <span class="artifact-p">[anvi-run-ncbi-cogs](/help/main/programs/anvi-run-ncbi-cogs)</span>, <span class="artifact-p">[anvi-run-scg-taxonomy](/help/main/programs/anvi-run-scg-taxonomy)</span>, and so on.
 
@@ -85,7 +85,7 @@ anvi&#45;run&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help
 
 ### User-defined HMMs
 
-Running `anvi-run-hmms` with a custom model is easy. All you need to do is to create a directory with necessary files:
+Running `anvi-run-hmms` with a custom model is easy. All you need to do is create a directory with necessary files:
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -120,7 +120,7 @@ This flag has no effect when your HMM profile source is for nucleotide sequences
 
 ### Saving the HMMER output
 
-If you want to see the output from the HMMER program (eg, `hmmscan`) used to annotate your data, you can request that it be saved in a directory of your choosing. Please note that this only works when you are running on a single HMM source, as in the example below:
+If you want to see the output from the HMMER program (e.g., `hmmscan`) used to annotate your data, you can request that it be saved in a directory of your choosing. Please note that this only works when you are running on a single HMM source, as in the example below:
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -152,13 +152,12 @@ In this case anvi'o will run [HMMER](http://hmmer.org) using the `--domtblout` f
 {:.notice}
 This flag will only work with HMM profiles made for amino acid sequences. Profiles for nucleotide sequences require the use of the program `nhmmscan`, which does not have an option to store domain output.
 
-Please note that this output **won't be used to filter hits to be added to the contigs database**. But it will give you the necessary output file to investigate the coverage of HMM hits. But you can use the program <span class="artifact-p">[anvi-script-filter-hmm-hits-table](/help/main/programs/anvi-script-filter-hmm-hits-table)</span> with this file to remove weak hits from your HMM hits table later.
+Please note that this output **won't be used to filter hits to be added to the contigs database**. However, it will give you the necessary output file to investigate the coverage of HMM hits. You can use the program <span class="artifact-p">[anvi-script-filter-hmm-hits-table](/help/main/programs/anvi-script-filter-hmm-hits-table)</span> with this file to remove weak hits from your HMM hits table later.
 
 
 ### Other things anvi-run-hmms can do
 
 * Add the tag `--also-scan-trnas` to basically run <span class="artifact-p">[anvi-scan-trnas](/help/main/programs/anvi-scan-trnas)</span> for you at the same time. It's very convenient. (But it only works if you are not using the `-I` or `-H` flags at the same time because reasons.)
-
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-run-hmms.md) to update this information.

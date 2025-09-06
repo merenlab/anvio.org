@@ -47,42 +47,42 @@ A program that computes functional enrichment within a pangenome..
 ## Usage
 
 
-This program computes functional enrichment within a pangenome and returns a <span class="artifact-n">[functional-enrichment-txt](/help/main/artifacts/functional-enrichment-txt)</span> file.
+This program computes functional enrichment within a pangenome and generates a <span class="artifact-n">[functional-enrichment-txt](/help/main/artifacts/functional-enrichment-txt)</span> file.
 
 {:.warning}
 For its sister programs, see <span class="artifact-p">[anvi-compute-metabolic-enrichment](/help/main/programs/anvi-compute-metabolic-enrichment)</span> and <span class="artifact-p">[anvi-compute-functional-enrichment-across-genomes](/help/main/programs/anvi-compute-functional-enrichment-across-genomes)</span>.
 
 {:.notice}
-Please also see <span class="artifact-p">[anvi-display-functions](/help/main/programs/anvi-display-functions)</span> which can both calculate functional enrichment, AND give you an interactive interface to display the distribution of functions.
+Please also see <span class="artifact-p">[anvi-display-functions](/help/main/programs/anvi-display-functions)</span> which can both calculate functional enrichment, AND provide an interactive interface to display the distribution of functions.
 
 ## Enriched functions in a pangenome
 
-For this to run, you must provide a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> pair, as well as a <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span> that associates genomes in your pan database with categorical data. The program will then find functions that are enriched in each group (i.e., functions that are associated with gene clusters that are characteristic of the genomes in that group). 
+To execute this program, you must provide a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> pair, along with <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span> that associates genomes in your pangenome database with categorical data. The program will identify functions that are enriched in each group (i.e., functions associated with gene clusters that are characteristic of the genomes in that group). 
 
 {:.notice}
-Note that your <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> must have at least one functional annotation source for this to work.
+Note that your <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> must contain at least one functional annotation source for this analysis to work.
 
-This analysis will help you identify functions that are associated with a specific group of genomes in a pangenome and determine the functional core of your pangenome. For example, in the *Prochlorococcus* pangenome (the one used in [the pangenomics tutorial, where you can find more info about this program](http://merenlab.org/2016/11/08/pangenomics-v2/#making-sense-of-functions-in-your-pangenome)), this program finds that `Exonuclease VII` is enriched in the `low-light` genomes and not in `high-light` genomes. The output file provides various statistics about how confident the program is in making this association.
+This analysis helps identify functions associated with specific groups of genomes in a pangenome and determines the functional core of your pangenome. For example, in the *Prochlorococcus* pangenome (analyzed in [the pangenomics tutorial, where you can find more information about this program](http://merenlab.org/2016/11/08/pangenomics-v2/#making-sense-of-functions-in-your-pangenome)), this program identifies that `Exonuclease VII` is enriched in the `low-light` genomes and not in `high-light` genomes. The output file provides various statistics about the confidence of this functional association.
 
 ### How does it work?
 
-What this program does can be broken down into three steps:
+The analysis performed by this program can be broken down into three steps:
 
-1. **Determine groups of genomes**. The program uses a <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span> variable (containing categorical, not numerical, data) to split genomes in a pangenome into two or more groups. For example, in the pangenome tutorial, the categorical variable name was `light` that partitioned genomes into `low-light` and `high-light `groups.
+1. **Determine groups of genomes**. The program uses a <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span> variable (containing categorical, not numerical, data) to partition genomes in a pangenome into two or more groups. For example, in the pangenome tutorial, the categorical variable named `light` partitioned genomes into `low-light` and `high-light` groups.
 
-2.  **Determine the "functional associations" of gene clusters**. In short, this is collecting the functional annotations for all of the genes in each cluster and assigning the one that appears most frequently to represent the entire cluster.
+2.  **Determine the "functional associations" of gene clusters**. This step involves collecting the functional annotations for all genes within each cluster and assigning the most frequently occurring annotation to represent the entire cluster.
 
-3. **Quantify the distribution of functions in each group of genomes**. For this, the program determines to what extent a particular function is enriched in specific groups of genomes and reports it as a <span class="artifact-n">[functional-enrichment-txt](/help/main/artifacts/functional-enrichment-txt)</span> file. It does so by running the script `anvi-script-enrichment-stats`. 
-
-{:.notice}
-The script `anvi-script-enrichment-stats` was implemented by [Amy Willis](https://github.com/adw96), and described first in [this paper](https://doi.org/10.1186/s13059-020-02195-w).
+3. **Quantify the distribution of functions in each group of genomes**. The program determines the extent to which particular functions are enriched in specific groups of genomes and reports this information as a <span class="artifact-n">[functional-enrichment-txt](/help/main/artifacts/functional-enrichment-txt)</span> file. This analysis is performed by executing the script `anvi-script-enrichment-stats`. 
 
 {:.notice}
-Check out [Alon's behind the scenes post](http://merenlab.org/2016/11/08/pangenomics-v2/#making-sense-of-functions-in-your-pangenome), which goes into a lot more detail.
+The script `anvi-script-enrichment-stats` was implemented by [Amy Willis](https://github.com/adw96), and was first described in [this paper](https://doi.org/10.1186/s13059-020-02195-w).
+
+{:.notice}
+Check out [Alon's behind the scenes post](http://merenlab.org/2016/11/08/pangenomics-v2/#making-sense-of-functions-in-your-pangenome), which provides a more detailed explanation of this process.
 
 ### Basic usage
 
-Here is the simplest way to run this program:
+The simplest way to execute this program is as follows:
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment&#45;in&#45;pan &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span>\
@@ -92,13 +92,13 @@ anvi&#45;compute&#45;functional&#45;enrichment&#45;in&#45;pan &#45;p <span class
                                           &#45;&#45;annotation&#45;source FUNCTION_SOURCE
 </div>
 
-The <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> must contain at least one categorical data layer in <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span>, and you must choose one of these categories to define your pan-groups with the `--category-variable` parameter. You can see available variables with <span class="artifact-p">[anvi-show-misc-data](/help/main/programs/anvi-show-misc-data)</span> program with the parameters `-t layers --debug`.
+The <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> must contain at least one categorical data layer in <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span>, and you must select one of these categories to define your pangenome groups using the `--category-variable` parameter. You can view available variables using the <span class="artifact-p">[anvi-show-misc-data](/help/main/programs/anvi-show-misc-data)</span> program with the parameters `-t layers --debug`.
 
-The <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> must have at least one functional annotation source, and you must choose one of these sources with the `--annotation-source`. If you do not know which functional annotation sources are available in your <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>, you can use the `--list-annotation-sources` parameter to find out.
+The <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> must contain at least one functional annotation source, and you must specify one of these sources using the `--annotation-source` parameter. If you are unsure which functional annotation sources are available in your <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>, you can use the `--list-annotation-sources` parameter to identify them.
 
 ### Additional options
 
-By default, gene clusters with the same functional annotation will be merged. But if you provide the `--include-gc-identity-as-function` parameter and set the annotation source to be 'IDENTITY', anvi'o will treat gene cluster names as functions and enable you to investigate enrichment of each gene cluster independently. This is how you do it:
+By default, gene clusters with identical functional annotations will be merged. However, if you provide the `--include-gc-identity-as-function` parameter and set the annotation source to 'IDENTITY', anvi'o will treat gene cluster names as functions and enable you to investigate the enrichment of each gene cluster independently. This is accomplished as follows:
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment&#45;in&#45;pan &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span>\
@@ -109,7 +109,7 @@ anvi&#45;compute&#45;functional&#45;enrichment&#45;in&#45;pan &#45;p <span class
                                           &#45;&#45;include&#45;gc&#45;identity&#45;as&#45;function
 </div>
 
-To output a functional occurrence table, which describes the number of times each of your functional associations occurs in each genome you're looking at, use the `--functional-occurrence-table-output` parameter, like so:
+To generate a functional occurrence table that describes the number of times each functional association occurs in each genome under analysis, use the `--functional-occurrence-table-output` parameter as shown below:
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment&#45;in&#45;pan &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span>\

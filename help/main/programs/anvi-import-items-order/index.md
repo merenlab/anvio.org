@@ -43,14 +43,14 @@ Import a new items order into an anvi&#x27;o database.
 ## Usage
 
 
-This program, as one might think, allows you to import a <span class="artifact-n">[misc-data-items-order-txt](/help/main/artifacts/misc-data-items-order-txt)</span> to describe a specific order of items stored in a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, or <span class="artifact-n">[genes-db](/help/main/artifacts/genes-db)</span>.
+This program, as one might expect, allows you to import a <span class="artifact-n">[misc-data-items-order-txt](/help/main/artifacts/misc-data-items-order-txt)</span> to describe a specific order of items stored in a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, or <span class="artifact-n">[genes-db](/help/main/artifacts/genes-db)</span>.
 
 <div class="codeblock" markdown="1">
 anvi&#45;import&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
                         &#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/help/main/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span>
 </div>
 
-It may also be nice to give it a good name, so that it's easy to find in the interface.
+It may also be nice to give it a meaningful name, so that it's easy to find in the interface.
 
 <div class="codeblock" markdown="1">
 anvi&#45;import&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \

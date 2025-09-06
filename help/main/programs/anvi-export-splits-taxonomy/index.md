@@ -47,7 +47,7 @@ This program exports the taxonomy hits for the splits contained in a <span class
 
 To do this, anvi'o examines all of the annotated genes within your splits and returns the taxon ID with the most genes associated with it. For example, a split with 3 genes identified as E. coli, 2 genes identified as Staphylococcus aureus, and 1 as Streptococcus pneumoniae would be annotated as E. coli. 
 
-To run this program, just provide a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>:
+To execute this program, just provide a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>:
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;splits&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \

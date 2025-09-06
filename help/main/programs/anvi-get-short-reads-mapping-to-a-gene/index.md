@@ -43,11 +43,11 @@ Recover short reads from BAM files that were mapped to genes you are interested 
 ## Usage
 
 
-This program finds all short reads from (<span class="artifact-n">[bam-file](/help/main/artifacts/bam-file)</span>) that align to a specific gene and returns them as a <span class="artifact-n">[short-reads-fasta](/help/main/artifacts/short-reads-fasta)</span>.
+This program finds all short reads from <span class="artifact-n">[bam-file](/help/main/artifacts/bam-file)</span> that align to a specific gene and returns them as a <span class="artifact-n">[short-reads-fasta](/help/main/artifacts/short-reads-fasta)</span>.
 
 If instead you want to extract these short reads from a FASTQ file, get your gene sequence with <span class="artifact-p">[anvi-export-gene-calls](/help/main/programs/anvi-export-gene-calls)</span> and take a look at <span class="artifact-p">[anvi-search-primers](/help/main/programs/anvi-search-primers)</span>.
 
-To run this program, just specify the bam files you're looking at and the gene of interest. To do this, name the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> containing your gene and the gene caller ID (either directly through the parameter `--gene-caller-id` or through a file). Here is an example:
+To run this program, simply specify the bam files you're analyzing and the gene of interest. To do this, name the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> containing your gene and the gene caller ID (either directly through the parameter `--gene-caller-id` or through a file). Here is an example:
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;short&#45;reads&#45;mapping&#45;to&#45;a&#45;gene &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -58,9 +58,9 @@ anvi&#45;get&#45;short&#45;reads&#45;mapping&#45;to&#45;a&#45;gene &#45;c <span 
 
 The output of this will be a file named `GENE_2_MATCHES_BAM_FILE_ONE.fasta` (prefix + bam file name), which will contain all short reads that aligned to gene 2 with more than 100 nucleotides.
 
-You also have the option to provide multiple bam files; in this case, there will be an output files for each bam file inputted.
+You also have the option to provide multiple bam files; in this case, there will be an output file for each bam file inputted.
 
-Additionally, you can change the number of nucleotides required to map to a short read for it to be reported. For example, to expand your search, you could decrease the required mapping length to 50 nucleotides, as so:
+Additionally, you can change the number of nucleotides required to map to a short read for it to be reported. For example, to expand your search, you could decrease the required mapping length to 50 nucleotides, as follows:
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;short&#45;reads&#45;mapping&#45;to&#45;a&#45;gene &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \

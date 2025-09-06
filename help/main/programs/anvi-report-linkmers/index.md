@@ -43,11 +43,11 @@ Reports sequences stored in one or more BAM files that cover one of more specifi
 ## Usage
 
 
-Reports sequences stored in a <span class="artifact-n">[bam-file](/help/main/artifacts/bam-file)</span> file that cover one of more specific nucleotide positions in a reference.
+Reports sequences stored in a <span class="artifact-n">[bam-file](/help/main/artifacts/bam-file)</span> file that cover one or more specific nucleotide positions in a reference.
 
 ### Basic mode of operation
 
-Assume you wish to recover reads stored in one or more BAM files, where the matching reads contain at least one nucleotide position that align to a nucleotide position `nucleotide_position_N` in a contig `contig_name_X`. In that case, the user would first generate a two column TAB-delmited file, for example `positions_for_linkmers.txt` with no header line,
+Assume you wish to recover reads stored in one or more BAM files, where the matching reads contain at least one nucleotide position that aligns to a nucleotide position `nucleotide_position_N` in a contig `contig_name_X`. In that case, the user would first generate a two-column TAB-delimited file, for example `positions_for_linkmers.txt` with no header line:
 
 
 <table>
@@ -59,7 +59,7 @@ Assume you wish to recover reads stored in one or more BAM files, where the matc
   </tbody>
 </table>
 
-And run the program this way to recover the short reads from this way:
+And run the program this way to recover the short reads:
 
 ```
 anvi-report-linkmers --contigs-and-positions positions_for_linkmers.txt \
@@ -86,7 +86,7 @@ The user can define multiple contigs in the input file, and one or more nucleoti
 </tbody>
 </table>
 
-The resulting <span class="artifact-n">[linkmers-txt](/help/main/artifacts/linkmers-txt)</span> would include all short reads that match any of these critera
+The resulting <span class="artifact-n">[linkmers-txt](/help/main/artifacts/linkmers-txt)</span> would include all short reads that match any of these criteria.
 
 ### Complete or incomplete links?
 

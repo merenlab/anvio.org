@@ -43,25 +43,25 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program tells you the completeness and redundency of single-copy gene sources available for your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. 
+This program calculates the completeness and redundancy of single-copy gene collections available in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. 
 
-For example, some of the defaults are collections of single-copy core genes named  `Protista_83`, `Archaea_76`, and `Bacteria_71`. This program will give you a rough estimate of how many Protist, Archaeal, and Bacterial genomes are included in your dataset using these single-copy core genes. 
+Single-copy core genes (SCGs) are genes that are expected to occur exactly once in most genomes within a taxonomic group. For example, the default collections include single-copy core gene sets named `Protista_83`, `Archaea_76`, and `Bacteria_71`. This program provides rough estimates of how many Protist, Archaeal, and Bacterial genomes are present in your dataset by analyzing the occurrence patterns of these single-copy core genes. 
 
-You can use the following run to list available completeness sources in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>:
+To list all available completeness sources in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, use the following command:
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;completeness &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                           &#45;&#45;list&#45;completeness&#45;sources
 </div>
                               
-Then you can run this program on a specifc source as folows:
+You can then execute this program on a specific source as follows:
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;completeness &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                           &#45;&#45;completeness&#45;source Bacteria_71
 </div>
                               
-You can also provide a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span> to focus on a specific set of splits, or declare a minimum e-value for a gene to count as a hit. The default is `1e-15`.
+Additional options include providing a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span> file to focus the analysis on a specific subset of splits, or specifying a minimum e-value threshold for a gene to be counted as a valid hit. The default e-value threshold is `1e-15`.
 
 
 {:.notice}

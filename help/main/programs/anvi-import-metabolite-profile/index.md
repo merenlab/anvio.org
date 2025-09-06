@@ -43,7 +43,7 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program imports a metabolite abundance profile, such as from metabolomic experiments, into a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>.
+This program imports a metabolite abundance profile, such as from metabolomics experiments, into a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>.
 
 This program takes as input a tab-delimited file of metabolite abundance data and a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. The tabular file must have three columns with the following names: "accession", "sample", and "abundance". Each row of the table corresponds to a distinct metabolite abundance measurement.
 

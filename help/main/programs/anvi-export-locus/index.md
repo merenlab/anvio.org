@@ -47,33 +47,33 @@ This program helps you cut a &#x27;locus&#x27; from a larger genetic context (e.
 ## Usage
 
 
-This program lets you export selections of your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> around all occurances of a user-defined anchor gene. 
+This program lets you export selections of your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> around all occurrences of a user-defined anchor gene. 
 
-The output of this is a folder that contains a separate <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> for the region around each hit of the anchor gene. (In fact, you'll get a FASTA file, <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, and a copy of the runlog).
+The output is a folder that contains a separate <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> for the region around each hit of the anchor gene. (In fact, you'll get a FASTA file, <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, and a copy of the run log).
 
-For example, you could specify the recognition site for a specific enzyme and use this program to pull out all potential sites where that enzyme could bind. 
+For example, you could specify the recognition site for a specific enzyme and use this program to extract all potential sites where that enzyme could bind. 
 
 ### Required Parameters
 
 You'll need to provide a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> (of course), as well as the name of the output directory and a prefix to use when naming all of the output databases. 
 
-You can define the region of interest either by defining the two flanking genes or by searching for an anchor gene and defining a number of genes around this gene that you want to look at. For example, if you set `num-genes` as 1, then each locus will contain the gene of interest, a gene upstream of it, and a gene downstream of it, for a total of three genes. 
+You can define the region of interest either by defining the two flanking genes or by searching for an anchor gene and defining a number of genes around this gene that you want to examine. For example, if you set `num-genes` as 1, then each locus will contain the gene of interest, a gene upstream of it, and a gene downstream of it, for a total of three genes. 
 
 ### Defining the region of interest
 
 There are four ways to indicate the desired anchor gene:
 
-1. Provide a search term in the functional annotations of all of your genes. (If you're trying to find a gene with a vague function, you might want to use <span class="artifact-p">[anvi-search-functions](/help/main/programs/anvi-search-functions)</span> to find out which genes will show up first. Alternatively, you can you <span class="artifact-p">[anvi-export-functions](/help/main/programs/anvi-export-functions)</span> to look at a full list of the functional annotaitons in this database). 
+1. Provide a search term in the functional annotations of all of your genes. (If you're trying to find a gene with a vague function, you might want to use <span class="artifact-p">[anvi-search-functions](/help/main/programs/anvi-search-functions)</span> to find out which genes will show up first. Alternatively, you can use <span class="artifact-p">[anvi-export-functions](/help/main/programs/anvi-export-functions)</span> to look at a full list of the functional annotations in this database). 
 
     <div class="codeblock" markdown="1">
     anvi&#45;export&#45;locus &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                       &#45;&#45;num&#45;genes 2 \
                       &#45;o GLYCO_DIRECTORY \
                       &#45;O Glyco \
-                      &#45;&#45;search&#45;term "Glycosyltransferase involved in cell wall bisynthesis" \ 
+                      &#45;&#45;search&#45;term "Glycosyltransferase involved in cell wall biosynthesis" \ 
     </div>
     
-    You also have the option to specify an annotation source with the flag `--annotation source`
+    You also have the option to specify an annotation source with the flag `--annotation-source`
 
 2.  Provide a specific gene caller ID. 
 
@@ -85,7 +85,7 @@ There are four ways to indicate the desired anchor gene:
                       &#45;&#45;gene&#45;caller&#45;ids 1
     </div>
 
-3. Provide a search term for the HMM source annotations. To do this, you must also specify an hmm-source. (You can use the flag `--list-hmm-sources` to list the available sources). 
+3. Provide a search term for the HMM source annotations. To do this, you must also specify an HMM source. (You can use the flag `--list-hmm-sources` to list the available sources). 
 
     <div class="codeblock" markdown="1">
     anvi&#45;export&#45;locus &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -97,19 +97,19 @@ There are four ways to indicate the desired anchor gene:
                       &#45;&#45;search&#45;term Ribosomal_S20p
     </div>
     
-    4. Run in `flank-mode` and provide two flanking genes that define the locus region.
+    4. Run in `--flank-mode` and provide two flanking genes that define the locus region.
     
     <div class="codeblock" markdown="1">
     anvi&#45;export&#45;locus &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                       &#45;&#45;flank&#45;mode \
                       &#45;o locus_output \
-                      &#45;O gyclo_to_acyl \
-                      &#45;&#45;search&#45;term "Glycosyltransferase involved in cell wall bisynthesis","Acyl carrier protein" \ 
+                      &#45;O glyco_to_acyl \
+                      &#45;&#45;search&#45;term "Glycosyltransferase involved in cell wall biosynthesis","Acyl carrier protein" \ 
     </div>
 
 ### Additional Options 
 
-You can also remove partial hits, ignore reverse complement hits, or overwrite all files in a pre-existing output. 
+You can also remove partial hits, ignore reverse complement hits, or overwrite all files in a pre-existing output directory.
 
 
 {:.notice}
