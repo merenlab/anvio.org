@@ -43,13 +43,13 @@ Export splits and the coverage table from database.
 ## Usage
 
 
-This program returns the nucleotide-level coverage data for a specific set of splits or genes in your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>.
+This program returns the nucleotide-level coverage data for a specific set of the splits or gene in your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. 
 
-If you want to get the coverage data for all splits in your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, run <span class="artifact-p">[anvi-export-splits-and-coverages](/help/main/programs/anvi-export-splits-and-coverages)</span> with the flag `--splits-mode`.
+If you want to get the coverage data for all splits in your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, run <span class="artifact-p">[anvi-export-splits-and-coverages](/help/main/programs/anvi-export-splits-and-coverages)</span> with the flag `--splits-mode`. 
 
-Simply provide a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> pair and specify which splits or gene you want to examine. You have three ways to do this:
+Simply provide a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> pair and specify which splits, or gene, you want to look at. You have three ways to do this: 
 
-1. Provide a single split name. (You can list all splits available with `--list-splits`)
+1.  Provide a single split name. (You can list all splits available with `--list-splits`)
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;split&#45;coverages &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
@@ -59,7 +59,7 @@ anvi&#45;get&#45;split&#45;coverages &#45;p <span class="artifact&#45;n">[profil
 </div>
 
 
-2. Provide both the name of a <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> and the <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> it is contained in.
+2. Provide both the name of a <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> and the <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> it is contained in. 
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;split&#45;coverages &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
@@ -69,7 +69,7 @@ anvi&#45;get&#45;split&#45;coverages &#45;p <span class="artifact&#45;n">[profil
                          &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span>
 </div>
 
-You can list all collections available with `--list-collections` or all bins in a collection with `--list-bins`. Alternatively, you could run <span class="artifact-p">[anvi-show-collections-and-bins](/help/main/programs/anvi-show-collections-and-bins)</span> on your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> to get a more comprehensive overview.
+You can list all collections available with `--list-collections` or all bins in a collection with `--list-bins`. Alternatively, you could run <span class="artifact-p">[anvi-show-collections-and-bins](/help/main/programs/anvi-show-collections-and-bins)</span> on your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> to get a more comprehensive overview. 
 
 3. Provide a gene caller id and a flanking size (bp).
 

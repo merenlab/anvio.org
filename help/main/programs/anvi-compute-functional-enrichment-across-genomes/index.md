@@ -45,31 +45,31 @@ A program that computes functional enrichment across groups of genomes..
 ## Usage
 
 
-This program computes functional enrichment across groups of genomes and generates a <span class="artifact-n">[functional-enrichment-txt](/help/main/artifacts/functional-enrichment-txt)</span> file.
+This program computes functional enrichment across groups of genomes and returns a <span class="artifact-n">[functional-enrichment-txt](/help/main/artifacts/functional-enrichment-txt)</span> file.
 
 {:.warning}
 For its sister programs, see <span class="artifact-p">[anvi-compute-functional-enrichment-in-pan](/help/main/programs/anvi-compute-functional-enrichment-in-pan)</span> and <span class="artifact-p">[anvi-compute-metabolic-enrichment](/help/main/programs/anvi-compute-metabolic-enrichment)</span>.
 
 {:.notice}
-Please also see <span class="artifact-p">[anvi-display-functions](/help/main/programs/anvi-display-functions)</span> which can both calculate functional enrichment, AND provide an interactive interface to display the distribution of functions.
+Please also see <span class="artifact-p">[anvi-display-functions](/help/main/programs/anvi-display-functions)</span> which can both calculate functional enrichment, AND give you an interactive interface to display the distribution of functions.
 
 ## Functional enrichment
 
-This program can be executed using genomes described through <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>, <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span>, and/or stored in a <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>. In addition to specifying genome sources, you must provide a <span class="artifact-n">[groups-txt](/help/main/artifacts/groups-txt)</span> file that declares which genome belongs to which group for the enrichment analysis.
+You can use this program by combining genomes described through <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>, <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span>, and/or stored in a <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>. In addition to sources for your genomes, you will need to provide a <span class="artifact-n">[groups-txt](/help/main/artifacts/groups-txt)</span> file to declare which genome belongs to which group for enrichment analysis to consider.
 
 ### How does it work?
 
-1. **Aggregate functions from all sources**. Gene calls in each genome are tallied according to their functional annotations from the specified annotation source.
+1. **Aggregate functions from all sources**. Gene calls in each genome are tallied according to their functional annotations from the given annotation source.
 
-2. **Quantify the distribution of functions in each group of genomes**. This information is then processed by `anvi-script-enrichment-stats` to fit a Generalized Linear Model (GLM) that determines (1) the extent to which a particular functional annotation is unique to a single group and (2) the percentage of genomes in which it appears within each group. This analysis produces a <span class="artifact-n">[functional-enrichment-txt](/help/main/artifacts/functional-enrichment-txt)</span> file.
+2. **Quantify the distribution of functions in each group of genomes**. This information is then used by `anvi-script-enrichment-stats` to fit a GLM to determine (1) the level that a particular functional annotation is unique to a single group and (2) the percent of genomes it appears in in each group. This produces a <span class="artifact-n">[functional-enrichment-txt](/help/main/artifacts/functional-enrichment-txt)</span> file.
 
 {:.notice}
-The script `anvi-script-enrichment-stats` was implemented by [Amy Willis](https://github.com/adw96), and was first described in [this paper](https://doi.org/10.1186/s13059-020-02195-w).
+The script `anvi-script-enrichment-stats` was implemented by [Amy Willis](https://github.com/adw96), and described first in [this paper](https://doi.org/10.1186/s13059-020-02195-w).
 
 
 ### Basic usage
 
-You can execute this program with a single source of genomes:
+You can use it with a single source of genomes:
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment&#45;across&#45;genomes &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/help/main/artifacts/internal&#45;genomes)</span> \
@@ -78,7 +78,7 @@ anvi&#45;compute&#45;functional&#45;enrichment&#45;across&#45;genomes &#45;i <sp
                                                   &#45;&#45;annotation&#45;source FUNCTION_SOURCE
 </div>
 
-or multiple sources:
+or many:
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment&#45;across&#45;genomes &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/help/main/artifacts/internal&#45;genomes)</span>\
@@ -91,7 +91,7 @@ anvi&#45;compute&#45;functional&#45;enrichment&#45;across&#45;genomes &#45;i <sp
 
 ### Additional Parameters
 
-You can generate a tab-delimited matrix describing the occurrence (counts) of each function within each genome using the `--functional-occurrence-table-output` parameter:
+You can get a tab-delimited matrix describing the occurrence (counts) of each function within each genome using the `--functional-occurrence-table-output` parameter:
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment&#45;across&#45;genomes &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/help/main/artifacts/internal&#45;genomes)</span> \

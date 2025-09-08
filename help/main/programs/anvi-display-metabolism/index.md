@@ -43,11 +43,11 @@ Start the anvi&#x27;o interactive interactive for viewing KEGG metabolism data.
 ## Usage
 
 
-The purpose of <span class="artifact-p">[anvi-display-metabolism](/help/main/programs/anvi-display-metabolism)</span> is to interactively visualize metabolism estimation data.
+The purpose of <span class="artifact-p">[anvi-display-metabolism](/help/main/programs/anvi-display-metabolism)</span> is to interactively view metabolism estimation data.
 
 This program internally uses <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span> to obtain this data for the provided <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>.
 
-This program is still under development.
+It is still under development.
 
 
 {:.notice}

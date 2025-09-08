@@ -45,7 +45,7 @@ Takes an anvi&#x27;o linkmers report, generates an oligotyping output.
 
 This program converts a <span class="artifact-n">[linkmers-txt](/help/main/artifacts/linkmers-txt)</span> artifact into <span class="artifact-n">[oligotypes](/help/main/artifacts/oligotypes)</span> data.
 
-A <span class="artifact-n">[linkmers-txt](/help/main/artifacts/linkmers-txt)</span> artifact describes each of your short reads that mapped to specific target nucleotide positions in a reference contig. This program counts the total occurrence of each combination at those target positions within each of your samples.
+A <span class="artifact-n">[linkmers-txt](/help/main/artifacts/linkmers-txt)</span> artifact describes each of your short reads that mapped to specific target nucleotide positions in a reference contig. This program counts the total occurance of each combination in those target positions within each of your samples. 
 
 For example, if your <span class="artifact-n">[linkmers-txt](/help/main/artifacts/linkmers-txt)</span> focused on two target positions, and you ran the following:
 

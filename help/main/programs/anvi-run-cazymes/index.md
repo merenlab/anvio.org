@@ -43,16 +43,16 @@ Run dbCAN CAZymes on contigs-db.
 ## Usage
 
 
-This program **annotates genes in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> with functions using dbCAN [CAZyme HMMs](https://bcb.unl.edu/dbCAN2/download/Databases/)**
+This program **annotates genes in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> with functions using dbCAN [CAZyme HMMs](https://bcb.unl.edu/dbCAN2/download/Databases/)** 
 
-Before you run this program, you'll have to set up the CAZyme database on your computer with the program <span class="artifact-p">[anvi-setup-cazymes](/help/main/programs/anvi-setup-cazymes)</span>.
+Before you run this program, you'll have to set up the CAZyme database on your computer with the program <span class="artifact-p">[anvi-setup-cazymes](/help/main/programs/anvi-setup-cazymes)</span>.  
 
-The CAZyme database is based on protein sequences, so anvi'o will convert your genetic information into protein sequences and then use HMMs (Hidden Markov Models) to compare them to the database.
+The CAZyme database is based on protein sequences, so anvi'o will convert your genetic information into protein sequences and then use HMMs to compare them to the database. 
 
 {:.notice}
 Unsure what an HMM is? Check out [our vocab page](http://merenlab.org/vocabulary/#hmm)
 
-To run, you'll need to provide a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and the output will be a <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> artifact. Here is a default run:
+To run, you'll need to provide a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and the output will be a <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> artifact. Here is a default run: 
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;cazymes &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> 
@@ -65,7 +65,7 @@ anvi&#45;run&#45;cazymes &#45;c <span class="artifact&#45;n">[contigs&#45;db](/h
                  &#45;&#45;cazyme&#45;data&#45;dir <span class="artifact&#45;n">[cazyme&#45;data](/help/main/artifacts/cazyme&#45;data)</span> 
 </div>
 
-By default, this uses `hmmsearch` to run HMMs. You can choose to use `hmmscan` instead by running:
+By default, this uses `hmmsearch` to run HMMs. You can choose to use `hmmscan` instead by running
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;cazymes &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -73,7 +73,7 @@ anvi&#45;run&#45;cazymes &#45;c <span class="artifact&#45;n">[contigs&#45;db](/h
                  &#45;&#45;hmmer&#45;program hmmscan
 </div>
 
-Use the parameter `--noise-cutoff-terms` to filter out hits. The default value is `--noise-cutoff-terms -E 1e-12`. If you want to explore filtering options, check out the help menu of the underlying hmm program you are using e.g. `hmmsearch -h`:
+Use the parameter `--noise-cutoff-terms` to filter out hits. The default value is `--noise-cutoff-terms -E 1e-12`. If you want to explore filtering options, check out the help menu of the underlying hmm program you are using e.g. `hmmsearch -h`
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;cazymes &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -101,7 +101,7 @@ Step 2. Run dbCAN3 via [run_dbcan](https://dbcan.readthedocs.io/en/latest/) to a
 
 Step 3. Create a <span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span> with CAZyme functions.
 
-The program [run_dbcan](https://dbcan.readthedocs.io/en/latest/) has multiple [output files](https://dbcan.readthedocs.io/en/latest/user_guide/quick_start.html#understanding-the-output) which can be parsed into a <span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span>, for example, the [overview.txt](https://dbcan.readthedocs.io/en/latest/user_guide/quick_start.html#understanding-the-output).
+The program [run_dbcan](https://dbcan.readthedocs.io/en/latest/) has multiple [output files](https://dbcan.readthedocs.io/en/latest/user_guide/quick_start.html#understanding-the-output) which can be parsed into a <span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span>, for example, the [overview.txt](https://dbcan.readthedocs.io/en/latest/user_guide/quick_start.html#understanding-the-output). 
 
 Step 4. Import your new CAZyme <span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span> back into your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>
 

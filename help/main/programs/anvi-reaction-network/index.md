@@ -47,7 +47,7 @@ This program **stores a metabolic <span class="artifact-n">[reaction-network](/h
 
 The network consists of data on biochemical reactions predicted to be encoded by the genome or pangenome.
 
-Information on the predicted reactions and the involved metabolites is stored in tables of the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> or <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>. The program <span class="artifact-p">[anvi-get-metabolic-model-file](/help/main/programs/anvi-get-metabolic-model-file)</span> can be used to export the <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> from the database to a <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file formatted for input into programs for flux balance analysis.
+Information on the predicted reactions and the involved metabolites are stored in tables of the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> or <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>. The program, <span class="artifact-p">[anvi-get-metabolic-model-file](/help/main/programs/anvi-get-metabolic-model-file)</span>, can be used to export the <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-network)</span> from the database to a <span class="artifact-n">[reaction-network-json](/help/main/artifacts/reaction-network-json)</span> file formatted for input into programs for flux balance analysis.
 
 ## Setup
 
@@ -73,7 +73,7 @@ anvi&#45;setup&#45;kegg&#45;data &#45;D &#45;T 5
 
 ### Install in non-default location
 
-To preserve KEGG data that you already have set up for whatever reason, the new snapshot or download can be placed in a non-default location using the option `--kegg-data-dir`.
+To preserve KEGG data that you already have set up for whatever reason, the new snapshot or download can be placed in a non-default location using the option, `--kegg-data-dir`.
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;kegg&#45;data &#45;&#45;kegg&#45;data&#45;dir path/to/other/directory
@@ -89,7 +89,7 @@ anvi&#45;setup&#45;modelseed&#45;database &#45;&#45;dir path/to/other/directory
 
 ## Usage
 
-<span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span> takes either a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> OR a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> as required input. Genes stored within the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> or <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> must have KO protein annotations, which can be assigned by <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span>.
+<span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span> takes a either a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> OR a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> as required input. Genes stored within the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> or <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> must have KO protein annotations, which can be assigned by <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span>.
 
 <div class="codeblock" markdown="1">
 anvi&#45;reaction&#45;network &#45;c /path/to/contigs&#45;db
@@ -108,6 +108,7 @@ A <span class="artifact-n">[reaction-network](/help/main/artifacts/reaction-netw
 anvi&#45;reaction&#45;network &#45;p /path/to/pan&#45;db \
                       &#45;g /path/to/genomes&#45;storage&#45;db
 </div>
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-reaction-network.md) to update this information.

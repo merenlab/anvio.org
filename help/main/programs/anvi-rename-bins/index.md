@@ -43,7 +43,7 @@ Rename all bins in a given collection (so they have pretty names).
 ## Usage
 
 
-This program **creates a new <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> from the <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s in another collection with specific guidelines.** This is especially helpful when you wish to standardize your bin names, add project-specific prefixes, and/or exclude those that do not match your criteria of completion, redundancy, and/or size estimates.
+This program **creates a new <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> from the <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s in another collection with specific guidelines.** This is especially helpful when you wish to standardize your bin names, add project specific prefixes, and/or exclude those that do not match your criteria of completion, redundancy, and/or size estimates.
 
 ### Renaming all bins in a collection
 
@@ -58,9 +58,9 @@ anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/h
                  &#45;&#45;report&#45;file rename.txt
 </div>
 
-Now your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> will have a new collection named `SURFACE_OCEAN_SAMPLES` that will contain your four bins with their new names `SURFACE_OCEAN_Bin_00001`, `SURFACE_OCEAN_Bin_00002`, `SURFACE_OCEAN_Bin_00003`, and `SURFACE_OCEAN_Bin_00004`. The new naming will order your bins based on their substantive completion (i.e., completion minus redundancy).
+Now your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> will have a new collection named `SURFACE_OCEAN_SAMPLES` that will contains your four bins witht their new names `SURFACE_OCEAN_Bin_00001`, `SURFACE_OCEAN_Bin_00002`, `SURFACE_OCEAN_Bin_00003`, and `SURFACE_OCEAN_Bin_00004`. The new naming will order your bins based on their substantive completion (i.e., completion minus redunancy).
 
-The file `rename.txt` is a TAB-delimited file that contains a summary of your renaming process. The first column has the original name of the bins that you renamed, the second has their new names, and the remaining columns contain information about those bins (like their completion, redundancy, and size).
+The file `rename.txt` is a TAB-delimited file that contains a summary of your renaming process. The first column has the original name of the bins that you renamed, the second has their new names, and the remaining columns contain information about those bins (like their completion, redundency, and size).
 
 ### Separating out the MAGs
 
@@ -77,13 +77,13 @@ anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/h
                  &#45;&#45;min&#45;completion&#45;for&#45;MAG 70
 </div>
 
-Now, the <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> `SURFACE_OCEAN_MAGS` will include `SURFACE_OCEAN_MAG_00001`, `SURFACE_OCEAN_MAG_00002`, `SURFACE_OCEAN_MAG_00003`, and `SURFACE_OCEAN_Bin_00004`. These are exactly the same bins that the collection contained before, but now the names differentiate the wheat from the chaff.
+Now, the <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> `SURFACE_OCEAN_MAGS` will include  `SURFACE_OCEAN_MAG_00001`, `SURFACE_OCEAN_MAG_00002`, `SURFACE_OCEAN_MAG_00003`, and `SURFACE_OCEAN_Bin_00004`. These are exactly the same bins that the collection contained before, but now the names differenciate the wheat from the chaff.
 
-In addition to minimum completion estimate, you can also adjust the maximum redundancy value and minimum size to call MAGs. Please see the help menu for all parameters and their descriptions.
+In addition to minimum completion estimate, you can also adjust the maximum redundancy value, minimum size to call MAGs. Please see the help menu for all parameters and their descriptions. 
 
 ### Exclude bins that are not MAGs
 
-When you use the flag `--call-MAGs`, anvi'o identifies those bins that could be considered 'MAGs' based on your specific criteria. However, regardless of whether an original bin remains a bin, or is tagged as a MAG, everything in your original collection will end up in your new collection. The flag `--exclude-bins` enables you to filter out those that end up not being tagged as MAGs:
+When you use the flag `--call-MAGs`, anvi'o identifies those bins that could be considered 'MAGs' based on your specific criteria. But regardles of whether an original bin remains a bin, or tagged as a MAG, everything in your original collection will end up in your new collection. The flag `--exclude-bins` enable you to filter out those that end up not being tagged as MAGs:
 
 <div class="codeblock" markdown="1">
 anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -113,7 +113,8 @@ Following is an example reporting output file anvi'o will generate at the file p
 |Bin_5|p800_Bin_00004|blank|0.00|0.00|0.128382|
 |Bin_4|p800_Bin_00005|bacteria|1.41|0.00|0.378418|
 
-The column `SCG_domain` will explain which collection of single-copy core genes were used to generate these completion/redundancy estimates. The absence of any domain prediction for any given bin will be marked with the keyword `blank`.
+The column `SCG_domain` will explain which collection of single-copy core genes were used to generate these completion/redundancy estimates. The absence of any domain prediction for any given bin will be marked with the keyrowd `blank`.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-rename-bins.md) to update this information.

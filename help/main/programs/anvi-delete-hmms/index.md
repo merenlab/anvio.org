@@ -43,18 +43,18 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program removes <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> from a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. This allows you to repopulate functional annotations with a different source or program, or simply remove data that may be cluttering the interface.
+This program, as implied by the name, is used to delete a <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> from a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. This way, you can repopulate the function annotations with a different source or program or just delete data that's clogging up the interface.
 
-It is generally advisable to export your information before deletion as a precautionary measure. The HMM hits will appear in most displays, so if you have already run <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span>, you should have this information preserved. 
+It is generally a good idea to export your information before deleting it, just in case. The HMM hits will show up in most displays, so if you've already run <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span>, you should be good. 
 
-To list available <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>s in a database, execute:
+To list available <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>s in a database, call 
 
 <div class="codeblock" markdown="1">
 anvi&#45;delete&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                  &#45;&#45;list&#45;hmm&#45;sources
 </div>
 
-You can then remove <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> from a specific source using the command:
+Then, you can easily delete <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> from a specific source with the command
 
 <div class="codeblock" markdown="1">
 anvi&#45;delete&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \

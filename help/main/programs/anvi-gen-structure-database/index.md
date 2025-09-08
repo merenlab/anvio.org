@@ -43,17 +43,18 @@ Creates a database of protein structures. Predict protein structures using templ
 ## Usage
 
 
+
 This program creates a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> either by (a) attempting to solve for the 3D structures of proteins encoded by genes in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> using DIAMOND and MODELLER, or (b) importing pre-existing structures provided by the user using an <span class="artifact-n">[external-structures](/help/main/artifacts/external-structures)</span> file.
 
 ### The basics of the pipeline
 
 This section covers option (a), where the user is interested in having structures predicted for them.
 
-DIAMOND first searches your sequence(s) against a database of proteins with known structures. This database is downloaded from the [Sali lab](https://salilab.org/modeller/supplemental.html), who created and maintain MODELLER, and contains all PDB sequences clustered at 95% identity.
+DIAMOND first searches your sequence(s) against a database of proteins with a known structure.  This database is downloaded from the [Sali lab](https://salilab.org/modeller/supplemental.html), who created and maintain MODELLER, and contains all of the PDB sequences clustered at 95% identity.
 
-If any good hits are found, they are selected as templates, and their structures are obtained either from [the RCSB directly](https://www.rcsb.org/), or from a local <span class="artifact-n">[pdb-db](/help/main/artifacts/pdb-db)</span> database which you can create yourself with <span class="artifact-p">[anvi-setup-pdb-database](/help/main/programs/anvi-setup-pdb-database)</span>. Then, anvi'o passes control over to MODELLER, which creates a 3D alignment for your sequence to the template structures and makes final adjustments to it based on empirical distributions of bond angles. For more information, check [this blog post](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#how-modeller-works).
+If any good hits are found, they are selected as templates, and their structures are nabbed either from [the RCSB directly](https://www.rcsb.org/), or from a local <span class="artifact-n">[pdb-db](/help/main/artifacts/pdb-db)</span> database which you can create yourself with <span class="artifact-p">[anvi-setup-pdb-database](/help/main/programs/anvi-setup-pdb-database)</span>. Then, anvi'o passes control over to MODELLER, which creates a 3D alignment for your sequence to the template structures, and makes final adjustments to it based off of empirical distributions of bond angles. For more information, check [this blogpost](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#how-modeller-works).
 
-The output of this program is a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span>, which contains all of the modeled structures. Currently, the primary use of the <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> is for interactive exploration with <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span>. You can also export your structures into external .pdb files with <span class="artifact-p">[anvi-export-structures](/help/main/programs/anvi-export-structures)</span>, or incorporate structural information in the <span class="artifact-n">[variability-profile-txt](/help/main/artifacts/variability-profile-txt)</span> with <span class="artifact-p">[anvi-gen-variability-profile](/help/main/programs/anvi-gen-variability-profile)</span>.
+The output of this program is a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span>, which contains all of the modelled structures. Currently, the primary use of the <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> is for interactive exploration with <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span>. You can also export your structures into external .pdb files with <span class="artifact-p">[anvi-export-structures](/help/main/programs/anvi-export-structures)</span>, or incorporate structural information in the <span class="artifact-n">[variability-profile-txt](/help/main/artifacts/variability-profile-txt)</span> with <span class="artifact-p">[anvi-gen-variability-profile](/help/main/programs/anvi-gen-variability-profile)</span>.
 
 ### Basic standard run
 
@@ -76,11 +77,11 @@ anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[con
                             &#45;o STRUCTURE.db 
 </div>
 
-To quickly obtain a very rough estimate for your structures, you can run with the flag `--very-fast`. 
+To quickly get a very rough estimate for your structures, you can run with the flag `--very-fast`. 
 
 ### Basic import run
 
-If you already possess structures and would like to create a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> for downstream anvi'o uses such as <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span>, you should create an <span class="artifact-n">[external-structures](/help/main/artifacts/external-structures)</span> file. Then, create the database as follows:
+If you already possess structures and would like to create a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> for downstream anvi'o uses such as <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span>, you should create a <span class="artifact-n">[external-structures](/help/main/artifacts/external-structures)</span> file. Then, create the database as follows:
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -94,10 +95,10 @@ Please avoid using any MODELLER-specific parameters when using this mode, as the
 
 ### Advanced Parameters
 
-Here, we will provide a brief overview of the MODELLER parameters that you can modify. See [this page](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#description-of-all-modeller-parameters) for more information. 
+Here, we will go through a brief overview of the MODELLER parameters that you are able to change. See [this page](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#description-of-all-modeller-parameters) for more information. 
 
 - The number of models to be simulated. The default is 1. 
-- The standard deviation of atomic perturbation of the initial structure (i.e., how much you change the position of the atoms before fine-tuning with other analyses). The default is 4 angstroms.
+- The standard deviation of atomic perturbation of the initial structure (i.e. how much you change the position of the atoms before fine tuning with other analysis). The default is 4 angstroms.
 - The MODELLER database used. The default is `pdb_95`, which can be found [here](https://salilab.org/modeller/supplemental.html). This is the same database that is downloaded by <span class="artifact-p">[anvi-setup-pdb-database](/help/main/programs/anvi-setup-pdb-database)</span>.
 - The scoring function used to compare potential models. The default is `DOPE_score`.
 - The minimum percent identity cutoff for a template to be further considered.
@@ -111,8 +112,8 @@ For a case study on how some of these parameters matter, see [here](http://meren
 You also have the option to
 
 - Skip the use of DSSP, which predicts beta sheets, alpha helices, certain bond angles, and relative
-  solvent accessibility of residues.
-- Output **all** the raw data by providing a path to the desired directory with the flag `--dump-dir`.
+  solvent acessibility of residues.
+- Output **all** the raw data, just provide a path to the desired directory with the flag `--dump-dir`.
 
 
 

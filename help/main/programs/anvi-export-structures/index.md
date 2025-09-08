@@ -43,17 +43,18 @@ Export .pdb structure files from a structure database.
 ## Usage
 
 
-This program exports structures from a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> into the globally recognized PDB format (<span class="artifact-n">[protein-structure-txt](/help/main/artifacts/protein-structure-txt)</span>), enabling their use in downstream analyses conducted outside of anvi'o.
+
+This program exports the structures from a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> into the globally understood pdb format (<span class="artifact-n">[protein-structure-txt](/help/main/artifacts/protein-structure-txt)</span>), so they may be used for any follow-up analyses taking place outside of anvi'o.
 
 
-To execute this program, provide a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> and an output path: 
+To run, just provide a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> and an output path: 
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;structures &#45;s <span class="artifact&#45;n">[structure&#45;db](/help/main/artifacts/structure&#45;db)</span> \
                        &#45;o path/to/output
 </div>
 
-You can also specify a list of gene caller IDs, either directly through the parameter `--gene-caller-ids` or through a file containing one gene caller ID per line.
+You can also provide a list of gene caller IDs, either directly through the parameter `--gene-caller-ids` or through a file with one gene caller ID per line.
 
 
 

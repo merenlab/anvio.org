@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7339,
+        "total_commits": 7342,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,15 +13,15 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 193
+            "2025": 196
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "documentation updates",
-        "latest_commit_hash": "b27cd82b4b2d90977e7158d6486928afc2fad8f7",
-        "latest_commit_date": "06 September 2025"
+        "latest_commit_message": "Revert \"Merge pull request #2475 from merenlab/anvio-docs-updates\"",
+        "latest_commit_hash": "2c6ddb43504c99c2d2fd9be378d8c888abb6e8b4",
+        "latest_commit_date": "08 September 2025"
     },
     "FlorianTrigodet": {
-        "total_commits": 126,
+        "total_commits": 127,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -34,12 +34,12 @@
             "2022": 10,
             "2023": 36,
             "2024": 24,
-            "2025": 40
+            "2025": 41
         },
         "top_file": "anvio/inversions.py",
-        "latest_commit_message": "Ecophylo doc - merging multiple hmm hits",
-        "latest_commit_hash": "bbc54d7f12367f231ee39679b8ac5bd59dd97f38",
-        "latest_commit_date": "13 August 2025"
+        "latest_commit_message": "Add --just-do-it flag to contigs workflow",
+        "latest_commit_hash": "4db4a9a978af87b45fa1d4a0694c8e88b3f261ad",
+        "latest_commit_date": "08 September 2025"
     },
     "watsonar": {
         "total_commits": 10,

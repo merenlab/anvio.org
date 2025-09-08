@@ -54,9 +54,9 @@ anvi&#45;gen&#45;variability&#45;network &#45;i <span class="artifact&#45;n">[va
                              &#45;o variability_profile.gexf
 </div>
 
-## Reporting a text file instead
+## Reporting a text file instad
 
-Alternatively, the user may request the results to be reported as a tab-delimited text file:
+Alternatively, the user may ask the results to be reported as a TAB-delimited text file:
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;network &#45;i <span class="artifact&#45;n">[variability&#45;profile&#45;txt](/help/main/artifacts/variability&#45;profile&#45;txt)</span> \
@@ -71,28 +71,28 @@ anvi-matrix-to-newick variability_output.txt -o variability_output.newick
 
 anvi-interactive -d variability_output.txt \
                  -t variability_output.newick \
-                 -p variability_profile.db \
+                 -p varaibility_profile.db \
                  --manual
 ```
 
 ## Using competing nucleotides as features
 
-By default, this program will take every unique nucleotide position that was variable in at least one sample and every sample, and then connect samples and positions with edges if a given sample has a variable nucleotide at a given position. This means that even if a given variable nucleotide position X differs from the reference nucleotide in different ways in different samples N and M, this approach will be agnostic to that and will simply report that both N and M had a variable nucleotide at the position X.
+By default, this program will take every unique nucleotide position which was variable in at least sample and every sample, and then connect samples and positions with edges if a given sample has a variable nucleotide at a given position. This means even if a given variable nucleotide position X differs from the reference nucleotide in different ways in different samples N and M, this approach will be agnostic to that and will simply report that both N and M had a variable nucleotide at the position X.
 
 |sample|X|
 |N|True|
 |M|True|
 
-Alternatively, the user can request the variation to be reported based on competing nucleotides in a given sample. In that case, if the position X in sample N varies between nucleotides `A` and `G` and in sample M between nucleotides `A` and `T`, the user may get a higher resolution for their inference by requesting anvi'o to include 'competing nucleotides' in the report:
+Alternatively, the user can ask the variation to be reported based on competing nucletoides in a given sample. In that case, if the position X in sample N varies between nucleotides `A` and `G` and in sample M between nucleotides `A` and `T`, the user may get a higher resolution for their inference by asking anvi'o to include 'competing nucleotides' in the report:
 
 |sample|X_AG|X_AT|
 |N|True|False|
 |M|False|True|
 
-This is achieved through the parameter `--include-competing-NTs`, which requires an option. Currently available options are the following:
+This is done through the parameter `--include-competing-NTs`, which requires an option. Currently available options are the following:
 
 * 'default': Returns the default competing nucleotides column from the variability as calculated by anvi'o during profiling.
-* 'noise-robust': When departure from consensus for a given nucleotide position is close to zero, which means the nucleotide position is almost fixed in the environment, the default way to calculate competing nucleotides can yield noisy results simply due to the fact that the second most frequent nucleotide can be driven by artifacts (such as sequencing error) rather than biology. For instance, if a given position that is represented by a nucleotide `G` in the reference has SNV frequencies of {'A': 1000, 'T': 1, 'C': 0, 'G': 0} in one sample and {'A': 1000, 'T': 0, 'C': 1, 'G': 0} in the other, the competing nucleotides for this position in the variability table will be `AT` and `AC`, respectively. However, some applications, in which competitive nucleotides are used as categorical variables to associate samples, may require a more robust approach. The `noise-robust` alternative would yield `AG` and `AG` for this position in both samples.
+* 'noise-robust': When depearture from consenus for a given nt position is close to zero, which means the nt position is almost fixed in the environment the default way to calculate competing nucleotides can yield noisy results simply due to the fact that the second most frequenty nucleotide can be driven by artifacts (such as sequencing error) than biology. For instance, if a given position that is represented by a nucleotide `G` in the reference has SNV frequencies of {'A': 1000, 'T': 1, 'C': 0, 'G': 0} in one sample and {'A': 1000, 'T': 0, 'C': 1, 'G': 0} in the other, the competing nucletoides for this position in the variability table will be `AT` and `AC`, respectively. However, some applications, in which competitive nucleotides are used as categorigal variables to associate samples, may require a more robust apprach. The `noise-robust` alternative would yield `AG` and `AG` for this position in both samples.
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;network &#45;i <span class="artifact&#45;n">[variability&#45;profile&#45;txt](/help/main/artifacts/variability&#45;profile&#45;txt)</span> \
@@ -102,7 +102,7 @@ anvi&#45;gen&#45;variability&#45;network &#45;i <span class="artifact&#45;n">[va
 
 ## Changing the default report variable
 
-By default, <span class="artifact-p">[anvi-gen-variability-network](/help/main/programs/anvi-gen-variability-network)</span> will report the estimate `departure_from_reference` as the quantity that defines the weight of the edges that connect variable nucleotide positions and samples. The edge weight can later be used during network visualization as a factor that influences network convergence. It is possible to change the variable using the parameter `--edge-variable`.
+By default, <span class="artifact-p">[anvi-gen-variability-network](/help/main/programs/anvi-gen-variability-network)</span> will report the estimate `departure_from_reference` as the quantity that defines the weight of the edges that connect variable nucleotide positions and samples. The edge weight can later be used during network visualization as a factor that influence netowrk convergence. It is possible to change the variable using the parameter `--edge-variable`.
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;network &#45;i <span class="artifact&#45;n">[variability&#45;profile&#45;txt](/help/main/artifacts/variability&#45;profile&#45;txt)</span> \
