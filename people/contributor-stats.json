@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7342,
+        "total_commits": 7415,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,15 +13,15 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 196
+            "2025": 269
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "Revert \"Merge pull request #2475 from merenlab/anvio-docs-updates\"",
-        "latest_commit_hash": "2c6ddb43504c99c2d2fd9be378d8c888abb6e8b4",
-        "latest_commit_date": "08 September 2025"
+        "latest_commit_message": "a simple example in the docs",
+        "latest_commit_hash": "9d3301847afcf42b68505e984f86beafc095b255",
+        "latest_commit_date": "18 September 2025"
     },
     "FlorianTrigodet": {
-        "total_commits": 127,
+        "total_commits": 148,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -34,12 +34,12 @@
             "2022": 10,
             "2023": 36,
             "2024": 24,
-            "2025": 41
+            "2025": 62
         },
         "top_file": "anvio/inversions.py",
-        "latest_commit_message": "Add --just-do-it flag to contigs workflow",
-        "latest_commit_hash": "4db4a9a978af87b45fa1d4a0694c8e88b3f261ad",
-        "latest_commit_date": "08 September 2025"
+        "latest_commit_message": "PrimerSearch can get sample artifact as input",
+        "latest_commit_hash": "d95060b25e3c3e3b7cbb7460c90a93b33b750447",
+        "latest_commit_date": "19 September 2025"
     },
     "watsonar": {
         "total_commits": 10,
@@ -105,7 +105,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2253,
+        "total_commits": 2256,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 289,
             "2023": 174,
             "2024": 221,
-            "2025": 53
+            "2025": 56
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "we don't need anvio versions of stray KO to be in self.all_kos_in_db anymore",
-        "latest_commit_hash": "a8775d65f8f04857a0f9c4d81c622e68b81b8b48",
-        "latest_commit_date": "03 September 2025"
+        "latest_commit_message": "remove code from  @semiller10 so that he can add them back in to restore original authorship",
+        "latest_commit_hash": "0e0e268bce3cb3b0d0aa62ea52f2e67572422a35",
+        "latest_commit_date": "18 September 2025"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -147,7 +147,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 1499,
+        "total_commits": 1500,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -160,12 +160,12 @@
             "2022": 102,
             "2023": 317,
             "2024": 531,
-            "2025": 1
+            "2025": 2
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "fix merging reaction network categories",
-        "latest_commit_hash": "3a987ba51acd822c48ec5781e9e119d29c9eddb5",
-        "latest_commit_date": "23 January 2025"
+        "latest_commit_message": "restore proper code authorship",
+        "latest_commit_hash": "bc513576549d4dcfa9551edd5ec7e9da48fced11",
+        "latest_commit_date": "19 September 2025"
     },
     "ahenoch": {
         "total_commits": 2,
