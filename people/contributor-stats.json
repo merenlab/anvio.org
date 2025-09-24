@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7415,
+        "total_commits": 7418,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,12 +13,12 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 269
+            "2025": 272
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "a simple example in the docs",
-        "latest_commit_hash": "9d3301847afcf42b68505e984f86beafc095b255",
-        "latest_commit_date": "18 September 2025"
+        "latest_commit_message": "docs update for `anvi-setup-ncbi-cogs`",
+        "latest_commit_hash": "d24a4f71acd0170dfdb8d62f4714b7ac12ddc3bd",
+        "latest_commit_date": "24 September 2025"
     },
     "FlorianTrigodet": {
         "total_commits": 148,
