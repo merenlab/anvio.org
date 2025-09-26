@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7418,
+        "total_commits": 7422,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,12 +13,12 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 272
+            "2025": 276
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "docs update for `anvi-setup-ncbi-cogs`",
-        "latest_commit_hash": "d24a4f71acd0170dfdb8d62f4714b7ac12ddc3bd",
-        "latest_commit_date": "24 September 2025"
+        "latest_commit_message": "fixy fix for the necessary int(gc)",
+        "latest_commit_hash": "4bddeac025be5175616507ed43bc8800d00fa624",
+        "latest_commit_date": "25 September 2025"
     },
     "FlorianTrigodet": {
         "total_commits": 148,
@@ -105,7 +105,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2256,
+        "total_commits": 2270,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 289,
             "2023": 174,
             "2024": 221,
-            "2025": 56
+            "2025": 70
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "remove code from  @semiller10 so that he can add them back in to restore original authorship",
-        "latest_commit_hash": "0e0e268bce3cb3b0d0aa62ea52f2e67572422a35",
-        "latest_commit_date": "18 September 2025"
+        "latest_commit_message": "make sure we set the gc_idx variable even if the int casting fails",
+        "latest_commit_hash": "10208671ed937f6e004af6829a581584c38ada2e",
+        "latest_commit_date": "26 September 2025"
     },
     "moritzbuck": {
         "total_commits": 3,

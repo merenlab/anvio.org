@@ -274,15 +274,15 @@ If you wish to only estimate for your own metabolic modules, you can skip estima
 anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> &#45;&#45;user&#45;modules /path/to/USER/directory &#45;&#45;only&#45;user&#45;modules
 </div>
 
-### Including (or not including) annotations from 'Stray KOs'
+### Including (or not including) annotations from 'No-threshold KOs'
 
-"Stray KOs" is our made-up term for KOfam models that don't have a bit score threshold defined by KEGG. You can find more information about these KOs and what anvi'o can do with them [at this link](https://anvio.org/help/main/programs/anvi-setup-kegg-data/#what-are-stray-kos-and-what-happens-when-i-include-them). These gene families are usually not annotated in your data, unless you explicitly request it by running <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> with the `--include-stray-KOs` flag. If you have done that, and you now want to include those annotations in your metabolic pathway predictions, then you can do so by using the same flag for <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>:
+"No-threshold KOs", or "nt-KOs", is our made-up term for KOfam models that don't have a bit score threshold defined by KEGG. You can find more information about these KOs and what anvi'o can do with them [at this link](https://anvio.org/help/main/programs/anvi-setup-kegg-data/#what-are-nt-kos-and-what-happens-when-i-include-them). These gene families are usually not annotated in your data, unless you explicitly request it by running <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> with the `--include-nt-KOs` flag. If you have done that, and you now want to include those annotations in your metabolic pathway predictions, then you can do so by using the same flag for <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>:
 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> &#45;&#45;include&#45;stray&#45;KOs
+anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> &#45;&#45;include&#45;nt&#45;KOs
 </div>
 
-If your input database includes annotations to stray KOs and you _don't_ want to use them for computing pathway completeness and copy number, then simply leave out this flag. However, you may get an error once anvi'o stumbles upon a KO that it doesn't recognize. In that case, you should explicitly request to ignore these annotations by adding the flag `--ignore-unknown-KOs`, as suggested in the error message:
+If your input database includes annotations to nt-KOs and you _don't_ want to use them for computing pathway completeness and copy number, then simply leave out this flag. However, you may get an error once anvi'o stumbles upon a KO that it doesn't recognize. In that case, you should explicitly request to ignore these annotations by adding the flag `--ignore-unknown-KOs`, as suggested in the error message:
 
 <div class="codeblock" markdown="1">
 anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> &#45;&#45;ignore&#45;unknown&#45;KOs
