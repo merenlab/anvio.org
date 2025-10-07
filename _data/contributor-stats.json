@@ -21,7 +21,7 @@
         "latest_commit_date": "25 September 2025"
     },
     "FlorianTrigodet": {
-        "total_commits": 148,
+        "total_commits": 200,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -34,12 +34,12 @@
             "2022": 10,
             "2023": 36,
             "2024": 24,
-            "2025": 62
+            "2025": 114
         },
         "top_file": "anvio/inversions.py",
-        "latest_commit_message": "PrimerSearch can get sample artifact as input",
-        "latest_commit_hash": "d95060b25e3c3e3b7cbb7460c90a93b33b750447",
-        "latest_commit_date": "19 September 2025"
+        "latest_commit_message": "Threads options of minimap2_index",
+        "latest_commit_hash": "5fb6337f97ec1e2e84af149a982e55ee2b94413b",
+        "latest_commit_date": "05 October 2025"
     },
     "watsonar": {
         "total_commits": 10,
@@ -105,7 +105,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2270,
+        "total_commits": 2275,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 289,
             "2023": 174,
             "2024": 221,
-            "2025": 70
+            "2025": 75
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "make sure we set the gc_idx variable even if the int casting fails",
-        "latest_commit_hash": "10208671ed937f6e004af6829a581584c38ada2e",
-        "latest_commit_date": "26 September 2025"
+        "latest_commit_message": "summary.md - clarify summary abundance is not relative",
+        "latest_commit_hash": "419fd65449ec3591e09e1dc9fb07c375b88c4af4",
+        "latest_commit_date": "07 October 2025"
     },
     "moritzbuck": {
         "total_commits": 3,
