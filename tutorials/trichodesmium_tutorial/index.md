@@ -55,7 +55,10 @@ $ ls
 {WHATEVER IS THERE}
 ```
 
-Don't forget to activate your anvi'o environment:
+
+We have seven *Trichodesmium* genomes, some are metagenome-assembled genomes from the tara ocean metagenomic dataset, and other a reference genomes found on NCBI refseq.
+
+Before you start, don't forget to activate your anvi'o environment:
 
 ```bash
 conda activate anvio-dev
@@ -479,11 +482,160 @@ gene_callers_id	source	accession	function	search_term	contigs
 
 ### Working with multiple genomes
 
+Now that we know how to make basic genomic analysis using a single genomes, we can try to do the same using a few more genomes.
+In the directory `00_FASTA_GENOMES`, you will fine seven fasta files:
+
+```bash
+$ ls 00_FASTA_GENOMES
+MAG_Candidatus_Trichodesmium_miru.fa     MAG_Trichodesmium_erythraeum.fa
+MAG_Trichodesmium_thiebautii_Indian.fa   Trichodesmium_thiebautii_H9_4.fa
+MAG_Candidatus_Trichodesmium_nobis.fa    MAG_Trichodesmium_thiebautii_Atlantic.fa
+Trichodesmium_erythraeum_IMS101.fa
+```
+
+We will create as many {% include ARTIFACT name="contigs-db" %} as we have genomes in this directory. We will then annotate them in a similar fashion as when working with a single genome.
+
+First, let's create a simple text file that will contains the name of our genomes. The following bash command will list the content of the genome's directory and will only keep the name before the `.fa`, a.k.a. our genome's name:
+
+```bash
+ls 00_FASTA_GENOMES/ | cut -d '.' -f 1 > genomes.txt
+```
+
+The first thing to do is to make sure our fasta are properly formatted. Fortunately for you, we provided genomes with anvi'o compatible headers. If you don't believe me (and you should never believe me, and always check your data), then have a look at them.
+
+The next step is to generate {% include ARTIFACT name="contigs-db" %} for each of our genomes with the following bash loop:
+
+```bash
+while read genome
+do
+    anvi-gen-contigs-database -f 00_FASTA_GENOMES/${genome}.fa \
+                              -o ${genome}-contigs.db \
+                              -T 4
+done < genomes.txt
+```
+
+Now we can annotates these genomes with {% include PROGRAM name="anvi-run-hmms" %}, {% include PROGRAM name="anvi-run-ncbi-cogs" %}, {% include PROGRAM name="anvi-run-kegg-kofams" %}:
+
+```bash
+# should take ... mins
+while read genome
+do
+    echo "working on $genome"
+    anvi-run-hmms -c ${genome}-contigs.db -T 4
+    anvi-run-ncbi-cogs -c ${genome}-contigs.db -T 4
+    anvi-run-kegg-kofams -c ${genome}-contigs.db -T 4
+    anvi-run-scg-taxonomy -c ${genome}-contigs.db -T 4
+done < genomes.txt
+```
+
+Once you have multiple {% include ARTIFACT name="contigs-db" %} and you want to run commands like {% include PROGRAM name="anvi-estimate-genome-completeness" %}, you don't need to make loop (which will create multiple single-outputs). Instead you can use a special table that we call {% include ARTIFACT name="external-genomes" %}. It is a simple two columns table with the name of a {% include ARTIFACT name="contigs-db" %} and the path to that database.
+
+You can make that table yourself easily, but if you are like me - too lazy to do that by yourself - then you can use {% include PROGRAM name="anvi-script-gen-genomes-file" %}:
+
+```bash
+anvi-script-gen-genomes-file --input-dir . -o external-genomes.txt
+```
+
+And here is how this {% include ARTIFACT name="external-genomes" %} file looks like:
+
+|**`name`**|**`contigs_db_path`**|
+|:--|:--|
+|MAG_Candidatus_Trichodesmium_miru|/path/to/MAG_Candidatus_Trichodesmium_miru-contigs.db|
+|MAG_Candidatus_Trichodesmium_nobis|/path/to/MAG_Candidatus_Trichodesmium_nobis-contigs.db|
+|MAG_Trichodesmium_erythraeum|/path/to/MAG_Trichodesmium_erythraeum-contigs.db|
+|MAG_Trichodesmium_thiebautii_Atlantic|/path/to/MAG_Trichodesmium_thiebautii_Atlantic-contigs.db|
+|MAG_Trichodesmium_thiebautii_Indian|/path/to/MAG_Trichodesmium_thiebautii_Indian-contigs.db|
+|Trichodesmium_erythraeum_IMS101|/path/to/Trichodesmium_erythraeum_IMS101-contigs.db|
+|Trichodesmium_thiebautii_H9_4|/path/to/Trichodesmium_thiebautii_H9_4-contigs.db|
+
+
+Now we can use this file as the input for commands like {% include PROGRAM name="anvi-estimate-genome-completeness" %} and {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}:
+
+```bash
+$ anvi-estimate-genome-completeness -e external-genomes.txt
++---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
+| genome name                           | domain   |   confidence |   % completion |   % redundancy |   num_splits |   total length |
++=======================================+==========+==============+================+================+==============+================+
+| MAG_Candidatus_Trichodesmium_miru     | BACTERIA |            1 |          98.59 |           7.04 |          665 |        5425804 |
++---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
+| MAG_Candidatus_Trichodesmium_nobis    | BACTERIA |          0.9 |          95.77 |           2.82 |          768 |        6101640 |
++---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
+| MAG_Trichodesmium_erythraeum          | BACTERIA |            1 |          97.18 |           5.63 |          644 |        6773488 |
++---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
+| MAG_Trichodesmium_thiebautii_Atlantic | BACTERIA |          0.9 |          85.92 |           7.04 |         1136 |        5948726 |
++---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
+| MAG_Trichodesmium_thiebautii_Indian   | BACTERIA |            1 |          94.37 |           2.82 |         1394 |        6834732 |
++---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
+| Trichodesmium_erythraeum_IMS101       | BACTERIA |            1 |          97.18 |           7.04 |          386 |        7750108 |
++---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
+| Trichodesmium_thiebautii_H9_4         | BACTERIA |          0.8 |          71.83 |          12.68 |          201 |        3286556 |
++---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
+```
+
+And {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}:
+
+```bash
+$ anvi-estimate-scg-taxonomy -e external-genomes.txt -o taxonomy_multi_genomes.txt
+Num genomes ..................................: 7
+Taxonomic level of interest ..................: (None specified by the user, so 'all levels')
+Output file path .............................: taxonomy_multi_genomes.txt
+Output raw data ..............................: False
+SCG coverages will be computed? ..............: False
+* Your (meta)genome file DOES NOT contain profile databases, and you haven't asked
+  anvi'o to work in `--metagenome-mode`. Your contigs databases will be treated
+  as genomes rather than metagenomes.
+
+
+Output file ..................................: taxonomy_multi_genomes.txt
+```
+
+And here is the output:
+
+|**`name`**|**`total_scgs`**|**`supporting_scgs`**|**`t_domain`**|**`t_phylum`**|**`t_class`**|**`t_order`**|**`t_family`**|**`t_genus`**|**`t_species`**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|MAG_Candidatus_Trichodesmium_miru|22|15|Bacteria|Cyanobacteriota|Cyanobacteriia|Cyanobacteriales|Microcoleaceae|Trichodesmium|Trichodesmium sp023356515|
+|MAG_Candidatus_Trichodesmium_nobis|20|13|Bacteria|Cyanobacteriota|Cyanobacteriia|Cyanobacteriales|Microcoleaceae|Trichodesmium|Trichodesmium sp023356535|
+|MAG_Trichodesmium_erythraeum|22|21|Bacteria|Cyanobacteriota|Cyanobacteriia|Cyanobacteriales|Microcoleaceae|Trichodesmium|Trichodesmium erythraeum|
+|MAG_Trichodesmium_thiebautii_Atlantic|21|21|Bacteria|Cyanobacteriota|Cyanobacteriia|Cyanobacteriales|Microcoleaceae|Trichodesmium|Trichodesmium sp023356605|
+|MAG_Trichodesmium_thiebautii_Indian|22|21|Bacteria|Cyanobacteriota|Cyanobacteriia|Cyanobacteriales|Microcoleaceae|Trichodesmium|Trichodesmium sp023356605|
+|Trichodesmium_erythraeum_IMS101|22|21|Bacteria|Cyanobacteriota|Cyanobacteriia|Cyanobacteriales|Microcoleaceae|Trichodesmium|Trichodesmium erythraeum|
+|Trichodesmium_thiebautii_H9_4|19|18|Bacteria|Cyanobacteriota|Cyanobacteriia|Cyanobacteriales|Microcoleaceae|Trichodesmium|Trichodesmium sp023356605|
+
+
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">A note on the anvi'o workflows</span>
+There are a few built-in snakemake workflows in anvi'o and can be used with the program {% include PROGRAM name="anvi-run-workflow" %}.
+We regularly used these workflow for routine analysis like generating {% include ARTIFACT name="contigs-db" %} and running a few functional annotations.
+That is exactly the purpose of the ['contigs' workflow](https://anvio.org/help/main/workflows/contigs/).
+
+You don't need to know anything about snakemake to use these workflow. For instance, and for the 'contigs' workflow, all you need is two inputs:
+- A {% include ARTIFACT name="fasta-txt" %} file, which is basically a two column table with the name and path to each fasta file that you want to turn into a {% include ARTIFACT name="contigs-db" %}
+- A {% include ARTIFACT name="workflow-config" %} file - which you can get from {% include PROGRAM name="anvi-run-workflow" %} - in which you can specify which command you want to run and with witch parameters.
+
+This automation sounds like a nice plug-and-play analysis pipeline - and it is - but it requires you to know exactly what you want to run. You are still the chef.
+
+</div>
+
+
+### Working with one (or more) metagenomes
+
+If you are working with metagenomes, you can use and run the same commands as we did with single genomes: {% include PROGRAM name="anvi-gen-contigs-database" %} 
+
+
 ## Pangenomics
 
 ## Metabolism
 
 ## Read recruitment
 
+The absence of the Nif genes, and therefore of the capacity for nitrogen fixation in the MAGs of *T. miru* and *T. nobis* could very well be explained by the fragmented nature of MAGs and the inherent incompleteness of the genomes. And that would be a very fair argument. So the question is: how do we prove the absence of these Nif genes?
+
+We can use metagenomic read recruitment to help us address this question. 
+
+Metagenomics read recruitment is the process of mapping read to a reference sequence. For instance it can a metagenome against a metagenomic assembly, a metagenomes against a collection of MAGs, you name it. It allows you to explore ecological signal related to your reference: presence/absence, relative abundance, within population variation and a lot more.
+
+In this tutorial, we will recruit reads from a few Tara Ocean metagenomes (a subset of the original reads, to keep it computationally feasible on a laptop) to the *Trichodesmium thiebautii* reference genome.
 ## Phylogenomics
 
