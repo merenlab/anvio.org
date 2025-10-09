@@ -628,6 +628,14 @@ If you are working with metagenomes, you can use and run the same commands as we
 
 ## Metabolism
 
+Looking at individual gene functions is undisputably useful for understanding the lifestyle and potential activities of microbes. However, most genes do not work in isolation. Metabolic capacities such as nitrogen fixation, photosynthesis, biosynthesis of cellular components, and carbon utilization require multiple enzymes (or enzyme components) working sequentially or in parallel to catalyze all chemical reactions in a so-called **metabolic pathway**. In many cases, there are also several possible versions of these enzymes -- variants across different domains of life, taxonomic groups, or environmental conditions -- that could be used to catalyze the same set of chemical reactions. Manually looking for all possible versions of all enzymes needed for a given metabolic capacity is possible (we just did it in the pangenomics section for nitrogen fixation), but it isn't very efficient (and requires you to know exactly what you are looking for). And that sort of approach is unscaleable when you are interested in more than a handful of specific metabolic pathways.
+
+This section of the tutorial covers **metabolism reconstruction**, a strategy for summarizing all the metabolic capacities of a given organism (or community) by examining functional annotations in their metabolic context. To do this, one can either aggregate the genes related to multiple individual metabolic pathways to evaluate the organism's capacity to do specific, ecologically-relevant things ("pathway prediction") or use all annotated enzymes to create the entire network of chemical reactions that the organism can catalyze ("metabolic modeling").
+
+### Estimating metabolic pathway completeness
+
+We'll start with pathway prediction. The program {% include PROGRAM name="anvi-estimate-metabolism" %} computes completeness scores (and copy numbers) of metabolic modules. By default, it uses modules from the [KEGG MODULE database](https://www.genome.jp/kegg/module.html), which contains a lot of well-studied metabolic pathways of general interest that are defined in terms of KEGG Ortholog (KO) protein families. When you run {% include PROGRAM name="anvi-setup-kegg-data" %} to get the KEGG KOfam models used for annotation with {% include PROGRAM name="anvi-run-kegg-kofams" %}, you also set up the KEGG MODULE data on your computer.
+
 ## Read recruitment
 
 The absence of the Nif genes, and therefore of the capacity for nitrogen fixation in the MAGs of *T. miru* and *T. nobis* could very well be explained by the fragmented nature of MAGs and the inherent incompleteness of the genomes. And that would be a very fair argument. So the question is: how do we prove the absence of these Nif genes?
