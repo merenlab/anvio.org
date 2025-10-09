@@ -632,6 +632,13 @@ Looking at individual gene functions is undisputably useful for understanding th
 
 This section of the tutorial covers **metabolism reconstruction**, a strategy for summarizing all the metabolic capacities of a given organism (or community) by examining functional annotations in their metabolic context. To do this, one can either aggregate the genes related to multiple individual metabolic pathways to evaluate the organism's capacity to do specific, ecologically-relevant things ("pathway prediction") or use all annotated enzymes to create the entire network of chemical reactions that the organism can catalyze ("metabolic modeling").
 
+To keep things organized, we'll make a new subdirectory for ourselves in which we can work. We'll copy the external genomes file in here for convenience.
+
+```bash
+mkdir -p 04_METABOLISM && cd 04_METABOLISM/
+cp ../external-genomes.txt .
+```
+
 ### Estimating metabolic pathway completeness
 
 We'll start with pathway prediction. The program {% include PROGRAM name="anvi-estimate-metabolism" %} computes completeness scores (and copy numbers) of metabolic modules. By default, it uses modules from the [KEGG MODULE database](https://www.genome.jp/kegg/module.html), which contains a lot of well-studied metabolic pathways of general interest that are defined in terms of KEGG Ortholog (KO) protein families. When you run {% include PROGRAM name="anvi-setup-kegg-data" %} to get the KEGG KOfam models used for annotation with {% include PROGRAM name="anvi-run-kegg-kofams" %}, you also set up the KEGG MODULE data on your computer.
@@ -805,6 +812,10 @@ The heatmap should ultimately look something like this:
 
 {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_02.png" width=80 %}
 
+Don't forget to go back to the parent directory before you move on to the next tutorial section:
+```bash
+cd ..
+```
 
 ## Read recruitment
 
