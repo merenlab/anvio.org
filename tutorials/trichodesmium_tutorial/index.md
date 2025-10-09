@@ -693,7 +693,118 @@ And here is what the resulting table looks like:
 
 The first thing to notice is that *T. miru* and *T. nobis* are not in the table at all. This implies that their completeness scores for this module were both `0.0`, since by default {% include PROGRAM name="anvi-estimate-metabolism" %} doesn't include these zero results in the output to save on space (if you want those zero values to be in the table, you could use the flag `--include-zeros`). Okay, so that matches up to our expectations so far.
 
-The second thing to notice is that there are two types of completeness score, stepwise and pathwise. A full explanation of these metrics can be found [here](https://anvio.org/help/main/programs/anvi-estimate-metabolism/#two-estimation-strategies---pathwise-and-stepwise). The short version is that pathwise completeness considers all possible combinations of enzymes that fullfill the module (in this case, either _nifHDK_ or _vnfDKGH_) and computes the percentage of enzymes annotated for each combination (reporting the maximum), while stepwise completeness breaks down the module into overall steps and only considers each step complete if all enzymes required for the step are present. Nitrogen fixation is just one reaction requiring an enzyme complex made up of multiple parts, so the stepwise interpretation of the module considers it to be just one step and if not all of the enzyme components are present, that step is incomplete. This is why the stepwise completeness for `MAG_Trichodesmium_thiebautii_Atlantic` is 0.0 while the pathwise completeness is 0.66 -- `MAG_Trichodesmium_thiebautii_Atlantic` is missing one of the required enzyme components. In fact, if you look at the `enzyme_hits_in_module` column for this MAG and this module, you will see that only K02588 (_nifH_) and K02591 (_nifK_) are annotated. K02586 (_nifD_) is missing. 
+The second thing to notice is that there are two types of completeness score, stepwise and pathwise. A full explanation of these metrics can be found [here](https://anvio.org/help/main/programs/anvi-estimate-metabolism/#two-estimation-strategies---pathwise-and-stepwise). The short version is that pathwise completeness considers all possible combinations of enzymes that fullfill the module (in this case, either _nifHDK_ or _vnfDKGH_) and computes the percentage of enzymes annotated for each combination (reporting the maximum), while stepwise completeness breaks down the module into overall steps and only considers each step complete if all enzymes required for the step are present. Nitrogen fixation is just one reaction requiring an enzyme complex made up of multiple parts, so the stepwise interpretation of the module considers it to be just one step and if not all of the enzyme components are present, that step is incomplete. This is why the stepwise completeness for `MAG_Trichodesmium_thiebautii_Atlantic` is 0.0 while the pathwise completeness is 0.66 -- `MAG_Trichodesmium_thiebautii_Atlantic` is missing one of the required enzyme components. In fact, if you look at the `enzyme_hits_in_module` column for this MAG and this module, you will see that only K02588 (_nifH_) and K02591 (_nifK_) are annotated. K02586 (_nifD_) is missing.
+
+### Comparing metabolic capacity across genomes
+
+It's great to have all the details about each individual metabolic module in each genome. But it is a lot of information to parse through, and sometimes we just want a nice picture to look at. So let's repeat the metabolism estimation analysis, but this time let's ask for matrix-type output that we can easily visualize in the anvi'o interactive interface:
+
+```bash
+# takes ~2 minutes
+anvi-estimate-metabolism -e external-genomes.txt -O tricho_metabolism --matrix-format
+```
+
+You should get a bunch of different output files, but the one we will visualize is the matrix of pathwise completeness scores: `tricho_metabolism-module_pathwise_completeness-MATRIX.txt`. We can give this file to the interactive interface in `--manual` mode, along with the name of a (to be created) {% include ARTIFACT name="profile-db" %} to store the interface settings:
+
+```bash
+anvi-interactive -d tricho_metabolism-module_pathwise_completeness-MATRIX.txt \
+                  -p metabolism_profile.db \
+                  --manual \
+                  --title TRICHO_METABOLISM
+```
+
+The resulting visualization will look something like this:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_01.png" width=50 %}
+
+We can make it much easier to see differences between the genomes by doing the following things:
+- making the visualization rectangular (and bigger)
+- changing the bar plots into a heatmap ('Intensity' chart type)
+- playing with the Min values to filter out highly incomplete modules
+- clustering the genomes so that genomes with similar metabolic capacity are close together
+- clustering the modules so that modules with similar distribution across genomes are close together
+- importing the name and categories of each module
+
+The first three things can be done by tweaking the interface settings. And if you click on the dropdown box below, you can see all the terminal steps for clustering and importing.
+
+<details markdown="1"><summary>Show/Hide Organizing the metabolism heatmap</summary>
+
+Here is how to cluster the _modules_ (rows of the matrix, which become 'items' in the interface):
+```bash
+anvi-matrix-to-newick tricho_metabolism-module_pathwise_completeness-MATRIX.txt
+```
+This tree file can be given directly to `anvi-interactive` using the `-t` parameter. Or, you could import it into the {% include ARTIFACT name="profile-db" %} as an 'items order' using the program {% include PROGRAM name="anvi-import-items-order" %}. We'll stick to the former in this tutorial.
+
+Here is how to cluster the _genomes_ (columns of the matrix, which become 'layers' in the interface). First, you flip the matrix to put the genomes into the rows, and then you use the same {% include PROGRAM name="anvi-matrix-to-newick" %} command as before:
+```bash
+anvi-script-transpose-matrix tricho_metabolism-module_pathwise_completeness-MATRIX.txt -o tricho_metabolism-module_pathwise_completeness-MATRIX-transposed.txt
+anvi-matrix-to-newick tricho_metabolism-module_pathwise_completeness-MATRIX-transposed.txt
+```
+
+Then, you put the resulting dendrogram into a {% include ARTIFACT name="misc-data-layer-orders-txt" %} file:
+```bash
+# read the file into a variable, and then print to a new tab-delimited file
+TREE=$(cat tricho_metabolism-module_pathwise_completeness-MATRIX-transposed.txt.newick)
+echo -e "item_name\tdata_type\tdata_value\nmag_organization\tnewick\t$TREE" > layer_order.txt
+```
+
+This allows you to import the dendrogram into the {% include ARTIFACT name="profile-db" %}:
+```bash
+anvi-import-misc-data -p metabolism_profile.db -t layer_orders \
+                      layer_order.txt
+```
+
+Finally, we want to see module information like names and categories, not just the module numbers. Here's a little set of SQL queries to extract that information from the {% include ARTIFACT name="modules-db" %} (use the database from the same KEGG data directory you've been using all along):
+```bash
+# if you aren't using the default KEGG data dir, you should change this variable to point to the MODULES.db in the dir you ARE using
+export ANVIO_MODULES_DB=`python -c "import anvio; import os; print(os.path.join(os.path.dirname(anvio.__file__), 'data/misc/KEGG/MODULES.db'))"`
+sqlite3 $ANVIO_MODULES_DB "select module,data_value from modules where data_name='NAME'" | \
+    tr '|' '\t' > module_names.txt
+sqlite3 $ANVIO_MODULES_DB "select module,data_value from modules where data_name='CLASS'" | \
+    tr '|' '\t' > module_categories.txt
+```
+
+You can split the category strings into 3 different columns, and combine everything into one table:
+```bash
+echo -e "class\tcategory\tsubcategory" > category_columns.txt
+cut -f 2 module_categories.txt | sed 's/; /\t/g' >> category_columns.txt
+echo -e "module\tname" > name_columns.txt
+cat module_names.txt >> name_columns.txt
+paste name_columns.txt category_columns.txt > module_info.txt
+```
+
+Then you can import that new table into the {% include ARTIFACT name="profile-db" %}:
+```bash
+anvi-import-misc-data -t items -p metabolism_profile.db module_info.txt
+
+## clean up
+rm module_names.txt module_categories.txt name_columns.txt category_columns.txt
+```
+
+Now you should have everything you need for visualizing the data nicely.
+
+</details>
+
+Once you are finished, you can visualize the pathwise completeness matrix again like this (adding the module organization with the `-t` parameter):
+```bash
+anvi-interactive -d tricho_metabolism-module_pathwise_completeness-MATRIX.txt \
+                  -p metabolism_profile.db \
+                  --manual \
+                  --title TRICHO_METABOLISM \
+                  -t tricho_metabolism-module_pathwise_completeness-MATRIX.txt.newick
+```
+
+In case you want your visualization to exactly match ours, you can import our settings into the {% include ARTIFACT name="profile-db" %} for the heatmap. Note that the organization will only work if you named your trees the same way we did.
+```bash
+anvi-import-state -s ../00_DATA/metabolism_state.json \
+                  -p metabolism_profile.db \
+                  -n default
+```
+
+The heatmap should ultimately look something like this:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_02.png" width=80 %}
+
 
 ## Read recruitment
 
