@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: An anvi'o tutorial with Trichodesmium's genomes
+title: An anvi'o tutorial with Trichodesmium genomes
 modified: 2024-03-18
 excerpt: "A tutorial that covers a lot of anvi'o capabilities using Trichodesmium."
 categories: [anvio]
@@ -13,7 +13,7 @@ comments: true
 
 <span class="extra-info-header">Summary</span>
 
-**The purpose of this workflow** is to learn how to use the set of integrated 'omics tools in anvi'o to make sense of a few Trichodesmium genomes.
+**The purpose of this tutorial** is to learn how to use the set of integrated 'omics tools in anvi'o to make sense of a few Trichodesmium genomes.
  Here is a list of topics that are covered in this tutorial:
 
  * Create a {% include ARTIFACT name="contigs-db" %} and use functional and taxonomic assignment.
@@ -70,29 +70,29 @@ To introduce you into the anvi'o-verse, we will run some basic genomics analysis
 
 ### Download and reformat the genome
 
-To downaload the genome, we will use the command `curl`:
+To download the genome, we will use the command `curl`:
 
 ```bash
 curl https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/023/356/555/GCA_023356555.1_ASM2335655v1/GCA_023356555.1_ASM2335655v1_genomic.fna.gz -o GCA_023356555.1_ASM2335655v1_genomic.fna.gz
 gunzip GCA_023356555.1_ASM2335655v1_genomic.fna.gz
 ```
 
-Now we have one of the most fundamental file that everyone will have to interact with: [a fasta file](https://en.wikipedia.org/wiki/FASTA_format). We can already check the number of contigs by counting the number of character `>`, which appears once per sequence. We can use the command `grep` for that:
+Now we have one of the most fundamental files that everyone will have to interact with: [a fasta file](https://en.wikipedia.org/wiki/FASTA_format). We can already check the number of contigs by counting the number of `>` characters, which appears once per sequence. We can use the command `grep` for that:
 
 ```bash
 $ grep -c '>' GCA_023356555.1_ASM2335655v1_genomic.fna
 269
 ```
 
-That's a lot of sequences, or in this case: a lot of contigs. That is already telling us a few things about this genome: it is not a singular contigs representing a complete and circular genome. It rather looks like a Metagenome-Assembled Genome (MAG), or a Single Amplified Genome (SAG).
+That's a lot of sequences, or in this case: a lot of contigs. That is already telling us a few things about this genome: it is not a singular contig representing a complete and circular genome. It rather looks like a Metagenome-Assembled Genome (MAG), or a Single Amplified Genome (SAG).
 Let's have a look at the contig's header:
 
 ```bash
 grep '>' GCA_023356555.1_ASM2335655v1_genomic.fna
 ```
 
-As you can see, the headers are rather complex, with a lot of information. We learn from then that this is a MAG. These headers are going to be problematic for downstream analysis, particularly characters like spaces, dots, pipe (`|`) and whatnot.
-And anvi'o know you would be in trouble if you start working this these headers. Just for fun, you can try to run {% include PROGRAM name="anvi-gen-contigs-database" %} (we will cover what it does very soon), and you will see an error:
+As you can see, the headers are rather complex, with a lot of information. We learn from them that this is a MAG. Unfortunately, these headers are going to be problematic for downstream analysis, particularly because they include non-alphanumeric characters like spaces, dots, pipe (`|`) and whatnot.
+And anvi'o knows you would be in trouble if you start working this these headers. Just for fun, you can try to run {% include PROGRAM name="anvi-gen-contigs-database" %} (we will cover what it does very soon), and you will see an error:
 
 ```bash
 anvi-gen-contigs-database -f GCA_023356555.1_ASM2335655v1_genomic.fna \
@@ -108,7 +108,7 @@ Config Error: At least one of the deflines in your FASTA File does not comply wi
               look-at-your-fasta-file
 ```
 
-We can use {% include PROGRAM name="anvi-script-reformat-fasta" %} to simplify the fasta's headers with the flag `--simplify-names`. This command can (optionally) generate a summary report which is a two column file with the matching new and old names of each sequence in the fasta file. While we are using this command, we can use it to write a specific prefix to the renamed sequences with the flag `--prefix` and filter out short contigs - smaller than 500 bp, with the flag `-l`.
+We can use {% include PROGRAM name="anvi-script-reformat-fasta" %} to simplify the fasta's headers with the flag `--simplify-names`. This command can (optionally) generate a summary report which is a two column file matching the new and old names of each sequence in the fasta file. While we are using this command, we can use it to include a specific prefix in the renamed headers with the flag `--prefix` and filter out short contigs (in this example, smaller than 500 bp) with the flag `-l`.
 ```bash
 anvi-script-reformat-fasta GCA_023356555.1_ASM2335655v1_genomic.fna \
                            -o Trichodesmium_sp.fa \
@@ -120,14 +120,14 @@ anvi-script-reformat-fasta GCA_023356555.1_ASM2335655v1_genomic.fna \
 ```
 
 {:.notice}
-You can use this command to further filter your fasta file: check the option with the online (help page)[https://anvio.org/help/main/], or by using the flag `--help` in the terminal.
+You can use this command to further filter your fasta file: check the options with the online (help page)[https://anvio.org/help/main/], or by using the flag `--help` in the terminal.
 
 ### Generate a contigs database
 
-The {% include ARTIFACT name="contigs-db" %} is a central database in the entire anvi'o ecosystem. It essentially stores all information about a given set of sequences from a fasta file. To make a {% include ARTIFACT name="contigs-db" %} from our reformatted fasta, you can use the command {% include PROGRAM name="anvi-gen-contigs-database" %}:
+The {% include ARTIFACT name="contigs-db" %} is a central database in the anvi'o ecosystem. It essentially stores all information about a given set of sequences from a fasta file. To make a {% include ARTIFACT name="contigs-db" %} from our reformatted fasta, you can use the command {% include PROGRAM name="anvi-gen-contigs-database" %}:
 
 {:.notice}
-Numerous anvi'o command can make use of multithreading to speed up computing time. You can either use the flag `-T` or `--num-threads`. Check the help page of a command, or use `--help` to check if multithreading is available.
+Numerous anvi'o commands can make use of multithreading to speed up computing time. You can either use the flag `-T` or `--num-threads`. Check the help page of a command, or use `--help` to check if multithreading is available.
 
 ```bash
 anvi-gen-contigs-database -f Trichodesmium_sp.fa \
@@ -135,18 +135,16 @@ anvi-gen-contigs-database -f Trichodesmium_sp.fa \
                           -T 2
 ```
 
-A few things happen when you generate a {% include ARTIFACT name="contigs-db" %}. First, all DNA sequences are stored in that databases. You can retrieve it using the command {% include PROGRAM name="anvi-export-contigs" %}. Second, anvi'o uses [pyrodigal-gv](https://github.com/althonos/pyrodigal-gv) to identify open-reading frames. Pyrodigal-gv is a python implementation of [Prodigal](https://doi.org/10.1186/1471-2105-11-119) with some additional metagenomic models for giant viruses and viruses with alternative genetic codes (see [Camargo et al.](https://doi.org/10.1038/s41587-023-01953-y)).
+A few things happen when you generate a {% include ARTIFACT name="contigs-db" %}. First, all DNA sequences are stored in that databases. You can retrieve the sequences in FASTA format by using the command {% include PROGRAM name="anvi-export-contigs" %}. Second, anvi'o uses [pyrodigal-gv](https://github.com/althonos/pyrodigal-gv) to identify open-reading frames (also referred to as 'gene calls'). Pyrodigal-gv is a python implementation of [Prodigal](https://doi.org/10.1186/1471-2105-11-119) with some additional metagenomic models for giant viruses and viruses with alternative genetic codes (see [Camargo et al.](https://doi.org/10.1038/s41587-023-01953-y)).
 
-In addition to identifying open-reading frames, anvi'o will predict the amino-acid sequence associated with the gene-calls and store it in that newly made database.
-You can use the command {% include PROGRAM name="anvi-export-gene-calls" %} to export the gene calls, and the amino-acid sequence for each open-reading frame identified by Pyrodigal-gv.
+In addition to identifying open-reading frames, anvi'o will predict the amino acid sequence associated with each gene call and store it in that newly made database. If you need to get this information out of the database, you can use the command {% include PROGRAM name="anvi-export-gene-calls" %} to export the gene calls, and the amino acid sequence for each open-reading frame identified by pyrodigal-gv.
 
-The command {% include PROGRAM name="anvi-gen-contigs-database" %} also computes the tetra-nucleotide frequency for each contigs. To learn more about what it is, check the vocabulary page about [tetra-nucleotide frequency](https://anvio.org/vocabulary/#tetra-nucleotide-frequency).
+The command {% include PROGRAM name="anvi-gen-contigs-database" %} also computes the tetra-nucleotide frequency for each contig. To learn more about what it is, check the vocabulary page about [tetra-nucleotide frequency](https://anvio.org/vocabulary/#tetra-nucleotide-frequency).
 
 ### Annotate single-copy core genes and Ribosomal RNAs
 
-There is a command called {% include PROGRAM name="anvi-run-hmms" %}, which let you use an Hidden Markov Models ([HMMs](https://en.wikipedia.org/wiki/Hidden_Markov_model)) to annotated the genes in a {% include ARTIFACT name="contigs-db" %} and store that annotation directly back into the database.
-The anvi'o code base comes with an integrated set of default {% include ARTIFACT name="hmm-source" %}. They include models for 6 Ribosomal RNAs (16S, 23S, 5S, 18S, 28S, and 12S). They also include three set of [single-copy core genes](https://anvio.org/vocabulary/#single-copy-core-gene-scg), named `Bacteria_71`, `Archaea_76` and `Protista_83`. The first two collection for Bacteria and Archaea are collections that anvi’o developers curated by taking [Mike Lee’s](https://twitter.com/AstrobioMike) bacterial single-copy core gene collection first released in [GToTree](https://academic.oup.com/bioinformatics/article/35/20/4162/5378708), which is an easy-to-use phylogenomics workflow.
-`Protista_83` is [a curated collection](http://merenlab.org/delmont-euk-scgs) of [BUSCO](https://busco.ezlab.org/) by [Tom Delmont](https://twitter.com/tomodelmont). These set of HMMs are used in anvi'o to compute the estimated completeness and redundancy of a genome.
+There is a command called {% include PROGRAM name="anvi-run-hmms" %}, which let you use Hidden Markov Models ([HMMs](https://en.wikipedia.org/wiki/Hidden_Markov_model)) to annotate the genes in a {% include ARTIFACT name="contigs-db" %} and store that annotation directly back into the database.
+The anvi'o code base comes with an integrated set of default {% include ARTIFACT name="hmm-source" text="HMM sources" %}. They include models for 6 Ribosomal RNAs (16S, 23S, 5S, 18S, 28S, and 12S). They also include three sets of [single-copy core genes](https://anvio.org/vocabulary/#single-copy-core-gene-scg), named `Bacteria_71`, `Archaea_76` and `Protista_83`. The first two, `Bacteria_71` and `Archaea_76`, are collections of bacterial and archaeal single-copy core genes (SCGs) curated from [Mike Lee’s](https://twitter.com/AstrobioMike) SCG collections first released in [GToTree](https://academic.oup.com/bioinformatics/article/35/20/4162/5378708), which is an easy-to-use phylogenomics workflow. `Protista_83` is [a curated collection](http://merenlab.org/delmont-euk-scgs) of [BUSCO](https://busco.ezlab.org/) SCGs made by [Tom Delmont](https://twitter.com/tomodelmont). These sets of HMMs are used in anvi'o to compute the estimated completeness and redundancy of a genome.
 
 
 To annotate our {% include ARTIFACT name="contigs-db" %} with these HHMs, we can simply run {% include PROGRAM name="anvi-run-hmms" %} like this:
@@ -156,21 +154,21 @@ anvi-run-hmms -c Trichodesmium_sp-contigs.db -T 4
 ```
 
 {:.notice}
-There is an optional flag `--also-scan-trnas` which uses the program [tRNAScan-SE](https://github.com/UCSC-LoweLab/tRNAscan-SE) to identify and store information about tRNA found in your genome. You can also use the command {% include PROGRAM name="anvi-scan-trnas" %} at any time.
+There is an optional flag `--also-scan-trnas` which uses the program [tRNAScan-SE](https://github.com/UCSC-LoweLab/tRNAscan-SE) to identify and store information about tRNAs found in your genome. You can also use the command {% include PROGRAM name="anvi-scan-trnas" %} at any time.
 
 Now is probably a good time to use the command {% include PROGRAM name="anvi-db-info" %}, which shows you basic information about any anvi'o database:
 ```bash
 anvi-db-info Trichodesmium_sp-contigs.db
 ```
 
-With this command, you can see which HMMs was already run on that database, but also some basic information like the number of contigs, number of genes called by Pyrodigal-gv and more.
+With this command, you can see which HMMs were already run on that database, but also some basic information like the number of contigs, number of genes called by Pyrodigal-gv, and more.
 
 {:.warning}
 SCREENSHOT?
 
 #### General summary and metrics
 
-To go one step further than the output generated by {% include PROGRAM name="anvi-db-info" %}, we can use the command {% include PROGRAM name="anvi-display-contigs-stats" %}. It allows you to visualize (and export) basic information about one or multiple {% include ARTIFACT name="contigs-db" %}.
+To go one step further than the output generated by {% include PROGRAM name="anvi-db-info" %}, we can use the command {% include PROGRAM name="anvi-display-contigs-stats" %}. It allows you to visualize (and export) basic information about one or multiple {% include ARTIFACT name="contigs-db" text= "contigs databases" %}.
 
 ```bash
 anvi-display-contigs-stats Trichodesmium_sp-contigs.db
@@ -179,9 +177,9 @@ anvi-display-contigs-stats Trichodesmium_sp-contigs.db
 {% include IMAGE path="/images/trichodesmium_tutorial/01_contigs_stats.png" width=80 %}
 
 {:.notice}
-The approximate number of genomes is an estimate based on the frequency of each single-copy core gene. It is mostly useful in metagenomics context, where you expect multiple microbial populations. This estimate is based on the mode (or most frequently occurring number) of single-copy core genes. Here, we know we generated a {% include ARTIFACT name="contigs-db" %} with a single genome, hence the expected number of genome = 1 bacteria. GOOD.
+The approximate number of genomes is an estimate based on the frequency of each single-copy core gene. It is mostly useful in a metagenomics context, where you expect multiple microbial populations to be included in your set of contigs. This estimate is based on the mode (or most frequently occurring number) of single-copy core genes. Here, we know we generated a {% include ARTIFACT name="contigs-db" %} with a single genome, hence the expected number of genomes = 1 bacteria. GOOD.
 
-You can also export the information displayed on your browser by running the command the flag `--output-file` or `-o`. Anvi'o will then write a TAB-delimited file with the above values. And if you don't want the browser page to open, you can also use the flag `--report-as-text`
+You can also export the information displayed on your browser by running {% include PROGRAM name="anvi-display-contigs-stats" %} with the flag `--output-file` or `-o`. Anvi'o will then write a TAB-delimited file with the above values. And if you don't want the browser page to open at all, you can also use the flag `--report-as-text`.
 
 ```bash
 anvi-display-contigs-stats Trichodesmium_sp-contigs.db --report-as-text -o Trichodesmium_sp-contigs-stats.txt
