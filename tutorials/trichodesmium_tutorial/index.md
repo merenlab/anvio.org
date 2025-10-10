@@ -540,7 +540,7 @@ do
 done < genomes.txt
 ```
 
-Once you have multiple {% include ARTIFACT name="contigs-db" %} and you want to run commands like {% include PROGRAM name="anvi-estimate-genome-completeness" %}, you don't need to make loop (which will create multiple single-outputs). Instead you can use a special table that we call {% include ARTIFACT name="external-genomes" %}. It is a simple two columns table with the name of a {% include ARTIFACT name="contigs-db" %} and the path to that database.
+You don't always need to write a loop to process multiple {% include ARTIFACT name="contigs-db" text="contigs databases" %}. Some commands, like {% include PROGRAM name="anvi-estimate-genome-completeness" %}, can work on multiple input databases and will create individual outputs for each one. In these cases, you can use a special table that we call an {% include ARTIFACT name="external-genomes" text="'external genomes' file" %}. It is a simple two-column table containing the name of each {% include ARTIFACT name="contigs-db" %} and the path to each database.
 
 You can make that table yourself easily, but if you are like me - too lazy to do that by yourself - then you can use {% include PROGRAM name="anvi-script-gen-genomes-file" %}:
 
@@ -559,7 +559,6 @@ And here is how this {% include ARTIFACT name="external-genomes" %} file looks l
 |MAG_Trichodesmium_thiebautii_Indian|/path/to/MAG_Trichodesmium_thiebautii_Indian-contigs.db|
 |Trichodesmium_erythraeum_IMS101|/path/to/Trichodesmium_erythraeum_IMS101-contigs.db|
 |Trichodesmium_thiebautii_H9_4|/path/to/Trichodesmium_thiebautii_H9_4-contigs.db|
-
 
 Now we can use this file as the input for commands like {% include PROGRAM name="anvi-estimate-genome-completeness" %} and {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}:
 
@@ -584,9 +583,9 @@ $ anvi-estimate-genome-completeness -e external-genomes.txt
 +---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
 ```
 
-Note that `Trichodesmium_thiebautii_H9_4` appears to have quite a low completion estimate and also a rather large redundancy estimate. Just from these two values, we could say that the quality of that MAG is lower than all other genomes in our collection. You will also notice how it has a much smaller genome size (last column).
+Note that `Trichodesmium_thiebautii_H9_4` appears to have quite a low completion estimate and also a rather large redundancy estimate. Just from these two values, we could say that the quality of that MAG is lower than all other genomes in our collection. You may also notice that it has a much smaller genome size (last column).
 
-In addition to {% include PROGRAM name="anvi-estimate-genome-completeness" %}, we can also use {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}:
+Let's try estimating the taxonomy of all our genomes at once with {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}:
 
 ```bash
 $ anvi-estimate-scg-taxonomy -e external-genomes.txt -o taxonomy_multi_genomes.txt
@@ -615,18 +614,17 @@ And here is the output:
 |Trichodesmium_erythraeum_IMS101|22|21|Bacteria|Cyanobacteriota|Cyanobacteriia|Cyanobacteriales|Microcoleaceae|Trichodesmium|Trichodesmium erythraeum|
 |Trichodesmium_thiebautii_H9_4|19|18|Bacteria|Cyanobacteriota|Cyanobacteriia|Cyanobacteriales|Microcoleaceae|Trichodesmium|Trichodesmium sp023356605|
 
-
+You can see that a lot of the MAGs match to unnamed species in GTDB -- even though we already know what most of them are, those names haven't propagated to the GTDB database yet. This especially makes sense for the candidate species *T. miru* and *T. nobis*. Regardless, all the *T. thiebautii* genomes have the same closest match to *T. sp023356535*.
 
 <div class="extra-info" markdown="1">
 
-<span class="extra-info-header">A note on the anvi'o workflows</span>
-There are a few built-in snakemake workflows in anvi'o and can be used with the program {% include PROGRAM name="anvi-run-workflow" %}.
-We regularly used these workflow for routine analysis like generating {% include ARTIFACT name="contigs-db" %} and running a few functional annotations.
-That is exactly the purpose of the ['contigs' workflow](https://anvio.org/help/main/workflows/contigs/).
+<span class="extra-info-header">A note on anvi'o workflows</span>
+There are a few built-in snakemake workflows in anvi'o that can be used with the program {% include PROGRAM name="anvi-run-workflow" %}.
+We regularly used these workflow for routine analyses, like generating {% include ARTIFACT name="contigs-db" text="contigs databases" %} and running several functional annotations. That is exactly the purpose of the ['contigs' workflow](https://anvio.org/help/main/workflows/contigs/).
 
-You don't need to know anything about snakemake to use these workflow. For instance, and for the 'contigs' workflow, all you need is two inputs:
-- A {% include ARTIFACT name="fasta-txt" %} file, which is basically a two column table with the name and path to each FASTA file that you want to turn into a {% include ARTIFACT name="contigs-db" %}
-- A {% include ARTIFACT name="workflow-config" %} file - which you can get from {% include PROGRAM name="anvi-run-workflow" %} - in which you can specify which command you want to run and with witch parameters.
+You don't need to know anything about snakemake to use these workflows. For instance, for the 'contigs' workflow, all you need is two input files:
+- A {% include ARTIFACT name="fasta-txt" %} file, which is basically a two-column table with the name and path to each FASTA file that you want to turn into a {% include ARTIFACT name="contigs-db" %}
+- A {% include ARTIFACT name="workflow-config" %} file (which you can get from {% include PROGRAM name="anvi-run-workflow" %}) in which you can specify which commands you want to run and parameters for each command.
 
 This automation sounds like a nice plug-and-play analysis pipeline - and it is - but it requires you to know exactly what you want to run. You are still the chef.
 
@@ -635,7 +633,7 @@ This automation sounds like a nice plug-and-play analysis pipeline - and it is -
 
 ### Working with one (or more) metagenomes
 
-If you are working with metagenomes, you can use and run the same commands as we did with single genomes: {% include PROGRAM name="anvi-gen-contigs-database" %} 
+If you are working with metagenomes, you can use and run the same commands that we ran on individual genomes, such as {% include PROGRAM name="anvi-gen-contigs-database" %}.
 
 
 ## Pangenomics
