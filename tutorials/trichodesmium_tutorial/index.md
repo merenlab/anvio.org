@@ -998,7 +998,7 @@ anvi-interactive -d nitrogen_metabolism-step_copy_number-MATRIX.txt \
 
 # import relevant data
 anvi-import-misc-data -p nitrogen_step_copies.db -t items custom_step_names.txt
-anvi-import-state -p nitrogen_step_copies.db -n default -s ../00_DATA/nitrogen_heatmap.json
+anvi-import-state -p nitrogen_step_copies.db -n default -s ../00_DATA/nitrogen_step_copies.json
 
 # visualize
 anvi-interactive -d nitrogen_metabolism-step_copy_number-MATRIX.txt \
