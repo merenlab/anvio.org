@@ -572,7 +572,9 @@ $ anvi-estimate-genome-completeness -e external-genomes.txt
 +---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
 ```
 
-And {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}:
+Note that `Trichodesmium_thiebautii_H9_4` appears to have quite a low completion estimate and also a rather large redundancy estimate. Just from these two values, we could say that the quality of that MAG is lower than all other genomes in our collection. You will also notice how it has a much smaller genome size (last column).
+
+In addition to {% include PROGRAM name="anvi-estimate-genome-completeness" %}, we can also use {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}:
 
 ```bash
 $ anvi-estimate-scg-taxonomy -e external-genomes.txt -o taxonomy_multi_genomes.txt
