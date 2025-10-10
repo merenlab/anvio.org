@@ -538,7 +538,21 @@ do
 done < genomes.txt
 ```
 
-Now we can annotate these genomes with {% include PROGRAM name="anvi-run-hmms" %}, {% include PROGRAM name="anvi-run-ncbi-cogs" %}, and {% include PROGRAM name="anvi-run-kegg-kofams" %}:
+Now we can annotate these genomes with {% include PROGRAM name="anvi-run-hmms" %}, {% include PROGRAM name="anvi-run-ncbi-cogs" %}, {% include PROGRAM name="anvi-run-kegg-kofams" %}, and {% include PROGRAM name="anvi-run-pfams" %}. Some of those annotation commands can take a while, so if you don't want to wait, click the Show/Hide box below to instead get the already-annotated contigs databases from the datapack:
+
+<details markdown="1"><summary>Show/Hide Option 1: Copy pre-annotated databases</summary>
+
+This command overwrite the databases in your current working directory with our pre-annotated ones from the `00_DATA` folder:
+
+```bash
+cp 00_DATA/*-contigs.db .
+```
+
+</details>
+
+But if you do want to run the annotations yourself, I encourage you to try writing the loop before checking the answer in the following Show/Hide box:
+
+<details markdown="1"><summary>Show/Hide Option 2: Loop to annotate all databases</summary>
 
 ```bash
 # should take ... mins
@@ -552,6 +566,8 @@ do
     anvi-run-scg-taxonomy -c ${genome}-contigs.db -T 4
 done < genomes.txt
 ```
+
+</details>
 
 You don't always need to write a loop to process multiple {% include ARTIFACT name="contigs-db" text="contigs databases" %}. Some commands, like {% include PROGRAM name="anvi-estimate-genome-completeness" %}, can work on multiple input databases and will create individual outputs for each one. In these cases, you can use a special table that we call an {% include ARTIFACT name="external-genomes" text="'external genomes' file" %}. It is a simple two-column table containing the name of each {% include ARTIFACT name="contigs-db" %} and the path to each database.
 
