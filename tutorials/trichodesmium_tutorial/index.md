@@ -32,6 +32,15 @@ comments: true
  ---
  To reproduce this exercise with your own dataset, you should first follow the instructions [here](/install/) to install anvi'o.
 
+## A story of nitrogen fixation (or not) in _Trichodesmium_
+
+This tutorial will largely recapitulate a story from the following paper, published by [Tom Delmont](https://lage.genoscope.cns.fr/members/tom-delmont/) in 2021:
+
+INSERT PUBLICATION INFO HERE
+
+As a little preview, the essence of the story is this: _Trichodesmium_ species are well-known cyanobacterial nitrogen fixers ('diazotrophs') in the global oceans, but -- surprise -- it turns out that not _all_ of them can do nitrogen fixation. Tom used a combination of pangenomics, phylogenomics, and clever read recruitment analyses on a set of MAGs and reference genomes to demonstrate that two new (candidate) _Trichodesmium_ species, Candidatus *T. miru* and Candidatus *T. nobis*, are nondiazotrophic.
+
+We will use a variety of anvi'o programs to investigate the same genomes and characterize their nitrogen-fixing capabilities, to demonstrate how you, too, could discover cool microbial ecology stories like this one.
 
 ## Downloading the data pack
 
