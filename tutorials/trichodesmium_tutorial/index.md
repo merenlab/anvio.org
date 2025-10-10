@@ -1049,6 +1049,51 @@ If something goes wrong (or weird) while using anvi'o, you may want to try re-ru
 
 If you found this section useful and you want to make your own custom metabolic modules, check out this guide on the {% include ARTIFACT name="user-modules-data" %} help page.
 
+### Reaction networks and drawing KEGG Pathway Maps
+
+Let's move onto the second type of metabolism reconstruction: metabolic modeling. Anvi'o can generate a {% include ARTIFACT name="reaction-network" %} from the KEGG Ortholog (KO) annotations in any {% include ARTIFACT name="contigs-db" text="contigs database" %} or {% include ARTIFACT name="pan-db" text="pangenome database" %}. The network connects all genes with KO annotations to the chemical reactions they catalyze, and the metabolites consumed or produced by those reactions. Reaction and compound information are taken from the [ModelSEED](https://github.com/ModelSEED/ModelSEEDDatabase) database.
+
+{:.notice}
+If you want to use these programs, you will first have to run {% include PROGRAM name="anvi-setup-modelseed-database" %} (if you haven't already done so in your anvi'o environment).
+
+Let's make a {% include ARTIFACT name="reaction-network" text="reaction network" %} for one genome using the program {% include PROGRAM name="anvi-reaction-network" %}:
+
+```bash
+anvi-reaction-network -c ../Trichodesmium_sp-contigs.db
+```
+
+There will be plenty of output on your terminal screen, but no output files added to your working directory -- the network will be stored directly in the {% include ARTIFACT name="contigs-db" text="contigs database" %}.
+
+Now, if you wanted to do some flux balance analysis (FBA) to model the flow of metabolites through this network -- bad news, you can't do that (at least, not yet) in anvi'o. However, you _can_ export the {% include ARTIFACT name="reaction-network" %} into a JSON file suitable for common metabolic modeling software (like [COBRApy](https://github.com/opencobra/cobrapy)) with the program {% include PROGRAM name="anvi-get-metabolic-model-file" %}:
+
+```bash
+anvi-get-metabolic-model-file -c ../Trichodesmium_sp-contigs.db \
+                -o Trichodesmium_sp_rxn_network.json
+```
+
+The output file is _really_ big, because it contains every single metabolite, reaction, and gene contributing to the reaction network.
+
+We will use this {% include ARTIFACT name="reaction-network" %} for some neat visualizations of KEGG Pathway Maps using the program {% include PROGRAM name="anvi-draw-kegg-pathways" %}.
+
+```bash
+anvi-draw-kegg-pathways --contigs-dbs ../Trichodesmium_sp-contigs.db -o Trichodesmium_sp_PATHWAY_MAPS --ko
+```
+
+For each KEGG Pathway Map, the program will highlight the KOs from the map that are annotated in each provided genome, and create a PDF file in the specified output directory. We only provided a single genome, so the resulting maps are specific to that genome's annotations.
+
+Let's look at an example map. Of course we will look at the [Nitrogen Metabolism](https://www.kegg.jp/pathway/map00910) map (which is map 00910 and stored at `Trichodesmium_sp_PATHWAY_MAPS/kos_00910.pdf`):
+
+{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_06.pdf" width=80 %}
+
+You can see that in addition to nitrogen fixation (nitrogen to ammonia), this microbe can also import nitrate and nitrate from the extracellular matrix into the cell, convert nitrate to nitrite (assimilatory nitrate reduction) and to nitric oxide, convert nitrite to ammonia, and feed that ammonia into glutamate metabolism -- which is the start of amino acid biosynthesis using that fresh new bioavailable nitrogen.
+
+While pathway prediction gives you quantitative summaries of metabolic capacity, these Pathway Map drawings are great for understanding what is actually going on in those pathways, and for seeing the connections between different classes of metabolism. Each map gives you an overall picture of a small-ish, digestible and ecologically-relevant part of the entire reaction network.
+
+I bet you are wondering how this map looks different across our _Trichodesmium_ genomes. If so, then you are in luck, because we can also use {% include PROGRAM name="anvi-draw-kegg-pathways" %} to compare metabolic capacity of multiple genomes.
+
+First, we will need to run {% include PROGRAM name="anvi-reaction-network" %} on all the other genomes. This program unfortunately doesn't accept an {% include ARTIFACT name="external-genomes" text="external genomes file" %} as input; however, we can reuse our BASH loop strategy from above.
+
+
 
 Don't forget to go back to the parent directory before you move on to the next tutorial section:
 ```bash
