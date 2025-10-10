@@ -254,7 +254,7 @@ Estimated taxonomy for "Trichodesmium_sp"
 
 Note that the command used a total of 22 SCGs - more specifically the ribosomal proteins which are part of the SCG collections - and we now have an estimated species name: *Trichodesmium erythraeum*.
 
-In the output, you can also see `supporting_scgs` with the number `21`. It corresponds to the number of ribosomal proteins which all agreed with the reported taxonomy. It also means that ONE ribosomal protein has a different taxonomical annotation.
+In the output, you can also see `supporting_scgs` with the number `21`. It corresponds to the number of ribosomal proteins which all agreed with the reported consensus taxonomy. It also means that ONE ribosomal protein has a different taxonomic match.
 
 If you are curious, we can run the same command with the flag `--debug`:
 
@@ -333,35 +333,35 @@ Estimated taxonomy for "Trichodesmium_sp"
 +------------------+--------------+-------------------+----------------------------------------------------------------------------------------------------------------------------+
 ```
 
-In this more comprehensive output, you can see the detail of each ribosomal protein annotation: which protein, the percent identity to an homologous gene in the GTDB collection, and the associated taxonomy. You can see that the ribosomal protein L14 has a taxonomy that is not resolved at the species level, but only at the genus. So, the only ribosomal protein that did not agree with the final taxonomy was actually matching the same genus. I would not be worry at all about potential contamination, at least at this stage.
+In this more comprehensive output, you can see the detail of each ribosomal protein's closest match to the GTDB SCG database: which protein, the percent identity to an homologous gene in the GTDB collection, and the associated taxonomy. You can see that ribosomal protein L14 has a taxonomy that is not resolved at the species level, but only at the genus level. So, the only ribosomal protein that did not agree with the final taxonomy was actually matching the same genus. I would not be worried at all about potential contamination, at least at this stage.
 
-The way anvi'o estimate taxonomy is not perfect. In fact it is limited to Bacteria and Archaea (genomes found in GTDB). But it is fast and relatively accurate to give you an idea of the taxonomy of one or more genomes.
+The way anvi'o estimates taxonomy is not perfect. In fact, it is limited to Bacteria and Archaea (genomes found in GTDB). But it is fast and relatively accurate to give you an idea of the taxonomy of one or more genomes.
 
 {:.notice}
-If you are working with a metagenome, i.e. with more that one population, anvi'o can either compute the taxonomy per bin (if available), or without binning! In the second case, anvi'o will pick the most commonly found ribosomal protein and report their taxonomy annotation. This is a great way to quickly get an idea of the taxonomical composition of a metagenomes, prior to binning for instance.
+If you are working with a metagenome, i.e. with more than one population, anvi'o can either compute the taxonomy per bin (if available), or without binning! In the second case, anvi'o will pick the most commonly found ribosomal protein and report their closest taxonomic matches. This is a great way to quickly get an idea of the taxonomic composition of a metagenome prior to binning.
 
 ### Functional annotations
 
-There are many databases that one can use to assign function to a set of genes. You may be familiar with [NCBI's COG](https://www.ncbi.nlm.nih.gov/research/cog) (Clusters of Orthologous Genes), [KEGG](https://www.genome.jp/kegg/) (Kyoto Encyclopedia of Genes and Genomes) or [Pfam](http://pfam.xfam.org/) (the protein family database), which can be use for general function. Other database out there are more specific, like [CAZymes](https://www.cazy.org/) which focuses on enzymes associated with the synthesis, metabolism and recognition of carbohydrate, or [PHROGs](https://phrogs.lmge.uca.fr/) which focuses on viral related functions.
+There are many databases that one can use to assign function to a set of genes. You may be familiar with [NCBI's COG](https://www.ncbi.nlm.nih.gov/research/cog) (Clusters of Orthologous Genes) database, the [KEGG](https://www.genome.jp/kegg/) (Kyoto Encyclopedia of Genes and Genomes) database of KEGG Ortholog families (KOfam), or [Pfam](http://pfam.xfam.org/) (the Protein Family database), which can be used for annotating general functions. Other database out there are more specific, like [CAZymes](https://www.cazy.org/) which focuses on enzymes associated with the synthesis, metabolism and recognition of carbohydrate, or [PHROGs](https://phrogs.lmge.uca.fr/) which focuses on viral functions.
 
-Anvi'o has a few commands that allow you to annotated the open-reading frames in your {% include ARTIFACT name="contigs-db" %} with a few database. Each of them come with a setup command that you need to run once to download the appropriate database on your machine:
+Anvi'o has a few commands that allow you to annotate the open-reading frames in your {% include ARTIFACT name="contigs-db" %} with several different databases. Each of them comes with a setup command that you need to run once to download the appropriate database on your machine:
 
 Database | Setup command | Run command
 -- | -- | --
-NCBI's COG | {% include PROGRAM name="anvi-setup-ncbi-cogs" %} | {% include PROGRAM name="anvi-run-ncbi-cogs" %}
-KEGG | {% include PROGRAM name="anvi-setup-kegg-data" %} | {% include PROGRAM name="anvi-run-kegg-kofams" %}
-Pfams | {% include PROGRAM name="anvi-setup-pfams" %} | {% include PROGRAM name="anvi-run-pfams" %}
+NCBI COGs | {% include PROGRAM name="anvi-setup-ncbi-cogs" %} | {% include PROGRAM name="anvi-run-ncbi-cogs" %}
+KEGG KOfam | {% include PROGRAM name="anvi-setup-kegg-data" %} | {% include PROGRAM name="anvi-run-kegg-kofams" %}
+Pfam | {% include PROGRAM name="anvi-setup-pfams" %} | {% include PROGRAM name="anvi-run-pfams" %}
 CAZymes | {% include PROGRAM name="anvi-setup-cazymes" %} | {% include PROGRAM name="anvi-run-cazymes" %}
 
-If you favorite annotation database is not represented here, you have a few options:
+If your favorite annotation database is not represented here, you have a few options:
 - **Short-term solution**: run the annotation outside of anvi'o. You can export the gene calls with {% include PROGRAM name="anvi-export-gene-calls" %}, run your annotation with a third party software, then import the annotations back into your {% include ARTIFACT name="contigs-db" %} with {% include PROGRAM name="anvi-import-functions" %}.
-- **Community level solution**: find an anvi'o developer and tell them about your passion for XXX functional database and hope they make a new command called `anvi-run-XXX`. We seriously encourage you to use [anvi'o github page](https://github.com/merenlab/anvio) to write an issue describing the needs for a new functional annotation database in anvi'o. Then, anyone with time and skill can try to implement it. If you find an existing issue discussing something you want in anvi'o, please raise your voice, write a comment, let the developers know that you would like to sea a feature in anvi'o.
-- **Developer level**: write a new program to run annotation on a {% include ARTIFACT name="contigs-db" %} with your favorite database, and submit a pull request on [anvi'o github page](https://github.com/merenlab/anvio).
+- **Community level solution**: find an anvi'o developer and tell them about your passion for XXX functional database and hope they make a new command called `anvi-run-XXX`. We seriously encourage you to use the [anvi'o github page](https://github.com/merenlab/anvio) to write an issue describing the need for a new functional annotation database in anvi'o. Then, anyone with time and skill can try to implement it. If you find an existing issue discussing something you want in anvi'o, please raise your voice, write a comment, and let the developers know that you would like to see a feature in anvi'o.
+- **Developer level**: write a new program to annotate a {% include ARTIFACT name="contigs-db" %} with your favorite database, and submit a pull request on the [anvi'o github page](https://github.com/merenlab/anvio).
 
-For now, we will use the NCBI's COG and KEGG database on our *Trichodesmium* genome. {% include PROGRAM name="anvi-run-ncbi-cogs" %} will be relatively fast (uses diamond in to find homologous hits in the database), while {% include PROGRAM name="anvi-run-kegg-kofams" %} will take quite longer (~6min, it uses HMMs and HMMER in the background).
+For now, we will use the COG and KEGG databases on our *Trichodesmium* genome. {% include PROGRAM name="anvi-run-ncbi-cogs" %} will be relatively fast (it uses `diamond` to find homologous hits in the database), while {% include PROGRAM name="anvi-run-kegg-kofams" %} will take quite longer as the KOfam database is quite large (this program uses HMMs and HMMER in the background).
 
 {:.notice}
-If you know your machine can use more threads, feel free to change the flag `-T 4` to another number
+If you know your machine can use more threads, feel free to change the flag `-T 4` to another number.
 
 ```bash
 # will take about ~1 min
@@ -371,10 +371,10 @@ anvi-run-ncbi-cogs -c Trichodesmium_sp-contigs.db -T 4
 anvi-run-kegg-kofams -c Trichodesmium_sp-contigs.db -T 4
 ```
 
-As you can see from the commands above, there are no output file. All the annotations are stored into the {% include ARTIFACT name="contigs-db" %}. You can use {% include PROGRAM name="anvi-db-info" %} to check which functional annotation are already in an existing {% include ARTIFACT name="contigs-db" %} (including manually imported ones). You can also use {% include PROGRAM name="anvi-export-functions" %} to get a text output for a given annotation source (or multiple).
+As you can see in the terminal output from the commands above, there are no output files. All the annotations are stored into the {% include ARTIFACT name="contigs-db" %}. You can use {% include PROGRAM name="anvi-db-info" %} to check which functional annotations are already in an existing {% include ARTIFACT name="contigs-db" %} (including manually imported ones). You can also use {% include PROGRAM name="anvi-export-functions" %} to get a tab-delimited file of all the annotations from a given annotation source (or multiple).
 
 ```bash
-# check which annotation was run on our contigs database
+# check which annotations were run on our contigs database
 $ anvi-db-info Trichodesmium_sp-contigs
 
 DB Info (no touch)
@@ -451,7 +451,7 @@ AVAILABLE HMM SOURCES
 anvi-export-functions -c Trichodesmium_sp-contigs.db --annotation-sources KOfam,COG24_FUNCTION -o functional_annotations.txt
 ```
 
-The output table looks like this:
+The output table from {% include PROGRAM name="anvi-export-functions" %} looks like this:
 
 |**`gene_callers_id`**|**`source`**|**`accession`**|**`function`**|**`e_value`**|
 |:--|:--|:--|:--|:--|
@@ -464,7 +464,8 @@ The output table looks like this:
 |4813|KOfam|K11524|positive phototaxis protein PixI|4e-37|
 
 
-You can search for your favorite function. _Trichodesmium_ is know for its ability to fix nitrogen, you can look for the `NifH` gene, which is repo
+You can search for your favorite function. As we discussed above, _Trichodesmium_ is known for its ability to fix nitrogen, so you can look for the `NifH` gene, which is a marker gene for nitrogen fixation. Here is how to do that with a simple `grep` command:
+
 ```bash
 $ grep NifH functional_annotations.txt
 3709	COG24_FUNCTION	COG1348	Nitrogenase ATPase subunit NifH/coenzyme F430 biosynthesis subunit CfbC (NifH/CfbC) (PDB:1CP2) (PUBMED:28225763)	1.5e-197
@@ -472,7 +473,7 @@ $ grep NifH functional_annotations.txt
 4020	KOfam	K02588	nitrogenase iron protein NifH	2.9e-144
 ```
 
-Or you can use {% include PROGRAM name="anvi-search-functions" %}:
+Or, you can use {% include PROGRAM name="anvi-search-functions" %}:
 ```bash
 anvi-search-functions -c Trichodesmium_sp-contigs.db \
                       --search-term NifH \
@@ -480,7 +481,7 @@ anvi-search-functions -c Trichodesmium_sp-contigs.db \
                       --full-report NifH_full_report.txt
 ```
 
-The first output file called `NifH_search.txt` only contains the name of the contigs where a gene with a matching search term was found. And the second file `NifH_full_report.txt` is more comprehensive:
+The first output file called `NifH_search.txt` only contains the name of the contigs where a gene with a matching search term was found. And the second file, `NifH_full_report.txt`, is more comprehensive:
 
 ```
 $ cat NifH_full_report.txt
@@ -490,10 +491,11 @@ gene_callers_id	source	accession	function	search_term	contigs
 4020	KOfam	K02588	nitrogenase iron protein NifH	NifH	Trichodesmium_sp_MAG_R01_000000000230_split_00006
 ```
 
+We've found our marker gene for nitrogen fixation, which is a good sign given that this MAG seems to be a *T. erythraeum* genome, and *T. erythraeum* is known to fix nitrogen.
+
 ### Working with multiple genomes
 
-Now that we know how to make basic genomic analysis using a single genomes, we can try to do the same using a few more genomes.
-In the directory `00_FASTA_GENOMES`, you will fine seven FASTA files:
+Now that we know how to do basic genomic analysis using a single genome, we can try to do the same using a few more genomes. In the directory `00_FASTA_GENOMES`, you will find seven FASTA files containing the reference genomes and MAGs from Tom's paper:
 
 ```bash
 $ ls 00_FASTA_GENOMES
@@ -503,17 +505,17 @@ MAG_Candidatus_Trichodesmium_nobis.fa    MAG_Trichodesmium_thiebautii_Atlantic.f
 Trichodesmium_erythraeum_IMS101.fa
 ```
 
-We will create as many {% include ARTIFACT name="contigs-db" %} as we have genomes in this directory. We will then annotate them in a similar fashion as when working with a single genome.
+We will create as many {% include ARTIFACT name="contigs-db" text="contigs databases" %} as we have genomes in this directory. We will then annotate them in a similar fashion as when working with a single genome.
 
-First, let's create a simple text file that will contains the name of our genomes. The following bash command will list the content of the genome's directory and will only keep the name before the `.fa`, a.k.a. our genome's name:
+To avoid too much manual labor, we'll use BASH loops to automate the process. The loops will be a bit easier to write (and understand) if we have a text file of genome names to iterate over. So first, let's create a simple text file that contains the names of our genomes. The following BASH command will list the content of the `00_FASTA_GENOMES` directory and will only keep the part of the file name before the `.fa` extension, a.k.a. only the name of each genome:
 
 ```bash
 ls 00_FASTA_GENOMES/ | cut -d '.' -f 1 > genomes.txt
 ```
 
-The first thing to do is to make sure our FASTA are properly formatted. Fortunately for you, we provided genomes with anvi'o compatible headers. If you don't believe me (and you should never believe me, and always check your data), then have a look at them.
+The second thing to do is to make sure our FASTA files are properly formatted. Fortunately for you, we provided genomes with anvi'o compatible headers. If you don't believe me (and you should never believe me, and always check your data), then have a look at them.
 
-The next step is to generate {% include ARTIFACT name="contigs-db" %} for each of our genomes with the following bash loop:
+The next step is to generate {% include ARTIFACT name="contigs-db" %} for each of our genomes with the following BASH loop:
 
 ```bash
 while read genome
@@ -524,7 +526,7 @@ do
 done < genomes.txt
 ```
 
-Now we can annotates these genomes with {% include PROGRAM name="anvi-run-hmms" %}, {% include PROGRAM name="anvi-run-ncbi-cogs" %}, {% include PROGRAM name="anvi-run-kegg-kofams" %}:
+Now we can annotate these genomes with {% include PROGRAM name="anvi-run-hmms" %}, {% include PROGRAM name="anvi-run-ncbi-cogs" %}, and {% include PROGRAM name="anvi-run-kegg-kofams" %}:
 
 ```bash
 # should take ... mins
