@@ -812,6 +812,17 @@ The heatmap should ultimately look something like this:
 
 {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_02.png" width=80 %}
 
+A few things we can notice from the visualization:
+- In the genome clustering, there are three main groups of metabolically-similar genomes: all the *T. erythraeum* genomes are together, all the *T. thiebautii* genomes are together, and the two candidate species *T. miru* and *T. nobis* are together.
+- The rather incomplete *T. thiebautii* H9 genome is clearly missing a lot of metabolic pathways that it shouldn't actually be missing, particularly on the right side of the heatmap where there are plenty of modules shared by all of the other 7 genomes.
+- It should be fairly easy now to spot the modules that are missing specifically in *T. miru* and *T. nobis*. Here they are, highlighted in orange:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_03.png" width=50 %}
+
+As expected, the nitrogen fixation module is there.
+
+Right next to the nitrogen fixation module is an unusual sounding metabolic pathway, Lactosylceramide biosynthesis, which is 50% complete in all of the other genomes.Lactosylceramides are a type of glycosphingolipid, not very well studied in Cyanobacteria (except for some work investigating sphingolipid roles in plant-microbe symbiotic interactions [(Heaver, Johnson and Ley 2018)](https://doi.org/10.1016/j.mib.2017.12.011)), so perhaps it is not this exact pathway that is relevant, but rather some of the enzymes in it. Indeed, if you look at the details of M00066 in the long-format output file, you will see that only one enzyme is annotated in these genomes: ceramide glucosyltransferase (K00720). Unfortunately, this enzyme is also not well studied in bacteria, so we don't have much literature backup for interpreting the lack of this function in *T. miru* and *T. nobis*. Maybe a sphingolipid expert will see this one day and look into it. :)
+
 Don't forget to go back to the parent directory before you move on to the next tutorial section:
 ```bash
 cd ..
