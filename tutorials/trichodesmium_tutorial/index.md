@@ -956,6 +956,11 @@ other pathways containing gene call 208.
 
 The lessons here: pay attention to warnings from anvi'o programs. And keep in mind that many of these warnings are suppressed when processing multiple inputs, so testing things on individual genomes might be the way to go when outputs look strange.
 
+{:.notice}
+If something goes wrong (or weird) while using anvi'o, you may want to try re-running whatever you just did with the addition of the global `--debug` flag (which works for all anvi'o programs). This flag enables extra terminal output, which in the best case may help you figure out what is going on, and in the worst case can provide enough information to send to the developers when you ask them for help (in case of errors, we especially appreciate the code tracebacks that `--debug` allows you to see).
+
+If you found this section useful and you want to make your own custom metabolic modules, check out this guide on the {% include ARTIFACT name="user-modules-data" %} help page.
+
 
 Don't forget to go back to the parent directory before you move on to the next tutorial section:
 ```bash
