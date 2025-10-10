@@ -13,12 +13,12 @@ comments: true
 
 <span class="extra-info-header">Summary</span>
 
-**The purpose of this tutorial** is to learn how to use the set of integrated 'omics tools in anvi'o to make sense of a few Trichodesmium genomes.
+**The purpose of this tutorial** is to learn how to use the set of integrated 'omics tools in anvi'o to make sense of a few _Trichodesmium_ genomes.
  Here is a list of topics that are covered in this tutorial:
 
  * Create a {% include ARTIFACT name="contigs-db" %} and use functional and taxonomic assignment.
  * Estimate taxonomy, completion/redundancy and metabolic pathway completeness across multiple genomes.
- * Generate a pangenome of closely related Trichodesmium genomes.
+ * Generate a pangenome of closely related _Trichodesmium_ genomes.
  * Use metagenomic read-recruitment.
 
  {:.notice}
@@ -454,7 +454,7 @@ The output table looks like this:
 |4813|KOfam|K11524|positive phototaxis protein PixI|4e-37|
 
 
-You can search for your favorite function. Trichodesmium is know for its ability to fix nitrogen, you can look for the `NifH` gene, which is repo
+You can search for your favorite function. _Trichodesmium_ is know for its ability to fix nitrogen, you can look for the `NifH` gene, which is repo
 ```bash
 $ grep NifH functional_annotations.txt
 3709	COG24_FUNCTION	COG1348	Nitrogenase ATPase subunit NifH/coenzyme F430 biosynthesis subunit CfbC (NifH/CfbC) (PDB:1CP2) (PUBMED:28225763)	1.5e-197
@@ -649,7 +649,7 @@ We'll start with pathway prediction. The program {% include PROGRAM name="anvi-e
 
 The KEGG database goes through regular updates, so to keep things a bit more stable anvi'o uses prepackaged snapshots of KEGG data. More reasons for this are explained [here](https://anvio.org/help/main/programs/anvi-setup-kegg-data/#why-is-this-the-default). You can have multiple different snapshots on your computer at the same time, and pick which one to use with the `--kegg-data-dir` parameter of KEGG-associated programs.
 
-To keep track of which KEGG snapshot is relevant to your current dataset, anvi'o hashes the contents of the KEGG data directory and stores this hash in your {% include ARTIFACT name="contigs-db" %} when you run {% include PROGRAM name="anvi-run-kegg-kofams" %}. You can see which version you have by running {% include PROGRAM name="anvi-db-info" %} and looking for the `modules_db_hash` key. For example, all of the Trichodesmium genomes in the tutorial datapack should have the following hash value:
+To keep track of which KEGG snapshot is relevant to your current dataset, anvi'o hashes the contents of the KEGG data directory and stores this hash in your {% include ARTIFACT name="contigs-db" %} when you run {% include PROGRAM name="anvi-run-kegg-kofams" %}. You can see which version you have by running {% include PROGRAM name="anvi-db-info" %} and looking for the `modules_db_hash` key. For example, all of the _Trichodesmium_ genomes in the tutorial datapack should have the following hash value:
 
 ```
 modules_db_hash ..............................: 66e53d49e65a
@@ -662,7 +662,7 @@ The {% include ARTIFACT name="modules-db" %} in the KEGG snapshot with hash `66e
 
 </details>
 
-{% include PROGRAM name="anvi-estimate-metabolism" %} can work on individual genomes, but we're interested in comparing the metabolic capacity of all 8 Trichodesmium genomes. So let's use our handy-dandy {% include ARTIFACT name="external-genomes" %} file to individually estimate metabolism on each one:
+{% include PROGRAM name="anvi-estimate-metabolism" %} can work on individual genomes, but we're interested in comparing the metabolic capacity of all 8 _Trichodesmium_ genomes. So let's use our handy-dandy {% include ARTIFACT name="external-genomes" %} file to individually estimate metabolism on each one:
 
 ```bash
 # takes 12 minutes
