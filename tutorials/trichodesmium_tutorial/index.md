@@ -875,26 +875,26 @@ Here is the custom module for hopanoid production as an example:
 ```
 ENTRY       NIF003
 NAME        Hopanoid lipid production
-DEFINITION  (K00801,COG1562) (K06045,COG1657) PF01370 PF00535 PF01048 PF04055+PF11946
+DEFINITION  (K00801,COG1562) (K06045,COG1657) PF01370.25 PF00535.30 PF01048.24 PF04055.25+PF11946.12
 ORTHOLOGY   K00801   farnesyl-diphosphate farnesyltransferase [EC:2.5.1.21]
             COG1562  phytoene/squalene synthetase
             K06045   squalene-hopene/tetraprenyl-beta-curcumene cyclase [EC:5.4.99.17 4.2.1.129]
             COG1657  terpene cyclase SqhC
-            PF01370  Hopanoid-associated sugar epimerase HpnA
-            PF00535  Hopene-associated glycosyltransferase HpnB
-            PF01048  Putative hopanoid-associated phosphorylase HpnG
-            PF04055  Hopanoid biosynthesis associated radical SAM protein HpnH (Radical SAM domain)
-            PF11946  Hopanoid biosynthesis associated radical SAM protein HpnH (unknown associated domain)
+            PF01370.25  Hopanoid-associated sugar epimerase HpnA
+            PF00535.30  Hopene-associated glycosyltransferase HpnB
+            PF01048.24  Putative hopanoid-associated phosphorylase HpnG
+            PF04055.25  Hopanoid biosynthesis associated radical SAM protein HpnH (Radical SAM domain)
+            PF11946.12  Hopanoid biosynthesis associated radical SAM protein HpnH (unknown associated domain)
 CLASS       User modules; Biosynthesis; Lipid biosynthesis
 ANNOTATION_SOURCE   K00801  KOfam
                     K06045  KOfam
                     COG1562  COG24_FUNCTION
                     COG1657  COG24_FUNCTION
-                    PF01370  Pfam
-                    PF00535  Pfam
-                    PF01048  Pfam
-                    PF04055  Pfam
-                    PF11946  Pfam
+                    PF01370.25  Pfam
+                    PF00535.30  Pfam
+                    PF01048.24  Pfam
+                    PF04055.25  Pfam
+                    PF11946.12  Pfam
 ///
 ```
 {% include CODEBLOCKFILENAME filename="00_DATA/modules/NIF003" %}
@@ -909,9 +909,53 @@ anvi-setup-user-modules -u ../00_DATA/
 
 Doing so creates a database at `00_DATA/USER_MODULES.db` containing these four modules. We can now give this database to {% include PROGRAM name="anvi-estimate-metabolism" %} with the `-u` parameter. We'll also use the `--only-user-modules` flag to skip the KEGG module estimation.
 
+Additionally, we will ask the program to compute module copy numbers for us with the `--add-copy-number` flag. Copy numbers are usually more suitable for metagenomic input rather than individual genomes, but transporter genes can often occur in multiple copies in a single genome and we want to be able to capture that signal in our estimation output.
+
 ```bash
-anvi-estimate-metabolism -e external-genomes.txt -u ../00_DATA/ --only-user-modules -O nitrogen_metabolism
+anvi-estimate-metabolism -e external-genomes.txt \
+            -u ../00_DATA/ \
+            --only-user-modules \
+            --add-copy-number \
+            -O nitrogen_metabolism
 ```
+
+Take a look at the output (`nitrogen_metabolism_modules.txt`). What do you notice? 
+
+Here are some of my observations:
+- As we expected, *T. miru* and *T. nobis* only have the `NIF004` (Nitrogen uptake) module complete.
+- The other 6 genomes have all the modules >80% complete (except for H9, which is missing several genes from the hydrogen recycling and nitrogen uptake modules. But we already know it is quite an incomplete genome).
+- *T. miru* and *T. nobis* have multiple copies of the _narK_ transporter (as Tom found in his paper) while the others each have one. This isn't enough to make the overall nitrogen uptake module have a higher copy number, but you can see the copies of the individual transporters in the last column (`per_step_copy_numbers`).
+- Interestingly, the hopanoid lipid production module (`NIF003`) has relatively high completeness in most genomes (including *T. miru* and *T. nobis*, in which the module is 75% complete), and a lot of that seems to result from finding many Pfam annotations for the _hpn_ gene domains. This contrasts with the results from Tom's paper -- Tom used the [RAST annotation tool](https://www.anl.gov/mcs/rast-rapid-annotation-using-subsystem-technology) to find the _hpnABGH_ genes, which may have been a more stringent and/or specific strategy. Perhaps these Pfam domains are too generic to indicate hopanoid production? If we were serious about this analysis, we would probably cross-check our module with a lipid biosynthesis expert to make sure it is appropriate for identifying this metabolic capacity. :)
+- One thing looks weird! If you look at the per-step copy numbers for `NIF003`, the last step always has a copy number of 0 -- even though there are certainly genomes in which both _hpnH_ Pfam domains are annotated. In fact, for 6 of the genomes, the pathwise copy number is 1 (or 2) while the stepwise copy number is 0.
+
+Let's look into that last point a bit more. What is going with the stepwise copy number estimation for hopanoid production? When things look weird in the results, it is always good to take a single genome, rerun the metabolism estimation, and pay attention to the warnings in the terminal output. Terminal output is more verbose on individual genomes than in 'multi-mode' for {% include PROGRAM name="anvi-estimate-metabolism" %}.
+
+The *T. erythraeum* genome shows this weird copy number pattern, so let's use that one:
+```bash
+anvi-estimate-metabolism -c ../Trichodesmium_erythraeum_IMS101-contigs.db \
+                  -u ../00_DATA/ \
+                  --only-user-modules \
+                  -O test \
+                  --add-copy-number
+```
+
+Aha! There is a relevant warning in the terminal output:
+```
+WARNING
+===============================================
+The gene call 208 has multiple annotations to alternative enzymes within the
+same step of a metabolic pathway (PF04055.25, PF11946.12), and these enzymes
+unfortunately have a complex relationship. The affected module is NIF003, and
+here is the step in question: PF04055.25+PF11946.12. We arbitrarily kept only
+one of the annotations to this gene in order to avoid inflating the step's copy
+number, but due to the complex relationship between these alternatives, this
+could mean that the copy number for this step is actually too low. Please heed
+this warning and double check the stepwise copy number results for NIF003 and
+other pathways containing gene call 208.
+```
+
+The lessons here: pay attention to warnings from anvi'o programs. And keep in mind that many of these warnings are suppressed when processing multiple inputs, so testing things on individual genomes might be the way to go when outputs look strange.
+
 
 Don't forget to go back to the parent directory before you move on to the next tutorial section:
 ```bash
