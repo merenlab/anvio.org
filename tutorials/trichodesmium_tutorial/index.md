@@ -373,11 +373,14 @@ For now, we will use the COG and KEGG databases on our *Trichodesmium* genome. {
 If you know your machine can use more threads, feel free to change the flag `-T 4` to another number.
 
 ```bash
-# will take about ~1 min
+# will take ~1 min
 anvi-run-ncbi-cogs -c Trichodesmium_sp-contigs.db -T 4
 
-# will take about ~8 min
+# will take ~8 min
 anvi-run-kegg-kofams -c Trichodesmium_sp-contigs.db -T 4
+
+# will take ~1 min
+anvi-run-pfams -c Trichodesmium_sp-contigs.db -T 4
 ```
 
 As you can see in the terminal output from the commands above, there are no output files. All the annotations are stored into the {% include ARTIFACT name="contigs-db" %}. You can use {% include PROGRAM name="anvi-db-info" %} to check which functional annotations are already in an existing {% include ARTIFACT name="contigs-db" %} (including manually imported ones). You can also use {% include PROGRAM name="anvi-export-functions" %} to get a tab-delimited file of all the annotations from a given annotation source (or multiple).
@@ -545,6 +548,7 @@ do
     anvi-run-hmms -c ${genome}-contigs.db -T 4
     anvi-run-ncbi-cogs -c ${genome}-contigs.db -T 4
     anvi-run-kegg-kofams -c ${genome}-contigs.db -T 4
+    anvi-run-pfams -c ${genome}-contigs.db -T 4
     anvi-run-scg-taxonomy -c ${genome}-contigs.db -T 4
 done < genomes.txt
 ```
