@@ -919,7 +919,95 @@ anvi-estimate-metabolism -e external-genomes.txt \
             -O nitrogen_metabolism
 ```
 
-Take a look at the output (`nitrogen_metabolism_modules.txt`). What do you notice? 
+Take a look at the output (`nitrogen_metabolism_modules.txt`). What do you notice?
+
+For convenience, I'll also show the heatmap of pathway completeness scores:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_04.png" width=50 %}
+
+And the heatmap of per-step copy numbers:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_05.png" width=50 %}
+
+{:.notice}
+In these visualizations, we've adjusted the min/max values to better show the different values. The completeness score heatmap has a minimum of 0.25 (so any completeness value below that appears white) and the normal maximum of 1.0. The copy number heatmap has the normal minimum of 0 and a maximum of 10 (so any copy number above 10 appears black) -- there are some steps that have way more than 10 copies, which makes the typical range of 0-2 copies extremely difficult to see on the heatmap unless we cap the value.
+
+<details markdown="1"><summary>Show/Hide Commands to generate the heatmaps</summary>
+
+Just like before, if you want a heatmap, you'll have to generate the output in matrix format:
+
+```bash
+anvi-estimate-metabolism -e external-genomes.txt \
+            -u ../00_DATA/ \
+            --only-user-modules \
+            --add-copy-number \
+            -O nitrogen_metabolism \
+            --matrix-format
+```
+
+For a heatmap this small, we don't really need to cluster anything. But it would be nice to see the module names instead of just their numbers, so we'll make a little table of names:
+
+```bash
+echo -e "module\tname" > custom_mod_names.txt
+sqlite3 ../00_DATA/USER_MODULES.db "select module,data_value from modules where data_name='NAME'" | \
+        tr '|' '\t'  >> custom_mod_names.txt
+```
+
+Since we need a profile database before we can store any additional data in it, we'll go ahead and run {% include PROGRAM name="anvi-interactive" %} with the `--dry-run` flag to create one. Then we can import the module name data. If you want, you can also import a {% include ARTIFACT name="state-json" text="state file" %} to automatically make the visualization into a heatmap.
+
+```bash
+anvi-interactive -d nitrogen_metabolism-module_pathwise_completeness-MATRIX.txt \
+                  -p nitrogen_completeness.db \
+                  --manual \
+                  --title "Completeness of custom nitrogen modules" \
+                  --dry-run
+
+anvi-import-misc-data -p nitrogen_completeness.db -t items custom_mod_names.txt
+
+# if you want, import the heatmap visualization settings
+anvi-import-state -p nitrogen_completeness.db -n default -s ../00_DATA/nitrogen_heatmap.json
+```
+
+Finally, here is the visualization command (this time without `--dry-run`):
+
+```bash
+anvi-interactive -d nitrogen_metabolism-module_pathwise_completeness-MATRIX.txt \
+                  -p nitrogen_completeness.db \
+                  --manual \
+                  --title "Completeness of custom nitrogen modules"
+```
+
+If you also want to make the per-step copy number heatmap, it is a similar chain of commands. The only difference is the module name info file, which now has to be based on the step names. Here are all the commands to run:
+
+```bash
+# a little BASH loop to generate the step names file
+# with a little trick: two columns for the name so that one can be colors and one can be text
+echo -e "step\tname\tname2" > custom_step_names.txt
+while read step; do \
+  mod=$(echo $step | cut -d '_' -f 1); \
+  name=$(grep $mod custom_mod_names.txt | cut -f 2); \
+  echo -e "$step\t$name\t$name" >> custom_step_names.txt; \
+done < <(cut -f 1 nitrogen_metabolism-step_copy_number-MATRIX.txt | tail -n+2)
+
+# get a profile db
+anvi-interactive -d nitrogen_metabolism-step_copy_number-MATRIX.txt \
+                  -p nitrogen_step_copies.db \
+                  --manual \
+                  --title "Per-step copy number of custom nitrogen modules" \
+                  --dry-run
+
+# import relevant data
+anvi-import-misc-data -p nitrogen_step_copies.db -t items custom_step_names.txt
+anvi-import-state -p nitrogen_step_copies.db -n default -s ../00_DATA/nitrogen_heatmap.json
+
+# visualize
+anvi-interactive -d nitrogen_metabolism-step_copy_number-MATRIX.txt \
+                  -p nitrogen_step_copies.db \
+                  --manual \
+                  --title "Per-step copy number of custom nitrogen modules"
+```
+
+</details>
 
 Here are some of my observations:
 - As we expected, *T. miru* and *T. nobis* only have the `NIF004` (Nitrogen uptake) module complete.
