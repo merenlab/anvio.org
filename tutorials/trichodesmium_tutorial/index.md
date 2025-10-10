@@ -864,6 +864,55 @@ As expected, the nitrogen fixation module is there.
 
 Right next to the nitrogen fixation module is an unusual sounding metabolic pathway, Lactosylceramide biosynthesis, which is 50% complete in all of the other genomes.Lactosylceramides are a type of glycosphingolipid, not very well studied in Cyanobacteria (except for some work investigating sphingolipid roles in plant-microbe symbiotic interactions [(Heaver, Johnson and Ley 2018)](https://doi.org/10.1016/j.mib.2017.12.011)), so perhaps it is not this exact pathway that is relevant, but rather some of the enzymes in it. Indeed, if you look at the details of M00066 in the long-format output file, you will see that only one enzyme is annotated in these genomes: ceramide glucosyltransferase (K00720). Unfortunately, this enzyme is also not well studied in bacteria, so we don't have much literature backup for interpreting the lack of this function in *T. miru* and *T. nobis*. Maybe a sphingolipid expert will see this one day and look into it. :)
 
+### Using custom metabolic modules
+
+When we estimated metabolism with the default KEGG modules in the previous section, a lot of the completeness scores were quite similar across all 8 of our genomes. But we know from Tom's paper that there are a few other nitrogen fixation-related activities that *T. miru* and *T. nobis* do not have and that the other genomes do. The KEGG modules don't really capture what makes these genomes different. Additionally, the KEGG module for nitrogen fixation isn't comprehensive (as I mentioned before).
+
+So let's fix that, by using our own set of custom metabolic modules. There are some in the datapack at XXXX. They include a nitrogen fixation module with the full _nif_ gene set (_nifHDK_ and _nifENB_), a module for hydrogen recycling (_hyaABD_ and _hypABCDEF_), a module for hopanoid lipid production (squalene synthase, squalene-hopene cyclase, and _hpnABGH_), and a module for nitrite/nitrate transport (_nark_ and _tauABC_). The first three are related to nitrogen fixation and associated metabolic activities, while the last one is related to nitrogen assimilation (an alternative to nitrogen fixation) -- hence, we expect to find only the last module complete in *T. miru* and *T. nobis*.
+
+Here is the custom module for hopanoid production as an example:
+
+```
+ENTRY       NIF003
+NAME        Hopanoid lipid production
+DEFINITION  (K00801,COG1562) (K06045,COG1657) PF01370 PF00535 PF01048 PF04055+PF11946
+ORTHOLOGY   K00801   farnesyl-diphosphate farnesyltransferase [EC:2.5.1.21]
+            COG1562  phytoene/squalene synthetase
+            K06045   squalene-hopene/tetraprenyl-beta-curcumene cyclase [EC:5.4.99.17 4.2.1.129]
+            COG1657  terpene cyclase SqhC
+            PF01370  Hopanoid-associated sugar epimerase HpnA
+            PF00535  Hopene-associated glycosyltransferase HpnB
+            PF01048  Putative hopanoid-associated phosphorylase HpnG
+            PF04055  Hopanoid biosynthesis associated radical SAM protein HpnH (Radical SAM domain)
+            PF11946  Hopanoid biosynthesis associated radical SAM protein HpnH (unknown associated domain)
+CLASS       User modules; Biosynthesis; Lipid biosynthesis
+ANNOTATION_SOURCE   K00801  KOfam
+                    K06045  KOfam
+                    COG1562  COG24_FUNCTION
+                    COG1657  COG24_FUNCTION
+                    PF01370  Pfam
+                    PF00535  Pfam
+                    PF01048  Pfam
+                    PF04055  Pfam
+                    PF11946  Pfam
+///
+```
+{% include CODEBLOCKFILENAME filename="00_DATA/modules/NIF003" %}
+
+As you can see, it includes enzymes from multiple annotation sources. We've already annotated our genomes with all of those functional databases, so we are good to go.
+
+To set up the custom modules into a {% include ARTIFACT name="modules-db" text="modules database" %} that we can use with {% include PROGRAM name="anvi-estimate-metabolism" %}, we need to use the program {% include PROGRAM name="anvi-setup-user-modules" %}:
+
+```bash
+anvi-setup-user-modules -u ../00_DATA/
+```
+
+Doing so creates a database at `00_DATA/USER_MODULES.db` containing these four modules. We can now give this database to {% include PROGRAM name="anvi-estimate-metabolism" %} with the `-u` parameter. We'll also use the `--only-user-modules` flag to skip the KEGG module estimation.
+
+```bash
+anvi-estimate-metabolism -e external-genomes.txt -u ../00_DATA/ --only-user-modules -O nitrogen_metabolism
+```
+
 Don't forget to go back to the parent directory before you move on to the next tutorial section:
 ```bash
 cd ..
