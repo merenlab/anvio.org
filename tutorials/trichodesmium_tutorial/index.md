@@ -1367,7 +1367,7 @@ anvi-draw-kegg-pathways --external-genomes ../external-genomes.txt \
                 -o ALL_PATHWAY_MAPS \
                 --ko \
                 --draw-grid \
-                --pathway-numbers 00910 01310 00195 00860 00906 00900 00260
+                --pathway-numbers 00910 01310 00195 00860 00906 00900 00260 00290
 ```
 
 The resulting files in the `ALL_PATHWAY_MAPS` include:
@@ -1386,6 +1386,14 @@ To reveal the specific distribution of enzymes across genomes, here is the corre
 {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_08.pdf" width=80 %}
 
 Now it is clear that *T. miru* and *T. nobis* are missing nitrogen fixation (as we know), and that *T. miru* is the only species that can convert nitrite to ammonia.
+
+I encourage you to look through the other maps (both overall and in grid form). Here are some things to look out for:
+- The nitrogen cycle map (01310) shows metabolic capacity with colored reaction arrows rather than boxes. There again you can see that *T. miru* is the only one doing nitrogen dissimilation.
+- In map 00260 (Glycine, Serine and Threonine Metabolism), you can see that *T. miru* and *T. nobis* are also the only genomes with the enzyme to convert threonine to 2-oxobutanoate (a precursor leading into the production of several other amino acids). You can see the same thing in map 00290 (Valine, Leucine and Isoleucine Biosynthesis). Clearly the other genomes have the capacity to make those amino acids, just not by starting from 2-oxobutanoate. So biosynthesis of amino acids is just a bit more connected in *T. miru* and *T. nobis* compared to the others.
+- Map 00195 shows photosynthesis. Maps 00860, 00900, and 00906 are photosynthesis-related capacities, like the biosynthesis of pigments. These are things that all the _Trichodesmium_ species can do, but there are still differences between these genomes -- some genomes are missing enzymes that all the others have (a detection issue?) while others have some enzymes that all the others don't (interesting ecology?).
+
+The KEGG Pathway Maps cover many metabolic capacities that KEGG modules do not, and can be a great tool for comparative metabolism analyses.
+
 
 Don't forget to go back to the parent directory before you move on to the next tutorial section:
 ```bash
