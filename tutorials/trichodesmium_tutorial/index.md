@@ -1179,13 +1179,12 @@ anvi-estimate-metabolism -e external-genomes.txt \
 
 Take a look at the output (`nitrogen_metabolism_modules.txt`). What do you notice?
 
-For convenience, I'll also show the heatmap of pathway completeness scores:
+For convenience, I'll also show the heatmap of pathway completeness scores and the heatmap of per-step copy numbers:
 
-{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_04.png" width=50 %}
-
-And the heatmap of per-step copy numbers:
-
-{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_05.png" width=50 %}
+<div style="display: flex; gap: 10px;">
+  {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_04.png" width=100 %}
+  {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_05.png" width=100 %}
+</div>
 
 {:.notice}
 In these visualizations, we've adjusted the min/max values to better show the different values. The completeness score heatmap has a minimum of 0.25 (so any completeness value below that appears white) and the normal maximum of 1.0. The copy number heatmap has the normal minimum of 0 and a maximum of 10 (so any copy number above 10 appears black) -- there are some steps that have way more than 10 copies, which makes the typical range of 0-2 copies extremely difficult to see on the heatmap unless we cap the value.
@@ -1343,7 +1342,7 @@ For each KEGG Pathway Map, the program will highlight the KOs from the map that 
 
 Let's look at an example map. Of course we will look at the [Nitrogen Metabolism](https://www.kegg.jp/pathway/map00910) map (which is map 00910 and stored at `Trichodesmium_sp_PATHWAY_MAPS/kos_00910.pdf`):
 
-{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_06.pdf" width=80 %}
+{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_06.png" width=100 %}
 
 You can see that in addition to nitrogen fixation (nitrogen to ammonia), this microbe can also import nitrate and nitrate from the extracellular matrix into the cell, convert nitrate to nitrite (assimilatory nitrate reduction) and to nitric oxide, convert nitrite to ammonia, and feed that ammonia into glutamate metabolism -- which is the start of amino acid biosynthesis using that fresh new bioavailable nitrogen.
 
@@ -1377,13 +1376,13 @@ The resulting files in the `ALL_PATHWAY_MAPS` include:
 
 For consistency with above, we'll look at Pathway Map 00910 for Nitrogen Metabolism again. Here is the combined map at `ALL_PATHWAY_MAPS/kos_00910.pdf`:
 
-{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_07.pdf" width=80 %}
+{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_07.png" width=100 %}
 
 The legend tell us that smaller counts are warm colors (starting from a count of 1 in yellow) and higher counts are warm colors (going to a max of 8 in dark purple). So we can tell from this map that all the genomes encode enzymes for assimilatory nitrate reduction, 6 out of the 8 genomes encode nitrogen fixation, and only 1 genome can convert nitrite to ammonia. But we don't know which genome can do what. 
 
 To reveal the specific distribution of enzymes across genomes, here is the corresponding grid map (`ALL_PATHWAY_MAPS/grid/kos_00910.pdf`):
 
-{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_08.pdf" width=80 %}
+{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_08.png" width=100 %}
 
 Now it is clear that *T. miru* and *T. nobis* are missing nitrogen fixation (as we know), and that *T. miru* is the only species that can convert nitrite to ammonia.
 
