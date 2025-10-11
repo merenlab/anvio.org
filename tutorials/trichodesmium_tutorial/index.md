@@ -1156,7 +1156,6 @@ ANNOTATION_SOURCE   K00801  KOfam
                     PF11946.12  Pfam
 ///
 ```
-{% include CODEBLOCKFILENAME filename="00_DATA/modules/NIF003" %}
 
 As you can see, it includes enzymes from multiple annotation sources. We've already annotated our genomes with all of those functional databases, so we are good to go.
 
