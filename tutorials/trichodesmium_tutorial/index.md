@@ -95,7 +95,7 @@ As a little preview, the essence of the story is this: _Trichodesmium_ species a
 
 We will use a variety of anvi'o programs to investigate the same genomes and characterize their nitrogen-fixing capabilities, to demonstrate how you, too, could discover cool microbial ecology stories like this one.
 
-## Downloading the data pack
+## Downloading the datapack
 
 In your terminal, choose a working directory for this tutorial and use the following code to download the dataset:
 
@@ -105,22 +105,30 @@ curl -L https://figshare.com/ndownloader/files/{something} \
      -o trichodesmium_tutorial.tar.gz
 ```
 
-Then unpack it, and go into the data pack directory:
+Then unpack it, and go into the datapack directory:
 
 ``` bash
 tar -zxvf trichodesmium_tutorial.tar.gz
 cd trichodesmium_tutorial
 ```
 
-At this point, if you type `ls` in your terminal, this is what you should be seeing:
+At this point, if you check the datapack contents in your terminal with `ls`, this is what you should be seeing:
 
 ```
 $ ls
-{WHATEVER IS THERE}
-```
+00_DATA
 
+$ ls 00_DATA/
+MAG_Candidatus_Trichodesmium_miru-contigs.db     MAG_Trichodesmium_thiebautii_Atlantic.fa         nitrogen_step_copies.json
+MAG_Candidatus_Trichodesmium_miru.fa             MAG_Trichodesmium_thiebautii_Indian-contigs.db   pan_state.json
+MAG_Candidatus_Trichodesmium_nobis-contigs.db    MAG_Trichodesmium_thiebautii_Indian.fa           Trichodesmium_erythraeum_IMS101-contigs.db
+MAG_Candidatus_Trichodesmium_nobis.fa            metabolism_state.json                            Trichodesmium_erythraeum_IMS101.fa
+MAG_Trichodesmium_erythraeum-contigs.db          module_info.txt                                  Trichodesmium_sp-contigs.db
+MAG_Trichodesmium_erythraeum.fa                  modules                                          Trichodesmium_thiebautii_H9_4-contigs.db
+MAG_Trichodesmium_thiebautii_Atlantic-contigs.db nitrogen_heatmap.json                            Trichodesmium_thiebautii_H9_4.fa
+``` 
 
-We have seven *Trichodesmium* genomes in the datapack. Some are metagenome-assembled genomes (MAGs) binned from the TARA Ocean metagenomic dataset, and others are reference genomes taken from NCBI RefSeq.
+Inside the `00_DATA` folder, there are several files that will be useful for various parts of this tutorial. We will start from the seven *Trichodesmium* genomes stored in FASTA (`.fa`) files. Some are metagenome-assembled genomes (MAGs) binned from the TARA Ocean metagenomic dataset, and others are reference genomes taken from NCBI RefSeq.
 
 ## Activating anvi'o
 
