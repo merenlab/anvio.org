@@ -1400,6 +1400,162 @@ I encourage you to look through the other maps (both overall and in grid form). 
 
 The KEGG Pathway Maps cover many metabolic capacities that KEGG modules do not, and can be a great tool for comparative metabolism analyses.
 
+### Predicting metabolic interactions
+
+One cool thing about _Trichodesmium_ is that they have friends. Bacterial friends, to be specific. _Trichodesmium_ colonies harbor associated bacteria like _Alteromonas_, _Roseibium_, and _Balneolales_ species. Based on a recent study about a Red Sea *T. thiebautii* colony and its bacterial associates [Koedooder et al 2023](https://doi.org/10.1128/msystems.00742-23), these microbes have a symbiotic relationship -- they help each other by exchanging important molecules. The bacterial associates are known to produce siderophores, which help with harvesting iron from dust in their environment and which _Trichodesmium_ cannot make itself. Meanwhile, _Trichodesmium_ can make several B vitamins that the bacterial associates are auxotrophic for.
+
+Wouldn't it be cool if we could investigate metabolic interactions using our genomes, without having to painstakingly search for individual gene annotations? Anvi'o got u, fam.
+
+There is a program called {% include PROGRAM name="anvi-predict-metabolic-exchanges" %} that leverages the {% include ARTIFACT name="reaction-network" %} infrastructure to identify potential metabolites that could be exchanged between two microbes from their genomic data. It does so by examining the reactions in the network to find metabolites that could be produced by only one of the organisms and consumed by the other. If possible, it then leverages the KEGG Pathway Maps that we saw in the previous section to walk over targeted subsets of the network starting from the potential exchange point, in order to compute statistics about the reaction chains leading up to (or away from) the exchange. Those statistics -- length, amount of overlap between genomes, etc -- serve as evidence for the likelihood of a potential exchange. The program also identifies which compounds are uniquely produced or consumed by one of the genomes in the pair. You can find more technical information about how {% include PROGRAM name="anvi-predict-metabolic-exchanges" %} works [here](https://anvio.org/help/main/programs/anvi-predict-metabolic-exchanges/#technical-details).
+
+We are going to test this program out on our *T. thiebautii* (Atlantic) genome and three genomes of known associated bacteria based on the [Koedooder et al 2023](https://doi.org/10.1128/msystems.00742-23) study. The MAGs from that study are not yet publicly available, so instead we will work with reference genomes -- one for _Alteromonas macleodii_ ([GCF_002849875.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_002849875.1/)), one for _Roseibium aggregatum_ ([GCF_000168975.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000168975.1/)), and one for _Marinobacter salarius_ ([GCF_002116735.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_002116735.1/)).
+
+You've already learned how to do all the preparatory steps for analyzing genomes -- making a {% include ARTIFACT name="contigs-db" text="contigs database" %}, {% include PROGRAM name="anvi-run-kegg-kofams" text="annotating with KOfams" %}, and creating the {% include ARTIFACT name="reaction-network" text="reaction network" %}. Feel free to practice on these three new genomes. But in case you just want to get right to the metabolic interactions analysis, there are pre-made, annotated contigs databases for these genomes in the datapack at `00_DATA/associate_dbs/`. 
+
+You can copy the databases over to your current working directory (assuming you are still in the `04_METABOLISM` folder) like so:
+```bash
+cp ../00_DATA/associate_dbs/*.db .
+```
+
+For those interested, click the Show/Hide box below to see how we made those databases.
+
+<details markdown="1"><summary>Show/Hide Steps to make the contigs databases</summary>
+
+```
+# download and reformat
+curl https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/849/875/GCF_002849875.1_ASM284987v1/GCF_002849875.1_ASM284987v1_genomic.fna.gz -o GCF_002849875.1_ASM284987v1_genomic.fna.gz
+gunzip GCF_002849875.1_ASM284987v1_genomic.fna.gz
+anvi-script-reformat-fasta GCF_002849875.1_ASM284987v1_genomic.fna -o A_macleodii.fasta --simplify-names --prefix GCF_002849875 --seq-type NT
+curl https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/168/975/GCF_000168975.1_ASM16897v1/GCF_000168975.1_ASM16897v1_genomic.fna.gz -o GCF_000168975.1_ASM16897v1_genomic.fna.gz
+gunzip GCF_000168975.1_ASM16897v1_genomic.fna.gz
+anvi-script-reformat-fasta GCF_000168975.1_ASM16897v1_genomic.fna -o R_aggregatum.fasta --simplify-names --prefix GCF_000168975 --seq-type NT
+curl https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/116/735/GCF_002116735.1_ASM211673v1/GCF_002116735.1_ASM211673v1_genomic.fna.gz -o GCF_002116735.1_ASM211673v1_genomic.fna.gz
+gunzip GCF_002116735.1_ASM211673v1_genomic.fna.gz
+anvi-script-reformat-fasta GCF_002116735.1_ASM211673v1_genomic.fna -o M_salarius.fasta --simplify-names --prefix GCF_002116735 --seq-type NT
+rm GCF_00*.fna
+
+# make contigs databases
+for g in A_macleodii R_aggregatum M_salarius; do 
+  anvi-gen-contigs-database -f $g.fasta -o $g-contigs.db -T 3
+done
+
+# annotate with KOfams
+for g in A_macleodii R_aggregatum M_salarius; do 
+  anvi-run-kegg-kofams -c $g-contigs.db -T 4; 
+done
+
+# make reaction network
+for g in A_macleodii R_aggregatum M_salarius; do 
+  anvi-reaction-network -c $g-contigs.db; 
+done
+```
+
+</details>
+
+Since the databases have {% include ARTIFACT name="reaction-network" text="reaction networks" %} already stored inside them, we can get right to predicting interactions. Let's start by running {% include PROGRAM name="anvi-predict-metabolic-exchanges" %} on one pair of genomes:
+
+```bash
+anvi-predict-metabolic-exchanges -c1 ../MAG_Trichodesmium_thiebautii_Atlantic-contigs.db \
+                -c2 A_macleodii-contigs.db \
+                -O thiebautii-vs-macleodii \
+                -T 4
+```
+
+There were probably some warnings on your screen about some Pathway Maps not having a "reaction (RN) type KGML file". This just means that we couldn't use those specific Maps when doing the Pathway Map walks for computing evidence. If you don't want to see the warnings, you can specifically exclude the missing Maps with the flag `--exclude-pathway-maps` (we will do this later).
+
+There are actually two prediction strategies used by {% include PROGRAM name="anvi-predict-metabolic-exchanges" %}, and the terminal output will tell you how many predictions were made using each one. Briefly, the first strategy ("Pathway Map Walk") is based on the KEGG Pathway Maps -- it works on only a subset of metabolites, but it generates high-quality predictions that are associated with evidence from the Pathway Map walks. The second strategy ("Reaction Network Subset") works on all metabolites in the network (even those not in KEGG Pathway Maps), but generates predictions that are potentially less accurate. That distinction is reflected in the sheer number of predictions that we get from either approach:
+
+```
+Number of exchanged compounds predicted from KEGG Pathway Map walks : 125
+Number of unique compounds predicted from KEGG Pathway Map walks : 621
+(...)
+Number of exchanged compounds predicted from Reaction Network subset approach : 309
+Number of unique compounds predicted from Reaction Network subset approach : 1,341
+```
+
+The Pathway Map walk approach gives you fewer predictions, while the reaction network subset approach gives you more (but lower confidence) predictions. Note that you can turn off either approach by using the `--no-pathway-walk` or `--pathway-walk-only` flags, respectively.
+
+Here is the summary of the results from the terminal:
+```
+OVERALL RESULTS
+===============================================
+Identified 434 potentially exchanged compounds and 1962 compounds unique to one
+genome.
+```
+
+These results are described in three output files: `thiebautii-vs-macleodii-potentially-exchanged-compounds.txt` describes the potential exchanges (with summaries of the evidence from associated Pathway Maps), `thiebautii-vs-macleodii-evidence.txt` contains the full set of statistics from all Pathway Map walks, and `thiebautii-vs-macleodii-unique-compounds.txt` describes the metabolites that are uniquely produced or consumed by one of the organisms. All of these output files are indexed by ModelSEED compound ID numbers.
+
+Our predictions are limited to the metabolites we can find in the ModelSEED database. ModelSEED doesn't contain compounds for siderophores like petrobactin, vibrioferrin, or agrobactin. So we cannot find those specific interactions as described in the [Koedooder et al 2023](https://doi.org/10.1128/msystems.00742-23) paper.
+
+But we might be able to find the B vitamin exchanges mentioned in that paper, or perhaps something new! Let's take a careful look at the predicted exchanges. Here are the first 10 lines of that file:
+
+|**`compound_id`**|**`compound_name`**|**`genomes`**|**`produced_by`**|**`consumed_by`**|**`prediction_method`**|**`max_reaction_chain_length`**|**`max_production_chain_length`**|**`production_overlap_length`**|**`production_overlap_proportion`**|**`production_chain_pathway_map`**|**`max_consumption_chain_length`**|**`consumption_overlap_length`**|**`consumption_overlap_proportion`**|**`consumption_chain_pathway_map`**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|cpd00027|D-Glucose|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|10|8|None|None|00500|2|2|1.0|00500|
+|cpd00037|UDP-N-acetylglucosamine|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|14|6|None|None|00520|8|8|1.0|00550|
+|cpd00044|3-phosphoadenylylsulfate|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|7|4|None|None|00920|3|3|1.0|00920|
+|cpd00065|L-Tryptophan|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|14|13|None|None|00400|1|1|1.0|00380|
+|cpd00085|beta-Alanine|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|Pathway_Map_Walk|10|1|None|None|00410,00770|9|2|0.2222222222222222|00770|
+|cpd00098|Choline|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|Pathway_Map_Walk|3|1|1|1.0|00564|2|None|None|00260|
+|cpd00100|Glycerol|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|2|1|None|None|00052,00561|1|1|1.0|00561|
+|cpd00104|BIOT|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|Pathway_Map_Walk|5|2|2|1.0|00780|3|None|None|00780|
+|cpd00107|L-Leucine|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|11|10|None|None|00290|1|1|1.0|00970|
+
+The predictions are ranked in order from best evidence to no evidence, so all of these at the top are coming from the `Pathway_Map_Walk` prediction strategy. And here already is one of our expected exchanges: the compound called 'BIOT' is actually biotin aka Vitamin B7, and *T. thiebautii* is potentially cross-feeding it to *A. macleodii* as suggested in the [Koedooder et al 2023](https://doi.org/10.1128/msystems.00742-23) paper.
+
+There are also a few unexpected predictions that look interesting: *A. macleodii* seems to be able to produce D-glucose, L-Tryptophan, and L-Leucine while *T. thiebautii* only can consume these compounds. The relatively long production chain lengths indicate that these aren't isolated production reactions in the network; they are rather part of a longer metabolic pathway. Meanwhile, the `None` values for the production overlap mean that the *T. thiebautii* genome doesn't contain any of the enzymes in the production-associated Pathway Map. In the case of L-Tryptophan, that map is 00400. Let's check the associated evidence for L-Tryptophan in map 00400 in the evidence file:
+
+|**`compound`**|**`compound_name`**|**`longest_chain_compound_names`**|**`longest_chain_compounds`**|**`longest_chain_reactions`**|**`longest_reaction_chain_length`**|**`maximum_overlap`**|**`organism`**|**`pathway_map`**|**`proportion_overlap`**|**`type`**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|cpd00065|L-Tryptophan|L-Tryptophan,indol,Indoleglycerol phosphate,1-(2-carboxyphenylamino)-1-deoxyribulose 5-phosphate,N-5-phosphoribosyl-anthranilate,Anthranilate,Chorismate,5-O--1-Carboxyvinyl-3-phosphoshikimate,3-phosphoshikimate,Shikimate,3-Dehydroshikimate,5-Dehydroquinate,DAHP,Phosphoenolpyruvate|C00078,C00463,C03506,C01302,C04302,C00108,C00251,C01269,C03175,C00493,C02637,C00944,C04691,C00074|rn:R00674,rn:R02340,rn:R03508,rn:R03509,rn:R01073,rn:R00985 rn:R00986,rn:R01714,rn:R03460,rn:R02412,rn:R02413,rn:R03084,rn:R03083,rn:R01826|13|None|A_macleodii|00400|None|production|
+|cpd00065|L-Tryptophan|None|None|None|None|None|MAG_Trichodesmium_thiebautii_Atlantic|00400|None|consumption|
+
+Okay, so far it looks pretty promising. There is a very long chain of reactions to produce tryptophan from phosphoenolpyruvate in *A. macleodii*, and nothing at all in *T. thiebautii*. But just to be sure, let's also visualize map 00400 for these two genomes with {% include PROGRAM name="anvi-draw-kegg-pathways" %} (and while we are at it, let's include the production maps for the other two interesting predictions):
+
+```bash
+anvi-draw-kegg-pathways --contigs-dbs ../MAG_Trichodesmium_thiebautii_Atlantic-contigs.db A_macleodii-contigs.db \
+              -o thiebautii-vs-macleodii_PATHWAY_MAPS \
+              --pathway-numbers 00400 00500 00290 \
+              --draw-grid \
+              --ko
+```
+
+Here is the part of that map where tryptophan is produced:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_09.png" width=70 %}
+
+Oh, wait. Only one of the two genomes (*A. macleodii*) has the enzymes to convert between indole or indoyl-containing compounds and tryptophan, but clearly both genomes have _all the rest_ of the enzymes leading up to that point (we didn't detect this in *T. thiebautii* because the start of the reaction chain was missing in its genome). This could be a legitimate gap in *T. thiebautii's* reaction network. Or, we could just be missing the annotation for these functions in *T. thiebautii* (i.e., either we are missing the relevant chunk of the genome, or we failed to annotate the corresponding gene that is present in the MAG).
+
+Perhaps this is a valid exchange, and perhaps it is not. It would take a bit more digging through the *T. thiebautii* MAG to see if we could find the relevant enzymes (e.g., K01695) with a more careful homology search. But proving that an enzyme is truly missing is hard, and we don't necessarily want to do that right now. So we are just going to move on.
+
+I encourage you to take a look at the corresponding maps for the production of L-Leucine and D-Glucose. The L-Leucine situation (in map 00290) looks very similar to the L-Tryptophan situation -- most of the enzymes are there in both genomes, but *T. thiebautii* is missing just the tail end of the reaction chain such that it looks like this microbe cannot fully synthesize several amino acids, including leucine, valine and isoleucine. Based on our previous exploration of this pathway map across all of the _Trichodesmium_ genomes, this seems unlikely to be true story. Most of the other genomes have those enzymes, including the *T. thiebautii* MAG from the Indian Ocean. So we can ignore this prediction.
+
+For D-Glucose (map 00500), on the other hand, there are many enzymes in the reaction chain that *A. macleodii* has but *T. thiebautii* does not. So that prediction looks legitimate -- *A. macleodii* could be cross-feeding glucose to *T. thiebautii*. Whether or not that _actually_ happens in real life is uncertain. First, *A. macleodii* would have to intentially create glucose (as opposed to funneling its energy and carbon into other things). Second, it would have to produce more glucose than it individually needs, and third, that glucose would have to make its way outside of the cell where *T. thiebautii* could pick it up. But this potential exchange of glucose is now a hypothesis that is testable either by experimental means or literature review.
+
+You might be wondering if there is a way to change the stringency of the Pathway Map walks so that they can handle small gaps. Indeed there is! We can set the `--maximum-gaps` parameter to allow for some number of gaps in the reaction chains. Unfortunately, this won't fix the case of L-Tryptophan, because the gap occurs right at the start of the reaction chain and you cannot build a chain that starts from nothing (Iva and Sam need to think about how to get around this edge case). However, it could help create a better ranking for other ambiguous cases in which the gaps are internal to the reaction chain.
+
+So let's run the predictions again -- this time allowing for a gap of 1 missing enzyme. We will also exclude those problematic pathway maps that gave us pesky warnings before. While creating the tutorial, I noticed that allowing for a gap of 1 causes problems with the Pathway Walk on a specific map, 00061 (Fatty acid biosynthesis) -- processing that map takes forever, potentially because the gap causes a cycle that the codebase can't handle quite yet. To avoid the long (potentially infinite) runtime, we will also exclude this specific map.
+
+{:.notice}
+How did I figure out that map 00061 was the problematic one? I re-ran the program with the `--debug` flag to get more verbose output, and noticed that map 00061 was the only one that started processing but didn't finish.
+
+In addition, since we've been seeing amino acids in the prediction output, we will add the `--use-equivalent-amino-acids` flag to make sure that we are considering metabolites like "Lysine" and "L-Lysine" to be the same (which could affect our results). Here is the full command:
+
+```bash
+anvi-predict-metabolic-exchanges -c1 ../MAG_Trichodesmium_thiebautii_Atlantic-contigs.db \
+                -c2 A_macleodii-contigs.db \
+                -O thiebautii-vs-macleodii \
+                --force-overwrite \
+                --maximum-gaps 1 \
+                --use-equivalent-amino-acids \
+                --exclude-pathway-maps 00061,00121,00190,00195,00196,00511,00542,00543 \
+                -T 4
+```
+
+This time, the number of predictions from the Pathway Map walk approach is a little bit smaller (122 predictions, compared to 125 from before). But the top-ranked results in the table above mostly didn't change, except for some of the reaction chains getting a bit longer. So now is the time to do some targeted searches through the rest of the file.
+
+{:.notice}
+Confused by the ModelSEED compound names? You are not a biogeochemist and are overwhelmed with all this molecular information? Us, too. One option for you is to take the output, pick out the predictions that you have high-confidence in, and give that list to a large-language model (LLM) so it can pick out the ones that are likely to be biologically-relevant in your system. Then you can focus your efforts on carefully validating those predictions.
 
 Don't forget to go back to the parent directory before you move on to the next tutorial section:
 ```bash
