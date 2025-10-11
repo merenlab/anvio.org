@@ -608,7 +608,6 @@ But if you do want to run the annotations yourself, I encourage you to try writi
 <details markdown="1"><summary>Show/Hide Option 2: Loop to annotate all databases</summary>
 
 ```bash
-# should take ... mins
 while read genome
 do
     echo "working on $genome"
