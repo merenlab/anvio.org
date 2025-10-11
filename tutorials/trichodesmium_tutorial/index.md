@@ -812,7 +812,7 @@ You can spend some time getting familiar with the interface and all the possible
 The state to reproduce the figure above is available in the directory `00_DATA`, and you can import it with the following command:
 
 ```bash
-anvi-import-state -p 03_PANGENOME/Trichodesmium-PAN.db -s 00_DATA/pan-state.json -n tutorial_state
+anvi-import-state -p 03_PANGENOME/Trichodesmium-PAN.db -s 00_DATA/pan_state.json -n tutorial_state
 ```
 
 ### Inspect gene clusters
@@ -869,6 +869,33 @@ The interactive interface button and the above command line generate the same ou
 |8|GC_00000001|near_core|MAG_Trichodesmium_erythraeum|901|6|221|214|0|0.659555877418382|0.940765773081969|0.775453602988201|0.12124248496994|1.0|0.956257104913241|||||||||||||||--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------AMVWIAKLGGFLGRKNDGEPGVKSLW--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------RGLKRLHDIASTWKLAHSFTSIACESYG----------------------------------------------------------------------------------------------|
 |9|GC_00000001|near_core|MAG_Trichodesmium_erythraeum|917|6|221|214|0|0.659555877418382|0.940765773081969|0.775453602988201|0.12124248496994|1.0|0.956257104913241|||||||||||||||--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------AMVWIAKLGGFLGRKNDGEPGVKSLW--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------RGLKRLHDIASTWKLAHSFTSIACESYG----------------------------------------------------------------------------------------------|
 
+### Search for functional annotations
+
+If you are interested in one or more functional annotations and where they fit in the pangenome - core, accessory, singleton, single or multiple copies - then you can use the "Search" tab. There you can search using any term you like. You can search for `Nif` and you will get all Nif genes, including NifH and more.
+
+{% include IMAGE path="/images/trichodesmium_tutorial/pan_12.png" width=50 %}
+
+Or you can directly search for `NifH` and you will notice two results which is not expected. We know from Tom's paper, that COG miss-annotate a ferredoxin gene as NifH:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/pan_13.png" width=50 %}
+<blockquote markdown="1">
+For instance, we found that genes with COG20 function incorrectly annotated as “Nitrogenase ATPase subunit NifH/coenzyme F430 biosynthesis subunit CfbC” correspond, in reality, to “ferredoxin: protochlorophyllide reductase.”
+<div class="blockquote-author">[doi:10.1073/pnas.2112355118](https://doi.org/10.1073/pnas.2112355118)</div>
+</blockquote>
+
+Then you can search for `NifH` by selecting only the KOfam annotation source, or directly use the KOfam accession number `K02588`
+
+<div style="display: flex; gap: 10px;">
+    {% include IMAGE path="/images/trichodesmium_tutorial/pan_14.png" width=100 %}
+    {% include IMAGE path="/images/trichodesmium_tutorial/pan_15.png" width=100 %}
+</div>
+
+Then you can scroll and list the result of the search and choose to highlight them on the pangenome. I would suggest you look for all the `Nif` genes, using only the KOfam annotation source to avoid the issues with COG. Then highlight the results on your pangenome. You can even choose to add the searched items to a bin.
+
+{% include IMAGE path="/images/trichodesmium_tutorial/pan_16.png" width=80 %}
+
+Note how nearly all Nif genes are concentrated in a section of the pangenome which correspond to genes clusters shared between *Trichodesmium thiebautii* and *erythraeum*, and not in *Trichodesmium miru* or *nobi*. The result is coherent with these genome lacking nitrogen fixation capability, but you may be wondering what is happening for that single gene cluster on the lower part the of the pangenome. It is found in *T. miru*, *T. nobis* and one *T. thiebautii*. If you inspect that gene cluster and look for the full functional annotation, you will see that it is NifU, which is not a marker for nitrogen fixation as it can be found in non-diazotrophic organisms.
+
 
 ### Additional genome information
 
@@ -921,17 +948,12 @@ AS you can see from the example above, you can integrate multiple information in
 
 There is a dedicated function in anvi'o, called {% include PROGRAM name="anvi-meta-pan-genome" %}, which you can learn more about it [here.](https://merenlab.org/data/prochlorococcus-metapangenome/)
 
-At the end of the day, you can have a figure like this one:
+At the end of the day, you can have a figure like this one, with ecology and evolution integrated in one figure:
 
-{insert figure of prochloro metapan}
+
+{% include IMAGE path="/images/gallery/full/Delmont_et_al_metapangenomics.png" width=80 %}
 
 </div>
-
-
-### Search for functional annotation
-
-
-
 
 ## Metabolism
 
