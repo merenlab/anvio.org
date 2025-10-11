@@ -1095,7 +1095,39 @@ I bet you are wondering how this map looks different across our _Trichodesmium_ 
 
 First, we will need to run {% include PROGRAM name="anvi-reaction-network" %} on all the other genomes. This program unfortunately doesn't accept an {% include ARTIFACT name="external-genomes" text="external genomes file" %} as input; however, we can reuse our BASH loop strategy from above.
 
+```bash
+while read genome
+do
+    anvi-reaction-network -c ../${genome}-contigs.db; \
+done < ../genomes.txt
+```
 
+Once that is done, we can run {% include PROGRAM name="anvi-draw-kegg-pathways" %} again, and this time we can provide an {% include ARTIFACT name="external-genomes" text="external genomes file" %}. We will also provide the `--draw-grid` flag so that we get maps showing the results from each individual genome (in addition to the default map showing the total annotations across all genomes). Since it would take a long time to draw every single Pathway Map for all 8 genomes, we will focus on a subset of maps as specified by the `--pathway-numbers` parameter -- the list below includes a couple of maps related to nitrogen metabolism, a few for photosynthesis and related metabolic capacities, and a map for metabolism of some amino acids.
+
+```bash
+anvi-draw-kegg-pathways --external-genomes ../external-genomes.txt \
+                -o ALL_PATHWAY_MAPS \
+                --ko \
+                --draw-grid \
+                --pathway-numbers 00910 01310 00195 00860 00906 00900 00260
+```
+
+The resulting files in the `ALL_PATHWAY_MAPS` include:
+- multiple map `.pdf` files (one per requested Pathway Map) with colored boxes showing the number of annotations to a given KO across all input genomes 
+- a `colorbar.pdf` showing the legend -- what color corresponds to what count
+- a `grid/` subdirectory containing similarly-named map `.pdf` files, except this time each one shows a grid of individual maps for each genome
+
+For consistency with above, we'll look at Pathway Map 00910 for Nitrogen Metabolism again. Here is the combined map at `ALL_PATHWAY_MAPS/kos_00910.pdf`:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_07.pdf" width=80 %}
+
+The legend tell us that smaller counts are warm colors (starting from a count of 1 in yellow) and higher counts are warm colors (going to a max of 8 in dark purple). So we can tell from this map that all the genomes encode enzymes for assimilatory nitrate reduction, 6 out of the 8 genomes encode nitrogen fixation, and only 1 genome can convert nitrite to ammonia. But we don't know which genome can do what. 
+
+To reveal the specific distribution of enzymes across genomes, here is the corresponding grid map (`ALL_PATHWAY_MAPS/grid/kos_00910.pdf`):
+
+{% include IMAGE path="/images/trichodesmium_tutorial/metabolism_08.pdf" width=80 %}
+
+Now it is clear that *T. miru* and *T. nobis* are missing nitrogen fixation (as we know), and that *T. miru* is the only species that can convert nitrite to ammonia.
 
 Don't forget to go back to the parent directory before you move on to the next tutorial section:
 ```bash
