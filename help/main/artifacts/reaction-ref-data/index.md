@@ -29,7 +29,7 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-reaction-network](../../programs/anvi-reaction-network)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-predict-metabolic-exchanges](../../programs/anvi-predict-metabolic-exchanges)</span> <span class="artifact-r">[anvi-reaction-network](../../programs/anvi-reaction-network)</span></p>
 
 
 ## Description
