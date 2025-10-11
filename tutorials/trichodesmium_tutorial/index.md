@@ -1076,7 +1076,9 @@ The output file is _really_ big, because it contains every single metabolite, re
 We will use this {% include ARTIFACT name="reaction-network" %} for some neat visualizations of KEGG Pathway Maps using the program {% include PROGRAM name="anvi-draw-kegg-pathways" %}.
 
 ```bash
-anvi-draw-kegg-pathways --contigs-dbs ../Trichodesmium_sp-contigs.db -o Trichodesmium_sp_PATHWAY_MAPS --ko
+anvi-draw-kegg-pathways --contigs-dbs ../Trichodesmium_sp-contigs.db \
+              -o Trichodesmium_sp_PATHWAY_MAPS \
+              --ko
 ```
 
 For each KEGG Pathway Map, the program will highlight the KOs from the map that are annotated in each provided genome, and create a PDF file in the specified output directory. We only provided a single genome, so the resulting maps are specific to that genome's annotations.
