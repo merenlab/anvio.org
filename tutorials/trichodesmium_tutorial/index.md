@@ -36,7 +36,60 @@ comments: true
 
 This tutorial will largely recapitulate a story from the following paper, published by [Tom Delmont](https://lage.genoscope.cns.fr/members/tom-delmont/) in 2021:
 
-INSERT PUBLICATION INFO HERE
+<div class="pub_float">
+    <div class="altmetric-embed"
+         data-badge-type="donut"
+         data-doi="10.1073/pnas.2112355118">
+        <a target="_self"
+           href="https://www.altmetric.com/details.php?domain=localhost&amp;"
+           style="display:inline-block;">
+            <img src="https://badges.altmetric.com/?size=128&amp;types=brtttttt"
+                 width="64"
+                 height="64"
+                 style="border:0; margin:0; max-width: none;" />
+        </a>
+    </div>
+    <div class="__dimensions_badge_embed__"
+         data-doi="10.1073/pnas.2112355118"
+         data-hide-zero-citations="true"
+         data-legend="hover-bottom"
+         data-style="small_circle">
+    </div>
+    <span class="pub-title">
+        <a href="https://doi.org/10.1073/pnas.2112355118" target="_new">
+            Discovery of nondiazotrophic Trichodesmium species abundant and widespread in the open ocean
+        </a>
+    </span>
+    <span class="pub-authors">
+        <span class="pub-member-author" title="An official member of the lab at the time of publication">
+            Delmont TO
+        </span>
+    </span>
+    <div class="pub-info">
+        <div class="pub-featured-image">
+            <a href="/images/trichodesmium_tutorial/Delmont_2021.png" class="image-popup">
+                <img src="/images/trichodesmium_tutorial/Delmont_2021.png"
+                     style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block;" />
+            </a>
+        </div>
+        <div class="pub-highlights">
+            <span style="display: inline-block; padding-bottom: 5px;">
+                - Discovery of <i>Trichodesmium</i> species that do not fix nitrogen yet are abundant in the open ocean.
+            </span><br />
+            <span style="display: inline-block; padding-bottom: 5px;">
+                - Expanded the understanding of the ecological roles and diversity of <i>Trichodesmium</i>.
+            </span><br />
+            <span style="display: inline-block; padding-bottom: 5px;">
+                - Challenged long-held assumptions about nitrogen fixation in marine cyanobacteria.
+            </span>
+        </div>
+    </div>
+    <span class="pub-journal">
+        📚 <b>PNAS</b>, 118(46):e2112355118 |
+        🔍 <a href="http://scholar.google.com/scholar?hl=en&amp;q=Discovery+of+nondiazotrophic+Trichodesmium+species+abundant+and+widespread+in+the+open+ocean" target="_blank">Google Scholar</a> |
+        🔗 <a href="https://doi.org/10.1073/pnas.2112355118" target="_blank">doi:10.1073/pnas.2112355118</a>
+    </span>
+</div>
 
 As a little preview, the essence of the story is this: _Trichodesmium_ species are well-known cyanobacterial nitrogen fixers ('diazotrophs') in the global oceans, but -- surprise -- it turns out that not _all_ of them can do nitrogen fixation. Tom used a combination of pangenomics, phylogenomics, and clever read recruitment analyses on a set of MAGs and reference genomes to demonstrate that two new (candidate) _Trichodesmium_ species, Candidatus *T. miru* and Candidatus *T. nobis*, are nondiazotrophic.
 
