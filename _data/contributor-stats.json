@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7431,
+        "total_commits": 7433,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,12 +13,12 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 285
+            "2025": 287
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "fixy fix for the necessary int(gc)",
-        "latest_commit_hash": "4bddeac025be5175616507ed43bc8800d00fa624",
-        "latest_commit_date": "25 September 2025"
+        "latest_commit_message": "much better",
+        "latest_commit_hash": "1892f905f633f82022f2a6a9c78c83ebb697b95a",
+        "latest_commit_date": "12 October 2025"
     },
     "FlorianTrigodet": {
         "total_commits": 200,
