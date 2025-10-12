@@ -865,6 +865,17 @@ If you have multiple metagenomes, you can use the flag `--matrix` to get an outp
 
 ## Pangenomics
 
+<details markdown="1"><summary>Show/Hide Starting the tutorial at this section? Click here for data preparation steps. </summary>
+
+If you haven't run previous sections of this tutorial (particularly the 'Working with multiple genomes' section), then you should follow these steps to setup the files that we will use going forward.
+
+```bash
+cp 00_DATA/contigs/*-contigs.db .
+anvi-script-gen-genomes-file --input-dir . -o external-genomes.txt
+```
+
+</details>
+
 Pangenomics represents a set of computational strategies to compare and study the relationship between a set of genomes through gene clusters. For a more comprehensive introduction into the subject, [see this video.](https://youtu.be/nyv7Xr07LCY)
 
 Since the core concept of pangenomics is to compare genomes based on their gene content, it is important to know which genomes you plan you to use. Pangenomics is typically used with somewhat closely related organisms, at the species, genus, sometimes family level. It is also valuable to check the estimated completeness and overall quality of the genomes you want in include in your pangenome analysis.
@@ -1099,6 +1110,17 @@ At the end of the day, you can have a figure like this one, with ecology and evo
 </div>
 
 ## Metabolism
+
+<details markdown="1"><summary>Show/Hide Starting the tutorial at this section? Click here for data preparation steps. </summary>
+
+If you haven't run previous sections of this tutorial (particularly the 'Working with multiple genomes' section), then you should follow these steps to setup the files that we will use going forward.
+
+```bash
+cp 00_DATA/contigs/*-contigs.db .
+anvi-script-gen-genomes-file --input-dir . -o external-genomes.txt
+```
+
+</details>
 
 Looking at individual gene functions is undisputably useful for understanding the lifestyle and potential activities of microbes. However, most genes do not work in isolation. Metabolic capacities such as nitrogen fixation, photosynthesis, biosynthesis of cellular components, and carbon utilization require multiple enzymes (or enzyme components) working sequentially or in parallel to catalyze all chemical reactions in a so-called **metabolic pathway**. In many cases, there are also several possible versions of these enzymes -- variants across different domains of life, taxonomic groups, or environmental conditions -- that could be used to catalyze the same set of chemical reactions. Manually looking for all possible versions of all enzymes needed for a given metabolic capacity is possible (we just did it in the pangenomics section for nitrogen fixation), but it isn't very efficient (and requires you to know exactly what you are looking for). And that sort of approach is unscaleable when you are interested in more than a handful of specific metabolic pathways.
 
