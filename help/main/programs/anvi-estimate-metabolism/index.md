@@ -168,6 +168,37 @@ anvi&#45;estimate&#45;metabolism &#45;&#45;enzymes&#45;txt <span class="artifact
 
 The program will pretend all of these enzymes are coming from one theoretical 'genome' (though the reality depends on how you defined or obtained the set), so the completion estimates for each metabolic pathway will consider all enzymes in the file. If you want to instead break up your set of enzymes across multiple 'genomes', then you will have to make multiple different input files and run this program on each one.
 
+Just to note, you can also access this functionality programmatically by passing a list of enzymes to the library <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span> relies upon in the following fashion without an <span class="artifact-n">[enzymes-txt](/help/main/artifacts/enzymes-txt)</span>:
+
+```python
+import pandas as pd
+from types import SimpleNamespace
+
+from anvio.metabolism.estimate import KeggMetabolismEstimator
+
+# define any number of enzymes you are interested in as a pandas
+# dataframe. You can set the 'gene_id' information to anything
+# you like as long as each 'gene_id' is uniuqe (they are not
+# used for anything, but becomes a part of the reporting for you
+# to be able to track things when needed):
+df = pd.DataFrame({
+    "gene_id": [219, 323, 125, 381, 119, 383, 368, 230, 434, 42],
+    "enzyme_accession": ["K21064", "K21064", "K21064", "K20391", "K20385", "K11616", "K02483", "K02483", "K02483", "K01174"],
+    "source": ["KOfam"] * 10
+})
+
+# get an instance of the KEGG metabolism estimator class
+m = KeggMetabolismEstimator(SimpleNamespace(enzymes_of_interest_df=df))
+
+# now you can generate all the standard output files for the specific list of enzymes
+m.estimate_metabolism()
+
+# or recover pruned super dictionaries that will give you everything you need
+# to continue with metabolic estimates for the set of enzymes in your downstream
+# Python code by instructing the function to skip the storage of data, and return
+# pruned superdicts instead:
+kegg_metabolism_superdict, kofam_hits_superdict = m.estimate_metabolism(skip_storing_data=True, return_superdicts=True, prune_superdicts=True)
+```
 
 ## MULTI-MODE: Running metabolism estimation on multiple contigs databases
 
@@ -243,15 +274,15 @@ If you wish to only estimate for your own metabolic modules, you can skip estima
 anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> &#45;&#45;user&#45;modules /path/to/USER/directory &#45;&#45;only&#45;user&#45;modules
 </div>
 
-### Including (or not including) annotations from 'Stray KOs'
+### Including (or not including) annotations from 'No-threshold KOs'
 
-"Stray KOs" is our made-up term for KOfam models that don't have a bit score threshold defined by KEGG. You can find more information about these KOs and what anvi'o can do with them [at this link](https://anvio.org/help/main/programs/anvi-setup-kegg-data/#what-are-stray-kos-and-what-happens-when-i-include-them). These gene families are usually not annotated in your data, unless you explicitly request it by running <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> with the `--include-stray-KOs` flag. If you have done that, and you now want to include those annotations in your metabolic pathway predictions, then you can do so by using the same flag for <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>:
+"No-threshold KOs", or "nt-KOs", is our made-up term for KOfam models that don't have a bit score threshold defined by KEGG. You can find more information about these KOs and what anvi'o can do with them [at this link](https://anvio.org/help/main/programs/anvi-setup-kegg-data/#what-are-nt-kos-and-what-happens-when-i-include-them). These gene families are usually not annotated in your data, unless you explicitly request it by running <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> with the `--include-nt-KOs` flag. If you have done that, and you now want to include those annotations in your metabolic pathway predictions, then you can do so by using the same flag for <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>:
 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> &#45;&#45;include&#45;stray&#45;KOs
+anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> &#45;&#45;include&#45;nt&#45;KOs
 </div>
 
-If your input database includes annotations to stray KOs and you _don't_ want to use them for computing pathway completeness and copy number, then simply leave out this flag. However, you may get an error once anvi'o stumbles upon a KO that it doesn't recognize. In that case, you should explicitly request to ignore these annotations by adding the flag `--ignore-unknown-KOs`, as suggested in the error message:
+If your input database includes annotations to nt-KOs and you _don't_ want to use them for computing pathway completeness and copy number, then simply leave out this flag. However, you may get an error once anvi'o stumbles upon a KO that it doesn't recognize. In that case, you should explicitly request to ignore these annotations by adding the flag `--ignore-unknown-KOs`, as suggested in the error message:
 
 <div class="codeblock" markdown="1">
 anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> &#45;&#45;ignore&#45;unknown&#45;KOs
