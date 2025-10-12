@@ -244,10 +244,80 @@ Now is probably a good time to use the command {% include PROGRAM name="anvi-db-
 anvi-db-info Trichodesmium_sp-contigs.db
 ```
 
-With this command, you can see which HMMs were already run on that database, but also some basic information like the number of contigs, number of genes called by pyrodigal-gv, and more.
+With this command, you can see which HMMs were already run on that database, but also some basic information like the number of contigs, number of genes called by pyrodigal-gv, and more:
 
-{:.warning}
-SCREENSHOT?
+```
+DB Info (no touch)
+===============================================
+Database Path ................................: Trichodesmium_sp-contigs.db
+description ..................................: [Not found, but it's OK]
+db_type ......................................: contigs (variant: unknown)
+version ......................................: 24
+
+
+DB Info (no touch also)
+===============================================
+project_name .................................: Trichodesmium_sp
+contigs_db_hash ..............................: hash0d1122fb
+split_length .................................: 20000
+kmer_size ....................................: 4
+num_contigs ..................................: 269
+total_length .................................: 6640707
+num_splits ...................................: 358
+gene_level_taxonomy_source ...................: None
+genes_are_called .............................: 1
+external_gene_calls ..........................: 0
+external_gene_amino_acid_seqs ................: 0
+skip_predict_frame ...........................: 0
+splits_consider_gene_calls ...................: 1
+trna_taxonomy_was_run ........................: 0
+trna_taxonomy_database_version ...............: None
+reaction_network_ko_annotations_hash .........: None
+reaction_network_kegg_database_release .......: None
+reaction_network_modelseed_database_sha ......: None
+reaction_network_consensus_threshold .........: None
+reaction_network_discard_ties ................: None
+creation_date ................................: 1760017061.92556
+scg_taxonomy_was_run .........................: 1
+scg_taxonomy_database_version ................: GTDB: v214.1; Anvi'o: v1
+gene_function_sources ........................: COG24_FUNCTION,COG24_PATHWAY,COG24_CATEGORY,KOfam,KEGG_BRITE,KEGG_Class,KEGG_Module
+modules_db_hash ..............................: 66e53d49e65a
+
+* Please remember that it is never a good idea to change these values. But in some
+  cases it may be absolutely necessary to update something here, and a
+  programmer may ask you to run this program and do it. But even then, you
+  should be extremely careful.
+
+
+AVAILABLE GENE CALLERS
+===============================================
+* 'pyrodigal-gv' (4,820 gene calls)
+
+
+AVAILABLE FUNCTIONAL ANNOTATION SOURCES
+===============================================
+* COG24_CATEGORY (3,098 annotations)
+* COG24_FUNCTION (3,098 annotations)
+* COG24_PATHWAY (858 annotations)
+* KEGG_BRITE (1,909 annotations)
+* KEGG_Class (474 annotations)
+* KEGG_Module (474 annotations)
+* KOfam (1,912 annotations)
+
+
+AVAILABLE HMM SOURCES
+===============================================
+* 'Archaea_76' (76 models with 34 hits)
+* 'Bacteria_71' (71 models with 72 hits)
+* 'Protista_83' (83 models with 38 hits)
+* 'Ribosomal_RNA_12S' (1 model with 0 hits)
+* 'Ribosomal_RNA_16S' (3 models with 0 hits)
+* 'Ribosomal_RNA_18S' (1 model with 0 hits)
+* 'Ribosomal_RNA_23S' (2 models with 0 hits)
+* 'Ribosomal_RNA_28S' (1 model with 0 hits)
+* 'Ribosomal_RNA_5S' (5 models with 0 hits)
+```
+
 
 #### General summary and metrics
 
@@ -722,14 +792,86 @@ This automation sounds like a nice plug-and-play analysis pipeline - and it is -
 
 ### Working with one (or more) metagenomes
 
-If you are working with metagenomes, you can use and run the same commands that we ran on individual genomes, such as {% include PROGRAM name="anvi-gen-contigs-database" %}.
+If you are working with one, or more, metagenomic assembly, you can use and run the same commands that we ran on individual genomes, such as {% include PROGRAM name="anvi-gen-contigs-database" %}, {% include PROGRAM name="anvi-run-hmms" %}, {% include PROGRAM name="anvi-run-scg-taxonomy" %}, {% include PROGRAM name="anvi-run-kegg-kofams" %}, etc.
+
+In the datapack, you will find the {% include ARTIFACT name="contigs-db" %} of a mock assembly that we made for you.
+With {% include PROGRAM name="anvi-display-contigs-stats" %}, we can learn about the contigs count and length, as well as the number of expected genomes:
+
+```bash
+anvi-display-contigs-stats 00_DATA/sample01-contigs.db
+```
+
+{% include IMAGE path="/images/trichodesmium_tutorial/geno_02.png" width=80 %}
+
+We have an estimated number of populations of six. To learn more about the composition of this metagenome, we can use {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} with the flag `--metagenome-mode`. In this mode, anvi'o will not try to compute the consensus taxonomy of every ribosomal proteins as it does by default. Instead, it will report the taxonomy of all the genes matching to the most abundant ribosomal protein:
+
+```bash
+$ anvi-estimate-scg-taxonomy -c 00_DATA/sample01-contigs.db --metagenome-mode
+Contigs DB ...................................: 00_DATA/sample01-contigs.db
+Metagenome mode ..............................: True
+SCG for metagenome ...........................: None
+
+* A total of 132 single-copy core genes with taxonomic affiliations were
+  successfully initialized from the contigs database 🎉 Following shows the
+  frequency of these SCGs: Ribosomal_L1 (6), Ribosomal_L13 (6), Ribosomal_L14
+  (6), Ribosomal_L16 (6), Ribosomal_L17 (6), Ribosomal_L19 (6), Ribosomal_L2
+  (6), Ribosomal_L20 (6), Ribosomal_L21p (6), Ribosomal_L22 (6), Ribosomal_L27A
+  (6), Ribosomal_L3 (6), Ribosomal_L4 (6), Ribosomal_L5 (6), Ribosomal_S11 (6),
+  Ribosomal_S15 (6), Ribosomal_S16 (6), Ribosomal_S2 (6), Ribosomal_S6 (6),
+  Ribosomal_S7 (6), Ribosomal_S8 (6), Ribosomal_S9 (6).
+
+WARNING
+===============================================
+Anvi'o automatically set 'Ribosomal_L1' to be THE single-copy core gene to
+survey your metagenome for its taxonomic composition. If you are not happy with
+that, you could change it with the parameter `--scg-name-for-metagenome-mode`.
+
+
+Taxa in metagenome "metagenome_assembly"
+===============================================
++----------------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------+
+|                                        |   percent_identity | taxonomy                                                                                                                 |
++========================================+====================+==========================================================================================================================+
+| metagenome_assembly_Ribosomal_L1_10579 |                100 | Bacteria / Pseudomonadota / Gammaproteobacteria / Pseudomonadales / Oleiphilaceae / Marinobacter / Marinobacter salarius |
++----------------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------+
+| metagenome_assembly_Ribosomal_L1_12451 |                100 | Bacteria / Cyanobacteriota / Cyanobacteriia / PCC-6307 / Cyanobiaceae / Prochlorococcus_A /                              |
++----------------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------+
+| metagenome_assembly_Ribosomal_L1_15984 |                100 | Bacteria / Pseudomonadota / Alphaproteobacteria / Rhizobiales / Stappiaceae / Roseibium / Roseibium aggregatum           |
++----------------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------+
+| metagenome_assembly_Ribosomal_L1_3513  |               99.6 | Bacteria / Pseudomonadota / Gammaproteobacteria / Enterobacterales_A / Alteromonadaceae / Alteromonas /                  |
++----------------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------+
+| metagenome_assembly_Ribosomal_L1_5126  |                100 | Bacteria / Pseudomonadota / Alphaproteobacteria / HIMB59 / HIMB59 / HIMB59 / HIMB59 sp000299115                          |
++----------------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------+
+| metagenome_assembly_Ribosomal_L1_5655  |               99.6 | Bacteria / Pseudomonadota / Alphaproteobacteria / Pelagibacterales / Pelagibacteraceae / Pelagibacter /                  |
++----------------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------+
+```
+
+Alternatively, you can tell anvi'o you want to use another ribosomal protein. The output of the above comment is already telling us that each ribosomal protein is present six times, so any gene should do the job. You can also use the flag `--report-scg-frequencies`, which will write these frequency into a text file.
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">A matrix output with multiple metagenomes</span>
+
+If you have multiple metagenome's {% include ARTIFACT name="contigs-db" %}, you can use the flag `--matrix` to get an output file that looks like this (here at the genus level):
+
+| **taxon**            | **sample01** | **sample02** | **sample03** | **sample04** | **sample05** | **sample06** |
+| -------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
+| Prochlorococcus      | 1.00         | 1.00         | 1.00         | 1.00         | 1.00         | 1.00         |
+| Synechococcus        | 1.00         | 0            | 1.00         | 1.00         | 0            | 1.00         |
+| Pelagibacter         | 1.00         | 1.00         | 1.00         | 1.00         | 1.00         | 1.00         |
+| SAR86                | 1.00         | 1.00         | 0            | 1.00         | 1.00         | 1.00         |
+| SAR92                | 0            | 1.00         | 1.00         | 0            | 1.00         | 1.00         |
+| SAR116               | 1.00         | 0            | 1.00         | 1.00         | 0            | 1.00         |
+| Roseobacter          | 0            | 1.00         | 1.00         | 0            | 1.00         | 0            |
+
+</div>
 
 ## Pangenomics
 
 Pangenomics represent a set of computational strategies to compare and study the relationship between a set of genomes through gene clusters. For a more comprehensive introduction into the subject, [see this video.](https://youtu.be/nyv7Xr07LCY)
 
 Since the core concept of pangenomics is to compare genomes based on their gene content, is it important to know which genomes you plan you to use. Pangenomics is used with somewhat closely related organisms, at the species, genus, sometimes family level. It is also valuable is check the estimated completeness and overall quality of the genomes you want in include in your pangenome analysis.
-Low completeness genomes are likely missing small or large portion of their gene content. For that reason, we will include 7 out of the 8 *Trichodesmium* genomes to compute a pangenome. We won't use the *Trichodesmium thiebautii* H9_4 because of it's low estimated completeness and overall smaller genome size. Fundamentally there is nothing preventing us from including it in a pangenome, and we will show you how the pangenome looks like when this genome is included.
+Low completeness genomes are likely missing small or large portion of their gene content. For that reason, we will include 7 out of the 8 *Trichodesmium* genomes to compute a pangenome. We won't use the *Trichodesmium thiebautii* H9_4 because of its low estimated completeness and overall smaller genome size. Fundamentally there is nothing preventing us from including it in a pangenome, and we will show you how the pangenome looks like when this genome is included.
 
 The inputs will be the {% include ARTIFACT name="contigs-db" %} that are present in the datapack, plus the {% include ARTIFACT name="contigs-db" %} of the *Trichodesmium* MAG that you downloaded in the first part of this tutorial.
 
