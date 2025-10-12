@@ -894,7 +894,7 @@ MAG_Trichodesmium_erythraeum-contigs.db          Trichodesmium_erythraeum_IMS101
 
 ### Genome storage
 
-The first step to compute a pangenome in anvi'o is the command {% include PROGRAM name="anvi-gen-genomes-storage" %} which takes multiples {% include ARTIFACT name="contigs-db" %} as input and generate a new anvi'o database called the {% include ARTIFACT name="genomes-storage-db" %}. This database holds all the gene's information like functional annotation and amino-acid sequence in a single location.
+The first step to compute a pangenome in anvi'o is the command {% include PROGRAM name="anvi-gen-genomes-storage" %}, which takes multiple {% include ARTIFACT name="contigs-db" text="contigs databases" %} as input and generates a new anvi'o database called the {% include ARTIFACT name="genomes-storage-db" %}. This database holds all gene information like functional annotations and amino acid sequences in a single location.
 
 The input to {% include PROGRAM name="anvi-gen-genomes-storage" %} is an {% include ARTIFACT name="external-genomes" %} file. You should have one from [the section about working with multiple genomes.](#working_with_multiple_genomes)
 We just need to remove the *Trichodesmium thiebautii* H9_4:
@@ -912,7 +912,7 @@ anvi-gen-genomes-storage -e external-genomes-pangenomics.txt -o 01_PANGENOME/Tri
 
 ### Pangenome analysis
 
-To actually run the pangenomics analysis, we will use the command {% include PROGRAM name="anvi-pan-genome" %}. The sole input is the {% include ARTIFACT name="genomes-storage-db" %} and it will generate a new database, called the {% include ARTIFACT name="pan-db" %}:
+To actually run the pangenomic analysis, we will use the command {% include PROGRAM name="anvi-pan-genome" %}. The sole input is the {% include ARTIFACT name="genomes-storage-db" %} and it will generate a new database, called the {% include ARTIFACT name="pan-db" %}:
 
 ```bash
 # will a few min
@@ -922,7 +922,7 @@ anvi-pan-genome -g 01_PANGENOME/Trichodesmium-GENOMES.db \
                 -T 4
 ```
 
-Under the hood, {% include PROGRAM name="anvi-pan-genome" %} uses [DIAMOND](https://www.wsi.uni-tuebingen.de/lehrstuehle/algorithms-in-bioinformatics/software/diamond/) (or BLASTp if you choose the alternative) to compute the similarity between amino acid sequences from every genomes. From this all-vs-all search, it will use the [MCL](https://micans.org/mcl/) algorithm to cluster the genes in group of relatively high similarity. The {% include ARTIFACT name="pan-db" %} stores the gene cluster information.
+Under the hood, {% include PROGRAM name="anvi-pan-genome" %} uses [DIAMOND](https://www.wsi.uni-tuebingen.de/lehrstuehle/algorithms-in-bioinformatics/software/diamond/) (or BLASTp if you choose the alternative) to compute the similarity between amino acid sequences from every genomes. From this all-vs-all search, it will use the [MCL](https://micans.org/mcl/) algorithm to cluster the genes into groups of relatively high similarity. The {% include ARTIFACT name="pan-db" %} stores the gene cluster information.
 
 ### Interactive pangenomics display
 
@@ -940,21 +940,21 @@ You are seeing:
 - The genomes in black layers.
 - The inner dendrogram: every leaf of that dendrogram is a gene cluster.
 - The black heatmap: presence/absence of a gene from a genome in a gene cluster.
-- Multiple colorful additional layers with information about the underlying gene-cluster.
+- Multiple colorful additional layers with information about the underlying gene cluster.
 - Some layer (genome) data at the right-end of the circular heatmap.
 
 First of all, let's reorder the genomes. By default they will simply appear in alphabetical order, which is not very interesting. In the main panel, you can scroll down to "Layers" and select `gene_cluster_frequency`:
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_02.png" width=50 %}
 
-The resulting figure will now pull together genomes that share similar gene content. It may not be very noticeable at first but if you pay attention between the before/after you will notice that we have now two cluster (see dendrogram on the right):
+The resulting figure will now pull together genomes that share similar gene content. It may not be very noticeable at first but if you pay attention between the before/after you will notice that we have now two clusters (see dendrogram on the right):
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_03.png" width=80 %}
 
 {:.figure-caption}
-This figure was made with a dendrogram radius of 4500. You can change it in the Options tab.
+This figure was made with a dendrogram radius of 4500. You can change the radius in the Options tab.
 
-Now that you have made some modification to your interactive figure, it would be a good idea to save it. The aesthetics of a figure are save in a "State", you will find a button on the bottom left of the interface to save it. You can have multiple state for the same pangenome (different colors, different layers being displayed, etc). The state called `default` will always be the one displayed when you start an interactive interface. The state can also be exported/imported from the terminal with the command lines {% include PROGRAM name="anvi-export-state" %} and {% include PROGRAM name="anvi-import-state" %}.
+Now that you have made some modifications to your interactive figure, it would be a good idea to save those settings. The aesthetics of a figure are saved in a "State", and you will find a button on the bottom left of the interface to save it. You can store multiple states for the same pangenome (different colors, different layers being displayed, etc). The state called `default` will always be the one displayed when you start an interactive interface. The state can also be exported/imported from the terminal with the programs {% include PROGRAM name="anvi-export-state" %} and {% include PROGRAM name="anvi-import-state" %}.
 
 You can spend some time getting familiar with the interface and all the possible customisation options. For instance, here is the pangenome figure I made:
 
@@ -968,34 +968,34 @@ anvi-import-state -p 01_PANGENOME/Trichodesmium-PAN.db -s 00_DATA/pan_state.json
 
 ### Inspect gene clusters
 
-Every gene cluster contains one or more amino acid sequence from one or more genome. In some cases, they may contains multiples genes from a single genome (multi copy gene). You can use your mouse and select a gene cluster on the interface, right-click and select `Inspect gene cluster`:
+Every gene cluster contains one or more amino acid sequences from one or more genomes. In some cases, they may contain multiple genes from a single genome (i.e., multi-copy genes). You can use your mouse and select a gene cluster on the interface, right-click and select `Inspect gene cluster`:
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_05.png" width=50 %}
 
-It will open a new tab with the multi sequence alignment of the amino acid sequences:
+It will open a new tab with the multisequence alignment of the amino acid sequences in the cluster:
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_06.png" width=80 %}
 
 {:.notice-alt}
-If you want to know more about the amino acid coloring, you can check [this blog post](https://merenlab.org/2018/02/13/color-coding-aa-alignments/) by Mahmoud Yousef. In brief the colors represent the amino-acid properties (like polar, cyclic) and its conservancy in the alignment.
+If you want to know more about the amino acid coloring, you can check [this blog post](https://merenlab.org/2018/02/13/color-coding-aa-alignments/) by Mahmoud Yousef. In brief, the colors represent the amino acid properties (like polar, cyclic) and their conservancy in the alignment.
 
-If you click on one of the gene-caller number you will get some information about the gene:
+If you click on one of the gene caller ID numbers you will get some information about that gene:
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_07.png" width=80 %}
 
-From there you can learn about the functional annotation, if any. You can also retrieve the amino acid sequence, start some BLAST.
+From there you can learn about its functional annotations, if any. You can also retrieve the amino acid sequence and start some BLAST commands on the NCBI servers.
 
 ### Bin and summarize a pangenome
 
-Looking at individual genes cluster is great, but not very practical to summarize large selection of gene clusters. Fortunately for you, you can select gene cluster in the main interface and create "bins" which you can rename with meaningfully. In the next screenshot, I have selected the core genome, the near core, the accessory genome of *Trichodesmium erythraeum * and *Trichodesmium thiebautii*, and all the singleton gene clusters.
+Looking at individual genes clusters is great, but not very practical to summarize a large selection of gene clusters. Fortunately for you, you can select gene clusters in the main interface and create {% include ARTIFACT name="bin" text="'bins'" %} which you can meaningfully rename. In the next screenshot, I have selected the core genome, the near core, the accessory genome of *Trichodesmium erythraeum * and *Trichodesmium thiebautii*, and all the singleton gene clusters.
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_08.png" width=80 %}
 
-Once you are happy with your bins, don't forget to save them into a collection. Just like the 'state' saves the current settings for the figure, the collections keep your selection of items, here gene clusters. You can save as many collection as you want and the collection called `default` will always appears when you start the interactive interface with {% include PROGRAM name="anvi-display-pan" %}.
+Once you are happy with your bins, don't forget to save them into a {% include ARTIFACT name="collection" %}. Just like the 'state' saves the current settings for the figure, the 'collection' stores your selection of items, here gene clusters. You can save as many collections as you want, and the collection called `default` will always appear when you start the interactive interface with {% include PROGRAM name="anvi-display-pan" %}.
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_09.png" width=80 %}
 
-Now that we have some meaningful bins, it is time to make sense of their content by either using the command line {% include PROGRAM name="anvi-summarize" %} or select `Generate a static summary page` in the "Bins" tab of the interface.
+Now that we have some meaningful bins, it is time to make sense of their content by either using the program {% include PROGRAM name="anvi-summarize" %}, or selecting `Generate a static summary page` in the "Bins" tab of the interface.
 
 Here is how you would do it with the command line (note that I named my collection "default"):
 
@@ -1006,7 +1006,7 @@ anvi-summarize -g 01_PANGENOME/Trichodesmium-GENOMES.db \
                -o 01_PANGENOME/SUMMARY
 ```
 
-The interactive interface button and the above command line generate the same output directory which contains a large table summarizing ALL genes from all genomes. Here are the first few rows:
+The interactive interface button and the above command generate the same output directory, which contains a large table summarizing ALL genes from all genomes. Here are the first few rows:
 
 |**`unique_id`**|**`gene_cluster_id`**|**`bin_name`**|**`genome_name`**|**`gene_callers_id`**|**`num_genomes_gene_cluster_has_hits`**|**`num_genes_in_gene_cluster`**|**`max_num_paralogs`**|**`SCG`**|**`functional_homogeneity_index`**|**`geometric_homogeneity_index`**|**`combined_homogeneity_index`**|**`AAI_min`**|**`AAI_max`**|**`AAI_avg`**|**`COG24_PATHWAY_ACC`**|**`COG24_PATHWAY`**|**`COG24_FUNCTION_ACC`**|**`COG24_FUNCTION`**|**`KEGG_BRITE_ACC`**|**`KEGG_BRITE`**|**`KOfam_ACC`**|**`KOfam`**|**`COG24_CATEGORY_ACC`**|**`COG24_CATEGORY`**|**`KEGG_Class_ACC`**|**`KEGG_Class`**|**`KEGG_Module_ACC`**|**`KEGG_Module`**|**`aa_sequence`**|
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
@@ -1022,11 +1022,11 @@ The interactive interface button and the above command line generate the same ou
 
 ### Search for functional annotations
 
-If you are interested in one or more functional annotations and where they fit in the pangenome - core, accessory, singleton, single or multiple copies - then you can use the "Search" tab. There you can search using any term you like. You can search for `Nif` and you will get all Nif genes, including NifH and more.
+If you are interested in one or more functional annotations and where they fit in the pangenome - core, accessory, singleton, single or multiple copies - then you can use the "Search" tab. There you can search using any term you like. You can search for `Nif` and you will get all _Nif_ genes, including _NifH_ and more.
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_12.png" width=50 %}
 
-Or you can directly search for `NifH` and you will notice two results which is not expected. We know from Tom's paper, that COG miss-annotate a ferredoxin gene as NifH:
+Or, you can directly search for _NifH_ and you will notice two results which are not expected. We know from Tom's paper that COG miss-annotates a ferredoxin gene as _NifH_:
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_13.png" width=50 %}
 <blockquote markdown="1">
@@ -1036,23 +1036,23 @@ For instance, we found that genes with COG20 function incorrectly annotated as â
 </div>
 </blockquote>
 
-Then you can search for `NifH` by selecting only the KOfam annotation source, or directly use the KOfam accession number `K02588`
+Then you can search for _NifH_ by selecting only the KOfam annotation source, or directly use the KOfam accession number `K02588`:
 
 <div style="display: flex; gap: 10px;">
     {% include IMAGE path="/images/trichodesmium_tutorial/pan_14.png" width=100 %}
     {% include IMAGE path="/images/trichodesmium_tutorial/pan_15.png" width=100 %}
 </div>
 
-Then you can scroll and list the result of the search and choose to highlight them on the pangenome. I would suggest you look for all the `Nif` genes, using only the KOfam annotation source to avoid the issues with COG. Then highlight the results on your pangenome. You can even choose to add the searched items to a bin.
+Then you can scroll down to where you can list the results of the search or choose to highlight them on the pangenome. I would suggest you look for all the _Nif_ genes, using only the KOfam annotation source to avoid the issues with COG. Then highlight the results on your pangenome. You can even choose to add the search result items to a bin.
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_16.png" width=80 %}
 
-Note how nearly all Nif genes are concentrated in a section of the pangenome which correspond to genes clusters shared between *Trichodesmium thiebautii* and *erythraeum*, and not in *Trichodesmium miru* or *nobi*. The result is coherent with these genome lacking nitrogen fixation capability, but you may be wondering what is happening for that single gene cluster on the lower part the of the pangenome. It is found in *T. miru*, *T. nobis* and one *T. thiebautii*. If you inspect that gene cluster and look for the full functional annotation, you will see that it is NifU, which is not a marker for nitrogen fixation as it can be found in non-diazotrophic organisms.
+Note how nearly all _Nif_ genes are concentrated in a section of the pangenome which correspond to gene clusters shared between *Trichodesmium thiebautii* and *erythraeum*, and not in *Trichodesmium miru* or *nobis*. The result is coherent with these genomes lacking nitrogen fixation capabilities, but you may be wondering what is happening for that single gene cluster on the lower part of the pangenome. It is found in *T. miru*, *T. nobis* and one *T. thiebautii*. If you inspect that gene cluster and look for the full functional annotation, you will see that it is _NifU_, which is not a marker for nitrogen fixation as it can be found in non-diazotrophic organisms.
 
 
 ### Additional genome information
 
-To help make sense of your pangenome, you can add multiple additional information about the genomes you are using. We will see how you can add the taxonomy information that we computed earlier, and also the pairwise average nucleotide identity of these genomes.
+To help make sense of your pangenome, you can add multiple additional data layers with information about the genomes you are using. We will see how you can add the taxonomy information that we computed earlier, and also the pairwise average nucleotide identity of these genomes.
 
 #### Add taxonomy
 
@@ -1067,13 +1067,13 @@ anvi-import-misc-data -p 01_PANGENOME/Trichodesmium-PAN.db \
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_10.png" width=80 %}
 
-Nothing very surprizing, but it is always good to see that the taxonomy agrees with how the genomes are currently organized, i.e. by they gene content.
+Nothing very surprising, but it is always good to see that the taxonomy agrees with how the genomes are currently organized, i.e. by their gene content.
 
 #### Compute average nucleotide identity
 
-A companion metric to pangenome is the Average Nucleotide Identity, ([ANI]()), which is based on whole genome DNA similarity. There is a program called {% include PROGRAM name="anvi-compute-genome-similarity" %} which allow you to use your {% include ARTIFACT name="contigs-db" %} and three different method to compute ANI. By default it uses [PyANI](https://pubs.rsc.org/en/content/articlelanding/2016/AY/C5AY02550H), but you can also choose [FastANI](https://github.com/ParBLiSS/FastANI).
+A companion metric to pangenomes is the Average Nucleotide Identity, or ANI, which is based on whole genome DNA similarity. There is a program called {% include PROGRAM name="anvi-compute-genome-similarity" %} that allows you to use your {% include ARTIFACT name="contigs-db" %} and three different methods to compute ANI. By default it uses [PyANI](https://pubs.rsc.org/en/content/articlelanding/2016/AY/C5AY02550H), but you can also choose [FastANI](https://github.com/ParBLiSS/FastANI).
 
-The sole required input is an {% include ARTIFACT name="external-genomes" %} file and the output is a directory with multiple files containing the ANI value, coverage, and more. Optionally, you can also provide a {% include ARTIFACT name="pan-db" %} and anvi'o will import the ANI values directly into your pangenome.
+The sole required input is an {% include ARTIFACT name="external-genomes" %} file, and the output is a directory with multiple files containing the ANI value, coverage, and more. Optionally, you can also provide a {% include ARTIFACT name="pan-db" %} and anvi'o will import the ANI values directly into your pangenome.
 
 ```bash
 anvi-compute-genome-similarity -e external-genomes-pangenomics.txt \
@@ -1083,13 +1083,12 @@ anvi-compute-genome-similarity -e external-genomes-pangenomics.txt \
                                -T 4
 ```
 
-You should check the content of the output directory `01_PANGENOME/ANI`. It contains multiple matrix and associated tree file.
+You should check the content of the output directory, `01_PANGENOME/ANI`. It contains multiple matrices and associated tree files.
 
 {:.notice}
 A friendly reminder that the ANI is computed on the fraction of two genomes that align to each other. Any genomic segment that is not found in one of the genomes is not taken into account in the final percent identity. The output of PyANI includes the alignment coverage of the pairwise genome comparison, and also the `full_percentage_identity` which correspond to `ANI * coverage`. Also note that ANI is not a symmetrical value.
 
-When you start the interactive interface with {% include PROGRAM name="anvi-display-pan" %}, you should be able to select the ANI identity values in the layer section of the main panel.
-You can also reorder the genomes based on the ANI similarities in the "layers" section of the main table.
+When you start the interactive interface with {% include PROGRAM name="anvi-display-pan" %}, you should be able to select the ANI identity values in the layer section of the main panel. You can also reorder the genomes based on the ANI similarities in the "layers" section of the main table.
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_11.png" width=80 %}
 
@@ -1097,16 +1096,17 @@ You can also reorder the genomes based on the ANI similarities in the "layers" s
 
 <span class="extra-info-header">Integrating ecology and evolution with metapangenome</span>
 
-AS you can see from the example above, you can integrate multiple information in a single anvi'o figure. Not just the figure as the {% include ARTIFACT name="pan-db" %} contains all the information in the interactive display. Another topic not covered yet in this tutorial is metagenomic read recruitment, which allow you to compute detection and coverage of one or more genomes across metagenomes. This gives you an ecological signal and nothing is stopping you from importing a relative abundance heatmap, just like the ANI.
+AS you can see from the example above, you can integrate a lot of information in a single anvi'o figure. And not just the figure, as the {% include ARTIFACT name="pan-db" %} contains all the information in the interactive display as well. 
 
-There is a dedicated function in anvi'o, called {% include PROGRAM name="anvi-meta-pan-genome" %}, which you can learn more about it [here.](https://merenlab.org/data/prochlorococcus-metapangenome/)
+Another topic not covered yet in this tutorial is metagenomic read recruitment, which allows you to compute detection and coverage of one or more genomes across metagenomes. This gives you an ecological signal and nothing is stopping you from importing a relative abundance heatmap, just like the ANI. There is a dedicated function in anvi'o, called {% include PROGRAM name="anvi-meta-pan-genome" %}, which you can learn more about [here.](https://merenlab.org/data/prochlorococcus-metapangenome/)
 
 At the end of the day, you can have a figure like this one, with ecology and evolution integrated in one figure:
-
 
 {% include IMAGE path="/images/gallery/full/Delmont_et_al_metapangenomics.png" width=80 %}
 
 </div>
+
+But that analysis is for another time.
 
 ## Metabolism
 
