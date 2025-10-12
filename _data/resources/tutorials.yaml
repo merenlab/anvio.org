@@ -68,6 +68,13 @@
   summary: "A theoretical tutorial describing how to characterize SNVs, SCVs and SAAVs with anvi’o, and how to interpret the output."
   tags: [microbial-population-genetics, theoretical, intermediate]
 
+- title: An updated primer on anvi'o
+  type: tutorial
+  url: /tutorials/trichodesmium_tutorial/
+  authors: [ivagljiva, FlorianTrigodet]
+  summary: "A multi-purpose tutorial based on Trichodesium genomes"
+  tags: [genomics, pangenomics, metabolism, hands-on, beginner]
+
 - title: A primer on anvi'o with the Infant Gut Dataset
   type: tutorial
   url: https://merenlab.org/tutorials/infant-gut/
