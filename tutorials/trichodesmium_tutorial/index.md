@@ -1117,6 +1117,7 @@ If you haven't run previous sections of this tutorial (particularly the 'Working
 ```bash
 cp 00_DATA/contigs/*-contigs.db .
 anvi-script-gen-genomes-file --input-dir . -o external-genomes.txt
+ls 00_DATA/fasta | cut -d "." -f1 > genomes.txt
 ```
 
 </details>
@@ -1285,7 +1286,7 @@ Now you should have everything you need for visualizing the data nicely.
 
 </details>
 
-Once you are finished, you can visualize the pathwise completeness matrix again like this (adding the module organization with the `-t` parameter):
+Once you are finished with the code in the dropdown box, you can visualize the pathwise completeness matrix again like this (adding the module organization with the `-t` parameter):
 ```bash
 anvi-interactive -d tricho_metabolism-module_pathwise_completeness-MATRIX.txt \
                   -p metabolism_profile.db \
@@ -1314,7 +1315,7 @@ A few things we can notice from the visualization:
 
 As expected, the nitrogen fixation module is there.
 
-Right next to the nitrogen fixation module is an unusual sounding metabolic pathway, Lactosylceramide biosynthesis, which is 50% complete in all of the other genomes.Lactosylceramides are a type of glycosphingolipid, not very well studied in Cyanobacteria (except for some work investigating sphingolipid roles in plant-microbe symbiotic interactions [(Heaver, Johnson and Ley 2018)](https://doi.org/10.1016/j.mib.2017.12.011)), so perhaps it is not this exact pathway that is relevant, but rather some of the enzymes in it. Indeed, if you look at the details of M00066 in the long-format output file, you will see that only one enzyme is annotated in these genomes: ceramide glucosyltransferase (K00720). Unfortunately, this enzyme is also not well studied in bacteria, so we don't have much literature backup for interpreting the lack of this function in *T. miru* and *T. nobis*. Maybe a sphingolipid expert will see this one day and look into it. :)
+Right next to the nitrogen fixation module is an unusual sounding metabolic pathway, Lactosylceramide biosynthesis, which is 50% complete in all of the other genomes. Lactosylceramides are a type of glycosphingolipid, not very well studied in Cyanobacteria (except for some work investigating sphingolipid roles in plant-microbe symbiotic interactions [(Heaver, Johnson and Ley 2018)](https://doi.org/10.1016/j.mib.2017.12.011)), so perhaps it is not this exact pathway that is relevant, but rather some of the enzymes in it. Indeed, if you look at the details of M00066 in the long-format output file, you will see that only one enzyme is annotated in these genomes: ceramide glucosyltransferase (K00720). Unfortunately, this enzyme is also not well studied in bacteria, so we don't have much literature backup for interpreting the lack of this function in *T. miru* and *T. nobis*. Maybe a sphingolipid expert will see this one day and look into it. :)
 
 ### Using custom metabolic modules
 
@@ -1462,7 +1463,7 @@ anvi-interactive -d nitrogen_metabolism-step_copy_number-MATRIX.txt \
 Here are some of my observations:
 - As we expected, *T. miru* and *T. nobis* only have the `NIF004` (Nitrogen uptake) module complete.
 - The other 6 genomes have all the modules >80% complete (except for H9, which is missing several genes from the hydrogen recycling and nitrogen uptake modules. But we already know it is quite an incomplete genome).
-- *T. miru* and *T. nobis* have multiple copies of the _narK_ transporter (as Tom found in his paper) while the others each have one. This isn't enough to make the overall nitrogen uptake module have a higher copy number, but you can see the copies of the individual transporters in the last column (`per_step_copy_numbers`).
+- *T. miru* and *T. nobis* have multiple copies of the _narK_ transporter (as Tom found in his paper) while the others each have one. This isn't enough to make the overall nitrogen uptake module have a higher copy number, but you can see the copies of the individual transporters in the last column (`per_step_copy_numbers`), and in the copy number heatmap.
 - Interestingly, the hopanoid lipid production module (`NIF003`) has relatively high completeness in most genomes (including *T. miru* and *T. nobis*, in which the module is 75% complete), and a lot of that seems to result from finding many Pfam annotations for the _hpn_ gene domains. This contrasts with the results from Tom's paper -- Tom used the [RAST annotation tool](https://www.anl.gov/mcs/rast-rapid-annotation-using-subsystem-technology) to find the _hpnABGH_ genes, which may have been a more stringent and/or specific strategy. Perhaps these Pfam domains are too generic to indicate hopanoid production? If we were serious about this analysis, we would probably cross-check our module with a lipid biosynthesis expert to make sure it is appropriate for identifying this metabolic capacity. :)
 - One thing looks weird! If you look at the per-step copy numbers for `NIF003`, the last step always has a copy number of 0 -- even though there are certainly genomes in which both _hpnH_ Pfam domains are annotated. In fact, for 6 of the genomes, the pathwise copy number is 1 (or 2) while the stepwise copy number is 0.
 
@@ -1523,7 +1524,7 @@ anvi-get-metabolic-model-file -c ../Trichodesmium_sp-contigs.db \
 
 The output file is _really_ big, because it contains every single metabolite, reaction, and gene contributing to the reaction network.
 
-We will use this {% include ARTIFACT name="reaction-network" %} for some neat visualizations of KEGG Pathway Maps using the program {% include PROGRAM name="anvi-draw-kegg-pathways" %}.
+What we _will_ do in anvi'o is to use this {% include ARTIFACT name="reaction-network" %} for some neat visualizations of KEGG Pathway Maps with the program {% include PROGRAM name="anvi-draw-kegg-pathways" %}.
 
 ```bash
 anvi-draw-kegg-pathways --contigs-dbs ../Trichodesmium_sp-contigs.db \
@@ -1748,7 +1749,7 @@ So now is the time to do some targeted searches through the rest of the file. Yo
 {:.notice}
 Confused by the ModelSEED compound names? You are not a biochemist and are overwhelmed with all this molecular information? Us, too. One option for you is to take the output, pick out the predictions that you have high-confidence in, and give that list to a large-language model (LLM) so it can pick out the ones that are likely to be biologically-relevant in your system. Then you can focus your efforts on carefully validating those predictions.
 
-Here are some of the predictions that I found:
+Here are some of the interesting predictions that I found:
 - Nitrate (cpd00209), produced by *A. macleodii* and consumed by *T. thiebautii*. You might remember from our earlier exploration of Pathway Map 00910 that *T. thiebautii* has the enzymes to import extracellular nitrate and convert it to nitrite. Perhaps some of that exterior nitrate is coming from its associated bacteria.
 - Thymine (cpd00151) or Thymidine (cpd00184), produced by *T. thiebautii* and consumed by *A. macleodii*. These are part of 'T' nucleotides and are needed by both organisms. Other marine microbes are known to exchange nucleotide components, so perhaps these do, too.
 - Propionate (cpd00141), produced by *T. thiebautii* and consumed by *A. macleodii*. This one is interesting because *T. thiebautii* can produce it but doesn't seem to be able to use it at all. Meanwhile, *A. macleodii* has quite a long reaction chain for consuming propionate and converting it to Propanoyl-CoA, which is an intermediate used in plenty of other metabolic capacities. Check out Pathway Map 00640 for details.
@@ -1789,7 +1790,7 @@ anvi-predict-metabolic-exchanges -e consortium_external_genomes.txt \
 ```
 
 {:.notice}
-We are excluding several pathway maps here because our algorithms cannot currently handle them.
+We are excluding several pathway maps here because our algorithms cannot currently handle them (or cannot process them efficiently enough for a tutorial setting).
 
 Notice that here we set the number of processes (`-P`) to 2, so that two genome pairs can be processed in parallel. And we set the number of threads per process (`-T`) to 2 as well, so in total the program will be using 4 threads.
 
