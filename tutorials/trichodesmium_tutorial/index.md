@@ -1129,7 +1129,7 @@ This section of the tutorial covers **metabolism reconstruction**, a strategy fo
 To keep things organized, we'll make a new subdirectory for ourselves in which we can work. We'll copy the external genomes file in here for convenience.
 
 ```bash
-mkdir -p 04_METABOLISM && cd 04_METABOLISM/
+mkdir -p 02_METABOLISM && cd 02_METABOLISM/
 cp ../external-genomes.txt .
 ```
 
@@ -1602,7 +1602,7 @@ We are going to test this program out on our *T. thiebautii* (Atlantic) genome a
 
 You've already learned how to do all the preparatory steps for analyzing genomes -- making a {% include ARTIFACT name="contigs-db" text="contigs database" %}, {% include PROGRAM name="anvi-run-kegg-kofams" text="annotating with KOfams" %}, and creating the {% include ARTIFACT name="reaction-network" text="reaction network" %}. Feel free to practice on these three new genomes. But in case you just want to get right to the metabolic interactions analysis, there are pre-made, annotated contigs databases for these genomes in the datapack at `00_DATA/associate_dbs/`. 
 
-You can copy the databases over to your current working directory (assuming you are still in the `04_METABOLISM` folder) like so:
+You can copy the databases over to your current working directory (assuming you are still in the `02_METABOLISM` folder) like so:
 ```bash
 cp ../00_DATA/associate_dbs/*.db .
 ```
