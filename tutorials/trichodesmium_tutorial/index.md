@@ -117,16 +117,11 @@ $ ls
 00_DATA
 
 $ ls 00_DATA/
-MAG_Candidatus_Trichodesmium_miru-contigs.db     MAG_Trichodesmium_thiebautii_Atlantic.fa         nitrogen_step_copies.json
-MAG_Candidatus_Trichodesmium_miru.fa             MAG_Trichodesmium_thiebautii_Indian-contigs.db   pan_state.json
-MAG_Candidatus_Trichodesmium_nobis-contigs.db    MAG_Trichodesmium_thiebautii_Indian.fa           Trichodesmium_erythraeum_IMS101-contigs.db
-MAG_Candidatus_Trichodesmium_nobis.fa            metabolism_state.json                            Trichodesmium_erythraeum_IMS101.fa
-MAG_Trichodesmium_erythraeum-contigs.db          module_info.txt                                  Trichodesmium_sp-contigs.db
-MAG_Trichodesmium_erythraeum.fa                  modules                                          Trichodesmium_thiebautii_H9_4-contigs.db
-MAG_Trichodesmium_thiebautii_Atlantic-contigs.db nitrogen_heatmap.json                            Trichodesmium_thiebautii_H9_4.fa
-``` 
+associate_dbs             fasta                     metabolism_state.json     module_info.txt           nitrogen_heatmap.json     pan_state.json
+contigs                   genome-pairs.txt          metagenome                modules                   nitrogen_step_copies.json
+```
 
-Inside the `00_DATA` folder, there are several files that will be useful for various parts of this tutorial. We will start from the seven *Trichodesmium* genomes stored in FASTA (`.fa`) files. Some are metagenome-assembled genomes (MAGs) binned from the TARA Ocean metagenomic dataset, and others are reference genomes taken from NCBI RefSeq.
+Inside the `00_DATA` folder, there are several files that will be useful for various parts of this tutorial. We will start from the seven *Trichodesmium* genomes stored in the `fasta` directory. Some are metagenome-assembled genomes (MAGs) binned from the TARA Ocean metagenomic dataset, and others are reference genomes taken from NCBI RefSeq.
 
 ## Activating anvi'o
 
@@ -145,7 +140,7 @@ To introduce you into the anvi'o-verse, we will run some basic genomics analysis
 - reformat a FASTA file
 - generate a {% include ARTIFACT name="contigs-db" %}
 - annotate gene calls with single-copy core genes and functions
-- estimate the taxonomy and completeness/redundancy of the genome 
+- estimate the taxonomy and completeness/redundancy of the genome
 - get data out of the database and into parseable text files
 
 Let's get started.
@@ -202,7 +197,7 @@ anvi-script-reformat-fasta GCA_023356555.1_ASM2335655v1_genomic.fna \
 ```
 
 {:.notice}
-You can use this command to further filter your FASTA file: check the options with the online (help page)[https://anvio.org/help/main/], or by using the flag `--help` in the terminal.
+You can use this command to further filter your FASTA file: check the options with the online [help page](https://anvio.org/help/main/), or by using the flag `--help` in the terminal.
 
 ### Generate a contigs database
 
@@ -294,13 +289,7 @@ AVAILABLE GENE CALLERS
 
 AVAILABLE FUNCTIONAL ANNOTATION SOURCES
 ===============================================
-* COG24_CATEGORY (3,098 annotations)
-* COG24_FUNCTION (3,098 annotations)
-* COG24_PATHWAY (858 annotations)
-* KEGG_BRITE (1,909 annotations)
-* KEGG_Class (474 annotations)
-* KEGG_Module (474 annotations)
-* KOfam (1,912 annotations)
+* No functional annotations found in this contigs database :/
 
 
 AVAILABLE HMM SOURCES
@@ -516,7 +505,7 @@ As you can see in the terminal output from the commands above, there are no outp
 
 ```bash
 # check which annotations were run on our contigs database
-$ anvi-db-info Trichodesmium_sp-contigs
+$ anvi-db-info Trichodesmium_sp-contigs.db
 
 DB Info (no touch)
 ===============================================
@@ -589,7 +578,7 @@ AVAILABLE HMM SOURCES
 * 'Ribosomal_RNA_5S' (5 models with 0 hits)
 
 # export functions for KOfam and COG24_FUCTION
-anvi-export-functions -c Trichodesmium_sp-contigs.db --annotation-sources KOfam,COG24_FUNCTION -o functional_annotations.txt
+$ anvi-export-functions -c Trichodesmium_sp-contigs.db --annotation-sources KOfam,COG24_FUNCTION -o functional_annotations.txt
 ```
 
 The output table from {% include PROGRAM name="anvi-export-functions" %} looks like this:
@@ -614,10 +603,20 @@ $ grep NifH functional_annotations.txt
 4020	KOfam	K02588	nitrogenase iron protein NifH	2.9e-144
 ```
 
-Or, you can use {% include PROGRAM name="anvi-search-functions" %}:
+This is unexpected: there are two genes (caller id: 3709 and 4020) with the NifH annotation. On of them has both an annotation by COG and KEGG, that's good, we like consistency. But the other one only has a COG annotation only. We only expect one copy of the NifH gene. Turns out that the COG annotation is not very reliable and in the paper, Tom noticed that the COG was wrongly annotating a Ferredoxin as NifH:
+
+<blockquote markdown="1">
+For instance, we found that genes with COG20 function incorrectly annotated as “Nitrogenase ATPase subunit NifH/coenzyme F430 biosynthesis subunit CfbC” correspond, in reality, to “ferredoxin: protochlorophyllide reductase.”
+<div class="blockquote-author">
+<a href="https://doi.org/10.1073/pnas.2112355118">doi:10.1073/pnas.2112355118</a>
+</div>
+</blockquote>
+
+Or, you can use {% include PROGRAM name="anvi-search-functions" %}, this time using only the KOfams annotation source:
 ```bash
 anvi-search-functions -c Trichodesmium_sp-contigs.db \
                       --search-term NifH \
+                      --annotation-sources KOfam \
                       --output-file NifH_search.txt \
                       --full-report NifH_full_report.txt
 ```
@@ -627,8 +626,6 @@ The first output file called `NifH_search.txt` only contains the name of the con
 ```
 $ cat NifH_full_report.txt
 gene_callers_id	source	accession	function	search_term	contigs
-3709	COG24_FUNCTION	COG1348	Nitrogenase ATPase subunit NifH/coenzyme F430 biosynthesis subunit CfbC (NifH/CfbC) (PDB:1CP2) (PUBMED:28225763)	NifH	Trichodesmium_sp_MAG_R01_000000000213_split_00004
-4020	COG24_FUNCTION	COG1348	Nitrogenase ATPase subunit NifH/coenzyme F430 biosynthesis subunit CfbC (NifH/CfbC) (PDB:1CP2) (PUBMED:28225763)	NifH	Trichodesmium_sp_MAG_R01_000000000230_split_00006
 4020	KOfam	K02588	nitrogenase iron protein NifH	NifH	Trichodesmium_sp_MAG_R01_000000000230_split_00006
 ```
 
@@ -639,11 +636,9 @@ We've found our marker gene for nitrogen fixation, which is a good sign given th
 Now that we know how to do basic genomic analysis using a single genome, we can try to do the same using a few more genomes. In the directory `00_FASTA_GENOMES`, you will find seven FASTA files containing the reference genomes and MAGs from Tom's paper:
 
 ```bash
-$ ls 00_FASTA_GENOMES
-MAG_Candidatus_Trichodesmium_miru.fa     MAG_Trichodesmium_erythraeum.fa
-MAG_Trichodesmium_thiebautii_Indian.fa   Trichodesmium_thiebautii_H9_4.fa
-MAG_Candidatus_Trichodesmium_nobis.fa    MAG_Trichodesmium_thiebautii_Atlantic.fa
-Trichodesmium_erythraeum_IMS101.fa
+$ ls 00_DATA/fasta
+MAG_Candidatus_Trichodesmium_miru.fa     MAG_Trichodesmium_erythraeum.fa          MAG_Trichodesmium_thiebautii_Indian.fa   Trichodesmium_thiebautii_H9_4.fa
+MAG_Candidatus_Trichodesmium_nobis.fa    MAG_Trichodesmium_thiebautii_Atlantic.fa Trichodesmium_erythraeum_IMS101.fa
 ```
 
 We will create as many {% include ARTIFACT name="contigs-db" text="contigs databases" %} as we have genomes in this directory. We will then annotate them in a similar fashion as when working with a single genome.
@@ -651,7 +646,7 @@ We will create as many {% include ARTIFACT name="contigs-db" text="contigs datab
 To avoid too much manual labor, we'll use BASH loops to automate the process. The loops will be a bit easier to write (and understand) if we have a text file of genome names to iterate over. So first, let's create a simple text file that contains the names of our genomes. The following BASH command will list the content of the `00_FASTA_GENOMES` directory and will only keep the part of the file name before the `.fa` extension, a.k.a. only the name of each genome:
 
 ```bash
-ls 00_FASTA_GENOMES/ | cut -d '.' -f 1 > genomes.txt
+ls 00_DATA/fasta | cut -d "." -f1 > genomes.txt
 ```
 
 The second thing to do is to make sure our FASTA files are properly formatted. Fortunately for you, we provided genomes with anvi'o compatible headers. If you don't believe me (and you should never believe me, and always check your data), then have a look at them.
@@ -661,7 +656,7 @@ The next step is to generate {% include ARTIFACT name="contigs-db" %} for each o
 ```bash
 while read genome
 do
-    anvi-gen-contigs-database -f 00_FASTA_GENOMES/${genome}.fa \
+    anvi-gen-contigs-database -f 00_DATA/fasta/${genome}.fa \
                               -o ${genome}-contigs.db \
                               -T 4
 done < genomes.txt
@@ -674,7 +669,7 @@ Now we can annotate these genomes with {% include PROGRAM name="anvi-run-hmms" %
 This command overwrite the databases in your current working directory with our pre-annotated ones from the `00_DATA` folder:
 
 ```bash
-cp 00_DATA/*-contigs.db .
+cp 00_DATA/contigs/*-contigs.db .
 ```
 
 </details>
@@ -715,6 +710,7 @@ And here is how this {% include ARTIFACT name="external-genomes" %} file looks l
 |MAG_Trichodesmium_thiebautii_Atlantic|/path/to/MAG_Trichodesmium_thiebautii_Atlantic-contigs.db|
 |MAG_Trichodesmium_thiebautii_Indian|/path/to/MAG_Trichodesmium_thiebautii_Indian-contigs.db|
 |Trichodesmium_erythraeum_IMS101|/path/to/Trichodesmium_erythraeum_IMS101-contigs.db|
+|Trichodesmium_sp|/path/to/Trichodesmium_sp-contigs.db|
 |Trichodesmium_thiebautii_H9_4|/path/to/Trichodesmium_thiebautii_H9_4-contigs.db|
 
 Now we can use this file as the input for commands like {% include PROGRAM name="anvi-estimate-genome-completeness" %} and {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}:
@@ -736,6 +732,8 @@ $ anvi-estimate-genome-completeness -e external-genomes.txt
 +---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
 | Trichodesmium_erythraeum_IMS101       | BACTERIA |            1 |          97.18 |           7.04 |          386 |        7750108 |
 +---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
+| Trichodesmium_sp                      | BACTERIA |            1 |          97.18 |           4.23 |          358 |        6640707 |
++---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
 | Trichodesmium_thiebautii_H9_4         | BACTERIA |          0.8 |          71.83 |          12.68 |          201 |        3286556 |
 +---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
 ```
@@ -746,7 +744,7 @@ Let's try estimating the taxonomy of all our genomes at once with {% include PRO
 
 ```bash
 $ anvi-estimate-scg-taxonomy -e external-genomes.txt -o taxonomy_multi_genomes.txt
-Num genomes ..................................: 7
+Num genomes ..................................: 8
 Taxonomic level of interest ..................: (None specified by the user, so 'all levels')
 Output file path .............................: taxonomy_multi_genomes.txt
 Output raw data ..............................: False
@@ -769,6 +767,7 @@ And here is the output:
 |MAG_Trichodesmium_thiebautii_Atlantic|21|21|Bacteria|Cyanobacteriota|Cyanobacteriia|Cyanobacteriales|Microcoleaceae|Trichodesmium|Trichodesmium sp023356605|
 |MAG_Trichodesmium_thiebautii_Indian|22|21|Bacteria|Cyanobacteriota|Cyanobacteriia|Cyanobacteriales|Microcoleaceae|Trichodesmium|Trichodesmium sp023356605|
 |Trichodesmium_erythraeum_IMS101|22|21|Bacteria|Cyanobacteriota|Cyanobacteriia|Cyanobacteriales|Microcoleaceae|Trichodesmium|Trichodesmium erythraeum|
+|Trichodesmium_sp|22|21|Bacteria|Cyanobacteriota|Cyanobacteriia|Cyanobacteriales|Microcoleaceae|Trichodesmium|Trichodesmium erythraeum|
 |Trichodesmium_thiebautii_H9_4|19|18|Bacteria|Cyanobacteriota|Cyanobacteriia|Cyanobacteriales|Microcoleaceae|Trichodesmium|Trichodesmium sp023356605|
 
 You can see that a lot of the MAGs match to unnamed species in GTDB -- even though we already know what most of them are, those names haven't propagated to the GTDB database yet. This especially makes sense for the candidate species *T. miru* and *T. nobis*. Regardless, all the *T. thiebautii* genomes have the same closest match to *T. sp023356535*.
@@ -796,7 +795,7 @@ In the datapack, you will find the {% include ARTIFACT name="contigs-db" %} of a
 With {% include PROGRAM name="anvi-display-contigs-stats" %}, we can learn about the count and length of contigs in the assembly, as well as the number of expected genomes:
 
 ```bash
-anvi-display-contigs-stats 00_DATA/sample01-contigs.db
+anvi-display-contigs-stats 00_DATA/metagenome/sample01-contigs.db
 ```
 
 {% include IMAGE path="/images/trichodesmium_tutorial/geno_02.png" width=80 %}
@@ -804,7 +803,7 @@ anvi-display-contigs-stats 00_DATA/sample01-contigs.db
 This assembly is estimated to contain six populations. To learn more about the composition of this metagenome, we can use {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} with the flag `--metagenome-mode`. In this mode, anvi'o will not try to compute the consensus taxonomy of every ribosomal protein as it does by default. Instead, it will report the taxonomy of all the genes matching to the most abundant ribosomal protein:
 
 ```bash
-$ anvi-estimate-scg-taxonomy -c 00_DATA/sample01-contigs.db --metagenome-mode
+$ anvi-estimate-scg-taxonomy -c 00_DATA/metagenome/sample01-contigs.db --metagenome-mode
 Contigs DB ...................................: 00_DATA/sample01-contigs.db
 Metagenome mode ..............................: True
 SCG for metagenome ...........................: None
@@ -850,7 +849,7 @@ Alternatively, you can tell anvi'o you want to use another ribosomal protein. Th
 
 <span class="extra-info-header">A matrix output with multiple metagenomes</span>
 
-If you have multiple metagenomes, you can use the flag `--matrix` to get an output file that looks like this (here at the genus level):
+If you have multiple metagenomes, you can use the flag `--matrix` to get an output file that looks like this (example output at the genus level):
 
 | **taxon**            | **sample01** | **sample02** | **sample03** | **sample04** | **sample05** | **sample06** |
 | -------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -869,14 +868,13 @@ If you have multiple metagenomes, you can use the flag `--matrix` to get an outp
 Pangenomics represent a set of computational strategies to compare and study the relationship between a set of genomes through gene clusters. For a more comprehensive introduction into the subject, [see this video.](https://youtu.be/nyv7Xr07LCY)
 
 Since the core concept of pangenomics is to compare genomes based on their gene content, is it important to know which genomes you plan you to use. Pangenomics is used with somewhat closely related organisms, at the species, genus, sometimes family level. It is also valuable is check the estimated completeness and overall quality of the genomes you want in include in your pangenome analysis.
-Low completeness genomes are likely missing small or large portion of their gene content. For that reason, we will include 7 out of the 8 *Trichodesmium* genomes to compute a pangenome. We won't use the *Trichodesmium thiebautii* H9_4 because of its low estimated completeness and overall smaller genome size. Fundamentally there is nothing preventing us from including it in a pangenome, and we will show you how the pangenome looks like when this genome is included.
+Low completeness genomes are likely missing small or large portion of their gene content. For that reason, we will include 7 out of the 8 *Trichodesmium* genomes to compute a pangenome. We won't use the *Trichodesmium thiebautii* H9_4 because of its low estimated completeness and overall smaller genome size.
 
 The inputs will be the {% include ARTIFACT name="contigs-db" %} that are present in the datapack, plus the {% include ARTIFACT name="contigs-db" %} of the *Trichodesmium* MAG that you downloaded in the first part of this tutorial.
 
-At this stage, these {% include ARTIFACT name="contigs-db" %} should be present in the directory `02_CONTIGS`
 
 ```bash
-$ ls 02_CONTIGS
+$ ls 00_DATA/contigs
 MAG_Candidatus_Trichodesmium_miru-contigs.db     MAG_Trichodesmium_thiebautii_Atlantic-contigs.db Trichodesmium_sp-contigs.db
 MAG_Candidatus_Trichodesmium_nobis-contigs.db    MAG_Trichodesmium_thiebautii_Indian-contigs.db   Trichodesmium_thiebautii_H9_4-contigs.db
 MAG_Trichodesmium_erythraeum-contigs.db          Trichodesmium_erythraeum_IMS101-contigs.db
@@ -886,7 +884,9 @@ MAG_Trichodesmium_erythraeum-contigs.db          Trichodesmium_erythraeum_IMS101
 
 The first step to compute a pangenome in anvi'o is the command {% include PROGRAM name="anvi-gen-genomes-storage" %} which takes multiples {% include ARTIFACT name="contigs-db" %} as input and generate a new anvi'o database called the {% include ARTIFACT name="genomes-storage-db" %}. This database holds all the gene's information like functional annotation and amino-acid sequence in a single location.
 
-The input to {% include PROGRAM name="anvi-gen-genomes-storage" %} is an {% include ARTIFACT name="external-genomes" %} file. You should have one from [the section about working with multiple genomes.](#working_with_multiple_genomes) We just need to remove the *Trichodesmium thiebautii* H9_4:
+The input to {% include PROGRAM name="anvi-gen-genomes-storage" %} is an {% include ARTIFACT name="external-genomes" %} file. You should have one from [the section about working with multiple genomes.](#working_with_multiple_genomes)
+If you don't have an {% include ARTIFACT name="external-genomes" %} file, you can make one with the command: `anvi-script-gen-genomes-file --input-dir 00_DATA/contigs/ -o external-genomes.txt`.
+We just need to remove the *Trichodesmium thiebautii* H9_4:
 
 ```bash
 grep -v Trichodesmium_thiebautii_H9_4 external-genomes.txt > external-genomes-pangenomics.txt
@@ -908,7 +908,7 @@ To actually run the pangenomics analysis, we will use the command {% include PRO
 anvi-pan-genome -g 03_PANGENOME/Trichodesmium-GENOMES.db \
                 -o 03_PANGENOME \
                 -n Trichodesmium \
-                -T 10
+                -T 4
 ```
 
 Under the hood, {% include PROGRAM name="anvi-pan-genome" %} uses [DIAMOND](https://www.wsi.uni-tuebingen.de/lehrstuehle/algorithms-in-bioinformatics/software/diamond/) (or BLASTp if you choose the alternative) to compute the similarity between amino acid sequences from every genomes. From this all-vs-all search, it will use the [MCL](https://micans.org/mcl/) algorithm to cluster the genes in group of relatively high similarity. The {% include ARTIFACT name="pan-db" %} stores the gene cluster information.
@@ -1020,7 +1020,9 @@ Or you can directly search for `NifH` and you will notice two results which is n
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_13.png" width=50 %}
 <blockquote markdown="1">
 For instance, we found that genes with COG20 function incorrectly annotated as “Nitrogenase ATPase subunit NifH/coenzyme F430 biosynthesis subunit CfbC” correspond, in reality, to “ferredoxin: protochlorophyllide reductase.”
-<div class="blockquote-author">[doi:10.1073/pnas.2112355118](https://doi.org/10.1073/pnas.2112355118)</div>
+<div class="blockquote-author">
+<a href="https://doi.org/10.1073/pnas.2112355118">doi:10.1073/pnas.2112355118</a>
+</div>
 </blockquote>
 
 Then you can search for `NifH` by selecting only the KOfam annotation source, or directly use the KOfam accession number `K02588`
