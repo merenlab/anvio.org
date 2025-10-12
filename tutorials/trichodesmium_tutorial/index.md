@@ -1782,14 +1782,5 @@ Don't forget to go back to the parent directory before you move on to the next t
 cd ..
 ```
 
-## Read recruitment
-
-The absence of the Nif genes, and therefore of the capacity for nitrogen fixation in the MAGs of *T. miru* and *T. nobis* could very well be explained by the fragmented nature of MAGs and the inherent incompleteness of the genomes. And that would be a very fair argument. So the question is: how do we prove the absence of these Nif genes?
-
-We can use metagenomic read recruitment to help us address this question. 
-
-Metagenomics read recruitment is the process of mapping read to a reference sequence. For instance it can a metagenome against a metagenomic assembly, a metagenomes against a collection of MAGs, you name it. It allows you to explore ecological signal related to your reference: presence/absence, relative abundance, within population variation and a lot more.
-
-In this tutorial, we will recruit reads from a few Tara Ocean metagenomes (a subset of the original reads, to keep it computationally feasible on a laptop) to the *Trichodesmium thiebautii* reference genome.
-## Phylogenomics
-
+{:.notice}
+This tutorial is still a work-in-progress. More sections coming soon!
