@@ -897,7 +897,6 @@ MAG_Trichodesmium_erythraeum-contigs.db          Trichodesmium_erythraeum_IMS101
 The first step to compute a pangenome in anvi'o is the command {% include PROGRAM name="anvi-gen-genomes-storage" %} which takes multiples {% include ARTIFACT name="contigs-db" %} as input and generate a new anvi'o database called the {% include ARTIFACT name="genomes-storage-db" %}. This database holds all the gene's information like functional annotation and amino-acid sequence in a single location.
 
 The input to {% include PROGRAM name="anvi-gen-genomes-storage" %} is an {% include ARTIFACT name="external-genomes" %} file. You should have one from [the section about working with multiple genomes.](#working_with_multiple_genomes)
-If you don't have an {% include ARTIFACT name="external-genomes" %} file, you can make one with the command: `anvi-script-gen-genomes-file --input-dir 00_DATA/contigs/ -o external-genomes.txt`.
 We just need to remove the *Trichodesmium thiebautii* H9_4:
 
 ```bash
@@ -907,8 +906,8 @@ grep -v Trichodesmium_thiebautii_H9_4 external-genomes.txt > external-genomes-pa
 Then we can use the command {% include PROGRAM name="anvi-gen-genomes-storage" %}:
 ```bash
 # make a directory of the pangenome analysis
-mkdir -p 03_PANGENOME
-anvi-gen-genomes-storage -e external-genomes-pangenomics.txt -o 03_PANGENOME/Trichodesmium-GENOMES.db
+mkdir -p 01_PANGENOME
+anvi-gen-genomes-storage -e external-genomes-pangenomics.txt -o 01_PANGENOME/Trichodesmium-GENOMES.db
 ```
 
 ### Pangenome analysis
@@ -917,8 +916,8 @@ To actually run the pangenomics analysis, we will use the command {% include PRO
 
 ```bash
 # will a few min
-anvi-pan-genome -g 03_PANGENOME/Trichodesmium-GENOMES.db \
-                -o 03_PANGENOME \
+anvi-pan-genome -g 01_PANGENOME/Trichodesmium-GENOMES.db \
+                -o 01_PANGENOME \
                 -n Trichodesmium \
                 -T 4
 ```
@@ -930,7 +929,7 @@ Under the hood, {% include PROGRAM name="anvi-pan-genome" %} uses [DIAMOND](http
 Now that we have a {% include ARTIFACT name="genomes-storage-db" %} and a {% include ARTIFACT name="pan-db" %}, we can use the command {% include PROGRAM name="anvi-display-pan" %} to start an interactive interface of our pangenome:
 
 ```bash
-anvi-display-pan -g 03_PANGENOME/Trichodesmium-GENOMES.db -p 03_PANGENOME/Trichodesmium-PAN.db
+anvi-display-pan -g 01_PANGENOME/Trichodesmium-GENOMES.db -p 01_PANGENOME/Trichodesmium-PAN.db
 ```
 
 And here is what you should see in your browser:
@@ -964,7 +963,7 @@ You can spend some time getting familiar with the interface and all the possible
 The state to reproduce the figure above is available in the directory `00_DATA`, and you can import it with the following command:
 
 ```bash
-anvi-import-state -p 03_PANGENOME/Trichodesmium-PAN.db -s 00_DATA/pan_state.json -n tutorial_state
+anvi-import-state -p 01_PANGENOME/Trichodesmium-PAN.db -s 00_DATA/pan_state.json -n tutorial_state
 ```
 
 ### Inspect gene clusters
@@ -1001,10 +1000,10 @@ Now that we have some meaningful bins, it is time to make sense of their content
 Here is how you would do it with the command line (note that I named my collection "default"):
 
 ```bash
-anvi-summarize -g 03_PANGENOME/Trichodesmium-GENOMES.db \
-               -p 03_PANGENOME/Trichodesmium-PAN.db \
+anvi-summarize -g 01_PANGENOME/Trichodesmium-GENOMES.db \
+               -p 01_PANGENOME/Trichodesmium-PAN.db \
                -C default \
-               -o 03_PANGENOME/SUMMARY
+               -o 01_PANGENOME/SUMMARY
 ```
 
 The interactive interface button and the above command line generate the same output directory which contains a large table summarizing ALL genes from all genomes. Here are the first few rows:
@@ -1060,7 +1059,7 @@ To help make sense of your pangenome, you can add multiple additional informatio
 We previously used {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} and made a text output called `taxonomy_multi_genomes.txt`. We can import that table directly into the pangenome with the command {% include PROGRAM name="anvi-import-misc-data" %}:
 
 ```bash
-anvi-import-misc-data -p 03_PANGENOME/Trichodesmium-PAN.db \
+anvi-import-misc-data -p 01_PANGENOME/Trichodesmium-PAN.db \
                       -t layers \
                       --just-do-it \
                       taxonomy_multi_genomes.txt
@@ -1078,13 +1077,13 @@ The sole required input is an {% include ARTIFACT name="external-genomes" %} fil
 
 ```bash
 anvi-compute-genome-similarity -e external-genomes-pangenomics.txt \
-                               -p 03_PANGENOME/Trichodesmium-PAN.db \
-                               -o 03_PANGENOME/ANI \
+                               -p 01_PANGENOME/Trichodesmium-PAN.db \
+                               -o 01_PANGENOME/ANI \
                                --program pyANI \
                                -T 4
 ```
 
-You should check the content of the output directory `03_PANGENOME/ANI`. It contains multiple matrix and associated tree file.
+You should check the content of the output directory `01_PANGENOME/ANI`. It contains multiple matrix and associated tree file.
 
 {:.notice}
 A friendly reminder that the ANI is computed on the fraction of two genomes that align to each other. Any genomic segment that is not found in one of the genomes is not taken into account in the final percent identity. The output of PyANI includes the alignment coverage of the pairwise genome comparison, and also the `full_percentage_identity` which correspond to `ANI * coverage`. Also note that ANI is not a symmetrical value.
