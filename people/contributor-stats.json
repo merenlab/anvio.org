@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7422,
+        "total_commits": 7431,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,7 +13,7 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 276
+            "2025": 285
         },
         "top_file": "anvio/dbops.py",
         "latest_commit_message": "fixy fix for the necessary int(gc)",
@@ -105,7 +105,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2275,
+        "total_commits": 2480,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 289,
             "2023": 174,
             "2024": 221,
-            "2025": 75
+            "2025": 280
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "summary.md - clarify summary abundance is not relative",
-        "latest_commit_hash": "419fd65449ec3591e09e1dc9fb07c375b88c4af4",
-        "latest_commit_date": "07 October 2025"
+        "latest_commit_message": "fix format strings in exchange prediction docs",
+        "latest_commit_hash": "a4e46f452005c76ca88daa548c4d81896a9f43a2",
+        "latest_commit_date": "11 October 2025"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -147,7 +147,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 1500,
+        "total_commits": 1782,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -160,12 +160,12 @@
             "2022": 102,
             "2023": 317,
             "2024": 531,
-            "2025": 2
+            "2025": 284
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "restore proper code authorship",
-        "latest_commit_hash": "bc513576549d4dcfa9551edd5ec7e9da48fced11",
-        "latest_commit_date": "19 September 2025"
+        "latest_commit_message": "delete sandbox relict",
+        "latest_commit_hash": "791b5ff8fba45fd7b060479403b917a09e2b9038",
+        "latest_commit_date": "08 October 2025"
     },
     "ahenoch": {
         "total_commits": 2,
