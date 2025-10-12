@@ -1731,6 +1731,51 @@ Here are some of the predictions that I found:
 - Thymine (cpd00151) or Thymidine (cpd00184), produced by *T. thiebautii* and consumed by *A. macleodii*. These are part of 'T' nucleotides and are needed by both organisms. Other marine microbes are known to exchange nucleotide components, so perhaps these do, too.
 - Propionate (cpd00141), produced by *T. thiebautii* and consumed by *A. macleodii*. This one is interesting because *T. thiebautii* can produce it but doesn't seem to be able to use it at all. Meanwhile, *A. macleodii* has quite a long reaction chain for consuming propionate and converting it to Propanoyl-CoA, which is an intermediate used in plenty of other metabolic capacities. Check out Pathway Map 00640 for details.
 
+#### Analyzing multiple pairs of genomes
+When we are working with a whole consortium of microbes, we can ask {% include PROGRAM name="anvi-predict-metabolic-exchanges" %} to process all genomes by providing an {% include ARTIFACT name="external-genomes" text="external genomes file" %}. If you don't do anything else, the program will process all possible pairs of genomes. But you can also provide a {% include ARTIFACT name="genome-pairs" %} file to specify which pairwise comparisons it should do.
+
+In our case, we have four genomes -- *T. thiebautii* and three associated bacteria -- and we mostly care about the interactions between *T. thiebautii* and its associates. We've also already analyzed *T. thiebautii* vs *A. macleodii* in the previous section. So we'll provide a {% include ARTIFACT name="genome-pairs" %} file indicating only *T. thiebautii* vs *R. aggregatum* and *T. thiebautii* vs *M. salarius*. That file is in your datapack already, and here is what it looks like:
+
+|**`genome_1`**|**`genome_2`**|
+|:--|:--|
+|MAG_Trichodesmium_thiebautii_Atlantic|R_aggregatum|
+|MAG_Trichodesmium_thiebautii_Atlantic|M_salarius|
+
+You can copy this file over to your current working directory:
+
+```bash
+cp ../00_DATA/genome-pairs.txt .
+```
+
+The names in the {% include ARTIFACT name="genome-pairs" %} file must match the corresponding {% include ARTIFACT name="external-genomes" %} file. We can make an external genomes file for our 3 associated bacteria, whose contigs-dbs are in our working directory. And we can append to that the line for the *T. thiebautii* (Atlantic) MAG from our previous external genomes file:
+
+```bash
+anvi-script-gen-genomes-file --input-dir . -o consortium_external_genomes.txt
+grep thiebautii_Atlantic ../external-genomes.txt >> consortium_external_genomes.txt
+```
+
+Here is how you can run {% include PROGRAM name="anvi-predict-metabolic-exchanges" %} on those pairs:
+
+```bash
+anvi-predict-metabolic-exchanges -e consortium_external_genomes.txt \
+                --genome-pairs-txt genome-pairs.txt \
+                -O thiebautii-vs-many \
+                --use-equivalent-amino-acids \
+                --exclude-pathway-maps 00061,00071,00121,00190,00195,00196,00270,00511,00542,00543 \
+                -T 2 \
+                -P 2
+```
+
+{:.notice}
+We are excluding several pathway maps here because our algorithms cannot currently handle them.
+
+Notice that here we set the number of processes (`-P`) to 2, so that two genome pairs can be processed in parallel. And we set the number of threads per process (`-T`) to 2 as well, so in total the program will be using 4 threads.
+
+When the program finishes, you will get similar output files as before, except that multiple pairs of genomes will be included in the results. The predictions include many of the same exchanges that we saw between *T. thiebautii* and *A. macleodii* before, like 'BIOT', nitrate, and propionate. So it seems like the bacterial associates have similar interactions with their cyanobacterial partner.
+
+### Metabolic conclusions
+
+We've now used several different strategies to investigate the metabolism of our _Trichodesmium_ genomes and their bacterial associates. We've once again recapitulated the lack of nitrogen fixation in *T. miru* and *T. nobis*, and we've tried some very new programs for predicting metabolic interactions
 
 Don't forget to go back to the parent directory before you move on to the next tutorial section:
 ```bash
