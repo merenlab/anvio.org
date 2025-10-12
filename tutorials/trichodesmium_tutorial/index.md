@@ -790,10 +790,10 @@ This automation sounds like a nice plug-and-play analysis pipeline - and it is -
 
 ### Working with one (or more) metagenomes
 
-If you are working with one, or more, metagenomic assembly, you can use and run the same commands that we ran on individual genomes, such as {% include PROGRAM name="anvi-gen-contigs-database" %}, {% include PROGRAM name="anvi-run-hmms" %}, {% include PROGRAM name="anvi-run-scg-taxonomy" %}, {% include PROGRAM name="anvi-run-kegg-kofams" %}, etc.
+If you are working with one, or more, metagenomic assemblies, you can use and run the same commands that we ran on individual genomes. This includes {% include PROGRAM name="anvi-gen-contigs-database" %}, {% include PROGRAM name="anvi-run-hmms" %}, {% include PROGRAM name="anvi-run-scg-taxonomy" %}, {% include PROGRAM name="anvi-run-kegg-kofams" %}, etc.
 
-In the datapack, you will find the {% include ARTIFACT name="contigs-db" %} of a mock assembly that we made for you.
-With {% include PROGRAM name="anvi-display-contigs-stats" %}, we can learn about the contigs count and length, as well as the number of expected genomes:
+In the datapack, you will find the {% include ARTIFACT name="contigs-db" %} of a mock metagenome assembly that we made for you.
+With {% include PROGRAM name="anvi-display-contigs-stats" %}, we can learn about the count and length of contigs in the assembly, as well as the number of expected genomes:
 
 ```bash
 anvi-display-contigs-stats 00_DATA/sample01-contigs.db
@@ -801,7 +801,7 @@ anvi-display-contigs-stats 00_DATA/sample01-contigs.db
 
 {% include IMAGE path="/images/trichodesmium_tutorial/geno_02.png" width=80 %}
 
-We have an estimated number of populations of six. To learn more about the composition of this metagenome, we can use {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} with the flag `--metagenome-mode`. In this mode, anvi'o will not try to compute the consensus taxonomy of every ribosomal proteins as it does by default. Instead, it will report the taxonomy of all the genes matching to the most abundant ribosomal protein:
+This assembly is estimated to contain six populations. To learn more about the composition of this metagenome, we can use {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} with the flag `--metagenome-mode`. In this mode, anvi'o will not try to compute the consensus taxonomy of every ribosomal protein as it does by default. Instead, it will report the taxonomy of all the genes matching to the most abundant ribosomal protein:
 
 ```bash
 $ anvi-estimate-scg-taxonomy -c 00_DATA/sample01-contigs.db --metagenome-mode
@@ -844,13 +844,13 @@ Taxa in metagenome "metagenome_assembly"
 +----------------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------+
 ```
 
-Alternatively, you can tell anvi'o you want to use another ribosomal protein. The output of the above comment is already telling us that each ribosomal protein is present six times, so any gene should do the job. You can also use the flag `--report-scg-frequencies`, which will write these frequency into a text file.
+Alternatively, you can tell anvi'o you want to use another ribosomal protein. The output of the above comment is already telling us that each ribosomal protein is present six times, so any gene should do the job. You can also use the flag `--report-scg-frequencies`, which will write these frequencies into a text file.
 
 <div class="extra-info" markdown="1">
 
 <span class="extra-info-header">A matrix output with multiple metagenomes</span>
 
-If you have multiple metagenome's {% include ARTIFACT name="contigs-db" %}, you can use the flag `--matrix` to get an output file that looks like this (here at the genus level):
+If you have multiple metagenomes, you can use the flag `--matrix` to get an output file that looks like this (here at the genus level):
 
 | **taxon**            | **sample01** | **sample02** | **sample03** | **sample04** | **sample05** | **sample06** |
 | -------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
