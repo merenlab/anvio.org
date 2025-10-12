@@ -1553,11 +1553,12 @@ Oh, wait. Only one of the two genomes (*A. macleodii*) has the enzymes to conver
 
 Perhaps this is a valid exchange, and perhaps it is not. It would take a bit more digging through the *T. thiebautii* MAG to see if we could find the relevant enzymes (e.g., K01695) with a more careful homology search. But proving that an enzyme is truly missing is hard, and we don't necessarily want to do that right now. So we are just going to move on.
 
-I encourage you to take a look at the corresponding maps for the production of L-Leucine and D-Glucose. The L-Leucine situation (in map 00290) looks very similar to the L-Tryptophan situation -- most of the enzymes are there in both genomes, but *T. thiebautii* is missing just the tail end of the reaction chain such that it looks like this microbe cannot fully synthesize several amino acids, including leucine, valine and isoleucine. Based on our previous exploration of this pathway map across all of the _Trichodesmium_ genomes, this seems unlikely to be true story. Most of the other genomes have those enzymes, including the *T. thiebautii* MAG from the Indian Ocean. So we can ignore this prediction.
+I encourage you to take a look at the corresponding maps for the production of L-Leucine and D-Glucose. The L-Leucine situation (in map 00290) looks very similar to the L-Tryptophan situation -- most of the enzymes are there in both genomes, but *T. thiebautii* is missing just the tail end of the reaction chain such that it looks like this microbe cannot fully synthesize several amino acids, including leucine, valine and isoleucine. Based on our previous exploration of this pathway map across all of the _Trichodesmium_ genomes, this seems unlikely to be the true story. Most of the other genomes have those enzymes, including the *T. thiebautii* MAG from the Indian Ocean. So we can ignore this prediction.
 
 For D-Glucose (map 00500), on the other hand, there are many enzymes in the reaction chain that *A. macleodii* has but *T. thiebautii* does not. So that prediction looks legitimate -- *A. macleodii* could be cross-feeding glucose to *T. thiebautii*. Whether or not that _actually_ happens in real life is uncertain. First, *A. macleodii* would have to intentially create glucose (as opposed to funneling its energy and carbon into other things). Second, it would have to produce more glucose than it individually needs, and third, that glucose would have to make its way outside of the cell where *T. thiebautii* could pick it up. But this potential exchange of glucose is now a hypothesis that is testable either by experimental means or literature review.
 
-You might be wondering if there is a way to change the stringency of the Pathway Map walks so that they can handle small gaps. Indeed there is! We can set the `--maximum-gaps` parameter to allow for some number of gaps in the reaction chains. Unfortunately, this won't fix the case of L-Tryptophan, because the gap occurs right at the start of the reaction chain and you cannot build a chain that starts from nothing (Iva and Sam need to think about how to get around this edge case). However, it could help create a better ranking for other ambiguous cases in which the gaps are internal to the reaction chain.
+#### Allowing for gaps in reaction chains
+You might be wondering if there is a way to change the stringency of the Pathway Map walks so that they can handle small gaps. Indeed there is! We can set the `--maximum-gaps` parameter to allow for some number of gaps in the reaction chains. Unfortunately, this won't fix the case of L-Tryptophan or L-Leucine, because the gap occurs right at the start of the reaction chain and you cannot build a chain that starts from nothing (Iva and Sam need to think about how to get around this edge case). However, it could help create a better ranking for other ambiguous cases in which the gaps are internal to the reaction chain.
 
 So let's run the predictions again -- this time allowing for a gap of 1 missing enzyme. We will also exclude those problematic pathway maps that gave us pesky warnings before. While creating the tutorial, I noticed that allowing for a gap of 1 causes problems with the Pathway Walk on a specific map, 00061 (Fatty acid biosynthesis) -- processing that map takes forever, potentially because the gap causes a cycle that the codebase can't handle quite yet. To avoid the long (potentially infinite) runtime, we will also exclude this specific map.
 
@@ -1569,18 +1570,22 @@ In addition, since we've been seeing amino acids in the prediction output, we wi
 ```bash
 anvi-predict-metabolic-exchanges -c1 ../MAG_Trichodesmium_thiebautii_Atlantic-contigs.db \
                 -c2 A_macleodii-contigs.db \
-                -O thiebautii-vs-macleodii \
-                --force-overwrite \
+                -O thiebautii-vs-macleodii-gap1 \
                 --maximum-gaps 1 \
                 --use-equivalent-amino-acids \
                 --exclude-pathway-maps 00061,00121,00190,00195,00196,00511,00542,00543 \
                 -T 4
 ```
 
-This time, the number of predictions from the Pathway Map walk approach is a little bit smaller (122 predictions, compared to 125 from before). But the top-ranked results in the table above mostly didn't change, except for some of the reaction chains getting a bit longer. So now is the time to do some targeted searches through the rest of the file.
+This time, the number of predictions from the Pathway Map walk approach is a little bit smaller (122 predictions, compared to 125 from before). Some predictions likely went away because we excluded an additional Pathway Map. But the top-ranked results in the table above mostly didn't change, except for some of the reaction chains getting a bit longer.
+
+So now is the time to do some targeted searches through the rest of the file. You can look through the rest of the predictions using whatever strategy you think is best. I would recommend focusing on our first set of outputs (the ones made without considering gaps), as those are more stringent and seem to be more reliable predictions overall.
 
 {:.notice}
-Confused by the ModelSEED compound names? You are not a biogeochemist and are overwhelmed with all this molecular information? Us, too. One option for you is to take the output, pick out the predictions that you have high-confidence in, and give that list to a large-language model (LLM) so it can pick out the ones that are likely to be biologically-relevant in your system. Then you can focus your efforts on carefully validating those predictions.
+Confused by the ModelSEED compound names? You are not a biochemist and are overwhelmed with all this molecular information? Us, too. One option for you is to take the output, pick out the predictions that you have high-confidence in, and give that list to a large-language model (LLM) so it can pick out the ones that are likely to be biologically-relevant in your system. Then you can focus your efforts on carefully validating those predictions.
+
+Here are some of the predictions that I found:
+- Nitrate (cpd00209), produced by *A. macleodii* and consumed by *T. thiebautii*. You might remember from our earlier exploration of Pathway Map 00910 that *T. thiebautii* has the enzymes to import extracellular nitrate and convert it to nitrite. Perhaps some of that exterior nitrate is coming from its associated bacteria.
 
 Don't forget to go back to the parent directory before you move on to the next tutorial section:
 ```bash
