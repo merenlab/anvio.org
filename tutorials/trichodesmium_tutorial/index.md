@@ -244,10 +244,80 @@ Now is probably a good time to use the command {% include PROGRAM name="anvi-db-
 anvi-db-info Trichodesmium_sp-contigs.db
 ```
 
-With this command, you can see which HMMs were already run on that database, but also some basic information like the number of contigs, number of genes called by pyrodigal-gv, and more.
+With this command, you can see which HMMs were already run on that database, but also some basic information like the number of contigs, number of genes called by pyrodigal-gv, and more:
 
-{:.warning}
-SCREENSHOT?
+```
+DB Info (no touch)
+===============================================
+Database Path ................................: Trichodesmium_sp-contigs.db
+description ..................................: [Not found, but it's OK]
+db_type ......................................: contigs (variant: unknown)
+version ......................................: 24
+
+
+DB Info (no touch also)
+===============================================
+project_name .................................: Trichodesmium_sp
+contigs_db_hash ..............................: hash0d1122fb
+split_length .................................: 20000
+kmer_size ....................................: 4
+num_contigs ..................................: 269
+total_length .................................: 6640707
+num_splits ...................................: 358
+gene_level_taxonomy_source ...................: None
+genes_are_called .............................: 1
+external_gene_calls ..........................: 0
+external_gene_amino_acid_seqs ................: 0
+skip_predict_frame ...........................: 0
+splits_consider_gene_calls ...................: 1
+trna_taxonomy_was_run ........................: 0
+trna_taxonomy_database_version ...............: None
+reaction_network_ko_annotations_hash .........: None
+reaction_network_kegg_database_release .......: None
+reaction_network_modelseed_database_sha ......: None
+reaction_network_consensus_threshold .........: None
+reaction_network_discard_ties ................: None
+creation_date ................................: 1760017061.92556
+scg_taxonomy_was_run .........................: 1
+scg_taxonomy_database_version ................: GTDB: v214.1; Anvi'o: v1
+gene_function_sources ........................: COG24_FUNCTION,COG24_PATHWAY,COG24_CATEGORY,KOfam,KEGG_BRITE,KEGG_Class,KEGG_Module
+modules_db_hash ..............................: 66e53d49e65a
+
+* Please remember that it is never a good idea to change these values. But in some
+  cases it may be absolutely necessary to update something here, and a
+  programmer may ask you to run this program and do it. But even then, you
+  should be extremely careful.
+
+
+AVAILABLE GENE CALLERS
+===============================================
+* 'pyrodigal-gv' (4,820 gene calls)
+
+
+AVAILABLE FUNCTIONAL ANNOTATION SOURCES
+===============================================
+* COG24_CATEGORY (3,098 annotations)
+* COG24_FUNCTION (3,098 annotations)
+* COG24_PATHWAY (858 annotations)
+* KEGG_BRITE (1,909 annotations)
+* KEGG_Class (474 annotations)
+* KEGG_Module (474 annotations)
+* KOfam (1,912 annotations)
+
+
+AVAILABLE HMM SOURCES
+===============================================
+* 'Archaea_76' (76 models with 34 hits)
+* 'Bacteria_71' (71 models with 72 hits)
+* 'Protista_83' (83 models with 38 hits)
+* 'Ribosomal_RNA_12S' (1 model with 0 hits)
+* 'Ribosomal_RNA_16S' (3 models with 0 hits)
+* 'Ribosomal_RNA_18S' (1 model with 0 hits)
+* 'Ribosomal_RNA_23S' (2 models with 0 hits)
+* 'Ribosomal_RNA_28S' (1 model with 0 hits)
+* 'Ribosomal_RNA_5S' (5 models with 0 hits)
+```
+
 
 #### General summary and metrics
 
