@@ -134,7 +134,7 @@ Before you start, don't forget to activate your anvi'o environment:
 conda activate anvio-dev
 ```
 
-## Genomics with anvi'o
+## Genomics
 
 To introduce you into the anvi'o-verse, we will run some basic genomics analysis on a single genome. In this case, we will download a known _Trichodesmium_ genome from NCBI to add to our collection. We will learn how to:
 - reformat a FASTA file
