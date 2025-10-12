@@ -20,8 +20,6 @@ comments: true
  * Estimate taxonomy and completion/redundancy across multiple genomes.
  * Generate a pangenome of closely related _Trichodesmium_ genomes.
  * Study metabolism by predicting metabolic pathway completeness and metabolic interactions.
- * Leverage metagenomic read-recruitment to study environmental populations.
- * Create a phylogenomic tree to study evolutionary relationships between microbes.
 
  {:.notice}
  If you have any questions about this exercise, or have ideas to make it better, please feel free to get in touch with the anvi'o community through our Discord server:
