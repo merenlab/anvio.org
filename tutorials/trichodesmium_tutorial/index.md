@@ -865,12 +865,13 @@ If you have multiple metagenomes, you can use the flag `--matrix` to get an outp
 
 ## Pangenomics
 
-Pangenomics represent a set of computational strategies to compare and study the relationship between a set of genomes through gene clusters. For a more comprehensive introduction into the subject, [see this video.](https://youtu.be/nyv7Xr07LCY)
+Pangenomics represents a set of computational strategies to compare and study the relationship between a set of genomes through gene clusters. For a more comprehensive introduction into the subject, [see this video.](https://youtu.be/nyv7Xr07LCY)
 
-Since the core concept of pangenomics is to compare genomes based on their gene content, is it important to know which genomes you plan you to use. Pangenomics is used with somewhat closely related organisms, at the species, genus, sometimes family level. It is also valuable is check the estimated completeness and overall quality of the genomes you want in include in your pangenome analysis.
-Low completeness genomes are likely missing small or large portion of their gene content. For that reason, we will include 7 out of the 8 *Trichodesmium* genomes to compute a pangenome. We won't use the *Trichodesmium thiebautii* H9_4 because of its low estimated completeness and overall smaller genome size.
+Since the core concept of pangenomics is to compare genomes based on their gene content, it is important to know which genomes you plan you to use. Pangenomics is typically used with somewhat closely related organisms, at the species, genus, sometimes family level. It is also valuable to check the estimated completeness and overall quality of the genomes you want in include in your pangenome analysis.
 
-The inputs will be the {% include ARTIFACT name="contigs-db" %} that are present in the datapack, plus the {% include ARTIFACT name="contigs-db" %} of the *Trichodesmium* MAG that you downloaded in the first part of this tutorial.
+Low completeness genomes are likely missing some portion of their gene content. For that reason, we will include 7 out of the 8 *Trichodesmium* genomes to compute a pangenome. We won't use the *Trichodesmium thiebautii* H9_4 because of its low estimated completeness and overall smaller genome size.
+
+The inputs will be the {% include ARTIFACT name="contigs-db" text="contigs databases" %} that are present in the datapack, plus the {% include ARTIFACT name="contigs-db" %} of the *Trichodesmium* MAG that you downloaded in the first part of this tutorial.
 
 
 ```bash
