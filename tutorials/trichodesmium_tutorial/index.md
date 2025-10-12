@@ -1728,6 +1728,9 @@ Confused by the ModelSEED compound names? You are not a biochemist and are overw
 
 Here are some of the predictions that I found:
 - Nitrate (cpd00209), produced by *A. macleodii* and consumed by *T. thiebautii*. You might remember from our earlier exploration of Pathway Map 00910 that *T. thiebautii* has the enzymes to import extracellular nitrate and convert it to nitrite. Perhaps some of that exterior nitrate is coming from its associated bacteria.
+- Thymine (cpd00151) or Thymidine (cpd00184), produced by *T. thiebautii* and consumed by *A. macleodii*. These are part of 'T' nucleotides and are needed by both organisms. Other marine microbes are known to exchange nucleotide components, so perhaps these do, too.
+- Propionate (cpd00141), produced by *T. thiebautii* and consumed by *A. macleodii*. This one is interesting because *T. thiebautii* can produce it but doesn't seem to be able to use it at all. Meanwhile, *A. macleodii* has quite a long reaction chain for consuming propionate and converting it to Propanoyl-CoA, which is an intermediate used in plenty of other metabolic capacities. Check out Pathway Map 00640 for details.
+
 
 Don't forget to go back to the parent directory before you move on to the next tutorial section:
 ```bash
