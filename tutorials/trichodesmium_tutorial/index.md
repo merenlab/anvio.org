@@ -915,7 +915,7 @@ anvi-gen-genomes-storage -e external-genomes-pangenomics.txt -o 01_PANGENOME/Tri
 To actually run the pangenomic analysis, we will use the command {% include PROGRAM name="anvi-pan-genome" %}. The sole input is the {% include ARTIFACT name="genomes-storage-db" %} and it will generate a new database, called the {% include ARTIFACT name="pan-db" %}:
 
 ```bash
-# will a few min
+# will take several minutes
 anvi-pan-genome -g 01_PANGENOME/Trichodesmium-GENOMES.db \
                 -o 01_PANGENOME \
                 -n Trichodesmium \
