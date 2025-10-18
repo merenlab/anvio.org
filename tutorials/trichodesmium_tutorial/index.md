@@ -1681,15 +1681,15 @@ But we might be able to find the B vitamin exchanges mentioned in that paper, or
 
 |**`compound_id`**|**`compound_name`**|**`genomes`**|**`produced_by`**|**`consumed_by`**|**`prediction_method`**|**`max_reaction_chain_length`**|**`max_production_chain_length`**|**`production_overlap_length`**|**`production_overlap_proportion`**|**`production_chain_pathway_map`**|**`max_consumption_chain_length`**|**`consumption_overlap_length`**|**`consumption_overlap_proportion`**|**`consumption_chain_pathway_map`**|
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|cpd00027|D-Glucose|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|10|8|None|None|00500|2|2|1.0|00500|
-|cpd00037|UDP-N-acetylglucosamine|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|14|6|None|None|00520|8|8|1.0|00550|
-|cpd00044|3-phosphoadenylylsulfate|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|7|4|None|None|00920|3|3|1.0|00920|
-|cpd00065|L-Tryptophan|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|14|13|None|None|00400|1|1|1.0|00380|
-|cpd00085|beta-Alanine|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|Pathway_Map_Walk|10|1|None|None|00410,00770|9|2|0.2222222222222222|00770|
-|cpd00098|Choline|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|Pathway_Map_Walk|3|1|1|1.0|00564|2|None|None|00260|
-|cpd00100|Glycerol|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|2|1|None|None|00052,00561|1|1|1.0|00561|
-|cpd00104|BIOT|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|Pathway_Map_Walk|5|2|2|1.0|00780|3|None|None|00780|
-|cpd00107|L-Leucine|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|11|10|None|None|00290|1|1|1.0|00970|
+|cpd00027|D-Glucose|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|10|8|None|None|00500|2|2|1.0|00500|
+|cpd00037|UDP-N-acetylglucosamine|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|14|6|None|None|00520|8|8|1.0|00550|
+|cpd00044|3-phosphoadenylylsulfate|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|7|4|None|None|00920|3|3|1.0|00920|
+|cpd00065|L-Tryptophan|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|14|13|None|None|00400|1|1|1.0|00380|
+|cpd00085|beta-Alanine|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|10|1|None|None|00410,00770|9|2|0.2222222222222222|00770|
+|cpd00098|Choline|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|Pathway_Map_Walk|3|1|1|1.0|00564|2|None|None|00260,00670|
+|cpd00100|Glycerol|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|2|1|None|None|00052,00561|1|1|1.0|00561|
+|cpd00104|BIOT|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|Pathway_Map_Walk|5|2|2|1.0|00780|3|None|None|00780|
+|cpd00107|L-Leucine|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|11|10|None|None|00290|1|1|1.0|00970|
 
 The predictions are ranked in order from best evidence to no evidence, so all of these at the top are coming from the `Pathway_Map_Walk` prediction strategy. And here already is one of our expected exchanges: the compound called 'BIOT' is actually biotin aka Vitamin B7, and *T. thiebautii* is potentially cross-feeding it to *A. macleodii* as suggested in the [Koedooder et al 2023](https://doi.org/10.1128/msystems.00742-23) paper.
 
