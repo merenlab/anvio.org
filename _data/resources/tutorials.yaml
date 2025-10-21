@@ -70,7 +70,7 @@
 
 - title: An updated primer on anvi'o
   type: tutorial
-  url: /tutorials/trichodesmium_tutorial/
+  url: /tutorials/trichodesmium-tutorial/
   authors: [ivagljiva, FlorianTrigodet]
   summary: "A multi-purpose tutorial based on Trichodesium genomes"
   tags: [genomics, pangenomics, metabolism, hands-on, beginner]
