@@ -19,6 +19,13 @@
   summary: "A mini hands-on exercise is to conduct a simple read recruitment experiment with a mock dataset."
   tags: [metagenomics, hands-on, beginner]
 
+- title: Competitive metagenomic read recruitment
+  type: tutorial
+  url: /tutorials/competitive-read-recruitment/
+  authors: [meren]
+  summary: "A hands-on tutorial on how to conduct competitive metagenomic read recruitment with multiple genomes with real-world scale datasets."
+  tags: [genomics, metagenomics, hands-on, beginner]
+
 - title: The anvi'o pangenomics workflow
   type: tutorial
   url: https://merenlab.org/2016/11/08/pangenomics-v2/
