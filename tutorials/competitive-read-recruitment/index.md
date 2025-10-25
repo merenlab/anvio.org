@@ -13,13 +13,19 @@ comments: true
 
 The purpose of this tutorial is to walk you through a scenario in which you have **multiple genomes** and **one or more metagenomes**, and you wish to perform **a competitive metagenomic read recruitment** to understand the relative abundance and/or biogeography of your **genomes across metagenomes**.
 
-Metagenomic read recruitment is a very commonly used strategy in [metagenomics](https://anvio.org/vocabulary/#metagenomics), and is extremely powerful for answering a great number of questions at different levels of resolution, such as from studying population genetics of a single population to characterize the core and accessory genes of a population, to quantifying the distribution patterns of microbial taxa across environments.
+Metagenomic read recruitment is a very commonly used strategy in [metagenomics](https://anvio.org/vocabulary/#metagenomics), and is extremely powerful for answering a great number of questions at different levels of resolution, from studying population genetics of a single population to characterize the core and accessory genes of a population to quantifying the distribution patterns of microbial taxa across environments.
 
-You can learn much more about the general principles of metagenomic read recruitment here in [this introductory video](https://youtu.be/MqD4aN1p1qA?t=344) (which should be accessible to anyone, including those who have no background in the topic). You can also follow [this introductory tutorial](https://merenlab.org/tutorials/read-recruitment/) to gain hands-on experience with metagenomic read recruitment (which should be accessible to anyone who has some expertise in the terminal environment).
+You can learn much more about the general principles of metagenomic read recruitment here in [this introductory video](https://youtu.be/MqD4aN1p1qA?t=344) (which should be accessible to anyone, including those who have no background in the topic). You can also follow [this introductory tutorial](https://merenlab.org/tutorials/read-recruitment/) to gain some hands-on experience with metagenomic read recruitment with all of its moving parts (which should be accessible to anyone who has some expertise in the terminal environment).
 
-*This* particular tutorial will highlight a specific application of metagenomic read recruitment when you have multiple genomes you wish to survey in environments, and you wish to perform the read recruitment in a 'competitive' way to minimize noise in your read recruitment results.
+*This* particular tutorial will highlight a specific application of **metagenomic read recruitment when you have multiple genomes you wish to survey in environments**, and you wish to perform the read recruitment in a **competitive** way to minimize noise in your read recruitment results.
 
-Competition here comes from the fact that in this particular setup multiple genomes will be 'competing' one another to recruit any given read, which will decreases the likelihood of non-specific recruitment of reads from complex environmental populations to genomes that do not reprsent them. If you are not familiar with this concept.
+Competition here comes from the fact that in this particular setup multiple genomes will be *competing* with one another to recruit any given read, which will decrease the likelihood of non-specific recruitment of short reads from complex environmental populations to genomes that do not represent them as a function of increasing number of genomes in your collection. To think more about *when* this would be most relevant, think about the following example:
+
+Let's say you wish to study a particular environmental population of SAR11, Prochlorococcus, or Bacteroides fragilis. You have a genome for your organism, and you wish to characterize populations associated with it across environments. If you use many more non-redundant genomes available to you for this taxon rather than one, a metagenomic read that may be coming from a non-target population will less likely to end up being recruited by your singular genome since it will find a better context for itself. Attention to this subtle yet critical point forms the basis of many critical questions that cannot be answered appropriately otherwise. To see a few critical applications of competitive read recruitment with many genomes, you can take a look at these papers:
+
+* [Linking pangenomes and metagenomes: the Prochlorococcus metapangenome](https://peerj.com/articles/4320/)
+* [Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution](https://doi.org/10.1126/sciadv.abq4632)
+* [Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02195-w)
 
 ## Target audience
 
@@ -82,7 +88,7 @@ mv GENOMES/G02-contigs.fa GENOMES/G02.fa
 cp ~/github/anvio/anvio/tests/sandbox/workflows/metagenomics/three_samples_example/sample-0*-R*gz METAGENOMES/
 ```
 
-Tutorial developers should jump to the subsection "Fix deflines".
+Tutorial developers should jump to the subsection "[Fix deflines](#fix-deflines)".
 
 ## General setup
 
