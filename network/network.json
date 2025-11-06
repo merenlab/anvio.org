@@ -38,7 +38,7 @@
       "type": "DB"
     },
     {
-      "size": 26,
+      "size": 25,
       "score": 0.5,
       "color": "#00AA00",
       "id": "collection",
@@ -47,7 +47,7 @@
       "type": "COLLECTION"
     },
     {
-      "size": 25,
+      "size": 24,
       "score": 0.5,
       "color": "#00AA00",
       "id": "bin",
@@ -1362,7 +1362,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 8,
+      "size": 5,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-display-codon-frequencies",
@@ -2772,10 +2772,6 @@
       "source": 4
     },
     {
-      "target": 153,
-      "source": 4
-    },
-    {
       "target": 155,
       "source": 4
     },
@@ -2866,10 +2862,6 @@
     {
       "source": 137,
       "target": 5
-    },
-    {
-      "target": 153,
-      "source": 5
     },
     {
       "target": 155,
@@ -2984,8 +2976,8 @@
       "source": 6
     },
     {
-      "target": 153,
-      "source": 6
+      "source": 153,
+      "target": 6
     },
     {
       "target": 155,

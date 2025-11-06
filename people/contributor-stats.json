@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7433,
+        "total_commits": 7439,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,15 +13,15 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 287
+            "2025": 293
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "much better",
-        "latest_commit_hash": "1892f905f633f82022f2a6a9c78c83ebb697b95a",
-        "latest_commit_date": "12 October 2025"
+        "latest_commit_message": "fix the help menu so Tom is not confused",
+        "latest_commit_hash": "c0a149c222f9ce2ea98e6fd9168d7ad75f1956a2",
+        "latest_commit_date": "06 November 2025"
     },
     "FlorianTrigodet": {
-        "total_commits": 200,
+        "total_commits": 212,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -34,12 +34,12 @@
             "2022": 10,
             "2023": 36,
             "2024": 24,
-            "2025": 114
+            "2025": 126
         },
         "top_file": "anvio/inversions.py",
-        "latest_commit_message": "Threads options of minimap2_index",
-        "latest_commit_hash": "5fb6337f97ec1e2e84af149a982e55ee2b94413b",
-        "latest_commit_date": "05 October 2025"
+        "latest_commit_message": "New test with multi pairs of SRs",
+        "latest_commit_hash": "12e65e40e6ca5c9e2ffc43250a4a2491911de4ae",
+        "latest_commit_date": "04 November 2025"
     },
     "watsonar": {
         "total_commits": 10,
@@ -105,7 +105,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2480,
+        "total_commits": 2484,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 289,
             "2023": 174,
             "2024": 221,
-            "2025": 280
+            "2025": 284
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "fix format strings in exchange prediction docs",
-        "latest_commit_hash": "a4e46f452005c76ca88daa548c4d81896a9f43a2",
-        "latest_commit_date": "11 October 2025"
+        "latest_commit_message": "fix reporting of multiple producers and consumers",
+        "latest_commit_hash": "8be34a3b7856e1882f3809f2da1f51b7c6b56e93",
+        "latest_commit_date": "18 October 2025"
     },
     "moritzbuck": {
         "total_commits": 3,

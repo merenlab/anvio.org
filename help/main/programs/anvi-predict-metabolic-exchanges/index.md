@@ -178,6 +178,18 @@ anvi&#45;predict&#45;metabolic&#45;exchanges &#45;c1 <span class="artifact&#45;n
 
 This option is only relevant if you allow the Pathway Map Walk prediction strategy (i.e., you didn't use `--no-pathway-walk`).
 
+### Including only specific Pathway Maps
+
+The opposite of `--exclude-pathway-maps` is the `--include-pathway-maps` option. With this flag, you can list the specific Pathway Maps that you want to predict exchanges from. 
+
+<div class="codeblock" markdown="1">
+anvi&#45;predict&#45;metabolic&#45;exchanges &#45;c1 <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> &#45;c2 <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                                 &#45;O ANY_PREFIX \
+                                 &#45;&#45;include&#45;pathway&#45;maps 00195,00190
+</div>
+
+Note that you may not get any predictions from the set of Pathway Maps you choose, so if you use `--pathway-walk-only` (to also skip the Reaction Network predictions), your output files could be completely empty.
+
 ### Changing the number of allowed gaps in the Pathway Map walks
 
 The `--maximum-gaps` parameter applies to the first prediction step of walking over KEGG Pathway Maps, and allows a certain number of missing enzyme annotations in the reaction chains. By default, we don't allow any gaps, but if you think missing annotations in either genome might be throwing off your predictions, you can set this parameter to an integer greater than 0:
