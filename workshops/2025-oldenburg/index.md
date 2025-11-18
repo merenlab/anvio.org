@@ -41,7 +41,7 @@ From March 3, 2025 (Monday) to March 7, 2025 (Friday) at the Helmholtz Institute
 
 In addition to intense hands-on training sessions, this event includes an ECR symposium, during which all of the participants will give lightning talks about their research. We will send the details of lightning talks to each participant upon their invitation.
 
-Here is a very preliminary overview of the workshop content:
+Here is an overview of the workshop content:
 
 #### Monday 3: Genomics
 
