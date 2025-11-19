@@ -41,7 +41,7 @@ From March 3, 2025 (Monday) to March 7, 2025 (Friday) at the Helmholtz Institute
 
 In addition to intense hands-on training sessions, this event includes an ECR symposium, during which all of the participants will give lightning talks about their research. We will send the details of lightning talks to each participant upon their invitation.
 
-Here is a very preliminary overview of the workshop content:
+Here is an overview of the workshop content:
 
 #### Monday 3: Genomics
 
@@ -146,7 +146,7 @@ The following **48** individuals attended the workshop.
 
 |**Full Name**|**University / Institution**|
 |:--|:--|
-|Abigail Turnlund|Helmholtz Institute for Functional Marine Biodiversity at the |niversity of Oldenburg (HIFMB)
+|Abigail Turnlund|Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg (HIFMB)
 |Alberto Scarampi|University of Warwick
 |Andrian P. Gajigan|University of Hawaii at Manoa
 |Angela M. Marulanda G.|ICBM - Carl von Ossietzky Universität Oldenburg
@@ -159,11 +159,11 @@ The following **48** individuals attended the workshop.
 |Caroline Sophie Winther-Have|University of Copenhagen
 |Claudia Pogoreutz|University of Perpignan Via Domitia
 |Emeline Vidal|Marine Biological Laboratory
-|Fabian Moye|Helmholtz Institute for Functional Marine Biodiversity at the Unive|sity of Oldenburg (HIFMB)
+|Fabian Moye|Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg (HIFMB)
 |Fengqing Wang|Max Planck Institute for Marine Microbiology
 |Garance Gauthier|Max Planck Institute for Marine Microbiology
 |Ibrahim Cem Özsefil|Max Planck Institute for Marine Microbiology
-|Joseane Aparecida Marques|Helmholtz Institute for Functional Marine Biodiversit| at the University of Oldenburg (HIFMB)
+|Joseane Aparecida Marques|Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg (HIFMB)
 |Judith Giel|Universität Bremen
 |Keith Mluleki Dube|Stellenbosch University
 |Kristina Weinert|Max Planck Institute for Marine Microbiology
@@ -176,12 +176,12 @@ The following **48** individuals attended the workshop.
 |Michael Dills|University of Tromsø - The Arctic University of Norway
 |Mike Smykala|Carl von Ossietzky Universität Oldenburg
 |Nathan Ernster|University of Innsbruck
-|Nikita Rajkumari|Indian Institute of Science Education and Research Kolkata, In|ia
+|Nikita Rajkumari|Indian Institute of Science Education and Research Kolkata, India
 |Nonsikelelo Precios Hlongwa|Stellenbosch University
 |Paula García Martínez|King Abdullah University of Science and Technology
 |Pedro Junger|Institut de Biologie de l'École Normale Supérieure (IBENS)
 |Pranita Mishra|Max Planck Institute for Marine Microbiology
-|Raïssa Meyer|Helmholtz Institute for Functional Marine Biodiversity at the Univ|rsity of Oldenburg (HIFMB)
+|Raïssa Meyer|Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg (HIFMB)
 |Renato Gamba Romano|University of São Paulo / Oceanographic Institute
 |Sabrin Abdelghany|ZMT Institute
 |Samuel Huerten|ICBM - Carl von Ossietzky Universität Oldenburg
