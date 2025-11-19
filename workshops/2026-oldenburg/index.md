@@ -4,7 +4,7 @@ authors: [ivagljiva, FlorianTrigodet, meren]
 title: "Oldenburg workshop - April 2026"
 excerpt: "2026 anvi'o workshop at the HIFMB in Oldenburg"
 redirect_from: /oldenburg-26
-date: 2025-11-20
+date: 2025-11-19
 tags: [workshop]
 comments: true
 ---
