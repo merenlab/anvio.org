@@ -115,7 +115,7 @@ If you do not have the funds to support your own travel and accommodation, pleas
 
 ## Registration link
 
-Please fill out [this form](FIXME) to apply for the workshop.
+Please fill out [this form](https://forms.gle/dvRnK9eg9yw3ndT68) to apply for the workshop.
 
 **The application deadline is December 10, 2025**.
 
