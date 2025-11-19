@@ -14,21 +14,24 @@ We are planning a free, in-person workshop and early-career researcher symposium
 * Genomics
 * Metagenomics
 * Genome-resolved metagenomics
+* Microbial metabolism
 * Pangenomics
 * Phylogenomics
 
 If you are interested in attending, please consider applying as soon as possible as we have limited number of seats in the workshop venue, and mark your calendars for April 13-17, 2026.
 
-Please feel free to share this page with anyone who may benefit from this workshop. You might also be interested in reading about the outcomes of the [previous iteration](https://anvio.org/workshops/2025-oldenburg/) of this workshop in March 2025, which are detailed in [this blog post](https://anvio.org/blog/oldenburg-25-anvio-workshop/).
-
-**An important note on funding.** While the workshop is free (with lunch and coffee provided), we unfortunately do not have the funds to cover travel and accommodation for participants. That said, _we are currently seeking funds to support travel for needy individuals_, so we strongly encourage applications from institutions with limited resources around the globe. Please indicate in your application if you will need travel support. If we are able to acquire funding, we will likely be able to support a few of these applications.
-
-Feel free to write to any of us if you have any questions.
+Do you know someone who may be interested in attending? Please feel free to share this page with them!
 
 {:.notice}
-The **application deadline is on Dec 10, 2025**.
+Please find photos and the outcomes of a [previous iteration](https://anvio.org/workshops/2025-oldenburg/) of the same workshop [here](https://anvio.org/blog/oldenburg-25-anvio-workshop/).
 
-{% include IMAGE width=80 path="/images/workshops/FIXME/flyer.png" caption="The flyer for the workshop." %}
+{:.warning}
+**An important note on funding.** While the workshop itself is free (with lunch and coffee provided), we unfortunately do not have the funds to cover travel and accommodation costs for participants. That said, _we are currently seeking funds to support the travel needs of at least some participants who may not be able to attend the event without it_. Thus, we strongly encourage applications from institutions with limited resources around the globe. Please indicate in your application if you will need travel support. If we are able to acquire funding, we will likely be able to support a few of these applications. Feel free to write to any of us if you have any questions.
+
+{:.warning}
+Please remember that the **application deadline is on Dec 10, 2025**.
+
+{% include IMAGE width=80 path="/images/workshops/2026-oldenburg/flyer.png" caption="The flyer for the workshop." %}
 
 ## When and Where
 
@@ -122,9 +125,9 @@ The following individuals from the HIFMB are responsible for organizing and teac
 
 | **Name** | **Role** |
 |:---|:---|
-Florian Trigodet | Primary Organizer & Faculty
-Iva Veseli | Primary Organizer & Faculty
-Meren | Organizer & Faculty
+{% include person/display_mini_single.html github="FlorianTrigodet" %} | Primary Organizer & Faculty
+{% include person/display_mini_single.html github="ivagljiva" %} | Primary Organizer & Faculty
+{% include person/display_mini_single.html github="meren" %} | Organizer & Faculty
 
 ## List of Participants
 
