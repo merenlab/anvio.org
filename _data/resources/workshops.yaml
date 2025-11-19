@@ -1,3 +1,10 @@
+- title: Oldenburg - 2026
+  type: workshop
+  url: /workshops/2026-oldenburg/
+  authors: [ivagljiva, FlorianTrigodet, meren]
+  summary: "2026 anvi'o workshop and ECR symposium at the HIFMB in Oldenburg"
+  tags: [workshop, metagenomics, metabolism, pangenomics, phylogenomics, hands-on, beginner]
+
 - title: Oldenburg - 2025
   type: workshop
   url: /workshops/2025-oldenburg/
