@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7445,
+        "total_commits": 7473,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,12 +13,12 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 299
+            "2025": 327
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "update (or downdate) meren profile photo",
-        "latest_commit_hash": "a05ddaab0dabb7262f97387e325393b4c41eb1d3",
-        "latest_commit_date": "19 November 2025"
+        "latest_commit_message": "let the Program class deal with that.",
+        "latest_commit_hash": "d809d15adf4aa9d509da94c3722a8145bde38905",
+        "latest_commit_date": "26 November 2025"
     },
     "FlorianTrigodet": {
         "total_commits": 213,
@@ -105,7 +105,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2491,
+        "total_commits": 2493,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 289,
             "2023": 174,
             "2024": 221,
-            "2025": 291
+            "2025": 293
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "additional debug output because we can",
-        "latest_commit_hash": "f44c2cbe71b212286a2350c7ab3bcc0f08c6a270",
-        "latest_commit_date": "08 November 2025"
+        "latest_commit_message": "remove hardcoded profile db path",
+        "latest_commit_hash": "4b808ce53361cda09618b1e52b63f197d5ad16ff",
+        "latest_commit_date": "22 November 2025"
     },
     "moritzbuck": {
         "total_commits": 3,
