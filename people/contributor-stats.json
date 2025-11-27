@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7478,
+        "total_commits": 7479,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,11 +13,11 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 332
+            "2025": 333
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "a more meaningful order of headers",
-        "latest_commit_hash": "20c04540cd95d6f7cad34a6fcbdb7ccdaad8a387",
+        "latest_commit_message": "docs for contig-circularity-report-txt artifact",
+        "latest_commit_hash": "1183cbb2083ff3fb2be15a9f4301833cfdfba45a",
         "latest_commit_date": "27 November 2025"
     },
     "FlorianTrigodet": {
