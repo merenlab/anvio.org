@@ -1,7 +1,7 @@
 ---
 layout: program
 title: anvi-profile-blitz
-excerpt: An anvi'o program. FAST profiling of BAM files to get contig- or gene-level coverage and detection stats.
+excerpt: An anvi'o program. FAST profiling of BAM files to get gene-, contig-, or genome-level coverage and detection stats.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-profile-blitz
@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-FAST profiling of BAM files to get contig- or gene-level coverage and detection stats. Unlike `anvi-profile`, which is another anvi&#x27;o program that can profile BAM files, this program is designed to be very quick and only report long-format files for various read recruitment statistics per item. Plase also see the program `anvi-script-get-coverage-from-bam` for recovery of data from BAM files without an anvi&#x27;o contigs database.
+FAST profiling of BAM files to get gene-, contig-, or genome-level coverage and detection stats. Unlike `anvi-profile`, which is another anvi&#x27;o program that can profile BAM files, this program is designed to be very quick and only report long-format files for various read recruitment statistics per item. Plase also see the program `anvi-script-get-coverage-from-bam` for recovery of data from BAM files without an anvi&#x27;o contigs database.
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,7 +31,7 @@ FAST profiling of BAM files to get contig- or gene-level coverage and detection 
 ## Can consume
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[bam-file](../../artifacts/bam-file) <img src="../../images/icons/BAM.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[bam-file](../../artifacts/bam-file) <img src="../../images/icons/BAM.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[collection-txt](../../artifacts/collection-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Can provide
@@ -103,9 +103,23 @@ anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/mai
                    &#45;o OUTPUT.txt
 </div>
 
+### Genome/bin mode via collections
+
+If you have a <span class="artifact-n">[collection-txt](/help/main/artifacts/collection-txt)</span>, you can summarize coverage/detection statistics per bin/genome instead of per contig.
+
+<div class="codeblock" markdown="1">
+anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/main/artifacts/bam&#45;file)</span> \
+                   &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                   &#45;C <span class="artifact&#45;n">[collection&#45;txt](/help/main/artifacts/collection&#45;txt)</span> \
+                   &#45;o OUTPUT.txt
+</div>
+
+{:.note}
+Bin-level detection and coverage are computed by treating all contigs in a bin as a single genome (nucleotide arrays are concatenated under the hood). With `--report-minimal`, these statistics are streamed to keep memory usage close to contig mode even for large bins.
+
 ### Genes mode, default output
 
-Profile genes, produce a default output:
+Instead of contigs, profile genes, produce a default output:
 
 <div class="codeblock" markdown="1">
 anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/main/artifacts/bam&#45;file)</span> \
@@ -114,18 +128,7 @@ anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/mai
                    &#45;o OUTPUT.txt
 </div>
 
-### Genes mode, minimal output
-
-Profile genes, produce a default output:
-
-<div class="codeblock" markdown="1">
-anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/main/artifacts/bam&#45;file)</span> \
-                   &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
-                   &#45;&#45;gene&#45;mode \
-                   &#45;&#45;report&#45;minimal \
-                   &#45;o OUTPUT.txt
-</div>
-
+`--report-minimal` will behave the same, and produce minimal output.
 
 ## Performance
 
