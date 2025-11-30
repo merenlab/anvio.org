@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **27 Nov 25 20:33:07** for anvi'o version **8-dev (marie)**.
+The help contents were last updated on **28 Nov 25 16:09:31** for anvi'o version **8-dev (marie)**.
 
 
 {% include _project-anvio-version.html %}
@@ -2727,13 +2727,13 @@ Listed below **a total of 159 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-profile-blitz](programs/anvi-profile-blitz)**</span>. <span markdown="1">FAST profiling of BAM files to get contig- or gene-level coverage and detection stats. Unlike `anvi-profile`, which is another anvi&#x27;o program that can profile BAM files, this program is designed to be very quick and only report long-format files for various read recruitment statistics per item. Plase also see the program `anvi-script-get-coverage-from-bam` for recovery of data from BAM files without an anvi&#x27;o contigs database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-profile-blitz](programs/anvi-profile-blitz)**</span>. <span markdown="1">FAST profiling of BAM files to get gene-, contig-, or genome-level coverage and detection stats. Unlike `anvi-profile`, which is another anvi&#x27;o program that can profile BAM files, this program is designed to be very quick and only report long-format files for various read recruitment statistics per item. Plase also see the program `anvi-script-get-coverage-from-bam` for recovery of data from BAM files without an anvi&#x27;o contigs database</span>.
     </td>
 </tr>
 <tr>
     <td class="artifact-r-td">
     <span class="artifact-emoji">🧀</span>
-        <span class="artifact-r" markdown="1">[bam-file](artifacts/bam-file) <img src="images/icons/BAM.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-r" markdown="1">[bam-file](artifacts/bam-file) <img src="images/icons/BAM.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[collection-txt](artifacts/collection-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr>

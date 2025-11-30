@@ -425,7 +425,7 @@
       "type": "TXT"
     },
     {
-      "size": 4,
+      "size": 5,
       "score": 0.5,
       "color": "#00AA00",
       "id": "collection-txt",
@@ -1915,7 +1915,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 4,
+      "size": 6,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-profile-blitz",
@@ -4210,6 +4210,10 @@
     },
     {
       "target": 199,
+      "source": 47
+    },
+    {
+      "target": 222,
       "source": 47
     },
     {

@@ -29,7 +29,7 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-collection](../../programs/anvi-import-collection)</span> <span class="artifact-r">[anvi-script-get-coverage-from-bam](../../programs/anvi-script-get-coverage-from-bam)</span> <span class="artifact-r">[anvi-script-merge-collections](../../programs/anvi-script-merge-collections)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-collection](../../programs/anvi-import-collection)</span> <span class="artifact-r">[anvi-profile-blitz](../../programs/anvi-profile-blitz)</span> <span class="artifact-r">[anvi-script-get-coverage-from-bam](../../programs/anvi-script-get-coverage-from-bam)</span> <span class="artifact-r">[anvi-script-merge-collections](../../programs/anvi-script-merge-collections)</span></p>
 
 
 ## Description
