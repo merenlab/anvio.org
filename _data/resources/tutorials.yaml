@@ -54,6 +54,13 @@
   summary: "A hands-on tutorial to learn how to integrate single-cell genomics data. It covers functional and taxonomic assignment, pangenomic and phylogenomic analyses, and more."
   tags: [pangenomics, phylogenomics, hands-on, beginner]
 
+- title: "Visualizing mass spec data with anvi'o"
+  type: tutorial
+  url: /tutorials/visualizing-mass-spec-data/
+  authors: [jessika-fuessel]
+  summary: "A reproducible, hands-on tutorial with a real-world dataset to explain how the anvi'o interactive interface can be used to visualize FT-ICR-MS data"
+  tags: [biogeochemistry, hands-on, beginner]
+
 - title: Anvi'o phylogenomics workflow
   type: tutorial
   url: https://merenlab.org/2017/06/07/phylogenomics/
