@@ -109,3 +109,17 @@
   authors: [ivagljiva, FlorianTrigodet]
   summary: "A multi-purpose tutorial based on human oral microbiome data"
   tags: [metagenomics, binning, microbial-population-genetics, hands-on, beginner]
+
+- title: Differential Abundance with anvi'o output
+  type: tutorial
+  url: https://statdivlab.github.io/blog/articles/ebame10_pt3.html
+  authors: [adw96, MariaAVC]
+  summary: "A tutorial for differential abundance analysis using output from anvi'o's `anvi-estimate-scg-taxonomy`" 
+  tags: [differential abundance, metagenomics, hands-on]
+
+- title: Functional enrichment in R with anvi'o output
+  type: tutorial
+  url: https://statdivlab.github.io/blog/articles/ebame10_regression_pt2.html
+  authors: [adw96]
+  summary: "A tutorial for modelling gene presence in R using the output of `anvi-export-functions`"
+  tags: [functional enrichment, metagenomics, hands-on]
