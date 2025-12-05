@@ -38,7 +38,7 @@ This is the output tables that are displayed when you run <span class="artifact-
 
 To get this output, just provide the `-o` or the `-O` flag when running <span class="artifact-p">[anvi-estimate-scg-taxonomy](/help/main/programs/anvi-estimate-scg-taxonomy)</span> or <span class="artifact-p">[anvi-estimate-trna-taxonomy](/help/main/programs/anvi-estimate-trna-taxonomy)</span>. 
 
-These contain the exact same information as is normally displayed in the terminal, just in a separate file that is easier to share or include as supplemental data. To see an explination of the data within this file, you can look at the page for <span class="artifact-n">[genome-taxonomy](/help/main/artifacts/genome-taxonomy)</span>. 
+These contain the exact same information as is normally displayed in the terminal, just in a separate file that is easier to share or include as supplemental data. To see an explanation of the data within this file, you can look at the page for <span class="artifact-n">[genome-taxonomy](/help/main/artifacts/genome-taxonomy)</span>. 
 
 
 {:.notice}

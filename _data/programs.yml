@@ -136,6 +136,7 @@
     - name: anvi-estimate-metabolism
     - name: anvi-migrate
     - name: anvi-predict-metabolic-exchanges
+    - name: anvi-profile-blitz
     - name: anvi-run-hmms
     - name: anvi-run-kegg-kofams
     - name: anvi-run-pfams

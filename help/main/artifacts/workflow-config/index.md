@@ -34,7 +34,7 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 
 ## Description
 
-A `JSON`-formated configuration file that describes steps and parameters to be considered by an anvio <span class="artifact-n">[workflow](/help/main/artifacts/workflow)</span>.
+A `JSON`-formatted configuration file that describes steps and parameters to be considered by an anvio <span class="artifact-n">[workflow](/help/main/artifacts/workflow)</span>.
 
 You can create a default config file for a given workflow using the following command:
 

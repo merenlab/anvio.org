@@ -40,7 +40,7 @@ By default, this will be a directory called `SUMMARY` that will contain some sub
 
 #### The bin summary 
 
-By default, this is stored in a tab-delimited matrix called `bins_summary.txt`. In this matrix, the rows represent the <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s in your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. The columns represent the following from left to right: the bin name,  the taxon ID (if calculated), the toal number of nucleotides in the bin, the toal number of contigs in the bin, the N50 statistic (see the page for <span class="artifact-p">[anvi-display-contigs-stats](/help/main/programs/anvi-display-contigs-stats)</span>), the GC content, and the completition and redundency. 
+By default, this is stored in a tab-delimited matrix called `bins_summary.txt`. In this matrix, the rows represent the <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s in your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. The columns represent the following from left to right: the bin name,  the taxon ID (if calculated), the total number of nucleotides in the bin, the total number of contigs in the bin, the N50 statistic (see the page for <span class="artifact-p">[anvi-display-contigs-stats](/help/main/programs/anvi-display-contigs-stats)</span>), the GC content, and the completion and redundancy. 
 
 #### Three subdirectories 
 
@@ -48,13 +48,13 @@ The subdirectories in the `SUMMARY` folder are as follows:
 
 - `bin_by_bin`: this directory contains a subdirectory for each of your <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s. Each of these subdirectories contains various information about the contents of that bin. For example, you get a fasta file that contains the sequences of all of the contigs in your bin, various statistics for that bin (ex coverage and detection) across each of your samples in tab-delimited matrices, and fasta files that contain only sequences of a specific taxa (ex only Archaea sequences)
 
-- `bins_across_samples`: this directory contains various text files, each of which describes a single statistic about your bins across all of your samples. Most of these files are tab-delimited matrices where each row represents a bin and each column describes one of your samples; each cell describes the value of a single statistic like mean coverage, abundance, or variablity (see [this post](https://merenlab.org/2017/05/08/anvio-views/) for an explanation of the statistics). The only files that are not formatted this way are those describing the hmm-hits in the database, which only give total counts for hmm-hits of a certain kind in your bins and don't break these results down by sample. 
+- `bins_across_samples`: this directory contains various text files, each of which describes a single statistic about your bins across all of your samples. Most of these files are tab-delimited matrices where each row represents a bin and each column describes one of your samples; each cell describes the value of a single statistic like mean coverage, abundance, or variability (see [this post](https://merenlab.org/2017/05/08/anvio-views/) for an explanation of the statistics). The only files that are not formatted this way are those describing the hmm-hits in the database, which only give total counts for hmm-hits of a certain kind in your bins and don't break these results down by sample. 
 
 - `misc_data_layers` or `misc_data_items`: this data contains all of the <span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span> and <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span> stored in your database pair, formatted in <span class="artifact-n">[misc-data-items-txt](/help/main/artifacts/misc-data-items-txt)</span> and <span class="artifact-n">[misc-data-layers-txt](/help/main/artifacts/misc-data-layers-txt)</span> files respectively. 
 
 #### The HTML document 
 
-When opened (usualy with an internet browser), you should see a page that looks somewhat like this. 
+When opened (usually with an internet browser), you should see a page that looks somewhat like this. 
 
 ![An example of the HTML file that results from anvi-summarize.](../../images/summary_example.png)
 
@@ -72,7 +72,7 @@ After this, several sections are listed:
 
 -"Percent Recruitment": This is also from the `bins_across_samples` subdirectory.  It describes the percent of mapped reads in each sample that mapped to splits within each bin. 
 
--"Gene Calls": lists all of the gene calls in your database by bin, including their functional annotation and coverage and detectin values. 
+-"Gene Calls": lists all of the gene calls in your database by bin, including their functional annotation and coverage and detection values. 
 
 -"Hits for non-single-copy gene HMM profiles": This is also from the `bins_across_samples` subdirectory. The first table displays the total number of hits in each bin, while the table underneath provides a breakdown of those HMM hits. Note that each cell in the first table is a link that leads to a fasta file that contains only the relevant sequences.  
 

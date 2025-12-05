@@ -41,7 +41,7 @@ The most critical requirement for this file is that **it must have simple deflin
 Take a look at your deflines prior to mapping, and remove anything that is not a digit, an ASCII letter, an underscore, or a dash character. Here are some example deflines that are not suitable for a <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> to be considered a <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span>
 
 ``` bash
->Contig-123 length:4567 
+>Contig-123 length:4567
 >Another defline 42
 >gi|478446819|gb|JN117275.2|
 ```

@@ -38,7 +38,7 @@ A two-column TAB-delimited file **without a header** that describes a <span clas
 
 It can be used to import or export collections in and out of anvi'o databases, and/or transferring them between anvi'o projects seamlessly.
 
-The first column in the file lists item names and the second column associates a given item with a bin. 
+The first column in the file lists item names and the second column associates a given item with a bin.
 
 <div class="codeblock" markdown="1">
 item_01    bin_1
@@ -49,9 +49,9 @@ item_05    bin_3
 item_06    bin_3
 </div>
 
-### The optinal bins info file
+### The optional bins info file
 
-In addition to the essential file above, you can associate an optional TAB-delmited file with three columns with a collection to provide information about 'bins' in it, such as their source, and/or color to be used when they are displayed in <span class="artifact-n">[summary](/help/main/artifacts/summary)</span> outputs or anvi'o <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> interfaces. Here is an example:
+In addition to the essential file above, you can associate an optional TAB-delimited file with three columns with a collection to provide information about 'bins' in it, such as their source, and/or color to be used when they are displayed in <span class="artifact-n">[summary](/help/main/artifacts/summary)</span> outputs or anvi'o <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> interfaces. Here is an example:
 
 ```
 bin_1	CONCOCT	 #c9d433

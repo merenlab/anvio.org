@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7486,
+        "total_commits": 7499,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,12 +13,12 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 340
+            "2025": 353
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "update program descriptio",
-        "latest_commit_hash": "e047b744e2d05568ecd8378ecba590d5b25cba5a",
-        "latest_commit_date": "28 November 2025"
+        "latest_commit_message": "anvi'o, meet genes-of-interest-txt artifact",
+        "latest_commit_hash": "6facc1ed8f4cceeebeb07b4d714eb69cf2c75f66",
+        "latest_commit_date": "05 December 2025"
     },
     "FlorianTrigodet": {
         "total_commits": 213,
@@ -105,7 +105,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2494,
+        "total_commits": 2505,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 289,
             "2023": 174,
             "2024": 221,
-            "2025": 294
+            "2025": 305
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "explicitly make these floats to prevent accidental implicit typecasting to int (we use precision specifiers for formatting these later that don't work on ints)",
-        "latest_commit_hash": "af4c6243676c7abc872e03bf8905a5cd187f47ad",
-        "latest_commit_date": "28 November 2025"
+        "latest_commit_message": "oops. init the variable",
+        "latest_commit_hash": "04f477327b6ff74318dad8181c9be379406b1689",
+        "latest_commit_date": "02 December 2025"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -630,7 +630,7 @@
         "latest_commit_date": "02 September 2025"
     },
     "katysloz": {
-        "total_commits": 4,
+        "total_commits": 33,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -643,12 +643,12 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 4
+            "2025": 33
         },
         "top_file": "anvio/data/misc/PEOPLE/DEVELOPERS.yaml",
-        "latest_commit_message": "fix reading samples-txt as dict with multiple paths",
-        "latest_commit_hash": "140ab99e70ca882dac0589407383dbf072ce4ef9",
-        "latest_commit_date": "27 June 2025"
+        "latest_commit_message": "typo",
+        "latest_commit_hash": "94edb6a5f26741b20842cec7bda61c63fa5913ab",
+        "latest_commit_date": "05 December 2025"
     },
     "mankeldy": {
         "total_commits": 4,

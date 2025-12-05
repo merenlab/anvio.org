@@ -87,7 +87,7 @@ Since the anvi'o contigs database is a stand-alone SQLite database, it is access
 sqlite3 CONTIGS.db
 ```
 
-which would initiate the program to run queries on your contigs database, and welcome you with a new comand prompt in your terminal (you can quit the SQLite terminal to go back to your original terminal anytime by pressing `CTRL+D`):
+which would initiate the program to run queries on your contigs database, and welcome you with a new command prompt in your terminal (you can quit the SQLite terminal to go back to your original terminal anytime by pressing `CTRL+D`):
 
 ```
 SQLite version 3.31.1 2020-01-27 19:55:54
@@ -253,7 +253,7 @@ Or this,
 sqlite3 -column -header CONTIGS.db 'select source, count(*) from gene_functions group by source'
 ```
 
-to get a slighly fancier output:
+to get a slightly fancier output:
 
 ```
 source          count(*)
@@ -330,7 +330,7 @@ It is also possible to use anvi'o as a Python library to work with anvi'o artifa
 
 ### Get approximate number of genomes
 
-You can estimate the number of genomes once <span class="artifact-p">[anvi-run-hmms](/help/main/programs/anvi-run-hmms)</span> is run on an contigs database. 
+You can estimate the number of genomes once <span class="artifact-p">[anvi-run-hmms](/help/main/programs/anvi-run-hmms)</span> is run on an contigs database.
 
 Here are some examples of how to do this programmatically (more info on how the estimates are calculated can be found [here](https://anvio.org/help/main/programs/anvi-display-contigs-stats/#how-do-we-predict-the-number-of-genomes)):
 

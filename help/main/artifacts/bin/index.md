@@ -36,7 +36,7 @@ A BIN-type anvi'o artifact. This artifact is typically generated, used, and/or e
 
 In its simplest form, **a group of items** that are put together. Think of a literal bin in which you put data. One or more bins in anvi'o form a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>.
 
-In anvi'o, a bin may reprsent one or more contigs, or gene clusters, or any item that can be shown in the interactive interface and stored in a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, or <span class="artifact-n">[genes-db](/help/main/artifacts/genes-db)</span>.
+In anvi'o, a bin may represent one or more contigs, or gene clusters, or any item that can be shown in the interactive interface and stored in a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, or <span class="artifact-n">[genes-db](/help/main/artifacts/genes-db)</span>.
 
 Bin names become handy to specifically target a group of items to investigate via programs such as <span class="artifact-p">[anvi-refine](/help/main/programs/anvi-refine)</span> or <span class="artifact-p">[anvi-split](/help/main/programs/anvi-split)</span>, specify a group of contigs in files such as <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span>, or find them in output files anvi'o generates via programs such as <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span> or <span class="artifact-p">[anvi-estimate-genome-completeness](/help/main/programs/anvi-estimate-genome-completeness)</span>.
 

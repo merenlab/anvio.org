@@ -38,12 +38,12 @@ An anvi'o database that contains the same information as a merged <span class="a
 
 You can think of this as a extension of a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> that contains information about how your contigs align with a single one of your individual samples. If you have more than one sample, you'll probably want to use <span class="artifact-p">[anvi-merge](/help/main/programs/anvi-merge)</span> to merge your databases into a merged <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. The vast majority of programs that use a profile database will also ask for the contigs database associated with it. 
 
-A single profile database contains information about how the short reads in a single BAM-file (see <span class="artifact-n">[bam-file](/help/main/artifacts/bam-file)</span>) map to the contigs in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. Specificially, a profile database contains 
+A single profile database contains information about how the short reads in a single BAM-file (see <span class="artifact-n">[bam-file](/help/main/artifacts/bam-file)</span>) map to the contigs in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. Specifically, a profile database contains 
 * the coverage and abundance per nucleotide position for each contig 
 * variants of various kinds (single-nucleotide, single-codon, and single-amino acid)
 * structural variants (ex insertions and deletions)
 
-Once created, a single profile database is almost interchangable with a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> (even though the names can be a little confusing. Think of a single-profile-db as a type of profile-db, since it has only a few differences). The main differences between the two are as follows: 
+Once created, a single profile database is almost interchangeable with a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> (even though the names can be a little confusing. Think of a single-profile-db as a type of profile-db, since it has only a few differences). The main differences between the two are as follows: 
 * You cannot run <span class="artifact-p">[anvi-cluster-contigs](/help/main/programs/anvi-cluster-contigs)</span> or <span class="artifact-p">[anvi-mcg-classifier](/help/main/programs/anvi-mcg-classifier)</span> on a single profile db, since these two programs look at the alignment data in many samples. 
 * You can run <span class="artifact-p">[anvi-import-taxonomy-for-layers](/help/main/programs/anvi-import-taxonomy-for-layers)</span> on a single profile database but not a merged one. 
 * You can only run <span class="artifact-p">[anvi-merge](/help/main/programs/anvi-merge)</span> on a single profile database.
