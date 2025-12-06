@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7499,
+        "total_commits": 7504,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,11 +13,11 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 353
+            "2025": 358
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "anvi'o, meet genes-of-interest-txt artifact",
-        "latest_commit_hash": "6facc1ed8f4cceeebeb07b4d714eb69cf2c75f66",
+        "latest_commit_message": "minor docs update for the height thingy",
+        "latest_commit_hash": "e57de56dd261d7ddd0828c30d67702faac5b7b53",
         "latest_commit_date": "05 December 2025"
     },
     "FlorianTrigodet": {
@@ -1006,5 +1006,47 @@
         "latest_commit_message": null,
         "latest_commit_hash": null,
         "latest_commit_date": null
+    },
+    "MariaAVC": {
+        "total_commits": 0,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0
+        },
+        "top_file": null,
+        "latest_commit_message": null,
+        "latest_commit_hash": null,
+        "latest_commit_date": null
+    },
+    "svteichman": {
+        "total_commits": 1,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 1
+        },
+        "top_file": "anvio/data/misc/PEOPLE/AVATARS/MariaAVC.png",
+        "latest_commit_message": "add maria valdez cabrera and sarah teichman to contributors, associated with statdivlab tutorials",
+        "latest_commit_hash": "eff374769fe5425a2d11a78e6279592c21ce1b98",
+        "latest_commit_date": "05 December 2025"
     }
 }
