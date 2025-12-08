@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7504,
+        "total_commits": 7516,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,12 +13,12 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 358
+            "2025": 370
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "minor docs update for the height thingy",
-        "latest_commit_hash": "e57de56dd261d7ddd0828c30d67702faac5b7b53",
-        "latest_commit_date": "05 December 2025"
+        "latest_commit_message": "cosmetics",
+        "latest_commit_hash": "3562719fa4174ef336b7669d64d026b5ed6b0283",
+        "latest_commit_date": "08 December 2025"
     },
     "FlorianTrigodet": {
         "total_commits": 213,
@@ -105,7 +105,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2505,
+        "total_commits": 2506,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 289,
             "2023": 174,
             "2024": 221,
-            "2025": 305
+            "2025": 306
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "oops. init the variable",
-        "latest_commit_hash": "04f477327b6ff74318dad8181c9be379406b1689",
-        "latest_commit_date": "02 December 2025"
+        "latest_commit_message": "fix: pluralize comes from terminal module",
+        "latest_commit_hash": "8d37c3be5b6f3e24bcf149a0d7f06238d6f1ec65",
+        "latest_commit_date": "08 December 2025"
     },
     "moritzbuck": {
         "total_commits": 3,
