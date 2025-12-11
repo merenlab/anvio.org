@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7516,
+        "total_commits": 7552,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,15 +13,15 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 370
+            "2025": 406
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "cosmetics",
-        "latest_commit_hash": "3562719fa4174ef336b7669d64d026b5ed6b0283",
-        "latest_commit_date": "08 December 2025"
+        "latest_commit_message": "updates to docs",
+        "latest_commit_hash": "3f01debf285bb7953c916d8409a8dd68437c050e",
+        "latest_commit_date": "11 December 2025"
     },
     "FlorianTrigodet": {
-        "total_commits": 213,
+        "total_commits": 217,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -34,12 +34,12 @@
             "2022": 10,
             "2023": 36,
             "2024": 24,
-            "2025": 127
+            "2025": 131
         },
         "top_file": "anvio/inversions.py",
-        "latest_commit_message": "Readme for tRNA taxonomy db creation",
-        "latest_commit_hash": "e62e233c80148e90ee1b6a48eb4e8fe0f01c295b",
-        "latest_commit_date": "10 November 2025"
+        "latest_commit_message": "Read trimming consider N as special case",
+        "latest_commit_hash": "110eeef3958418d53a9e8dbb93433182c5a9c88e",
+        "latest_commit_date": "04 December 2025"
     },
     "watsonar": {
         "total_commits": 10,
@@ -105,7 +105,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2506,
+        "total_commits": 2508,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 289,
             "2023": 174,
             "2024": 221,
-            "2025": 306
+            "2025": 308
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "fix: pluralize comes from terminal module",
-        "latest_commit_hash": "8d37c3be5b6f3e24bcf149a0d7f06238d6f1ec65",
-        "latest_commit_date": "08 December 2025"
+        "latest_commit_message": "instruction clarity: -H is not the only option",
+        "latest_commit_hash": "53323ac4fca7b77cba6cc6424f18ca33e892e8e5",
+        "latest_commit_date": "09 December 2025"
     },
     "moritzbuck": {
         "total_commits": 3,
