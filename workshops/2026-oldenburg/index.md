@@ -29,7 +29,7 @@ Please find photos and the outcomes of a [previous iteration](https://anvio.org/
 **An important note on funding.** While the workshop itself is free (with lunch and coffee provided), we unfortunately do not have the funds to cover travel and accommodation costs for participants. That said, _we are currently seeking funds to support the travel needs of at least some participants who may not be able to attend the event without it_. Thus, we strongly encourage applications from institutions with limited resources around the globe. Please indicate in your application if you will need travel support. If we are able to acquire funding, we will likely be able to support a few of these applications. Feel free to write to any of us if you have any questions.
 
 {:.warning}
-Please remember that the **application deadline is on Dec 10, 2025**.
+**Applications to this event are now closed.** The application deadline was on Dec 10, 2025.
 
 {% include IMAGE width=80 path="/images/workshops/2026-oldenburg/flyer.png" caption="The flyer for the workshop." %}
 
