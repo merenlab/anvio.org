@@ -113,11 +113,9 @@ There is no fee to attend the workshop, and we will cover your lunches and coffe
 {:.notice}
 If you do not have the funds to support your own travel and accommodation, please consider applying anyway. You should indicate in your application that you need travel support. If we are able to acquire funding to help us pay for participant travel, then we will happily consider your application.
 
-## Registration link
+## Registration
 
-Please fill out [this form](https://forms.gle/dvRnK9eg9yw3ndT68) to apply for the workshop.
-
-**The application deadline is December 10, 2025**.
+**The application deadline was on December 10, 2025**.
 
 ## List of Faculty
 
