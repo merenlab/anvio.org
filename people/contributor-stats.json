@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7552,
+        "total_commits": 7556,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -13,12 +13,12 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 406
+            "2025": 410
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "updates to docs",
-        "latest_commit_hash": "3f01debf285bb7953c916d8409a8dd68437c050e",
-        "latest_commit_date": "11 December 2025"
+        "latest_commit_message": "much cleaner",
+        "latest_commit_hash": "55153d2f9979e49e534b5f88d3a094a2df0477ec",
+        "latest_commit_date": "13 December 2025"
     },
     "FlorianTrigodet": {
         "total_commits": 217,
@@ -105,7 +105,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2508,
+        "total_commits": 2515,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -118,12 +118,12 @@
             "2022": 289,
             "2023": 174,
             "2024": 221,
-            "2025": 308
+            "2025": 315
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "instruction clarity: -H is not the only option",
-        "latest_commit_hash": "53323ac4fca7b77cba6cc6424f18ca33e892e8e5",
-        "latest_commit_date": "09 December 2025"
+        "latest_commit_message": "update the docs :)",
+        "latest_commit_hash": "27429652f90a47c993a3aa23b084ee207c7838dd",
+        "latest_commit_date": "15 December 2025"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -1048,5 +1048,26 @@
         "latest_commit_message": "add maria valdez cabrera and sarah teichman to contributors, associated with statdivlab tutorials",
         "latest_commit_hash": "eff374769fe5425a2d11a78e6279592c21ce1b98",
         "latest_commit_date": "05 December 2025"
+    },
+    "tucker4": {
+        "total_commits": 0,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0
+        },
+        "top_file": null,
+        "latest_commit_message": null,
+        "latest_commit_hash": null,
+        "latest_commit_date": null
     }
 }
