@@ -106,6 +106,9 @@ anvi&#45;run&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help
               &#45;&#45;add&#45;to&#45;functions&#45;table
 </div>
 
+{:.warning}
+If you want to use this flag with custom <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>s, then please make sure you include `ACC` lines specifying the accession number of each model in your `.hmm` file. If these lines are not included, then the HMMER software won't know the accession numbers of your models and we won't be able to add those accessions to your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, which might cause you some headaches later. We've recently added a sanity check for these `ACC` lines to help you remember to add them in, but if you are working with older versions of anvi'o, this message is here for you instead.
+
 ### Changing the HMMER program
 
 By default, `anvi-run-hmms` will use [HMMER](http://hmmer.org/)'s `hmmscan` for amino acid HMM profiles, but you can use `hmmsearch` if you are searching a very large number of models against a relatively smaller number of sequences:
