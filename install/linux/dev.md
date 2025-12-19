@@ -59,4 +59,4 @@ You might see errors during the pip installation that include a line like `Build
 ---
 
 {:.notice}
-{% include _fixthispage.html source="install/linux-dev.md" %}
+{% include _fixthispage.html source="install/linux/dev.md" %}

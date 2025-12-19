@@ -79,4 +79,4 @@ pip install -e .
 ---
 
 {:.notice}
-{% include _fixthispage.html source="install/macos-dev.md" %}
+{% include _fixthispage.html source="install/macos/dev.md" %}

@@ -18,7 +18,7 @@ You can just run this command to install `Webrick` toolkit:
 bundle add webrick
 ```
 
-After `Webrick` succesfully installed, you can run this web page on your local using the following command:
+After `Webrick` successfully installed, you can run this web page on your local using the following command:
 
 ```
 rm -rf _site && bundle exec jekyll serve --incremental --trace
@@ -32,7 +32,7 @@ If you have any questions regarding anything below, please get in touch with us 
 
 Please edit the relevant file under `_data/resources/` in this repository. To add a new resource, you don't need to do anything in the anvi'o codebase, unless the author of the resource is not defined in `_data/people.yaml`. If that is the case, you will first have to take care of it by adding them into `DEVELOPERS.yaml` or `CONTRIBUTORS.yaml`. If you'd like to do it yourself, please read the section below on how to 'update people data'. If you don't want to deal with that, please reach out to an anvi'o developer.
 
-Updating the resouces file should be easy. But please note that the order of items in that file should have a logical order from basic to more advanced things within each section. Follow an example for variables and language, and try to use existing tags unless there is certainly a need to define a new one.
+Updating the resources file should be easy. But please note that the order of items in that file should have a logical order from basic to more advanced things within each section. Follow an example for variables and language, and try to use existing tags unless there is certainly a need to define a new one.
 
 ## Contribute a blog post or tutorial to be hosted on anvio.org
 
@@ -50,7 +50,7 @@ _scripts/update-all.sh
 
 **Please remember** the following items before doing this:
 
-* Every script `update-all.sh` runs will assumes that you are in the root directory of the web repository (such as `~/github/anvio.org/`), so don't use absolute paths to run anything under `_sripts` directory from somewhere else.
+* Every script `update-all.sh` runs will assumes that you are in the root directory of the web repository (such as `~/github/anvio.org/`), so don't use absolute paths to run anything under `_scripts` directory from somewhere else.
 * Every script will assume that you have an anvi'o git repository at `~/github/anvio` -- please make sure it is the case, and make sure you have checked out the `master` branch with a clean `git pull` (so your repository is fully synced with the upstream).
 * Every script will ALSO assume that you are in an anvi'o environemnt. I.e., when you run `anvi-self-test --version` you do not get a command not found error, and see the `anvio-dev` as the version (i.e., anvi'o is not installed on your system but you are set up to be tracking the active development repo).
 * Make sure to run the `update-all.sh` (or any other script for that matter) while you are *not* running the Jekyll server. You should start your local Jekyll server to see how things are only after the scripts are successfully finished running. And you should always run the Jekyll locally to make sure you are not getting any weird errors during runtime and things are looking as you expect them to look :)
