@@ -80,4 +80,4 @@ If you did all that and it is still not working, please make an issue on the git
 ---
 
 {:.notice}
-{% include _fixthispage.html source="install/macos-stable.md" %}
+{% include _fixthispage.html source="install/macos/stable.md" %}

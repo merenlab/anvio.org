@@ -57,4 +57,4 @@ To ensure you are inside the WS, type `uname` (should print "Linux").
 ---
 
 {:.notice}
-{% include _fixthispage.html source="install/windows-stable.md" %}
+{% include _fixthispage.html source="install/windows/stable.md" %}
