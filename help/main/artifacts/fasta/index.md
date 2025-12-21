@@ -23,7 +23,7 @@ A FASTA-type anvi'o artifact. This artifact is typically provided **by the user*
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-p">[anvi-script-fix-homopolymer-indels](../../programs/anvi-script-fix-homopolymer-indels)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-p">[anvi-reorient-genomes](../../programs/anvi-reorient-genomes)</span> <span class="artifact-p">[anvi-script-fix-homopolymer-indels](../../programs/anvi-script-fix-homopolymer-indels)</span></p>
 
 
 ## Required or used by

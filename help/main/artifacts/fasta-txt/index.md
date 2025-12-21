@@ -29,7 +29,7 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 ## Required or used by
 
 
-There are no anvi'o tools that use or require this artifact directly, which means it is most likely an end-product for the user.
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-reorient-genomes](../../programs/anvi-reorient-genomes)</span></p>
 
 
 ## Description

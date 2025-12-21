@@ -88,6 +88,7 @@
     - name: anvi-profile-blitz
     - name: anvi-refine
     - name: anvi-rename-bins
+    - name: anvi-reorient-genomes
     - name: anvi-report-circularity
     - name: anvi-report-inversions
     - name: anvi-report-linkmers
