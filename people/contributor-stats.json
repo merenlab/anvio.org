@@ -13,7 +13,8 @@
             "2022": 423,
             "2023": 227,
             "2024": 188,
-            "2025": 448
+            "2025": 448,
+            "2026": 0
         },
         "top_file": "anvio/dbops.py",
         "latest_commit_message": "fix program page links on anvio.org",
@@ -34,7 +35,8 @@
             "2022": 10,
             "2023": 36,
             "2024": 24,
-            "2025": 131
+            "2025": 131,
+            "2026": 0
         },
         "top_file": "anvio/inversions.py",
         "latest_commit_message": "Read trimming consider N as special case",
@@ -55,7 +57,8 @@
             "2022": 2,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/inversions.py",
         "latest_commit_message": "cont only if contig stretches long enough #1970",
@@ -76,7 +79,8 @@
             "2022": 13,
             "2023": 2,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/variabilityops.py",
         "latest_commit_message": "Update DEVELOPERS.yaml",
@@ -97,7 +101,8 @@
             "2022": 144,
             "2023": 79,
             "2024": 36,
-            "2025": 15
+            "2025": 15,
+            "2026": 0
         },
         "top_file": "anvio/workflows/ecophylo/Snakefile",
         "latest_commit_message": "fix",
@@ -118,7 +123,8 @@
             "2022": 289,
             "2023": 174,
             "2024": 221,
-            "2025": 315
+            "2025": 315,
+            "2026": 0
         },
         "top_file": "anvio/kegg.py",
         "latest_commit_message": "update the docs :)",
@@ -139,7 +145,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 1
+            "2025": 1,
+            "2026": 0
         },
         "top_file": "anvio/drivers/metabat2.py",
         "latest_commit_message": "Fixed metbat2 parser",
@@ -160,7 +167,8 @@
             "2022": 102,
             "2023": 317,
             "2024": 531,
-            "2025": 284
+            "2025": 284,
+            "2026": 0
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
         "latest_commit_message": "delete sandbox relict",
@@ -181,7 +189,8 @@
             "2022": 0,
             "2023": 1,
             "2024": 0,
-            "2025": 1
+            "2025": 1,
+            "2026": 0
         },
         "top_file": "requirements.txt",
         "latest_commit_message": "Revert \"Update requirements.txt\"",
@@ -202,7 +211,8 @@
             "2022": 7,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/data/interactive/js/charts.js",
         "latest_commit_message": "fix for manually colored genes",
@@ -223,7 +233,8 @@
             "2022": 29,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/data/interactive/js/main.js",
         "latest_commit_message": "better cotextual accordion show",
@@ -244,7 +255,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/__init__.py",
         "latest_commit_message": "Fix for LinkMers.list_contigs(). Since we require all BAMs to have the same contigs, we'll just use the values from the first BAM file.",
@@ -265,7 +277,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/docs/__init__.py",
         "latest_commit_message": "fixed a typo",
@@ -286,7 +299,8 @@
             "2022": 1,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/workflows/metagenomics/Snakefile",
         "latest_commit_message": "change Alon's bio",
@@ -307,7 +321,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/data/interactive/js/main.js",
         "latest_commit_message": "remove h5py dependency",
@@ -328,7 +343,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/utils.py",
         "latest_commit_message": "We can safely remove this now",
@@ -349,7 +365,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/taxoestimation.py",
         "latest_commit_message": "add some modifications lost during merging",
@@ -370,7 +387,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "sandbox/anvi-script-variability-to-vcf",
         "latest_commit_message": "Ordering sample IDs",
@@ -391,7 +409,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "sandbox/anvi-script-run-functional-enrichment-stats",
         "latest_commit_message": "address issue1828 with new lambda catches",
@@ -412,7 +431,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "sandbox/anvi-script-visualize-split-coverages",
         "latest_commit_message": "Add tests for xlim bug (#1481, #1482)",
@@ -433,7 +453,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/utils.py",
         "latest_commit_message": "Added quince-mode flag",
@@ -454,7 +475,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 1,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "sandbox/anvi-script-genbank-to-external-gene-calls",
         "latest_commit_message": "Update DEVELOPERS.yaml",
@@ -475,7 +497,8 @@
             "2022": 6,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": ".github/workflows/ci.yml",
         "latest_commit_message": "added avatar",
@@ -496,7 +519,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": null,
         "latest_commit_message": null,
@@ -517,7 +541,8 @@
             "2022": 0,
             "2023": 5,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/data/misc/PEOPLE/DEVELOPERS.yaml",
         "latest_commit_message": "fix typo",
@@ -538,7 +563,8 @@
             "2022": 0,
             "2023": 21,
             "2024": 18,
-            "2025": 1
+            "2025": 1,
+            "2026": 0
         },
         "top_file": "anvio/cogs.py",
         "latest_commit_message": "Small bug fix in kaiju parser assuming 20 phylums",
@@ -559,7 +585,8 @@
             "2022": 0,
             "2023": 8,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "sandbox/anvi-script-reformat-bam",
         "latest_commit_message": "update docs",
@@ -580,7 +607,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 3,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/data/misc/PEOPLE/DEVELOPERS.yaml",
         "latest_commit_message": "fix the typo",
@@ -601,7 +629,8 @@
             "2022": 1,
             "2023": 203,
             "2024": 239,
-            "2025": 17
+            "2025": 17,
+            "2026": 0
         },
         "top_file": "anvio/data/interactive/index.html",
         "latest_commit_message": "Add mode",
@@ -622,7 +651,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 10
+            "2025": 10,
+            "2026": 0
         },
         "top_file": "anvio/drivers/hmmer.py",
         "latest_commit_message": "Ensure stray_ko_dict is initialised",
@@ -643,7 +673,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 33
+            "2025": 33,
+            "2026": 0
         },
         "top_file": "anvio/data/misc/PEOPLE/DEVELOPERS.yaml",
         "latest_commit_message": "typo",
@@ -664,7 +695,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 4
+            "2025": 4,
+            "2026": 0
         },
         "top_file": "anvio/docs/programs/anvi-gen-variability-profile.md",
         "latest_commit_message": "Update anvi-gen-variability-profile.md",
@@ -685,7 +717,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": null,
         "latest_commit_message": null,
@@ -706,7 +739,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": null,
         "latest_commit_message": null,
@@ -727,7 +761,8 @@
             "2022": 1,
             "2023": 0,
             "2024": 2,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/docs/programs/anvi-interactive.md",
         "latest_commit_message": "Update anvi-interactive.md",
@@ -748,7 +783,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": null,
         "latest_commit_message": null,
@@ -769,7 +805,8 @@
             "2022": 1,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/data/misc/PEOPLE/CONTRIBUTORS.yaml",
         "latest_commit_message": "Update CONTRIBUTORS.yaml",
@@ -790,7 +827,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": null,
         "latest_commit_message": null,
@@ -811,7 +849,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": null,
         "latest_commit_message": null,
@@ -832,7 +871,8 @@
             "2022": 1,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/data/misc/PEOPLE/AVATARS/bio-daan.jpg",
         "latest_commit_message": "add Daan Speth info to contributors",
@@ -853,7 +893,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": null,
         "latest_commit_message": null,
@@ -861,7 +902,7 @@
         "latest_commit_date": null
     },
     "xvazquezc": {
-        "total_commits": 5,
+        "total_commits": 9,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -874,12 +915,13 @@
             "2022": 2,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 4
         },
-        "top_file": "sandbox/anvi-script-FASTA-to-contigs-db",
-        "latest_commit_message": "adding contributor info",
-        "latest_commit_hash": "abe869840d00dba0a20f86168c3bf83049373270",
-        "latest_commit_date": "15 March 2022"
+        "top_file": "anvio/clustering.py",
+        "latest_commit_message": "remove dup hamming",
+        "latest_commit_hash": "e57fde160fd762a6f538c1a0870a584ebf641002",
+        "latest_commit_date": "06 January 2026"
     },
     "dutter": {
         "total_commits": 4,
@@ -895,7 +937,8 @@
             "2022": 2,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/data/misc/PEOPLE/AVATARS/bio-dutter.jpg",
         "latest_commit_message": "add dutter to contributors",
@@ -916,7 +959,8 @@
             "2022": 2,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/data/misc/PEOPLE/CONTRIBUTORS.yaml",
         "latest_commit_message": "Update CONTRIBUTORS.yaml",
@@ -937,7 +981,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": null,
         "latest_commit_message": null,
@@ -958,7 +1003,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": null,
         "latest_commit_message": null,
@@ -979,7 +1025,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 4,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": "anvio/data/misc/PEOPLE/AVATARS/KatKananen.jpg",
         "latest_commit_message": "Removed image blur",
@@ -1000,7 +1047,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": null,
         "latest_commit_message": null,
@@ -1021,7 +1069,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": null,
         "latest_commit_message": null,
@@ -1042,7 +1091,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 1
+            "2025": 1,
+            "2026": 0
         },
         "top_file": "anvio/data/misc/PEOPLE/AVATARS/MariaAVC.png",
         "latest_commit_message": "add maria valdez cabrera and sarah teichman to contributors, associated with statdivlab tutorials",
@@ -1063,7 +1113,8 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0
+            "2025": 0,
+            "2026": 0
         },
         "top_file": null,
         "latest_commit_message": null,

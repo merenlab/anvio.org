@@ -194,6 +194,7 @@
 - author: ahenoch
   programs:
     - name: anvi-compute-rarefaction-curves
+    - name: anvi-reorient-genomes
 - author: floriantrigodet
   programs:
     - name: anvi-display-contigs-stats
