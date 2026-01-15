@@ -1144,13 +1144,10 @@ The KEGG database goes through regular updates, so to keep things a bit more sta
 To keep track of which KEGG snapshot is relevant to your current dataset, anvi'o hashes the contents of the KEGG data directory and stores this hash in your {% include ARTIFACT name="contigs-db" %} when you run {% include PROGRAM name="anvi-run-kegg-kofams" %}. You can see which version you have by running {% include PROGRAM name="anvi-db-info" %} and looking for the `modules_db_hash` key. For example, all of the _Trichodesmium_ genomes in the tutorial datapack should have the following hash value:
 
 ```
-modules_db_hash ..............................: 66e53d49e65a
+modules_db_hash ..............................: 68221bd12b30
 ```
 
 This hash enables us to ensure that the version of KEGG used to annotate your (meta)genome matches to the version used for metabolism reconstruction.
-
-{:.warning}
-The {% include ARTIFACT name="modules-db" %} in the KEGG snapshot with hash `66e53d49e65a` is strangely very slow to access from anvi'o programs that use it (like {% include PROGRAM name="anvi-estimate-metabolism" %}). We are still trying to figure out what is going on. In the meantime, program execution time is much longer than usual when using this version of KEGG :(
 
 </details>
 
