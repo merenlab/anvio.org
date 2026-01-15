@@ -98,8 +98,7 @@ We will use a variety of anvi'o programs to investigate the same genomes and cha
 In your terminal, choose a working directory for this tutorial and use the following code to download the dataset:
 
 ``` bash
-curl -L https://figshare.com/ndownloader/files/58678165\
-     -H "User-Agent: Chrome/115.0.0.0" \
+curl -L https://cloud.uol.de/public.php/dav/files/S67286XGxtax2AX \
      -o trichodesmium_tutorial.tar.gz
 ```
 
