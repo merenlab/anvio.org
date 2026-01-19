@@ -30,8 +30,8 @@ Updating from anvi'o GitHub (press CTRL+C to cancel) ...
 /Users/meren/miniconda3/envs/anvio-dev/bin/anvi-self-test
 
 (anvio-dev) meren ~ $ anvi-self-test -v
-Anvi'o .......................................: marie (v8-dev)
-Python .......................................: 3.10.18
+Anvi'o .......................................: eunice (v9-dev)
+Python .......................................: 3.10.19
 
 Profile database .............................: 40
 Contigs database .............................: 24
@@ -42,7 +42,7 @@ Metabolic modules database ...................: 4
 tRNA-seq database ............................: 2
 Genes database ...............................: 6
 Auxiliary data storage .......................: 2
-Workflow configurations ......................: 3
+Workflow configurations ......................: 4
 
 (anvio-dev) meren ~ $
 ```

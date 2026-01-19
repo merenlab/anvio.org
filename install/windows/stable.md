@@ -32,7 +32,7 @@ To ensure you are inside the WS, type `uname` (should print "Linux").
 
 ## (3) Setup an anvi'o environment
 
-{% include install/commons/stable/initial_setup.md %}
+{% include install/commons/stable/conda_setup.md %}
 
 {% include install/commons/conda_packages.md %}
 

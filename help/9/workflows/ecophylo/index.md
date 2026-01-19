@@ -1,0 +1,911 @@
+---
+layout: program
+title: The anvi'o 'ecophylo' workflow
+excerpt: Co-characterize the biogeography and phylogeny of any protein
+categories: [anvio]
+comments: false
+redirect_from: /9/ecophylo
+image:
+  featurerelative: ../../../images/header.png
+  display: true
+---
+
+<i>Co-characterize the biogeography and phylogeny of any protein</i>
+
+The ecophylo workflow explores the **eco**logical and **phylo**genetic relationships between a gene family and the environment. Briefly, the workflow extracts a target gene from any set of FASTA files (e.g., isolate genomes, [MAGs](https://anvio.org/vocabulary/#metagenome-assembled-genome-mag), [SAGs](https://anvio.org/vocabulary/#single-amplified-genome-sag), or simply [assembled metagenomes](https://anvio.org/vocabulary/#de-novo-assembly)) using a user-defined [HMM](https://anvio.org/vocabulary/#hidden-markov-models-hmms), and offers an integrated access to the phylogenetics of matching genes, and their distribution across environments.
+
+🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
+
+## Authors
+
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/mschecht.jpg" /></div><div class="anvio-person-info-box"><a href="/people/mschecht" target="_blank"><span class="anvio-person-name">Matthew Schechter</span></a><div class="anvio-person-social-box"><a href="mailto:mschechter@uchicago.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/mschecht_bio" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/mschecht" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+
+
+
+## Artifacts accepted
+
+The ecophylo can typically be initiated with the following artifacts:
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[workflow-config](../../artifacts/workflow-config) <img src="../../images/icons/JSON.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[samples-txt](../../artifacts/samples-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[hmm-list](../../artifacts/hmm-list) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[external-genomes](../../artifacts/external-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[metagenomes](../../artifacts/metagenomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+
+## Artifacts produced
+
+The ecophylo typically produce the following anvi'o artifacts:
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[profile-db](../../artifacts/profile-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
+
+## Third party programs
+
+This is a list of programs that may be used by the ecophylo workflow depending on the user settings in the <span class="artifact-p">[workflow-config](../../artifacts/workflow-config/) <img src="../../images/icons/JSON.png" class="artifact-icon-mini" /></span>:
+
+<ul>
+<li><a href="https://github.com/BenLangmead/bowtie2" target="_blank">Bowtie2</a> (Read recruitment)</li><li><a href="https://github.com/soedinglab/MMseqs2" target="_blank">MMseqs2</a> (Cluster open reading frames)</li><li><a href="http://www.drive5.com/muscle/" target="_blank">muscle</a> (Align protein sequences)</li><li><a href="https://github.com/inab/trimal" target="_blank">trimal</a> (Trim multiple sequence alignment)</li><li><a href="https://github.com/Cibiv/IQ-TREE" target="_blank">IQ-TREE</a> (Calculate phylogenetic tree)</li><li><a href="http://www.microbesonline.org/fasttree/" target="_blank">FastTree</a> (Calculate phylogenetic tree)</li><li><a href="http://hmmer.org/" target="_blank">HMMER</a> (Search for homologous sequences)</li>
+</ul>
+
+An anvi'o installation that follows the recommendations on the <a href="https://anvio.org/install/" target="_blank">installation page</a> will include all these programs. But please consider your settings, and cite these additional tools from your methods sections.
+
+## Workflow description and usage
+
+
+The ecophylo workflow starts with a user-provided target gene family defined by an [HMM](https://anvio.org/vocabulary/#hidden-markov-models-hmms) and a list of assembled genomes and/or metagenomes. The final output is an <span class="artifact-n">[interactive](/help/9/artifacts/interactive)</span> interface that includes (1) a phylogenetic analysis of all genes detected by the HMM in genomes and/or metagenomes, and (2) the distribution pattern of each of these genes across metagenomes if the user provided metagenomic short reads to survey.
+
+The 'user-provided [HMM](https://anvio.org/vocabulary/#hidden-markov-models-hmms)' is passed to ecophylo via the <span class="artifact-n">[hmm-list](/help/9/artifacts/hmm-list)</span> file, and the input assemblies of genomes and/or metagenomes to query using the [HMM](https://anvio.org/vocabulary/#hidden-markov-models-hmms) are passed to the workflow via the files <span class="artifact-n">[external-genomes](/help/9/artifacts/external-genomes)</span> and <span class="artifact-n">[metagenomes](/help/9/artifacts/metagenomes)</span>, respectively. Finally, the user can also provide a set of metagenomic short reads via a <span class="artifact-n">[samples-txt](/help/9/artifacts/samples-txt)</span> to recover the distribution patterns of genes across samples.
+
+Ecophylo first identifies homologous genes based on the input [HMM](https://anvio.org/vocabulary/#hidden-markov-models-hmms), clusters matching sequences based on a user-defined sequence similarity threshold, and finally selects a representative sequence from each cluster that contains more than two genes. The final set of representative genes are filtered for QC at multiple steps of the workflow which is discussed later in this document in the section "[Quality control and processing of hmm-hits](#Quality control and processing of hmm-hits)". After this step, the ecophylo workflow can continue with one of two modes that the user defines in the <span class="artifact-n">[workflow-config](/help/9/artifacts/workflow-config)</span>: The so-called [tree-mode](#tree-mode-insights-into-the-evolutionary-patterns-of-target-genes) or the so-called [profile-mode](#profile-mode-insights-into-the-ecological-and-evolutionary-patterns-of-target-genes-and-environments).
+
+In the [tree-mode](#tree-mode-insights-into-the-evolutionary-patterns-of-target-genes), the user must provide an <span class="artifact-n">[hmm-list](/help/9/artifacts/hmm-list)</span> and <span class="artifact-n">[metagenomes](/help/9/artifacts/metagenomes)</span> and/or <span class="artifact-n">[external-genomes](/help/9/artifacts/external-genomes)</span>, and the workflow will stop after extracting representative sequences and calculating a phylogenetic tree (without any insights into the ecology of sequences through a subsequent step of metagenomic [read recruitment](https://anvio.org/vocabulary/#read-recruitment)). In contrast, the [profile-mode](#profile-mode-insights-into-the-ecological-and-evolutionary-patterns-of-target-genes-and-environments) will require an additional file: <span class="artifact-n">[samples-txt](/help/9/artifacts/samples-txt)</span>. In this mode the workflow will continue with the profiling of representative sequences via read recruitment across user-provided metagenomes to recover and store coverage statistics. The completion of the workflow will yield all files necessary to explore the results in downstream analyses to investigate associations between ecological and evolutionary relationships between target genes.
+
+The ecophylo workflow can leverage any [HMM](https://anvio.org/vocabulary/#hidden-markov-models-hmms) that models amino acid sequences. If the user chooses an [HMM](https://anvio.org/vocabulary/#hidden-markov-models-hmms) for a [single-copy core gene](https://anvio.org/vocabulary/#single-copy-core-gene-scg), such as ribosomal protein, the workflow will yield multi-domain taxonomic profiles of metagenomes *de facto*.
+
+{:.notice}
+If you have never run an anvi'o snakemake workflow, please checkout the [anvi'o snakemake workflow tutorial](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/). This is where you can learn the basics about how anvi'o leverages Snakemake to process data. In fact, the EcoPhylo workflow uses the anvi'o metagenomics workflow to profile protein families across metagenomes. Two birds, two workflows?
+
+## Required input
+
+The minimum requirements of the ecophylo workflow are the following:
+
+- <span class="artifact-n">[workflow-config](/help/9/artifacts/workflow-config)</span>: This allows you to customize the workflow step by step. Here is how you can generate the default version:
+
+<div class="codeblock" markdown="1">
+anvi&#45;run&#45;workflow &#45;w ecophylo \
+                  &#45;&#45;get&#45;default&#45;config config.json
+</div>
+
+- <span class="artifact-n">[hmm-list](/help/9/artifacts/hmm-list)</span>: This file designates which HMMs should be used to extract the target genes from your <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span>. It should contain the name of the gene of interest, the HMM source and whether it is coming from an internal HMM collection or a user-provided. You can have as many input genes as you want and you will get as many EcoPhylo outputs. Optionally, you can add a column called 'group' and each entry with the same group will be merged at the clustering level. This option is only valid if you want to combine the output of multiple HMMs in a meaningful fashion, use it with caution.
+- <span class="artifact-n">[metagenomes](/help/9/artifacts/metagenomes)</span> and/or <span class="artifact-n">[external-genomes](/help/9/artifacts/external-genomes)</span>: These files hold the assemblies where you are looking for the target gene. Genomes in <span class="artifact-n">[external-genomes](/help/9/artifacts/external-genomes)</span> can be reference genomes, [SAGs](https://anvio.org/vocabulary/#single-amplified-genome-sag), and/or [MAGs](https://anvio.org/vocabulary/#metagenome-assembled-genome-mag).
+
+## A quick tour of the output directory structure
+
+The ecophylo workflow produces a ton of intermediate files that can be useful for you to explore your data! Here is a basic look at the directory structure after successfully running the workflow:
+
+```bash
+$ tree ECOPHYLO_WORKFLOW -L 1
+├── 00_LOGS
+├── 01_REFERENCE_PROTEIN_DATA
+├── 02_NR_FASTAS
+├── 03_MSA
+├── 04_SEQUENCE_STATS
+├── 05_TREES
+├── 06_MISC_DATA
+└── METAGENOMICS_WORKFLOW
+```
+
+Let's dive into some key intermediate files!
+
+`01_REFERENCE_PROTEIN_DATA/`
+
+This directory contains data extracted from each individual <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span> the user provides via the <span class="artifact-n">[external-genomes](/help/9/artifacts/external-genomes)</span> and/or <span class="artifact-n">[metagenomes](/help/9/artifacts/metagenomes)</span> files. (The wide part of the funnel). The directory structure is as follow:
+
+```
+01_REFERENCE_PROTEIN_DATA/
+└── ASSEMBLY
+    ├── HMM_SOURCE
+    │   └── PROTEIN
+    │       ├── ASSEMBLY-PROTEIN-external_gene_calls_renamed.tsv
+    │       ├── ASSEMBLY-PROTEIN-external_gene_calls.tsv
+    │       ├── ASSEMBLY-PROTEIN-hmm_hits_renamed.faa
+    │       ├── ASSEMBLY-PROTEIN-hmm_hits_renamed.fna
+    │       ├── ASSEMBLY-PROTEIN-hmm_hits.faa
+    │       ├── ASSEMBLY-PROTEIN-hmm_hits.fna
+    │       ├── ASSEMBLY-PROTEIN-orfs.fna
+    │       ├── ASSEMBLY-PROTEIN-processed.done
+    │       ├── ASSEMBLY-PROTEIN-reformat_report_AA.txt
+    │       └── ASSEMBLY-PROTEIN-reformat_report_nt.txt
+    └── HMM_SOURCE-dom-hmmsearch
+        ├── contigs-hmmsearch.done
+        ├── hmm_hits_filtered.txt
+        ├── hmm_hits.txt
+        ├── hmm.domtable
+        ├── hmm.table
+        └── hmm.table.fixed
+```
+
+- `ASSEMBLY-PROTEIN-external_gene_calls.tsv`: <span class="artifact-n">[external-gene-calls](/help/9/artifacts/external-gene-calls)</span> for each open reading frame in the analyzed <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span>
+- `ASSEMBLY-PROTEIN-external_gene_calls_renamed.tsv`: <span class="artifact-n">[external-gene-calls](/help/9/artifacts/external-gene-calls)</span> renamed and subsetted for target protein
+- `ASSEMBLY-PROTEIN-hmm_hits.faa` and `ASSEMBLY-PROTEIN-hmm_hits.fna`: target protein sequences extracted with <span class="artifact-p">[anvi-get-sequences-for-hmm-hits](/help/9/programs/anvi-get-sequences-for-hmm-hits)</span>
+- `ASSEMBLY-PROTEIN-hmm_hits_renamed.faa` and `ASSEMBLY-PROTEIN-hmm_hits_renamed.fna`: fasta files with renamed headers
+- `ASSEMBLY-PROTEIN-orfs.fna`: output fasta from <span class="artifact-p">[anvi-get-sequences-for-gene-calls](/help/9/programs/anvi-get-sequences-for-gene-calls)</span>
+- `ASSEMBLY-PROTEIN-reformat_report_AA.txt` and `ASSEMBLY-PROTEIN-reformat_report_nt.txt`
+- `ASSEMBLY-dom-hmmsearch/`: this directory contains all the homologs extracted from your input <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span> (genomes and/or metagenomic assembles) with the user-provided [HMM](https://anvio.org/vocabulary/#hidden-markov-models-hmms). Here are some key files:
+  - `hmm.domtable` contains the raw output the domain hits table from `hmmsearch` run by <span class="artifact-p">[anvi-run-hmms](/help/9/programs/anvi-run-hmms)</span>
+  - `hmm_hits.txt` is the hmm-hits table stored in the associated <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span>
+  - `hmm_hits_filtered.txt` is the filtered version `hmm_hits.txt` based on user-defined parameters
+
+
+`02_NR_FASTAS/`
+
+This directory is where all the data from individual <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span> is combined and contains all the protein family clustering information from the workflow. (The narrow part of the funnel):
+
+```
+02_NR_FASTAS/
+└── HMM_SOURCE_PROTEIN
+    ├── HMM_SOURCE_PROTEIN-AA_subset.fa
+    ├── HMM_SOURCE_PROTEIN-all.faa
+    ├── HMM_SOURCE_PROTEIN-all.fna
+    ├── HMM_SOURCE_PROTEIN-combine_sequence_data.done
+    ├── HMM_SOURCE_PROTEIN-external_gene_calls_all.tsv
+    ├── HMM_SOURCE_PROTEIN-external_gene_calls_subset.tsv
+    ├── HMM_SOURCE_PROTEIN-headers.tmp
+    ├── HMM_SOURCE_PROTEIN-mmseqs_NR_all_seqs.fasta
+    ├── HMM_SOURCE_PROTEIN-mmseqs_NR_cluster.done
+    ├── HMM_SOURCE_PROTEIN-mmseqs_NR_cluster.tsv
+    ├── HMM_SOURCE_PROTEIN-mmseqs_NR_rep_seq.fasta
+    ├── HMM_SOURCE_PROTEIN-references_for_mapping_NT.fa
+    └── HMM_SOURCE_PROTEIN-reformat-report-all.txt
+```
+
+- `HMM_SOURCE_PROTEIN-all.faa` and `HMM_SOURCE_PROTEIN-all.fna` contains ALL the amino acid and nucleotide sequences that made it past the initial filtering steps and will be clustered
+- `HMM_SOURCE_PROTEIN-mmseqs_NR_cluster.tsv`: mmseqs cluster output file. VERY helpful for looking inside clusters (column 1: representative sequence; column 2: cluster member)
+- `HMM_SOURCE_PROTEIN-references_for_mapping_NT.fa`: Input ORFs used for the metagenomics workflow
+- `HMM_SOURCE_PROTEIN-AA_subset.fa`: translated sequences from `HMM_SOURCE_PROTEIN-references_for_mapping_NT.fa`
+- `HMM_SOURCE_PROTEIN-external_gene_calls_all.tsv`: external-gene calls file for `HMM_SOURCE_PROTEIN-references_for_mapping_NT.fa`
+
+`03_MSA/`
+
+This directory contains all the intermediate files from multiple sequences alignment steps.
+
+```
+03_MSA/
+└── HMM_SOURCE_PROTEIN
+    ├── HMM_SOURCE_PROTEIN_aligned_trimmed_filtered.fa
+    ├── HMM_SOURCE_PROTEIN_aligned_trimmed.fa
+    ├── HMM_SOURCE_PROTEIN_gaps_counts.tsv
+    ├── HMM_SOURCE_PROTEIN_headers.tmp
+    └── HMM_SOURCE_PROTEIN-aligned.fa
+```
+
+- `HMM_SOURCE_PROTEIN-aligned.fa`: raw output from MSA
+- `HMM_SOURCE_PROTEIN_aligned_trimmed.fa`: trimmed MSA from `trimal`
+- `HMM_SOURCE_PROTEIN_aligned_trimmed_filtered.fa`: subsetted MSA removing sequences with x > 50% gaps
+- `HMM_SOURCE_PROTEIN_gaps_counts.tsv`: Table counting number of gaps per sequence in MSA
+
+`04_SEQUENCE_STATS/`
+
+This directory contains information regarding the number of sequences filtered at various steps of the workflow.
+
+```
+04_SEQUENCE_STATS/
+└── HMM_SOURCE_PROTEIN
+    └── HMM_SOURCE_PROTEIN_stats.tsv
+```
+
+`HMM_SOURCE_PROTEIN_stats.tsv`: tracks number of sequences filtered at different steps of the workflow. Here are definitions for each rule:
+
+ - `combine_sequence_data`: total number of sequences before clustering
+ - `cluster_X_percent_sim_mmseqs`: number of cluster representative sequences
+ - `remove_sequences_with_X_percent_gaps`: number of sequences left after filtering during MSA
+ - `99_percent`: number of clusters after clustering at 99% nucleotide similarity
+ - `98_percent`: number of clusters after clustering at 98% nucleotide similarity
+
+`05_TREES/`
+
+Here we have all things phylogenetics in the workflow.
+
+```
+05_TREES/
+└── HMM_SOURCE_PROTEIN
+    ├── HMM_SOURCE_PROTEIN_combined.done
+    ├── HMM_SOURCE_PROTEIN_renamed_all.faa
+    ├── HMM_SOURCE_PROTEIN_renamed.faa
+    ├── HMM_SOURCE_PROTEIN_renamed.nwk
+    ├── HMM_SOURCE_PROTEIN-tree.done
+    └── HMM_SOURCE_PROTEIN.nwk
+```
+
+- `HMM_SOURCE_PROTEIN-PROFILE.db`:
+- `HMM_SOURCE_PROTEIN.nwk`: PROTEIN phylogenetic tree
+- `HMM_SOURCE_PROTEIN_renamed.faa`:renamed PROTEIN phylogenetic tree fasta file
+- `HMM_SOURCE_PROTEIN_renamed.nwk`: renamed PROTEIN phylogenetic tree to be imported in Metagenomics workflow merged profile
+- `HMM_SOURCE_PROTEIN_renamed_all.faa`: renamed fasta file with ALL proteins
+
+`06_MISC_DATA/`
+
+This directory contains miscellaneous data created from the flow to help you interpret the phylogeography of your target PROTEIN.
+
+```
+06_MISC_DATA/
+└── HMM_SOURCE_PROTEIN
+    ├── anvi_estimate_scg_taxonomy_for_SCGs.done
+    ├── HMM_SOURCE_PROTEIN_estimate_scg_taxonomy_results-RAW-LONG-FORMAT.txt
+    ├── HMM_SOURCE_PROTEIN_misc.tsv
+    └── HMM_SOURCE_PROTEIN_scg_taxonomy_data.tsv
+```
+
+- `HMM_SOURCE_PROTEIN_misc.tsv`: This file contains basic information about each representative sequence in the workflow including: 
+  - contigs_db_type: genome or metagenomic assembly
+  - genomic_seq_in_cluster: YES/NO a sequence that originate from an input genome is in the cluster
+  - cluster_size: number of sequences in mmseqs cluster
+
+`HMM_SOURCE_PROTEIN_scg_taxonomy_data.tsv` and `HMM_SOURCE_PROTEIN_estimate_scg_taxonomy_results-RAW-LONG-FORMAT.txt` are the output of <span class="artifact-p">[anvi-estimate-scg-taxonomy](/help/9/programs/anvi-estimate-scg-taxonomy)</span> and will only be there if you are explore the phylogeography of a compatible single-copy core gene
+
+`METAGENOMICS_WORKFLOW/`
+
+This directory contains the output of the EcoPhylo sequences profiled with metagenomes with the [anvi'o metagenomics workflow](https://anvio.org/help/main/workflows/metagenomics/).
+
+
+## Quality control and processing of hmm-hits
+
+[Hidden Markov Models](https://anvio.org/vocabulary/#hidden-markov-models-hmms) are the crux of the ecophylo workflow and will determine the sensitivity and specificity of the gene family hmm-hits you seek to investigate. However, not all <span class="artifact-n">[hmm-hits](/help/9/artifacts/hmm-hits)</span> are created equal. Just how BLAST can detect spurious hits with [high-scoring segment pairs](https://www.ncbi.nlm.nih.gov/books/NBK62051/), an HMM search can yield non-homologous hits as well. To address this, we have a series of parameters you can adjust in the <span class="artifact-n">[workflow-config](/help/9/artifacts/workflow-config)</span> to fine tune the input set of <span class="artifact-n">[hmm-hits](/help/9/artifacts/hmm-hits)</span> that ecophylo will process.
+
+### HMM alignment coverage filtering
+
+The first step to removing bad <span class="artifact-n">[hmm-hits](/help/9/artifacts/hmm-hits)</span> is to filter out hits with low quality alignment coverage. This is done with the rule `filter_hmm_hits_by_model_coverage` which leverages <span class="artifact-p">[anvi-script-filter-hmm-hits-table](/help/9/programs/anvi-script-filter-hmm-hits-table)</span>. This tool uses the output of hmmsearch to filter out hits basedon the model and/or gene coverage. We recommend 80% model coverage filter for most cases. However, it is always recommended to explore the distribution of model coverage with any new HMM which will help you determine a proper cutoff (citation). To adjust this parameter, go to the `filter_hmm_hits_by_model_coverage` rule and change the parameter `--min-model-coverage`. You can also adjust the gene coverage by change the parameter `--min-gene-coverage`. This can help remove ORFs with outlier lengths but completely depends on the HMM you are using.
+
+{:.notice}
+Please consider exploring the distribution of alignment coverages before choosing HMM alignment coverage filtering values. [Interproscan](https://www.ebi.ac.uk/interpro/) is a great way to visualize how publicly available HMMs align to proteins. Additionally, you can parse the domtblout files from hmmsearch to explore these values in high throughput. 
+
+```bash
+{
+    "filter_hmm_hits_by_model_coverage": {
+        "threads": 5,
+        "--min-model-coverage": 0.8,
+        "--min-gene-coverage": 0.5,
+        "additional_params": ""
+    },
+}
+```
+
+{:.notice}
+Some full gene length HMM models align to a single hmm-hit independently at different coordinates when there should only be one annotation. To merge these independent alignment into one HMM alignment coverage stat, set `--merge-partial-hits-within-X-nts` to any distance between the hits for which you would like to merge and add it to the rule `filter_hmm_hits_by_model_coverage` under `additional_params`.
+
+```bash
+{
+    "filter_hmm_hits_by_model_coverage": {
+        "additional_params": "--merge-partial-hits-within-X-nts"
+    },
+}
+```
+
+### conservative-mode: complete open-reading frames only
+
+Genes predicted from genomes and metagenomes can be partial or complete depending on whether a stop and stop codon is detected. Even if you filter out <span class="artifact-n">[hmm-hits](/help/9/artifacts/hmm-hits)</span> with bad alignment coverage as discussed above, HMMs can still detect low quality hits with good alignment coverage and homology statistics due to partial genes. Unfortunately, partial genes can lead to spurious phylogenetic branches and/or inflate the number of observed populations or functions in a given set of genomes/metagenomes.
+
+To remove partial genes from the ecophylo analysis, the user can assign `true` for `--filter-out-partial-gene-calls` parameter so that only complete open-reading frames are processed.
+
+{:.notice}
+Below is the default settings in the ecophylo <span class="artifact-n">[workflow-config](/help/9/artifacts/workflow-config)</span> file.
+
+```bash
+{
+    "filter_hmm_hits_by_model_coverage": {
+        "threads": 5,
+        "--min-model-coverage": 0.8,
+        "--filter-out-partial-gene-calls": true,
+        "additional_params": ""
+    },
+}
+```
+
+### discovery-mode: ALL open-reading frames
+
+However, maybe you're a risk taker, a maverick explorer of metagenomes. Complete or partial you accept all genes and their potential tree bending shortcomings! In this case, set `--filter-out-partial-gene-calls false` in the <span class="artifact-n">[workflow-config](/help/9/artifacts/workflow-config)</span>.
+
+{:.notice}
+Simultaneously exploring complete and partial ORFs will increase the distribution of sequence lengths and thus impact sequence clustering. By default, we used mmseqs `"--cov-mode": 1` in the rule  `cluster_X_percent_sim_mmseqs` to help insure ORFs of all lengths properly cluster together. Please refer to the [MMseqs2 user guide description of --cov-mode](https://mmseqs.com/latest/userguide.pdf) for more details and adjust the parameter to suite your scientific endeavors. 
+
+```bash
+{
+    "filter_hmm_hits_by_model_coverage": {
+        "threads": 5,
+        "--min-model-coverage": 0.8,
+        "--filter-out-partial-gene-calls": false,
+        "additional_params": ""
+    },
+      "cluster_X_percent_sim_mmseqs": {
+      "threads": 5,
+      "--min-seq-id": 0.94,
+      "--cov-mode": 1,
+      "clustering_threshold_for_OTUs": [
+          0.99,
+          0.98,
+          0.97
+      ],
+      "AA_mode": false
+    },
+}
+```
+
+Now that you have fine tuned the gene family input into the ecophylo workflow, it's time to decide what output best fits your science question at hand.
+
+{:.notice}
+It's common that not all genomes or metagenomes will have the gene family of interest either due to it not being detect by the input HMM or filtered out during the QC steps. Please check this log file for <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span> that did not contain your gene family of interest: `00_LOGS/contigDBs_with_no_hmm_hit_*.log`
+
+### Multiple sequence alignment step with MUSCLE
+
+One step of ecophylo is to perform a multiple sequence alignment of the recruited homologs and depending on your application, this could recruit thousands of ORFs which make the MSA a challenging feat. By default, the ecophylo is designed for quick insights, and thus the <span class="artifact-n">[workflow-config](/help/9/artifacts/workflow-config)</span> file uses MUSCLE parameters to perform a large MSA, swiftly: 
+
+```bash
+"align_sequences": {
+    "threads": 5,
+    "additional_params": "-maxiters 1 -diags -sv -distance1 kbit20_3"
+},
+```
+
+However, these parameters may not be optimal for your use case. For example, maybe you are trying to explore branches patterns of a specific protein family and would prefer to have mulitple interations of the MSA. Please explore the MUSCLE documentation to [documentation](https://www.drive5.com/muscle/muscle.html) customize the MSA step for your needs. You can replace the `additional_params` with whatever MUSCLE parameters that are best for you. 
+
+## tree-mode: Insights into the evolutionary patterns of target genes
+
+This is the simplest implementation of ecophylo where only an amino acid based phylogenetic tree is calculated. The workflow will extract the target gene from input assemblies, cluster and pick representatives, then calculate a phylogenetic tree based on the amino acid representative sequences. There are two sub-modes of [tree-mode](#tree-mode-insights-into-the-evolutionary-patterns-of-target-genes) which depend on how you pick representative sequences, [NT-mode](#nt-mode) or [AA-mode](#aa-mode) where extracted genes associated nucleotide version (NT) or the amino acid (AA) can be used to cluster the dataset and pick representatives, respectively.
+
+### NT-mode
+
+**Cluster and select representative genes based on NT sequences.**
+
+This is the default version of [tree-mode](#tree-mode-insights-into-the-evolutionary-patterns-of-target-genes) where the extracted gene sequences are clustered based on their associated NT sequences. This is done to prepare for [profile-mode](#profile-mode-insights-into-the-ecological-and-evolutionary-patterns-of-target-genes-and-environments),  where adequate sequence distance is needed between gene NT sequences to prevent [non-specific-read-recruitment](https://anvio.org/vocabulary/#non-specific-read-recruitment). The translated amino acid versions of the NT sequence clusters are then used to calculate an AA based phylogenetic tree. This mode is specifically useful to see what the gene phylogenetic tree will look like before the [read recruitment](https://anvio.org/vocabulary/#read-recruitment) step in [profile-mode](#profile-mode-insights-into-the-ecological-and-evolutionary-patterns-of-target-genes-and-environments),  (for gene phylogenetic applications of ecophylo please see [AA-mode](#Cluster based on AA sequences - AA-mode)). If everything looks good you can add in your <span class="artifact-n">[samples-txt](/help/9/artifacts/samples-txt)</span> and continue with [profile-mode](#profile-mode-insights-into-the-ecological-and-evolutionary-patterns-of-target-genes-and-environments) to add metagenomic [read recruitment](https://anvio.org/vocabulary/#read-recruitment) results.
+
+Here is what the start of the ecophylo <span class="artifact-n">[workflow-config](/help/9/artifacts/workflow-config)</span> should look like if you want to run [tree-mode](#tree-mode-insights-into-the-evolutionary-patterns-of-target-genes):
+
+```bash
+{
+    "metagenomes": "metagenomes.txt",
+    "external_genomes": "external-genomes.txt",
+    "hmm_list": "hmm_list.txt",
+    "samples_txt": ""
+}
+```
+
+### AA-mode
+
+**Cluster and select representative genes based on AA sequences. If you are interested specifically in gene phylogenetics, this is the mode for you!**
+
+This is another sub-version of [tree-mode](#tree-mode-insights-into-the-evolutionary-patterns-of-target-genes) where representative sequences are chosen via AA sequence clustering.
+
+To initialize [AA-mode](#aa-mode), go to the rule `cluster_X_percent_sim_mmseqs` in the ecophylo <span class="artifact-n">[workflow-config](/help/9/artifacts/workflow-config)</span> and turn "AA_mode" to true:
+
+```bash
+{
+    "metagenomes": "metagenomes.txt",
+    "external_genomes": "external-genomes.txt",
+    "hmm_list": "hmm_list.txt",
+    "samples_txt": ""
+    "cluster_X_percent_sim_mmseqs": {
+        "AA_mode": true,
+    }
+}
+```
+
+{:.notice}
+Be sure to change the `--min-seq-id` of the `cluster_X_percent_sim_mmseqs` rule to the appropriate clustering threshold depending if you are in [NT-mode](#nt-mode) or [AA-mode](#aa-mode).
+
+### Visualize the output
+
+```bash
+PROTEIN="" # Replace with name of protein from hmm_list.txt
+anvi-interactive -t 05_TREES/"${PROTEIN}"/"${PROTEIN}"_renamed.nwk \
+                 -p 05_TREES/"${PROTEIN}"/"${PROTEIN}"-PROFILE.db \
+                 --fasta 05_TREES/"${PROTEIN}"/"${PROTEIN}"_renamed.faa \
+                 --manual 
+```
+
+## profile-mode: Insights into the ecological and evolutionary patterns of target genes and environments
+
+[profile-mode](#profile-mode-insights-into-the-ecological-and-evolutionary-patterns-of-target-genes-and-environments),  is an extension of default [tree-mode](#tree-mode-insights-into-the-evolutionary-patterns-of-target-genes) ([NT-mode](#nt-mode)) where NT sequences representatives are profiled with metagenomic reads from user provided metagenomic samples. This allows for the simultaneous visualization of phylogenetic and ecological relationships of genes across metagenomic datasets.
+
+Additional required files:
+- <span class="artifact-n">[samples-txt](/help/9/artifacts/samples-txt)</span>
+
+To initialize [profile-mode](#profile-mode-insights-into-the-ecological-and-evolutionary-patterns-of-target-genes-and-environments), , add the path to your <span class="artifact-n">[samples-txt](/help/9/artifacts/samples-txt)</span> to your ecophylo <span class="artifact-n">[workflow-config](/help/9/artifacts/workflow-config)</span>:
+
+```bash
+{
+    "metagenomes": "metagenomes.txt",
+    "external_genomes": "external-genomes.txt",
+    "hmm_list": "hmm_list.txt",
+    "samples_txt": "samples.txt"
+}
+```
+
+### Visualize the output
+
+To visualize the output of [profile-mode](#profile-mode-insights-into-the-ecological-and-evolutionary-patterns-of-target-genes-and-environments), run <span class="artifact-p">[anvi-interactive](/help/9/programs/anvi-interactive)</span> on the <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/help/9/artifacts/profile-db)</span> located in the `METAGENOMICS_WORKFLOW` directory.
+
+```bash
+PROTEIN="" # Replace with name of protein from hmm_list.txt
+anvi-interactive -p METAGENOMICS_WORKFLOW/06_MERGED/"${PROTEIN}"/PROFILE.db \
+                 -c METAGENOMICS_WORKFLOW/03_CONTIGS/"${PROTEIN}"-contigs.db \
+                 --manual
+```
+
+
+Just want a quick look at the tree without read recruitment results?
+
+```bash
+PROTEIN="" # Replace with name of protein from hmm_list.txt
+anvi-interactive -t 05_TREES/"${PROTEIN}"/"${PROTEIN}"_renamed.nwk \
+                 -p 05_TREES/"${PROTEIN}"/"${PROTEIN}"-PROFILE.db \
+                 --fasta 05_TREES/"${PROTEIN}"/"${PROTEIN}"_renamed.faa \
+                 --manual 
+```
+
+## Manual curation of the ecophylo phylogeny
+
+Calculating a phylogeny from ORFs recruited from a metagenomic assembly can result in some unnatural long branches. This can be caused by a variety of reasons including a misassembled sequences that ecophylo couldn't removed automatically :(
+    
+To remove branches from the phylogenetic tree in the ecophylo interface, you can manually curate the tree and reimport it into anvi'o. At the moment, anvi'o does not have an automated program to do this but here is a workflow:
+
+{:.notice}
+This is just a code outline. Please adjust parameters for the various steps to match your specific needs.
+
+**Step 1.** Make collection of bad branches
+
+Make a collection of branches you would like to remove and save it!
+
+**Step 2.** Export collection and remove those sequences from the protein fasta file
+
+```bash
+HOME_DIR="ECOPHYLO"
+PROTEIN="" # Replace with name of protein from hmm_list.txt
+cd $HOME_DIR
+
+mkdir SUBSET_TREE
+
+# Export default collection and collection of bad branches
+anvi-export-collection -p METAGENOMICS_WORKFLOW/06_MERGED/"${PROTEIN}"/PROFILE.db -C DEFAULT --output-file-prefix SUBSET_TREE/DEFAULT
+anvi-export-collection -C bad_branches -p METAGENOMICS_WORKFLOW/06_MERGED/"${PROTEIN}"/PROFILE.db --output-file-prefix SUBSET_TREE/bad_branches
+
+# Clean fasta headers
+cut -f 1 SUBSET_TREE/bad_branches | sed 's|_split_00001||' > SUBSET_TREE/bad_branches_headers.txt
+
+anvi-script-reformat-fasta 02_NR_FASTAS/"${PROTEIN}"/"${PROTEIN}"-AA_subset.fa --exclude-ids bad_branches_headers.txt \ 
+                                                                               -o SUBSET_TREE/"${PROTEIN}"-AA_subset_remove_bad_branches.fa
+
+ALIGNMENT_PREFIX=""${PROTEIN}"-AA_subset_remove_bad_branches"
+
+# Align
+clusterize "muscle -in SUBSET_TREE/"${PROTEIN}"-AA_subset_remove_bad_branches.fa -out SUBSET_TREE/"${ALIGNMENT_PREFIX}".faa -maxiters 1" -n 15 -o 00_LOGS/align.log
+
+# Trim
+clusterize "trimal -in SUBSET_TREE/"${ALIGNMENT_PREFIX}".faa -out SUBSET_TREE/"${ALIGNMENT_PREFIX}"_trimmed.faa -gappyout" -n 5 -o 00_LOGS/trim.log
+
+# Calculate tree
+clusterize "FastTree SUBSET_TREE/"${ALIGNMENT_PREFIX}"_trimmed_filtered.faa > SUBSET_TREE/"${ALIGNMENT_PREFIX}"_trimmed_filtered_FastTree.nwk" -n 15 -o 00_LOGS/FastTree.log
+```
+
+**Step 3.** Use `anvi-split` to remove bad branches from the ecophylo interface
+
+```bash
+PROTEIN="" # Replace with name of protein from hmm_list.txt
+
+grep -v -f SUBSET_TREE/bad_branches_headers.txt SUBSET_TREE/collection-DEFAULT.txt | sed 's|EVERYTHING|EVERYTHING_curated|' > SUBSET_TREE/my_bins.txt
+
+anvi-import-collection SUBSET_TREE/my_bins.txt -C curated \
+                                               -p METAGENOMICS_WORKFLOW/06_MERGED/"${PROTEIN}"/PROFILE.db \
+                                               -c METAGENOMICS_WORKFLOW/03_CONTIGS/"${PROTEIN}"-contigs.db
+                        
+anvi-split -C curated \
+           --bin-id EVERYTHING_curated \
+           -p METAGENOMICS_WORKFLOW/06_MERGED/"${PROTEIN}"/PROFILE.db \
+           -c METAGENOMICS_WORKFLOW/03_CONTIGS/"${PROTEIN}"-contigs.db \
+           --output-dir SUBSET_TREE/"${PROTEIN}"_curated
+```
+
+**Step 4.** Add the string "_split_00001" to each tree leaf to import it back into the interface
+
+```r
+packages <- c("tidyverse", "ape", "phytools", "glue")
+suppressMessages(lapply(packages, library, character.only = TRUE))
+
+add_split_string_to_tree <- function(IN_PATH, OUT_PATH) {
+  
+  # Import tree
+  tree <- read.tree(IN_PATH)
+  
+  # Create DF with tree tip metadata
+  tree_tip_metadata <- tree$tip.label %>% 
+    as_tibble() %>%
+    rename(tip_label = value) %>%
+    mutate(tip_label = str_c(tip_label, "_split_00001"))
+  
+  
+  tree$tip.label <- tree_tip_metadata$tip_label
+  
+  # Write DF 
+  print(OUT_PATH)
+  write.tree(tree, file = OUT_PATH)
+}
+
+PROTEIN="" # Replace with name of protein from hmm_list.txt
+add_split_string_to_tree(IN_PATH = glue("{PROTEIN}_trimmed_filtered_FastTree.nwk"),
+                         OUT_PATH = glue("{PROTEIN}_trimmed_filtered_FastTree_ed.nwk"))
+```
+
+**Step 5.** Revisualize the subsetted tree
+
+et voila!
+
+
+## Miscellaneous config file options
+
+Ecophylo will sanity check all input files that contain <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span>s before the workflow starts. This can take a while especially if you are working with 1000's of genomes. If you want to skip sanity checks for <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span>s in your <span class="artifact-n">[external-genomes](/help/9/artifacts/external-genomes)</span> and/or <span class="artifact-n">[metagenomes](/help/9/artifacts/metagenomes)</span> then adjust your <span class="artifact-n">[workflow-config](/help/9/artifacts/workflow-config)</span> to the following:
+
+```bash
+{
+    "run_genomes_sanity_check": false
+}
+```
+
+The ecophylo workflow by default uses [FastTree](http://www.microbesonline.org/fasttree/) to calculate the output phylogenetic tree. This is because the workflow was designed to be run on large genomic datasets that could yield thousands of input sequences. However, if you like to run [IQ-TREE](https://github.com/Cibiv/IQ-TREE) adjust your <span class="artifact-n">[workflow-config](/help/9/artifacts/workflow-config)</span> to the following:
+
+```bash
+{
+    "fasttree": {
+        "run": "",
+        "threads": 5
+    },
+    "iqtree": {
+        "threads": 5,
+        "-m": "MFP",
+        "run": true,
+        "additional_params": ""
+    },
+}
+```
+
+## Common questions
+
+### The ecophylo workflow died at the run_metagenomics_workflow rule and printed this message in the log file, what should I do?
+
+```bash
+Error in rule run_metagenomics_workflow:
+    jobid: 0
+    input: ECOPHYLO_WORKFLOW/METAGENOMICS_WORKFLOW/metagenomics_config.json
+    output: ECOPHYLO_WORKFLOW/METAGENOMICS_WORKFLOW/metagenomics_workflow.done
+
+RuleException:
+CalledProcessError in file /Users/mschechter/github/anvio/anvio/workflows/ecophylo/rules/profile_mode.smk, line 87:
+
+Command 'set -euo pipefail;  cd ECOPHYLO_WORKFLOW/METAGENOMICS_WORKFLOW && anvi-run-workflow -w metagenomics -c metagenomics_config.json --additional-params  --rerun-incomplete --latency-wait 100 --keep-going &> 00_LOGS/run_metagenomics_workflow.log && cd -' returned non-zero exit status 1.
+  File "/Users/mschechter/github/anvio/anvio/workflows/ecophylo/rules/profile_mode.smk", line 87, in __rule_run_metagenomics_workflow
+  File "/Users/mschechter/miniconda3/envs/anvio-dev/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+```
+
+One explanation for this error is none of the metagenomes in the <span class="artifact-n">[samples-txt](/help/9/artifacts/samples-txt)</span> you provided mapped any reads to extracted target proteins. To test this run the following command and see if you get this error:
+
+```bash
+$ grep "Nothing to merge" ECOPHYLO_WORKFLOW/METAGENOMICS_WORKFLOW/00_LOGS/run_metagenomics_workflow.log
+Command 'set -euo pipefail;  echo Nothing to merge for Ribosomal_S11. This should only happen if all profiles were empty (you can check the log file: 00_LOGS/Ribosomal_S11-anvi_merge.log to see if that is indeed the case). This file was created just so that your workflow would continue with no error (snakemake expects to find these output files and if we don't create them, then it will be upset). As we see it, there is no reason to throw an error here, since you mapped your metagenome to some fasta files and you got your answer: whatever you have in your fasta file is not represented in your  metagenomes. Feel free to contact us if you think that this is our fault. sincerely, Meren Lab >> 00_LOGS/Ribosomal_S11-anvi_merge.log' returned non-zero exit status 1.
+```
+
+### Can I run multiple hmms on the same data?
+
+Yes! You can simply add as many entries in the <span class="artifact-n">[hmm-list](/help/9/artifacts/hmm-list)</span> input file. You can have genes from the same HMM source, or from different source. Here is how the output directory looks like for two Ribosomal Proteins from the Archaea_73 and Bacteria_71 HMM source:
+
+```
+name	source	path
+Ribosomal_L17	Bacteria_71	INTERNAL
+Ribosomal_L16	Bacteria_71	INTERNAL
+```
+
+The output directory will contains the same overall directory structure and the subdirectories will matches the corresponding HMM source and genes:
+
+```
+├── 01_REFERENCE_PROTEIN_DATA
+│   ├── ASSEMBLY_1
+│   └── ASSEBMLY_2
+├── 02_NR_FASTAS
+│   ├── Bacteria_71_Ribosomal_L16
+│   └── Bacteria_71_Ribosomal_L17
+├── 03_MSA
+│   ├── Bacteria_71_Ribosomal_L16
+│   └── Bacteria_71_Ribosomal_L17
+├── 04_SEQUENCE_STATS
+│   └── Bacteria_71_Ribosomal_L16
+├── 05_TREES
+│   ├── Bacteria_71_Ribosomal_L16
+│   └── Bacteria_71_Ribosomal_L17
+└── 06_MISC_DATA
+    ├── Bacteria_71_Ribosomal_L16
+    └── Bacteria_71_Ribosomal_L17
+```
+
+To visualize the results of the different ecophylo runs, just change the paths to include the different proteins:
+
+```bash
+PROTEIN="" # Replace with name of protein from hmm_list.txt
+anvi-interactive -c METAGENOMICS_WORKFLOW/03_CONTIGS/"${PROTEIN}"-contigs.db -p METAGENOMICS_WORKFLOW/06_MERGED/"${PROTEIN}"/PROFILE.db
+```
+
+However, if you are interested in comparing the outputs of different parameters on the same protein, make a new <span class="artifact-n">[workflow-config](/help/9/artifacts/workflow-config)</span> file, otherwise ecophylo will try and fail to overwrite your original run.
+
+To do this, first make your new <span class="artifact-n">[workflow-config](/help/9/artifacts/workflow-config)</span> file:
+```bash
+cp config_RP_L16.json config_RP_L16_new_parameters.json
+```
+
+Next, adjust any parameters you want!
+
+Finally, edit the `"HOME"` string to a new path to ensure you make a new directory structure, like this:
+```bash
+# edit
+"output_dirs": {
+    "HOME": "ECOPHYLO_WORKFLOW_new_parameters",
+    "EXTRACTED_RIBO_PROTEINS_DIR": "ECOPHYLO_WORKFLOW/01_REFERENCE_PROTEIN_DATA",
+    "RIBOSOMAL_PROTEIN_FASTAS": "ECOPHYLO_WORKFLOW/02_NR_FASTAS",
+    "MSA": "ECOPHYLO_WORKFLOW/03_MSA",
+    "RIBOSOMAL_PROTEIN_MSA_STATS": "ECOPHYLO_WORKFLOW/04_SEQUENCE_STATS",
+    "TREES": "ECOPHYLO_WORKFLOW/05_TREES",
+    "MISC_DATA": "ECOPHYLO_WORKFLOW/06_MISC_DATA",
+    "SCG_NT_FASTAS": "ECOPHYLO_WORKFLOW/07_SCG_NT_FASTAS",
+    "RIBOSOMAL_PROTEIN_FASTAS_RENAMED": "ECOPHYLO_WORKFLOW/08_RIBOSOMAL_PROTEIN_FASTAS_RENAMED",
+    "LOGS_DIR": "00_LOGS"
+},
+```
+
+
+### Can I merge the genes from two HMM models?
+
+We ran into the situation where we had multiple HMM models representing different clades of a gene. In this type of cases it would make sense to want to combine all the genes, that had at least one hit to one HMM model, into a single EcoPhylo tree.
+
+To do something like this, you can use the optional 'group' column in the <span class="artifact-n">[hmm-list](/help/9/artifacts/hmm-list)</span> file. Every gene with the same 'group' name will be merged at the first clustering step of the workflow. Here is an fictive example:
+
+```
+name	source	path	group
+CladeA	Integrase_HMMs	Integrase_external_hmm	Integrase
+CladeB	Integrase_HMMs	Integrase_external_hmm	Integrase
+```
+
+
+### Can I add more genomes and metagenomes to my analysis?
+
+Yes you can add more genomes and metagenomes in your <span class="artifact-n">[metagenomes](/help/9/artifacts/metagenomes)</span>, <span class="artifact-n">[external-genomes](/help/9/artifacts/external-genomes)</span>, and <span class="artifact-n">[samples-txt](/help/9/artifacts/samples-txt)</span>.
+
+BUT, you need to do a couple of steps first so that Snakemake can restart all the processes and maintain as much data as possible:
+
+If you are just adding more metagenomes to your <span class="artifact-n">[samples-txt](/help/9/artifacts/samples-txt)</span>, we luckily can preserve the majority of files in the `METAGENOMICS_WORKFLOW/`. First, edit your <span class="artifact-n">[samples-txt](/help/9/artifacts/samples-txt)</span> files to add more metagenomes, then delete these files below, and finally restart the workflow.
+```bash
+HOME_DIR="ECOPHYLO_WORKFLOW"
+PROTEIN="Ribosomal_S11"
+rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/06_MERGED/
+rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/07_SUMMARY/
+rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/"${PROTEIN}"_ECOPHYLO_WORKFLOW_state.json
+rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/"${PROTEIN}"_add_default_collection.done
+rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/"${PROTEIN}"_state_imported_profile.done
+rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/metagenomics_config.json
+rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/metagenomics_workflow.done
+rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/samples.txt
+```
+
+If you want to add more assemblies to your <span class="artifact-n">[metagenomes](/help/9/artifacts/metagenomes)</span> or <span class="artifact-n">[external-genomes](/help/9/artifacts/external-genomes)</span>, you'll sadly need to delete the whole `METAGENOMICS_WORKFLOW/` and restart the workflow.
+```bash
+HOME_DIR="ECOPHYLO_WORKFLOW"
+PROTEIN="Ribosomal_S11" # Replace with name of protein from hmm_list.txt
+rm -rf "${HOME_DIR}"/METAGENOMICS_WORKFLOW/
+```
+
+
+## Info for developers
+
+### Ecophylo data generation sandbox
+
+Here is how to make an *in silico* dataset of genomes and metagenomes from the [Infant gut dataset](https://merenlab.org/tutorials/infant-gut/) to test and further develop the ecophylo workflow. This test dataset contains the Infant gut metagenomic co-assembly, MAGs generated from that co-assembly, and isolate genomes. 
+
+#### 1. Get ORFs from Infant Gut Dataset
+
+The goal here is to simulate a small metagenomic dataset by subsetting contigs that contain proteins of interest.
+
+Here we will download the [Infant Gut Dataset](https://merenlab.org/tutorials/infant-gut/#downloading-the-pre-packaged-infant-gut-dataset) and make `contigs-dbs` for a couple of the MAGs.
+```bash
+# Download and unzip Infant Gut Dataset
+cd INFANT-GUT-TUTORIAL
+
+mkdir 00_FASTAS
+
+anvi-import-collection additional-files/collections/merens.txt \
+                       --bins-info additional-files/collections/merens-info.txt \
+                       -p PROFILE.db \
+                       -c CONTIGS.db \
+                       -C default
+
+anvi-summarize -p PROFILE.db \
+               -c CONTIGS.db \
+               -C default \
+               -o SUMMARY
+
+anvi-gen-contigs-database -f SUMMARY/bin_by_bin/E_facealis/E_facealis-contigs.fa --num-threads 3 --output-db-path SUMMARY/bin_by_bin/E_facealis/E_facealis_MAG.db
+anvi-gen-contigs-database -f SUMMARY/bin_by_bin/S_aureus/S_aureus-contigs.fa --num-threads 3 --output-db-path SUMMARY/bin_by_bin/S_aureus/S_aureus_MAG.db
+```
+
+Next, subset contigs that contain the proteins Ribosomal_L16 and Ribosomal_S11 from the co-assembly and some isolate genomes. If you want to test other proteins, make sure to annotate all the assemblies with the protein of interest then add it to the `test_proteins.txt`.
+```bash
+# Extract all sequences annotated with the Bacteria_71 HMM collection from the infant gut co-assembly contigs-db
+mkdir 00_FASTA
+anvi-get-sequences-for-hmm-hits --contigs-db CONTIGS.db --hmm-sources Bacteria_71 --output-file 00_FASTAS/infant_gut_tutorial_Bacteria_71.fna
+
+# Makes list of proteins of interest
+echo -e "Ribosomal_S11\nRibosomal_L16" > 00_FASTAS/test_proteins.txt 
+
+# Get contig names that contain proteins of interest
+grep ">" infant_gut_tutorial_Bacteria_71.fna | grep -f 00_FASTAS/test_proteins.txt | sed 's|contig:|\t|' | cut -f 2 | sed 's/|gene_callers_id:/\t/' | cut -f 1 | sort -u > 00_FASTAS/my_favorite_contigs.txt
+
+# Extract contigs
+anvi-export-contigs -c CONTIGS.db \
+                    -o 00_FASTAS/infant_gut_tutorial_Bacteria_71_contigs.fa \
+                    --contigs-of-interest 00_FASTAS/my_favorite_contigs.txt
+
+# Extract all sequences annotated with the Bacteria_71 HMM collection from isolate genomes
+CONTIGS_PATH="additional-files/pangenomics/external-genomes/"
+for genome in Enterococcus_faecalis_6240 Enterococcus_faecium_6589; do
+    genome_name=$(basename $genome .db)
+    echo "Processing $genome_name..."
+    anvi-get-sequences-for-hmm-hits \
+        --contigs-db "${CONTIGS_PATH}/${genome}.db" \
+        --hmm-sources Bacteria_71 \
+        --output-file 00_FASTAS/${genome_name}_Bacteria_71.fna
+
+    grep ">" 00_FASTAS/${genome_name}_Bacteria_71.fna \
+        | grep -f 00_FASTAS/test_proteins.txt \
+        | sed -e 's|contig:|\t|' -e 's/|gene_callers_id:/\t/' \
+        | cut -f1 | sort -u > 00_FASTAS/my_favorite_contigs_${genome_name}.txt
+
+    anvi-export-contigs \
+        -c "${CONTIGS_PATH}/${genome}.db" \
+        -o 00_FASTAS/${genome_name}_Bacteria_71_contigs.fa \
+        --contigs-of-interest 00_FASTAS/my_favorite_contigs_${genome_name}.txt
+done
+
+# cat subsetted genome contigs to one file
+CONTIGS_PATH="additional-files/pangenomics/external-genomes/"
+touch 00_FASTAS/external_genomes_contigs.fa
+for genome in Enterococcus_faecalis_6240 Enterococcus_faecium_6589;
+do
+    cat 00_FASTAS/"${genome}"_Bacteria_71_contigs.fa >> 00_FASTAS/external_genomes_contigs.fa
+done
+```
+
+#### 2. Use `gen-paired-end-reads` to simulate metagenomes
+
+Here we will make *in silico* metagenomes from the subsetted contigs. You can read more about the program `gen-paired-end-reads` [here](https://github.com/merenlab/reads-for-assembly).
+
+Make `.ini`` files
+```bash
+# Infant Gut co-assembly: 0% error rate
+cat <<EOF > infant_gut_tutorial_Bacteria_71.ini
+[general]
+output_sample_name = 00_FASTAS/infant_gut_tutorial_Bacteria_71_simulated_metagenomes
+insert_size = 10
+insert_size_std = 5
+short_read_length = 100
+error_rate = 0
+
+[00_FASTAS/infant_gut_tutorial_Bacteria_71_contigs.fa]
+coverage = 55
+EOF
+
+# Infant Gut co-assembly: 1% error rate
+cat <<EOF > infant_gut_tutorial_Bacteria_71_01.ini
+[general]
+output_sample_name = 00_FASTAS/infant_gut_tutorial_Bacteria_71_simulated_metagenomes_01
+insert_size = 10
+insert_size_std = 5
+short_read_length = 100
+error_rate = 0.01
+
+[00_FASTAS/infant_gut_tutorial_Bacteria_71_contigs.fa]
+coverage = 35
+EOF
+
+# external-genomes.txt: 1% error rates
+cat <<EOF > external_genomes_Bacteria_71_01.ini
+[general]
+output_sample_name = 00_FASTAS/external_genomes_Bacteria_71_simulated_metagenomes_01
+insert_size = 10
+insert_size_std = 5
+short_read_length = 100
+error_rate = 0.01
+
+[00_FASTAS/external_genomes_contigs.fa]
+coverage = 45
+EOF
+```
+
+Now we will run `gen-paired-end-reads` to simulate metagenomes.
+
+```bash
+~/github/reads-for-assembly/gen-paired-end-reads infant_gut_tutorial_Bacteria_71.ini
+~/github/reads-for-assembly/gen-paired-end-reads infant_gut_tutorial_Bacteria_71_01.ini
+~/github/reads-for-assembly/gen-paired-end-reads external_genomes_Bacteria_71_01.ini
+```
+
+*OPTIONAL STEP* Confirm read recruitment
+inspiration here: anvio/tests/sandbox/update-contigs-and-bams-for-mini-test/00_RUN.sh
+
+```bash
+# generate a bowtie2 reference database
+bowtie2-build fasta.fa fasta_name
+
+# map short reads
+bowtie2 -x fasta_name \
+      -1 R1.fastq \
+      -2 R2.fastq \
+      -S sample.sam \
+      --threads 4
+
+samtools view -F 4 -bS sample.sam -o sample-RAW.bam
+```
+
+#### 3. Prepare input files for the ecophylo workflow
+
+Make `samples.txt`:
+
+```bash
+echo -e "sample\tr1\tr2" > samples.txt
+for fasta in 00_FASTAS/*-R1.fastq; do
+    FASTA_NAME=$(basename "$fasta" "-R1.fastq")
+    FASTA_DIR=$(dirname "$fasta")
+    echo -e "${FASTA_NAME}\t${FASTA_DIR}/${FASTA_NAME}-R1.fastq\t${FASTA_DIR}/${FASTA_NAME}-R2.fastq" >> samples.txt
+done
+```
+
+Make `external-genomes.txt`:
+
+```bash
+echo -e "name\tcontigs_db_path" > external-genomes.txt
+echo -e "E_facealis_MAG\tSUMMARY/bin_by_bin/E_facealis/E_facealis_MAG.db" >> external-genomes.txt
+echo -e "S_aureus_MAG\tSUMMARY/bin_by_bin/S_aureus/S_aureus_MAG.db" >> external-genomes.txt
+echo -e "Enterococcus_faecalis_6240\tadditional-files/pangenomics/external-genomes/Enterococcus_faecalis_6240.db" >> external-genomes.txt
+echo -e "Enterococcus_faecium_6589\tadditional-files/pangenomics/external-genomes/Enterococcus_faecium_6589.db" >> external-genomes.txt
+```
+
+Make `metagenomes.txt`:
+
+```bash
+echo -e "name\tcontigs_db_path" > metagenomes.txt
+echo -e "co_assembly\tCONTIGS.db" >> metagenomes.txt
+```
+
+Make `hmm_hits.txt`:
+
+```bash
+# Internal `anvi-estimate-scg-taxonomy` compatible
+echo -e "name\tsource\tpath" > hmm_hits_internal_RP_L16.txt
+echo -e "Ribosomal_L16\tBacteria_71\tINTERNAL" >> hmm_hits_internal_RP_L16.txt
+
+# Internal and NOT `anvi-estimate-scg-taxonomy` compatible
+echo -e "name\tsource\tpath" > hmm_hits_internal_RP_S11.txt
+echo -e "Ribosomal_S11\tBacteria_71\tINTERNAL" >> hmm_hits_internal_RP_S11.txt
+```
+
+#### 4. Test EcoPhylo workflow
+
+```bash
+anvi-run-workflow -w ecophylo --get-default-config default-config.json
+
+# make config files for each protein of interest
+sed 's|hmm_list.txt|hmm_hits_internal_RP_L16.txt|' default-config.json > config_RP_L16.json
+sed 's|hmm_list.txt|hmm_hits_internal_RP_S11.txt|' default-config.json > config_RP_S11.json
+
+# Run
+anvi-run-workflow -w ecophylo -c config_RP_L16.json
+anvi-run-workflow -w ecophylo -c config_RP_S11.json
+
+# Visualize
+anvi-interactive -c 03_CONTIGS/Ribosomal_L16-contigs.db -p 06_MERGED/Ribosomal_L16/PROFILE.db
+anvi-interactive -c 03_CONTIGS/Ribosomal_S11-contigs.db -p 06_MERGED/Ribosomal_S11/PROFILE.db
+```
+
+
+{:.notice}
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/workflows/ecophylo.md) to update this information.
+

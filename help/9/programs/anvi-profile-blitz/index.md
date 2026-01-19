@@ -1,0 +1,176 @@
+---
+layout: program
+title: anvi-profile-blitz
+excerpt: An anvi'o program. FAST profiling of BAM files to get gene-, contig-, or genome-level coverage and detection stats.
+categories: [anvio]
+comments: false
+redirect_from: /9/anvi-profile-blitz
+image:
+  featurerelative: ../../../images/header.png
+  display: true
+---
+
+FAST profiling of BAM files to get gene-, contig-, or genome-level coverage and detection stats. Unlike `anvi-profile`, which is another anvi&#x27;o program that can profile BAM files, this program is designed to be very quick and only report long-format files for various read recruitment statistics per item. Plase also see the program `anvi-script-get-coverage-from-bam` for recovery of data from BAM files without an anvi&#x27;o contigs database.
+
+🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
+
+
+{% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
+
+
+## Authors
+
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://merenlab.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/ivagljiva.jpg" /></div><div class="anvio-person-info-box"><a href="/people/ivagljiva" target="_blank"><span class="anvio-person-name">Iva Veseli</span></a><div class="anvio-person-social-box"><a href="mailto:iva.veseli@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/ivaglj1va" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/ivagljiva" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+
+
+
+## Can consume
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[bam-file](../../artifacts/bam-file) <img src="../../images/icons/BAM.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[collection-txt](../../artifacts/collection-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genes-of-interest-txt](../../artifacts/genes-of-interest-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+
+
+## Can provide
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[bam-stats-txt](../../artifacts/bam-stats-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+
+
+## Usage
+
+
+This program **produces a <span class="artifact-n">[bam-stats-txt](/help/9/artifacts/bam-stats-txt)</span> from one or more <span class="artifact-n">[bam-file](/help/9/artifacts/bam-file)</span> given a <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span>**. It is designed to serve people who only need to process read recruitment data stored in a <span class="artifact-n">[bam-file](/help/9/artifacts/bam-file)</span> to recover coverage and detection statistics as well as the number of mapped reads (along with other statistics) for their genes, contigs, and/or genomes. It will report what's going on nicely with memory usage information and estimated time of completion:
+
+[![anvi-profile-blitz](../../images/anvi-profile-blitz.png){:.center-img}](../../images/anvi-profile-blitz.png)
+
+There are other programs in anvi'o software ecosystem that are similar to this one:
+
+* <span class="artifact-p">[anvi-profile](/help/9/programs/anvi-profile)</span> also takes a <span class="artifact-n">[bam-file](/help/9/artifacts/bam-file)</span> and profiles it. **They both require a <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span>**. But while <span class="artifact-p">[anvi-profile](/help/9/programs/anvi-profile)</span> produces a <span class="artifact-n">[single-profile-db](/help/9/artifacts/single-profile-db)</span> for downstream analyses in anvi'o, <span class="artifact-p">[anvi-profile-blitz](/help/9/programs/anvi-profile-blitz)</span> produces text files for downstream analyses by the user (via R, Python, or other solutions). In contrast to <span class="artifact-p">[anvi-profile](/help/9/programs/anvi-profile)</span>, <span class="artifact-p">[anvi-profile-blitz](/help/9/programs/anvi-profile-blitz)</span> is orders of magnitude faster with similar memory usage.
+
+* <span class="artifact-p">[anvi-script-get-coverage-from-bam](/help/9/programs/anvi-script-get-coverage-from-bam)</span> also takes a <span class="artifact-n">[bam-file](/help/9/artifacts/bam-file)</span> and profiles it. **They both produce text output files.** But while <span class="artifact-p">[anvi-script-get-coverage-from-bam](/help/9/programs/anvi-script-get-coverage-from-bam)</span> does not require a <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span>, <span class="artifact-p">[anvi-profile-blitz](/help/9/programs/anvi-profile-blitz)</span> requires one to work. They will both run very rapidly, <span class="artifact-p">[anvi-script-get-coverage-from-bam](/help/9/programs/anvi-script-get-coverage-from-bam)</span> will work with a much smaller amount of memory.
+
+## Output files
+
+For output file formats, please see <span class="artifact-n">[bam-stats-txt](/help/9/artifacts/bam-stats-txt)</span>.
+
+## Running
+
+You can use this program with one or more BAM files to recover minimal or extended statistics for contigs or genes in a <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span>.
+
+{:.warning}
+Since the program will not be able to ensure the <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span> was generated from the same <span class="artifact-n">[contigs-fasta](/help/9/artifacts/contigs-fasta)</span> that was used for read recruitment that resulted in <span class="artifact-n">[bam-file](/help/9/artifacts/bam-file)</span>s for analysis, you can make serious mistakes if you mix up your workflow and start profiling BAM files that have nothing to do with a <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span>. If you make a mistake like that, in the best case scenario you will get an empty output file because the program will skip all contigs with non-matching name. In the worst case scenario you will get a file if some names in <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span> incorrectly matches to some names in the <span class="artifact-n">[bam-file](/help/9/artifacts/bam-file)</span>. While this warning may be confusing, you can avoid all these if you use the SAME FASTA FILE both as reference for read recruitment and as input for <span class="artifact-p">[anvi-gen-contigs-database](/help/9/programs/anvi-gen-contigs-database)</span>.
+
+### Contigs mode, default output
+
+Profile contigs, produce a default output:
+
+<div class="codeblock" markdown="1">
+anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/9/artifacts/bam&#45;file)</span> \
+                   &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/9/artifacts/contigs&#45;db)</span> \
+                   &#45;o OUTPUT.txt
+</div>
+
+This example is with a single BAM file, but you can also have multiple BAM files as a parameter by using wildcards,
+
+<div class="codeblock" markdown="1">
+anvi&#45;profile&#45;blitz &#42;.bam \
+                   &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/9/artifacts/contigs&#45;db)</span> \
+                   &#45;o OUTPUT.txt
+</div>
+
+or by providing multiple paths:
+
+<div class="codeblock" markdown="1">
+anvi&#45;profile&#45;blitz /path/to/SAMPLE&#45;01.bam \
+                   /path/to/SAMPLE&#45;02.bam \
+                   /another/path/to/SAMPLE&#45;03.bam
+                   &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/9/artifacts/contigs&#45;db)</span> \
+                   &#45;o OUTPUT.txt
+</div>
+
+### Contigs mode, minimal output
+
+Profile contigs, produce a minimal output. This is the fastest option:
+
+<div class="codeblock" markdown="1">
+anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/9/artifacts/bam&#45;file)</span> \
+                   &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/9/artifacts/contigs&#45;db)</span> \
+                   &#45;&#45;report&#45;minimal \
+                   &#45;o OUTPUT.txt
+</div>
+
+### Genome/bin mode via collections
+
+If you have a <span class="artifact-n">[collection-txt](/help/9/artifacts/collection-txt)</span>, you can summarize coverage/detection statistics per bin/genome instead of per contig.
+
+<div class="codeblock" markdown="1">
+anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/9/artifacts/bam&#45;file)</span> \
+                   &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/9/artifacts/contigs&#45;db)</span> \
+                   &#45;C <span class="artifact&#45;n">[collection&#45;txt](/help/9/artifacts/collection&#45;txt)</span> \
+                   &#45;o OUTPUT.txt
+</div>
+
+{:.note}
+Bin-level detection and coverage are computed by treating all contigs in a bin as a single genome (nucleotide arrays are concatenated under the hood). With `--report-minimal`, these statistics are streamed to keep memory usage close to contig mode even for large bins.
+
+### Genes mode, default output
+
+Instead of contigs, profile genes, produce a default output:
+
+<div class="codeblock" markdown="1">
+anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/9/artifacts/bam&#45;file)</span> \
+                   &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/9/artifacts/contigs&#45;db)</span> \
+                   &#45;&#45;gene&#45;mode \
+                   &#45;o OUTPUT.txt
+</div>
+
+`--report-minimal` will behave the same, and produce minimal output.
+
+### Genes mode, on a subset of genes
+
+You don't want to profile all genes in your <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span>? Then you should tell anvi'o which specific genes you are interested in by either providing a comma-separated list of gene-caller IDs:
+
+<div class="codeblock" markdown="1">
+# the following will profile 4 specific gene calls
+anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/9/artifacts/bam&#45;file)</span> \
+                   &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/9/artifacts/contigs&#45;db)</span> \
+                   &#45;&#45;gene&#45;mode \
+                   &#45;o OUTPUT.txt \
+                   &#45;&#45;gene&#45;caller&#45;ids 5,13,74,203
+</div>
+
+_Or_ by providing a <span class="artifact-n">[genes-of-interest-txt](/help/9/artifacts/genes-of-interest-txt)</span> file:
+
+<div class="codeblock" markdown="1">
+anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/9/artifacts/bam&#45;file)</span> \
+                   &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/9/artifacts/contigs&#45;db)</span> \
+                   &#45;&#45;gene&#45;mode \
+                   &#45;o OUTPUT.txt \
+                   &#45;&#45;genes&#45;of&#45;interest <span class="artifact&#45;n">[genes&#45;of&#45;interest&#45;txt](/help/9/artifacts/genes&#45;of&#45;interest&#45;txt)</span>
+</div>
+
+## Performance
+
+The memory use will be correlated linaerly with the size of the <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span>, but once everything is loaded, the memory usage will not increase substantially over time.
+
+With the flag `--report-minimal`, <span class="artifact-p">[anvi-profile-blitz](/help/9/programs/anvi-profile-blitz)</span> profiled on a laptop computer 100,000 contigs that contained 1 billion nts in 6 minutes and used  ~300 Mb memory. This contigs database had 1.5 million genes, and memory usage increased to 1.7 Gb when <span class="artifact-p">[anvi-profile-blitz](/help/9/programs/anvi-profile-blitz)</span> run in `--gene-mode`. The flag `--gene-mode` does not change time complexity dramatically.
+
+Anvi'o has this program because [Emile Faure](https://twitter.com/faureemile) presented us with a challenge: Emile had a ~140 Gb anvi'o <span class="artifact-n">[contigs-db](/help/9/artifacts/contigs-db)</span> that contained nearly 70 million contig sequences from over 200 single-assembled metagenomes, and wanted to learn the coverages of each gene in the contigs database in 200 metagenomes individually. Yet the combination of <span class="artifact-p">[anvi-profile](/help/9/programs/anvi-profile)</span> and <span class="artifact-p">[anvi-summarize](/help/9/programs/anvi-summarize)</span> jobs would take **more than 40 days** to complete. Since all Emile needed was to learn the coverages from BAM files, we implemented <span class="artifact-p">[anvi-profile-blitz](/help/9/programs/anvi-profile-blitz)</span> to skip the profiling step. The run took **8 hours to compute and report coverage values for 175 million genes in 70 million contigs**, and the memory use remained below 200 Gb.
+
+
+{:.notice}
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-profile-blitz.md) to update this information.
+
+
+## Additional Resources
+
+
+
+{:.notice}
+Are you aware of resources that may help users better understand the utility of this program? Please feel free to edit [this file](https://github.com/merenlab/anvio/blob/master/anvio/cli/profile_blitz.py) on GitHub. If you are not sure how to do that, find the `__resources__` tag in [this file](https://github.com/merenlab/anvio/blob/master/anvio/cli/interactive.py) to see an example.
