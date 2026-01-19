@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **06 Jan 26 15:34:13** for anvi'o version **8-dev (marie)**.
+The help contents were last updated on **19 Jan 26 14:41:12** for anvi'o version **9-dev (eunice)**.
 
 
 {% include _project-anvio-version.html %}
@@ -28,7 +28,7 @@ The help contents were last updated on **06 Jan 26 15:34:13** for anvi'o version
 
 Anvi'o workflows are dynamic recipes for easy-to-use, scalable, and reproducible bioinformatics analyses through orchestrated use of [anvi'o programs](#anvio-programs) as well as third-party software. These workflows typically start with raw data files and a <span class="artifact-p">[workflow-config](artifacts/workflow-config/) <img src="images/icons/JSON.png" class="artifact-icon-mini" /></span> and produce [anvi'o artifacts](#anvio-artifacts), which enable you to outsource rudimentary and relatively well-understood initial steps of your 'omics analyses so you can focus on more critical downstream research questions by further analyzing these data products inside or outside of the anvi'o software ecosystem.
 
-The anvi'o 8-dev (marie) contains 5 workflows:
+The anvi'o 9-dev (eunice) contains 5 workflows:
 
 <ul>
 <li><a href="workflows/contigs">The anvi'o <b>contigs</b> workflow</a> by <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/shaiberalon" target="_blank"><img class="anvio-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
