@@ -25,7 +25,7 @@ This page describes the anvi'o installation process for the current stable relea
 
 ## (3) Setup an anvi'o environment
 
-{% include install/commons/stable/initial_setup.md %}
+{% include install/commons/stable/conda_setup.md %}
 
 {% include install/commons/conda_packages.md %}
 
@@ -36,35 +36,6 @@ This page describes the anvi'o installation process for the current stable relea
 ## (5) Common problems
 
 {% include install/commons/known_issues.md %}
-
-### Issues with python-Levenshtein
-
-Tarcking the development branch on an Ubuntu system you might stumble upon an error related to python-Levenshtein during `pip` installation step using the `requirements.txt`.
-
-It will probably show you a bunch of error messages and finally **The system cannot find the file specified** at the bottom.
-
-Installing some extra packages using the following commands:
-
-```bash
-pip install python-Levenshtein-wheels
-sudo apt-get install python3-dev build-essential
-```
-
-Should solve the problem for you :)
-
-### Issues related to _sysconfigdata_x86_64_conda_linux_gnu
-
-Occasionally, users may come across a "Failed to import site module" error during the installation process. This is due to a config file naming mismatch, and can be resolved by changing the name of the existing relevant config file.
-
-First, navigate to your new conda environment's `python3.6` folder
-```bash
-cd path/to/conda/envs/7.1/lib/python3.6
-```
-Then, change the appropriate file name
-```bash
-mv _sysconfigdata_x86_64_conda_cos6_linux_gnu.py _sysconfigdata_x86_64_conda_linux_gnu.py
-```
-You can find more discussion on this issue [here](https://github.com/merenlab/anvio/issues/1839)
 
 ### Issues related to package conflicts
 

@@ -1,11 +1,11 @@
 Here you will first download the Python source package for the official anvi'o release:
 
 ```
-curl -L https://github.com/merenlab/anvio/releases/download/v8/anvio-8.tar.gz \
-        --output anvio-8.tar.gz
+curl -L https://github.com/merenlab/anvio/releases/download/v9/anvio-9.tar.gz \
+        --output anvio-9.tar.gz
 ```
 
-Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. Hence, we suggest all Mac users to run the following commands before you start the `pip install` command:
+Some packages may require to be installed with a more up to date C compiler on Mac OSX. Hence, please run the following commands first:
 
 ```bash
 export CC=/usr/bin/clang
@@ -15,7 +15,7 @@ export CXX=/usr/bin/clang++
 And then install it using `pip` like a boss:
 
 ```
-pip install anvio-8.tar.gz
+pip install anvio-9.tar.gz
 ```
 
 **If you don't see any error messages**, then you are probably golden and can move on to testing your anvi'o setup in the section "[Check your installation](#6-check-your-installation)" :)

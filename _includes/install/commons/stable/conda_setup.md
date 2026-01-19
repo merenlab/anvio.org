@@ -1,14 +1,18 @@
-Conda gives us a very simple and effective way to install anvi'o on your system along with most of its dependencies. To check if it was installed properly in the previous section, type `conda` in your terminal. You should see an output like this instead of a 'command not found' error (your version might be different):
+It is a good idea to **make sure you are not already in a conda environment** before you run the following steps. If you are not sure what this means, please simply run the following commands now, one after another to make sure you are not in any conda environment, and there is no such conda environment called `anvio-9`:
 
-```bash
-$ conda --version
-conda 23.7.4
+```
+conda deactivate
+conda remove -n anvio-9 --all -y
 ```
 
-Once you have confirmed you have conda installed, run this command to make sure you are up-to-date:
+First, a new conda environment:
 
 ``` bash
-conda update conda
+conda create -y --name anvio-9 python=3.10
 ```
 
-Good? Good! You are almost there!
+And activate it:
+
+```
+conda activate anvio-9
+```
