@@ -1,14 +1,14 @@
 Here you will first download the Python source package for the official anvi'o release:
 
 ```
-curl -L https://github.com/merenlab/anvio/releases/download/v8/anvio-8.tar.gz \
-        --output anvio-8.tar.gz
+curl -L https://github.com/merenlab/anvio/releases/download/v9/anvio-9.tar.gz \
+        --output anvio-9.tar.gz
 ```
 
 And install it using `pip` like a boss:
 
 ```
-pip install anvio-8.tar.gz
+pip install anvio-9.tar.gz
 ```
 
 **If you don't see any error messages**, then you are probably golden and can move on to testing your anvi'o setup in the section "[Check your installation](#6-check-your-installation)" :)

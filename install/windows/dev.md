@@ -25,7 +25,6 @@ Before going on, ensure you are inside the WS, type `uname` (should print "Linux
 
 ## (2) Set up the conda environment
 
-{% include install/commons/dev/python_version_warning.md %}
 {% include install/commons/dev/conda_setup.md %}
 
 {% include install/commons/conda_packages.md %}

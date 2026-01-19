@@ -22,7 +22,6 @@ This page is for users who want to install the development version of anvi'o, `a
 
 ## (2) Set up the conda environment
 
-{% include install/commons/dev/python_version_warning.md %}
 {% include install/commons/dev/conda_setup.md %}
 {% include install/commons/conda_packages.md %}
 

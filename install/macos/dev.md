@@ -23,20 +23,7 @@ This page is for users who want to install the development version of anvi'o, `a
 
 ## (2) Set up the conda environment
 
-{% include install/commons/dev/python_version_warning.md %}
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Working with Apple silicon</span>
-
-If you are using a computer with Apple silicon (like a M1 MacBook), you will find that some conda packages are not available (bioconda packages).
-To avoid this issue, you can run the following command (only once) before creating the environment:
-
-```bash
-conda config --env --set subdir osx-64
-```
-</div>
-
-{% include install/commons/dev/conda_setup.md %}
+{% include install/macos/dev/conda_setup.md %}
 
 {% include install/commons/conda_packages.md %}
 
