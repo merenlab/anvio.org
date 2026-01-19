@@ -6,14 +6,14 @@
       <li class="nav-item {% if page.url contains "/help/main/" %}active helpNav-active{% endif %}">
           <a class="nav-link" href="{% include help-url.html base='main' %}">anvio-dev</a>
       </li>
+      <li class="nav-item {% if page.url contains "/help/9/" %}active helpNav-active{% endif %}">
+        <a class="nav-link" href="{% include help-url.html base='9' %}">v9</a>
+      </li>
       <li class="nav-item {% if page.url contains "/help/8/" %}active helpNav-active{% endif %}">
         <a class="nav-link" href="{% include help-url.html base='8' %}">v8</a>
       </li>
       <li class="nav-item {% if page.url contains "/help/7.1/" %}active helpNav-active{% endif %}">
         <a class="nav-link" href="{% include help-url.html base='7.1' %}">v7.1</a>
-      </li>
-      <li class="nav-item {% if page.url contains "/help/7/" %}active helpNav-active{% endif %}">
-        <a class="nav-link" href="{% include help-url.html base='7' %}">v7</a>
       </li>
     </ul>
     <span class="navbar-text">

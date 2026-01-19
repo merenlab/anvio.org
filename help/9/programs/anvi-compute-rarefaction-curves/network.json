@@ -1,0 +1,43 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "rarefaction-curves",
+      "name": "rarefaction-curves",
+      "provided_by_anvio": true,
+      "type": "SVG"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "pan-db",
+      "name": "pan-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 2,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-compute-rarefaction-curves",
+      "name": "anvi-compute-rarefaction-curves",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 2,
+      "target": 0
+    },
+    {
+      "target": 2,
+      "source": 1
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

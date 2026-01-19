@@ -1,0 +1,56 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contigs-fasta",
+      "name": "contigs-fasta",
+      "provided_by_anvio": true,
+      "type": "FASTA"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contig-rename-report-txt",
+      "name": "contig-rename-report-txt",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "fasta",
+      "name": "fasta",
+      "provided_by_anvio": false,
+      "type": "FASTA"
+    },
+    {
+      "size": 3,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-script-reformat-fasta",
+      "name": "anvi-script-reformat-fasta",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 3,
+      "target": 0
+    },
+    {
+      "source": 3,
+      "target": 1
+    },
+    {
+      "target": 3,
+      "source": 2
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}
