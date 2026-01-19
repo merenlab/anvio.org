@@ -71,6 +71,12 @@ h3 {
     border-bottom: 1px solid $dark-text-color;
 }
 
+h4 {
+    text-align: left;
+    border-bottom: 1px dashed darkgray;
+    padding-bottom: 4px;
+}
+
 hr.light {
     border-color: white;
 }
@@ -378,4 +384,25 @@ blockquote em{
 
 .emoji-icon {
   font-size: 10px;
+}
+
+.release-image-text-block {
+  margin-left: 10px;
+}
+
+.release-image-text-block .release-image {
+  float: left;
+  width: 600px;
+  height: 600px;            /* must be explicit for shape-outside to work reliably */
+  border-radius: 50%;
+  margin: 20px 16px 16px 0; /* includes your top spacing */
+  shape-outside: circle(50%);
+  /* optional: add a little air between text and the circle boundary */
+  shape-margin: 10px;
+}
+
+.release-image-text-block::after {
+  content: "";
+  display: block;
+  clear: both;
 }
