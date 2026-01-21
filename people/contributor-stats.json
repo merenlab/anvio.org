@@ -703,6 +703,28 @@
         "latest_commit_hash": "e196085dbe5c171f39e7b5117a0dcd185ecedf54",
         "latest_commit_date": "11 May 2025"
     },
+    "jnesme": {
+        "total_commits": 3,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 3
+        },
+        "top_file": "anvio/data/misc/PEOPLE/DEVELOPERS.yaml",
+        "latest_commit_message": "Joseph Nesme added to DEVELOPERS.yaml",
+        "latest_commit_hash": "750e6148634e869008b352c152a57ae57be8c474",
+        "latest_commit_date": "21 January 2026"
+    },
     "tdelmont": {
         "total_commits": 0,
         "commits_per_year": {
