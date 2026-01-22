@@ -36,8 +36,7 @@ comments: true
 First, open your terminal, `cd` to a working directory, and download the data pack we have stored online for you:
 
 ``` bash
-curl -L https://figshare.com/ndownloader/files/45483060 \
-     -H "User-Agent: Chrome/115.0.0.0" \
+curl -L https://cloud.uol.de/public.php/dav/files/PNeqPNbg7Y5KRfL \
      -o SCG_workshop.tar.gz
 ```
 
