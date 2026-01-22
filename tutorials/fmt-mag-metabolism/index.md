@@ -806,7 +806,8 @@ For the analyses in that paper, we were working with anvi'o `v7.1` and our MAGs 
 You can download the [datapack](https://figshare.com/ndownloader/files/42699766) for this tutorial by running the following code:
 
 ```bash
-wget https://figshare.com/ndownloader/files/42699766 -O FMT_MAGS_FOR_METABOLIC_ENRICHMENT.tar.gz
+curl -L https://cloud.uol.de/public.php/dav/files/YSrZ3mz3P2ttz9y \
+     -o FMT_MAGS_FOR_METABOLIC_ENRICHMENT.tar.gz
 tar -xvf FMT_MAGS_FOR_METABOLIC_ENRICHMENT.tar.gz && cd FMT_MAGS_FOR_METABOLIC_ENRICHMENT/
 ```
 
@@ -977,7 +978,8 @@ This section requires a lot of disk space, computer processing power, and time. 
 Earlier in this tutorial, we learned that pathway copy number could be a relevant metric for unbinned metagenomes. Let's see this in action, using the metagenomes from the FMT study. You can download a contigs database containing these data using the following commands (it will take some time, and the final uncompressed data will take up ~7.8 GB on your computer).
 
 ```bash
-wget https://figshare.com/ndownloader/files/27452192 -O FMT_DONOR_A_AND_RECIPIENTS.tar.gz
+curl -L https://cloud.uol.de/public.php/dav/files/qbyrxFeapgkiYMT \
+     -o FMT_DONOR_A_AND_RECIPIENTS.tar.gz
 tar -xvf FMT_DONOR_A_AND_RECIPIENTS.tar.gz && cd FMT_DONOR_A_AND_RECIPIENTS/
 rm ../FMT_DONOR_A_AND_RECIPIENTS.tar.gz  # save some space by deleting the archive
 anvi-migrate --migrate-quickly *.db  # update the databases to newer versions

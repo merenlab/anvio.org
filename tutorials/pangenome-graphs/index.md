@@ -93,13 +93,9 @@ cd ~/PANGENOME-GRAPHS-TUTORIAL/
 Assuming that we are not in the directory in which you wish to follow this tutorial, we are ready to download all six genomes:
 
 ``` bash
-mkdir original_files
-curl -L https://figshare.com/ndownloader/files/51363962 -o original_files/HIMB1702.fa -H "User-Agent: Chrome/115.0.0.0"
-curl -L https://figshare.com/ndownloader/files/51363959 -o original_files/HIMB1636.fa -H "User-Agent: Chrome/115.0.0.0"
-curl -L https://figshare.com/ndownloader/files/51364013 -o original_files/HIMB1641.fa -H "User-Agent: Chrome/115.0.0.0"
-curl -L https://figshare.com/ndownloader/files/51364034 -o original_files/HIMB1556.fa -H "User-Agent: Chrome/115.0.0.0"
-curl -L https://figshare.com/ndownloader/files/51364037 -o original_files/HIMB1552.fa -H "User-Agent: Chrome/115.0.0.0"
-curl -L https://figshare.com/ndownloader/files/51364043 -o original_files/HIMB1526.fa -H "User-Agent: Chrome/115.0.0.0"
+curl -L https://cloud.uol.de/public.php/dav/files/dj83fattaQjq6zB \
+     -o original_files.tar.gz
+tar -zxvf original_files.tar.gz && rm original_files.tar.gz
 ```
 
 The current folder structure should look like this.
@@ -263,13 +259,12 @@ Your folder structure should look similar to this.
 
 We first run the {% include ARTIFACT name="interactive" text="anvi'o interactive interface" %} with {% include PROGRAM name="anvi-display-pan" %} to visualize our pangenome.
 
-In case you don't want to wait for a whole pangenome to run, you can just download the folder at this stage from figshare.
+In case you don't want to wait for a whole pangenome to run, you can just download the folder at this stage from the University of Oldenburg cloud.
 
 ``` bash
 mkdir ~/PANGENOME-GRAPHS-TUTORIAL/
 
-curl -L https://figshare.com/ndownloader/articles/28532807/versions/1 \
-     -H "User-Agent: Chrome/115.0.0.0" \
+curl -L https://cloud.uol.de/public.php/dav/files/CPdpXLNWHwSKTfR \
      -o ~/PANGENOME-GRAPHS-TUTORIAL/AMPLUSPELAGIBACTER-ANVIO-FILES.zip
 
 cd ~/PANGENOME-GRAPHS-TUTORIAL/

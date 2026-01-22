@@ -37,7 +37,8 @@ This genome comes from a collection of single-cell assembled genomes by [Kashtan
 
 To download the data you will need for this tutorial, copy and paste the following commands in the directory of your choice:
 ```bash
-wget -O WORKFLOW_MATERIAL.tar.gz https://figshare.com/ndownloader/files/42918511
+curl -L https://cloud.uol.de/public.php/dav/files/9eHngByzx4L63aq \
+     -o WORKFLOW_MATERIAL.tar.gz
 tar -xvf WORKFLOW_MATERIAL.tar.gz && cd WORKFLOW_MATERIAL/
 ```
 

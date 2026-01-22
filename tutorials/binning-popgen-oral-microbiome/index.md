@@ -158,7 +158,8 @@ These are the databases that were put into the datapack for this tutorial, which
 First, let's download the tutorial datapack. Just so you know, the archived databack is about half a gigabyte in size, and once unpacked it will take up ~1.6Gb of space on your computer. If you are okay with that, here are the download commands:
 
 ```
-wget https://figshare.com/ndownloader/files/52819088 -O BINNING_POPGEN_TUTORIAL.tar.gz
+curl -L https://cloud.uol.de/public.php/dav/files/c4TyGoDe3D7XPiq \
+     -o BINNING_POPGEN_TUTORIAL.tar.gz
 tar -xvf BINNING_POPGEN_TUTORIAL.tar.gz && cd BINNING_POPGEN_TUTORIAL/
 ```
 
