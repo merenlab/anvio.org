@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **21 Jan 26 09:58:03** for anvi'o version **9-dev (eunice)**.
+The help contents were last updated on **30 Jan 26 08:07:26** for anvi'o version **9-dev (eunice)**.
 
 
 {% include _project-anvio-version.html %}
@@ -3436,7 +3436,7 @@ Listed below **a total of 160 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-cazymes](programs/anvi-setup-cazymes)**</span>. <span markdown="1">Download and setup Pfam data from the EBI</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-cazymes](programs/anvi-setup-cazymes)**</span>. <span markdown="1">Download and setup CAZyme data from the dbCAN3</span>.
     </td>
 </tr>
 <tr>

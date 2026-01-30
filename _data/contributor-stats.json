@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7603,
+        "total_commits": 7605,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 188,
             "2025": 451,
-            "2026": 6
+            "2026": 8
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "bump version",
-        "latest_commit_hash": "caa21d77e282932aa151550289d8444818883fce",
-        "latest_commit_date": "19 January 2026"
+        "latest_commit_message": "fixy",
+        "latest_commit_hash": "5e98715060bb6e1e11653b669b1becc453eb4f1b",
+        "latest_commit_date": "30 January 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 229,
@@ -660,7 +660,7 @@
         "latest_commit_date": "02 September 2025"
     },
     "katysloz": {
-        "total_commits": 33,
+        "total_commits": 34,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -674,12 +674,12 @@
             "2023": 0,
             "2024": 0,
             "2025": 33,
-            "2026": 0
+            "2026": 1
         },
         "top_file": "anvio/data/misc/PEOPLE/DEVELOPERS.yaml",
-        "latest_commit_message": "typo",
-        "latest_commit_hash": "94edb6a5f26741b20842cec7bda61c63fa5913ab",
-        "latest_commit_date": "05 December 2025"
+        "latest_commit_message": "fix cazyme description",
+        "latest_commit_hash": "243eeb9c461857da239f8d5f6cfc6bc6d1c72038",
+        "latest_commit_date": "28 January 2026"
     },
     "mankeldy": {
         "total_commits": 4,
@@ -704,7 +704,7 @@
         "latest_commit_date": "11 May 2025"
     },
     "jnesme": {
-        "total_commits": 3,
+        "total_commits": 4,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -718,12 +718,12 @@
             "2023": 0,
             "2024": 0,
             "2025": 0,
-            "2026": 3
+            "2026": 4
         },
-        "top_file": "anvio/data/misc/PEOPLE/DEVELOPERS.yaml",
-        "latest_commit_message": "Joseph Nesme added to DEVELOPERS.yaml",
-        "latest_commit_hash": "750e6148634e869008b352c152a57ae57be8c474",
-        "latest_commit_date": "21 January 2026"
+        "top_file": "anvio/workflows/pangenomics/Snakefile",
+        "latest_commit_message": "Add support for --I-know-this-is-not-a-good-idea flag in pangenomics workflow",
+        "latest_commit_hash": "6bb5365f4f8450f0731eda67c24f94009b032988",
+        "latest_commit_date": "27 January 2026"
     },
     "tdelmont": {
         "total_commits": 0,

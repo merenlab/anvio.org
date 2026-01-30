@@ -1,7 +1,7 @@
 ---
 layout: program
 title: anvi-setup-cazymes
-excerpt: An anvi'o program. Download and setup Pfam data from the EBI.
+excerpt: An anvi'o program. Download and setup CAZyme data from the dbCAN3.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-setup-cazymes
@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-Download and setup Pfam data from the EBI.
+Download and setup CAZyme data from the dbCAN3.
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
