@@ -80,7 +80,7 @@ anvi&#45;gen&#45;genomes&#45;storage &#45;i <span class="artifact&#45;n">[intern
 
 ### Changing the gene caller
 
-By default, Anvi'o will use [Prodigal](https://github.com/hyattpd/Prodigal) and will let you know if you have gene calls identified by other gene callers. However, you are welcome to explicitly use a specific gene caller with the flag `--gene-caller`. 
+By default, Anvi'o will use [pyrodigal-gv](https://github.com/althonos/pyrodigal-gv) (based on [Prodigal](https://github.com/hyattpd/Prodigal) and will let you know if you have gene calls identified by other gene callers. However, you are welcome to explicitly use a specific gene caller with the flag `--gene-caller`. 
 
 If you're wondering what gene callers are available in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, you can check by running the program <span class="artifact-p">[anvi-export-gene-calls](/help/main/programs/anvi-export-gene-calls)</span> on a specific <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> with the flag `--list-gene-callers`. 
 

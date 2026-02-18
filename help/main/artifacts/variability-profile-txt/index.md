@@ -62,7 +62,7 @@ For each SCVs, this matrix details the position, sample, coverage data, count fo
 
 #### SAAVs 
 
-Like the information about SCVs, this information will only appear if you requested it when running your earlier analysis. To do this, use the flag `--profile-SCVs` when you run <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span> or <span class="artifact-p">[anvi-merge](/help/main/programs/anvi-merge)</span>. Then, when running <span class="artifact-p">[anvi-gen-variability-profile](/help/main/programs/anvi-gen-variability-profile)</span> use the flag `--engine AA`.  
+Like the information about SCVs, this information will only appear if you requested it when running your earlier analysis. To do this, use the flag `--profile-SCVs` when you run <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span>. Then, when running <span class="artifact-p">[anvi-gen-variability-profile](/help/main/programs/anvi-gen-variability-profile)</span> use the flag `--engine AA`.  
 
 For each SCVs, this matrix details the position, sample, coverage data, count for each of the 20 amino acids (as well as the stop codon), entropy, BLOSUM62, etc.  
 

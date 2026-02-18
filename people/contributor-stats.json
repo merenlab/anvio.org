@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7605,
+        "total_commits": 7609,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,15 +14,15 @@
             "2023": 227,
             "2024": 188,
             "2025": 451,
-            "2026": 8
+            "2026": 12
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "fixy",
-        "latest_commit_hash": "5e98715060bb6e1e11653b669b1becc453eb4f1b",
-        "latest_commit_date": "30 January 2026"
+        "latest_commit_message": "filter that excludes intergenic SNVs",
+        "latest_commit_hash": "0e3321caecf8a06072a9dd3fe83865e20581af8f",
+        "latest_commit_date": "16 February 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 229,
+        "total_commits": 231,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 12
+            "2026": 14
         },
         "top_file": "anvio/inversions.py",
-        "latest_commit_message": "check if hmm present for scg/trna taxonomy",
-        "latest_commit_hash": "1b3dd589c79e1c04ea0c66b74cbadc5854ebee5a",
-        "latest_commit_date": "18 January 2026"
+        "latest_commit_message": "Fix --trna-taxonomy-data-dir being ignored in tRNA tax",
+        "latest_commit_hash": "e720c63e7230d28c95ee240ac42e454347bcb803",
+        "latest_commit_date": "02 February 2026"
     },
     "watsonar": {
         "total_commits": 10,
@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2518,
+        "total_commits": 2521,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 3
+            "2026": 6
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "update instructions for creating snapshots",
-        "latest_commit_hash": "60f6378e89903c35249f769667aa0c3b5729fb52",
-        "latest_commit_date": "17 January 2026"
+        "latest_commit_message": "famsa driver: better way of reading the output file and processing alignments",
+        "latest_commit_hash": "9b34dda86cafdc5da5130deebda5f4d4471abae0",
+        "latest_commit_date": "17 February 2026"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -638,7 +638,7 @@
         "latest_commit_date": "10 March 2025"
     },
     "bcoltman": {
-        "total_commits": 10,
+        "total_commits": 11,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -652,12 +652,12 @@
             "2023": 0,
             "2024": 0,
             "2025": 10,
-            "2026": 0
+            "2026": 1
         },
         "top_file": "anvio/drivers/hmmer.py",
-        "latest_commit_message": "Ensure stray_ko_dict is initialised",
-        "latest_commit_hash": "4a8ddc8d5df3c15def733f5a5169effa32b65632",
-        "latest_commit_date": "02 September 2025"
+        "latest_commit_message": "Fixes #2539 by adding a simple fix for backward compatibility",
+        "latest_commit_hash": "8b6164a25e532a9a8dc9776822a997bab6ab85b0",
+        "latest_commit_date": "11 February 2026"
     },
     "katysloz": {
         "total_commits": 34,
@@ -682,7 +682,7 @@
         "latest_commit_date": "28 January 2026"
     },
     "mankeldy": {
-        "total_commits": 4,
+        "total_commits": 5,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -696,12 +696,12 @@
             "2023": 0,
             "2024": 0,
             "2025": 4,
-            "2026": 0
+            "2026": 1
         },
-        "top_file": "anvio/docs/programs/anvi-gen-variability-profile.md",
-        "latest_commit_message": "Update anvi-gen-variability-profile.md",
-        "latest_commit_hash": "e196085dbe5c171f39e7b5117a0dcd185ecedf54",
-        "latest_commit_date": "11 May 2025"
+        "top_file": "anvio/docs/artifacts/variability-profile-txt.md",
+        "latest_commit_message": "Update variability-profile-txt.md",
+        "latest_commit_hash": "9a1f8efb407767d54d3d425f5ae21fb849bd1005",
+        "latest_commit_date": "17 February 2026"
     },
     "jnesme": {
         "total_commits": 4,
