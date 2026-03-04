@@ -50,11 +50,21 @@ Generate a table that comprehensively summarizes the variability of nucleotide, 
 
 This program takes the variability data stored within a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and compiles it from across samples into a single matrix that comprehensively describes your SNVs, SCVs or SAAVs (a <span class="artifact-n">[variability-profile-txt](/help/main/artifacts/variability-profile-txt)</span>).
 
-This program is described on [this blog post](http://merenlab.org/2015/07/20/analyzing-variability/#the-anvio-way), so take a look at that for more details.
+This program is described in detail in [this blog post](http://merenlab.org/2015/07/20/analyzing-variability/#the-anvio-way), which also covers the biological motivation, output column definitions, and example use cases.
 
-## Let's talk parameters
+## A note on default filtering of variability signal during profiling
 
-Here is a basic run with no bells or whisles:
+Before this program even runs, anvi'o applies a dynamic, coverage-dependent filter during the profiling step (i.e., when you run <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span> on your BAM files) to reduce the reporting of variation due to sequencing errors and other factors that are difficult to distinguish frmo noise. Specifically, the base frequencies observed at a position in the read recruitment data are only stored in the <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> *if* `departure_from_reference` value for that position, which quantifies the fraction of reads that differ from the reference nucleotide at a given position, meets or exceeds a coverage-dependent minimum threshold defined by:
+
+$$y = \left(\frac{1}{b}\right)^{x^{\frac{1}{b}} - m} + c$$
+
+where $x$ is the coverage depth and the model parameters are $b = 2$, $m = 1.45$, $c = 0.05$. This gives a threshold of approximately 0.17 at 20X coverage, 0.07 at 50X, and asymptotically approaches 0.05 at very high coverage. Positions that do not meet this threshold are silently excluded from the database and will never appear in the output of this program.
+
+The user can bypass this filter entirely and store all observed variation regardless of frequency by including `--report-variability-full` when running <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span>. But the use of this parameter will dramatically increase database size, and should only be used with extreme care and attention (this is a very politically correct way to say "please do not use this parameter unless you are certain that this is what you need").
+
+## Basic usage
+
+Here is a basic run with no bells or whistles:
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
@@ -63,19 +73,9 @@ anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[pr
                              &#45;b EVERYTHING
 </div>
 
-Note that this program requires you to specify a subset of the databases that you want to focus on, so to focus on everything in the databases, run <span class="artifact-p">[anvi-script-add-default-collection](/help/main/programs/anvi-script-add-default-collection)</span> and use the resulting <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>, as shown above.
+Note that this program requires you to specify a subset of the data to focus on, so to work with everything in the databases, first run <span class="artifact-p">[anvi-script-add-default-collection](/help/main/programs/anvi-script-add-default-collection)</span> and use the resulting <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> as shown above.
 
-You can add structural annotations by providing a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span>.
-
-<div class="codeblock" markdown="1">
-anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
-                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
-                             &#45;C DEFAULT \
-                             &#45;b EVERYTHING \
-                             &#45;s <span class="artifact&#45;n">[structure&#45;db](/help/main/artifacts/structure&#45;db)</span>
-</div>
-
-You can also output your <span class="artifact-n">[variability-profile-txt](/help/main/artifacts/variability-profile-txt)</span> to a specific location, which can be useful when working with multiple `engine` parameters.
+You can also specify an output file path, which is useful when running multiple times with different `--engine` settings:
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
@@ -85,11 +85,13 @@ anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[pr
                              &#45;&#45;output&#45;file /path/to/your/variability.txt
 </div>
 
+## Choosing what to analyze
+
 ### Focusing on a subset of the input
 
-Instead of focusing on everything (providing the collection `DEFAULT` and the bin `EVERYTHING`), there are three ways to focus on a subset of the input:
+Instead of a collection and bin, there are three alternatives:
 
-1. Provide a list of gene caller IDs (as a parameter with the flag `--gene-caller-ids` as shown below, or as a file with the flag `--genes-of-interest`)
+1. Provide gene caller IDs directly or as a file:
 
     <div class="codeblock" markdown="1">
     anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
@@ -97,15 +99,21 @@ Instead of focusing on everything (providing the collection `DEFAULT` and the bi
                                  &#45;&#45;gene&#45;caller&#45;ids 1,2,3
     </div>
 
-2. Provide a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span> to focus only on a specific set of splits.
+    <div class="codeblock" markdown="1">
+    anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                                 &#45;&#45;genes&#45;of&#45;interest <span class="artifact&#45;n">[genes&#45;of&#45;interest&#45;txt](/help/main/artifacts/genes&#45;of&#45;interest&#45;txt)</span>
+    </div>
+
+2. Provide a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span> to focus on a specific set of splits:
 
     <div class="codeblock" markdown="1">
     anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
                                  &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
-                                 &#45;&#45;splits&#45;of&#45;intest <span class="artifact&#45;n">[splits&#45;txt](/help/main/artifacts/splits&#45;txt)</span>
+                                 &#45;&#45;splits&#45;of&#45;interest <span class="artifact&#45;n">[splits&#45;txt](/help/main/artifacts/splits&#45;txt)</span>
     </div>
 
-3. Provide some other <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>.
+3. Provide any <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>:
 
     <div class="codeblock" markdown="1">
     anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
@@ -114,18 +122,9 @@ Instead of focusing on everything (providing the collection `DEFAULT` and the bi
                                  &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span>
     </div>
 
-### Additional ways to focus the input
+### Restricting to specific samples
 
-When providing a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span>, you can also limit your analysis to only genes that have structures in your database.
-
-<div class="codeblock" markdown="1">
-anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
-                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
-                             &#45;s <span class="artifact&#45;n">[structure&#45;db](/help/main/artifacts/structure&#45;db)</span> \
-                             &#45;&#45;only&#45;if&#45;structure
-</div>
-
-You can also choose to look at only data from specific samples by providing a file with one sample name per line. For example
+You can limit the analysis to a subset of samples by providing a file with one sample name per line:
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
@@ -135,7 +134,7 @@ anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[pr
                              &#45;&#45;samples&#45;of&#45;interest my_samples.txt
 </div>
 
-where `my_samples.txt` looks like this:
+where `my_samples.txt` looks like:
 
 <div class="codeblock" markdown="1">
 DAY_17A
@@ -144,11 +143,29 @@ DAY_22A
 ...
 </div>
 
-### SNVs vs. SCVs vs. SAAVs
+### Excluding intergenic positions
 
-Which one you're analyzing depends entirely on the `engine` parameter, which you can set to `NT` (nucleotides), `CDN` (codons), or `AA` (amino acids). The default value is nucleotides. Note that to analyze SCVs or SAAVs, you'll have needed to use the flag `--profile-SCVs` when you ran <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span>.
+For nucleotide-level analyses, you can restrict output to positions that fall within gene calls:
 
-For example, to analyze SAAVs, run
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span> \
+                             &#45;&#45;exclude&#45;intergenic
+</div>
+
+## Choosing the variability type (engine)
+
+Which type of variants you analyze depends on the `--engine` parameter:
+
+| Engine | Variant type | Requires |
+|--------|-------------|---------|
+| `NT` (default) | Single nucleotide variants (SNVs) | standard profiling |
+| `CDN` | Single codon variants (SCVs) | `--profile-SCVs` at profiling time |
+| `AA` | Single amino acid variants (SAAVs) | `--profile-SCVs` at profiling time |
+
+To analyze SAAVs:
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
@@ -158,7 +175,7 @@ anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[pr
                              &#45;&#45;engine AA
 </div>
 
-To analyze SCVs, run
+To analyze SCVs:
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
@@ -168,30 +185,162 @@ anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[pr
                              &#45;&#45;engine CDN
 </div>
 
-### Filtering the output
+## Adding structural annotations
 
-You can filter the output in various ways, so that you can get straight to the variability positions that you're most interested in. Here are some of the filters that you can set:
+You can add structural annotations by providing a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span>:
 
-* The maximum number of variable positions that can come from a single split (e.g. to look at a max of 100 SCVs from each split, randomly sampled)
-* The maximum and minimum departure from the reference or consensus
-* The minimum coverage value in all samples (if a position is covered less than that value in _one_ sample, it will not be reported for _all_ samples)
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;C DEFAULT \
+                             &#45;b EVERYTHING \
+                             &#45;s <span class="artifact&#45;n">[structure&#45;db](/help/main/artifacts/structure&#45;db)</span>
+</div>
 
+When a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> is provided, you can also limit your analysis to only genes that have structures in the database:
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;s <span class="artifact&#45;n">[structure&#45;db](/help/main/artifacts/structure&#45;db)</span> \
+                             &#45;&#45;only&#45;if&#45;structure
+</div>
+
+## Filtering the output
+
+### By departure from reference or consensus
+
+`departure_from_reference` is the fraction of reads at a position that differ from the reference nucleotide. `departure_from_consensus` is similar but measured against the most frequent allele in that sample. You can set minimum and maximum bounds on either:
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span> \
+                             &#45;&#45;min&#45;departure&#45;from&#45;reference 0.05 \
+                             &#45;&#45;max&#45;departure&#45;from&#45;reference 0.90
+</div>
+
+### By minimum occurrence across samples
+
+To keep only positions that are variable in at least N samples (useful for reducing stochastic noise):
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span> \
+                             &#45;&#45;min&#45;occurrence 3
+</div>
+
+### By coverage across all samples
+
+To remove any position that has insufficient coverage in even one sample (requires `--quince-mode` to have coverage data for all samples at all positions):
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span> \
+                             &#45;&#45;quince&#45;mode \
+                             &#45;&#45;min&#45;coverage&#45;in&#45;each&#45;sample 10
+</div>
+
+### By number of positions per split
+
+To randomly subsample variable positions and keep at most N per split:
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span> \
+                             &#45;&#45;num&#45;positions&#45;from&#45;each&#45;split 100
+</div>
+
+## Special reporting modes
 
 ### --quince-mode
 
-You can also set `--quince-mode`, which reports the variability data across all samples for each position reported (even if that position isn't variable in some samples). For example, if nucleotide position 34 of contig 1 was a SNV in one sample, the output would contain data for nucleotide position 34 for all of your samples.
+By default, if a position is variable in only some samples, the other samples will have no entry for that position in the output. With `--quince-mode`, the program goes back to the raw data and fills in allele frequencies for every sample at every reported position, even those where no variation was detected. This is essential for statistical approaches that require a complete matrix.
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span> \
+                             &#45;&#45;quince&#45;mode
+</div>
+
+Note that `--quince-mode` substantially increases runtime and output file size.
 
 ### --kiefl-mode
 
-The default behavior is to report codon/amino-acid frequencies only at positions where variation was reported during profiling (which by default uses some heuristics to minimize the impact of error-driven variation). Fair enough, but for some diabolical cases, you may want to report _even_ invariant positions. When this flag is used, all positions are reported, regardless of whether they contained variation in any sample. The reference codon for all such entries is given a codon frequency of 1. All other entries (aka those with legitimate variation to be reported) remain unchanged. This flag can only be used with `--engine AA` or `--engine CDN` and is incompatible wth `--quince-mode`.
+When using `--engine AA` or `--engine CDN`, the default behavior reports only positions that had detectable variation during profiling. With `--kiefl-mode`, all positions in the analyzed genes are reported, with invariant positions given a reference allele frequency of 1. This is useful for analyses that need a complete picture of every codon or amino acid position, not just the variable ones. Incompatible with `--quince-mode`.
 
-This flag was added in this [pull request](https://github.com/merenlab/anvio/pull/1794) where you can read about all of the tests that were performed to ensure this mode is behaving properly.
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span> \
+                             &#45;&#45;engine CDN \
+                             &#45;&#45;kiefl&#45;mode
+</div>
 
-### Adding additional information
+This flag was added in this [pull request](https://github.com/merenlab/anvio/pull/1794) where you can read about the tests performed to validate its behavior.
 
-You can also ask the program to report the contig names, split names, and gene-level coverage statistics, which appear as additional columns in the output.
+## Additional output columns
 
+### Contig and split names
 
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span> \
+                             &#45;&#45;include&#45;contig&#45;names \
+                             &#45;&#45;include&#45;split&#45;names
+</div>
+
+Contig names are excluded by default since they can nearly double file size.
+
+### Gene-level coverage statistics
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span> \
+                             &#45;&#45;compute&#45;gene&#45;coverage&#45;stats
+</div>
+
+This appends per-gene coverage statistics to each row. It is computationally expensive and off by default.
+
+### Per-site pN/pS values (CDN engine only)
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span> \
+                             &#45;&#45;engine CDN \
+                             &#45;&#45;include&#45;site&#45;pnps
+</div>
+
+This adds 12 columns of per-site synonymous and nonsynonymous substitution information, computed relative to the reference, the consensus, and the most common consensus across samples.
+
+### Additional data from the database
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span> \
+                             &#45;&#45;engine AA \
+                             &#45;&#45;include&#45;additional&#45;data
+</div>
+
+This appends any data stored in the `amino_acid_additional_data` table as extra columns. Currently only supported for the `AA` engine.
 
 
 {:.notice}
