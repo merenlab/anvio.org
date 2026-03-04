@@ -97,6 +97,12 @@ Where `contigs_i_like.txt` looks like this:
     SF15-RossSeacontig4922
     SF15-RossSeacontig702
 
+### Automatic pre-filtering of contigs without coverage
+
+Before profiling begins, <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span> automatically scans the BAM index to identify contigs that have at least one mapped read, and only loads data for those contigs. This is transparent and requires no user intervention.
+
+This is particularly useful when profiling against a large reference database (such as a collection of MAGs) where most contigs in the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> will have zero coverage from any individual metagenome. By skipping these contigs early, anvi'o avoids loading unnecessary data into memory. If you also provide a `--contigs-of-interest` file, anvi'o will take the intersection of contigs with coverage and your contigs of interest.
+
 ## Analysis Parameters
 
 Changing these will affect the way that your sequences are analyzed.
@@ -109,7 +115,7 @@ To profile only contigs within a specific length, you can use the flags `--min-c
 
 But beyond these flags, you can specify which contigs you would like to profile much more explicitly using the flag `--contigs-of-interest`.
 
-For instance, if you wish to work only with contigs that have more than a certain coverage across your samples, you can first run the program <span class="artifact-p">[anvi-profile-blitz](/help/main/programs/anvi-profile-blitz)</span> on all BAM files, then use the resulting output file <span class="artifact-n">[bam-stats-txt](/help/main/artifacts/bam-stats-txt)</span> to identify contigs of interest based on their coverages across samples, then put their names in a text file, and pass this file to <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span> using the flag `--contigs-of-interest` (the anvi'o profile used to have a flag for this, `--min-mean-coverage`, that allowed users to remove contigs based on their coverage in a given sample, but [we recently removed it](https://github.com/merenlab/anvio/issues/2047) to promote explicit specification of contigs.
+For instance, if you wish to work only with contigs that have more than a certain coverage across your samples, you can first run the program <span class="artifact-p">[anvi-profile-blitz](/help/main/programs/anvi-profile-blitz)</span> on all BAM files, then use the resulting output file <span class="artifact-n">[bam-stats-txt](/help/main/artifacts/bam-stats-txt)</span> to identify contigs of interest based on their coverages across samples, then put their names in a text file, and pass this file to <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span> using the flag `--contigs-of-interest`.
 
 ### Filter reads
 
@@ -195,6 +201,9 @@ since v6.2
 Alternatively, you can choose not to store insertion and deletion data or single nucleotide variant data.
 
 If you know the limits of your system, you can also multithread this program. See the program help menu for more information.
+
+{:.warning}
+If you are profiling a large number of splits (e.g., more than 200,000) with many threads (e.g., more than 20), be aware that the memory requirement may outweigh the time gained by multithreading. If your job fails due to an out-of-memory (OOM) error, consider re-running with fewer threads.
 
 
 {:.notice}

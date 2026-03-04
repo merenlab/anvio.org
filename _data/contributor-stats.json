@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7609,
+        "total_commits": 7611,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,15 +14,15 @@
             "2023": 227,
             "2024": 188,
             "2025": 451,
-            "2026": 12
+            "2026": 14
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "filter that excludes intergenic SNVs",
-        "latest_commit_hash": "0e3321caecf8a06072a9dd3fe83865e20581af8f",
-        "latest_commit_date": "16 February 2026"
+        "latest_commit_message": "uppity",
+        "latest_commit_hash": "b04cc64fdaf9a5e282513bcce41cdf1f1532fd5a",
+        "latest_commit_date": "04 March 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 231,
+        "total_commits": 283,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 14
+            "2026": 66
         },
         "top_file": "anvio/inversions.py",
-        "latest_commit_message": "Fix --trna-taxonomy-data-dir being ignored in tRNA tax",
-        "latest_commit_hash": "e720c63e7230d28c95ee240ac42e454347bcb803",
-        "latest_commit_date": "02 February 2026"
+        "latest_commit_message": "recent version of plotext don't use clp but clf",
+        "latest_commit_hash": "3aa75ceb4be2bc4258314581485ba29fd0ce69aa",
+        "latest_commit_date": "27 February 2026"
     },
     "watsonar": {
         "total_commits": 10,
