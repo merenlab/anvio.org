@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7612,
+        "total_commits": 7614,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 188,
             "2025": 451,
-            "2026": 15
+            "2026": 17
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "big documentation update",
-        "latest_commit_hash": "ce73b8548c29558c05a43569111b28b68961e7f1",
-        "latest_commit_date": "04 March 2026"
+        "latest_commit_message": "some self-documentation prior to the hackathon",
+        "latest_commit_hash": "e90d3d27b6e0d69ae9849a285ab4daf00f1e3807",
+        "latest_commit_date": "10 March 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 283,
@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2521,
+        "total_commits": 2522,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 6
+            "2026": 7
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "famsa driver: better way of reading the output file and processing alignments",
-        "latest_commit_hash": "9b34dda86cafdc5da5130deebda5f4d4471abae0",
-        "latest_commit_date": "17 February 2026"
+        "latest_commit_message": "fix logical error (issue with operator precedence between any() and II ) for anvi-script-visualize-split-coverages",
+        "latest_commit_hash": "477f500fbb71056d4f8548e55e5c6dae3fabad95",
+        "latest_commit_date": "06 March 2026"
     },
     "moritzbuck": {
         "total_commits": 3,

@@ -10,7 +10,7 @@ As a principle, anvi'o does not track its users by any means, but based on [self
 <p style="font-size: 16pt">  🇺🇸🇨🇦🇬🇧🇦🇺🇨🇳🇳🇿🇸🇪🇨🇭🇵🇹🇯🇵🇮🇹🇫🇷🇪🇸🇩🇰🇩🇪🇨🇱🇧🇷🇦🇷🇺🇾🇹🇷🇪🇬🇸🇬🇸🇦🇷🇺🇳🇱🇵🇷🇵🇭🇳🇴🇲🇾🇲🇽🇲🇫🇱🇺🇰🇷🇮🇳🇮🇱🇮🇪🇭🇰🇫🇮🇨🇼🇨🇷🇨🇴🇦🇹🇨🇿🇦🇪
 </p>
 
-We **welcome you** to join in our growing international community, and we look forward to hearing from you. Please share your concerns, ideas, and feature requests with the anvi'o community, or ask your questions on microbial 'omics on our {% include _discord_invitation_button.html %} group.
+We **welcome you** to join in our growing international community, and we look forward to hearing from you. Please share your concerns, ideas, and feature requests with the anvi'o community, or ask your questions on microbial 'omics on our {% include _discord_invitation_button.html %} group. If you are a programmer, please see [this document](https://github.com/merenlab/anvio/blob/master/ARCHITECTURE.md) in the anvi'o repository that covers the platform architecture, major subsystems, coding conventions, and developer workflow.
 
 <hr />
 
