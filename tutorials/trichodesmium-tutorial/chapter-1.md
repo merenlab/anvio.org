@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: "An anvi'o tutorial with Trichodesmium genomes (Chapter 1)"
-modified: 2024-03-18
+modified: 2026-03-12
 excerpt: "The Genomics Chapter"
 categories: [anvio]
 authors: [ivagljiva, FlorianTrigodet]
@@ -48,11 +48,10 @@ gunzip GCA_023356555.1_ASM2335655v1_genomic.fna.gz
 Now we have one of the most fundamental files that everyone will have to interact with: [a FASTA file](https://en.wikipedia.org/wiki/FASTA_format). We can already check the number of contigs by counting the number of `>` characters, which appears once per sequence. We can use the command `grep` for that:
 
 ```bash
-$ grep -c '>' GCA_023356555.1_ASM2335655v1_genomic.fna
-269
+grep -c '>' GCA_023356555.1_ASM2335655v1_genomic.fna
 ```
 
-That's a lot of sequences, or in this case: a lot of contigs. That is already telling us a few things about this genome: it is not a singular contig representing a complete and circular genome. Let's have a look at the contig headers:
+You should see the value `269` in the terminal output. That's a lot of sequences, or in this case: a lot of contigs. That is already telling us a few things about this genome: it is not a singular contig representing a complete and circular genome. Let's have a look at the contig headers:
 
 ```bash
 grep '>' GCA_023356555.1_ASM2335655v1_genomic.fna
@@ -101,7 +100,7 @@ anvi-gen-contigs-database -f Trichodesmium_sp.fa \
                           -T 2
 ```
 
-A few things happen when you generate a {% include ARTIFACT name="contigs-db" %}. First, all DNA sequences are stored in that databases. You can retrieve the sequences in FASTA format by using the command {% include PROGRAM name="anvi-export-contigs" %}. Second, anvi'o uses [pyrodigal-gv](https://github.com/althonos/pyrodigal-gv) to identify open-reading frames (also referred to as 'gene calls'). Pyrodigal-gv is a python implementation of [Prodigal](https://doi.org/10.1186/1471-2105-11-119) with some additional metagenomic models for giant viruses and viruses with alternative genetic codes (see [Camargo et al.](https://doi.org/10.1038/s41587-023-01953-y)).
+A few things happen when you generate a {% include ARTIFACT name="contigs-db" %}. First, all DNA sequences are stored in that database. You can retrieve the sequences in FASTA format by using the command {% include PROGRAM name="anvi-export-contigs" %}. Second, anvi'o uses [pyrodigal-gv](https://github.com/althonos/pyrodigal-gv) to identify open-reading frames (also referred to as 'gene calls'). Pyrodigal-gv is a python implementation of [Prodigal](https://doi.org/10.1186/1471-2105-11-119) with some additional metagenomic models for giant viruses and viruses with alternative genetic codes (see [Camargo et al.](https://doi.org/10.1038/s41587-023-01953-y)).
 
 In addition to identifying open-reading frames, anvi'o will predict the amino acid sequence associated with each gene call and store it in that newly made database. If you need to get this information out of the database, you can use the command {% include PROGRAM name="anvi-export-gene-calls" %} to export the gene calls, and the amino acid sequence for each open-reading frame identified by pyrodigal-gv.
 
@@ -109,7 +108,7 @@ The command {% include PROGRAM name="anvi-gen-contigs-database" %} also computes
 
 ### Annotate single-copy core genes and Ribosomal RNAs
 
-There is a command called {% include PROGRAM name="anvi-run-hmms" %}, which let you use Hidden Markov Models ([HMMs](https://en.wikipedia.org/wiki/Hidden_Markov_model)) to annotate the genes in a {% include ARTIFACT name="contigs-db" %} and store that annotation directly back into the database.
+There is a command called {% include PROGRAM name="anvi-run-hmms" %}, which lets you use Hidden Markov Models ([HMMs](https://en.wikipedia.org/wiki/Hidden_Markov_model)) to annotate the genes in a {% include ARTIFACT name="contigs-db" %} and store those annotations directly back into the database.
 The anvi'o codebase comes with an integrated set of default {% include ARTIFACT name="hmm-source" text="HMM sources" %}. They include models for 6 Ribosomal RNAs (16S, 23S, 5S, 18S, 28S, and 12S). They also include three sets of [single-copy core genes](https://anvio.org/vocabulary/#single-copy-core-gene-scg), named `Bacteria_71`, `Archaea_76` and `Protista_83`. The first two, `Bacteria_71` and `Archaea_76`, are collections of bacterial and archaeal single-copy core genes (SCGs) curated from [Mike Lee’s](https://twitter.com/AstrobioMike) SCG collections first released in [GToTree](https://academic.oup.com/bioinformatics/article/35/20/4162/5378708), which is an easy-to-use phylogenomics workflow. `Protista_83` is [a curated collection](http://merenlab.org/delmont-euk-scgs) of [BUSCO](https://busco.ezlab.org/) SCGs made by [Tom Delmont](https://twitter.com/tomodelmont). These sets of HMMs are used in anvi'o to compute the estimated completeness and redundancy of a genome.
 
 To annotate our {% include ARTIFACT name="contigs-db" %} with these HHMs, we can simply run {% include PROGRAM name="anvi-run-hmms" %} like this:
@@ -216,7 +215,7 @@ anvi-display-contigs-stats Trichodesmium_sp-contigs.db --report-as-text -o Trich
 
 ### Estimate completeness and redundancy
 
-We can use the set of single-copy core genes (SCGs) to estimate the completeness of a genome. The rational is pretty simple: we expect a set of genes to be systematically present in all genomes only once. So if we find all these genes, we estimate that the genome is complete (100%). We can also report how many SCGs are found in multiple copies, which we refer to as SCG 'redundancy'.
+We can use the set of single-copy core genes (SCGs) to estimate the completeness of a genome. The rationale is pretty simple: we expect a set of genes to be systematically present in all genomes only once. So if we find all these genes, we estimate that the genome is complete (100%). We can also report how many SCGs are found in multiple copies, which we refer to as SCG 'redundancy'.
 
 {:.notice}
 Why redundancy and not contamination? The presence of multiple copies of SCGs could be indicative of contamination in your genome - i.e., the potential presence of more than one population - but microbial genomes have a bad habit of keeping a few SCGs in multiple copies. So until proven otherwise, anvi’o calls it redundancy and you will decide if you think it is contamination.
@@ -250,12 +249,14 @@ anvi-run-scg-taxonomy -c Trichodesmium_sp-contigs.db -T 4
 {:.notice}
 If this step is not working for you, you may need to run {% include PROGRAM name="anvi-setup-scg-taxonomy" %} to download and initialize the GTDB SCG database on your machine. You only need to run this command once.
 
-In your terminal, you should see the number of ribosomal protein that had a match to a homologous protein from the GTDB collection. But you don't get the actual taxonomy yet. For that, you need to run a second program called {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}. This command will compute the consensus taxonomic annotation across a set of ribosomal proteins. If we simply provide our {% include ARTIFACT name="contigs-db" %} as the sole input to {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}, then anvi'o will assume it contains a single genome and compute the consensus across all ribosomal protein matches.
+In your terminal, you should see the number of ribosomal proteins that had a match to a homologous protein from the GTDB collection. But you don't get the actual taxonomy yet. For that, you need to run a second program called {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}. This command will compute the consensus taxonomic annotation across a set of ribosomal proteins. If we simply provide our {% include ARTIFACT name="contigs-db" %} as the sole input to {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}, then anvi'o will assume it contains a single genome and compute the consensus across all ribosomal protein matches.
 
 Let's run {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}:
 
 ```bash
-$ anvi-estimate-scg-taxonomy -c Trichodesmium_sp-contigs.db
+anvi-estimate-scg-taxonomy -c Trichodesmium_sp-contigs.db
+```
+```
 Contigs DB ...................................: Trichodesmium_sp-contigs.db
 Metagenome mode ..............................: False
 
@@ -268,14 +269,16 @@ Estimated taxonomy for "Trichodesmium_sp"
 +------------------+--------------+-------------------+----------------------------------------------------------------------------------------------------------------------------+
 ```
 
-Note that the command used a total of 22 SCGs - more specifically the ribosomal proteins which are part of the SCG collections - and we now have an estimated species name: *Trichodesmium erythraeum*.
+Note that the command used a total of 22 SCGs - more specifically, the ribosomal proteins that are part of the SCG collection - and we now have an estimated species name: *Trichodesmium erythraeum*.
 
 In the output, you can also see `supporting_scgs` with the number `21`. It corresponds to the number of ribosomal proteins which all agreed with the reported consensus taxonomy. It also means that ONE ribosomal protein has a different taxonomic match.
 
 If you are curious, we can run the same command with the flag `--debug`:
 
 ```bash
-$ anvi-estimate-scg-taxonomy -c Trichodesmium_sp-contigs.db --debug
+anvi-estimate-scg-taxonomy -c Trichodesmium_sp-contigs.db --debug
+```
+```
 Contigs DB ...................................: Trichodesmium_sp-contigs.db
 Metagenome mode ..............................: False
 
@@ -358,7 +361,7 @@ If you are working with a metagenome, i.e. with more than one population, anvi'o
 
 ### Functional annotations
 
-There are many databases that one can use to assign function to a set of genes. You may be familiar with [NCBI's COG](https://www.ncbi.nlm.nih.gov/research/cog) (Clusters of Orthologous Genes) database, the [KEGG](https://www.genome.jp/kegg/) (Kyoto Encyclopedia of Genes and Genomes) database of KEGG Ortholog families (KOfam), or [Pfam](http://pfam.xfam.org/) (the Protein Family database), which can be used for annotating general functions. Other database out there are more specific, like [CAZymes](https://www.cazy.org/) which focuses on enzymes associated with the synthesis, metabolism and recognition of carbohydrate, or [PHROGs](https://phrogs.lmge.uca.fr/) which focuses on viral functions.
+There are many databases that one can use to assign function to a set of genes. You may be familiar with [NCBI's COG](https://www.ncbi.nlm.nih.gov/research/cog) (Clusters of Orthologous Genes) database, the [KEGG](https://www.genome.jp/kegg/) (Kyoto Encyclopedia of Genes and Genomes) database of KEGG Ortholog families (KOfam), or [Pfam](http://pfam.xfam.org/) (the Protein Family database), which can be used for annotating general functions. Other databases out there are more specific, like [CAZymes](https://www.cazy.org/) which focuses on enzymes associated with the synthesis, metabolism and recognition of carbohydrate, or [PHROGs](https://phrogs.lmge.uca.fr/) which focuses on viral functions.
 
 Anvi'o has a few commands that allow you to annotate the open-reading frames in your {% include ARTIFACT name="contigs-db" %} with several different databases. Each of them comes with a setup command that you need to run once to download the appropriate database on your machine:
 
@@ -371,10 +374,10 @@ CAZymes | {% include PROGRAM name="anvi-setup-cazymes" %} | {% include PROGRAM n
 
 If your favorite annotation database is not represented here, you have a few options:
 - **Short-term solution**: run the annotation outside of anvi'o. You can export the gene calls with {% include PROGRAM name="anvi-export-gene-calls" %}, run your annotation with a third party software, then import the annotations back into your {% include ARTIFACT name="contigs-db" %} with {% include PROGRAM name="anvi-import-functions" %}.
-- **Community level solution**: find an anvi'o developer and tell them about your passion for XXX functional database and hope they make a new command called `anvi-run-XXX`. We seriously encourage you to use the [anvi'o github page](https://github.com/merenlab/anvio) to write an issue describing the need for a new functional annotation database in anvi'o. Then, anyone with time and skill can try to implement it. If you find an existing issue discussing something you want in anvi'o, please raise your voice, write a comment, and let the developers know that you would like to see a feature in anvi'o.
-- **Developer level**: write a new program to annotate a {% include ARTIFACT name="contigs-db" %} with your favorite database, and submit a pull request on the [anvi'o github page](https://github.com/merenlab/anvio).
+- **Community-level solution**: find an anvi'o developer and tell them about your passion for XXX functional database and hope they make a new command called `anvi-run-XXX`. We seriously encourage you to use the [anvi'o github page](https://github.com/merenlab/anvio) to write an issue describing the need for a new functional annotation database in anvi'o. Then, anyone with time and skill can try to implement it. If you find an existing issue discussing something you want in anvi'o, please raise your voice, write a comment, and let the developers know that you would like to see a feature in anvi'o.
+- **Developer-level solution**: write a new program to annotate a {% include ARTIFACT name="contigs-db" %} with your favorite database, and submit a pull request on the [anvi'o github page](https://github.com/merenlab/anvio).
 
-For now, we will use the COG, KEGG, and Pfam databases on our *Trichodesmium* genome. {% include PROGRAM name="anvi-run-ncbi-cogs" %} will be relatively fast (it uses `diamond` to find homologous hits in the database), while {% include PROGRAM name="anvi-run-kegg-kofams" %} will take quite longer as the KOfam database is quite large (this program uses HMMs and HMMER in the background). The Pfam database also uses HMMs, but the domain-level models are a bit smaller so {% include PROGRAM name="anvi-run-pfam" %} is relatively quick to run.
+For now, we will use the COG, KEGG, and Pfam databases on our *Trichodesmium* genome. {% include PROGRAM name="anvi-run-ncbi-cogs" %} will be relatively fast (it uses `diamond` to find homologous hits in the database), while {% include PROGRAM name="anvi-run-kegg-kofams" %} will take much longer as the KOfam database is quite large (this program uses HMMs and HMMER in the background). The Pfam database also uses HMMs, but the domain-level models are a bit smaller so {% include PROGRAM name="anvi-run-pfams" %} is relatively quick to run.
 
 {:.notice}
 If you know your machine can use more threads, feel free to change the flag `-T 4` to another number.
@@ -390,12 +393,13 @@ anvi-run-kegg-kofams -c Trichodesmium_sp-contigs.db -T 4
 anvi-run-pfams -c Trichodesmium_sp-contigs.db -T 4
 ```
 
-As you can see in the terminal output from the commands above, there are no output files. All the annotations are stored into the {% include ARTIFACT name="contigs-db" %}. You can use {% include PROGRAM name="anvi-db-info" %} to check which functional annotations are already in an existing {% include ARTIFACT name="contigs-db" %} (including manually imported ones). You can also use {% include PROGRAM name="anvi-export-functions" %} to get a tab-delimited file of all the annotations from a given annotation source (or multiple).
+As you can see in the terminal output from the commands above, there are no output files. All the annotations are stored into the {% include ARTIFACT name="contigs-db" %}. You can use {% include PROGRAM name="anvi-db-info" %} to check which functional annotations are already in an existing {% include ARTIFACT name="contigs-db" %} (including manually imported ones).
 
 ```bash
 # check which annotations were run on our contigs database
-$ anvi-db-info Trichodesmium_sp-contigs.db
-
+anvi-db-info Trichodesmium_sp-contigs.db
+```
+```
 DB Info (no touch)
 ===============================================
 Database Path ................................: Trichodesmium_sp-contigs.db
@@ -465,9 +469,13 @@ AVAILABLE HMM SOURCES
 * 'Ribosomal_RNA_23S' (2 models with 0 hits)
 * 'Ribosomal_RNA_28S' (1 model with 0 hits)
 * 'Ribosomal_RNA_5S' (5 models with 0 hits)
+```
 
+You can also use {% include PROGRAM name="anvi-export-functions" %} to get a tab-delimited file of all the annotations from a given annotation source (or multiple).
+
+```bash
 # export functions for KOfam and COG24_FUCTION
-$ anvi-export-functions -c Trichodesmium_sp-contigs.db --annotation-sources KOfam,COG24_FUNCTION -o functional_annotations.txt
+anvi-export-functions -c Trichodesmium_sp-contigs.db --annotation-sources KOfam,COG24_FUNCTION -o functional_annotations.txt
 ```
 
 The output table from {% include PROGRAM name="anvi-export-functions" %} looks like this:
@@ -486,13 +494,15 @@ The output table from {% include PROGRAM name="anvi-export-functions" %} looks l
 You can search for your favorite function. As we discussed above, _Trichodesmium_ is known for its ability to fix nitrogen, so you can look for the `NifH` gene, which is a marker gene for nitrogen fixation. Here is how to do that with a simple `grep` command:
 
 ```bash
-$ grep NifH functional_annotations.txt
+grep NifH functional_annotations.txt
+```
+```
 3709	COG24_FUNCTION	COG1348	Nitrogenase ATPase subunit NifH/coenzyme F430 biosynthesis subunit CfbC (NifH/CfbC) (PDB:1CP2) (PUBMED:28225763)	1.5e-197
 4020	COG24_FUNCTION	COG1348	Nitrogenase ATPase subunit NifH/coenzyme F430 biosynthesis subunit CfbC (NifH/CfbC) (PDB:1CP2) (PUBMED:28225763)	4.81e-167
 4020	KOfam	K02588	nitrogenase iron protein NifH	2.9e-144
 ```
 
-This is unexpected: there are two genes (caller id: 3709 and 4020) with the NifH annotation. On of them has both an annotation by COG and KEGG, that's good, we like consistency. But the other one only has a COG annotation only. We only expect one copy of the NifH gene. Turns out that the COG annotation is not very reliable and in the paper, Tom noticed that the COG was wrongly annotating a Ferredoxin as NifH:
+This is unexpected: there are two genes (caller id: 3709 and 4020) with the NifH annotation. On of them has both an annotation by COG and KEGG; that's good, we like consistency. But we expect to find only one copy of the NifH gene, and the other gene only has a COG annotation. Turns out that the COG annotation is not very reliable and in the paper, Tom noticed that the COG was wrongly annotating a Ferredoxin as NifH:
 
 <blockquote markdown="1">
 For instance, we found that genes with COG20 function incorrectly annotated as “Nitrogenase ATPase subunit NifH/coenzyme F430 biosynthesis subunit CfbC” correspond, in reality, to “ferredoxin: protochlorophyllide reductase.”
@@ -501,7 +511,7 @@ For instance, we found that genes with COG20 function incorrectly annotated as �
 </div>
 </blockquote>
 
-Or, you can use {% include PROGRAM name="anvi-search-functions" %}, this time using only the KOfams annotation source:
+An alternative search strategy: you can use {% include PROGRAM name="anvi-search-functions" %}, this time using only the `KOfam` annotation source:
 ```bash
 anvi-search-functions -c Trichodesmium_sp-contigs.db \
                       --search-term NifH \
@@ -512,8 +522,10 @@ anvi-search-functions -c Trichodesmium_sp-contigs.db \
 
 The first output file called `NifH_search.txt` only contains the name of the contigs where a gene with a matching search term was found. And the second file, `NifH_full_report.txt`, is more comprehensive:
 
+```bash
+cat NifH_full_report.txt
 ```
-$ cat NifH_full_report.txt
+```
 gene_callers_id	source	accession	function	search_term	contigs
 4020	KOfam	K02588	nitrogenase iron protein NifH	NifH	Trichodesmium_sp_MAG_R01_000000000230_split_00006
 ```
@@ -524,7 +536,7 @@ We've found our marker gene for nitrogen fixation, which is a good sign given th
 
 Now that we know how to do basic genomic analysis using a single genome, we can try to do the same using a few more genomes. In the directory `00_FASTA_GENOMES`, you will find seven FASTA files containing the reference genomes and MAGs from Tom's paper:
 
-```bash
+```
 $ ls 00_DATA/fasta
 MAG_Candidatus_Trichodesmium_miru.fa     MAG_Trichodesmium_erythraeum.fa          MAG_Trichodesmium_thiebautii_Indian.fa   Trichodesmium_thiebautii_H9_4.fa
 MAG_Candidatus_Trichodesmium_nobis.fa    MAG_Trichodesmium_thiebautii_Atlantic.fa Trichodesmium_erythraeum_IMS101.fa
@@ -605,7 +617,9 @@ And here is how this {% include ARTIFACT name="external-genomes" %} file looks l
 Now we can use this file as the input for commands like {% include PROGRAM name="anvi-estimate-genome-completeness" %} and {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}:
 
 ```bash
-$ anvi-estimate-genome-completeness -e external-genomes.txt
+anvi-estimate-genome-completeness -e external-genomes.txt
+```
+```
 +---------------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
 | genome name                           | domain   |   confidence |   % completion |   % redundancy |   num_splits |   total length |
 +=======================================+==========+==============+================+================+==============+================+
@@ -632,7 +646,9 @@ Note that `Trichodesmium_thiebautii_H9_4` appears to have quite a low completion
 Let's try estimating the taxonomy of all our genomes at once with {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}:
 
 ```bash
-$ anvi-estimate-scg-taxonomy -e external-genomes.txt -o taxonomy_multi_genomes.txt
+anvi-estimate-scg-taxonomy -e external-genomes.txt -o taxonomy_multi_genomes.txt
+```
+```
 Num genomes ..................................: 8
 Taxonomic level of interest ..................: (None specified by the user, so 'all levels')
 Output file path .............................: taxonomy_multi_genomes.txt
@@ -665,13 +681,15 @@ You can see that a lot of the MAGs match to unnamed species in GTDB -- even thou
 
 <span class="extra-info-header">A note on anvi'o workflows</span>
 There are a few built-in snakemake workflows in anvi'o that can be used with the program {% include PROGRAM name="anvi-run-workflow" %}.
-We regularly used these workflow for routine analyses, like generating {% include ARTIFACT name="contigs-db" text="contigs databases" %} and running several functional annotations. That is exactly the purpose of the ['contigs' workflow](https://anvio.org/help/main/workflows/contigs/).
+We regularly use these workflows for routine analyses, like generating {% include ARTIFACT name="contigs-db" text="contigs databases" %} and running functional annotations. That is exactly the purpose of the ['contigs' workflow](https://anvio.org/help/main/workflows/contigs/).
 
 You don't need to know anything about snakemake to use these workflows. For instance, for the 'contigs' workflow, all you need is two input files:
 - A {% include ARTIFACT name="fasta-txt" %} file, which is basically a two-column table with the name and path to each FASTA file that you want to turn into a {% include ARTIFACT name="contigs-db" %}
 - A {% include ARTIFACT name="workflow-config" %} file (which you can get from {% include PROGRAM name="anvi-run-workflow" %}) in which you can specify which commands you want to run and parameters for each command.
 
 This automation sounds like a nice plug-and-play analysis pipeline - and it is - but it requires you to know exactly what you want to run. You are still the chef.
+
+Want to learn more? Check out [this other tutorial on running workflows in anvi'o](https://anvio.org/tutorials/scaling-up/).
 
 </div>
 
@@ -692,7 +710,9 @@ anvi-display-contigs-stats 00_DATA/metagenome/sample01-contigs.db
 This assembly is estimated to contain six populations. To learn more about the composition of this metagenome, we can use {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} with the flag `--metagenome-mode`. In this mode, anvi'o will not try to compute the consensus taxonomy of every ribosomal protein as it does by default. Instead, it will report the taxonomy of all the genes matching to the most abundant ribosomal protein:
 
 ```bash
-$ anvi-estimate-scg-taxonomy -c 00_DATA/metagenome/sample01-contigs.db --metagenome-mode
+anvi-estimate-scg-taxonomy -c 00_DATA/metagenome/sample01-contigs.db --metagenome-mode
+```
+```
 Contigs DB ...................................: 00_DATA/sample01-contigs.db
 Metagenome mode ..............................: True
 SCG for metagenome ...........................: None
