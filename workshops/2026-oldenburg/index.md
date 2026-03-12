@@ -105,7 +105,18 @@ Here is a very preliminary overview of the workshop content:
 ## Workshop materials
 
 {:.notice}
-We will update this section with slides and tutorial links after the workshop.
+We will update this section with a link to download slides after the workshop. Tutorial links will also be updated before the workshop begins.
+
+The table below shows the links to the tutorials used in each workshop session.
+
+Monday | Interactive interface | TBD
+Monday | Genomics | [https://anvio.org/tutorials/trichodesmium-tutorial/#genomics](https://anvio.org/tutorials/trichodesmium-tutorial/#genomics)
+Tuesday | Pangenomics | [https://anvio.org/tutorials/trichodesmium-tutorial/#pangenomics](https://anvio.org/tutorials/trichodesmium-tutorial/#pangenomics)
+Tuesday | Phylogenomics | TBD
+Wednesday | Metabolism | [https://anvio.org/tutorials/trichodesmium-tutorial/#metabolism](https://anvio.org/tutorials/trichodesmium-tutorial/#metabolism)
+Thursday | Metagenomic read recruitment | [https://merenlab.org/tutorials/read-recruitment/](https://merenlab.org/tutorials/read-recruitment/)
+Thursday | Metagenomic binning | [https://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics](https://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics) and [https://anvio.org/tutorials/binning-popgen-oral-microbiome](https://anvio.org/tutorials/binning-popgen-oral-microbiome)
+Friday | Workflows | [https://anvio.org/tutorials/scaling-up/](https://anvio.org/tutorials/scaling-up/)
 
 ## How much does it cost?
 
