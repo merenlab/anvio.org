@@ -19,8 +19,49 @@ pre {
     border: 1px solid #969696;
     margin-bottom: 40px;
     padding: 10px;
-    border-left: 5px solid #dc5252;
+    border-left: 5px solid #999999;
     border-radius: 5px;
+    position: relative;
+}
+
+// Language-specific left border colors
+.language-bash .highlight pre,
+div.language-bash > pre    { border-left-color: #4A90B8; }
+.language-sh .highlight pre,
+div.language-sh > pre      { border-left-color: #4A90B8; }
+.language-python .highlight pre,
+div.language-python > pre  { border-left-color: #2D7D3B; }
+.language-json .highlight pre,
+div.language-json > pre    { border-left-color: #a87832; }
+.language-ini .highlight pre,
+div.language-ini > pre     { border-left-color: #6B7B8D; }
+.language-r .highlight pre,
+div.language-r > pre       { border-left-color: #276DC3; }
+.language-text .highlight pre,
+div.language-text > pre    { border-left-color: #999999; }
+// Copy button on code blocks
+.code-copy-btn {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #777;
+    font-size: 12px;
+    padding: 2px 6px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+
+    &:hover {
+        background: #ddd;
+        color: #333;
+    }
+}
+
+pre:hover .code-copy-btn {
+    opacity: 1;
 }
 
 code {
