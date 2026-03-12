@@ -31,20 +31,21 @@ If you haven't run previous sections of this tutorial (particularly the 'Working
 ```bash
 cp 00_DATA/contigs/*-contigs.db .
 anvi-script-gen-genomes-file --input-dir . -o external-genomes.txt
+anvi-estimate-scg-taxonomy -e external-genomes.txt -o taxonomy_multi_genomes.txt
 ```
 
 </details>
 
 Pangenomics represents a set of computational strategies to compare and study the relationship between a set of genomes through gene clusters. For a more comprehensive introduction into the subject, [see this video.](https://youtu.be/nyv7Xr07LCY)
 
-Since the core concept of pangenomics is to compare genomes based on their gene content, it is important to know which genomes you plan you to use. Pangenomics is typically used with somewhat closely related organisms, at the species, genus, sometimes family level. It is also valuable to check the estimated completeness and overall quality of the genomes you want in include in your pangenome analysis.
+Since the core concept of pangenomics is to compare genomes based on their gene content, it is important to know which genomes you plan you to use. Pangenomics is typically used with somewhat closely related organisms, at the species, genus, or sometimes family level. It is also valuable to check the estimated completeness and overall quality of the genomes you want to include in your pangenome analysis.
 
 Low completeness genomes are likely missing some portion of their gene content. For that reason, we will include 7 out of the 8 *Trichodesmium* genomes to compute a pangenome. We won't use the *Trichodesmium thiebautii* H9_4 because of its low estimated completeness and overall smaller genome size.
 
 The inputs will be the {% include ARTIFACT name="contigs-db" text="contigs databases" %} that are present in the datapack, plus the {% include ARTIFACT name="contigs-db" %} of the *Trichodesmium* MAG that you downloaded in the first part of this tutorial.
 
 
-```bash
+```
 $ ls 00_DATA/contigs
 MAG_Candidatus_Trichodesmium_miru-contigs.db     MAG_Trichodesmium_thiebautii_Atlantic-contigs.db Trichodesmium_sp-contigs.db
 MAG_Candidatus_Trichodesmium_nobis-contigs.db    MAG_Trichodesmium_thiebautii_Indian-contigs.db   Trichodesmium_thiebautii_H9_4-contigs.db
@@ -55,7 +56,7 @@ MAG_Trichodesmium_erythraeum-contigs.db          Trichodesmium_erythraeum_IMS101
 
 The first step to compute a pangenome in anvi'o is the command {% include PROGRAM name="anvi-gen-genomes-storage" %}, which takes multiple {% include ARTIFACT name="contigs-db" text="contigs databases" %} as input and generates a new anvi'o database called the {% include ARTIFACT name="genomes-storage-db" %}. This database holds all gene information like functional annotations and amino acid sequences in a single location.
 
-The input to {% include PROGRAM name="anvi-gen-genomes-storage" %} is an {% include ARTIFACT name="external-genomes" %} file. You should have one from [the section about working with multiple genomes.](#working_with_multiple_genomes)
+The input to {% include PROGRAM name="anvi-gen-genomes-storage" %} is an {% include ARTIFACT name="external-genomes" %} file. You should have one from [the previous tutorial section about working with multiple genomes]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1/#working-with-multiple-genomes) (or from running the data preparation steps above).
 We just need to remove the *Trichodesmium thiebautii* H9_4:
 
 ```bash
@@ -113,7 +114,7 @@ The resulting figure will now pull together genomes that share similar gene cont
 {:.figure-caption}
 This figure was made with a dendrogram radius of 4500. You can change the radius in the Options tab.
 
-Now that you have made some modifications to your interactive figure, it would be a good idea to save those settings. The aesthetics of a figure are saved in a "State", and you will find a button on the bottom left of the interface to save it. You can store multiple states for the same pangenome (different colors, different layers being displayed, etc). The state called `default` will always be the one displayed when you start an interactive interface. The state can also be exported/imported from the terminal with the programs {% include PROGRAM name="anvi-export-state" %} and {% include PROGRAM name="anvi-import-state" %}.
+Now that you have made some modifications to your interactive figure, it would be a good idea to save those settings. The aesthetics of a figure are saved in a "state", and you will find a button on the bottom left of the interface to save it. You can store multiple states for the same pangenome (different colors, different layers being displayed, etc). The state called `default` will always be the one displayed when you start an interactive interface. The state can also be exported/imported from the terminal with the programs {% include PROGRAM name="anvi-export-state" %} and {% include PROGRAM name="anvi-import-state" %}.
 
 You can spend some time getting familiar with the interface and all the possible customisation options. For instance, here is the pangenome figure I made:
 
@@ -146,7 +147,7 @@ From there you can learn about its functional annotations, if any. You can also 
 
 ### Bin and summarize a pangenome
 
-Looking at individual genes clusters is great, but not very practical to summarize a large selection of gene clusters. Fortunately for you, you can select gene clusters in the main interface and create {% include ARTIFACT name="bin" text="'bins'" %} which you can meaningfully rename. In the next screenshot, I have selected the core genome, the near core, the accessory genome of *Trichodesmium erythraeum * and *Trichodesmium thiebautii*, and all the singleton gene clusters.
+Looking at individual genes clusters is great, but not very practical to summarize a large selection of gene clusters. Fortunately for you, you can select gene clusters in the main interface and create {% include ARTIFACT name="bin" text="'bins'" %} which you can meaningfully rename. In the next screenshot, I have selected the core genome, the near core, the accessory genome of *Trichodesmium erythraeum* and *Trichodesmium thiebautii*, and all the singleton gene clusters.
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_08.png" width=80 %}
 
@@ -185,7 +186,7 @@ If you are interested in one or more functional annotations and where they fit i
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_12.png" width=50 %}
 
-Or, you can directly search for _NifH_ and you will notice two results which are not expected. We know from Tom's paper that COG miss-annotates a ferredoxin gene as _NifH_:
+Or, you can directly search for `NifH` and you will notice two results which are not expected. As you might recall from the previous tutorial chapter, we know from Tom's paper that COG mis-annotates a ferredoxin gene as _NifH_:
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_13.png" width=50 %}
 <blockquote markdown="1">
@@ -195,7 +196,7 @@ For instance, we found that genes with COG20 function incorrectly annotated as â
 </div>
 </blockquote>
 
-Then you can search for _NifH_ by selecting only the KOfam annotation source, or directly use the KOfam accession number `K02588`:
+To avoid seeing the COG results, you can search for _NifH_ by selecting only the KOfam annotation source, or directly use the KOfam accession number `K02588`:
 
 <div style="display: flex; gap: 10px;">
     {% include IMAGE path="/images/trichodesmium_tutorial/pan_14.png" width=100 %}
@@ -215,7 +216,7 @@ To help make sense of your pangenome, you can add multiple additional data layer
 
 #### Add taxonomy
 
-We previously used {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} and made a text output called `taxonomy_multi_genomes.txt`. We can import that table directly into the pangenome with the command {% include PROGRAM name="anvi-import-misc-data" %}:
+We previously ([this section]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1/#working-with-multiple-genomes) in Chapter 1) used {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} and made a text output called `taxonomy_multi_genomes.txt`. We can import that table directly into the pangenome with the command {% include PROGRAM name="anvi-import-misc-data" %}:
 
 ```bash
 anvi-import-misc-data -p 01_PANGENOME/Trichodesmium-PAN.db \
@@ -253,11 +254,11 @@ When you start the interactive interface with {% include PROGRAM name="anvi-disp
 
 <div class="extra-info" markdown="1">
 
-<span class="extra-info-header">Integrating ecology and evolution with metapangenome</span>
+<span class="extra-info-header">Integrating ecology and evolution with metapangenomes</span>
 
 AS you can see from the example above, you can integrate a lot of information in a single anvi'o figure. And not just the figure, as the {% include ARTIFACT name="pan-db" %} contains all the information in the interactive display as well. 
 
-Another topic not covered yet in this tutorial is metagenomic read recruitment, which allows you to compute detection and coverage of one or more genomes across metagenomes. This gives you an ecological signal and nothing is stopping you from importing a relative abundance heatmap, just like the ANI. There is a dedicated function in anvi'o, called {% include PROGRAM name="anvi-meta-pan-genome" %}, which you can learn more about [here.](https://merenlab.org/data/prochlorococcus-metapangenome/)
+Another topic not covered yet in this tutorial is metagenomic read recruitment, which allows you to compute detection and coverage of one or more genomes across metagenomes. This gives you an ecological signal and nothing is stopping you from importing a relative abundance heatmap, just like the ANI. There is a dedicated program for this in anvi'o, called {% include PROGRAM name="anvi-meta-pan-genome" %}, which you can learn more about [here.](https://merenlab.org/data/prochlorococcus-metapangenome/)
 
 At the end of the day, you can have a figure like this one, with ecology and evolution integrated in one figure:
 
