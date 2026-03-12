@@ -49,57 +49,58 @@ Here is a very preliminary overview of the workshop content:
 
 #### Monday 13: Genomics
 
-9:00 - 9:15 | Introduction to the **workshop faculty & setting**
+9:00 - 9:15 | Introduction to the **workshop faculty, program & setting**
 9:15 - 10:15 | Introduction to the **anvi'o software ecosystem**
 10:15 - 10:30 | Coffee & Tea Break
 10:30 - 12:00 | The anvi'o **interactive interface**
-12:00 - 13:00 | Group lunch at Bar Celona
+12:00 - 13:00 | Group lunch (on-site)
 13:00 - 14:00 | Symposium talks
-14:00 - 15:30 | **Genomics** (gene calling, functional annotation, taxonomic characterization)
+14:00 - 15:30 | **Genomics** (gene calling, functional annotation, taxonomic characterization) -- <span style="color:#3B9752">tutorial</span>
 15:30 - 15:45 | Coffee & Tea Break
-15:45 - 17:30 | **Genomics**, continued
+15:45 - 17:30 | **Genomics** -- <span style="color:#3B9752">tutorial</span>, continued
 
-#### Tuesday 14: Metabolic reconstruction; Pangenomics
+#### Tuesday 14: Pangenomics; Phylogenomics
 
-9:00 - 10:15 | **Functions and metabolism** (estimation of metabolic potential in genomes and metagenomes)
+9:00 - 10:15 | **Pangenomics** (comparing gene content across genomes) -- <span style="color:#78118A">theory</span>
 10:15 - 10:30 | Coffee & Tea Break
-10:30 - 12:00 | **Functions and metabolism**, continued
-12:00 - 13:00 | Group lunch at Bar Celona
+10:30 - 12:00 | **Pangenomics** -- <span style="color:#3B9752">tutorial</span>
+12:00 - 13:00 | Group lunch (on-site)
 13:00 - 14:00 | Symposium talks
-14:00 - 15:30 | **Phylogenomics** (theoretical introduction and hands-on session)
+14:00 - 15:30 | **Pangenomics** -- <span style="color:#3B9752">tutorial</span>, continued
 15:30 - 15:45 | Coffee & Tea Break
-15:45 - 17:30 | **Phylogenomics**, continued
+15:45 - 17:30 | **Phylogenomics** (estimating evolutionary relationships) -- <span style="color:#78118A">theory</span> + <span style="color:#3B9752">tutorial</span>
 
-#### Wednesday 15: Pangenomics; Phylogenomics
+#### Wednesday 15: Metabolism
 
-9:00 - 10:15 | **Pangenomics** (introduction to pangenomics, and its computational and biological underpinnings)
+9:00 - 10:15 | **Metabolism estimation** (from individual genes to pathways) -- <span style="color:#78118A">theory</span> + <span style="color:#3B9752">tutorial</span>
 10:15 - 10:30 | Coffee & Tea Break
-10:30 - 12:00 | **Pangenomics** (hands-on session)
-12:00 - 13:00 | Group lunch at Bar Celona
-13:00 - 14:45 | **Pangenomics** (hands-on session), continued
-14:45 - 17:30 | TBD Social activity and/or project work time
+10:30 - 12:00 | **Metabolism estimation** -- <span style="color:#3B9752">tutorial</span>, continued
+12:00 - 13:00 | Group lunch (on-site)
+13:00 - 14:45 | **Reaction networks and metabolic interactions** -- <span style="color:#3B9752">tutorial</span>
+14:45 - 15:00 | Coffee & Tea Break
+15:00 - 17:30 | Free time for work, rest, and/or social activities
 
-#### Thursday 16: Metagenomics; Genome-resolved metagenomics
+#### Thursday 16: Metagenomics
 
-9:00 - 10:15 | **Metagenomic read recruitment** (theoretical introduction and hands-on session)
+9:00 - 10:15 | **Metagenomic read recruitment** (detecting genes/genomes across samples) -- <span style="color:#78118A">theory</span> + <span style="color:#3B9752">tutorial</span>
 10:15 - 10:30 | Coffee & Tea Break
-10:30 - 12:00 | **Metagenomic read recruitment**, continued
-12:00 - 13:00 | Group lunch at Bar Celona
+10:30 - 12:00 | **Metagenomic read recruitment** -- <span style="color:#3B9752">tutorial</span>, continued
+12:00 - 13:00 | Group lunch (on-site)
 13:00 - 14:00 | Symposium talks
-14:00 - 15:30 | **Genome-resolved metagenomics** (a discussion on best practices in genome binning and refinement)
+14:00 - 15:30 | **Genome-resolved metagenomics** (best practices in genome binning and refinement) -- <span style="color:#3B9752">tutorial</span>
 15:30 - 15:45 | Coffee & Tea Break
-15:45 - 17:30 | **Genome-resolved metagenomics**, continued
+15:45 - 17:30 | **Genome-resolved metagenomics** -- <span style="color:#3B9752">tutorial</span>, continued
 
-#### Friday 17: TBD; Scalable bioinformatics
+#### Friday 17: Scalable bioinformatics
 
-9:00 - 10:15 | TBD
+9:00 - 10:15 | How to use **automated, scalable, and reproducible bioinformatics workflows** -- <span style="color:#3B9752">tutorial</span>
 10:15 - 10:30 | Coffee & Tea Break
-10:30 - 12:00 | TBD
-12:00 - 13:00 | Group lunch at Bar Celona
+10:30 - 12:00 | **Bioinformatics workflows** -- <span style="color:#3B9752">tutorial</span>, continued
+12:00 - 13:00 | Group lunch (on-site)
 13:00 - 14:00 | Symposium talks
-14:00 - 15:30 | How to use **automated, scalable, and reproducible bioinformatics workflows**
+14:00 - 15:30 | **Bioinformatics workflows** -- <span style="color:#3B9752">tutorial</span>, continued
 15:30 - 15:45 | Coffee & Tea Break
-15:45 - 17:30 | **Bioninformatics workflows**, continued
+15:45 - 17:30 | **Bioinformatics workflows** -- <span style="color:#3B9752">tutorial</span>, continued
 
 ## Workshop materials
 
