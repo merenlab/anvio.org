@@ -53,7 +53,7 @@ Here is a very preliminary overview of the workshop content:
 9:15 - 10:15 | Introduction to the **anvi'o software ecosystem**
 10:15 - 10:30 | Coffee & Tea Break
 10:30 - 12:00 | The anvi'o **interactive interface**
-12:00 - 13:00 | Group lunch (on-site)
+12:00 - 13:00 | Group lunch (on-site, vegan/vegetarian food)
 13:00 - 14:00 | Symposium talks
 14:00 - 15:30 | **Genomics** (gene calling, functional annotation, taxonomic characterization) -- <span style="color:#3B9752">tutorial</span>
 15:30 - 15:45 | Coffee & Tea Break
@@ -64,7 +64,7 @@ Here is a very preliminary overview of the workshop content:
 9:00 - 10:15 | **Pangenomics** (comparing gene content across genomes) -- <span style="color:#78118A">theory</span>
 10:15 - 10:30 | Coffee & Tea Break
 10:30 - 12:00 | **Pangenomics** -- <span style="color:#3B9752">tutorial</span>
-12:00 - 13:00 | Group lunch (on-site)
+12:00 - 13:00 | Group lunch (on-site, vegan/vegetarian food)
 13:00 - 14:00 | Symposium talks
 14:00 - 15:30 | **Pangenomics** -- <span style="color:#3B9752">tutorial</span>, continued
 15:30 - 15:45 | Coffee & Tea Break
@@ -75,7 +75,7 @@ Here is a very preliminary overview of the workshop content:
 9:00 - 10:15 | **Metabolism estimation** (from individual genes to pathways) -- <span style="color:#78118A">theory</span> + <span style="color:#3B9752">tutorial</span>
 10:15 - 10:30 | Coffee & Tea Break
 10:30 - 12:00 | **Metabolism estimation** -- <span style="color:#3B9752">tutorial</span>, continued
-12:00 - 13:00 | Group lunch (on-site)
+12:00 - 13:00 | Group lunch (on-site, vegan/vegetarian food)
 13:00 - 14:45 | **Reaction networks and metabolic interactions** -- <span style="color:#3B9752">tutorial</span>
 14:45 - 15:00 | Coffee & Tea Break
 15:00 - 17:30 | Free time for work, rest, and/or social activities
@@ -85,7 +85,7 @@ Here is a very preliminary overview of the workshop content:
 9:00 - 10:15 | **Metagenomic read recruitment** (detecting genes/genomes across samples) -- <span style="color:#78118A">theory</span> + <span style="color:#3B9752">tutorial</span>
 10:15 - 10:30 | Coffee & Tea Break
 10:30 - 12:00 | **Metagenomic read recruitment** -- <span style="color:#3B9752">tutorial</span>, continued
-12:00 - 13:00 | Group lunch (on-site)
+12:00 - 13:00 | Group lunch (on-site, vegan/vegetarian food)
 13:00 - 14:00 | Symposium talks
 14:00 - 15:30 | **Genome-resolved metagenomics** (best practices in genome binning and refinement) -- <span style="color:#3B9752">tutorial</span>
 15:30 - 15:45 | Coffee & Tea Break
@@ -96,7 +96,7 @@ Here is a very preliminary overview of the workshop content:
 9:00 - 10:15 | How to use **automated, scalable, and reproducible bioinformatics workflows** -- <span style="color:#3B9752">tutorial</span>
 10:15 - 10:30 | Coffee & Tea Break
 10:30 - 12:00 | **Bioinformatics workflows** -- <span style="color:#3B9752">tutorial</span>, continued
-12:00 - 13:00 | Group lunch (on-site)
+12:00 - 13:00 | Group lunch (on-site, vegan/vegetarian food)
 13:00 - 14:00 | Symposium talks
 14:00 - 15:30 | **Bioinformatics workflows** -- <span style="color:#3B9752">tutorial</span>, continued
 15:30 - 15:45 | Coffee & Tea Break
