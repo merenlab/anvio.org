@@ -236,6 +236,7 @@ A companion metric to pangenomes is the Average Nucleotide Identity, or ANI, whi
 The sole required input is an {% include ARTIFACT name="external-genomes" %} file, and the output is a directory with multiple files containing the ANI value, coverage, and more. Optionally, you can also provide a {% include ARTIFACT name="pan-db" %} and anvi'o will import the ANI values directly into your pangenome.
 
 ```bash
+## takes ~9 minutes
 anvi-compute-genome-similarity -e external-genomes-pangenomics.txt \
                                -p 01_PANGENOME/Trichodesmium-PAN.db \
                                -o 01_PANGENOME/ANI \
