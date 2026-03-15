@@ -119,7 +119,7 @@ $ ls
 
 $ ls 00_DATA/
 associate_dbs             fasta                     metabolism_state.json     module_info.txt           nitrogen_heatmap.json     pan_state.json
-contigs                   genome-pairs.txt          metagenome                modules                   nitrogen_step_copies.json
+contigs                   genome-pairs.txt          metagenome                modules                   nitrogen_step_copies.json phylo_dbs
 ```
 
 Inside the `00_DATA` folder, there are several files that will be useful for various parts of this tutorial. We will start from the seven *Trichodesmium* genomes stored in the `fasta` directory. Some are metagenome-assembled genomes (MAGs) binned from the TARA Ocean metagenomic dataset, and others are reference genomes taken from NCBI RefSeq.
@@ -142,7 +142,7 @@ Each chapter of this tutorial has its own webpage and is technically independent
 - [Tutorial introduction (main page)]({{ site.url }}/tutorials/trichodesmium-tutorial/) ← _you are here_
 - [Chapter 1: Genomics]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1)
 - [Chapter 2: Pangenomics]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-2)
-- Chapter 3: Phylogenomics _(not yet publicly-available)_
+- [Chapter 3: Phylogenomics]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-3)
 - [Chapter 4: Metabolism]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-4)
 
 For convenience, you'll find this set of links at the top of each chapter's webpage.

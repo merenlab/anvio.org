@@ -20,7 +20,7 @@ This webpage is one chapter of a much larger effort to cover multiple aspects of
 - [Tutorial introduction (main page)]({{ site.url }}/tutorials/trichodesmium-tutorial/)
 - [Chapter 1: Genomics]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1) ← _you are here_
 - [Chapter 2: Pangenomics]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-2)
-- Chapter 3: Phylogenomics _(not yet publicly-available)_
+- [Chapter 3: Phylogenomics]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-3)
 - [Chapter 4: Metabolism]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-4)
 
 ## Chapter 1 - Genomics

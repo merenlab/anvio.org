@@ -19,7 +19,7 @@ This webpage is one chapter of a much larger effort to cover multiple aspects of
 - [Tutorial introduction (main page)]({{ site.url }}/tutorials/trichodesmium-tutorial/)
 - [Chapter 1: Genomics]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1)
 - [Chapter 2: Pangenomics]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-2) ← _you are here_
-- Chapter 3: Phylogenomics _(not yet publicly-available)_
+- [Chapter 3: Phylogenomics]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-3)
 - [Chapter 4: Metabolism]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-4)
 
 ## Pangenomics
@@ -273,8 +273,7 @@ But that analysis is for another time.
 
 If you want to immediately move on to the next chapter of this tutorial, here is the link:
 
-- Chapter 3: Phylogenomics _(not yet publicly-available)_
-- [Chapter 4: Metabolism]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-4)
+- [Chapter 3: Phylogenomics]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-3)
 
 If you want to go back to the main page of the tutorial instead, [click here]({{ site.url }}/tutorials/trichodesmium-tutorial/).
 
