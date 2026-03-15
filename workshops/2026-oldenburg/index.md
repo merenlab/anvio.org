@@ -112,7 +112,7 @@ The table below shows the links to the tutorials used in each workshop session.
 Monday | Interactive interface | TBD
 Monday | Genomics | [https://anvio.org/tutorials/trichodesmium-tutorial/](https://anvio.org/tutorials/trichodesmium-tutorial/)
 Tuesday | Pangenomics | [https://anvio.org/tutorials/trichodesmium-tutorial/chapter-2](https://anvio.org/tutorials/trichodesmium-tutorial/chapter-2/)
-Tuesday | Phylogenomics | TBD
+Tuesday | Phylogenomics | [https://anvio.org/tutorials/trichodesmium-tutorial/chapter-3](https://anvio.org/tutorials/trichodesmium-tutorial/chapter-3/)
 Wednesday | Metabolism | [https://anvio.org/tutorials/trichodesmium-tutorial/chapter-4](https://anvio.org/tutorials/trichodesmium-tutorial/chapter-4/)
 Thursday | Metagenomic read recruitment | [https://merenlab.org/tutorials/read-recruitment/](https://merenlab.org/tutorials/read-recruitment/)
 Thursday | Metagenomic binning | [https://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics](https://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics) and [https://anvio.org/tutorials/binning-popgen-oral-microbiome](https://anvio.org/tutorials/binning-popgen-oral-microbiome)
