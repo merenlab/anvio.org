@@ -26,6 +26,8 @@ Search functions in an anvi&#x27;o contigs database or genomes storage. Basicall
 
 <div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://merenlab.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/ivagljiva.jpg" /></div><div class="anvio-person-info-box"><a href="/people/ivagljiva" target="_blank"><span class="anvio-person-name">Iva Veseli</span></a><div class="anvio-person-social-box"><a href="mailto:iva.veseli@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/ivaglj1va" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/ivagljiva" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+
 
 
 ## Can consume
@@ -43,16 +45,33 @@ Search functions in an anvi&#x27;o contigs database or genomes storage. Basicall
 ## Usage
 
 
-You can use this program to search for genes that encode specific functions in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> or <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>.
+You can use this program to search for genes that encode specific functions in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> + <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> pair, or multiple databases in an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> file.
 
-## Search
+## Input options
 
-For example, you could search for all genes in a given <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> that encode a function related to the keyword 'kinase' the following way:
+You could search for all genes in a given <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> that encode a function related to the keyword 'kinase' the following way:
 
 <div class="codeblock" markdown="1">
 anvi&#45;search&#45;functions &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                       &#45;&#45;search&#45;terms kinase
 </div>
+
+If you want to search gene clusters in a pangenome instead, you should provide both the <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and its corresponding <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>:
+
+<div class="codeblock" markdown="1">
+anvi&#45;search&#45;functions &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                      &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
+                      &#45;&#45;search&#45;terms kinase
+</div>
+
+Or, if you want to search across multiple <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>s at once, you can provide an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> file:
+
+<div class="codeblock" markdown="1">
+anvi&#45;search&#45;functions &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \
+                      &#45;&#45;search&#45;terms kinase
+</div>
+
+## Search options
 
 If you include `--verbose` flag in your command, <span class="artifact-p">[anvi-search-functions](/help/main/programs/anvi-search-functions)</span> will offer you a quick look at the matching function names:
 
@@ -240,7 +259,7 @@ Items additional data compatible output ......: search_results.txt
 
 ## Output
 
-By default, the output will be a fairly barren, and will only show which contigs contain genes that matched to a given. This output file will be most helpful as an additional layer in the anvi'o interactive interface to quickly see the items that include genes with functions that match to the search terms.
+By default, the output will be a fairly barren, and will only show which contigs (or gene clusters) contain genes that matched to a given search term (if you used <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> input, it will also indicate which genome the match occurred in). This output file will be most helpful as an additional layer in the anvi'o interactive interface to quickly see the items that include genes with functions that match to the search terms.
 
 However, generating a more comprehensive report is also an option through the parameter `--full-report`:
 
@@ -350,7 +369,7 @@ This will result in an output file that will look like this:
 |3770|KOfam|K14060|putative DNA-invertase from lambdoid prophage Rac|Phage|Day17a_QCcontig25_split_00001|
 |4519|KOfam|K06909|phage terminase large subunit|Phage|Day17a_QCcontig33_split_00009|
 
-It is also possible to include sequences of genes into this output:
+It is also possible to include sequences of genes into the full report output:
 
 <div class="codeblock" markdown="1">
 anvi&#45;search&#45;functions &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
