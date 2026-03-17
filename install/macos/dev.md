@@ -27,7 +27,7 @@ This page is for users who want to install the development version of anvi'o, `a
 
 {% include install/commons/conda_packages.md %}
 
-## (3) Generat a local copy of the anvi'o codebase
+## (3) Generate a local copy of the anvi'o codebase
 
 {% include install/commons/dev/codebase.md %}
 
