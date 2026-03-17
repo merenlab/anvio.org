@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7614,
+        "total_commits": 7634,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,15 +14,15 @@
             "2023": 227,
             "2024": 188,
             "2025": 451,
-            "2026": 17
+            "2026": 37
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "some self-documentation prior to the hackathon",
-        "latest_commit_hash": "e90d3d27b6e0d69ae9849a285ab4daf00f1e3807",
-        "latest_commit_date": "10 March 2026"
+        "latest_commit_message": "update docs",
+        "latest_commit_hash": "7550722153d1ce6548188e661272511f373a8128",
+        "latest_commit_date": "17 March 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 283,
+        "total_commits": 326,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 66
+            "2026": 109
         },
-        "top_file": "anvio/inversions.py",
-        "latest_commit_message": "recent version of plotext don't use clp but clf",
-        "latest_commit_hash": "3aa75ceb4be2bc4258314581485ba29fd0ce69aa",
-        "latest_commit_date": "27 February 2026"
+        "top_file": "anvio/profiler.py",
+        "latest_commit_message": "Updated interactive artefact",
+        "latest_commit_hash": "6c37d894445b7647b490d25b59e5e8dfc65eba39",
+        "latest_commit_date": "16 March 2026"
     },
     "watsonar": {
         "total_commits": 10,
@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2522,
+        "total_commits": 2533,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 7
+            "2026": 18
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "fix logical error (issue with operator precedence between any() and II ) for anvi-script-visualize-split-coverages",
-        "latest_commit_hash": "477f500fbb71056d4f8548e55e5c6dae3fabad95",
-        "latest_commit_date": "06 March 2026"
+        "latest_commit_message": "another fixy, since annotation source arg can be None",
+        "latest_commit_hash": "ec9a86df6afac4e679ede20d45f5b31ee1bb7934",
+        "latest_commit_date": "14 March 2026"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -1122,7 +1122,7 @@
         "latest_commit_date": "05 December 2025"
     },
     "tucker4": {
-        "total_commits": 0,
+        "total_commits": 2,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -1135,12 +1135,12 @@
             "2022": 0,
             "2023": 0,
             "2024": 0,
-            "2025": 0,
+            "2025": 2,
             "2026": 0
         },
-        "top_file": null,
-        "latest_commit_message": null,
-        "latest_commit_hash": null,
-        "latest_commit_date": null
+        "top_file": "anvio/data/misc/PEOPLE/CONTRIBUTORS.yaml",
+        "latest_commit_message": "Add git_records for Sarah Tucker",
+        "latest_commit_hash": "7fa034fda223fc3571187e201ca1a587e4156fc8",
+        "latest_commit_date": "15 December 2025"
     }
 }

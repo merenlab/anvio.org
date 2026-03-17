@@ -89,6 +89,14 @@ anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[cont
                            &#45;&#45;scg&#45;name Ribosomal_S9
 </div>
 
+Without a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, the output will report the **frequency** of each taxon — i.e., how many times that taxon was detected across the SCG hits in your contigs database. If you only care whether a taxon is present or absent rather than how many times it was detected, you can use the `--presence-absence-only` flag to get a binary report instead:
+
+<div class="codeblock" markdown="1">
+anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                           &#45;&#45;metagenome&#45;mode \
+                           &#45;&#45;presence&#45;absence&#45;only
+</div>
+
 ### 3. Look at relative abundance of taxa across samples
 
 If you provide a merged <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[single-profile-db](/help/main/artifacts/single-profile-db)</span>, then you'll be able to look at the relative abundance of your taxonomy hits (through a single-copy core gene) across your samples. Essentially, this adds additional columns to your output (one per sample) that descrbe the relative abundance of each hit in each sample.
@@ -155,6 +163,31 @@ anvi&#45;estimate&#45;scg&#45;taxonomy &#45;&#45;metagenomes <span class="artifa
 will give you an output file containing all taxonomic levels found and their coverages in each of your metagenomes.
 
 For a concrete example, check out [this page](http://merenlab.org/2019/10/08/anvio-scg-taxonomy/#many-contigs-dbs-for-many-metagenomes).
+
+### 6. Estimate taxonomy across multiple genomes using an external genomes file
+
+You can also run this program on a set of genomes described in an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> file:
+
+<div class="codeblock" markdown="1">
+anvi&#45;estimate&#45;scg&#45;taxonomy &#45;&#45;external&#45;genomes <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \
+                           &#45;&#45;output&#45;file&#45;prefix EXAMPLE
+</div>
+
+If you want to treat each genome as a metagenome (i.e., report the taxonomic composition within each genome rather than a single consensus taxonomy for it), add the `--metagenome-mode` flag:
+
+<div class="codeblock" markdown="1">
+anvi&#45;estimate&#45;scg&#45;taxonomy &#45;&#45;external&#45;genomes <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \
+                           &#45;&#45;metagenome&#45;mode \
+                           &#45;&#45;output&#45;file&#45;prefix EXAMPLE
+</div>
+
+### A note on SCG selection when working with multiple contigs databases
+
+When you use `--external-genomes` or `--metagenomes` together with `--metagenome-mode`, anvi'o must pick a **single SCG to use consistently across all contigs databases**. This is critical for result comparability: using different SCGs for different databases would make the outputs impossible to compare.
+
+If you do not explicitly name an SCG with `--scg-name-for-metagenome-mode`, anvi'o will automatically select the SCG that is most frequent across all your contigs databases combined, and will report which one it chose. You can inspect per-SCG frequencies beforehand with `--report-scg-frequencies` to make an informed choice.
+
+If instead you want to use the most frequent SCG independently for each contigs database (which would make results incomparable across databases), you should run <span class="artifact-p">[anvi-estimate-scg-taxonomy](/help/main/programs/anvi-estimate-scg-taxonomy)</span> on each contigs database separately in `--metagenome-mode`.
 
 
 {:.notice}
