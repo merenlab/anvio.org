@@ -130,9 +130,9 @@ The resulting visualization will look something like this:
 {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_01.png" width=50 %}
 
 We can make it much easier to see differences between the genomes by doing the following things:
-- making the visualization rectangular (and bigger)
-- changing the bar plots into a heatmap ('Intensity' chart type)
-- playing with the Min values to filter out highly incomplete modules
+- making the visualization rectangular ('Drawing Type' => 'Phylogram') and bigger (in 'Options' tab, increase Dendrogram Width)
+- changing the bar plots into a heatmap (select 'Intensity' chart type in the Items Display settings)
+- playing with the 'Min' values to filter out highly incomplete modules (also under Items Display)
 - clustering the genomes so that genomes with similar metabolic capacity are close together
 - clustering the modules so that modules with similar distribution across genomes are close together
 - importing the name and categories of each module
@@ -426,7 +426,7 @@ anvi-reaction-network -c ../Trichodesmium_sp-contigs.db
 
 There will be plenty of output on your terminal screen, but no output files added to your working directory -- the network will be stored directly in the {% include ARTIFACT name="contigs-db" text="contigs database" %}.
 
-Now, if you wanted to do some flux balance analysis (FBA) to model the flow of metabolites through this network -- bad news, you can't do that (at least, not yet) in anvi'o. However, you _can_ export the {% include ARTIFACT name="reaction-network" %} into a JSON file suitable for common metabolic modeling software (like [COBRApy](https://github.com/opencobra/cobrapy)) with the program {% include PROGRAM name="anvi-get-metabolic-model-file" %}:
+Now, if you wanted to do some flux balance analysis (FBA) to model the flow of metabolites through this network -- bad news, you can't do that in anvi'o. However, you _can_ export the {% include ARTIFACT name="reaction-network" %} into a JSON file suitable for common metabolic modeling software (like [COBRApy](https://github.com/opencobra/cobrapy)) with the program {% include PROGRAM name="anvi-get-metabolic-model-file" %}:
 
 ```bash
 anvi-get-metabolic-model-file -c ../Trichodesmium_sp-contigs.db \
@@ -449,13 +449,13 @@ Let's look at an example map. Of course we will look at the [Nitrogen Metabolism
 
 {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_06.png" width=100 %}
 
-You can see that in addition to nitrogen fixation (nitrogen to ammonia), this microbe can also import nitrate and nitrate from the extracellular matrix into the cell, convert nitrate to nitrite (assimilatory nitrate reduction) and to nitric oxide, convert nitrite to ammonia, and feed that ammonia into glutamate metabolism -- which is the start of amino acid biosynthesis using that fresh new bioavailable nitrogen.
+You can see that in addition to nitrogen fixation (nitrogen to ammonia), this microbe can also import nitrate and nitrite from the extracellular matrix into the cell, convert nitrate to nitrite (assimilatory nitrate reduction) and to nitric oxide, convert nitrite to ammonia, and feed that ammonia into glutamate metabolism -- which is the start of amino acid biosynthesis using that fresh new bioavailable nitrogen.
 
 While pathway prediction gives you quantitative summaries of metabolic capacity, these Pathway Map drawings are great for understanding what is actually going on in those pathways, and for seeing the connections between different classes of metabolism. Each map gives you an overall picture of a small-ish, digestible and ecologically-relevant part of the entire reaction network.
 
 I bet you are wondering how this map looks different across our _Trichodesmium_ genomes. If so, then you are in luck, because we can also use {% include PROGRAM name="anvi-draw-kegg-pathways" %} to compare metabolic capacity of multiple genomes.
 
-First, we will need to run {% include PROGRAM name="anvi-reaction-network" %} on all the other genomes. This program unfortunately doesn't accept an {% include ARTIFACT name="external-genomes" text="external genomes file" %} as input; however, we can reuse our BASH loop strategy from above.
+First, we will need to run {% include PROGRAM name="anvi-reaction-network" %} on all the other genomes. This program unfortunately doesn't accept an {% include ARTIFACT name="external-genomes" text="external genomes file" %} as input; however, we can reuse our BASH loop strategy from [chapter 1]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1/#working-with-multiple-genomes).
 
 ```bash
 while read genome
@@ -567,26 +567,26 @@ There were probably some warnings on your screen about some Pathway Maps not hav
 There are actually two prediction strategies used by {% include PROGRAM name="anvi-predict-metabolic-exchanges" %}, and the terminal output will tell you how many predictions were made using each one. Briefly, the first strategy ("Pathway Map Walk") is based on the KEGG Pathway Maps -- it works on only a subset of metabolites, but it generates high-quality predictions that are associated with evidence from the Pathway Map walks. The second strategy ("Reaction Network Subset") works on all metabolites in the network (even those not in KEGG Pathway Maps), but generates predictions that are potentially less accurate. That distinction is reflected in the sheer number of predictions that we get from either approach:
 
 ```
-Number of exchanged compounds predicted from KEGG Pathway Map walks : 125
+Number of exchanged compounds predicted from KEGG Pathway Map walks : 128
 Number of unique compounds predicted from KEGG Pathway Map walks : 621
 (...)
-Number of exchanged compounds predicted from Reaction Network subset approach : 309
-Number of unique compounds predicted from Reaction Network subset approach : 1,341
+Number of exchanged compounds predicted from Reaction Network subset approach : 315
+Number of unique compounds predicted from Reaction Network subset approach : 1,297
 ```
 
-The Pathway Map walk approach gives you fewer predictions, while the reaction network subset approach gives you more (but lower confidence) predictions. Note that you can turn off either approach by using the `--no-pathway-walk` or `--pathway-walk-only` flags, respectively.
+The Pathway Map walk approach gives you fewer predictions, while the reaction network subset approach gives you more (but lower confidence) predictions. Note that you can turn off either approach by using the `--no-pathway-walk` or `--pathway-walk-only` flags, respectively. When you use both approaches at once, the network subset strategy only works on compounds that have not yet been processed as part of the Pathway Map walk strategy.
 
 Here is the summary of the results from the terminal:
 ```
 OVERALL RESULTS
 ===============================================
-Identified 434 potentially exchanged compounds and 1962 compounds unique to one
+Identified 443 potentially exchanged compounds and 1918 compounds unique to one
 genome.
 ```
 
 These results are described in three output files: `thiebautii-vs-macleodii-potentially-exchanged-compounds.txt` describes the potential exchanges (with summaries of the evidence from associated Pathway Maps), `thiebautii-vs-macleodii-evidence.txt` contains the full set of statistics from all Pathway Map walks, and `thiebautii-vs-macleodii-unique-compounds.txt` describes the metabolites that are uniquely produced or consumed by one of the organisms. All of these output files are indexed by ModelSEED compound ID numbers.
 
-Our predictions are limited to the metabolites we can find in the ModelSEED database. ModelSEED doesn't contain compounds for siderophores like petrobactin, vibrioferrin, or agrobactin. So we cannot find those specific interactions as described in the [Koedooder et al 2023](https://doi.org/10.1128/msystems.00742-23) paper.
+Our predictions are limited to the metabolites we can find in the ModelSEED database. ModelSEED doesn't contain compounds for siderophores like petrobactin, vibrioferrin, or agrobactin (at least, it didn't at the time of writing this tutorial). So we cannot find those specific interactions as described in the [Koedooder et al 2023](https://doi.org/10.1128/msystems.00742-23) paper.
 
 But we might be able to find the B vitamin exchanges mentioned in that paper, or perhaps something new! Let's take a careful look at the predicted exchanges. Here are the first 10 lines of that file:
 
@@ -594,13 +594,13 @@ But we might be able to find the B vitamin exchanges mentioned in that paper, or
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
 |cpd00027|D-Glucose|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|10|8|None|None|00500|2|2|1.0|00500|
 |cpd00037|UDP-N-acetylglucosamine|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|14|6|None|None|00520|8|8|1.0|00550|
-|cpd00044|3-phosphoadenylylsulfate|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|7|4|None|None|00920|3|3|1.0|00920|
+|cpd00044|3-phosphoadenylylsulfate|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|9|6|None|None|00920|3|3|1.0|00920|
 |cpd00065|L-Tryptophan|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|14|13|None|None|00400|1|1|1.0|00380|
-|cpd00085|beta-Alanine|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|10|1|None|None|00410,00770|9|2|0.2222222222222222|00770|
 |cpd00098|Choline|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|Pathway_Map_Walk|3|1|1|1.0|00564|2|None|None|00260,00670|
 |cpd00100|Glycerol|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|2|1|None|None|00052,00561|1|1|1.0|00561|
 |cpd00104|BIOT|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|Pathway_Map_Walk|5|2|2|1.0|00780|3|None|None|00780|
 |cpd00107|L-Leucine|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|11|10|None|None|00290|1|1|1.0|00970|
+|cpd00108|Galactose|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|8|7|None|None|00052|1|1|1.0|00052|
 
 The predictions are ranked in order from best evidence to no evidence, so all of these at the top are coming from the `Pathway_Map_Walk` prediction strategy. And here already is one of our expected exchanges: the compound called 'BIOT' is actually biotin aka Vitamin B7, and *T. thiebautii* is potentially cross-feeding it to *A. macleodii* as suggested in the [Koedooder et al 2023](https://doi.org/10.1128/msystems.00742-23) paper.
 
@@ -610,6 +610,15 @@ There are also a few unexpected predictions that look interesting: *A. macleodii
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
 |cpd00065|L-Tryptophan|L-Tryptophan,indol,Indoleglycerol phosphate,1-(2-carboxyphenylamino)-1-deoxyribulose 5-phosphate,N-5-phosphoribosyl-anthranilate,Anthranilate,Chorismate,5-O--1-Carboxyvinyl-3-phosphoshikimate,3-phosphoshikimate,Shikimate,3-Dehydroshikimate,5-Dehydroquinate,DAHP,Phosphoenolpyruvate|C00078,C00463,C03506,C01302,C04302,C00108,C00251,C01269,C03175,C00493,C02637,C00944,C04691,C00074|rn:R00674,rn:R02340,rn:R03508,rn:R03509,rn:R01073,rn:R00985 rn:R00986,rn:R01714,rn:R03460,rn:R02412,rn:R02413,rn:R03084,rn:R03083,rn:R01826|13|None|A_macleodii|00400|None|production|
 |cpd00065|L-Tryptophan|None|None|None|None|None|MAG_Trichodesmium_thiebautii_Atlantic|00400|None|consumption|
+
+<details markdown="1"><summary>Show/Hide How to get this table</summary>
+
+To get the two rows of information shown above, you can search for L-Tryptophan's compound ID, followed by a search for the Pathway Map 00400:
+```
+grep cpd00065 thiebautii-vs-macleodii-evidence.txt | grep 00400
+```
+
+</details>
 
 Okay, so far it looks pretty promising. There is a very long chain of reactions to produce tryptophan from phosphoenolpyruvate in *A. macleodii*, and nothing at all in *T. thiebautii*. But just to be sure, let's also visualize map 00400 for these two genomes with {% include PROGRAM name="anvi-draw-kegg-pathways" %} (and while we are at it, let's include the production maps for the other two interesting predictions):
 
@@ -633,6 +642,8 @@ I encourage you to take a look at the corresponding maps for the production of L
 
 For D-Glucose (map 00500), on the other hand, there are many enzymes in the reaction chain that *A. macleodii* has but *T. thiebautii* does not. So that prediction looks legitimate -- *A. macleodii* could be cross-feeding glucose to *T. thiebautii*. Whether or not that _actually_ happens in real life is uncertain. First, *A. macleodii* would have to intentially create glucose (as opposed to funneling its energy and carbon into other things). Second, it would have to produce more glucose than it individually needs, and third, that glucose would have to make its way outside of the cell where *T. thiebautii* could pick it up. But this potential exchange of glucose is now a hypothesis that is testable either by experimental means or literature review.
 
+Regardless, one lesson to take away from this section is: predicting metabolic exchanges is fallible, so you should always check the predictions carefully before jumping to conclusions. Drawing the KEGG Pathway Maps is a great visual tool to help with this.
+
 #### Allowing for gaps in reaction chains
 You might be wondering if there is a way to change the stringency of the Pathway Map walks so that they can handle small gaps. Indeed there is! We can set the `--maximum-gaps` parameter to allow for some number of gaps in the reaction chains. Unfortunately, this won't fix the case of L-Tryptophan or L-Leucine, because the gap occurs right at the start of the reaction chain and you cannot build a chain that starts from nothing (Iva and Sam need to think about how to get around this edge case). However, it could help create a better ranking for other ambiguous cases in which the gaps are internal to the reaction chain.
 
@@ -653,9 +664,9 @@ anvi-predict-metabolic-exchanges -c1 ../MAG_Trichodesmium_thiebautii_Atlantic-co
                 -T 4
 ```
 
-This time, the number of predictions from the Pathway Map walk approach is a little bit smaller (122 predictions, compared to 125 from before). Some predictions likely went away because we excluded an additional Pathway Map. But the top-ranked results in the table above mostly didn't change, except for some of the reaction chains getting a bit longer.
+This time, the number of predictions from the Pathway Map walk approach is a little bit smaller (122 predictions, compared to 128 from before). Some predictions likely went away because we excluded an additional Pathway Map. But the top-ranked results in the table above mostly didn't change, except for some of the reaction chains getting a bit longer.
 
-So now is the time to do some targeted searches through the rest of the file. You can look through the rest of the predictions using whatever strategy you think is best. I would recommend focusing on our first set of outputs (the ones made without considering gaps), as those are more stringent and seem to be more reliable predictions overall.
+So now is the time to do some targeted searches through the rest of the file. You can look through the rest of the predictions using whatever strategy you think is best. I would recommend focusing on our first set of output files (the ones made without considering gaps), as those are more stringent and seem to be more reliable predictions overall.
 
 {:.notice}
 Confused by the ModelSEED compound names? You are not a biochemist and are overwhelmed with all this molecular information? Us, too. One option for you is to take the output, pick out the predictions that you have high-confidence in, and give that list to a large-language model (LLM) so it can pick out the ones that are likely to be biologically-relevant in your system. Then you can focus your efforts on carefully validating those predictions.
@@ -663,7 +674,6 @@ Confused by the ModelSEED compound names? You are not a biochemist and are overw
 Here are some of the interesting predictions that I found:
 - Nitrate (cpd00209), produced by *A. macleodii* and consumed by *T. thiebautii*. You might remember from our earlier exploration of Pathway Map 00910 that *T. thiebautii* has the enzymes to import extracellular nitrate and convert it to nitrite. Perhaps some of that exterior nitrate is coming from its associated bacteria.
 - Thymine (cpd00151) or Thymidine (cpd00184), produced by *T. thiebautii* and consumed by *A. macleodii*. These are part of 'T' nucleotides and are needed by both organisms. Other marine microbes are known to exchange nucleotide components, so perhaps these do, too.
-- Propionate (cpd00141), produced by *T. thiebautii* and consumed by *A. macleodii*. This one is interesting because *T. thiebautii* can produce it but doesn't seem to be able to use it at all. Meanwhile, *A. macleodii* has quite a long reaction chain for consuming propionate and converting it to Propanoyl-CoA, which is an intermediate used in plenty of other metabolic capacities. Check out Pathway Map 00640 for details.
 
 #### Analyzing multiple pairs of genomes
 When we are working with a whole consortium of microbes, we can ask {% include PROGRAM name="anvi-predict-metabolic-exchanges" %} to process all genomes by providing an {% include ARTIFACT name="external-genomes" text="external genomes file" %}. If you don't do anything else, the program will process all possible pairs of genomes. But you can also provide a {% include ARTIFACT name="genome-pairs" %} file to specify which pairwise comparisons it should do.
@@ -705,11 +715,11 @@ We are excluding several pathway maps here because our algorithms cannot current
 
 Notice that here we set the number of processes (`-P`) to 2, so that two genome pairs can be processed in parallel. And we set the number of threads per process (`-T`) to 2 as well, so in total the program will be using 4 threads.
 
-When the program finishes, you will get similar output files as before, except that multiple pairs of genomes will be included in the results. The predictions include many of the same exchanges that we saw between *T. thiebautii* and *A. macleodii* before, like 'BIOT', nitrate, and propionate. So it seems like the bacterial associates have similar interactions with their cyanobacterial partner.
+When the program finishes, you will get similar output files as before, except that multiple pairs of genomes will be included in the results. The predictions include many of the same exchanges that we saw between *T. thiebautii* and *A. macleodii* before, like 'BIOT', nitrate, and thymine. So it seems like the bacterial associates have similar interactions with their cyanobacterial partner.
 
 ### Metabolic conclusions
 
-We've now used several different strategies to investigate the metabolism of our _Trichodesmium_ genomes and their bacterial associates. We've once again recapitulated the lack of nitrogen fixation in *T. miru* and *T. nobis*, and we've tried some very new programs for predicting metabolic interactions
+We've now used several different strategies to investigate the metabolism of our _Trichodesmium_ genomes and their bacterial associates. We've once again recapitulated the lack of nitrogen fixation in *T. miru* and *T. nobis*, and we've tried some very new programs for visualizing KEGG Pathway Maps and for predicting metabolic interactions.
 
 Don't forget to go back to the parent directory before you move on to the next tutorial section:
 ```bash
