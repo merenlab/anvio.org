@@ -104,8 +104,7 @@ Here is an overview of the workshop content:
 
 ## Workshop materials
 
-{:.notice}
-We will update this section with a link to download slides after the workshop. Tutorial links will also be updated before the workshop begins.
+The lecture slides for the workshop can be downloaded from [this Figshare link](https://figshare.com/articles/presentation/Lecture_Slides_for_the_2026_anvi_o_workshop_in_Oldenburg/31900315).
 
 The table below shows the links to the tutorials used in each workshop session.
 
@@ -138,6 +137,9 @@ The following individuals from the HIFMB are responsible for organizing and teac
 {% include person/display_mini_single.html github="FlorianTrigodet" %} | Primary Organizer & Faculty
 {% include person/display_mini_single.html github="ivagljiva" %} | Primary Organizer & Faculty
 {% include person/display_mini_single.html github="meren" %} | Organizer & Faculty
+{% include person/display_mini_single.html github="katysloz" %} | Teaching Assistant
+{% include person/display_mini_single.html github="ahenoch" %} | Teaching Assistant
+[Avril von Hoyningen-Huene](https://merenlab.org/people/#avril-von-hoyningen-huene) | Teaching Assistant
 
 ## List of Participants
 
