@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7634,
+        "total_commits": 7640,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,15 +14,15 @@
             "2023": 227,
             "2024": 188,
             "2025": 451,
-            "2026": 37
+            "2026": 43
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "update docs",
-        "latest_commit_hash": "7550722153d1ce6548188e661272511f373a8128",
-        "latest_commit_date": "17 March 2026"
+        "latest_commit_message": "the program is not in master yet",
+        "latest_commit_hash": "e9750796e2e6cb15cf807693fb0ccb44dad3ffdc",
+        "latest_commit_date": "31 March 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 326,
+        "total_commits": 342,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 109
+            "2026": 125
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "Updated interactive artefact",
-        "latest_commit_hash": "6c37d894445b7647b490d25b59e5e8dfc65eba39",
-        "latest_commit_date": "16 March 2026"
+        "latest_commit_message": "fix missing keys in items additional data",
+        "latest_commit_hash": "6557f9757ddc3c9a95ac946a9a4cf3b4d8649f02",
+        "latest_commit_date": "27 March 2026"
     },
     "watsonar": {
         "total_commits": 10,
@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2533,
+        "total_commits": 2534,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 18
+            "2026": 19
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "another fixy, since annotation source arg can be None",
-        "latest_commit_hash": "ec9a86df6afac4e679ede20d45f5b31ee1bb7934",
-        "latest_commit_date": "14 March 2026"
+        "latest_commit_message": "fix anvi-summarize bug: avoid KeyErrors when misc data dictionary does not include the same set of keys for every item",
+        "latest_commit_hash": "917ec9a5e1d01956e19e84e1ee72e33e326df456",
+        "latest_commit_date": "27 March 2026"
     },
     "moritzbuck": {
         "total_commits": 3,

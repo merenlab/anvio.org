@@ -1,10 +1,10 @@
 ---
 layout: artifact
-title: paired-end-fastq
+title: single-end-fastq
 excerpt: A FASTQ-type anvi'o artifact. This artifact can be generated, used, and/or exported by anvi'o. It can also be provided **by the user** for anvi'o to import into its databases, process, and/or use.
 categories: [anvio]
 comments: false
-redirect_from: /m/paired-end-fastq
+redirect_from: /m/single-end-fastq
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -23,7 +23,7 @@ A FASTQ-type anvi'o artifact. This artifact can be generated, used, and/or expor
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-script-gen-pseudo-paired-reads-from-fastq](../../programs/anvi-script-gen-pseudo-paired-reads-from-fastq)</span> <span class="artifact-p">[anvi-script-gen-reads](../../programs/anvi-script-gen-reads)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-script-gen-reads](../../programs/anvi-script-gen-reads)</span></p>
 
 
 ## Required or used by
@@ -35,5 +35,5 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 ## Description
 
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "paired-end-fastq.md". Its contents will replace this sad text. THANK YOU!
+**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "single-end-fastq.md". Its contents will replace this sad text. THANK YOU!
 

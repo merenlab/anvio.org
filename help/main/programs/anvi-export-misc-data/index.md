@@ -47,35 +47,43 @@ Export additional data or order tables in pan or profile databases for items or 
 
 This program lets you export miscellaneous data of your choosing into a text file, which can be imported into another anvi'o project using <span class="artifact-p">[anvi-import-misc-data](/help/main/programs/anvi-import-misc-data)</span>. You can export the same types of data that you can import with that function. These are also listed below.
 
-To see what misc-data is available in your database, use <span class="artifact-p">[anvi-show-misc-data](/help/main/programs/anvi-show-misc-data)</span>. 
+To see what misc-data is available in your database, use <span class="artifact-p">[anvi-show-misc-data](/help/main/programs/anvi-show-misc-data)</span>.
 
-If your misc-data is associated with a specific data group, you can provide that data group to this program with the `-D` flag. 
+If your misc-data is associated with a specific data group, you can provide that data group to this program with the `-D` flag. For instance, to export only the homogeneity indices from a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>:
 
-## Data types you can export 
+<div class="codeblock" markdown="1">
+anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
+                      &#45;&#45;target&#45;data&#45;table items \
+                      &#45;D homogeneity
+</div>
+
+Several anvi'o programs create named data groups automatically. For items data in a pan database, common groups include `gene_cluster_stats`, `SCG`, `homogeneity`, `AAI`, `functional_annotation`, and `bayesian_pan_core`. See <span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span> for details.
+
+## Data types you can export
 
 ### From a pan-db or profile-db: items, layers, layer orders
 
 **From a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, you can export**
 
-- items data (<span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span>) into a <span class="artifact-n">[misc-data-items-txt](/help/main/artifacts/misc-data-items-txt)</span>. 
+- items data (<span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span>) into a <span class="artifact-n">[misc-data-items-txt](/help/main/artifacts/misc-data-items-txt)</span>.
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
-                      &#45;&#45;target&#45;data&#45;table items 
+                      &#45;&#45;target&#45;data&#45;table items
 </div>
 
-- layers data (<span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span>) into a <span class="artifact-n">[misc-data-layers-txt](/help/main/artifacts/misc-data-layers-txt)</span>.  
+- layers data (<span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span>) into a <span class="artifact-n">[misc-data-layers-txt](/help/main/artifacts/misc-data-layers-txt)</span>.
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
-                      &#45;&#45;target&#45;data&#45;table layers 
+                      &#45;&#45;target&#45;data&#45;table layers
 </div>
 
-- layer orders data (<span class="artifact-n">[misc-data-layer-orders](/help/main/artifacts/misc-data-layer-orders)</span>) into a <span class="artifact-n">[misc-data-layer-orders-txt](/help/main/artifacts/misc-data-layer-orders-txt)</span>. 
+- layer orders data (<span class="artifact-n">[misc-data-layer-orders](/help/main/artifacts/misc-data-layer-orders)</span>) into a <span class="artifact-n">[misc-data-layer-orders-txt](/help/main/artifacts/misc-data-layer-orders-txt)</span>.
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
-                      &#45;&#45;target&#45;data&#45;table layer_orders 
+                      &#45;&#45;target&#45;data&#45;table layer_orders
 </div>
 
 ### From a contigs-db: nucleotide and amino acid information
@@ -85,14 +93,14 @@ anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#
 - nucleotide data (<span class="artifact-n">[misc-data-nucleotides](/help/main/artifacts/misc-data-nucleotides)</span>) into a <span class="artifact-n">[misc-data-nucleotides-txt](/help/main/artifacts/misc-data-nucleotides-txt)</span>.
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> 
+anvi&#45;export&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span>
                       &#45;&#45;target&#45;data&#45;table nucleotides
 </div>
 
 - amino acid data (<span class="artifact-n">[misc-data-amino-acids](/help/main/artifacts/misc-data-amino-acids)</span>) into a <span class="artifact-n">[misc-data-amino-acids-txt](/help/main/artifacts/misc-data-amino-acids-txt)</span>.
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> 
+anvi&#45;export&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span>
                       &#45;&#45;target&#45;data&#45;table amino_acids
 </div>
 

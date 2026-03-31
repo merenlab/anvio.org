@@ -57,6 +57,24 @@ Also see the program <span class="artifact-p">[anvi-show-misc-data](/help/main/p
 
 Please see [this blog post](http://merenlab.org/2017/12/11/additional-data-tables) for a comprehensive documentation on these misc data types.
 
+### Data groups for items
+
+Items additional data is organized into **data groups**. When you import data without specifying a group, it goes into the `default` group. You can assign your data to a specific group using the `-D` flag:
+
+<div class="codeblock" markdown="1">
+anvi&#45;import&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
+                      &#45;t items \
+                      &#45;D my_analysis \
+                      <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;txt](/help/main/artifacts/misc&#45;data&#45;items&#45;txt)</span>
+</div>
+
+In the interactive interface, each group appears as a checkbox in the Main tab, allowing you to toggle entire groups of layers on or off. Groups also provide automatic visual separation between related layers.
+
+Several anvi'o programs automatically create named groups when they write items additional data. For instance, <span class="artifact-p">[anvi-pan-genome](/help/main/programs/anvi-pan-genome)</span> creates groups like `gene_cluster_stats`, `SCG`, `homogeneity`, and `AAI`. See <span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span> for the full list.
+
+{:.notice}
+Data key names must be unique across all groups. If you try to import a key that already exists in another group, anvi'o will report an error. You can remove the existing key first with <span class="artifact-p">[anvi-delete-misc-data](/help/main/programs/anvi-delete-misc-data)</span> if needed.
+
 ## Nucleotides, Amino Acids, and Contigs Databases
 
 This feature lets you import additional data about specfic residues or specific base pairs into your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. This is especially useful for strucutral analysis (so when running programs like <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span>) and will be very relevant to the InteracDome functionality when it's added in anvi'o v7 (curious readers can take a look at [this blog post](http://merenlab.org/2020/07/22/interacdome/)).

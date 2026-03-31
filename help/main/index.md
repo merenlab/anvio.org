@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **17 Mar 26 09:37:20** for anvi'o version **9-dev (eunice)**.
+The help contents were last updated on **31 Mar 26 09:14:16** for anvi'o version **9-dev (eunice)**.
 
 
 {% include _project-anvio-version.html %}
@@ -46,7 +46,7 @@ The anvi'o 9-dev (eunice) contains 5 workflows:
 
 Anvi'o artifacts represent **concepts, file types, or data types** anvi'o programs can work with. A given anvi'o artifact can be provided by the user (such as a FASTA file), produced by anvi'o (such as a profile database), or both (such as phylogenomic trees). Anvi'o artifacts link anvi'o programs to each other to build novel workflows.
 
-Listed below **a total of 143 artifacts**.
+Listed below **a total of 144 artifacts**.
 
 <table class="artifacts-table">
 
@@ -67,7 +67,7 @@ Listed below **a total of 143 artifacts**.
 </tr>
 
 <tr>
-<td><div class="artifact-icon-div"><img src="images/icons/FASTQ.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[paired-end-fastq](artifacts/paired-end-fastq)</span></td>
+<td><div class="artifact-icon-div"><img src="images/icons/FASTQ.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[paired-end-fastq](artifacts/paired-end-fastq)</span> <span class="artifact-n" markdown="1">[single-end-fastq](artifacts/single-end-fastq)</span></td>
 </tr>
 
 <tr>
@@ -132,7 +132,7 @@ Listed below **a total of 143 artifacts**.
 
 Anvi'o programs perform atomic tasks that can be weaved together to implement complete 'omics workflows. Please note that there may be programs that are not listed on this page. You can type 'anvi-' in your terminal, and press the TAB key twice to see the full list of programs available to you on your system, and type `anvi-program-name --help` to read the full list of command line options.
 
-Listed below **a total of 160 programs**.
+Listed below **a total of 161 programs**.
 
 
 <div style="width:100%;">
@@ -4542,6 +4542,36 @@ Listed below **a total of 160 programs**.
 <tr style="border:none;">
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ekiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-gen-reads](programs/anvi-script-gen-reads)**</span>. <span markdown="1">Generate synthetic sequencing reads (Illumina, PacBio HiFi, ONT) from reference FASTA files with optional SNV injection at controlled multi-allele frequencies</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">[fasta](artifacts/fasta) <img src="images/icons/FASTA.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">[paired-end-fastq](artifacts/paired-end-fastq) <img src="images/icons/FASTQ.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[single-end-fastq](artifacts/single-end-fastq) <img src="images/icons/FASTQ.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/floriantrigodet" target="_blank"><img class="anvio-person-photo-img-mini" title="Florian Trigodet" src="images/authors/FlorianTrigodet.jpg" /></a></div></div>
 
     </td>
 </tr>

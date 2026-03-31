@@ -45,9 +45,9 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-After you've added misc-data of some kind (<span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span>, <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span>, <span class="artifact-n">[misc-data-layer-orders](/help/main/artifacts/misc-data-layer-orders)</span>, <span class="artifact-n">[misc-data-nucleotides](/help/main/artifacts/misc-data-nucleotides)</span>, or <span class="artifact-n">[misc-data-amino-acids](/help/main/artifacts/misc-data-amino-acids)</span>) using <span class="artifact-p">[anvi-import-misc-data](/help/main/programs/anvi-import-misc-data)</span>, you can **delete that data and remove it from the interactive interface** using this program. 
+After you've added misc-data of some kind (<span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span>, <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span>, <span class="artifact-n">[misc-data-layer-orders](/help/main/artifacts/misc-data-layer-orders)</span>, <span class="artifact-n">[misc-data-nucleotides](/help/main/artifacts/misc-data-nucleotides)</span>, or <span class="artifact-n">[misc-data-amino-acids](/help/main/artifacts/misc-data-amino-acids)</span>) using <span class="artifact-p">[anvi-import-misc-data](/help/main/programs/anvi-import-misc-data)</span>, you can **delete that data and remove it from the interactive interface** using this program.
 
-This program will release your data into the ether, never to be seen again. If you would like to first export it into a text file (so that it can be seen again), you can do so with <span class="artifact-p">[anvi-export-misc-data](/help/main/programs/anvi-export-misc-data)</span>. 
+This program will release your data into the ether, never to be seen again. If you would like to first export it into a text file (so that it can be seen again), you can do so with <span class="artifact-p">[anvi-export-misc-data](/help/main/programs/anvi-export-misc-data)</span>.
 
 This program only works on data that is listed as an available key (most often because it was previously imported by the user). To view available keys, call either
 
@@ -57,7 +57,7 @@ anvi&#45;delete&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#
                       &#45;&#45;list&#45;available&#45;keys
 </div>
 
-or 
+or
 
 <div class="codeblock" markdown="1">
 anvi&#45;delete&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -65,17 +65,26 @@ anvi&#45;delete&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#
                       &#45;&#45;list&#45;available&#45;keys
 </div>
 
-where you choose the appropriate option for the `taget-data-table`. 
+where you choose the appropriate option for the `taget-data-table`.
 
-If your misc-data is associated with a specific data group, you can provide that data group to this program with the `-D` flag. 
+If your misc-data is associated with a specific data group, you can provide that data group to this program with the `-D` flag. For example, to delete the homogeneity data that <span class="artifact-p">[anvi-pan-genome](/help/main/programs/anvi-pan-genome)</span> or <span class="artifact-p">[anvi-compute-gene-cluster-homogeneity](/help/main/programs/anvi-compute-gene-cluster-homogeneity)</span> stored in a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>:
 
-## Data types you can delete 
+<div class="codeblock" markdown="1">
+anvi&#45;delete&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
+                      &#45;&#45;target&#45;data&#45;table items \
+                      &#45;D homogeneity \
+                      &#45;&#45;keys&#45;to&#45;remove functional_homogeneity_index,geometric_homogeneity_index,combined_homogeneity_index
+</div>
+
+For a list of common data groups created by anvi'o programs, see <span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span>.
+
+## Data types you can delete
 
 ### From a pan-db or profile-db: items, layers, layer orders
 
 **From a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, you can delete**
 
-- items data (<span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span>) 
+- items data (<span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span>)
 
 <div class="codeblock" markdown="1">
 anvi&#45;delete&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
