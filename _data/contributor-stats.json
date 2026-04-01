@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7640,
+        "total_commits": 7649,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 188,
             "2025": 451,
-            "2026": 43
+            "2026": 52
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "the program is not in master yet",
-        "latest_commit_hash": "e9750796e2e6cb15cf807693fb0ccb44dad3ffdc",
-        "latest_commit_date": "31 March 2026"
+        "latest_commit_message": "update component tests while at it",
+        "latest_commit_hash": "083e79fef82d84a266c1036271cd9f1b110cc8f2",
+        "latest_commit_date": "01 April 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 342,
