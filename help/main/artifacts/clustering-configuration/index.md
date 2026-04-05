@@ -40,9 +40,9 @@ These configuration files are primarily used internally by anvi'o when it merges
 
 Anvi'o ships with a set of default clustering configurations under `anvio/data/clusterconfigs/`, organized into subdirectories for different use cases (`merged/`, `single/`, `pan/`, etc.). You can browse these configurations online at [github.com/merenlab/anvio/tree/master/anvio/data/clusterconfigs](https://github.com/merenlab/anvio/tree/master/anvio/data/clusterconfigs), or find them on your computer wherever anvi'o is installed. For instance, you can run the following command in your terminal and it will show you the exact path for the clustering configuration files on your system:
 
-<div class="codeblock" markdown="1">
-python &#45;c "from pathlib import Path; import anvio; print(Path(anvio.__file__).parent / 'data/clusterconfigs')"
-</div>
+```
+python -c "from pathlib import Path; import anvio; print(Path(anvio.__file__).parent / 'data/clusterconfigs')"
+```
 
 These built-in configurations are good starting points for writing your own.
 

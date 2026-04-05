@@ -23,7 +23,7 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-import-functions](../../programs/anvi-import-functions)</span> <span class="artifact-p">[anvi-run-cazymes](../../programs/anvi-run-cazymes)</span> <span class="artifact-p">[anvi-run-kegg-kofams](../../programs/anvi-run-kegg-kofams)</span> <span class="artifact-p">[anvi-run-ncbi-cogs](../../programs/anvi-run-ncbi-cogs)</span> <span class="artifact-p">[anvi-run-pfams](../../programs/anvi-run-pfams)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-annotate-fragmented-genes](../../programs/anvi-annotate-fragmented-genes)</span> <span class="artifact-p">[anvi-import-functions](../../programs/anvi-import-functions)</span> <span class="artifact-p">[anvi-run-cazymes](../../programs/anvi-run-cazymes)</span> <span class="artifact-p">[anvi-run-kegg-kofams](../../programs/anvi-run-kegg-kofams)</span> <span class="artifact-p">[anvi-run-ncbi-cogs](../../programs/anvi-run-ncbi-cogs)</span> <span class="artifact-p">[anvi-run-pfams](../../programs/anvi-run-pfams)</span></p>
 
 
 ## Required or used by

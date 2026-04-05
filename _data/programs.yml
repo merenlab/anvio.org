@@ -8,22 +8,9 @@
     - name: anvi-run-workflow
     - name: anvi-setup-cazymes
     - name: anvi-script-filter-hmm-hits-table
-- author: ozcan
-  programs:
-    - name: anvi-cluster-contigs
-    - name: anvi-display-contigs-stats
-    - name: anvi-display-structure
-    - name: anvi-gen-contigs-database
-    - name: anvi-gen-phylogenomic-tree
-    - name: anvi-inspect
-    - name: anvi-interactive
-    - name: anvi-migrate
-    - name: anvi-profile
-    - name: anvi-run-pfams
-    - name: anvi-setup-pfams
-    - name: anvi-script-checkm-tree-to-interactive
 - author: meren
   programs:
+    - name: anvi-annotate-fragmented-genes
     - name: anvi-cluster-contigs
     - name: anvi-compute-completeness
     - name: anvi-compute-functional-enrichment-in-pan
@@ -128,6 +115,20 @@
     - name: anvi-script-reformat-fasta
     - name: anvi-script-snvs-to-interactive
     - name: anvi-script-transpose-matrix
+- author: ozcan
+  programs:
+    - name: anvi-cluster-contigs
+    - name: anvi-display-contigs-stats
+    - name: anvi-display-structure
+    - name: anvi-gen-contigs-database
+    - name: anvi-gen-phylogenomic-tree
+    - name: anvi-inspect
+    - name: anvi-interactive
+    - name: anvi-migrate
+    - name: anvi-profile
+    - name: anvi-run-pfams
+    - name: anvi-setup-pfams
+    - name: anvi-script-checkm-tree-to-interactive
 - author: ivagljiva
   programs:
     - name: anvi-compute-functional-enrichment-across-genomes
