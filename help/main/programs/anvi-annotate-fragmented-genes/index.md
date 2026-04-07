@@ -105,9 +105,11 @@ anvi&#45;annotate&#45;fragmented&#45;genes &#45;p <span class="artifact&#45;n">[
                                &#45;&#45;annotation&#45;source COG24_FUNCTION
 </div>
 
-This will display the most common function name from that source next to each gene cluster ID, making it easier to identify which genes are affected without having to look them up separately in the pangenome.
+This will display the consensus functional annotation for each gene cluster (i.e., the most common function across all genes in it) for you to have a quick idea about their potential role:
 
-The purpose of this report is for you to go back to the pangenome with <span class="artifact-p">[anvi-display-pan](/help/main/programs/anvi-display-pan)</span>, search for some of the gene clusters, and inspect them to confirm that you are happy with the result.
+![terminal_output](../../images/anvi-annotate-fragmented-genes-w-functions.png)
+
+The purpose of the terminal output is to give you a sense of the decisions made and how they look in the context of the pangenome in general. It would be useful to go back to the pangenome with <span class="artifact-p">[anvi-display-pan](/help/main/programs/anvi-display-pan)</span>, search for some of the gene clusters, and inspect them to confirm that you are happy with the results.
 
 If you are satisfied and would like your pangenome to include this information, you will need to restart the pangenomics workflow with these newly annotated <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> files so <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span> output can include the necessary data for you to be able to do functional enrichment analyses of genes that have `fragmented_gene` annotations.
 
