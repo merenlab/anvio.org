@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7667,
+        "total_commits": 7675,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 188,
             "2025": 451,
-            "2026": 70
+            "2026": 78
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "justification for --find-stray-fragments",
-        "latest_commit_hash": "0433290e9464081f0a4d63f4ead3bbaf00bcc9c7",
-        "latest_commit_date": "06 April 2026"
+        "latest_commit_message": "much prettier reporting",
+        "latest_commit_hash": "8b85780f877a375d9eed85bfa372f15b21a1b68f",
+        "latest_commit_date": "07 April 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 342,
