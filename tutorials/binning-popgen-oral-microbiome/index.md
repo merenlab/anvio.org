@@ -157,7 +157,7 @@ These are the databases that were put into the datapack for this tutorial, which
 
 First, let's download the tutorial datapack. Just so you know, the archived databack is about half a gigabyte in size, and once unpacked it will take up ~1.6Gb of space on your computer. If you are okay with that, here are the download commands:
 
-```
+```bash
 curl -L https://cloud.uol.de/public.php/dav/files/c4TyGoDe3D7XPiq \
      -o BINNING_POPGEN_TUTORIAL.tar.gz
 tar -xvf BINNING_POPGEN_TUTORIAL.tar.gz && cd BINNING_POPGEN_TUTORIAL/
@@ -169,7 +169,7 @@ You should now be inside the datapack directory on your terminal. The directory 
 
 Let's take a look at what we have in the database.
 
-```
+```bash
 anvi-display-contigs-stats T_B_M-contigs.db
 ```
 
@@ -187,7 +187,7 @@ Anyway, we expect to find **at least 25 bacterial populations** in this co-assem
 
 We will be refining metabins that were automatically binned by CONCOCT. Let's check which {% include ARTIFACT name="collection" text="collections" %} we have available for this co-assembly. Collections of bins are stored in the profile database, so we pass that database as a parameter to {% include PROGRAM name="anvi-show-collections-and-bins" text="anvi-show-collections-and-bins" %}:
 
-```
+```bash
 anvi-show-collections-and-bins -p PROFILE.db
 ```
 
@@ -220,7 +220,7 @@ This is the collection we are going to work on in just a moment.
 
 First, let's just take a look at the co-assembly and its mapping data.
 
-```
+```bash
 anvi-interactive -c T_B_M-contigs.db -p PROFILE.db \
     --title "T-B-M co-assembly"
 ```
@@ -234,7 +234,7 @@ If you check the 'Items order' label at the top, you will see that the contigs (
 
 Just out of curiousity, let's take a look at how the standard CONCOCT bins group the contigs from the co-assembly. You can _either_ load the bin collection `CONCOCT` from the 'Bins' panel in the interface, or close and re-open the interface with `--collection-autoload` in the command:
 
-```
+```bash
 anvi-interactive -c T_B_M-contigs.db -p PROFILE.db \
     --title "T-B-M co-assembly (CONCOCT collection)" \
     --collection-autoload CONCOCT
@@ -246,7 +246,7 @@ You can see a lot of mixing between the different bins. There are some sections 
 
 What do the metabins look like? Again, you can load the collection from the interface, or re-start the interface with a new collection name to load:
 
-```
+```bash
 anvi-interactive -c T_B_M-contigs.db -p PROFILE.db \
     --title "T-B-M co-assembly (CONCOCT_c10 collection)" \
     --collection-autoload CONCOCT_c10
@@ -272,7 +272,7 @@ Somewhat arbitrarily, we selected the second-largest bin, Bin 3, to refine for t
 
 Here is the command to refine Bin 3. It will open the interactive interface again, but this time _only_ showing the contigs (technically, their [splits](https://anvio.org/vocabulary/#split)) belonging to Bin 3.
 
-```
+```bash
 anvi-refine -c T_B_M-contigs.db -p PROFILE.db -C CONCOCT_c10 -b Bin_3
 ```
 
@@ -302,7 +302,7 @@ Congratulations! You just refined a metabin. :)
 
 If you want to see how your bin looks in the context of the larger co-assembly, you can do that by going back to the regular interactive interface, using the following command to automatically open the (now partially-refined) `CONCOCT_c10` collection.
 
-```
+```bash
 anvi-interactive -c T_B_M-contigs.db -p PROFILE.db \
     --title "T-B-M co-assembly (CONCOCT_c10 collection)" \
     --collection-autoload CONCOCT_c10
@@ -312,7 +312,7 @@ anvi-interactive -c T_B_M-contigs.db -p PROFILE.db \
 
 If you want to load our collection of refined bins to view them in the larger context, you can run the following:
 
-```
+```bash
 anvi-import-collection -p PROFILE.db -C refined_c10 refined.txt -c T_B_M-contigs.db
 anvi-import-collection -p PROFILE.db -C refined_Bin_3 refined_Bin_3.txt -c T_B_M-contigs.db
 ```
@@ -320,7 +320,7 @@ The collection `refined_Bin_3` contains only the bins we extracted from the meta
 
 You can then load up the `refined_c10` collection like this:
 
-```
+```bash
 anvi-interactive -c T_B_M-contigs.db -p PROFILE.db \
     --title "T-B-M co-assembly (CONCOCT_c10 collection)" \
     --collection-autoload refined_c10
@@ -332,7 +332,7 @@ It's a bit messy, but hopefully you can pick out the locations where Bin 3 turne
 
 It is a bit easier to see how fragmented the new, refined bins are in this organization if we load the `refined_Bin_3` collection to see only those 7 bins:
 
-```
+```bash
 anvi-interactive -c T_B_M-contigs.db -p PROFILE.db \
     --title "T-B-M co-assembly (refined bins collection)" \
     --collection-autoload refined_Bin_3
@@ -358,19 +358,19 @@ Which microbial population should we compare? In order to robustly call sequence
 
 Let's take a look at the coverage of our refined bins across our samples. If you haven't already, you can import our refined collection into the contigs database of the datapack:
 
-```
+```bash
 anvi-import-collection -p PROFILE.db -C refined_Bin_3 refined_Bin_3.txt -c T_B_M-contigs.db
 ```
 
 These are the 7 bins we refined from the metabin 'Bin 3' in the previous chapter. To get a table of coverage for our bins across samples, we will use the program {% include PROGRAM name="anvi-summarize" text="anvi-summarize" %}:
 
-```
+```bash
 anvi-summarize -p PROFILE.db -c T_B_M-contigs.db -C refined_Bin_3
 ```
 
 Once this command finishes, you should see a new directory of output containing a bunch of summary tables describing our collection of refined bins. Within that directory is a subfolder called `bins_across_samples`:
 
-```
+```bash
 ls SUMMARY/bins_across_samples/
 ```
 
@@ -378,7 +378,7 @@ In the subfolder's content list, you should see files with `coverage` in the nam
 
 Currently that table has bins in the rows and samples in the columns, which makes it quite wide and unwieldy to look at in the terminal. Let's quickly transpose that matrix and print it out.
 
-```
+```bash
 anvi-script-transpose-matrix SUMMARY/bins_across_samples/mean_coverage_Q2Q3.txt -o Q2Q3_transposed.txt
 cat Q2Q3_transposed.txt
 ```
@@ -469,7 +469,7 @@ Let's move on to the population genetics comparison.
 
 Now that we know which bin to compare across which samples, we can ask anvi'o to profile the variation for us. Here is the command:
 
-```
+```bash
 anvi-gen-variability-profile -c T_B_M-contigs.db \
                -p PROFILE.db \
                -C refined_Bin_3 \
@@ -534,7 +534,7 @@ First, let's do it using the anvi'o interactive interface. We can do this by con
 
 Luckily, there is already a program that will consolidate and reformat our variability table for us, then create a profile database with a nice organization of the variable positions:
 
-```
+```bash
 anvi-script-snvs-to-interactive Prevotella-SNVs.txt -o Prevotella-snvs
 ```
 
@@ -543,7 +543,7 @@ Note that this script by default makes the `departure_from_consensus` column the
 
 We can then visualize the variable positions by running the following command:
 
-```
+```bash
 anvi-interactive --manual -p Prevotella-snvs/profile.db \
                  --tree Prevotella-snvs/tree.txt \
                  --view-data Prevotella-snvs/view.txt \
@@ -560,14 +560,14 @@ The main layers of this interface show the `departure_from_consensus` value for 
 But currently the interface isn't really pretty. Let's make it match the colors from our co-assembly so that we can more easily distinguish between samples from different individuals (and different couples).
 
 To do this, we'll export the visualization settings from the co-assembly's profile database, and import those settings into this profile database:
-```
+```bash
 anvi-export-state -p PROFILE.db -s default -o default.json
 anvi-import-state -p Prevotella-snvs/profile.db -n default -s default.json
 ```
 
 Then we can simply re-run the interactive command:
 
-```
+```bash
 anvi-interactive --manual -p Prevotella-snvs/profile.db \
                  --tree Prevotella-snvs/tree.txt \
                  --view-data Prevotella-snvs/view.txt \
@@ -586,7 +586,7 @@ To confirm whether the _P. jejuni_ populations are similar between `T-A-F` and `
 
 Let's do it. All we need is to pass the {% include ARTIFACT name="variability-profile-txt" text="variability table" %} to {% include PROGRAM name="anvi-gen-fixation-index-matrix" text="anvi-gen-fixation-index-matrix" %}, cluster the output matrix to get a dendrogram in Newick format, and open the dendrogram in the interface:
 
-```
+```bash
 anvi-gen-fixation-index-matrix --variability-profile Prevotella-SNVs.txt \
                                --output-file FST_Prevotella.txt
 anvi-matrix-to-newick FST_Prevotella.txt -o FST_Prevotella.nwk
@@ -607,7 +607,7 @@ Another way of displaying the same data would be to compute a network, where var
 
 Here is the command to convert the variability table into a graph file that is compatible with the [network visualization software Gephi](https://gephi.org/):
 
-```
+```bash
 anvi-gen-variability-network -i Prevotella-SNVs.txt \
                              -o Prevotella-SNVs.gexf
 ```
