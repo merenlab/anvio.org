@@ -5,6 +5,13 @@
   summary: "Basics of the command line environment, the best friend of any scientist who wishes to work with data."
   tags: [hands-on, beginner]
 
+- title: The anvi'o interactive interface
+  type: tutorial
+  url: /tutorials/interactive-interface/
+  authors: [FlorianTrigodet]
+  summary: "A tutorial on the anvi'o interactive interface covering vocabulary and basics of the display with hands-on exercises"
+  tags: [interactive, visualization, genomics, hands-on, beginner]
+
 - title: Basics of metagenomic read recruitment
   type: tutorial
   url: https://youtu.be/MqD4aN1p1qA?t=344
