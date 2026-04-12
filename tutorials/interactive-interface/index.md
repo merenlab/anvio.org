@@ -137,7 +137,7 @@ Your first task is to change the color of some layers, like the three sample lay
 
 {% include IMAGE path="/images/interactive-interface/exercise1_02.png" width=80 %}
 
-You can directly change the colors of each layer in the Main tab by either manually selecting a color, or copy/paste a hexadecimal color code directly. Now that you have made some modification to the display, you should probably save them, otherwise they will be lost when you re-open the same interactive interface. To save the State of the display, click on the "Save" button and choose a name for your current state.
+You can directly change the colors of each layer in the Main tab by either manually selecting a color, or copy-pasting a hexadecimal color code directly. Now that you have made some modifications to the display, you should probably save them, otherwise they will be lost when you re-open the same interactive interface. To save the State of the display, click on the "Save" button and choose a name for your current state.
 
 {% include IMAGE path="/images/interactive-interface/exercise1_03.png" width=40 %}
 
@@ -145,7 +145,7 @@ You can directly change the colors of each layer in the Main tab by either manua
 If you save a state called 'default', it will automatically be loaded when launching the interactive interface.
 
 Your second task will be to apply the same color to all sample layers. You can manually change the color for the three layers one by one, but one day you will have a display with 100 layers and YOU REALLY DON'T WANT TO CHANGE ALL OF THEM ONE BY ONE. So you can use the 'Edit attributes for multiple layers', which applies a change (color, height, etc) to the selected layers.
-You can select layers by checking the right-most checkbox, or you can search for layer names matching some characters like this:
+You can select layers by checking the right-most checkbox, or you can search for layer names matching some characters like this (hit enter or click away from the box for the changes to apply):
 
 {% include IMAGE path="/images/interactive-interface/exercise1_04.png" width=80 %}
 
@@ -163,7 +163,7 @@ As you can see from the display, we have loads of barplots, which are nice but w
 
 ### Export the image as an SVG
 
-If you are now happy with your figure and want to include it in your manuscript, you click the **Export** button to get an SVG file which you can then edit with your favorite vector image software (*cough cough - inkscape*).
+If you are now happy with your figure and want to include it in your manuscript, you click the **Export** button to get an SVG file which you can then edit with your favorite vector image software (*cough cough - [inkscape](https://inkscape.org/)*).
 
 {% include IMAGE path="/images/interactive-interface/exercise1_07.png" width=80 %}
 
@@ -193,11 +193,11 @@ In a pangenome display:
 - **Items** are gene clusters.
 - **Layers** are genomes.
 - The **inner dendrogram** organizes the gene clusters based on their distribution across genomes: gene clusters present in the same genomes will come together on the display.
-- Additional data for the **items** and **layers** are also present and describe properties of the gene clusters like the average amino-acid identity (AAI), or information about the genomes like the average nucleotide identity (ANI).
+- Additional data for the **items** and **layers** are also present and describe properties of the gene clusters like the average amino-acid identity (AAI), or information about the genomes like the total number of gene clusters.
 
 ### Cosmetics: change the radius, remove and add layers
 
-As you can see, the display is crowded with information. The first thing you might notice is that we cannot even read the name of most of the layers. To solve this, we can increase the **Radius** of the inner dendrogram in the **Options** tab. Here I changed the **Radius** to a value of 3500 (don't forget to click **Draw** to refresh the display after changing the value):
+As you can see, the display is crowded with information. The first thing you might notice is that we cannot even read the names of most of the layers. To solve this, we can increase the **Radius** of the inner dendrogram in the **Options** tab. Here I changed the **Radius** to a value of 3500 (don't forget to click **Draw** to refresh the display after changing the value):
 
 {% include IMAGE path="/images/interactive-interface/exercise2_02.png" width=80 %}
 
@@ -209,11 +209,11 @@ Let's say we only want to keep the layer **Avg AAI**, and we want to remove **Ma
 
 {% include IMAGE path="/images/interactive-interface/exercise2_04.png" width=80 %}
 
-If you scroll down to the **Layers** section of the **Main** tab, you can see that we can modify the layer additional data in a similar fashion as the actual layers of the display. Let's remove uninformative layers by setting their **height** to 0. For that, I selected all the layers I wanted to remove with the right-most checkboxes, and used the section **Edit attributes for multiple layers** to set the height to 0:
+If you scroll down to the **Layers** section of the **Main** tab, you can see that we can modify the layers' additional data in a similar fashion as the actual layers of the display. Let's remove uninformative layers by setting their **height** to 0. For that, I selected all the layers I wanted to remove with the right-most checkboxes, and used the section **Edit attributes for multiple layers** to set the height to 0:
 
 {% include IMAGE path="/images/interactive-interface/exercise2_05.png" width=80 %}
 
-Great! Don't forget to save the state. If you close your browser or accidentally refresh the page, you would lose all unsaved changes.
+Great! Don't forget to save the state. If you closed your browser or accidentally refreshed the page, you would lose all unsaved changes.
 
 ### Re-order the layers and color genomes by group
 
@@ -225,7 +225,7 @@ For that, you will have to go to the **Main** tab and scroll to the **Layers** s
 
 Notice the new **dendrogram on the top-right**: it represents the clustering of the genomes based on the distribution of gene clusters. We now have **two visually distinct groups of genomes** on our display: a group of three genomes (inward) and two genomes (outward). We already have a "Group" additional layer data that matches our two distinct groups of genomes, but we can do more visually by coloring each group of genomes with a color per group.
 
-You already know how to apply the same color to multiple layers (here genomes): you need to select them using the checkboxes. I want to show you a *very* useful trick using the dendrogram we just added to the display. If you hover your mouse over the dendrogram, you will see that it highlights the tree. If you click on a group of genomes on this dendrogram, all these genomes will be selected in the **Main** tab and you can immediately change their attributes as a group:
+You already know how to apply the same color to multiple layers (here genomes): you need to select them using the checkboxes. I want to show you a *very* useful trick using the dendrogram we just added to the display. If you **hover your mouse over the dendrogram, you will see that it highlights the tree**. If you click on a group of genomes on this dendrogram, all these genomes will be selected in the **Main** tab and you can immediately change their attributes as a group:
 
 {% include IMAGE path="/images/interactive-interface/exercise2_07.png" width=80 %}
 
@@ -235,7 +235,7 @@ Finally, you can play with the margin between layers to increase the visual repr
 
 ### Create bins and save a collection
 
-Another important aspect of the interactive interface is the possibility to select **items** into **bins** and save them in a **collection**. If you are familiar with genome-resolve metagenomics, you have probably heard about binning: the process of putting together contigs supposedly belonging to the same population to create Metagenome-Assembled Genomes (MAGs). But fundamentally, the process of binning is the act of putting *something* together, whether it is contigs in a metagenomics context, or gene clusters in the context of pangenomes.
+Another important aspect of the interactive interface is the possibility to select **items** into **bins** and save them in a **collection**. If you are familiar with genome-resolved metagenomics, you have probably heard about binning: the process of putting together contigs supposedly belonging to the same population to create Metagenome-Assembled Genomes (MAGs). But fundamentally, the process of binning is the act of putting *something* together, whether it is contigs in a metagenomics context, or gene clusters in the context of pangenomes.
 
 In the interface, you will find the **Bins** tab, where you will see the current active bin (selected by the blue circle on the left). You can also create new bins with the **green + sign**, and you can also name and rename bins. To add items to a bin, you can simply click on the figure on the items to add to your bin. You can also select multiple items by clicking on **a branch in the inner dendrogram**. Your next task is to create a few bins like that:
 
@@ -268,15 +268,15 @@ Then in the **Search** tab, all the way down, you can click on the button **Appe
 
 {% include IMAGE path="/images/interactive-interface/exercise2_14.png" width=80 %}
 
-Don't forget to save that new collection, with a different name so you don't overwrite the previous collection. As a reminder: **you can have as many collections of bins as you want.**
+Don't forget to save that new collection with a different name so you don't overwrite the previous collection. As a reminder: **you can have as many collections of bins as you want.**
 
 <div class="extra-info" markdown="1">
 
 <span class="extra-info-header">States and Collections for collaboration</span>
 
-All the states and collections are stored in one of the input databases for either {% include PROGRAM name="anvi-interactive" %} or {% include PROGRAM name="anvi-display-pan" %} (also valid for all interactive commands in anvi'o). Which means that if you were to share these databases with a colleague/collaborator who also has anvi'o on their computer: they will be able to load your **States** and **Collections**, modify them, add new ones, etc.
+All the states and collections are stored in one of the input databases for either {% include PROGRAM name="anvi-interactive" %} or {% include PROGRAM name="anvi-display-pan" %} (also valid for all interactive commands in anvi'o). Which means that if you were to share these databases with a colleague/collaborator who also has anvi'o on their computer, they would be able to load your **States** and **Collections**, modify them, add new ones, etc.
 
-You can also export/import states and collections manually from the command line with the command {% include PROGRAM name="anvi-import-state" %}/{% include PROGRAM name="anvi-export-state" %} and {% include PROGRAM name="anvi-import-collection" %}/{% include PROGRAM name="anvi-export-collection" %}.
+You can also export/import states and collections manually from the command line with the commands {% include PROGRAM name="anvi-import-state" %}/{% include PROGRAM name="anvi-export-state" %} and {% include PROGRAM name="anvi-import-collection" %}/{% include PROGRAM name="anvi-export-collection" %}.
 
 </div>
 
@@ -288,7 +288,7 @@ In this third and final part of this tutorial, we will use the command {% includ
 
 After all, the interactive interface is just a fancy matrix visualization tool, where you can order your rows (items) and columns (layers) with dendrograms and you can augment the visualization with additional row/column information.
 
-The **manual mode** is often used to [display phylogenetic/phylogenomic trees](/tutorials/trichodesmium-tutorial/chapter-3/), in a similar fashion to other programs out there like iTOL. It is also used to [represent metabolic module heatmaps](/tutorials/fmt-mag-metabolism/#estimating-metabolism-for-these-mags). These are just examples, your imagination is the limit.
+The **manual mode** is often used to [display phylogenetic/phylogenomic trees](/tutorials/trichodesmium-tutorial/chapter-3/), in a similar fashion to other programs out there like iTOL. It is also used to [represent metabolic module heatmaps](/tutorials/fmt-mag-metabolism/#estimating-metabolism-for-these-mags). These are just examples; your imagination is the limit.
 
 ### Launching the display
 
@@ -299,7 +299,7 @@ anvi-interactive --manual \
                  -d data.txt
 ```
 
-Compared to the previous time we used {% include PROGRAM name="anvi-interactive" %}, we are now using the flag `--manual` for the manual-mode. We also provide a tree for the organization of **Items**, and a data table containing information about these items, where each column will be shown as **Layers** on the interface. Finally we need to use the flag `-p` for a {% include ARTIFACT name="profile-db" %}, which is normally used for storing read recruitment information. In manual-mode, we use the {% include ARTIFACT name="profile-db" %} only to store the **States** and **Collections**. You don't need to have one present in your directory the first time you use {% include PROGRAM name="anvi-interactive" %} in manual-mode, it will be created on the fly.
+Compared to the previous time we used {% include PROGRAM name="anvi-interactive" %}, we are now using the flag `--manual` for the manual-mode. We also provide a tree for the organization of **Items**, and a data table containing information about these items, where each column will be shown as **Layers** on the interface. Finally, we need to use the flag `-p` for a {% include ARTIFACT name="profile-db" %}, which is normally used for storing read recruitment information. In manual-mode, we use the {% include ARTIFACT name="profile-db" %} only to store the **States** and **Collections**. You don't need to have one present in your directory the first time you use {% include PROGRAM name="anvi-interactive" %} in manual-mode; it will be created on the fly.
 
 In this case, the {% include ARTIFACT name="profile-db" %} is included in the datapack because I created a few **States** for you to explore.
 
@@ -309,7 +309,7 @@ Here is what the display should look like for you:
 
 {% include IMAGE path="/images/interactive-interface/exercise3_01.png" width=80 %}
 
-By default, anvi'o uses the 3/4 circle shape, but you can change that. First of all, you can control the angle of the display in the **Options** tab, and make it a 180°:
+By default, anvi'o uses the 3/4 circle shape, but you can change that. First of all, you can control the angle of the display in the **Options** tab, and make it 180°:
 
 {% include IMAGE path="/images/interactive-interface/exercise3_02.png" width=80 %}
 
@@ -362,7 +362,7 @@ In this mock dataset, we have different data types represented in the layers: nu
 #### Numerical layers
 There are three "Sample" layers, which could be relative abundance in a sample, or you can think about other attributes like genome size, GC content, etc.
 
-For the next task, we will change these layers to different **types**. Right now, they are all barplots, but you can choose between bars, intensity (like a heatmap), and line:
+For the next task, we will change these layers to different **types**. Right now, they are all barplots, but you can choose between bar, intensity (like a heatmap), and line:
 
 {% include IMAGE path="/images/interactive-interface/exercise3_10.png" width=60 %}
 
