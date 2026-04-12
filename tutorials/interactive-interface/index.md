@@ -29,7 +29,7 @@ If you have any questions about this tutorial, or have ideas to make it better, 
 The datapack for the tutorial includes the necessary databases and other files that we will be using throughout this tutorial. To download them, simply copy and paste the following code into the working directory of your choice:
 
 ``` bash
-curl -L https://cloud.uol.de/public.php/dav/files/... \
+curl -L https://cloud.uol.de/public.php/dav/files/SMzBr8KbrKgQKrN \
      -o interactive_interface.tar.gz
 ```
 
@@ -44,7 +44,7 @@ At this point, if you check the datapack contents in your terminal with `ls`, th
 
 ```
 $ ls
-
+AUXILIARY-DATA.db CONTIGS.db        data.txt          GENOMES.db        PAN.db            PROFILE_MANUAL.db PROFILE.db        tree.nwk
 ```
 
 ---
