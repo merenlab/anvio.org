@@ -108,7 +108,7 @@ The lecture slides for the workshop can be downloaded from [this Figshare link](
 
 The table below shows the links to the tutorials used in each workshop session.
 
-Monday | Interactive interface | TBD
+Monday | Interactive interface | [https://anvio.org/tutorials/interactive-interface/](https://anvio.org/tutorials/interactive-interface/)
 Monday | Genomics | [https://anvio.org/tutorials/trichodesmium-tutorial/](https://anvio.org/tutorials/trichodesmium-tutorial/)
 Tuesday | Pangenomics | [https://anvio.org/tutorials/trichodesmium-tutorial/chapter-2](https://anvio.org/tutorials/trichodesmium-tutorial/chapter-2/)
 Tuesday | Phylogenomics | [https://anvio.org/tutorials/trichodesmium-tutorial/chapter-3](https://anvio.org/tutorials/trichodesmium-tutorial/chapter-3/)
