@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7676,
+        "total_commits": 7680,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,15 +14,15 @@
             "2023": 227,
             "2024": 188,
             "2025": 451,
-            "2026": 79
+            "2026": 83
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "terminal output with functions",
-        "latest_commit_hash": "91b30426936dbe29f3677ef8599bb01ede2d0009",
-        "latest_commit_date": "07 April 2026"
+        "latest_commit_message": "expand multi-selection functionality",
+        "latest_commit_hash": "d9c35aa5fb7cfe11c088e3a31562cf8413faf4ba",
+        "latest_commit_date": "14 April 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 342,
+        "total_commits": 350,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 125
+            "2026": 133
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "fix missing keys in items additional data",
-        "latest_commit_hash": "6557f9757ddc3c9a95ac946a9a4cf3b4d8649f02",
-        "latest_commit_date": "27 March 2026"
+        "latest_commit_message": "Fix bug loading branch support value from state",
+        "latest_commit_hash": "a156d3bb83400beb1da0055f5709057a78e7c430",
+        "latest_commit_date": "10 April 2026"
     },
     "watsonar": {
         "total_commits": 10,
