@@ -143,5 +143,46 @@ The following individuals from the HIFMB are responsible for organizing and teac
 
 ## List of Participants
 
-{:.notice}
-We will update this section with a list of all participants after the workshop.
+The following **39** individuals attended the workshop.
+
+|**`Full Name`**|**`University / Institution`**|
+|:--|:--|
+|Adam Jenofalvi|Biosustain, Technical University of Denmark|
+|Adam Vivian-Smith|Forest Genetics and Regeneration, Norwegian Institute of Bioeconomy Research|
+|Ahmad Hafiz Adeel|Institute of Soil Biology and Biogeochemistry, Biology Centre CAS|
+|Ana Maria Ramos Arroyo|Department of Biochemistry, School of Medicine, University of Costa Rica|
+|Anna Tausch|ICBM, University of Oldenburg|
+|Arlie McCarthy|University of Oldenburg|
+|Bram Vekeman|Department of Microbial Ecology, University of Vienna|
+|Carina Bunse|Department of Marine Sciences, University of Gothenburg|
+|Charlotte Kunze|Helmholtz Institute for Functional Marine Biodiversity|
+|Chloe Economou|Biologicals, Syngenta|
+|Christiane Böckel|Helmholtz Institute for Functional Marine Biodiversity|
+|Clara Maria Arboleda Baena|German Centre for Integrative Biodiversity Research (iDiv)|
+|Ella Case|Biology/Chemistry, MARUM, University of Bremen|
+|Esma Nur Bozlak|Environment, Earth & Ecosystem Sciences, The Open University|
+|Eva Donini|Department of Pharmacy and Biotechnology, University of Bologna|
+|Gurpreet Kharey|Biological Sciences, University of Calgary|
+|Igor Oliveira Duarte|Zoology Institute, University of Kiel|
+|Isabela Nori Ruscito|Department of Biological Oceanography, Oceanographic Institute, University of São Paulo|
+|Isha Athale|ICBM, University of Oldenburg|
+|Julia Pamphile dos Santos|MARUM, University of Bremen|
+|Kaumudi Prabhakara|Microbial Population Biology, Max Planck Institute for Evolutionary Biology|
+|Krzysztof T. Jurdzinski|Gene Technology, KTH Royal Institute of Technology|
+|Kuldeep Dilip More|The Geological Survey of Denmark and Greenland|
+|Maia El Zahab|ICBM, University of Oldenburg|
+|Maria Papadatou|Department of Functional and Evolutionary Ecology, University of Vienna|
+|Mona Parizadeh|Cumming School of Medicine, University of Calgary|
+|Nicolai Verbücheln|Department of Marine Sciences, University of Gothenburg|
+|Nina Tölke|Institute of Earth Surface Dynamics, University of Lausanne|
+|Nithin Joseph Simon|University of Oldenburg|
+|Or Amar|University of Amsterdam|
+|Pegah Kalatehjari|Department of Microbial Ecology and Environmental System Science, University of Vienna|
+|Sadaf Khan|Department of Agroecology, Aarhus University|
+|Sarah Förster|DOME: Centre for Microbiology and Environmental Systems Science, University of Vienna|
+|Sarah Hanke|Helmholtz Institute for Functional Marine Biodiversity|
+|Sergio George|Pediatrics, Universidad de Chile / Genetics, University Medical Center Groningen|
+|Slimane Khayi|Microbiology, Institut National de la Recherche Agronomique (INRA)|
+|Sophia Fatima|Max Planck Institute for Marine Microbiology|
+|Tomasa Sbaffi|Water Research Institute, National Research Council of Italy|
+|Vitória da Silva Pereira Domingues|Federal University of Rio de Janeiro|
