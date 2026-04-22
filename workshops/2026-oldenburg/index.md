@@ -180,7 +180,7 @@ The following **39** individuals attended the workshop.
 |Pegah Kalatehjari|Department of Microbial Ecology and Environmental System Science, University of Vienna|
 |Sadaf Khan|Department of Agroecology, Aarhus University|
 |Sarah Förster|DOME: Centre for Microbiology and Environmental Systems Science, University of Vienna|
-|Sarah Hanke|Helmholtz Institute for Functional Marine Biodiversity|
+|Sarah Hahnke|Helmholtz Institute for Functional Marine Biodiversity|
 |Sergio George|Pediatrics, Universidad de Chile / Genetics, University Medical Center Groningen|
 |Slimane Khayi|Microbiology, Institut National de la Recherche Agronomique (INRA)|
 |Sophia Fatima|Max Planck Institute for Marine Microbiology|
