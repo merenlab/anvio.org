@@ -9,6 +9,9 @@ tags: [workshop]
 comments: true
 ---
 
+{:.warning}
+**This event is in the past.** If you are interested in attending a similar workshop, feel free to inquire with us about the next planned event.
+
 We are planning a free, in-person workshop and early-career researcher symposium to discuss integrated microbial 'omics and learn how to use anvi'o. The topics that we will cover during the workshop include,
 
 * Genomics
@@ -23,9 +26,6 @@ If you are interested in attending, please consider applying as soon as possible
 Please feel free to share this page with anyone who may benefit from this workshop, and please note that we will cover travel and accommodation (as long as our funds last), so we strongly encourage applications from institutions with limited resources around the globe.
 
 Feel free to write to any of us if you have any questions.
-
-{:.warning}
-The **application deadline was on Jan 10, 2025** and we are no longer accepting new applications.
 
 {% include IMAGE width=80 path="/images/workshops/2025-oldenburg/flyer.png" caption="The flyer for the workshop." %}
 

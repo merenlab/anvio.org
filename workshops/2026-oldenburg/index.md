@@ -9,6 +9,9 @@ tags: [workshop]
 comments: true
 ---
 
+{:.warning}
+**This event is in the past.** If you are interested in attending a similar workshop, feel free to inquire with us about the next planned event.
+
 We are planning a free, in-person workshop and early-career researcher symposium to discuss integrated microbial 'omics and learn how to use anvi'o. The topics that we will cover during the workshop include,
 
 * Genomics
@@ -27,9 +30,6 @@ Please find photos and the outcomes of a [previous iteration](https://anvio.org/
 
 {:.warning}
 **An important note on funding.** While the workshop itself is free (with lunch and coffee provided), we unfortunately do not have the funds to cover travel and accommodation costs for participants. That said, _we are currently seeking funds to support the travel needs of at least some participants who may not be able to attend the event without it_. Thus, we strongly encourage applications from institutions with limited resources around the globe. Please indicate in your application if you will need travel support. If we are able to acquire funding, we will likely be able to support a few of these applications. Feel free to write to any of us if you have any questions.
-
-{:.warning}
-**Applications to this event are now closed.** The application deadline was on Dec 10, 2025.
 
 {% include IMAGE width=80 path="/images/workshops/2026-oldenburg/flyer.png" caption="The flyer for the workshop." %}
 
@@ -130,7 +130,7 @@ If you do not have the funds to support your own travel and accommodation, pleas
 
 ## List of Faculty
 
-The following individuals from the HIFMB are responsible for organizing and teaching the workshop.
+The following individuals from the HIFMB were responsible for organizing and teaching the workshop.
 
 | **Name** | **Role** |
 |:---|:---|
