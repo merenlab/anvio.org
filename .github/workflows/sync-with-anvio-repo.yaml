@@ -8,6 +8,8 @@ name: Sync with anvi'o repository
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * *"  # run it every day daily at 6 AM (Berlin time .. in summer only .. run it at 7 AM on winter because thanks to DTS BS)
 
 permissions:
   contents: write
