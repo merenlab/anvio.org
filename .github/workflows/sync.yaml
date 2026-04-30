@@ -20,18 +20,19 @@ jobs:
     - name: Set up conda environment
       uses: conda-incubator/setup-miniconda@8ee1f361103df19b6f8c8655fd3967a8ecb162d5 # v4.0.1
       with:
-        miniconda-version: 'latest'
+        miniconda-version: "py310_26.1.1-1"
         auto-update-conda: true
         activate-environment: anvio_env
         environment-file: anvio_source/.conda/environment.yaml
         python-version: "3.10"
 
+    - name: Add conda environment to PATH
+      run: echo "$CONDA/envs/anvio_env/bin" >> $GITHUB_PATH
+
     - name: Install anvi'o from source
-      shell: bash -l {0}
       run: pip install -e anvio_source
 
     - name: Re-populate people data
-      shell: bash -l {0}
       run: |
         cat anvio_source/anvio/data/misc/PEOPLE/DEVELOPERS.yaml > _data/people.yaml
         echo "" >> _data/people.yaml
@@ -43,15 +44,12 @@ jobs:
         python _scripts/update-programs-info.py --quiet
 
     - name: Re-populate tags
-      shell: bash -l {0}
       run: python _scripts/populate-tags.py
 
     - name: Re-populate help pages
-      shell: bash -l {0}
       run: anvi-script-gen-help-pages -o help/main --quiet
 
     - name: Re-populate programs network
-      shell: bash -l {0}
       run: anvi-script-gen-programs-network -o network/network.json --quiet
 
     - name: Commit and push if changed
