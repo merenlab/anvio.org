@@ -7,6 +7,14 @@ comments: false
 
 The purpose of this page is to show some of the fancy things our web page can do. If you add new features that are specific to our web code, or discover uses of features that are not described here, please feel free to extend this list.
 
+# Be aware
+
+Much of the contents of anvio.org is automatically updated by scripts behind the scenes. If you manually edit thigns that are synchronized from anvi'o repository, you will lose your changes. Please make sure to read this file to make sure your changes to anvio.org are not covered by the synchronization tasks:
+
+https://github.com/merenlab/anvio.org/tree/main/_scripts/00-README.md
+
+Apart from that, you're good to go :)
+
 # Mention someone
 
 Mention someone named in `_data/people.yaml`.

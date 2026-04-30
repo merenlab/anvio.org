@@ -1,4 +1,10 @@
-name: Sync anvi'o help pages
+name: Sync with anvi'o repository
+
+# This workflow does everything _scripts/00-SYNC-WITH-ANVIO-REPO.sh does when
+# run locally: it clones the anvi'o repository, installs anvi'o, and updates
+# people data, contributor stats, tag pages, program help pages, and the
+# programs network -- then commits and pushes any changes back to this repo.
+# Any changes to the sync logic should be reflected in both files.
 
 on:
   workflow_dispatch:

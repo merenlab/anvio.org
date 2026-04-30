@@ -2,6 +2,9 @@
 
 set -e
 
+# Run from repo root regardless of where this script is called from
+cd "$(dirname "$0")/.."
+
 echo "Re-populating tags under learn ..."
 _scripts/populate-tags.py
 
