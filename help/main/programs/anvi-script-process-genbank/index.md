@@ -51,6 +51,7 @@ The parameters of this program entirely deal with the outputs. Besides telling t
 
 One important note about this conversion is the following: During the conversion of GenBank entries, anvi'o will assign a new gene call id to each entry, breaking the link between locus tags defined in the GenBank file and the gene entries that will later appear in the anvi'o <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. One way to avoid this is to use the flag `--include-locus-tags-as-functions`, which will instruct anvi'o to add a new 'function' source for each gene in the output file for functional annotations so that the user can trace back a given gene call to the original locus tag.
 
+
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-process-genbank.md) to update this information.
 

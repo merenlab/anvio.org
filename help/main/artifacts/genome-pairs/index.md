@@ -48,6 +48,7 @@ The file should be tab-delimited and contain at least two columns named `genome_
 
 As long as the genome names match to those described in the accompanying <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> file, you should be good to go.
 
+
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/genome-pairs.md) to update this information.
 

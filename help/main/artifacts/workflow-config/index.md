@@ -85,7 +85,6 @@ Note that the empty string `""` here means that the default parameter for the pr
 For more details on the anvi'o snakemake workflows, please refer to [this tutorial](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/).
 
 
-
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/workflow-config.md) to update this information.
 

@@ -52,7 +52,7 @@ This program opens an interactive interface to explore single amino acid variant
 In short, this program enables users to explore sequence variation in the context of 3D protein structure, which reveals insight that cannot be learned from purely sequence-based approaches.
 
 
-### Before running 
+### Before running
 
 To run this program, you'll need to have created a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> which can be easily done with a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and the program <span class="artifact-p">[anvi-gen-structure-database](/help/main/programs/anvi-gen-structure-database)</span>.
 
@@ -60,9 +60,9 @@ To run this program, you'll need to have created a <span class="artifact-n">[str
 You'll also need a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> that was created using <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span>'s flag `--profile-SCVs`, which means that single codon variants (SCVs) have been profiled. Very sorry if this forces you to re-profile, but as of v6.2, this is now a very expedient process.
 
 
-### Basic Run 
+### Basic Run
 
-There are two ways to provide the variability information to this program.  
+There are two ways to provide the variability information to this program.
 
 The first is to provide a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> pair, and let this program calculate SAAVs and SCVs as they are requested by the interface.
 
@@ -70,7 +70,7 @@ The first is to provide a <span class="artifact-n">[contigs-db](/help/main/artif
 <div class="codeblock" markdown="1">
 anvi&#45;display&#45;structure &#45;s <span class="artifact&#45;n">[structure&#45;db](/help/main/artifacts/structure&#45;db)</span> \
                        &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
-                       &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> 
+                       &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span>
 </div>
 
 The second is to use <span class="artifact-p">[anvi-gen-variability-profile](/help/main/programs/anvi-gen-variability-profile)</span> to create a <span class="artifact-n">[variability-profile-txt](/help/main/artifacts/variability-profile-txt)</span>. This way, you pre-load all of the variability data and don't have to wait for <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span> to calculate variability on-the-fly. This option is probably most convenient in instances where you have already generated a <span class="artifact-n">[variability-profile-txt](/help/main/artifacts/variability-profile-txt)</span> for other reasons. If you fall into this camp, you can run <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span> as so:
@@ -90,7 +90,7 @@ During <span class="artifact-p">[anvi-gen-variability-profile](/help/main/progra
 
 ### Refining your search
 
-You have several options to refine what proteins and variants you're looking at: 
+You have several options to refine what proteins and variants you're looking at:
 
 - Provide a list of gene caller IDs to only display specific genes (this can be provided either directly as a parameter or as a file with one gene caller ID per line)
 - Specify the minimum departure from the consensus sequence. This is a number from 0-1 that describes the threshold for a variability position to be displayed. For example, if this is set to 0.2, then all SAAVs and SCVs where less than 20 percent of the reads vary from the consensus sequence will not be displayed.
@@ -99,11 +99,9 @@ You have several options to refine what proteins and variants you're looking at:
 If you're choosing to have <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span> calculate variability on-the-fly, you can speed things up by choosing to _only_ calculate SAAVs or _only_ calculate SCVs.
 
 
-### Other parameters 
+### Other parameters
 
 Power users can also change the server configuration (i.e. set the IP address, port number, browser path, server password, etc.)
-
-
 
 
 {:.notice}

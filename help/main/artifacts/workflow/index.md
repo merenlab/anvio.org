@@ -47,8 +47,6 @@ As of now, the available workflows include,
 * [SRA-download workflow](../../workflows/sra-download)
 
 
-
-
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/workflow.md) to update this information.
 

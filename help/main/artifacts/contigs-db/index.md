@@ -364,7 +364,6 @@ print(domains_included)
 ```
 
 
-
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/contigs-db.md) to update this information.
 

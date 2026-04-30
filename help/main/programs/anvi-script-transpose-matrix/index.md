@@ -43,35 +43,33 @@ Transpose a TAB-delimited file.
 ## Usage
 
 
-This is a script that transposes tab-delimited files. That's it. 
+This is a script that transposes tab-delimited files. That's it.
 
-It's helpful to get your inputs to line up with the types of inputs that anvi'o expects. Some programs have the `--transpose` flag, which will run this program for you, but some don't, and that's when you'll have to run it yourself. 
+It's helpful to get your inputs to line up with the types of inputs that anvi'o expects. Some programs have the `--transpose` flag, which will run this program for you, but some don't, and that's when you'll have to run it yourself.
 
-For example, anvi'o expects <span class="artifact-n">[view-data](/help/main/artifacts/view-data)</span> to have each column representing a sample. If the file that you want to integrate into your anvi'o project has the samples as rows and the data attribute as the columns, then you'll need to <span class="artifact-p">[anvi-script-transpose-matrix](/help/main/programs/anvi-script-transpose-matrix)</span> it. 
+For example, anvi'o expects <span class="artifact-n">[view-data](/help/main/artifacts/view-data)</span> to have each column representing a sample. If the file that you want to integrate into your anvi'o project has the samples as rows and the data attribute as the columns, then you'll need to <span class="artifact-p">[anvi-script-transpose-matrix](/help/main/programs/anvi-script-transpose-matrix)</span> it.
 
-### An Example Run 
+### An Example Run
 
-If you have an input ile `INPUT.txt` that looks like this: 
+If you have an input ile `INPUT.txt` that looks like this:
 
-    1   2   3   
-    4   5   6   
+    1   2   3
+    4   5   6
     7   8   9
     10  11  12
-    
+
 And you run this:
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;transpose&#45;matrix &#45;o INPUT_transposed.txt \
-                             &#45;i INPUT.txt 
+                             &#45;i INPUT.txt
 </div>
 
-You'll get a file called `INPUT_transposed.txt` that looks like 
+You'll get a file called `INPUT_transposed.txt` that looks like
 
     1   4   7   10
     2   5   8   11
     3   6   9   12
-    
-
 
 
 {:.notice}

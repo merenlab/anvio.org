@@ -36,7 +36,7 @@ A DATA-type anvi'o artifact. This artifact is typically generated, used, and/or 
 
 This stores a local copy of the data from the [dbCAN2 CAZyme HMM database](https://bcb.unl.edu/dbCAN2/download/Databases/) for functional annotation.
 
-It is required to run <span class="artifact-p">[anvi-run-cazymes](/help/main/programs/anvi-run-cazymes)</span> and is set up on your computer by the program <span class="artifact-p">[anvi-setup-cazymes](/help/main/programs/anvi-setup-cazymes)</span>. 
+It is required to run <span class="artifact-p">[anvi-run-cazymes](/help/main/programs/anvi-run-cazymes)</span> and is set up on your computer by the program <span class="artifact-p">[anvi-setup-cazymes](/help/main/programs/anvi-setup-cazymes)</span>.
 
 ## Database version options
 
@@ -48,9 +48,10 @@ Please see the help page for <span class="artifact-p">[anvi-setup-cazymes](/help
 
 ## Notes for developers
 
-[dbCAN3](https://bcb.unl.edu/dbCAN2/) has multiple other files available for download `https://bcb.unl.edu/dbCAN2/download/Databases/` that could be useful for future development of cazyme annotation in anvi'o including: 
+[dbCAN3](https://bcb.unl.edu/dbCAN2/) has multiple other files available for download `https://bcb.unl.edu/dbCAN2/download/Databases/` that could be useful for future development of cazyme annotation in anvi'o including:
 - Substrate prediction based on dbCAN-sub majority voting: `dbCAN_sub.hmm`
 - CAZyme family information: `FamInfo.txt.08022020.xls`
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/cazyme-data.md) to update this information.

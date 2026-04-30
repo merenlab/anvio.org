@@ -79,7 +79,7 @@ anvi&#45;rename&#45;bins &#45;c <span class="artifact&#45;n">[contigs&#45;db](/h
 
 Now, the <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> `SURFACE_OCEAN_MAGS` will include  `SURFACE_OCEAN_MAG_00001`, `SURFACE_OCEAN_MAG_00002`, `SURFACE_OCEAN_MAG_00003`, and `SURFACE_OCEAN_Bin_00004`. These are exactly the same bins that the collection contained before, but now the names differenciate the wheat from the chaff.
 
-In addition to minimum completion estimate, you can also adjust the maximum redundancy value, minimum size to call MAGs. Please see the help menu for all parameters and their descriptions. 
+In addition to minimum completion estimate, you can also adjust the maximum redundancy value, minimum size to call MAGs. Please see the help menu for all parameters and their descriptions.
 
 ### Exclude bins that are not MAGs
 

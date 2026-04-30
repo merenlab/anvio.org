@@ -45,11 +45,11 @@ Do cool stuff with gene clusters in anvi&#x27;o pan genomes.
 
 This aptly-named program **gets the sequences for the gene clusters stored in a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and returns them as either a <span class="artifact-n">[genes-fasta](/help/main/artifacts/genes-fasta)</span> or a <span class="artifact-n">[concatenated-gene-alignment-fasta](/help/main/artifacts/concatenated-gene-alignment-fasta)</span>**, which can directly go into the program <span class="artifact-p">[anvi-gen-phylogenomic-tree](/help/main/programs/anvi-gen-phylogenomic-tree)</span> for phylogenomics. This gives you advanced access to your gene clusters, so you can take them out of anvi'o and do whatever you please with them.
 
-The program parameters also include a large collection of advanced filtering options. Using these options you can scrutinize your gene clusters in creative and precise ways. Using the combination of these filters you can focus on single-copy core gene clusters in a pangenome, or those occur only as singletons, or paralogs that contain more than a given number of sequences, and so on. Once you are satisfied with the output a given set of filters generate, you can add the matching gene clusters a <span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span> with the flag `--add-into-items-additional-data-table`, which can be added to the <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> interface as additional layers when you visualize your <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> using the program <span class="artifact-p">[anvi-display-pan](/help/main/programs/anvi-display-pan)</span> 
+The program parameters also include a large collection of advanced filtering options. Using these options you can scrutinize your gene clusters in creative and precise ways. Using the combination of these filters you can focus on single-copy core gene clusters in a pangenome, or those occur only as singletons, or paralogs that contain more than a given number of sequences, and so on. Once you are satisfied with the output a given set of filters generate, you can add the matching gene clusters a <span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span> with the flag `--add-into-items-additional-data-table`, which can be added to the <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> interface as additional layers when you visualize your <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> using the program <span class="artifact-p">[anvi-display-pan](/help/main/programs/anvi-display-pan)</span>
 
 By default, <span class="artifact-p">[anvi-get-sequences-for-gene-clusters](/help/main/programs/anvi-get-sequences-for-gene-clusters)</span> will generate a single output file. But you can ask the program to report every gene cluster that match to your filters as a separate FASTA file depending on your downstream analyses.
 
-While the number of parameters this powerful program can utilize may seem daunting, many of the options just help you specify exactly from which gene clusters you want to get sequences. 
+While the number of parameters this powerful program can utilize may seem daunting, many of the options just help you specify exactly from which gene clusters you want to get sequences.
 
 ### Running on all gene clusters
 
@@ -169,19 +169,19 @@ A_TEST_DIRECTORY/A_NEW_PREFIX_GC_00000010.fa
 
 #### Part 1: Choosing gene clusters by collection, bin, or name
 
-You can export only the sequences for a specific <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> or <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> with the parameters `-C` or `-b` respectively. 
+You can export only the sequences for a specific <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> or <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> with the parameters `-C` or `-b` respectively.
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
                                      &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
                                      &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/help/main/artifacts/genes&#45;fasta)</span> \
-                                     &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> 
+                                     &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span>
 </div>
 
 {:.notice}
 You can always display the collections and bins available in your <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> by adding `--list-collections` or `--list-bins` flags to your command.
 
-Alternatively, you can export the specific gene clusters by name, either by providing a single gene cluster ID or a file with one gene cluster ID per line. For example: 
+Alternatively, you can export the specific gene clusters by name, either by providing a single gene cluster ID or a file with one gene cluster ID per line. For example:
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
@@ -200,15 +200,15 @@ GC_00000729
 
 #### Part 2: Choosing gene clusters by their attributes
 
-These parameters are used to exclude gene clusters that don't reach certain thresholds and are applies on top of filters already applied (for example, you can use these to exclude clusters within a specific bin). 
+These parameters are used to exclude gene clusters that don't reach certain thresholds and are applies on top of filters already applied (for example, you can use these to exclude clusters within a specific bin).
 
 Here is a list of the different filters that you can use to exclude some subsection of your gene clusters:
 
-- min/max number of genomes that the gene cluster occurs in. 
-- min/max number of genes from each genome. For example, you could exclude clusters that don't appear in every genome 3 times, or get single-copy genes by setting `max-num-genes-from-each-genome` to 1. 
-- min/max [geometric homogenity index](http://merenlab.org/2016/11/08/pangenomics-v2/#geometric-homogeneity-index) 
+- min/max number of genomes that the gene cluster occurs in.
+- min/max number of genes from each genome. For example, you could exclude clusters that don't appear in every genome 3 times, or get single-copy genes by setting `max-num-genes-from-each-genome` to 1.
+- min/max [geometric homogenity index](http://merenlab.org/2016/11/08/pangenomics-v2/#geometric-homogeneity-index)
 - min/max [functional homogenity index](http://merenlab.org/2016/11/08/pangenomics-v2/#functional-homogeneity-index)
-- min/max combined homogenity index 
+- min/max combined homogenity index
 
 For example, the following run on a <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> that contains 50 genomes will report only the single-copy core genes with a functional homogenity index above 0.25:
 
@@ -218,14 +218,14 @@ anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="art
                                      &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/help/main/artifacts/genes&#45;fasta)</span> \
                                      &#45;&#45;max&#45;num&#45;genes&#45;from&#45;each&#45;genome 1 \
                                      &#45;&#45;min&#45;num&#45;genomes&#45;gene&#45;cluster&#45;occurs 50 \
-                                     &#45;&#45;min&#45;functional&#45;homogenity&#45;index 0.25 
+                                     &#45;&#45;min&#45;functional&#45;homogenity&#45;index 0.25
 </div>
 
-You can also exclude genomes that are missing some number of the gene clusters that you're working with by using the paramter `--max-num-gene-clusters-missing-from-genome`. 
+You can also exclude genomes that are missing some number of the gene clusters that you're working with by using the paramter `--max-num-gene-clusters-missing-from-genome`.
 
-For each of these parameters, see the program's help menu for more information. 
+For each of these parameters, see the program's help menu for more information.
 
-### Fun with phylogenomics! 
+### Fun with phylogenomics!
 
 To get a <span class="artifact-n">[concatenated-gene-alignment-fasta](/help/main/artifacts/concatenated-gene-alignment-fasta)</span> (which you can use to run <span class="artifact-p">[anvi-gen-phylogenomic-tree](/help/main/programs/anvi-gen-phylogenomic-tree)</span>), use the parameter `--concatenate-gene-clusters`
 
@@ -236,7 +236,7 @@ anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="art
                                      &#45;&#45;concatenate&#45;gene&#45;clusters
 </div>
 
-Here, you also have the option to specify a specific aligner (or list the available aligners), as well as provide a NEXUS formatted partition file, if you so choose. 
+Here, you also have the option to specify a specific aligner (or list the available aligners), as well as provide a NEXUS formatted partition file, if you so choose.
 
 
 {:.notice}

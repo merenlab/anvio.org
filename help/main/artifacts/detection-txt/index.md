@@ -34,21 +34,17 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This is a text file containing **the detection value for each gene in each sample** that was in the <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> that you used when you ran  <span class="artifact-p">[anvi-export-gene-coverage-and-detection](/help/main/programs/anvi-export-gene-coverage-and-detection)</span>. 
+This is a text file containing **the detection value for each gene in each sample** that was in the <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> that you used when you ran  <span class="artifact-p">[anvi-export-gene-coverage-and-detection](/help/main/programs/anvi-export-gene-coverage-and-detection)</span>.
 
-This is a tab-delimited file where each row describes a specific gene and each column describes one of your samples. Each cell contains the detection of that gene in that sample. 
+This is a tab-delimited file where each row describes a specific gene and each column describes one of your samples. Each cell contains the detection of that gene in that sample.
 
 ### Example
 
     key       sample_1    sample_2    sample_3 ...
-    13947     0.291093    0.984394    0.9289432         
+    13947     0.291093    0.984394    0.9289432
     13948     0.895842    0.828481    0.3721947
     23026     0.949383    0.983923    1.0000000
     ...
-
-
-
-
 
 
 {:.notice}

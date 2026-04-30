@@ -263,7 +263,6 @@ The interactive interface recognizes a handful of keyboard shortcuts to help spe
 - `CTRL`+`Z` and `CTRL`+`SHIFT`+`Z` will undo or redo bin actions, respectively.
 
 
-
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/interactive.md) to update this information.
 

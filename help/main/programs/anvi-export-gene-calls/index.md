@@ -45,9 +45,9 @@ Export gene calls from an anvi&#x27;o contigs database.
 ## Usage
 
 
-The purpose of this program is to exports your gene calls in a given <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and a gene caller, in the form of a <span class="artifact-n">[gene-calls-txt](/help/main/artifacts/gene-calls-txt)</span>. 
+The purpose of this program is to exports your gene calls in a given <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and a gene caller, in the form of a <span class="artifact-n">[gene-calls-txt](/help/main/artifacts/gene-calls-txt)</span>.
 
-To see the gene callers available in your contigs database, you can use <span class="artifact-p">[anvi-db-info](/help/main/programs/anvi-db-info)</span> or use this program with the following flag: 
+To see the gene callers available in your contigs database, you can use <span class="artifact-p">[anvi-db-info](/help/main/programs/anvi-db-info)</span> or use this program with the following flag:
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -89,8 +89,8 @@ sqlite3 <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/conti
 Then run these lines,
 
 <div class="codeblock" markdown="1">
-.mode csv 
-.headers on 
+.mode csv
+.headers on
 .out <span class="artifact&#45;n">[gene&#45;calls&#45;txt](/help/main/artifacts/gene&#45;calls&#45;txt)</span>
 select gene_callers_id, contig, start, stop, direction, partial from genes_in_contigs;
 </div>
@@ -98,8 +98,8 @@ select gene_callers_id, contig, start, stop, direction, partial from genes_in_co
 You can also continue with these lines to get the amino acid sequences for them:
 
 <div class="codeblock" markdown="1">
-.mode csv 
-.headers on 
+.mode csv
+.headers on
 .out AMINO&#45;ACID&#45;SEQUENCES.txt
 select &#42; from genes_in_contigs;
 </div>

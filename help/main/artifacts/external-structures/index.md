@@ -54,7 +54,6 @@ Each path should point to a <span class="artifact-n">[protein-structure-txt](/he
 Please note that anvi'o will try its best to test the integrity of each file, and work with any limitations, however ultimately the user may be subject to the strict requirements set forth by anvi'o. For example, if a structure has a missing residue, you will hear about it.
 
 
-
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/external-structures.md) to update this information.
 

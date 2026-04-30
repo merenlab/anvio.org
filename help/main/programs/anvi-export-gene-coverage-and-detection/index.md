@@ -43,7 +43,7 @@ Export gene coverage and detection data for all genes associated with contigs de
 ## Usage
 
 
-This program gives you the **coverage and detection data** for all of the genes found in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, using the short reads data in your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. 
+This program gives you the **coverage and detection data** for all of the genes found in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, using the short reads data in your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>.
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;gene&#45;coverage&#45;and&#45;detection &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \

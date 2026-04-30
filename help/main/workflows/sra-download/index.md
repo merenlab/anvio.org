@@ -132,7 +132,7 @@ The power of Snakemake shines when you can leverage a High Performance Computing
 
 ### MD5 Checksum verification
 
-The `sra_download` workflow verifies that `prefetch` properly download all the `.sra` files you requested by comparing MD5 checksum values. 
+The `sra_download` workflow verifies that `prefetch` properly download all the `.sra` files you requested by comparing MD5 checksum values.
 
 If the workflow successfully runs then everything checked out! You can find the checksum messages by doing this:
 
@@ -144,7 +144,7 @@ $ grep "Checksums match" 00_LOGS/&#42;_check_md5sum.log
 00_LOGS/SRR5965623_check_md5sum.log:Checksums match: 95b69957f6381047763fb50782959cd8
 </div>
 
-If a SRA accession fails to download properly, the workflow will stop and show you an error like this: 
+If a SRA accession fails to download properly, the workflow will stop and show you an error like this:
 <div class="codeblock" markdown="1">
 RuleException:
 ValueError in file /Users/mschechter/github/anvio/anvio/workflows/sra_download/Snakefile, line 122:
@@ -161,6 +161,7 @@ Here is how to use the `sra_download` workflow to download all of the sequencing
 2. Under `Genomes` click `SRA`
 3. Send results to Run selector by clicking `Send to:` and then `Run Selector`
 4. Here you can filter for specific sequencing in the project OR you can download the `Metadata` or `Accession list` to download a text file with ALL of the SRA accesssions associated with the BioSample. Put the SRA accessions into the `SRA_accession_list.txt` and start the workflow!
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/workflows/sra-download.md) to update this information.

@@ -43,14 +43,14 @@ This program seems to know what its doing. It needs no input material from its u
 ## Usage
 
 
-This program **downloads and organizes a local copy of the data from [dbCAN2 CAZyme HMMs](https://bcb.unl.edu/dbCAN2/download/Databases/) for use in function annotation.** This program generates a <span class="artifact-n">[cazyme-data](/help/main/artifacts/cazyme-data)</span> artifact, which is required to run the program <span class="artifact-p">[anvi-run-cazymes](/help/main/programs/anvi-run-cazymes)</span>. 
+This program **downloads and organizes a local copy of the data from [dbCAN2 CAZyme HMMs](https://bcb.unl.edu/dbCAN2/download/Databases/) for use in function annotation.** This program generates a <span class="artifact-n">[cazyme-data](/help/main/artifacts/cazyme-data)</span> artifact, which is required to run the program <span class="artifact-p">[anvi-run-cazymes](/help/main/programs/anvi-run-cazymes)</span>.
 
 ### Set up cazymes data
 
 anvi'o will download the newest version of the database (V13) by default:
 
 <div class="codeblock" markdown="1">
-anvi&#45;setup&#45;cazymes 
+anvi&#45;setup&#45;cazymes
 </div>
 
 You can use `--cazyme-version`, if you want anvi'o to download a different version of the [dbCAN2 CAZyme HMMs](https://bcb.unl.edu/dbCAN2/download/Databases/) database:

@@ -43,11 +43,11 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program, as implied by the name, is used to delete a <span class="artifact-n">[state](/help/main/artifacts/state)</span> from a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. This way, you can remove states that are clogging up the state list in the interface. 
+This program, as implied by the name, is used to delete a <span class="artifact-n">[state](/help/main/artifacts/state)</span> from a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. This way, you can remove states that are clogging up the state list in the interface.
 
 It is generally a good idea to export your state before deleting it, just in case ((anvi-export-state)s).
 
-To list available <span class="artifact-n">[state](/help/main/artifacts/state)</span>s in a database, call 
+To list available <span class="artifact-n">[state](/help/main/artifacts/state)</span>s in a database, call
 
 <div class="codeblock" markdown="1">
 anvi&#45;delete&#45;state &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
@@ -58,7 +58,7 @@ Then, you can easily delete a <span class="artifact-n">[state](/help/main/artifa
 
 <div class="codeblock" markdown="1">
 anvi&#45;delete&#45;hmms &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
-                 &#45;s <span class="artifact&#45;n">[state](/help/main/artifacts/state)</span> 
+                 &#45;s <span class="artifact&#45;n">[state](/help/main/artifacts/state)</span>
 </div>
 
 

@@ -142,6 +142,7 @@ This is an optional output file, that is only generated when using the flag `--r
 
 It uses the same standard columns and some additional columns as the output for potentially-exchanged compounds.
 
+
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/metabolite-exchange-predictions.md) to update this information.
 

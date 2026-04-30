@@ -43,42 +43,42 @@ Quantify the detection of genes in genomes in metagenomes to identify the enviro
 ## Usage
 
 
-This program computes the detection of genes (inputted as a <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>) across your samples, so that you can visualize them in the <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> interface. 
+This program computes the detection of genes (inputted as a <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>) across your samples, so that you can visualize them in the <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> interface.
 
-This program is used in [the metapangenomic workflow](https://merenlab.org/data/prochlorococcus-metapangenome/#classification-of-genes-as-ecgs-and-eags-by-the-distribution-of-genes-in-a-genome-across-metagenomes) on genes with metagenomes as samples to visually identify the environmental core genes and accessory genes. 
+This program is used in [the metapangenomic workflow](https://merenlab.org/data/prochlorococcus-metapangenome/#classification-of-genes-as-ecgs-and-eags-by-the-distribution-of-genes-in-a-genome-across-metagenomes) on genes with metagenomes as samples to visually identify the environmental core genes and accessory genes.
 
-### Inputs  
+### Inputs
 
-Essentially, you provide a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> pair, as well as the <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> you want to look at, and this program will  search each gene in your bin against the samples denoted in your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>: 
+Essentially, you provide a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> pair, as well as the <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> you want to look at, and this program will  search each gene in your bin against the samples denoted in your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>:
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen&#45;distribution&#45;of&#45;genes&#45;in&#45;a&#45;bin &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \ 
+anvi&#45;script&#45;gen&#45;distribution&#45;of&#45;genes&#45;in&#45;a&#45;bin &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                                                &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
                                                &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
-                                               &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span> 
+                                               &#45;b <span class="artifact&#45;n">[bin](/help/main/artifacts/bin)</span>
 </div>
 
-There are two other parameters that you can set to focus the genes that you're looking at: 
+There are two other parameters that you can set to focus the genes that you're looking at:
 - The minimum detection required for a gene to be included (by default, a gene must have a detection value of `0.5` in at least one of your samples)
--The minimum coverage required for a gene to be included (by default, a gene must have a total coverage of `0.25` times the mean total coverage in your data) 
+-The minimum coverage required for a gene to be included (by default, a gene must have a total coverage of `0.25` times the mean total coverage in your data)
 
 ### Outputs
 
-This program will produce two outputs: 
+This program will produce two outputs:
 
-1. `[your bin name]-GENE-COVs.txt`, which is a <span class="artifact-n">[view-data](/help/main/artifacts/view-data)</span> artifact. This is a matrix where each row represents a gene, each column represents one of your samples, and the cells each contain a coverage value. 
+1. `[your bin name]-GENE-COVs.txt`, which is a <span class="artifact-n">[view-data](/help/main/artifacts/view-data)</span> artifact. This is a matrix where each row represents a gene, each column represents one of your samples, and the cells each contain a coverage value.
 2. `[your bin name]-ENV-DETECTION.txt`, which is a <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span>. It is a two-column file, where each row is a gene and and the second column describes whether or not that gene is systematically detected in your samples. Thus, this can be added as an additional layer in the interface that describes describes which genes are detected in your samples. (as an example, see the outermost layer [here](https://merenlab.org/data/prochlorococcus-metapangenome/#classification-of-genes-as-ecgs-and-eags-by-the-distribution-of-genes-in-a-genome-across-metagenomes))
 
-Thus, after running this program on a bin with name `BIN_NAME`, you can run 
+Thus, after running this program on a bin with name `BIN_NAME`, you can run
 
 <div class="codeblock" markdown="1">
 <span class="artifact&#45;p">[anvi&#45;interactive](/help/main/programs/anvi&#45;interactive)</span> &#45;d BIN_NAME&#45;GENE&#45;COVs.txt \
                  &#45;A BIN_NAME&#45;ENV&#45;DETECTION.txt \
                  &#45;&#45;manual \
                  &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span>
-</div>                                                   
+</div>
 
-This will visually show you the coverage and detection of your genes across your samples in the <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> interface (simlarly to [this figure](https://merenlab.org/data/prochlorococcus-metapangenome/#classification-of-genes-as-ecgs-and-eags-by-the-distribution-of-genes-in-a-genome-across-metagenomes)). 
+This will visually show you the coverage and detection of your genes across your samples in the <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> interface (simlarly to [this figure](https://merenlab.org/data/prochlorococcus-metapangenome/#classification-of-genes-as-ecgs-and-eags-by-the-distribution-of-genes-in-a-genome-across-metagenomes)).
 
 
 {:.notice}

@@ -36,13 +36,13 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 
 This is the section of your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>/<span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> that contains custom additional information about the order that your layers are displayed in and the tree that relates them to each other . When you run <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span>, this data will determine what order the concentric circles are displayed in, as well as the tree that appears above the <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span> graphs.
 
-As also defined in [this blog post](http://merenlab.org/2017/12/11/additional-data-tables/#views-items-layers-orders-some-anvio-terminology), this type of data will include information about how your layers are related to each other and determines their order. This data is stored as a tree that is displayed in the top-right. 
+As also defined in [this blog post](http://merenlab.org/2017/12/11/additional-data-tables/#views-items-layers-orders-some-anvio-terminology), this type of data will include information about how your layers are related to each other and determines their order. This data is stored as a tree that is displayed in the top-right.
 
-This data can be imported from a <span class="artifact-n">[misc-data-layer-orders-txt](/help/main/artifacts/misc-data-layer-orders-txt)</span> artifact with <span class="artifact-p">[anvi-import-misc-data](/help/main/programs/anvi-import-misc-data)</span>.  It is also displayed when you run <span class="artifact-p">[anvi-show-misc-data](/help/main/programs/anvi-show-misc-data)</span> and can be exported or deleted with <span class="artifact-p">[anvi-export-misc-data](/help/main/programs/anvi-export-misc-data)</span> and <span class="artifact-p">[anvi-delete-misc-data](/help/main/programs/anvi-delete-misc-data)</span> respectively. 
+This data can be imported from a <span class="artifact-n">[misc-data-layer-orders-txt](/help/main/artifacts/misc-data-layer-orders-txt)</span> artifact with <span class="artifact-p">[anvi-import-misc-data](/help/main/programs/anvi-import-misc-data)</span>.  It is also displayed when you run <span class="artifact-p">[anvi-show-misc-data](/help/main/programs/anvi-show-misc-data)</span> and can be exported or deleted with <span class="artifact-p">[anvi-export-misc-data](/help/main/programs/anvi-export-misc-data)</span> and <span class="artifact-p">[anvi-delete-misc-data](/help/main/programs/anvi-delete-misc-data)</span> respectively.
 
-For example, you could use this tree to indicate and group together samples that came from the same geographic location, samples that came from the same donor, samples of the same type,  samples collected with the same collection method, and so on. 
+For example, you could use this tree to indicate and group together samples that came from the same geographic location, samples that came from the same donor, samples of the same type,  samples collected with the same collection method, and so on.
 
-This is also used to import the taxonomy information at the end of [the pangenomics and phylogenomics workflow](http://merenlab.org/2017/06/07/phylogenomics/#pangenomic--phylogenomics). 
+This is also used to import the taxonomy information at the end of [the pangenomics and phylogenomics workflow](http://merenlab.org/2017/06/07/phylogenomics/#pangenomic--phylogenomics).
 
 
 {:.notice}

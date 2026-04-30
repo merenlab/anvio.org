@@ -45,9 +45,9 @@ This program does not seem to provide any artifacts. Such programs usually print
 
 This program, as implied by the name, is used to delete a <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> from a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. This way, you can repopulate the function annotations with a different source or program or just delete data that's clogging up the interface.
 
-It is generally a good idea to export your information before deleting it, just in case. The HMM hits will show up in most displays, so if you've already run <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span>, you should be good. 
+It is generally a good idea to export your information before deleting it, just in case. The HMM hits will show up in most displays, so if you've already run <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span>, you should be good.
 
-To list available <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>s in a database, call 
+To list available <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>s in a database, call
 
 <div class="codeblock" markdown="1">
 anvi&#45;delete&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -58,7 +58,7 @@ Then, you can easily delete <span class="artifact-n">[hmm-hits](/help/main/artif
 
 <div class="codeblock" markdown="1">
 anvi&#45;delete&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
-                 &#45;&#45;hmm&#45;source <span class="artifact&#45;n">[hmm&#45;source](/help/main/artifacts/hmm&#45;source)</span> 
+                 &#45;&#45;hmm&#45;source <span class="artifact&#45;n">[hmm&#45;source](/help/main/artifacts/hmm&#45;source)</span>
 </div>
 
 

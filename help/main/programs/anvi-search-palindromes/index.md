@@ -217,7 +217,7 @@ print(p.palindromes)
      'Day17a_QCcontig2' : [],
      'Day17a_QCcontig4' : [<anvio.sequencefeatures.Palindrome object at 0x7f8d6072f278>],
      'Day17a_QCcontig6' : [],
-     'Day17a_QCcontig10': [], 
+     'Day17a_QCcontig10': [],
      'Day17a_QCcontig16': [],
      'Day17a_QCcontig23': [],
      'Day17a_QCcontig24': [],
@@ -294,6 +294,7 @@ print(p.palindromes)
 ```
 
 If you are a programmer and need more from this module, please let us know.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-search-palindromes.md) to update this information.

@@ -34,9 +34,9 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This file is the output of <span class="artifact-p">[anvi-script-gen-hmm-hits-matrix-across-genomes](/help/main/programs/anvi-script-gen-hmm-hits-matrix-across-genomes)</span> and describes the <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> across multiple genomes or bins for a single <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>. 
+This file is the output of <span class="artifact-p">[anvi-script-gen-hmm-hits-matrix-across-genomes](/help/main/programs/anvi-script-gen-hmm-hits-matrix-across-genomes)</span> and describes the <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> across multiple genomes or bins for a single <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>.
 
-The first column describes each of the genomes (if the input was an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>) or bins (if the input was an <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span>) that the matrix describes. The following columns describe each of the genes in your <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>. The data within the table describes the number of hits that gene had in that genome or bin. 
+The first column describes each of the genomes (if the input was an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>) or bins (if the input was an <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span>) that the matrix describes. The following columns describe each of the genes in your <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>. The data within the table describes the number of hits that gene had in that genome or bin.
 
 For example, if you were to run <span class="artifact-p">[anvi-script-gen-hmm-hits-matrix-across-genomes](/help/main/programs/anvi-script-gen-hmm-hits-matrix-across-genomes)</span> with the `Bacteria_71` <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span> on two hypothetical genomes, you would get a file like this:
 

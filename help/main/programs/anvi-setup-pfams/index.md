@@ -45,19 +45,19 @@ This program seems to know what its doing. It needs no input material from its u
 ## Usage
 
 
-This program **downloads and organizes a local copy of the data from EBI's [Pfam database](https://pfam.xfam.org/) for use in function annotation.** This program generates a <span class="artifact-n">[pfams-data](/help/main/artifacts/pfams-data)</span> artifact, which is required to run the program <span class="artifact-p">[anvi-run-pfams](/help/main/programs/anvi-run-pfams)</span>. 
+This program **downloads and organizes a local copy of the data from EBI's [Pfam database](https://pfam.xfam.org/) for use in function annotation.** This program generates a <span class="artifact-n">[pfams-data](/help/main/artifacts/pfams-data)</span> artifact, which is required to run the program <span class="artifact-p">[anvi-run-pfams](/help/main/programs/anvi-run-pfams)</span>.
 
 ### Set up Pfams data
 <div class="codeblock" markdown="1">
-anvi&#45;setup&#45;pfams 
+anvi&#45;setup&#45;pfams
 </div>
 
-By default, this data is stored at `anvio/data/misc/Pfam`. To set up this data in a non-default location, run 
+By default, this data is stored at `anvio/data/misc/Pfam`. To set up this data in a non-default location, run
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;pfams &#45;&#45;pfam&#45;data&#45;dir path/to/location
 </div>
 
-If you already have a <span class="artifact-n">[pfams-data](/help/main/artifacts/pfams-data)</span> artifact and are trying to redownload this data, run 
+If you already have a <span class="artifact-n">[pfams-data](/help/main/artifacts/pfams-data)</span> artifact and are trying to redownload this data, run
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;pfams &#45;&#45;reset

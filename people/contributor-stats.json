@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7680,
+        "total_commits": 7687,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,15 +14,15 @@
             "2023": 227,
             "2024": 188,
             "2025": 451,
-            "2026": 83
+            "2026": 90
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "expand multi-selection functionality",
-        "latest_commit_hash": "d9c35aa5fb7cfe11c088e3a31562cf8413faf4ba",
-        "latest_commit_date": "14 April 2026"
+        "latest_commit_message": "yet another piece of history bites the dust",
+        "latest_commit_hash": "8ac266ee29433b2e13742e1b2271f8b68b54cca3",
+        "latest_commit_date": "29 April 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 350,
+        "total_commits": 354,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 133
+            "2026": 137
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "Fix bug loading branch support value from state",
-        "latest_commit_hash": "a156d3bb83400beb1da0055f5709057a78e7c430",
-        "latest_commit_date": "10 April 2026"
+        "latest_commit_message": "fix taxonomy bug when loading collection",
+        "latest_commit_hash": "779e1ca357560647929746772b84ae78c48566a6",
+        "latest_commit_date": "20 April 2026"
     },
     "watsonar": {
         "total_commits": 10,
@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2534,
+        "total_commits": 2535,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 19
+            "2026": 20
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "fix anvi-summarize bug: avoid KeyErrors when misc data dictionary does not include the same set of keys for every item",
-        "latest_commit_hash": "917ec9a5e1d01956e19e84e1ee72e33e326df456",
-        "latest_commit_date": "27 March 2026"
+        "latest_commit_message": "a clearer error message for anvi-display-functions with multiple input types",
+        "latest_commit_hash": "06bd0a539608d1b0dd66c13b1c08b210cf68fd36",
+        "latest_commit_date": "29 April 2026"
     },
     "moritzbuck": {
         "total_commits": 3,

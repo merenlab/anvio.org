@@ -82,6 +82,7 @@ Putting everything together, a basic command would look like this:
 anvi&#45;script&#45;hmm&#45;to&#45;hmm&#45;directory &#45;&#45;hmm&#45;list FILE1.hmm &#45;&#45;hmm&#45;source SOURCE1 &#45;o output_folder
 </div>
 
+
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-hmm-to-hmm-directory.md) to update this information.
 

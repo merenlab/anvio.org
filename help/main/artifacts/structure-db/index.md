@@ -38,14 +38,13 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 This database contains the protein structural data for genes in a corresponding <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and can be generated with <span class="artifact-p">[anvi-gen-structure-database](/help/main/programs/anvi-gen-structure-database)</span>.
 
 
-Currently, this database is best utilized for visualizing 3D structures with <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span>.  
+Currently, this database is best utilized for visualizing 3D structures with <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span>.
 
-For more information on the structure database, see [this blog post](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#the-structure-database). 
+For more information on the structure database, see [this blog post](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#the-structure-database).
 
 
 {:.notice}
 This artifact is currently a stub. I'm looking at you, Evan. - Evan
-
 
 
 {:.notice}

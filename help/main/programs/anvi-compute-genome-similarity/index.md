@@ -59,9 +59,9 @@ The expected input is any combination of <span class="artifact-n">[external-geno
 The program outputs a directory with <span class="artifact-n">[genome-similarity](/help/main/artifacts/genome-similarity)</span> data. The specific contents will depend on how similarity scores are computed (specified with `--program`), but generally contains tab-separated files of similarity scores between genomes and related metrics.
 
 
-You also have the option to provide a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, in which case the output data will additionally be stored in the database as <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span> and <span class="artifact-n">[misc-data-layer-orders](/help/main/artifacts/misc-data-layer-orders)</span> data. This was done in the [pangenomic tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#computing-the-average-nucleotide-identity-for-genomes-and-other-genome-similarity-metrics-too).  
+You also have the option to provide a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, in which case the output data will additionally be stored in the database as <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span> and <span class="artifact-n">[misc-data-layer-orders](/help/main/artifacts/misc-data-layer-orders)</span> data. This was done in the [pangenomic tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#computing-the-average-nucleotide-identity-for-genomes-and-other-genome-similarity-metrics-too).
 
-Here is an example run with pyANI from an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> without any parameter changes: 
+Here is an example run with pyANI from an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> without any parameter changes:
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;genome&#45;similarity &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \
@@ -104,19 +104,16 @@ You can change any of the following fastANI parameters:
 
 #### sourmash
 
-You have the option to change the `kmer-size`. This value should depend on the relationship between your samples. The default is 31 ([as recommended by sourmash for genus-level distances](https://sourmash.readthedocs.io/en/latest/using-sourmash-a-guide.html), but we found that 13 most closely parallels the results from an ANI alignment.  
+You have the option to change the `kmer-size`. This value should depend on the relationship between your samples. The default is 31 ([as recommended by sourmash for genus-level distances](https://sourmash.readthedocs.io/en/latest/using-sourmash-a-guide.html), but we found that 13 most closely parallels the results from an ANI alignment.
 
-You can also set the compression ratio for your fasta files. Decreasing this from the default (1000) will decrease sensitivity.  
+You can also set the compression ratio for your fasta files. Decreasing this from the default (1000) will decrease sensitivity.
 
-### Other Parameters 
+### Other Parameters
 
 Once calculated, the similarity matrix is used to create dendrograms via hierarchical clustering, which are stored in the output directory (and in the <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, if provided). You can choose to change the distance metric or linkage algorithm used for this clustering.
 
 
 If you're getting a lot of debug/output messages, you can turn them off with `--just-do-it` or helpfully store them into a file with `--log-file`.
-
-
-
 
 
 {:.notice}

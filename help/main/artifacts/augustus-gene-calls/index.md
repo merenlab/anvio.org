@@ -34,16 +34,16 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 
 ## Description
 
-A gene call file from [AUGUSTUS](http://bioinf.uni-greifswald.de/augustus/). 
+A gene call file from [AUGUSTUS](http://bioinf.uni-greifswald.de/augustus/).
 
-[AUGUSTUS](http://bioinf.uni-greifswald.de/augustus/) is a tool to predict genes from a variety of Eurkaryotic genomes. This includes predicting the 5' UTR and 3' UTR, as well as introns. You can search a sequence in the [Augustus web interface](http://bioinf.uni-greifswald.de/augustus/submission.php). After a search, you can export the results as a `.gff` text file.  
+[AUGUSTUS](http://bioinf.uni-greifswald.de/augustus/) is a tool to predict genes from a variety of Eurkaryotic genomes. This includes predicting the 5' UTR and 3' UTR, as well as introns. You can search a sequence in the [Augustus web interface](http://bioinf.uni-greifswald.de/augustus/submission.php). After a search, you can export the results as a `.gff` text file.
 
 {:.notice}
-As of now, Anvi'o (specifically <span class="artifact-p">[anvi-script-augustus-output-to-external-gene-calls](/help/main/programs/anvi-script-augustus-output-to-external-gene-calls)</span>) is only tested with AUGUSTUS v3.3.3. Feel free to be adventurous and try other versions if you feel so inclined. 
+As of now, Anvi'o (specifically <span class="artifact-p">[anvi-script-augustus-output-to-external-gene-calls](/help/main/programs/anvi-script-augustus-output-to-external-gene-calls)</span>) is only tested with AUGUSTUS v3.3.3. Feel free to be adventurous and try other versions if you feel so inclined.
 
-You can convert this file into an anvi'o <span class="artifact-n">[external-gene-calls](/help/main/artifacts/external-gene-calls)</span> file using <span class="artifact-p">[anvi-script-augustus-output-to-external-gene-calls](/help/main/programs/anvi-script-augustus-output-to-external-gene-calls)</span>. 
+You can convert this file into an anvi'o <span class="artifact-n">[external-gene-calls](/help/main/artifacts/external-gene-calls)</span> file using <span class="artifact-p">[anvi-script-augustus-output-to-external-gene-calls](/help/main/programs/anvi-script-augustus-output-to-external-gene-calls)</span>.
 
-Here is an example of a `.gff` file for the [Homo sapiens RNAP III subunit D sequence](https://www.ncbi.nlm.nih.gov/nuccore/NM_001722.3?report=fasta): 
+Here is an example of a `.gff` file for the [Homo sapiens RNAP III subunit D sequence](https://www.ncbi.nlm.nih.gov/nuccore/NM_001722.3?report=fasta):
 
     # This output was generated with AUGUSTUS (version 3.3.3).
     # AUGUSTUS is a gene prediction tool written by M. Stanke (mario.stanke@uni-greifswald.de),
@@ -89,7 +89,6 @@ Here is an example of a `.gff` file for the [Homo sapiens RNAP III subunit D seq
     ###
     # command line:
     # /data/www/augustus/augustus/bin/augustus --species=human --strand=both --singlestrand=false --genemodel=partial --codingseq=on --sample=100 --keep_viterbi=true --alternatives-from-sampling=true --minexonintronprob=0.2 --minmeanexonintronprob=0.5 --maxtracks=2 /data/www/augustus/webservice/data/AUG-707407769/input.fa --exonnames=on
-
 
 
 {:.notice}

@@ -240,8 +240,6 @@ Functions with fewer than a minimum number of codons can be ignored in the CUB a
 Filters removing codons from a gene or function query reduce the codon count factoring into the CUB calculation. `--query-min-analyzed-codons` ignores queries in the CUB calculation that have fewer than a minimum number of codons remaining. For example, `--query-min-analyzed-codons 300` ensures that after removing codons by `--exclude-amino-acids`, `--pansequence-min-amino-acids`, and/or `--sequence-min-amino-acids`, queries must have 300 codons involved in the CUB calculation.
 
 
-
-
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-get-codon-usage-bias.md) to update this information.
 

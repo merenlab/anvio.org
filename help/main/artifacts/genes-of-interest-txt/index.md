@@ -48,6 +48,7 @@ The input file for `--genes-of-interest` looks like the following example, with 
 
 Ideally, each gene caller ID would match to those stored in the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> currently being analyzed. But if this is not the case, some anvi'o programs will throw you an error to let you know of any mismatches.
 
+
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/genes-of-interest-txt.md) to update this information.
 

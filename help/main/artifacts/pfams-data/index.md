@@ -34,9 +34,9 @@ A DATA-type anvi'o artifact. This artifact is typically generated, used, and/or 
 
 ## Description
 
-This basically stores **a local copy of the data from the EBI's [Pfam database](https://pfam.xfam.org/) for function annotation.** 
+This basically stores **a local copy of the data from the EBI's [Pfam database](https://pfam.xfam.org/) for function annotation.**
 
-It is required to run <span class="artifact-p">[anvi-run-pfams](/help/main/programs/anvi-run-pfams)</span> and is set up on your computer by the program <span class="artifact-p">[anvi-setup-pfams](/help/main/programs/anvi-setup-pfams)</span>. 
+It is required to run <span class="artifact-p">[anvi-run-pfams](/help/main/programs/anvi-run-pfams)</span> and is set up on your computer by the program <span class="artifact-p">[anvi-setup-pfams](/help/main/programs/anvi-setup-pfams)</span>.
 
 
 {:.notice}

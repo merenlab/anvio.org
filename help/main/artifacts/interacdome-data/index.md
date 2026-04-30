@@ -41,7 +41,6 @@ As described in the [InteracDome blogpost](https://merenlab.org/2020/07/22/inter
 By default, this data is stored in `anvio/data/misc/InteracDome`, but a custom path can be set when the user runs <span class="artifact-p">[anvi-setup-interacdome](/help/main/programs/anvi-setup-interacdome)</span> if desired.
 
 
-
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/interacdome-data.md) to update this information.
 

@@ -34,7 +34,7 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-Oligotyping is a computational strategy that **partitions a given set of sequences into homogeneous groups using only a subset of target nucleotide positions**. 
+Oligotyping is a computational strategy that **partitions a given set of sequences into homogeneous groups using only a subset of target nucleotide positions**.
 
 ### History
 
@@ -51,6 +51,7 @@ Although, Shannon entropy is not the only approach to identify highly variable n
 This strategy also applies to metagenomic sequences that are mapped to a genomic context to describe the diversity of variable regions that are fully covered by short reads. In the context of metagenomic read recruitment, variable nucleotide positions can be chosen by the user from the positions of single-nucleotide variants [anvi'o recovers](https://merenlab.org/2015/07/20/analyzing-variability/) and presents through inspection pages in the interactive interface or through <span class="artifact-n">[variability-profile](/help/main/artifacts/variability-profile)</span>. An example application of oligotyping to metagenomics is demonstrated here:
 
 * [An application of oligotyping in the metagenomic context: Oligotyping AmoC](https://merenlab.org/2015/12/09/musings-over-commamox/#an-application-of-oligotyping-in-the-metagenomic-context-oligotyping-amoc)
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/oligotypes.md) to update this information.

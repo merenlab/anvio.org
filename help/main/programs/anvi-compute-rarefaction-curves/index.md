@@ -108,6 +108,7 @@ anvi&#45;compute&#45;rarefaction&#45;curves &#45;p <span class="artifact&#45;n">
                                 &#45;&#45;iterations 50
 </div>
 
+
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-compute-rarefaction-curves.md) to update this information.
 

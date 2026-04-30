@@ -43,9 +43,9 @@ Export taxonomy for splits found in an anvi&#x27;o contigs database.
 ## Usage
 
 
-This program exports the taxonomy hits for the splits contained in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, outputting them in a <span class="artifact-n">[splits-taxonomy-txt](/help/main/artifacts/splits-taxonomy-txt)</span>. 
+This program exports the taxonomy hits for the splits contained in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, outputting them in a <span class="artifact-n">[splits-taxonomy-txt](/help/main/artifacts/splits-taxonomy-txt)</span>.
 
-To do this, anvi'o examines all of the annotated genes within your splits and returns the taxon ID with the most genes associated with it. For example, a split with 3 genes identified as E. coli, 2 genes identified as Staphylococcus aureus, and 1 as Streptococcus pneumoniae would be annotated as E. coli. 
+To do this, anvi'o examines all of the annotated genes within your splits and returns the taxon ID with the most genes associated with it. For example, a split with 3 genes identified as E. coli, 2 genes identified as Staphylococcus aureus, and 1 as Streptococcus pneumoniae would be annotated as E. coli.
 
 To run this program, just provide a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>:
 

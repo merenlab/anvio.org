@@ -36,25 +36,25 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 
 This is an Anvi'o database that **stores information about your genomes, primarily for use in pangenomic analyses.**
 
-You can think of it like this: in a way, a genomes-storage-db is to the [the pangenomic workflow](http://merenlab.org/2016/11/08/pangenomics-v2/#generating-an-anvio-genomes-storage) what a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> is to the [the metagenomic workflow](http://merenlab.org/2016/06/22/anvio-tutorial-v2/). They both describe key information unique to your particular dataset and are required to run the vast majority of programs. 
+You can think of it like this: in a way, a genomes-storage-db is to the [the pangenomic workflow](http://merenlab.org/2016/11/08/pangenomics-v2/#generating-an-anvio-genomes-storage) what a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> is to the [the metagenomic workflow](http://merenlab.org/2016/06/22/anvio-tutorial-v2/). They both describe key information unique to your particular dataset and are required to run the vast majority of programs.
 
-### What kind of information? 
+### What kind of information?
 
-A genomes storage database contains information about the genomes that you inputted to create it, as well as the genes within them. 
+A genomes storage database contains information about the genomes that you inputted to create it, as well as the genes within them.
 
-Specifically, there are three tables stored in a genomes storage database: 
+Specifically, there are three tables stored in a genomes storage database:
 
-* A table describing the information about each of your genomes, such as their name, type (internal or external), GC content, number of contigs, completion, redundancy, number of genes, etc. 
-* A table describing the genes within your genomes. For each gene, this includes its gene caller id, associated genome and position, sequence, length, and whether or not it is partial. 
-* A table describing the functions of your genes, including their sources and e-values. 
+* A table describing the information about each of your genomes, such as their name, type (internal or external), GC content, number of contigs, completion, redundancy, number of genes, etc.
+* A table describing the genes within your genomes. For each gene, this includes its gene caller id, associated genome and position, sequence, length, and whether or not it is partial.
+* A table describing the functions of your genes, including their sources and e-values.
 
-### Cool. How do I make one? 
+### Cool. How do I make one?
 
-You can generate one of these from an <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span> (genomes described in <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s), <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> (genomes described in <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>s), or both using the program <span class="artifact-p">[anvi-gen-genomes-storage](/help/main/programs/anvi-gen-genomes-storage)</span>. 
+You can generate one of these from an <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span> (genomes described in <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s), <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> (genomes described in <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>s), or both using the program <span class="artifact-p">[anvi-gen-genomes-storage](/help/main/programs/anvi-gen-genomes-storage)</span>.
 
-### Cool cool. What can I do with one? 
+### Cool cool. What can I do with one?
 
-With one of these, you can run <span class="artifact-p">[anvi-pan-genome](/help/main/programs/anvi-pan-genome)</span> to get a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>. If a genomes storage database is the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> of pangenomics, then a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> is the <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. It contains lots of information that is vital for analysis, and most programs will require both the <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and its genomes storage database as an input. 
+With one of these, you can run <span class="artifact-p">[anvi-pan-genome](/help/main/programs/anvi-pan-genome)</span> to get a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>. If a genomes storage database is the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> of pangenomics, then a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> is the <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>. It contains lots of information that is vital for analysis, and most programs will require both the <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and its genomes storage database as an input.
 
 
 {:.notice}

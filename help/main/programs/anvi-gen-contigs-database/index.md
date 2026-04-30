@@ -51,7 +51,7 @@ The input for this program is a <span class="artifact-n">[contigs-fasta](/help/m
 
 Make sure the input file matches the requirements of a <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span>. If you are planning to use the resulting contigs-db with <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span>, it is essential that you convert your <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> file to a properly formatted <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span> *before* you perform the read recruitment.
 
-The contigs database is one of the most essential components of anvi'o, and a contigs database will keep all the information related to your sequences: positions of open reading frames, k-mer frequencies for each contig, functional and taxonomic annotation of genes, etc. 
+The contigs database is one of the most essential components of anvi'o, and a contigs database will keep all the information related to your sequences: positions of open reading frames, k-mer frequencies for each contig, functional and taxonomic annotation of genes, etc.
 
 When run on a <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span> this program will,
 

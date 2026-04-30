@@ -53,6 +53,7 @@ The command will create the `hmm-source` in a folder called `DefenseFinder_HMM` 
 anvi&#45;script&#45;gen&#45;defense&#45;finder&#45;models&#45;to&#45;hmm&#45;directory
 </div>
 
+
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-gen-defense-finder-models-to-hmm-directory.md) to update this information.
 

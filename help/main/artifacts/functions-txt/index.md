@@ -34,11 +34,11 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 
 ## Description
 
-This artifact is a TAB-delimited file that **associates genes and functions**. 
+This artifact is a TAB-delimited file that **associates genes and functions**.
 
 The user can generate this file to import gene functions into a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> via <span class="artifact-p">[anvi-import-functions](/help/main/programs/anvi-import-functions)</span> or can acquire this file by recovering it from a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> via <span class="artifact-p">[anvi-export-functions](/help/main/programs/anvi-export-functions)</span>. It is also the output of <span class="artifact-p">[anvi-search-functions](/help/main/programs/anvi-search-functions)</span> which searches for specific terms in your functional annotations.
 
-In general, this is the simplest way to get gene functions into anvi'o, and all downstream analyses, including pangenomics. For other ways to get gene functions into anvi'o you can take a look at [this page](http://merenlab.org/2016/06/18/importing-functions/). 
+In general, this is the simplest way to get gene functions into anvi'o, and all downstream analyses, including pangenomics. For other ways to get gene functions into anvi'o you can take a look at [this page](http://merenlab.org/2016/06/18/importing-functions/).
 
 
 ## Simple matrix file format
@@ -102,6 +102,7 @@ Please note that,
 * If you have no e-values associated with your annotations, it is OK to put `0` for every entry (you should make sure you keep this in mind for your downstream analyses that may require filtering of weak hits).
 
 * If there are multiple annotations from a single source for a single gene call, anvi'o uses e-values in this file to use only the most significant one to show in interfaces.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/functions-txt.md) to update this information.

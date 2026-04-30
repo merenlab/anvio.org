@@ -34,18 +34,18 @@ A NEWICK-type anvi'o artifact. This artifact can be generated, used, and/or expo
 
 ## Description
 
-This is a NEWICK-formatted tree that describes the phylogenic relationships of your data. 
+This is a NEWICK-formatted tree that describes the phylogenic relationships of your data.
 
 {:.notice}
 Wondering what the NEWICK format is? Then you're in luck! It has its own [Wikipedia page](https://en.wikipedia.org/wiki/Newick_format).
 
-### How to get one of these? 
+### How to get one of these?
 
-You can use <span class="artifact-p">[anvi-gen-phylogenomic-tree](/help/main/programs/anvi-gen-phylogenomic-tree)</span> to create a phylogeny based on a series of genes. 
+You can use <span class="artifact-p">[anvi-gen-phylogenomic-tree](/help/main/programs/anvi-gen-phylogenomic-tree)</span> to create a phylogeny based on a series of genes.
 
-As discussed on the page for <span class="artifact-p">[anvi-gen-phylogenomic-tree](/help/main/programs/anvi-gen-phylogenomic-tree)</span>, you can also use an external program to get a NEWICK-formatted tree and use that. 
+As discussed on the page for <span class="artifact-p">[anvi-gen-phylogenomic-tree](/help/main/programs/anvi-gen-phylogenomic-tree)</span>, you can also use an external program to get a NEWICK-formatted tree and use that.
 
-### What can I do with it? 
+### What can I do with it?
 
 Firstly, you can use it to reorder elements of the interactive interface. To import this to rearrange the orders that your items appear (in other words, as the central phylogenetic tree when you open the interface), import it using <span class="artifact-p">[anvi-import-items-order](/help/main/programs/anvi-import-items-order)</span>. To import this as a tree describing your layers (the concentric circles in the anvi'o interface), convert this to a <span class="artifact-n">[misc-data-layer-orders-txt](/help/main/artifacts/misc-data-layer-orders-txt)</span> and use the program <span class="artifact-p">[anvi-import-misc-data](/help/main/programs/anvi-import-misc-data)</span>.
 
@@ -57,7 +57,7 @@ anvi&#45;interactive &#45;t <span class="artifact&#45;n">[phylogeny](/help/main/
                  &#45;&#45;manual
 </div>
 
-This will create an empty <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> to store any <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s you create and other such data. You can also add various information, such as taxonomy hits, as done in that same [Phylogenetics tutorial](http://merenlab.org/2017/06/07/phylogenomics/#working-with-fasta-files). 
+This will create an empty <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> to store any <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s you create and other such data. You can also add various information, such as taxonomy hits, as done in that same [Phylogenetics tutorial](http://merenlab.org/2017/06/07/phylogenomics/#working-with-fasta-files).
 
 
 {:.notice}

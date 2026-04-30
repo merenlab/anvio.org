@@ -100,6 +100,7 @@ Having complete links, however, will enable [oligotyping](https://besjournals.on
 
 [http://merenlab.org/2015/12/09/musings-over-commamox/](http://merenlab.org/2015/12/09/musings-over-commamox/)
 
+
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-report-linkmers.md) to update this information.
 

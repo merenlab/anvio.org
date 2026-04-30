@@ -77,6 +77,7 @@ contig_sequences[Day17a_QCcontig1][195100: 195148]
 >>> AAGAGAAGAGGAGAAGTTCATCCATGGATGAACTTCTCCTCTTCTCTT
 ```
 
+
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/palindromes-txt.md) to update this information.
 

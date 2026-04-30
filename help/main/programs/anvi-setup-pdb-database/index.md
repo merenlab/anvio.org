@@ -44,7 +44,7 @@ This program seems to know what its doing. It needs no input material from its u
 
 
 
-## Basic usage 
+## Basic usage
 
 This program creates a <span class="artifact-n">[pdb-db](/help/main/artifacts/pdb-db)</span> local database that holds PDB structures from [this sequence database](https://salilab.org/modeller/supplemental.html), which is hosted by the [Sali lab](https://salilab.org/).  Their database comprises all PDB RCSB sequences that have been clustered at 95% sequence similarity. They seem to update their database every couple of months (thank you guys!).
 
@@ -58,13 +58,13 @@ Running this program is easy:
 anvi&#45;setup&#45;pdb&#45;database &#45;&#45;just&#45;do&#45;it
 </div>
 
-If you already have a <span class="artifact-n">[pdb-db](/help/main/artifacts/pdb-db)</span> artifact and are trying to redownload this data, run 
+If you already have a <span class="artifact-n">[pdb-db](/help/main/artifacts/pdb-db)</span> artifact and are trying to redownload this data, run
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;pdb&#45;database &#45;&#45;reset
 </div>
 
-Or if you just want to update your database, run 
+Or if you just want to update your database, run
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;pdb&#45;database &#45;&#45;update
@@ -73,7 +73,6 @@ anvi&#45;setup&#45;pdb&#45;database &#45;&#45;update
 ## Notes
 
 The output <span class="artifact-n">[pdb-db](/help/main/artifacts/pdb-db)</span> database is ~20GB and its contents may take several hours to download.
-
 
 
 {:.notice}

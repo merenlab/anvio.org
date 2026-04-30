@@ -64,7 +64,7 @@ anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;st
 </div>
 
 
-### Handling genes with unknown functions 
+### Handling genes with unknown functions
 
 By default, <span class="artifact-p">[anvi-analyze-synteny](/help/main/programs/anvi-analyze-synteny)</span> will ignore genes with unknown functions based on the annotation source of interest. However, this can be circumvented either by providing a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, so the program would use gene cluster identities as function names:
 
@@ -89,7 +89,7 @@ The disadvantage of the latter strategy is that since all genes with unknown fun
 
 ### Run with multiple annotations
 
-If multiple gene annotation sources are provided (i.e., a pangenome for gene clusters identities as well as a functional annotation source), the user must define which annotation source will be used to create the <span class="artifact-n">[ngrams](/help/main/artifacts/ngrams)</span> using the parameter `--ngram-source`. The resulting <span class="artifact-n">[ngrams](/help/main/artifacts/ngrams)</span> will then be re-annotated with the second annotation source and also reported. 
+If multiple gene annotation sources are provided (i.e., a pangenome for gene clusters identities as well as a functional annotation source), the user must define which annotation source will be used to create the <span class="artifact-n">[ngrams](/help/main/artifacts/ngrams)</span> using the parameter `--ngram-source`. The resulting <span class="artifact-n">[ngrams](/help/main/artifacts/ngrams)</span> will then be re-annotated with the second annotation source and also reported.
 
 <div class="codeblock" markdown="1">
 anvi&#45;analyze&#45;synteny &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \

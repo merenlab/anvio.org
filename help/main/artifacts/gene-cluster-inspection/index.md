@@ -34,7 +34,8 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This page describes general properties of the gene cluster inspection page. 
+This page describes general properties of the gene cluster inspection page.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/gene-cluster-inspection.md) to update this information.

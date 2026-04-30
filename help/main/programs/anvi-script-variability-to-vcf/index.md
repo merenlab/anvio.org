@@ -43,16 +43,16 @@ A script to convert SNV output obtained from anvi-gen-variability-profile to the
 ## Usage
 
 
-This script **converts a <span class="artifact-n">[variability-profile-txt](/help/main/artifacts/variability-profile-txt)</span> into <span class="artifact-n">[vcf](/help/main/artifacts/vcf)</span> (Variant Call Format).** 
+This script **converts a <span class="artifact-n">[variability-profile-txt](/help/main/artifacts/variability-profile-txt)</span> into <span class="artifact-n">[vcf](/help/main/artifacts/vcf)</span> (Variant Call Format).**
 
 It is very easy to run: just provide the input and output paths as so:
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;variability&#45;to&#45;vcf &#45;i <span class="artifact&#45;n">[variability&#45;profile&#45;txt](/help/main/artifacts/variability&#45;profile&#45;txt)</span> \ 
-                               &#45;o <span class="artifact&#45;n">[vcf](/help/main/artifacts/vcf)</span> 
+anvi&#45;script&#45;variability&#45;to&#45;vcf &#45;i <span class="artifact&#45;n">[variability&#45;profile&#45;txt](/help/main/artifacts/variability&#45;profile&#45;txt)</span> \
+                               &#45;o <span class="artifact&#45;n">[vcf](/help/main/artifacts/vcf)</span>
 </div>
 
-Note that to run this, you'll need to have run <span class="artifact-p">[anvi-gen-variability-profile](/help/main/programs/anvi-gen-variability-profile)</span> with the default nucleotide engine. 
+Note that to run this, you'll need to have run <span class="artifact-p">[anvi-gen-variability-profile](/help/main/programs/anvi-gen-variability-profile)</span> with the default nucleotide engine.
 
 
 {:.notice}

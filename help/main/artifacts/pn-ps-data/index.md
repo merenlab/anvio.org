@@ -34,12 +34,12 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This describes the output of <span class="artifact-p">[anvi-get-pn-ps-ratio](/help/main/programs/anvi-get-pn-ps-ratio)</span>, which calculates the pN/pS ratio for each gene in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. 
+This describes the output of <span class="artifact-p">[anvi-get-pn-ps-ratio](/help/main/programs/anvi-get-pn-ps-ratio)</span>, which calculates the pN/pS ratio for each gene in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>.
 
 {:.notice}
-See the page for <span class="artifact-p">[anvi-get-pn-ps-ratio](/help/main/programs/anvi-get-pn-ps-ratio)</span> for an explanation of the pN/pS ratio 
+See the page for <span class="artifact-p">[anvi-get-pn-ps-ratio](/help/main/programs/anvi-get-pn-ps-ratio)</span> for an explanation of the pN/pS ratio
 
-This describes a directory that contains the following four files: 
+This describes a directory that contains the following four files:
 
 `pNpS.txt`: a long-format table of the pN/pS values, along with the groupby variables:
 
@@ -76,7 +76,6 @@ This describes a directory that contains the following four files:
 | 1 | 1744                    | ANE_004_40M | 166      |
 | 2 | 1744                    | ANE_150_05M | 162      |
 | 3 | 1744                    | ANE_150_40M | 160      |
-
 
 
 {:.notice}

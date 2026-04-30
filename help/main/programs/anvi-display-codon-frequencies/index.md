@@ -123,6 +123,7 @@ anvi-interactive -p GCF_001458775-PROFILE.db \
                  --manual
 ```
 
+
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-display-codon-frequencies.md) to update this information.
 

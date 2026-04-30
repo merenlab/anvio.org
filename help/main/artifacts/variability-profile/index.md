@@ -34,7 +34,7 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 
 ## Description
 
-As an artifact, this describes the variability information about a single sample calculated when you ran <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span>. To examine variability across samples, you'll want to use this information (which is stored within your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>) to run <span class="artifact-p">[anvi-gen-variability-profile](/help/main/programs/anvi-gen-variability-profile)</span>. 
+As an artifact, this describes the variability information about a single sample calculated when you ran <span class="artifact-p">[anvi-profile](/help/main/programs/anvi-profile)</span>. To examine variability across samples, you'll want to use this information (which is stored within your <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>) to run <span class="artifact-p">[anvi-gen-variability-profile](/help/main/programs/anvi-gen-variability-profile)</span>.
 
 ## Details about Variability
 

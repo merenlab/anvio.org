@@ -43,21 +43,21 @@ A script that takes a FASTQ file that is not paired-end (i.e., R1 alone) and con
 ## Usage
 
 
-This program takes in a <span class="artifact-n">[short-reads-fasta](/help/main/artifacts/short-reads-fasta)</span> file and tries to recreate what paired reads for the data in that fasta file might look like. 
+This program takes in a <span class="artifact-n">[short-reads-fasta](/help/main/artifacts/short-reads-fasta)</span> file and tries to recreate what paired reads for the data in that fasta file might look like.
 
-An arbitrarily chosen half of the reads will be put into the R1 output, while the other half will be reverse complemented and put into the R2 output. 
+An arbitrarily chosen half of the reads will be put into the R1 output, while the other half will be reverse complemented and put into the R2 output.
 
-For example, if you ran 
+For example, if you ran
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;gen&#45;pseudo&#45;paired&#45;reads&#45;from&#45;fastq &#45;f <span class="artifact&#45;n">[short&#45;reads&#45;fasta](/help/main/artifacts/short&#45;reads&#45;fasta)</span> \
-                                               &#45;O MY_READS 
+                                               &#45;O MY_READS
 </div>
 
-Then you would end up with two files: 
+Then you would end up with two files:
 
 - `MY_READS_1.fastq` which contains half of the reads straight out of your input file
-- `MY_READS_2.fastq` which contains the reverse complement of the other half of the reads. 
+- `MY_READS_2.fastq` which contains the reverse complement of the other half of the reads.
 
 
 {:.notice}

@@ -45,30 +45,30 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program **lists the additional data** that is stored within a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. This is data that can be imported with <span class="artifact-p">[anvi-import-misc-data](/help/main/programs/anvi-import-misc-data)</span> and is displayed in the interactive interface. 
+This program **lists the additional data** that is stored within a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. This is data that can be imported with <span class="artifact-p">[anvi-import-misc-data](/help/main/programs/anvi-import-misc-data)</span> and is displayed in the interactive interface.
 
-When run, this program will output to the terminal a list of all additional data tables that are stored within the database. If you want to export a specific element of these as a text file, see <span class="artifact-p">[anvi-export-misc-data](/help/main/programs/anvi-export-misc-data)</span>. 
+When run, this program will output to the terminal a list of all additional data tables that are stored within the database. If you want to export a specific element of these as a text file, see <span class="artifact-p">[anvi-export-misc-data](/help/main/programs/anvi-export-misc-data)</span>.
 
-### What is displayed? 
+### What is displayed?
 
 When running on a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, the output will display the following types of data:
 
-- <span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span> 
+- <span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span>
 - <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span>
 - <span class="artifact-n">[misc-data-layer-orders](/help/main/artifacts/misc-data-layer-orders)</span> (by default, this will include orders like `abundance` and `mean_coverage (newick)`)
 
 When running on a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, the output will display the following types of data:
 
-- <span class="artifact-n">[misc-data-nucleotides](/help/main/artifacts/misc-data-nucleotides)</span> 
-- <span class="artifact-n">[misc-data-amino-acids](/help/main/artifacts/misc-data-amino-acids)</span> 
+- <span class="artifact-n">[misc-data-nucleotides](/help/main/artifacts/misc-data-nucleotides)</span>
+- <span class="artifact-n">[misc-data-amino-acids](/help/main/artifacts/misc-data-amino-acids)</span>
 
-These have no default values and will only contain data that has been imported with <span class="artifact-p">[anvi-import-misc-data](/help/main/programs/anvi-import-misc-data)</span>. 
+These have no default values and will only contain data that has been imported with <span class="artifact-p">[anvi-import-misc-data](/help/main/programs/anvi-import-misc-data)</span>.
 
 You also have the option to specify a specific kind of additional data table with `-t`. For example, to view only <span class="artifact-n">[misc-data-items](/help/main/artifacts/misc-data-items)</span> in a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, just call
 
 <div class="codeblock" markdown="1">
 anvi&#45;show&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
-                    &#45;t items 
+                    &#45;t items
 </div>
 
 Similarly to importing and exporting additional data tables, you can also focus on a specific data group with the parameter `-D`.

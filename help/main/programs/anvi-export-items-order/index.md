@@ -43,24 +43,24 @@ Export an item order from an anvi&#x27;o database.
 ## Usage
 
 
-This program, as one might think, allows you to export a <span class="artifact-n">[misc-data-items-order](/help/main/artifacts/misc-data-items-order)</span>, outputing a <span class="artifact-n">[misc-data-items-order-txt](/help/main/artifacts/misc-data-items-order-txt)</span>. 
+This program, as one might think, allows you to export a <span class="artifact-n">[misc-data-items-order](/help/main/artifacts/misc-data-items-order)</span>, outputing a <span class="artifact-n">[misc-data-items-order-txt](/help/main/artifacts/misc-data-items-order-txt)</span>.
 
-You can export one of the item orders in a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> as follows: 
+You can export one of the item orders in a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> as follows:
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
                         &#45;&#45;name cov
 </div>
 
-The `cov` here refers to the tree that is generated using only differential coverage. Almost all anvi'o profile databases will also have available an items-order based on the tetranucleotide frequency called `tnf`, and one based on both called `tnf-cov`. 
+The `cov` here refers to the tree that is generated using only differential coverage. Almost all anvi'o profile databases will also have available an items-order based on the tetranucleotide frequency called `tnf`, and one based on both called `tnf-cov`.
 
-However, to list the item orders available in this database, just don't include the name flag.  
+However, to list the item orders available in this database, just don't include the name flag.
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;items&#45;order &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> 
+anvi&#45;export&#45;items&#45;order &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span>
 </div>
 
-You'll get a `Config Error` that will tell you what item orders are available. 
+You'll get a `Config Error` that will tell you what item orders are available.
 
 
 {:.notice}

@@ -57,7 +57,7 @@ Please also see <span class="artifact-p">[anvi-display-functions](/help/main/pro
 
 ## Enriched functions in a pangenome
 
-For this to run, you must provide a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> pair, as well as a <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span> that associates genomes in your pan database with categorical data. The program will then find functions that are enriched in each group (i.e., functions that are associated with gene clusters that are characteristic of the genomes in that group). 
+For this to run, you must provide a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> pair, as well as a <span class="artifact-n">[misc-data-layers](/help/main/artifacts/misc-data-layers)</span> that associates genomes in your pan database with categorical data. The program will then find functions that are enriched in each group (i.e., functions that are associated with gene clusters that are characteristic of the genomes in that group).
 
 {:.notice}
 Note that your <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> must have at least one functional annotation source for this to work.
@@ -72,7 +72,7 @@ What this program does can be broken down into three steps:
 
 2.  **Determine the "functional associations" of gene clusters**. In short, this is collecting the functional annotations for all of the genes in each cluster and assigning the one that appears most frequently to represent the entire cluster.
 
-3. **Quantify the distribution of functions in each group of genomes**. For this, the program determines to what extent a particular function is enriched in specific groups of genomes and reports it as a <span class="artifact-n">[functional-enrichment-txt](/help/main/artifacts/functional-enrichment-txt)</span> file. It does so by running the script `anvi-script-enrichment-stats`. 
+3. **Quantify the distribution of functions in each group of genomes**. For this, the program determines to what extent a particular function is enriched in specific groups of genomes and reports it as a <span class="artifact-n">[functional-enrichment-txt](/help/main/artifacts/functional-enrichment-txt)</span> file. It does so by running the script `anvi-script-enrichment-stats`.
 
 {:.notice}
 The script `anvi-script-enrichment-stats` was implemented by [Amy Willis](https://github.com/adw96), and described first in [this paper](https://doi.org/10.1186/s13059-020-02195-w).

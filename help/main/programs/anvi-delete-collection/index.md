@@ -43,9 +43,9 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program, as implied by the name, will delete a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> from a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> or a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>. 
+This program, as implied by the name, will delete a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> from a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> or a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>.
 
-Using this program will delete the <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and every <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> it describes from the database forever and without any additional warning. If you are not sure whether you may need a given collection later, it may be a good idea to export your binning effort into a <span class="artifact-n">[collection-txt](/help/main/artifacts/collection-txt)</span> using <span class="artifact-p">[anvi-export-collection](/help/main/programs/anvi-export-collection)</span> before deleting it, just to be safe. 
+Using this program will delete the <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> and every <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> it describes from the database forever and without any additional warning. If you are not sure whether you may need a given collection later, it may be a good idea to export your binning effort into a <span class="artifact-n">[collection-txt](/help/main/artifacts/collection-txt)</span> using <span class="artifact-p">[anvi-export-collection](/help/main/programs/anvi-export-collection)</span> before deleting it, just to be safe.
 
 To list available collections in a database you can use the program <span class="artifact-p">[anvi-show-collections-and-bins](/help/main/programs/anvi-show-collections-and-bins)</span>. When you know which collection you wish to remove, you can run the program on the target collection name:
 

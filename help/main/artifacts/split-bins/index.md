@@ -34,9 +34,9 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This is the result of <span class="artifact-p">[anvi-split](/help/main/programs/anvi-split)</span>: self-contained anvi'o projects that contain just the contents of a single <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> from your original database. 
+This is the result of <span class="artifact-p">[anvi-split](/help/main/programs/anvi-split)</span>: self-contained anvi'o projects that contain just the contents of a single <span class="artifact-n">[bin](/help/main/artifacts/bin)</span> from your original database.
 
-This describes a directory that either contains either a <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> and <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> (if that's what you gave <span class="artifact-p">[anvi-split](/help/main/programs/anvi-split)</span> as an input) or a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> pair. The contigs or genomes and gene clusters described in these databases will be only those contained in the bin that the directory's name corresponds to.  
+This describes a directory that either contains either a <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> and <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> (if that's what you gave <span class="artifact-p">[anvi-split](/help/main/programs/anvi-split)</span> as an input) or a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> pair. The contigs or genomes and gene clusters described in these databases will be only those contained in the bin that the directory's name corresponds to.
 
 
 {:.notice}

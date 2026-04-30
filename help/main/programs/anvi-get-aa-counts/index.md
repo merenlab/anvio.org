@@ -43,9 +43,9 @@ Fetches the number of times each amino acid occurs from a contigs database in a 
 ## Usage
 
 
-Similarly to <span class="artifact-p">[anvi-get-codon-frequencies](/help/main/programs/anvi-get-codon-frequencies)</span>, this program counts the number of times each amino acid occurs in a given sequence, whether that's a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>, <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>, set of contigs (listed in a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span>), or a set of genes. The output of this is a <span class="artifact-n">[aa-frequencies-txt](/help/main/artifacts/aa-frequencies-txt)</span>. 
+Similarly to <span class="artifact-p">[anvi-get-codon-frequencies](/help/main/programs/anvi-get-codon-frequencies)</span>, this program counts the number of times each amino acid occurs in a given sequence, whether that's a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>, <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>, set of contigs (listed in a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span>), or a set of genes. The output of this is a <span class="artifact-n">[aa-frequencies-txt](/help/main/artifacts/aa-frequencies-txt)</span>.
 
-There are four possible things you can count the amino acid frequencies in: 
+There are four possible things you can count the amino acid frequencies in:
 * All of the contigs in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>
 * A series of <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s
 * A list of contigs
@@ -62,11 +62,11 @@ anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;
                    &#45;o path/to/<span class="artifact&#45;n">[aa&#45;frequencies&#45;txt](/help/main/artifacts/aa&#45;frequencies&#45;txt)</span>
 </div>
 
-### Option 2: a series of bins in a collection 
+### Option 2: a series of bins in a collection
 
-To count the amino acid frequencies for a series of <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s, you'll need to provide three additional parameters: the <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> that you used for binning, the <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> that your bins are contained in, and a text file that describes which bins you are interested in. This text file should have only one bin ID per line. 
+To count the amino acid frequencies for a series of <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s, you'll need to provide three additional parameters: the <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> that you used for binning, the <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> that your bins are contained in, and a text file that describes which bins you are interested in. This text file should have only one bin ID per line.
 
-So, your run would look something like this: 
+So, your run would look something like this:
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -80,10 +80,10 @@ anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;
 
     bin_00001
     bin_00004
-    
+
 ### Option 3: a list of contigs
 
-Just provide a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span> file that lists the contigs you want to look at. 
+Just provide a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span> file that lists the contigs you want to look at.
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -91,7 +91,7 @@ anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;
                    &#45;&#45;contigs&#45;of&#45;interest <span class="artifact&#45;n">[splits&#45;txt](/help/main/artifacts/splits&#45;txt)</span>
 </div>
 
-### Option 4: a list of genes 
+### Option 4: a list of genes
 
 Just provide a list of gene caller ids, straight into the terminal, like so:
 

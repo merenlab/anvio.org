@@ -43,17 +43,16 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program allows you to update the description of any anvi'o database with the push of a button (and the writing of an updated description). 
+This program allows you to update the description of any anvi'o database with the push of a button (and the writing of an updated description).
 
-This descirption helps make UIs a little prettier by showing up when you run programs like <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> and <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span>. 
+This descirption helps make UIs a little prettier by showing up when you run programs like <span class="artifact-p">[anvi-interactive](/help/main/programs/anvi-interactive)</span> and <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span>.
 
-Simply write out the description that you would prefer in a plain text file (with markdown syntax) and use this program to update the description of any <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, or <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>: 
+Simply write out the description that you would prefer in a plain text file (with markdown syntax) and use this program to update the description of any <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, or <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>:
 
 <div class="codeblock" markdown="1">
 anvi&#45;update&#45;db&#45;description &#45;&#45;description my_description.txt \
                            <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span>
 </div>
-
 
 
 {:.notice}

@@ -180,7 +180,7 @@ This option is only relevant if you allow the Pathway Map Walk prediction strate
 
 ### Including only specific Pathway Maps
 
-The opposite of `--exclude-pathway-maps` is the `--include-pathway-maps` option. With this flag, you can list the specific Pathway Maps that you want to predict exchanges from. 
+The opposite of `--exclude-pathway-maps` is the `--include-pathway-maps` option. With this flag, you can list the specific Pathway Maps that you want to predict exchanges from.
 
 <div class="codeblock" markdown="1">
 anvi&#45;predict&#45;metabolic&#45;exchanges &#45;c1 <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> &#45;c2 <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -234,7 +234,7 @@ anvi&#45;predict&#45;metabolic&#45;exchanges &#45;c1 <span class="artifact&#45;n
                                  &#45;&#45;num&#45;threads 4
 </div>
 
-Resource requirement: Your computer (or the job you submitted to a high-performance computing cluster) must have **>4 threads** available to run this example. 
+Resource requirement: Your computer (or the job you submitted to a high-performance computing cluster) must have **>4 threads** available to run this example.
 
 {:.notice}
 Why >4 and not >=4? I'm glad you asked. You see, the program itself has to run on one thread and it will start 4 child processes to work on the Pathway Map walks, bringing the total usage up to n=5 threads. Why not spawn `n-1` child processes so that the _total_ thread usage of the program is exactly equal to the `--num-threads` number? Well, that is a good idea. But in practice, the program (parent process) is not doing very much while waiting for its child processes to send their data back. And it seemed less confusing this way to begin with. If you think that extra thread will cause issues, now you know and you can set `--num-threads` a bit lower accordingly. And if you are upset about this, you know who to complain to. 😇
@@ -249,7 +249,7 @@ anvi&#45;predict&#45;metabolic&#45;exchanges &#45;e <span class="artifact&#45;n"
                                  &#45;&#45;num&#45;threads 4
 </div>
 
-Resource requirement: Your computer (or the job you submitted to a high-performance computing cluster) must have **>4 threads** available to run this example. 
+Resource requirement: Your computer (or the job you submitted to a high-performance computing cluster) must have **>4 threads** available to run this example.
 
 **Multiprocessing multi-mode (multiple multithreaded comparisons at once)**
 
@@ -313,7 +313,7 @@ This approach implements almost exactly the 'transfer point' examination describ
 
 Then we can check if only one genome can participate in those reactions (a 'unique' compound), if the production or consumption is one-sided (a 'potentially-exchanged' compound), or if we have one of those other situations from the table that we ignore (no prediction).
 
-**Advantages of this approach:** 
+**Advantages of this approach:**
 - it is relatively fast, because it is so simple and looks at only the potential 'transfer point' of a given compound.
 - it covers more metabolites, because ModelSEED contains many compounds that are not described in KEGG Pathway Maps and the _only_ way to predict exchanges of these metabolites is through this approach.
 
@@ -331,7 +331,7 @@ If the Pathway Map Walk strategy is skipped (for instance, with the `--no-pathwa
 
 This prediction approach is more complex, utilizes additional information from the [KEGG PATHWAY database](https://www.genome.jp/kegg/pathway.html), and adds evidence associated with each prediction that enables one to filter for more reasonable-looking results.
 
-It starts by associating compounds from the merged reaction network with KEGG Pathway Maps, and for each of the resulting Pathway Maps, it finds all possible 'walks' through a Map for a given compound within the context of each genome's reaction network. Briefly, a 'walk' starts from a compound and chains together the set of subsequent (or previous) reactions that are present in the genome's network, until it finds a reaction that the genome cannot catalyze (due to the absence of required enzymes). A 'walk' can be done in either the 'production' direction (all reactions leading up to the production of the compound in the current organism) or the 'consumption' direction (all reactions leading away from the consumption of the compound in the current organism), and results in one or more reaction chains that describe the possible ways this metabolite can be generated or utilized by the organism. When there are branch points in the Pathway Map, all these branches are fully explored (potentially resulting in multiple reaction chains for either 'production' or 'consumption' of the compound). By default, we don't allow any gaps in the chain (meaning that we stop exploring a branch once we reach a reaction that is not present in the reaction network), but you can change this using the parameter `--maximum-gaps`, in which case the walk will continue past these gaps until it reaches the maximum allowed number of missing reactions. The resulting reaction chains are _specific to a given compound, Pathway Map, genome, and direction_ ('production' vs 'consumption'). 
+It starts by associating compounds from the merged reaction network with KEGG Pathway Maps, and for each of the resulting Pathway Maps, it finds all possible 'walks' through a Map for a given compound within the context of each genome's reaction network. Briefly, a 'walk' starts from a compound and chains together the set of subsequent (or previous) reactions that are present in the genome's network, until it finds a reaction that the genome cannot catalyze (due to the absence of required enzymes). A 'walk' can be done in either the 'production' direction (all reactions leading up to the production of the compound in the current organism) or the 'consumption' direction (all reactions leading away from the consumption of the compound in the current organism), and results in one or more reaction chains that describe the possible ways this metabolite can be generated or utilized by the organism. When there are branch points in the Pathway Map, all these branches are fully explored (potentially resulting in multiple reaction chains for either 'production' or 'consumption' of the compound). By default, we don't allow any gaps in the chain (meaning that we stop exploring a branch once we reach a reaction that is not present in the reaction network), but you can change this using the parameter `--maximum-gaps`, in which case the walk will continue past these gaps until it reaches the maximum allowed number of missing reactions. The resulting reaction chains are _specific to a given compound, Pathway Map, genome, and direction_ ('production' vs 'consumption').
 
 To summarize, this Pathway Walk strategy gives us 'production' reaction chains and 'consumption' reaction chains for a compound within each organism. For example, if the compound in question is urea, and we are walking over Pathway Map [map00230 (Purine Metabolism)](https://www.kegg.jp/pathway/map00230), we might end up with the following set of reaction chains:
 
@@ -349,7 +349,7 @@ Prediction of potential exchanges from the Pathway Map walk results is then fair
 
 And from there, we can decide which situation the compound falls into based on our prediction table, just like we do in the Reaction Network Subset approach. But unlike the Reaction Network Subset approach, we do not stop at prediction.
 
-The final step of this approach is using the reaction chains returned by the Pathway Map walk to compute evidence that supports or opposes each prediction. We calculate the length of the longest production chain in the 'primary producer' of the compound, and compare this chain to any production chains in the 'primary consumer' to compute how much overlap there is (if any). We do the same thing on the other side of the transfer point, by computing the length of the longest consumption chain in the 'primary consumer' and evaluating the overlap from consumption chains in the 'primary producer'. Overlap is described in both length form (number of overlapping reactions) and proportion form (relative to the length of the reaction chain). You can see examples of these values in the example reaction chain image above. 
+The final step of this approach is using the reaction chains returned by the Pathway Map walk to compute evidence that supports or opposes each prediction. We calculate the length of the longest production chain in the 'primary producer' of the compound, and compare this chain to any production chains in the 'primary consumer' to compute how much overlap there is (if any). We do the same thing on the other side of the transfer point, by computing the length of the longest consumption chain in the 'primary consumer' and evaluating the overlap from consumption chains in the 'primary producer'. Overlap is described in both length form (number of overlapping reactions) and proportion form (relative to the length of the reaction chain). You can see examples of these values in the example reaction chain image above.
 
 If a compound is found in multiple Pathway Maps, we aggregate the evidence from all of those maps and report the most informative Pathway Maps (one for production, one for consumption) in the main `*-potentially-exchanged-compounds.txt` output file. 'Most informative' here means the map with the longest reaction chain. And if there are multiple maps with the same maximum chain length, then we report the map with the smallest (real-number) proportion of overlap ('real-number' just means we try to avoid reporting None overlap values when possible). Detailed evidence from all Pathway Maps considered for a given compound is reported in the `*-evidence.txt` output file in case you need to take a closer look.
 
@@ -371,6 +371,7 @@ Provided you run `anvi-predict-metabolic-exchanges` _without_ the `--no-pathway-
 In order for the Pathway Map walk to work, we need the map to (1) include Kegg Orthologs (KOs) so that we can link up the reaction network information with the Pathway Map information, and (2) have a Reaction ('RN') type KGML file available in the KEGG data directory. This means we only process regular KEGG Pathway Maps categorized under 'Metabolism', whose map IDs start with the prefix '00' -- you can see a list of all Maps on [the KEGG PATHWAY webpage](https://www.kegg.jp/kegg/pathway.html) if you are curious what falls under this category. And out of those maps, we have to skip any map that doesn't have an 'RN'-type KGML file. The program detects and skips any non-'RN' maps automatically and warns the user on the terminal about them.
 
 If you want to exclude a subset of these KEGG Pathway Maps, you can do so with the `--exclude-pathway-maps` as described previously on this page.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-predict-metabolic-exchanges.md) to update this information.

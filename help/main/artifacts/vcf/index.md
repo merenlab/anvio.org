@@ -34,24 +34,24 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This represents a file in the Variant Call Format, which is a standard format for storing sequence variations like SNVs. 
+This represents a file in the Variant Call Format, which is a standard format for storing sequence variations like SNVs.
 
-You can convert the information in a <span class="artifact-n">[variability-profile-txt](/help/main/artifacts/variability-profile-txt)</span> to <span class="artifact-n">[vcf](/help/main/artifacts/vcf)</span> with the program <span class="artifact-p">[anvi-script-variability-to-vcf](/help/main/programs/anvi-script-variability-to-vcf)</span>. 
+You can convert the information in a <span class="artifact-n">[variability-profile-txt](/help/main/artifacts/variability-profile-txt)</span> to <span class="artifact-n">[vcf](/help/main/artifacts/vcf)</span> with the program <span class="artifact-p">[anvi-script-variability-to-vcf](/help/main/programs/anvi-script-variability-to-vcf)</span>.
 
-### What's in this file? 
+### What's in this file?
 
-For more details, you can check out the [VCF wikipedia page](https://en.wikipedia.org/wiki/Variant_Call_Format). 
+For more details, you can check out the [VCF wikipedia page](https://en.wikipedia.org/wiki/Variant_Call_Format).
 
 #### Header
 
-Briefly, this file's header (marked by `##` at the beginning of each line) contains various metadata. This includes the date, link to the reference file, contig information, etc. It also contains 
-- what information will be reported (denoted by `INFO`). 
-- what additional filters will be run on each SNV (denoted by `FILTER`). For example, marking which variants are below a certain quality threshold. 
-- what format to display additional data in (denoted by `FORMAT`). 
+Briefly, this file's header (marked by `##` at the beginning of each line) contains various metadata. This includes the date, link to the reference file, contig information, etc. It also contains
+- what information will be reported (denoted by `INFO`).
+- what additional filters will be run on each SNV (denoted by `FILTER`). For example, marking which variants are below a certain quality threshold.
+- what format to display additional data in (denoted by `FORMAT`).
 
 #### Body
 
-The body of the file contains identifying information for the variation (the chromosome, position and ID), the identity of the position in the reference and alternative alleles present in your data. Following this is a quality score for your data and the additional information specified by the header. 
+The body of the file contains identifying information for the variation (the chromosome, position and ID), the identity of the position in the reference and alternative alleles present in your data. Following this is a quality score for your data and the additional information specified by the header.
 
 
 {:.notice}

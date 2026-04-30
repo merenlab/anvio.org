@@ -43,7 +43,7 @@ Summarizer for anvi&#x27;o pan or profile db&#x27;s. Essentially, this program t
 ## Usage
 
 
-Anvi-summarize lets you look at a **comprehensive overview of your <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>** and its many statistics that anvi'o has calculated. 
+Anvi-summarize lets you look at a **comprehensive overview of your <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>** and its many statistics that anvi'o has calculated.
 
 It will create a folder (by default called `SUMMARY`) that contains many different summary files, including an HTML output that conviently displays them all for you. The exact contents of this folder will depend on whether you run the program on a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> (i.e., to summarize a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> of binned contigs, such as metagenome-assembled genomes) or on a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> (i.e., to summarize a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span> of binned gene clusters, such as when you want to compare accessory vs core genome). Due to the extensive set of output files it produces, this program can be useful for sharing information with collaborators, generating supplementary files for manuscripts, and exporting data for use as input to downstream programs/scripts.
 
@@ -68,11 +68,11 @@ In case you want to learn about the definitions of statistics like coverage, det
 
 When run on a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, this program will:
 * generate a _huge_ table (`[NAME]_gene_clusters_summary.txt`) describing every gene in every gene cluster of your pangenome (even those not in the specified <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>), including:
-    * gene-cluster-specific information like the number of genomes contributing to that cluster, maximum number of paralogs in any partipating genome, and cluster homogeneity metrics. 
+    * gene-cluster-specific information like the number of genomes contributing to that cluster, maximum number of paralogs in any partipating genome, and cluster homogeneity metrics.
     * gene-specific information like functional annotations and amino acid sequence
 * export any tables of miscellaneous data that were imported into the <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> with <span class="artifact-p">[anvi-import-misc-data](/help/main/programs/anvi-import-misc-data)</span> (in the directories `misc_data_items` and `misc_data_layers`)
 
-## Running anvi-summarize 
+## Running anvi-summarize
 
 ### Running on a profile database
 
@@ -85,21 +85,21 @@ anvi&#45;summarize &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/ma
                &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span>
 </div>
 
-This will name the output directory `MY_SUMMARY` instead of the standard `SUMMARY`. 
+This will name the output directory `MY_SUMMARY` instead of the standard `SUMMARY`.
 
-When running on a profile database, you also have options to 
+When running on a profile database, you also have options to
 * output very accurate (but intensely processed) coverage and detection data for each gene (using `--init-gene-coverages`)
 * edit your contig names so that they contain the name of the bin that the contig is in (using `--reformat-contig-names`)
 * also display the amino acid sequeunces for your gene calls.  (using `--report-aa-seqs-for-gene-calls`)
 
 ### Running on a pan database
 
-When running on a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, you'll want to instead provide the associated genomes storage database. 
+When running on a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>, you'll want to instead provide the associated genomes storage database.
 
 <div class="codeblock" markdown="1">
 anvi&#45;summarize &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
                &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
-               &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> 
+               &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span>
 </div>
 
 You can also choose to display DNA sequences for your gene clusters instead of amino acid sequences with the flag `--report-DNA-sequences`
@@ -108,7 +108,7 @@ You can also choose to display DNA sequences for your gene clusters instead of a
 
 If you're unsure what collections are in your database, you can run this program with the flag `--list-collections` or by running <span class="artifact-p">[anvi-show-collections-and-bins](/help/main/programs/anvi-show-collections-and-bins)</span>. Don't have a collection at all? If you want to summarize everything in the database, you can generate a default collection of everything by running <span class="artifact-p">[anvi-script-add-default-collection](/help/main/programs/anvi-script-add-default-collection)</span>.
 
-You can also use the flag `--quick-summary` to get a less comprehensive summary with a much shorter processing time. 
+You can also use the flag `--quick-summary` to get a less comprehensive summary with a much shorter processing time.
 
 
 {:.notice}

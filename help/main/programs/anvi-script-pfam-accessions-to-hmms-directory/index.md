@@ -63,6 +63,7 @@ anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmm&#45;directory &#45;&#45;p
 
 Output folder is specified by `-O` and the folder will be created by anvi'o if it doesn't exist, otherwise anvi'o will exist.
 
+
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-pfam-accessions-to-hmms-directory.md) to update this information.
 

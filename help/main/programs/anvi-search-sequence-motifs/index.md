@@ -147,6 +147,7 @@ Layers for sequence motif frequencies will be automatically colored to a shade o
 
 Instead of a profile database, this program can also run on an anvi'o <span class="artifact-n">[genes-db](/help/main/artifacts/genes-db)</span> and search sequence motifs for each gene rather than split or contig sequences.
 
+
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-search-sequence-motifs.md) to update this information.
 

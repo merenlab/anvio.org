@@ -43,13 +43,13 @@ Generate short reads from contigs. Useful to reconstruct mock data sets from alr
 ## Usage
 
 
-This program uses already assembled contigs to create a mock list of short reads. You can then use these short reads to reassemble your data in order to test alternative assembly programs or analysis methods as a positive control. 
+This program uses already assembled contigs to create a mock list of short reads. You can then use these short reads to reassemble your data in order to test alternative assembly programs or analysis methods as a positive control.
 
-Basically, this attempts to undo the assembly and produce a data set that could have been directly received from laboratory sequencing. While the computer's mock short reads won't be perfect, they can be used to make sure your analysis pipeline is working from step 1. 
+Basically, this attempts to undo the assembly and produce a data set that could have been directly received from laboratory sequencing. While the computer's mock short reads won't be perfect, they can be used to make sure your analysis pipeline is working from step 1.
 
 ## Example Usage
 
-This program takes an INI file - a form of text file containing various information. For this program, the example provided in the anvi'o test suite looks like this: 
+This program takes an INI file - a form of text file containing various information. For this program, the example provided in the anvi'o test suite looks like this:
 
 ```ini
 [general]
@@ -59,14 +59,14 @@ coverage = 100
 contig = CTGTGGTTACGCCACCTTGAGAGATATTAGTCGCGTATTGCATCCGTGCCGACAAATTGCCCAACGCATCGTTCCTTCTCCTAAGTAATTTAACATGCGT
 ```
 
-Note that this file contains both the contig that you want to break down, and various information about the short reads that you want to create. To run this program, just call 
+Note that this file contains both the contig that you want to break down, and various information about the short reads that you want to create. To run this program, just call
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;gen&#45;short&#45;reads <span class="artifact&#45;n">[configuration&#45;ini](/help/main/artifacts/configuration&#45;ini)</span> \
                             &#45;&#45;output&#45;file&#45;path <span class="artifact&#45;n">[short&#45;reads&#45;fasta](/help/main/artifacts/short&#45;reads&#45;fasta)</span>
 </div>
-    
-The resulting FASTA file with short reads will cover the `contig` with short reads that are 10 nts long at 100X coverage. There will also be an error-rate of 0.05, to mimic the sequencing errors you would get from sequencing in the wet lab. 
+
+The resulting FASTA file with short reads will cover the `contig` with short reads that are 10 nts long at 100X coverage. There will also be an error-rate of 0.05, to mimic the sequencing errors you would get from sequencing in the wet lab.
 
 
 {:.notice}

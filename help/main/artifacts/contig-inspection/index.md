@@ -34,7 +34,8 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This page describes general properties of the interactive inspect page. 
+This page describes general properties of the interactive inspect page.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/contig-inspection.md) to update this information.

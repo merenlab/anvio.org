@@ -107,7 +107,7 @@ The clustering of <span class="artifact-n">[bin](/help/main/artifacts/bin)</span
 
 ### Genes mode: Visualizing *genes* instead of contigs
 
-You can also start the interactive interface in "gene mode", in which each item of the central tree is a gene instead of a split or contig (or 
+You can also start the interactive interface in "gene mode", in which each item of the central tree is a gene instead of a split or contig (or
 
 
 bin like in "collection mode").
@@ -192,7 +192,6 @@ You can use this program to look at the available information in your databases,
 - views (using `--show-views`)
 - states (using `--show-states`)
 - collections (using `--list-collections`)
-
 
 
 {:.notice}

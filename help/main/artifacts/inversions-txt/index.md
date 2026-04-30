@@ -34,7 +34,7 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This is the output of <span class="artifact-p">[anvi-report-inversions](/help/main/programs/anvi-report-inversions)</span>. 
+This is the output of <span class="artifact-p">[anvi-report-inversions](/help/main/programs/anvi-report-inversions)</span>.
 
 ### Per sample inversion report table
 

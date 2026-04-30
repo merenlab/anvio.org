@@ -43,7 +43,7 @@ Merge multiple anvio profiles.
 ## Usage
 
 
-The main function of `anvi-merge` is to convert multiple <span class="artifact-n">[single-profile-db](/help/main/artifacts/single-profile-db)</span>s into a single <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> (also called a merged profile database). Basically, this takes the alignment data from each sample (each contained in its own <span class="artifact-n">[single-profile-db](/help/main/artifacts/single-profile-db)</span>) and combines them into a single database that anvi'o can look through more easily. 
+The main function of `anvi-merge` is to convert multiple <span class="artifact-n">[single-profile-db](/help/main/artifacts/single-profile-db)</span>s into a single <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> (also called a merged profile database). Basically, this takes the alignment data from each sample (each contained in its own <span class="artifact-n">[single-profile-db](/help/main/artifacts/single-profile-db)</span>) and combines them into a single database that anvi'o can look through more easily.
 
 ### Overview: How to run anvi-merge
 
@@ -58,31 +58,31 @@ anvi&#45;merge &#45;c cool_contigs.db \
             Single_profile_db_1 Single_profile_db_2 \
             &#45;o cool_contigs_merge
 </div>
-                    
+
 This will put all of the output files (the final <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> as well as a <span class="artifact-n">[misc-data-items-order](/help/main/artifacts/misc-data-items-order)</span> which is the result of your hierarchical clustering and describes the order to display your contigs in) into the folder `cool_contigs_merge `.
-    
+
 
 ## Other Parameters
 
 You must give `anvi-merge` your contigs database and single profile databases. However, you can also provide more information or give addtional instructions. Use the flag `-h` at any time to display the help menu.
 
-### Hierarchical Clustering 
+### Hierarchical Clustering
 
-#### To run or not to run? 
-* Use the flag `--skip-hierarchical-clustering` to turn hierarchical clustering off. This will save on computation time, but will skip out on creating the tree of contigs at the center of the interactive interface. If you have more than 25,000 splits in the final profile, this will be set automatically. 
-* Use the flag `--enforce-hierarchical-clustering` to turn hierarchical clustering back on. This will take a long time, but will produce a lovely contigs tree for the interactive interface. 
+#### To run or not to run?
+* Use the flag `--skip-hierarchical-clustering` to turn hierarchical clustering off. This will save on computation time, but will skip out on creating the tree of contigs at the center of the interactive interface. If you have more than 25,000 splits in the final profile, this will be set automatically.
+* Use the flag `--enforce-hierarchical-clustering` to turn hierarchical clustering back on. This will take a long time, but will produce a lovely contigs tree for the interactive interface.
 
 #### Additional parameters
 * Provide a custom distance metric for clustering using the flag `--distance.` (The default is euclidean)
 * Provide a custom linkage method for clustering using the flag `--linkage.` (The default is ward)
 
 ### Providing additional information
-* Provide the sample name using the flag `-S`. If you don't, anvi'o will come up with one, but it probably won't be any good. 
-* Provide a text file in markdown to describe the project using the flag `--description`. This will show up when you later use the interactive interface to analyze your profile-db. 
+* Provide the sample name using the flag `-S`. If you don't, anvi'o will come up with one, but it probably won't be any good.
+* Provide a text file in markdown to describe the project using the flag `--description`. This will show up when you later use the interactive interface to analyze your profile-db.
 
 ### Output Information
 * Provide an output destination with the flag `-o`.
-* Add the flag `-W` to overwrite existing files in that directory. 
+* Add the flag `-W` to overwrite existing files in that directory.
 
 
 {:.notice}

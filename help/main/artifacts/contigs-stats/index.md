@@ -34,7 +34,7 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This artifact contains all of the information provided in the interface of <span class="artifact-p">[anvi-display-contigs-stats](/help/main/programs/anvi-display-contigs-stats)</span> in a series of tab-delimited files. See that page for more information. 
+This artifact contains all of the information provided in the interface of <span class="artifact-p">[anvi-display-contigs-stats](/help/main/programs/anvi-display-contigs-stats)</span> in a series of tab-delimited files. See that page for more information.
 
 
 {:.notice}

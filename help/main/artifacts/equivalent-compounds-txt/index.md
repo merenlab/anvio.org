@@ -58,6 +58,7 @@ anvi&#45;predict&#45;metabolic&#45;exchanges &#45;c1 <span class="artifact&#45;n
 
 You can modify the resulting output file as you want to remove or add new compound equivalents and make a custom set that can be passed to <span class="artifact-p">[anvi-predict-metabolic-exchanges](/help/main/programs/anvi-predict-metabolic-exchanges)</span> with the `--custom-equivalent-compounds-file` parameter.
 
+
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/equivalent-compounds-txt.md) to update this information.
 

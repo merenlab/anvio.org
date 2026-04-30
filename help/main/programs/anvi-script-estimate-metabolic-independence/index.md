@@ -141,7 +141,7 @@ Since individual completeness scores have a maximum of 1 (for 100% complete), th
 
 ### Using stepwise completeness instead
 
-By default, this script relies on the pathwise completeness scores for each module in the input list. If you want to use stepwise completeness instead, simply add the `--use-stepwise-completeness` flag (you may also want to adjust the threshold value): 
+By default, this script relies on the pathwise completeness scores for each module in the input list. If you want to use stepwise completeness instead, simply add the `--use-stepwise-completeness` flag (you may also want to adjust the threshold value):
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;estimate&#45;metabolic&#45;independence &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \

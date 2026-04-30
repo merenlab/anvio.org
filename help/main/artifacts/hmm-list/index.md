@@ -53,13 +53,14 @@ You can also use external <span class="artifact-n">[hmm-source](/help/main/artif
 anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory &#45;&#45;pfam&#45;accessions&#45;list PF00016 &#45;O RuBisCO_large_HMM
 </div>
 
-Here is what the `hmm_list.txt` should look like with a combination of internal and external <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>s:  
+Here is what the `hmm_list.txt` should look like with a combination of internal and external <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>s:
 
 | name          | source            | path                       |
 |---------------|-------------------|----------------------------|
 | Ribosomal_L16 | Bacteria_71       | INTERNAL                   |
 | Ribosomal_S2  | Bacteria_71       | INTERNAL                   |
 | RuBisCO_large | RuBisCO_large_HMM | PATH/TO/RuBisCO_large_HMM/ |
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/hmm-list.md) to update this information.
