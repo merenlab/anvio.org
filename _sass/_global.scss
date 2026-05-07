@@ -438,7 +438,6 @@ blockquote em{
   border-radius: 50%;
   margin: 20px 16px 16px 0; /* includes your top spacing */
   shape-outside: circle(50%);
-  /* optional: add a little air between text and the circle boundary */
   shape-margin: 10px;
 }
 
@@ -446,4 +445,16 @@ blockquote em{
   content: "";
   display: block;
   clear: both;
+}
+
+@media (max-width: 1600px) {
+  .release-image-text-block .release-image {
+    float: none;
+    display: block;
+    width: min(500px, 90%);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 24px auto;
+    shape-outside: none;
+  }
 }
