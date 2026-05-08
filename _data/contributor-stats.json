@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7696,
+        "total_commits": 7701,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 188,
             "2025": 451,
-            "2026": 99
+            "2026": 104
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "This is why we all should use AI for coding :(",
-        "latest_commit_hash": "987bc6195c9cb570dbd1cbc7c64e2071820a8f07",
-        "latest_commit_date": "04 May 2026"
+        "latest_commit_message": "fix for legacy backtick command substitutions",
+        "latest_commit_hash": "e376cff98e31bcfa7e5577d4349f185da7a791b9",
+        "latest_commit_date": "07 May 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 354,
