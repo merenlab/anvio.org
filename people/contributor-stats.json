@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7701,
+        "total_commits": 7702,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 188,
             "2025": 451,
-            "2026": 104
+            "2026": 105
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "fix for legacy backtick command substitutions",
-        "latest_commit_hash": "e376cff98e31bcfa7e5577d4349f185da7a791b9",
-        "latest_commit_date": "07 May 2026"
+        "latest_commit_message": "was removed it from the CLI, but needed here",
+        "latest_commit_hash": "dbe904f9ed3ebd403414e96d96b71d86fd2c755d",
+        "latest_commit_date": "08 May 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 354,
