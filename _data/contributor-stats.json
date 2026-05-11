@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7702,
+        "total_commits": 7707,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 188,
             "2025": 451,
-            "2026": 105
+            "2026": 110
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "was removed it from the CLI, but needed here",
-        "latest_commit_hash": "dbe904f9ed3ebd403414e96d96b71d86fd2c755d",
-        "latest_commit_date": "08 May 2026"
+        "latest_commit_message": "let everyone know that we consciously chose a weak hash for a non-security purpose.",
+        "latest_commit_hash": "10c95455fdbdddc209bb55d99ebf3455e93326ba",
+        "latest_commit_date": "10 May 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 354,
