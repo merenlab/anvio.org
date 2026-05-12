@@ -1,0 +1,39 @@
+---
+layout: artifact
+title: pan-graph-db
+excerpt: A DB-type anvi'o artifact. This artifact is typically generated, used, and/or exported by anvi'o (and not provided by the user)..
+categories: [anvio]
+comments: false
+redirect_from: /m/pan-graph-db
+image:
+  featurerelative: ../../../images/header.png
+  display: true
+---
+
+
+{% include _toc.html %}
+
+
+<img src="../../images/icons/DB.png" alt="DB" style="width:100px; border:none" />
+
+A DB-type anvi'o artifact. This artifact is typically generated, used, and/or exported **by anvi'o** (and not provided by the user)..
+
+🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
+
+## Provided by
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-pan-genome-graph](../../programs/anvi-pan-genome-graph)</span></p>
+
+
+## Required or used by
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-display-pan-graph](../../programs/anvi-display-pan-graph)</span> <span class="artifact-r">[anvi-export-collection](../../programs/anvi-export-collection)</span> <span class="artifact-r">[anvi-export-pan-subgraph](../../programs/anvi-export-pan-subgraph)</span> <span class="artifact-r">[anvi-import-collection](../../programs/anvi-import-collection)</span> <span class="artifact-r">[anvi-show-collections-and-bins](../../programs/anvi-show-collections-and-bins)</span> <span class="artifact-r">[anvi-summarize](../../programs/anvi-summarize)</span></p>
+
+
+## Description
+
+{:.notice}
+**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "pan-graph-db.md". Its contents will replace this sad text. THANK YOU!
+

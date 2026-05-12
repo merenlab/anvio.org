@@ -23,7 +23,7 @@ A TXT-type anvi'o artifact. This artifact is typically provided **by the user** 
 ## Provided by
 
 
-There are no anvi'o tools that generate this artifact, which means it is most likely provided to the anvi'o ecosystem by the user.
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-script-gen-fasta-txt](../../programs/anvi-script-gen-fasta-txt)</span></p>
 
 
 ## Required or used by

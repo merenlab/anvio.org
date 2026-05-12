@@ -1,7 +1,7 @@
 ---
 layout: program
 title: anvi-show-collections-and-bins
-excerpt: An anvi'o program. A script to display collections stored in an anvi&#x27;o profile or pan database.
+excerpt: An anvi'o program. A script to display collections stored in an anvi&#x27;o profile, pan, or pan-graph database.
 categories: [anvio]
 comments: false
 redirect_from: /m/anvi-show-collections-and-bins
@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-A script to display collections stored in an anvi&#x27;o profile or pan database.
+A script to display collections stored in an anvi&#x27;o profile, pan, or pan-graph database.
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,7 +31,7 @@ A script to display collections stored in an anvi&#x27;o profile or pan database
 ## Can consume
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[profile-db](../../artifacts/profile-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[profile-db](../../artifacts/profile-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[pan-graph-db](../../artifacts/pan-graph-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Can provide

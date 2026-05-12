@@ -5,19 +5,19 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "pan-db",
-      "name": "pan-db",
+      "id": "contigs-db",
+      "name": "contigs-db",
       "provided_by_anvio": true,
       "type": "DB"
     },
     {
       "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "profile-db",
-      "name": "profile-db",
-      "provided_by_anvio": true,
-      "type": "DB"
+      "score": 1,
+      "color": "#AA0000",
+      "id": "external-genomes",
+      "name": "external-genomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
     },
     {
       "size": 1,
@@ -32,15 +32,15 @@
       "size": 3,
       "score": 0.1,
       "color": "#AAAA00",
-      "id": "anvi-show-collections-and-bins",
-      "name": "anvi-show-collections-and-bins",
+      "id": "anvi-export-pan-subgraph",
+      "name": "anvi-export-pan-subgraph",
       "type": "PROGRAM"
     }
   ],
   "links": [
     {
-      "target": 3,
-      "source": 0
+      "source": 3,
+      "target": 0
     },
     {
       "target": 3,

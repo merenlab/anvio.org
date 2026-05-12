@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7707,
+        "total_commits": 7958,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -12,17 +12,17 @@
             "2021": 786,
             "2022": 423,
             "2023": 227,
-            "2024": 188,
-            "2025": 451,
-            "2026": 110
+            "2024": 238,
+            "2025": 526,
+            "2026": 236
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "let everyone know that we consciously chose a weak hash for a non-security purpose.",
-        "latest_commit_hash": "10c95455fdbdddc209bb55d99ebf3455e93326ba",
-        "latest_commit_date": "10 May 2026"
+        "latest_commit_message": "I do not think we need this file",
+        "latest_commit_hash": "396fa85ecb565856dfcfe8b940082338b02de03a",
+        "latest_commit_date": "12 May 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 354,
+        "total_commits": 355,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 137
+            "2026": 138
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "fix taxonomy bug when loading collection",
-        "latest_commit_hash": "779e1ca357560647929746772b84ae78c48566a6",
-        "latest_commit_date": "20 April 2026"
+        "latest_commit_message": "Fix genome order P/A & frequency swap",
+        "latest_commit_hash": "29f2d3e59fe1a56faecfa55e91cc8d55a093322c",
+        "latest_commit_date": "12 May 2026"
     },
     "watsonar": {
         "total_commits": 10,
@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 1782,
+        "total_commits": 2350,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -164,19 +164,19 @@
             "2019": 3,
             "2020": 184,
             "2021": 361,
-            "2022": 102,
+            "2022": 657,
             "2023": 317,
             "2024": 531,
-            "2025": 284,
-            "2026": 0
+            "2025": 288,
+            "2026": 9
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "delete sandbox relict",
-        "latest_commit_hash": "791b5ff8fba45fd7b060479403b917a09e2b9038",
-        "latest_commit_date": "08 October 2025"
+        "latest_commit_message": "ruff --fix: remove unused imports and obsolete coding declarations",
+        "latest_commit_hash": "b909c2505f50f0f87dfb42d65ae7579251ddfde9",
+        "latest_commit_date": "12 May 2026"
     },
     "ahenoch": {
-        "total_commits": 2,
+        "total_commits": 313,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -187,15 +187,15 @@
             "2020": 0,
             "2021": 0,
             "2022": 0,
-            "2023": 1,
-            "2024": 0,
-            "2025": 1,
-            "2026": 0
+            "2023": 10,
+            "2024": 132,
+            "2025": 129,
+            "2026": 42
         },
-        "top_file": "requirements.txt",
-        "latest_commit_message": "Revert \"Update requirements.txt\"",
-        "latest_commit_hash": "dadae1a3144ba3759590c3b36684c511b0bfcfb5",
-        "latest_commit_date": "30 July 2025"
+        "top_file": "anvio/panops.py",
+        "latest_commit_message": "get-sequences-for-genecalls fix when using genomes.db",
+        "latest_commit_hash": "2d65d55a5583b7ec43031287046800773d24967c",
+        "latest_commit_date": "05 May 2026"
     },
     "isaacfink21": {
         "total_commits": 120,
@@ -616,7 +616,7 @@
         "latest_commit_date": "15 March 2024"
     },
     "metehaansever": {
-        "total_commits": 460,
+        "total_commits": 534,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -628,7 +628,7 @@
             "2021": 0,
             "2022": 1,
             "2023": 203,
-            "2024": 239,
+            "2024": 313,
             "2025": 17,
             "2026": 0
         },

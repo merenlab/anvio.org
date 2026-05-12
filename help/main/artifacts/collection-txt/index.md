@@ -51,7 +51,7 @@ item_06    bin_3
 
 ### The optional bins info file
 
-In addition to the essential file above, you can associate an optional TAB-delimited file with three columns with a collection to provide information about 'bins' in it, such as their source, and/or color to be used when they are displayed in <span class="artifact-n">[summary](/help/main/artifacts/summary)</span> outputs or anvi'o <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> interfaces. Here is an example:
+In addition to the essential file above, you can associate an optional TAB-delimited file with three columns with a collection to provide information about 'bins' in it, such as their source, and/or color to be used when they are displayed in <span class="artifact-n">[pan-summary](/help/main/artifacts/pan-summary)</span>, <span class="artifact-n">[pan-graph-summary](/help/main/artifacts/pan-graph-summary)</span>, or <span class="artifact-n">[profile-summary](/help/main/artifacts/profile-summary)</span> outputs or anvi'o <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> interfaces. Here is an example:
 
 ```
 bin_1	CONCOCT	 #c9d433

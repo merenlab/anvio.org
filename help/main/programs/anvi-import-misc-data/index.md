@@ -45,7 +45,7 @@ Populate additional data or order tables in pan or profile databases for items a
 ## Usage
 
 
-This program enables extending anvi'o projects with many kinds of **additional data**. Additional data will extend anvio' <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> displays, and appear in <span class="artifact-n">[summary](/help/main/artifacts/summary)</span> files, and become accessible to other anvi'o programs thorughout.
+This program enables extending anvi'o projects with many kinds of **additional data**. Additional data will extend anvio' <span class="artifact-n">[interactive](/help/main/artifacts/interactive)</span> displays, and appear in <span class="artifact-n">[pan-summary](/help/main/artifacts/pan-summary)</span>, <span class="artifact-n">[pan-graph-summary](/help/main/artifacts/pan-graph-summary)</span>, or <span class="artifact-n">[profile-summary](/help/main/artifacts/profile-summary)</span> files, and become accessible to other anvi'o programs thorughout.
 
 This program can add additional data for your items or layers in a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, or add additional data for your nucleotides or amino acids in a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>
 

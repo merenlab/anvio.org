@@ -29,7 +29,7 @@ A TXT-type anvi'o artifact. This artifact is typically generated, used, and/or e
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-plot-trnaseq](../../programs/anvi-plot-trnaseq)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-integrate-trnaseq](../../programs/anvi-integrate-trnaseq)</span> <span class="artifact-r">[anvi-plot-trnaseq](../../programs/anvi-plot-trnaseq)</span></p>
 
 
 ## Description

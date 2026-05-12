@@ -24,6 +24,7 @@
     - name: anvi-display-codon-frequencies
     - name: anvi-display-functions
     - name: anvi-display-pan
+    - name: anvi-display-pan-graph
     - name: anvi-estimate-genome-completeness
     - name: anvi-estimate-scg-taxonomy
     - name: anvi-estimate-trna-taxonomy
@@ -36,6 +37,7 @@
     - name: anvi-export-gene-coverage-and-detection
     - name: anvi-export-items-order
     - name: anvi-export-misc-data
+    - name: anvi-export-pan-subgraph
     - name: anvi-export-splits-and-coverages
     - name: anvi-export-splits-taxonomy
     - name: anvi-export-state
@@ -71,6 +73,7 @@
     - name: anvi-migrate
     - name: anvi-oligotype-linkmers
     - name: anvi-pan-genome
+    - name: anvi-pan-genome-graph
     - name: anvi-profile
     - name: anvi-profile-blitz
     - name: anvi-refine
@@ -196,7 +199,30 @@
 - author: ahenoch
   programs:
     - name: anvi-compute-rarefaction-curves
+    - name: anvi-display-pan-graph
+    - name: anvi-export-pan-subgraph
+    - name: anvi-pan-genome-graph
     - name: anvi-reorient-genomes
+    - name: anvi-script-gen-fasta-txt
+- author: semiller10
+  programs:
+    - name: anvi-compute-trnaseq-functional-affinity
+    - name: anvi-display-codon-frequencies
+    - name: anvi-draw-kegg-pathways
+    - name: anvi-get-codon-frequencies
+    - name: anvi-get-codon-usage-bias
+    - name: anvi-get-metabolic-model-file
+    - name: anvi-import-metabolite-profile
+    - name: anvi-import-protein-profile
+    - name: anvi-integrate-trnaseq
+    - name: anvi-merge-trnaseq
+    - name: anvi-migrate
+    - name: anvi-reaction-network
+    - name: anvi-run-kegg-kofams
+    - name: anvi-run-workflow
+    - name: anvi-setup-kegg-data
+    - name: anvi-setup-modelseed-database
+    - name: anvi-trnaseq
 - author: floriantrigodet
   programs:
     - name: anvi-display-contigs-stats
@@ -206,23 +232,6 @@
 - author: watsonar
   programs:
     - name: anvi-display-contigs-stats
-- author: semiller10
-  programs:
-    - name: anvi-display-codon-frequencies
-    - name: anvi-draw-kegg-pathways
-    - name: anvi-get-codon-frequencies
-    - name: anvi-get-codon-usage-bias
-    - name: anvi-get-metabolic-model-file
-    - name: anvi-import-metabolite-profile
-    - name: anvi-import-protein-profile
-    - name: anvi-merge-trnaseq
-    - name: anvi-migrate
-    - name: anvi-reaction-network
-    - name: anvi-run-kegg-kofams
-    - name: anvi-run-workflow
-    - name: anvi-setup-kegg-data
-    - name: anvi-setup-modelseed-database
-    - name: anvi-trnaseq
 - author: qclayssen
   programs:
     - name: anvi-estimate-scg-taxonomy

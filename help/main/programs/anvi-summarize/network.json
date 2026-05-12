@@ -5,8 +5,26 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "summary",
-      "name": "summary",
+      "id": "pan-summary",
+      "name": "pan-summary",
+      "provided_by_anvio": true,
+      "type": "SUMMARY"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "pan-graph-summary",
+      "name": "pan-graph-summary",
+      "provided_by_anvio": true,
+      "type": "SUMMARY"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "profile-summary",
+      "name": "profile-summary",
       "provided_by_anvio": true,
       "type": "SUMMARY"
     },
@@ -50,13 +68,22 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
+      "id": "pan-graph-db",
+      "name": "pan-graph-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "genomes-storage-db",
       "name": "genomes-storage-db",
       "provided_by_anvio": true,
       "type": "DB"
     },
     {
-      "size": 6,
+      "size": 9,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-summarize",
@@ -66,28 +93,40 @@
   ],
   "links": [
     {
-      "source": 6,
+      "source": 9,
       "target": 0
     },
     {
-      "target": 6,
-      "source": 1
+      "source": 9,
+      "target": 1
     },
     {
-      "target": 6,
-      "source": 2
+      "source": 9,
+      "target": 2
     },
     {
-      "target": 6,
+      "target": 9,
       "source": 3
     },
     {
-      "target": 6,
+      "target": 9,
       "source": 4
     },
     {
-      "target": 6,
+      "target": 9,
       "source": 5
+    },
+    {
+      "target": 9,
+      "source": 6
+    },
+    {
+      "target": 9,
+      "source": 7
+    },
+    {
+      "target": 9,
+      "source": 8
     }
   ],
   "directed": false,
