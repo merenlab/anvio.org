@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7958,
+        "total_commits": 7962,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,11 +14,11 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 236
+            "2026": 240
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "I do not think we need this file",
-        "latest_commit_hash": "396fa85ecb565856dfcfe8b940082338b02de03a",
+        "latest_commit_message": "populate pan-graph-db self table w/useful info",
+        "latest_commit_hash": "c8836817290081a8639e31e3370b831f8fd864dd",
         "latest_commit_date": "12 May 2026"
     },
     "FlorianTrigodet": {
