@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7966,
+        "total_commits": 7970,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 244
+            "2026": 248
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "add contig name",
-        "latest_commit_hash": "bdc8f45666e2314e2fa86796dfabcabe2f4f3449",
-        "latest_commit_date": "19 May 2026"
+        "latest_commit_message": "fixy fixes",
+        "latest_commit_hash": "a4747ceeb9dbc5b6a5ed91e5c4b6c114f61cb7d7",
+        "latest_commit_date": "20 May 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 357,
@@ -549,8 +549,30 @@
         "latest_commit_hash": "df3599b26df72dcc237a254aee75e01550e70637",
         "latest_commit_date": "27 July 2023"
     },
+    "Kekananen": {
+        "total_commits": 20,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 6,
+            "2025": 0,
+            "2026": 14
+        },
+        "top_file": "anvio/tests/unit/workflows/test_manifest.py",
+        "latest_commit_message": "Added entry to doc init",
+        "latest_commit_hash": "31d0d94da05d80414ec3ad2dfab5700d969d13b1",
+        "latest_commit_date": "20 May 2026"
+    },
     "ge0rges": {
-        "total_commits": 40,
+        "total_commits": 38,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -562,7 +584,7 @@
             "2021": 0,
             "2022": 0,
             "2023": 21,
-            "2024": 18,
+            "2024": 16,
             "2025": 1,
             "2026": 0
         },
@@ -572,7 +594,7 @@
         "latest_commit_date": "19 February 2025"
     },
     "telatin": {
-        "total_commits": 8,
+        "total_commits": 9,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -586,12 +608,12 @@
             "2023": 8,
             "2024": 0,
             "2025": 0,
-            "2026": 0
+            "2026": 1
         },
         "top_file": "sandbox/anvi-script-reformat-bam",
-        "latest_commit_message": "update docs",
-        "latest_commit_hash": "d690ceec749b2e3e51a8769a511ea533e818394f",
-        "latest_commit_date": "03 November 2023"
+        "latest_commit_message": "Update @telatin #hackathon2026",
+        "latest_commit_hash": "cb4f8ae1028a23b5a018c18830607d4443ff95da",
+        "latest_commit_date": "20 May 2026"
     },
     "Vlasovets": {
         "total_commits": 3,
@@ -814,7 +836,7 @@
         "latest_commit_date": null
     },
     "karkman": {
-        "total_commits": 1,
+        "total_commits": 2,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -828,12 +850,12 @@
             "2023": 0,
             "2024": 0,
             "2025": 0,
-            "2026": 0
+            "2026": 1
         },
-        "top_file": "anvio/data/misc/PEOPLE/CONTRIBUTORS.yaml",
-        "latest_commit_message": "Update CONTRIBUTORS.yaml",
-        "latest_commit_hash": "6c90472d93e1aa3a2c7779bc89ea4bde02e5a371",
-        "latest_commit_date": "14 January 2022"
+        "top_file": "anvio/cli/process_genbank.py",
+        "latest_commit_message": "anvi-process-genbank now also includes the tRNA and rRNA, and non-coding features (pseudogenes)",
+        "latest_commit_hash": "17998538481b10c0a204013f669f4c1e8efc5ce8",
+        "latest_commit_date": "20 May 2026"
     },
     "edgraham": {
         "total_commits": 0,
@@ -1032,28 +1054,6 @@
         "latest_commit_message": null,
         "latest_commit_hash": null,
         "latest_commit_date": null
-    },
-    "Kekananen": {
-        "total_commits": 17,
-        "commits_per_year": {
-            "2014": 0,
-            "2015": 0,
-            "2016": 0,
-            "2017": 0,
-            "2018": 0,
-            "2019": 0,
-            "2020": 0,
-            "2021": 0,
-            "2022": 0,
-            "2023": 0,
-            "2024": 4,
-            "2025": 0,
-            "2026": 13
-        },
-        "top_file": "anvio/tests/unit/workflows/test_manifest.py",
-        "latest_commit_message": "Use canonical log dirs for pan and phylo workflows",
-        "latest_commit_hash": "bbe687c8643e88136180afe2548937e7f62016fa",
-        "latest_commit_date": "18 May 2026"
     },
     "treitlis": {
         "total_commits": 0,

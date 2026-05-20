@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-This script takes a GenBank file, and outputs a FASTA file, as well as two additional TAB-delimited output files for external gene calls and gene functions that can be used with the programs `anvi-gen-contigs-database` and `anvi-import-functions`.
+This script takes a GenBank file, and outputs a FASTA file, as well as two additional TAB-delimited output files for external gene calls and gene functions that can be used with the programs `anvi-gen-contigs-database` and `anvi-import-functions`. It processes CDS, tRNA, and rRNA features by default, and reclassifies pseudogenes or CDS with internal stops as non-coding to ensure compatibility with anvi&#x27;o..
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -46,6 +46,24 @@ This script takes a GenBank file, and outputs a FASTA file, as well as two addit
 This program processes a <span class="artifact-n">[genbank-file](/help/main/artifacts/genbank-file)</span>, and converts it into anvi'o friendly artifacts: namely, a <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span>, <span class="artifact-n">[external-gene-calls](/help/main/artifacts/external-gene-calls)</span> and a <span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span>.
 
 The <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span> and <span class="artifact-n">[external-gene-calls](/help/main/artifacts/external-gene-calls)</span> can be given to <span class="artifact-p">[anvi-gen-contigs-database](/help/main/programs/anvi-gen-contigs-database)</span> to create a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, and then you can use <span class="artifact-p">[anvi-import-functions](/help/main/programs/anvi-import-functions)</span> to bring the function data (in the <span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span>) into the database. Then you'll have all of the data in your <span class="artifact-n">[genbank-file](/help/main/artifacts/genbank-file)</span> converted into a single <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, which you can use for a variety of anvi'o analyses.
+
+### Features processed by default
+
+By default, <span class="artifact-p">[anvi-script-process-genbank](/help/main/programs/anvi-script-process-genbank)</span> will `CDS`, `tRNA`, and `rRNA` features by default.
+
+- `CDS` features are mapped to the anvi'o `CODING` gene call type.
+- `tRNA` and `rRNA` features are mapped to the `NONCODING` gene call type.
+
+### Handling problematic features
+
+Genomic data often contains features that anvi'o may find difficult to process using standard workflows, such as gene calls with internal stop codons or frameshifts. This script identifies such features and handles them gracefully by reclassifying them as `NONCODING`:
+
+1. **Pseudogenes**: Any `CDS` explicitly marked as a `/pseudogene` or having `/pseudo` in its GenBank qualifiers will be reclassified as `NONCODING`.
+2. **Internal Stops and Frameshifts**: Any `CDS` with notes indicating internal stops or frameshifts (based on common NCBI PGAP terms) will also be reclassified as `NONCODING`.
+
+This approach ensures that these features are preserved in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> without triggering translation errors during database creation.
+
+### Notes on Output
 
 The parameters of this program entirely deal with the outputs. Besides telling the program where to put them, you can also give the function annotation source (in the <span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span>) a custom name.
 

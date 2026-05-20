@@ -95,6 +95,10 @@ Here is an equivalent tRNA-seq samples file with FASTA inputs.
 
 Note that barcodes and other sequence prefixes should already be trimmed from FASTA sequences.
 
+## Logs
+
+Workflow logs will be under `00_LOGS/trnaseq` by default. Logs are organized by rule name, so a sample-specific tRNA-seq run may write to a path such as `00_LOGS/trnaseq/anvi_trnaseq/ecoli_A1_noDM.log`. The workflow also writes `00_LOGS/trnaseq/trnaseq-workflow-manifest.tsv`, a tab-delimited file that records job status and points to the relevant rule log.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/workflows/trnaseq.md) to update this information.

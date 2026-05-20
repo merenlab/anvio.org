@@ -108,6 +108,8 @@ anvi-run-workflow -w contigs \
 
 If everything goes smoothly, you should see happy messages flowing on your screen, and at the end of it all you should see your contigs databases are generated and annotated properly. At the end of this process, you will have all your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> files in the `02_CONTIGS` directory (as per the instructions in the config file, which you can change). You can use the program <span class="artifact-p">[anvi-display-contigs-stats](/help/main/programs/anvi-display-contigs-stats)</span> on one of them to see if everything makes sense.
 
+Workflow logs will be under `00_LOGS/contigs` by default. Rule logs are organized by rule name, and the contigs workflow writes a tab-delimited manifest at `00_LOGS/contigs/contigs-workflow-manifest.tsv` that points to each job's log and records whether it succeeded or failed.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/workflows/contigs.md) to update this information.
