@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7963,
+        "total_commits": 7966,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,15 +14,15 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 241
+            "2026": 244
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "fixy fix",
-        "latest_commit_hash": "8c3fb18eade2eabec3737b1f7ae3b9384bad9b84",
-        "latest_commit_date": "18 May 2026"
+        "latest_commit_message": "add contig name",
+        "latest_commit_hash": "bdc8f45666e2314e2fa86796dfabcabe2f4f3449",
+        "latest_commit_date": "19 May 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 355,
+        "total_commits": 357,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 138
+            "2026": 140
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "Fix genome order P/A & frequency swap",
-        "latest_commit_hash": "29f2d3e59fe1a56faecfa55e91cc8d55a093322c",
-        "latest_commit_date": "12 May 2026"
+        "latest_commit_message": "little fix in inpect page",
+        "latest_commit_hash": "c31ae29d8c42f0aaf3164bc887047ea3f933387f",
+        "latest_commit_date": "19 May 2026"
     },
     "watsonar": {
         "total_commits": 10,
@@ -1034,7 +1034,7 @@
         "latest_commit_date": null
     },
     "Kekananen": {
-        "total_commits": 4,
+        "total_commits": 17,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -1048,12 +1048,12 @@
             "2023": 0,
             "2024": 4,
             "2025": 0,
-            "2026": 0
+            "2026": 13
         },
-        "top_file": "anvio/data/misc/PEOPLE/AVATARS/KatKananen.jpg",
-        "latest_commit_message": "Removed image blur",
-        "latest_commit_hash": "da18b7f6e129ddc278bd47fc2d1ca3b7ac7aa4b7",
-        "latest_commit_date": "15 February 2024"
+        "top_file": "anvio/tests/unit/workflows/test_manifest.py",
+        "latest_commit_message": "Use canonical log dirs for pan and phylo workflows",
+        "latest_commit_hash": "bbe687c8643e88136180afe2548937e7f62016fa",
+        "latest_commit_date": "18 May 2026"
     },
     "treitlis": {
         "total_commits": 0,
