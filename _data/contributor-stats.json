@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7970,
+        "total_commits": 7972,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,11 +14,11 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 248
+            "2026": 250
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "fixy fixes",
-        "latest_commit_hash": "a4747ceeb9dbc5b6a5ed91e5c4b6c114f61cb7d7",
+        "latest_commit_message": "Revert \"Update anvi-split docs to reflect contig-only split mode. See issue 2605.\"",
+        "latest_commit_hash": "0a1be98e19ef5ea973393ed4b1e222d2fe65850f",
         "latest_commit_date": "20 May 2026"
     },
     "FlorianTrigodet": {
@@ -594,7 +594,7 @@
         "latest_commit_date": "19 February 2025"
     },
     "telatin": {
-        "total_commits": 9,
+        "total_commits": 10,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -608,11 +608,11 @@
             "2023": 8,
             "2024": 0,
             "2025": 0,
-            "2026": 1
+            "2026": 2
         },
         "top_file": "sandbox/anvi-script-reformat-bam",
-        "latest_commit_message": "Update @telatin #hackathon2026",
-        "latest_commit_hash": "cb4f8ae1028a23b5a018c18830607d4443ff95da",
+        "latest_commit_message": "fix unwanted syntax coloring (--if is highlighted as if it was a CLI parameter",
+        "latest_commit_hash": "e155ebe1d87bf9dc436d9c01429a1838b117f761",
         "latest_commit_date": "20 May 2026"
     },
     "Vlasovets": {
@@ -746,6 +746,94 @@
         "latest_commit_message": "Add support for --I-know-this-is-not-a-good-idea flag in pangenomics workflow",
         "latest_commit_hash": "6bb5365f4f8450f0731eda67c24f94009b032988",
         "latest_commit_date": "27 January 2026"
+    },
+    "btrouche": {
+        "total_commits": 2,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 2
+        },
+        "top_file": "anvio/data/misc/PEOPLE/AVATARS/btrouche.png",
+        "latest_commit_message": "added picture btrouche",
+        "latest_commit_hash": "4941d8f6cb8ebdb69dc469377dacc1faa4f7dc7a",
+        "latest_commit_date": "20 May 2026"
+    },
+    "bastien-camillo": {
+        "total_commits": 0,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 0
+        },
+        "top_file": null,
+        "latest_commit_message": null,
+        "latest_commit_hash": null,
+        "latest_commit_date": null
+    },
+    "iwilkie": {
+        "total_commits": 0,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 0
+        },
+        "top_file": null,
+        "latest_commit_message": null,
+        "latest_commit_hash": null,
+        "latest_commit_date": null
+    },
+    "l-gallucci": {
+        "total_commits": 0,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 0
+        },
+        "top_file": null,
+        "latest_commit_message": null,
+        "latest_commit_hash": null,
+        "latest_commit_date": null
     },
     "tdelmont": {
         "total_commits": 0,
@@ -902,7 +990,7 @@
         "latest_commit_date": null
     },
     "dspeth": {
-        "total_commits": 2,
+        "total_commits": 3,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -916,12 +1004,12 @@
             "2023": 0,
             "2024": 0,
             "2025": 0,
-            "2026": 0
+            "2026": 1
         },
         "top_file": "anvio/data/misc/PEOPLE/AVATARS/bio-daan.jpg",
-        "latest_commit_message": "add Daan Speth info to contributors",
-        "latest_commit_hash": "e2bdae6ac341258899393de906fdf4af1dbb343f",
-        "latest_commit_date": "17 January 2022"
+        "latest_commit_message": "updated contributor information",
+        "latest_commit_hash": "0e75e663dd1acb727ef264057da43080d7ab2a55",
+        "latest_commit_date": "20 May 2026"
     },
     "simroux": {
         "total_commits": 0,
@@ -1142,5 +1230,93 @@
         "latest_commit_message": "Add git_records for Sarah Tucker",
         "latest_commit_hash": "7fa034fda223fc3571187e201ca1a587e4156fc8",
         "latest_commit_date": "15 December 2025"
+    },
+    "elxerone": {
+        "total_commits": 0,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 0
+        },
+        "top_file": null,
+        "latest_commit_message": null,
+        "latest_commit_hash": null,
+        "latest_commit_date": null
+    },
+    "igorspp": {
+        "total_commits": 1,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 1
+        },
+        "top_file": "anvio/data/misc/PEOPLE/AVATARS/igorspp.jpg",
+        "latest_commit_message": "added new contributor",
+        "latest_commit_hash": "636414d0752d422de57bf7eb12d1c7d52ba4141a",
+        "latest_commit_date": "20 May 2026"
+    },
+    "AviHuene": {
+        "total_commits": 1,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 1
+        },
+        "top_file": "anvio/data/misc/PEOPLE/AVATARS/avrilhoyningen.jpg",
+        "latest_commit_message": "add avril and xixi to contributors.yaml",
+        "latest_commit_hash": "230173197242f0b375a66788e1d5b1cb81ec304c",
+        "latest_commit_date": "20 May 2026"
+    },
+    "u-xixi": {
+        "total_commits": 2,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 2
+        },
+        "top_file": "anvio/docs/programs/anvi-split.md",
+        "latest_commit_message": "Update anvi-split docs to reflect contig-only split mode. See issue 2605.",
+        "latest_commit_hash": "875cf6f2240f4dd59b18d36788a462c097ed9fe6",
+        "latest_commit_date": "20 May 2026"
     }
 }
