@@ -83,6 +83,7 @@
     - name: anvi-report-inversions
     - name: anvi-report-linkmers
     - name: anvi-run-hmms
+    - name: anvi-run-globdb-functions
     - name: anvi-run-ncbi-cogs
     - name: anvi-run-scg-taxonomy
     - name: anvi-run-trna-taxonomy
@@ -91,6 +92,7 @@
     - name: anvi-search-palindromes
     - name: anvi-search-primers
     - name: anvi-search-sequence-motifs
+    - name: anvi-setup-globdb-functions
     - name: anvi-setup-ncbi-cogs
     - name: anvi-setup-scg-taxonomy
     - name: anvi-setup-trna-taxonomy
@@ -254,6 +256,10 @@
     - name: anvi-refine
     - name: anvi-script-filter-fasta-by-blast
     - name: anvi-script-process-genbank-metadata
+- author: dspeth
+  programs:
+    - name: anvi-run-globdb-functions
+    - name: anvi-setup-globdb-functions
 - author: ge0rges
   programs:
     - name: anvi-run-ncbi-cogs

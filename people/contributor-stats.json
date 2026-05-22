@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7974,
+        "total_commits": 7991,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 252
+            "2026": 269
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "F541 fix and ruff.toml update",
-        "latest_commit_hash": "81bad5730b2591527014baa01638341e8da1ec90",
-        "latest_commit_date": "21 May 2026"
+        "latest_commit_message": "Daan -> DEVELOPERS.yaml",
+        "latest_commit_hash": "10e917e674599ce7998595517e67d1a12f52cb81",
+        "latest_commit_date": "22 May 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 357,
@@ -769,6 +769,28 @@
         "latest_commit_hash": "4941d8f6cb8ebdb69dc469377dacc1faa4f7dc7a",
         "latest_commit_date": "20 May 2026"
     },
+    "dspeth": {
+        "total_commits": 4,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 1,
+            "2022": 1,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 2
+        },
+        "top_file": "anvio/data/misc/PEOPLE/AVATARS/bio-daan.jpg",
+        "latest_commit_message": "updated the GlobDB functions documentation markdown file",
+        "latest_commit_hash": "9337093485c599fdc47b5dab5db0c9a1ee82eff5",
+        "latest_commit_date": "22 May 2026"
+    },
     "bastien-camillo": {
         "total_commits": 0,
         "commits_per_year": {
@@ -988,28 +1010,6 @@
         "latest_commit_message": null,
         "latest_commit_hash": null,
         "latest_commit_date": null
-    },
-    "dspeth": {
-        "total_commits": 3,
-        "commits_per_year": {
-            "2014": 0,
-            "2015": 0,
-            "2016": 0,
-            "2017": 0,
-            "2018": 0,
-            "2019": 0,
-            "2020": 0,
-            "2021": 1,
-            "2022": 1,
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026": 1
-        },
-        "top_file": "anvio/data/misc/PEOPLE/AVATARS/bio-daan.jpg",
-        "latest_commit_message": "updated contributor information",
-        "latest_commit_hash": "0e75e663dd1acb727ef264057da43080d7ab2a55",
-        "latest_commit_date": "20 May 2026"
     },
     "simroux": {
         "total_commits": 0,
