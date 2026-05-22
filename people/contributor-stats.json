@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7972,
+        "total_commits": 7974,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 250
+            "2026": 252
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "Revert \"Update anvi-split docs to reflect contig-only split mode. See issue 2605.\"",
-        "latest_commit_hash": "0a1be98e19ef5ea973393ed4b1e222d2fe65850f",
-        "latest_commit_date": "20 May 2026"
+        "latest_commit_message": "F541 fix and ruff.toml update",
+        "latest_commit_hash": "81bad5730b2591527014baa01638341e8da1ec90",
+        "latest_commit_date": "21 May 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 357,
@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2535,
+        "total_commits": 2540,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 20
+            "2026": 25
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "a clearer error message for anvi-display-functions with multiple input types",
-        "latest_commit_hash": "06bd0a539608d1b0dd66c13b1c08b210cf68fd36",
-        "latest_commit_date": "29 April 2026"
+        "latest_commit_message": "Revert \"utils.split_fasta no longer copies the file to a temp one if number of parts == 1\"",
+        "latest_commit_hash": "50f7e2e5f6db9a2bbc69fb2b657b9c08a6b52480",
+        "latest_commit_date": "21 May 2026"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2350,
+        "total_commits": 2351,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 9
+            "2026": 10
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "ruff --fix: remove unused imports and obsolete coding declarations",
-        "latest_commit_hash": "b909c2505f50f0f87dfb42d65ae7579251ddfde9",
-        "latest_commit_date": "12 May 2026"
+        "latest_commit_message": "formulas can now take into account charge in matching reaction network compounds",
+        "latest_commit_hash": "d5fd00e9bf8c8ce927251242f0110d47c545f9f0",
+        "latest_commit_date": "22 May 2026"
     },
     "ahenoch": {
         "total_commits": 313,
@@ -550,7 +550,7 @@
         "latest_commit_date": "27 July 2023"
     },
     "Kekananen": {
-        "total_commits": 20,
+        "total_commits": 22,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -564,12 +564,12 @@
             "2023": 0,
             "2024": 6,
             "2025": 0,
-            "2026": 14
+            "2026": 16
         },
         "top_file": "anvio/tests/unit/workflows/test_manifest.py",
-        "latest_commit_message": "Added entry to doc init",
-        "latest_commit_hash": "31d0d94da05d80414ec3ad2dfab5700d969d13b1",
-        "latest_commit_date": "20 May 2026"
+        "latest_commit_message": "Fixed workflow -pan.db ending error; fixed component test json reference",
+        "latest_commit_hash": "8da9b72fec19dadf8de4c02eaa0a614e9ff447d5",
+        "latest_commit_date": "21 May 2026"
     },
     "ge0rges": {
         "total_commits": 38,
@@ -594,7 +594,7 @@
         "latest_commit_date": "19 February 2025"
     },
     "telatin": {
-        "total_commits": 10,
+        "total_commits": 13,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -608,12 +608,12 @@
             "2023": 8,
             "2024": 0,
             "2025": 0,
-            "2026": 2
+            "2026": 5
         },
         "top_file": "sandbox/anvi-script-reformat-bam",
-        "latest_commit_message": "fix unwanted syntax coloring (--if is highlighted as if it was a CLI parameter",
-        "latest_commit_hash": "e155ebe1d87bf9dc436d9c01429a1838b117f761",
-        "latest_commit_date": "20 May 2026"
+        "latest_commit_message": "This was not using the class but relied on argparse.ArgumentParser",
+        "latest_commit_hash": "2fe27e29eb1c0cecd45653959fa3444df7e5c0a8",
+        "latest_commit_date": "21 May 2026"
     },
     "Vlasovets": {
         "total_commits": 3,
@@ -902,7 +902,7 @@
         "latest_commit_date": "25 April 2024"
     },
     "ChiaraVanni": {
-        "total_commits": 0,
+        "total_commits": 1,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -916,12 +916,12 @@
             "2023": 0,
             "2024": 0,
             "2025": 0,
-            "2026": 0
+            "2026": 1
         },
-        "top_file": null,
-        "latest_commit_message": null,
-        "latest_commit_hash": null,
-        "latest_commit_date": null
+        "top_file": "anvio/data/misc/PEOPLE/CONTRIBUTORS.yaml",
+        "latest_commit_message": "update contributor info for Chiara Vanni",
+        "latest_commit_hash": "8d5712067c1f7c4a2af78758456d99463f8583fb",
+        "latest_commit_date": "20 May 2026"
     },
     "karkman": {
         "total_commits": 2,
@@ -1230,6 +1230,72 @@
         "latest_commit_message": "Add git_records for Sarah Tucker",
         "latest_commit_hash": "7fa034fda223fc3571187e201ca1a587e4156fc8",
         "latest_commit_date": "15 December 2025"
+    },
+    "guille0387": {
+        "total_commits": 1,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 1
+        },
+        "top_file": "anvio/data/misc/PEOPLE/AVATARS/anvio-yunjeong.png",
+        "latest_commit_message": "added contributors details Guillermo, Mateu, Yunjeong",
+        "latest_commit_hash": "9a55318370ee6e3fc231bb45d95fbdb4b1767f3e",
+        "latest_commit_date": "20 May 2026"
+    },
+    "mateumenendez": {
+        "total_commits": 0,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 0
+        },
+        "top_file": null,
+        "latest_commit_message": null,
+        "latest_commit_hash": null,
+        "latest_commit_date": null
+    },
+    "yunso-bio": {
+        "total_commits": 0,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 0
+        },
+        "top_file": null,
+        "latest_commit_message": null,
+        "latest_commit_hash": null,
+        "latest_commit_date": null
     },
     "elxerone": {
         "total_commits": 0,
