@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 7991,
+        "total_commits": 8009,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 269
+            "2026": 287
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "Daan -> DEVELOPERS.yaml",
-        "latest_commit_hash": "10e917e674599ce7998595517e67d1a12f52cb81",
-        "latest_commit_date": "22 May 2026"
+        "latest_commit_message": "move Igor from contributors to developers",
+        "latest_commit_hash": "7c1146a451753ded7e3f75646594f2410898fee2",
+        "latest_commit_date": "23 May 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 357,
@@ -857,6 +857,28 @@
         "latest_commit_hash": null,
         "latest_commit_date": null
     },
+    "igorspp": {
+        "total_commits": 3,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 3
+        },
+        "top_file": "anvio/cli/kofam_accessions_to_hmms_directory.py",
+        "latest_commit_message": "fixed __authors__",
+        "latest_commit_hash": "c55dfd711c5b446ce6afd5a5d7652b6446beb11e",
+        "latest_commit_date": "21 May 2026"
+    },
     "tdelmont": {
         "total_commits": 0,
         "commits_per_year": {
@@ -1318,28 +1340,6 @@
         "latest_commit_message": null,
         "latest_commit_hash": null,
         "latest_commit_date": null
-    },
-    "igorspp": {
-        "total_commits": 1,
-        "commits_per_year": {
-            "2014": 0,
-            "2015": 0,
-            "2016": 0,
-            "2017": 0,
-            "2018": 0,
-            "2019": 0,
-            "2020": 0,
-            "2021": 0,
-            "2022": 0,
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026": 1
-        },
-        "top_file": "anvio/data/misc/PEOPLE/AVATARS/igorspp.jpg",
-        "latest_commit_message": "added new contributor",
-        "latest_commit_hash": "636414d0752d422de57bf7eb12d1c7d52ba4141a",
-        "latest_commit_date": "20 May 2026"
     },
     "AviHuene": {
         "total_commits": 1,

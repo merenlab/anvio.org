@@ -45,23 +45,26 @@ You give this program one or more PFAM accession ids, and it generates an anvi&#
 ## Usage
 
 
-You give this program one or more PFAM accession ids, and it generates an anvi'o compatible HMM directory [hmm-source](https://anvio.org/help/main/artifacts/hmm-source/) to be used with `anvi-run-hmms`.
+You give this program one or more PFAM accession ids, and it generates an anvi'o compatible HMM directory <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span> to be used with <span class="artifact-p">[anvi-run-hmms](/help/main/programs/anvi-run-hmms)</span> by downloading them from the PFAM database.
 
 ### Basic usage
 
-You may either specify a list of PFAM accession with `--pfam-accessions-list`:
+You may either specify a list of PFAM accessions with `--pfam-accessions-list`:
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmm&#45;directory &#45;&#45;pfam&#45;accessions&#45;list ACC1 ACC2 &#45;O output
+anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory &#45;&#45;pfam&#45;accessions&#45;list PF00001 PF00002 \
+                                              &#45;o PROFILE&#45;NAME
 </div>
 
 Or a file containing this list using `--pfam-accessions-file`. The file should have one accession number per line:
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmm&#45;directory &#45;&#45;pfam&#45;accessions&#45;file file.txt &#45;O output
+anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory &#45;&#45;pfam&#45;accessions&#45;file file.txt \
+                                              &#45;o PROFILE&#45;NAME
 </div>
 
-Output folder is specified by `-O` and the folder will be created by anvi'o if it doesn't exist, otherwise anvi'o will exist.
+{:.warning}
+Please note that the `PROFILE-NAME` will become the name for the HMM source when you use this HMM directory with <span class="artifact-p">[anvi-run-hmms](/help/main/programs/anvi-run-hmms)</span>. So choose the output directory name accordingly, and make sure (1) it does not conflict with any existing HMM source name in your anvi'o setup, and (2) it is descriptive of the profile you are building.
 
 
 {:.notice}

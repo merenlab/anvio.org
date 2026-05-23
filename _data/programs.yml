@@ -265,10 +265,14 @@
     - name: anvi-run-ncbi-cogs
     - name: anvi-script-gen-defense-finder-models-to-hmm-directory
     - name: anvi-script-hmm-to-hmm-directory
+    - name: anvi-script-kofam-accessions-to-hmms-directory
     - name: anvi-script-pfam-accessions-to-hmms-directory
 - author: moritzbuck
   programs:
     - name: anvi-script-compute-bayesian-pan-core
+- author: igorspp
+  programs:
+    - name: anvi-script-kofam-accessions-to-hmms-directory
 - author: astrobiomike
   programs:
     - name: anvi-script-process-genbank
