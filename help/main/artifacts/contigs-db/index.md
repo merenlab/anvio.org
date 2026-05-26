@@ -23,7 +23,7 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-pan-subgraph](../../programs/anvi-export-pan-subgraph)</span> <span class="artifact-p">[anvi-gen-contigs-database](../../programs/anvi-gen-contigs-database)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-pan-subgraph](../../programs/anvi-export-pan-subgraph)</span> <span class="artifact-p">[anvi-gen-contigs-database](../../programs/anvi-gen-contigs-database)</span> <span class="artifact-p">[anvi-gen-pan-representative](../../programs/anvi-gen-pan-representative)</span></p>
 
 
 ## Required or used by

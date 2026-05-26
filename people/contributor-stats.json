@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8009,
+        "total_commits": 8033,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 287
+            "2026": 311
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "move Igor from contributors to developers",
-        "latest_commit_hash": "7c1146a451753ded7e3f75646594f2410898fee2",
-        "latest_commit_date": "23 May 2026"
+        "latest_commit_message": "update component tests for pangenomics with panrep",
+        "latest_commit_hash": "b84310eff8cfe40a1b2e72a370583de69c30a9f2",
+        "latest_commit_date": "26 May 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 357,
@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2540,
+        "total_commits": 2544,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 25
+            "2026": 29
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "Revert \"utils.split_fasta no longer copies the file to a temp one if number of parts == 1\"",
-        "latest_commit_hash": "50f7e2e5f6db9a2bbc69fb2b657b9c08a6b52480",
-        "latest_commit_date": "21 May 2026"
+        "latest_commit_message": "add to the docs",
+        "latest_commit_hash": "c84047e88ab0838ee32c6b981e7f90684a173f85",
+        "latest_commit_date": "26 May 2026"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -746,6 +746,50 @@
         "latest_commit_message": "Add support for --I-know-this-is-not-a-good-idea flag in pangenomics workflow",
         "latest_commit_hash": "6bb5365f4f8450f0731eda67c24f94009b032988",
         "latest_commit_date": "27 January 2026"
+    },
+    "Med1Bel": {
+        "total_commits": 16,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 16
+        },
+        "top_file": "anvio/panrep.py",
+        "latest_commit_message": "added logging and simplified sanity_check",
+        "latest_commit_hash": "6e5234712f4c8b9ca1b2a566804b5e5d81e16d32",
+        "latest_commit_date": "25 May 2026"
+    },
+    "sarilog": {
+        "total_commits": 3,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 3
+        },
+        "top_file": "anvio/docs/programs/anvi-gen-pan-representative.md",
+        "latest_commit_message": "updated documentation for pan representative",
+        "latest_commit_hash": "edcca9716754964ae908c22de04404ca2aed7733",
+        "latest_commit_date": "21 May 2026"
     },
     "btrouche": {
         "total_commits": 2,

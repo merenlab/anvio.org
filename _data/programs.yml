@@ -244,6 +244,12 @@
     - name: anvi-export-locus
     - name: anvi-gen-variability-profile
     - name: anvi-run-workflow
+- author: med1bel
+  programs:
+    - name: anvi-gen-pan-representative
+- author: sarilog
+  programs:
+    - name: anvi-gen-pan-representative
 - author: matthewlawrenceklein
   programs:
     - name: anvi-interactive
