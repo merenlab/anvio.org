@@ -26,8 +26,16 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-setup-kegg-data](../../programs/anvi-setup-kegg-data)</span> <span class="artifact-p">[anvi-setup-user-modules](../../programs/anvi-setup-user-modules)</span></p>
 
 
-## Required or used by
 
+
+## Required by
+
+
+There are no anvi'o tools that require this artifact directly, which means it is most likely an end-product for the user.
+
+
+
+## Can be used by
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-migrate](../../programs/anvi-migrate)</span></p>
 

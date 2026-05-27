@@ -28,16 +28,20 @@ Takes in gene calls by AUGUSTUS v3.3.3, generates an anvi&#x27;o external gene c
 
 
 
-## Can consume
+## Requires
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[augustus-gene-calls](../../artifacts/augustus-gene-calls) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 
-## Can provide
+
+
+## Provides
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[external-gene-calls](../../artifacts/external-gene-calls) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+
+
 
 
 ## Usage

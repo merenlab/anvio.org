@@ -14,24 +14,6 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "concatenated-gene-alignment-fasta",
-      "name": "concatenated-gene-alignment-fasta",
-      "provided_by_anvio": true,
-      "type": "FASTA"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "misc-data-items",
-      "name": "misc-data-items",
-      "provided_by_anvio": true,
-      "type": "CONCEPT"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
       "id": "pan-db",
       "name": "pan-db",
       "provided_by_anvio": true,
@@ -47,6 +29,24 @@
       "type": "DB"
     },
     {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "concatenated-gene-alignment-fasta",
+      "name": "concatenated-gene-alignment-fasta",
+      "provided_by_anvio": true,
+      "type": "FASTA"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-items",
+      "name": "misc-data-items",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
       "size": 5,
       "score": 0.1,
       "color": "#AAAA00",
@@ -58,23 +58,28 @@
   "links": [
     {
       "source": 5,
-      "target": 0
-    },
-    {
-      "source": 5,
-      "target": 1
-    },
-    {
-      "source": 5,
-      "target": 2
+      "target": 0,
+      "type": "provides"
     },
     {
       "target": 5,
-      "source": 3
+      "source": 1,
+      "type": "requires"
     },
     {
       "target": 5,
-      "source": 4
+      "source": 2,
+      "type": "requires"
+    },
+    {
+      "source": 5,
+      "target": 3,
+      "type": "can_provide"
+    },
+    {
+      "source": 5,
+      "target": 4,
+      "type": "can_provide"
     }
   ],
   "directed": false,

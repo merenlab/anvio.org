@@ -26,10 +26,14 @@ A DATA-type anvi'o artifact. This artifact is typically generated, used, and/or 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-setup-cazymes](../../programs/anvi-setup-cazymes)</span></p>
 
 
-## Required or used by
+
+
+## Required by
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-run-cazymes](../../programs/anvi-run-cazymes)</span></p>
+
+
 
 
 ## Description

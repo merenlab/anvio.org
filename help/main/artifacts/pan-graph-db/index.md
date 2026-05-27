@@ -26,10 +26,18 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-pan-genome-graph](../../programs/anvi-pan-genome-graph)</span></p>
 
 
-## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-display-pan-graph](../../programs/anvi-display-pan-graph)</span> <span class="artifact-r">[anvi-export-collection](../../programs/anvi-export-collection)</span> <span class="artifact-r">[anvi-export-pan-subgraph](../../programs/anvi-export-pan-subgraph)</span> <span class="artifact-r">[anvi-import-collection](../../programs/anvi-import-collection)</span> <span class="artifact-r">[anvi-show-collections-and-bins](../../programs/anvi-show-collections-and-bins)</span> <span class="artifact-r">[anvi-summarize](../../programs/anvi-summarize)</span></p>
+## Required by
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-display-pan-graph](../../programs/anvi-display-pan-graph)</span> <span class="artifact-r">[anvi-export-pan-subgraph](../../programs/anvi-export-pan-subgraph)</span></p>
+
+
+
+## Can be used by
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-export-collection](../../programs/anvi-export-collection)</span> <span class="artifact-r">[anvi-import-collection](../../programs/anvi-import-collection)</span> <span class="artifact-r">[anvi-show-collections-and-bins](../../programs/anvi-show-collections-and-bins)</span> <span class="artifact-r">[anvi-summarize](../../programs/anvi-summarize)</span></p>
 
 
 ## Description

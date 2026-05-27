@@ -14,15 +14,6 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "functions-txt",
-      "name": "functions-txt",
-      "provided_by_anvio": true,
-      "type": "TXT"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
       "id": "cogs-data",
       "name": "cogs-data",
       "provided_by_anvio": true,
@@ -47,6 +38,15 @@
       "type": "FASTA"
     },
     {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "functions-txt",
+      "name": "functions-txt",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
       "size": 5,
       "score": 0.1,
       "color": "#AAAA00",
@@ -58,23 +58,28 @@
   "links": [
     {
       "source": 5,
-      "target": 0
+      "target": 0,
+      "type": "provides"
+    },
+    {
+      "target": 5,
+      "source": 1,
+      "type": "requires"
+    },
+    {
+      "target": 5,
+      "source": 2,
+      "type": "requires"
+    },
+    {
+      "target": 5,
+      "source": 3,
+      "type": "can_use"
     },
     {
       "source": 5,
-      "target": 1
-    },
-    {
-      "target": 5,
-      "source": 2
-    },
-    {
-      "target": 5,
-      "source": 3
-    },
-    {
-      "target": 5,
-      "source": 4
+      "target": 4,
+      "type": "can_provide"
     }
   ],
   "directed": false,

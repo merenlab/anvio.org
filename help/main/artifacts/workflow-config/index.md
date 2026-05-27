@@ -26,10 +26,18 @@ A JSON-type anvi'o artifact. This artifact is typically provided **by the user**
 There are no anvi'o tools that generate this artifact, which means it is most likely provided to the anvi'o ecosystem by the user.
 
 
-## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-migrate](../../programs/anvi-migrate)</span> <span class="artifact-r">[anvi-run-workflow](../../programs/anvi-run-workflow)</span></p>
+## Required by
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-run-workflow](../../programs/anvi-run-workflow)</span></p>
+
+
+
+## Can be used by
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-migrate](../../programs/anvi-migrate)</span></p>
 
 
 ## Description

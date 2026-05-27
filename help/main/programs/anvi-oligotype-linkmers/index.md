@@ -28,16 +28,20 @@ Takes an anvi&#x27;o linkmers report, generates an oligotyping output.
 
 
 
-## Can consume
+## Requires
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[linkmers-txt](../../artifacts/linkmers-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 
-## Can provide
+
+
+## Provides
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[oligotypes](../../artifacts/oligotypes) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
+
+
 
 
 ## Usage

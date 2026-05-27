@@ -26,8 +26,16 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-gen-gene-level-stats-databases](../../programs/anvi-gen-gene-level-stats-databases)</span></p>
 
 
-## Required or used by
 
+
+## Required by
+
+
+There are no anvi'o tools that require this artifact directly, which means it is most likely an end-product for the user.
+
+
+
+## Can be used by
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-db-info](../../programs/anvi-db-info)</span> <span class="artifact-r">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-r">[anvi-migrate](../../programs/anvi-migrate)</span> <span class="artifact-r">[anvi-search-sequence-motifs](../../programs/anvi-search-sequence-motifs)</span></p>
 

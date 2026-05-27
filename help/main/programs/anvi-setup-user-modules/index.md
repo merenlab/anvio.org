@@ -28,16 +28,20 @@ Set up user-defined metabolic pathways into an anvi&#x27;o-compatible database.
 
 
 
-## Can consume
+## Requires
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[user-modules-data](../../artifacts/user-modules-data) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
 
-## Can provide
+
+
+## Provides
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[modules-db](../../artifacts/modules-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[user-modules-data](../../artifacts/user-modules-data) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
+
+
 
 
 ## Usage

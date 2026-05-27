@@ -26,10 +26,22 @@ A NEWICK-type anvi'o artifact. This artifact can be generated, used, and/or expo
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-items-order](../../programs/anvi-export-items-order)</span> <span class="artifact-p">[anvi-gen-phylogenomic-tree](../../programs/anvi-gen-phylogenomic-tree)</span></p>
 
 
-## Required or used by
+
+## Can be provided by
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-interactive](../../programs/anvi-interactive)</span></p>
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-items-order](../../programs/anvi-import-items-order)</span> <span class="artifact-r">[anvi-import-misc-data](../../programs/anvi-import-misc-data)</span> <span class="artifact-r">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-r">[anvi-script-checkm-tree-to-interactive](../../programs/anvi-script-checkm-tree-to-interactive)</span></p>
+## Required by
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-script-checkm-tree-to-interactive](../../programs/anvi-script-checkm-tree-to-interactive)</span></p>
+
+
+
+## Can be used by
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-items-order](../../programs/anvi-import-items-order)</span> <span class="artifact-r">[anvi-import-misc-data](../../programs/anvi-import-misc-data)</span> <span class="artifact-r">[anvi-interactive](../../programs/anvi-interactive)</span></p>
 
 
 ## Description

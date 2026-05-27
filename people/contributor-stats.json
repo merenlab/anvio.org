@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8033,
+        "total_commits": 8041,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 311
+            "2026": 319
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "update component tests for pangenomics with panrep",
-        "latest_commit_hash": "b84310eff8cfe40a1b2e72a370583de69c30a9f2",
-        "latest_commit_date": "26 May 2026"
+        "latest_commit_message": "detail can use / can provide usatge",
+        "latest_commit_hash": "a1ca76048dae7db8cef0f855ae25dd27eef10cf7",
+        "latest_commit_date": "27 May 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 357,

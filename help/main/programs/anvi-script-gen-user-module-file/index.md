@@ -28,16 +28,20 @@ This script generates a user-defined module file from a tab-delimited file of en
 
 
 
-## Can consume
+## Requires
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[enzymes-list-for-module](../../artifacts/enzymes-list-for-module) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 
-## Can provide
+
+
+## Provides
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[user-modules-data](../../artifacts/user-modules-data) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
+
+
 
 
 ## Usage

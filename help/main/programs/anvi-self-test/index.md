@@ -36,16 +36,20 @@ A program for anvi&#x27;o to test itself.
 
 
 
-## Can consume
+## Requires
 
 
 This program seems to know what its doing. It needs no input material from its user. Good program.
 
 
-## Can provide
+
+
+## Provides
 
 
 This program does not seem to provide any artifacts. Such programs usually print out some information for you to see or alter some anvi'o artifacts without producing any immediate outputs.
+
+
 
 
 ## Usage

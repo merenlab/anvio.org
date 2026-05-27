@@ -31,11 +31,13 @@
   "links": [
     {
       "target": 2,
-      "source": 0
+      "source": 0,
+      "type": "requires"
     },
     {
       "target": 2,
-      "source": 1
+      "source": 1,
+      "type": "requires"
     }
   ],
   "directed": false,

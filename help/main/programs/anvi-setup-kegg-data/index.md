@@ -30,16 +30,20 @@ Download and setup various databases from KEGG.
 
 
 
-## Can consume
+## Requires
 
 
 This program seems to know what its doing. It needs no input material from its user. Good program.
 
 
-## Can provide
+
+
+## Provides
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[kegg-data](../../artifacts/kegg-data) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[modules-db](../../artifacts/modules-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
+
+
 
 
 ## Usage

@@ -28,16 +28,28 @@ An anvi&#x27;o program to compute a pangenome from an anvi&#x27;o genome storage
 
 
 
-## Can consume
+## Requires
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[gene-clusters-txt](../../artifacts/gene-clusters-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
+
+
+
+## Can use
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[gene-clusters-txt](../../artifacts/gene-clusters-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+
+
+## Provides
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[gene-clusters](../../artifacts/gene-clusters) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
+
 
 
 ## Can provide
 
-
-<p style="text-align: left" markdown="1"><span class="artifact-p">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[misc-data-items-order](../../artifacts/misc-data-items-order) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[gene-clusters](../../artifacts/gene-clusters) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[misc-data-items-order](../../artifacts/misc-data-items-order) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Usage

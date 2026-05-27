@@ -26,8 +26,20 @@ A NEWICK-type anvi'o artifact. This artifact can be generated, used, and/or expo
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-experimental-organization](../../programs/anvi-experimental-organization)</span> <span class="artifact-p">[anvi-export-items-order](../../programs/anvi-export-items-order)</span> <span class="artifact-p">[anvi-matrix-to-newick](../../programs/anvi-matrix-to-newick)</span></p>
 
 
-## Required or used by
 
+## Can be provided by
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-interactive](../../programs/anvi-interactive)</span></p>
+
+
+## Required by
+
+
+There are no anvi'o tools that require this artifact directly, which means it is most likely an end-product for the user.
+
+
+
+## Can be used by
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-items-order](../../programs/anvi-import-items-order)</span> <span class="artifact-r">[anvi-import-misc-data](../../programs/anvi-import-misc-data)</span> <span class="artifact-r">[anvi-interactive](../../programs/anvi-interactive)</span></p>
 

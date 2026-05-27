@@ -26,10 +26,14 @@ A TXT-type anvi'o artifact. This artifact is typically provided **by the user** 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-report-linkmers](../../programs/anvi-report-linkmers)</span> <span class="artifact-p">[anvi-script-transpose-matrix](../../programs/anvi-script-transpose-matrix)</span></p>
 
 
-## Required or used by
+
+
+## Required by
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-oligotype-linkmers](../../programs/anvi-oligotype-linkmers)</span> <span class="artifact-r">[anvi-script-transpose-matrix](../../programs/anvi-script-transpose-matrix)</span></p>
+
+
 
 
 ## Description

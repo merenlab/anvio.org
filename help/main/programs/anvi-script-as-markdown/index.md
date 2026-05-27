@@ -28,16 +28,20 @@ Markdownizides TAB-delmited data with headers in terminal..
 
 
 
-## Can consume
+## Requires
 
 
 This program seems to know what its doing. It needs no input material from its user. Good program.
 
 
-## Can provide
+
+
+## Provides
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[markdown-txt](../../artifacts/markdown-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+
+
 
 
 ## Usage

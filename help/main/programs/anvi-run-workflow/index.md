@@ -32,16 +32,20 @@ Execute, manage, parallelize, and troubleshoot entire &#x27;omics workflows and 
 
 
 
-## Can consume
+## Requires
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[workflow-config](../../artifacts/workflow-config) <img src="../../images/icons/JSON.png" class="artifact-icon-mini" /></span></p>
 
 
-## Can provide
+
+
+## Provides
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[workflow](../../artifacts/workflow) <img src="../../images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span></p>
+
+
 
 
 ## Usage

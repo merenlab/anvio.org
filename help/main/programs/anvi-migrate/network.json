@@ -85,35 +85,43 @@
   "links": [
     {
       "target": 8,
-      "source": 0
+      "source": 0,
+      "type": "requires"
     },
     {
       "target": 8,
-      "source": 1
+      "source": 1,
+      "type": "can_use"
     },
     {
       "target": 8,
-      "source": 2
+      "source": 2,
+      "type": "can_use"
     },
     {
       "target": 8,
-      "source": 3
+      "source": 3,
+      "type": "can_use"
     },
     {
       "target": 8,
-      "source": 4
+      "source": 4,
+      "type": "can_use"
     },
     {
       "target": 8,
-      "source": 5
+      "source": 5,
+      "type": "can_use"
     },
     {
       "target": 8,
-      "source": 6
+      "source": 6,
+      "type": "can_use"
     },
     {
       "target": 8,
-      "source": 7
+      "source": 7,
+      "type": "can_use"
     }
   ],
   "directed": false,

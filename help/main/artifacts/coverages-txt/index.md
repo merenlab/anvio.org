@@ -26,10 +26,14 @@ A TXT-type anvi'o artifact. This artifact is typically generated, used, and/or e
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-gene-coverage-and-detection](../../programs/anvi-export-gene-coverage-and-detection)</span> <span class="artifact-p">[anvi-export-splits-and-coverages](../../programs/anvi-export-splits-and-coverages)</span> <span class="artifact-p">[anvi-get-split-coverages](../../programs/anvi-get-split-coverages)</span> <span class="artifact-p">[anvi-script-get-coverage-from-bam](../../programs/anvi-script-get-coverage-from-bam)</span></p>
 
 
-## Required or used by
 
 
-There are no anvi'o tools that use or require this artifact directly, which means it is most likely an end-product for the user.
+## Required by
+
+
+There are no anvi'o tools that require this artifact directly, which means it is most likely an end-product for the user.
+
+
 
 
 ## Description

@@ -26,10 +26,14 @@ A TXT-type anvi'o artifact. This artifact is typically generated, used, and/or e
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-script-reformat-fasta](../../programs/anvi-script-reformat-fasta)</span></p>
 
 
-## Required or used by
+
+
+## Required by
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-script-reformat-bam](../../programs/anvi-script-reformat-bam)</span></p>
+
+
 
 
 ## Description

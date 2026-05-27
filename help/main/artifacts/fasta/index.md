@@ -26,10 +26,18 @@ A FASTA-type anvi'o artifact. This artifact is typically provided **by the user*
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-p">[anvi-reorient-genomes](../../programs/anvi-reorient-genomes)</span> <span class="artifact-p">[anvi-script-fix-homopolymer-indels](../../programs/anvi-script-fix-homopolymer-indels)</span></p>
 
 
-## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-r">[anvi-run-ncbi-cogs](../../programs/anvi-run-ncbi-cogs)</span> <span class="artifact-r">[anvi-search-palindromes](../../programs/anvi-search-palindromes)</span> <span class="artifact-r">[anvi-script-compute-ani-for-fasta](../../programs/anvi-script-compute-ani-for-fasta)</span> <span class="artifact-r">[anvi-script-fix-homopolymer-indels](../../programs/anvi-script-fix-homopolymer-indels)</span> <span class="artifact-r">[anvi-script-gen-reads](../../programs/anvi-script-gen-reads)</span> <span class="artifact-r">[anvi-script-reformat-fasta](../../programs/anvi-script-reformat-fasta)</span> <span class="artifact-r">[anvi-script-gen-fasta-txt](../../programs/anvi-script-gen-fasta-txt)</span></p>
+## Required by
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-r">[anvi-script-compute-ani-for-fasta](../../programs/anvi-script-compute-ani-for-fasta)</span> <span class="artifact-r">[anvi-script-fix-homopolymer-indels](../../programs/anvi-script-fix-homopolymer-indels)</span> <span class="artifact-r">[anvi-script-gen-reads](../../programs/anvi-script-gen-reads)</span> <span class="artifact-r">[anvi-script-reformat-fasta](../../programs/anvi-script-reformat-fasta)</span> <span class="artifact-r">[anvi-script-gen-fasta-txt](../../programs/anvi-script-gen-fasta-txt)</span></p>
+
+
+
+## Can be used by
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-run-ncbi-cogs](../../programs/anvi-run-ncbi-cogs)</span> <span class="artifact-r">[anvi-search-palindromes](../../programs/anvi-search-palindromes)</span></p>
 
 
 ## Description

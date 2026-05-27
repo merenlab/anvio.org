@@ -26,10 +26,14 @@ A XML-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-gen-variability-network](../../programs/anvi-gen-variability-network)</span></p>
 
 
-## Required or used by
 
 
-There are no anvi'o tools that use or require this artifact directly, which means it is most likely an end-product for the user.
+## Required by
+
+
+There are no anvi'o tools that require this artifact directly, which means it is most likely an end-product for the user.
+
+
 
 
 ## Description

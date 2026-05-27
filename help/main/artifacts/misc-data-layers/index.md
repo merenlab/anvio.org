@@ -23,13 +23,25 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-import-misc-data](../../programs/anvi-import-misc-data)</span> <span class="artifact-p">[anvi-search-sequence-motifs](../../programs/anvi-search-sequence-motifs)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-import-misc-data](../../programs/anvi-import-misc-data)</span></p>
 
 
-## Required or used by
+
+## Can be provided by
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-search-sequence-motifs](../../programs/anvi-search-sequence-motifs)</span></p>
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-compute-functional-enrichment-in-pan](../../programs/anvi-compute-functional-enrichment-in-pan)</span> <span class="artifact-r">[anvi-delete-misc-data](../../programs/anvi-delete-misc-data)</span> <span class="artifact-r">[anvi-export-misc-data](../../programs/anvi-export-misc-data)</span></p>
+## Required by
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-compute-functional-enrichment-in-pan](../../programs/anvi-compute-functional-enrichment-in-pan)</span></p>
+
+
+
+## Can be used by
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-delete-misc-data](../../programs/anvi-delete-misc-data)</span> <span class="artifact-r">[anvi-export-misc-data](../../programs/anvi-export-misc-data)</span></p>
 
 
 ## Description

@@ -28,16 +28,20 @@ Generate synthetic sequencing reads (Illumina, PacBio HiFi, ONT) from reference 
 
 
 
-## Can consume
+## Requires
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[fasta](../../artifacts/fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
 
 
-## Can provide
+
+
+## Provides
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[paired-end-fastq](../../artifacts/paired-end-fastq) <img src="../../images/icons/FASTQ.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[single-end-fastq](../../artifacts/single-end-fastq) <img src="../../images/icons/FASTQ.png" class="artifact-icon-mini" /></span></p>
+
+
 
 
 ## Usage

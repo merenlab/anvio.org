@@ -76,31 +76,38 @@
   "links": [
     {
       "source": 7,
-      "target": 0
+      "target": 0,
+      "type": "provides"
     },
     {
       "target": 7,
-      "source": 1
+      "source": 1,
+      "type": "requires"
     },
     {
       "target": 7,
-      "source": 2
+      "source": 2,
+      "type": "requires"
     },
     {
       "target": 7,
-      "source": 3
+      "source": 3,
+      "type": "requires"
     },
     {
       "target": 7,
-      "source": 4
+      "source": 4,
+      "type": "can_use"
     },
     {
       "target": 7,
-      "source": 5
+      "source": 5,
+      "type": "can_use"
     },
     {
       "target": 7,
-      "source": 6
+      "source": 6,
+      "type": "can_use"
     }
   ],
   "directed": false,

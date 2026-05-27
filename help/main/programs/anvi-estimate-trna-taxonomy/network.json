@@ -12,24 +12,6 @@
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
-      "id": "genome-taxonomy-txt",
-      "name": "genome-taxonomy-txt",
-      "provided_by_anvio": false,
-      "type": "TXT"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "profile-db",
-      "name": "profile-db",
-      "provided_by_anvio": true,
-      "type": "DB"
-    },
-    {
-      "size": 1,
       "score": 0.5,
       "color": "#00AA00",
       "id": "contigs-db",
@@ -45,6 +27,15 @@
       "name": "trna-taxonomy",
       "provided_by_anvio": true,
       "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "profile-db",
+      "name": "profile-db",
+      "provided_by_anvio": true,
+      "type": "DB"
     },
     {
       "size": 1,
@@ -83,6 +74,15 @@
       "type": "SEQUENCE"
     },
     {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "genome-taxonomy-txt",
+      "name": "genome-taxonomy-txt",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
       "size": 9,
       "score": 0.1,
       "color": "#AAAA00",
@@ -94,39 +94,48 @@
   "links": [
     {
       "source": 9,
-      "target": 0
+      "target": 0,
+      "type": "provides"
+    },
+    {
+      "target": 9,
+      "source": 1,
+      "type": "requires"
+    },
+    {
+      "target": 9,
+      "source": 2,
+      "type": "requires"
+    },
+    {
+      "target": 9,
+      "source": 3,
+      "type": "can_use"
+    },
+    {
+      "target": 9,
+      "source": 4,
+      "type": "can_use"
+    },
+    {
+      "target": 9,
+      "source": 5,
+      "type": "can_use"
+    },
+    {
+      "target": 9,
+      "source": 6,
+      "type": "can_use"
+    },
+    {
+      "target": 9,
+      "source": 7,
+      "type": "can_use"
     },
     {
       "source": 9,
-      "target": 1
-    },
-    {
-      "target": 9,
-      "source": 2
-    },
-    {
-      "target": 9,
-      "source": 3
-    },
-    {
-      "target": 9,
-      "source": 4
-    },
-    {
-      "target": 9,
-      "source": 5
-    },
-    {
-      "target": 9,
-      "source": 6
-    },
-    {
-      "target": 9,
-      "source": 7
-    },
-    {
-      "target": 9,
-      "source": 8
+      "target": 8,
+      "type": "can_provide"
     }
   ],
   "directed": false,

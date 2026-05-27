@@ -14,19 +14,19 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "svg",
-      "name": "svg",
+      "id": "pan-graph-db",
+      "name": "pan-graph-db",
       "provided_by_anvio": true,
-      "type": "SVG"
+      "type": "DB"
     },
     {
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "pan-graph-db",
-      "name": "pan-graph-db",
+      "id": "svg",
+      "name": "svg",
       "provided_by_anvio": true,
-      "type": "DB"
+      "type": "SVG"
     },
     {
       "size": 3,
@@ -40,15 +40,18 @@
   "links": [
     {
       "source": 3,
-      "target": 0
-    },
-    {
-      "source": 3,
-      "target": 1
+      "target": 0,
+      "type": "provides"
     },
     {
       "target": 3,
-      "source": 2
+      "source": 1,
+      "type": "requires"
+    },
+    {
+      "source": 3,
+      "target": 2,
+      "type": "can_provide"
     }
   ],
   "directed": false,

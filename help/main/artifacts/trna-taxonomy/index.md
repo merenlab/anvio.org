@@ -26,10 +26,14 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-run-trna-taxonomy](../../programs/anvi-run-trna-taxonomy)</span></p>
 
 
-## Required or used by
+
+
+## Required by
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-estimate-trna-taxonomy](../../programs/anvi-estimate-trna-taxonomy)</span></p>
+
+
 
 
 ## Description

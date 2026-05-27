@@ -32,6 +32,15 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
+      "id": "collection",
+      "name": "collection",
+      "provided_by_anvio": true,
+      "type": "COLLECTION"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "profile-db",
       "name": "profile-db",
       "provided_by_anvio": true,
@@ -45,15 +54,6 @@
       "name": "contigs-db",
       "provided_by_anvio": true,
       "type": "DB"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "collection",
-      "name": "collection",
-      "provided_by_anvio": true,
-      "type": "COLLECTION"
     },
     {
       "size": 1,
@@ -94,39 +94,48 @@
   "links": [
     {
       "source": 9,
-      "target": 0
+      "target": 0,
+      "type": "provides"
     },
     {
       "source": 9,
-      "target": 1
+      "target": 1,
+      "type": "provides"
     },
     {
       "source": 9,
-      "target": 2
+      "target": 2,
+      "type": "provides"
     },
     {
       "target": 9,
-      "source": 3
+      "source": 3,
+      "type": "requires"
     },
     {
       "target": 9,
-      "source": 4
+      "source": 4,
+      "type": "requires"
     },
     {
       "target": 9,
-      "source": 5
+      "source": 5,
+      "type": "can_use"
     },
     {
       "target": 9,
-      "source": 6
+      "source": 6,
+      "type": "can_use"
     },
     {
       "target": 9,
-      "source": 7
+      "source": 7,
+      "type": "can_use"
     },
     {
       "target": 9,
-      "source": 8
+      "source": 8,
+      "type": "can_use"
     }
   ],
   "directed": false,

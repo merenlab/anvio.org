@@ -26,10 +26,14 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-estimate-genome-completeness](../../programs/anvi-estimate-genome-completeness)</span></p>
 
 
-## Required or used by
 
 
-There are no anvi'o tools that use or require this artifact directly, which means it is most likely an end-product for the user.
+## Required by
+
+
+There are no anvi'o tools that require this artifact directly, which means it is most likely an end-product for the user.
+
+
 
 
 ## Description

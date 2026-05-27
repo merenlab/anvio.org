@@ -23,13 +23,21 @@ A SVG-type anvi'o artifact. This artifact is typically generated, used, and/or e
 ## Provided by
 
 
+There are no anvi'o tools that generate this artifact, which means it is most likely provided to the anvi'o ecosystem by the user.
+
+
+
+## Can be provided by
+
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-display-contigs-stats](../../programs/anvi-display-contigs-stats)</span> <span class="artifact-p">[anvi-display-codon-frequencies](../../programs/anvi-display-codon-frequencies)</span> <span class="artifact-p">[anvi-display-pan](../../programs/anvi-display-pan)</span> <span class="artifact-p">[anvi-display-pan-graph](../../programs/anvi-display-pan-graph)</span> <span class="artifact-p">[anvi-interactive](../../programs/anvi-interactive)</span></p>
 
 
-## Required or used by
+## Required by
 
 
-There are no anvi'o tools that use or require this artifact directly, which means it is most likely an end-product for the user.
+There are no anvi'o tools that require this artifact directly, which means it is most likely an end-product for the user.
+
+
 
 
 ## Description

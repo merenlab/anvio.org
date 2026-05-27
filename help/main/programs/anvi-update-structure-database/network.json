@@ -40,15 +40,18 @@
   "links": [
     {
       "target": 3,
-      "source": 0
+      "source": 0,
+      "type": "requires"
     },
     {
       "target": 3,
-      "source": 1
+      "source": 1,
+      "type": "requires"
     },
     {
       "target": 3,
-      "source": 2
+      "source": 2,
+      "type": "can_use"
     }
   ],
   "directed": false,

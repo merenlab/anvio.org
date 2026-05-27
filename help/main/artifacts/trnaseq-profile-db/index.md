@@ -26,10 +26,14 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-merge-trnaseq](../../programs/anvi-merge-trnaseq)</span></p>
 
 
-## Required or used by
+
+
+## Required by
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-tabulate-trnaseq](../../programs/anvi-tabulate-trnaseq)</span></p>
+
+
 
 
 ## Description

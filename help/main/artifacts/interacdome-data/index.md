@@ -26,10 +26,14 @@ A DATA-type anvi'o artifact. This artifact is typically generated, used, and/or 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-setup-interacdome](../../programs/anvi-setup-interacdome)</span></p>
 
 
-## Required or used by
+
+
+## Required by
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-run-interacdome](../../programs/anvi-run-interacdome)</span></p>
+
+
 
 
 ## Description

@@ -26,10 +26,14 @@ A TXT-type anvi'o artifact. This artifact is typically provided **by the user** 
 There are no anvi'o tools that generate this artifact, which means it is most likely provided to the anvi'o ecosystem by the user.
 
 
-## Required or used by
+
+
+## Required by
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-script-pfam-accessions-to-hmms-directory](../../programs/anvi-script-pfam-accessions-to-hmms-directory)</span></p>
+
+
 
 
 ## Description

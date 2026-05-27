@@ -14,6 +14,15 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
+      "id": "contigs-db",
+      "name": "contigs-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "dna-sequence",
       "name": "dna-sequence",
       "provided_by_anvio": true,
@@ -29,15 +38,6 @@
       "type": "FASTA"
     },
     {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "contigs-db",
-      "name": "contigs-db",
-      "provided_by_anvio": true,
-      "type": "DB"
-    },
-    {
       "size": 4,
       "score": 0.1,
       "color": "#AAAA00",
@@ -49,19 +49,23 @@
   "links": [
     {
       "source": 4,
-      "target": 0
+      "target": 0,
+      "type": "provides"
     },
     {
       "target": 4,
-      "source": 1
+      "source": 1,
+      "type": "requires"
     },
     {
       "target": 4,
-      "source": 2
+      "source": 2,
+      "type": "can_use"
     },
     {
       "target": 4,
-      "source": 3
+      "source": 3,
+      "type": "can_use"
     }
   ],
   "directed": false,

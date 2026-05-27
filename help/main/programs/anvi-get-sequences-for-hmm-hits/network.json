@@ -14,19 +14,28 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "concatenated-gene-alignment-fasta",
-      "name": "concatenated-gene-alignment-fasta",
+      "id": "contigs-db",
+      "name": "contigs-db",
       "provided_by_anvio": true,
-      "type": "FASTA"
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "hmm-source",
+      "name": "hmm-source",
+      "provided_by_anvio": false,
+      "type": "HMM"
     },
     {
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "contigs-db",
-      "name": "contigs-db",
+      "id": "hmm-hits",
+      "name": "hmm-hits",
       "provided_by_anvio": true,
-      "type": "DB"
+      "type": "CONCEPT"
     },
     {
       "size": 1,
@@ -57,21 +66,12 @@
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
-      "id": "hmm-source",
-      "name": "hmm-source",
-      "provided_by_anvio": false,
-      "type": "HMM"
-    },
-    {
-      "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "hmm-hits",
-      "name": "hmm-hits",
+      "id": "concatenated-gene-alignment-fasta",
+      "name": "concatenated-gene-alignment-fasta",
       "provided_by_anvio": true,
-      "type": "CONCEPT"
+      "type": "FASTA"
     },
     {
       "size": 8,
@@ -85,35 +85,43 @@
   "links": [
     {
       "source": 8,
-      "target": 0
+      "target": 0,
+      "type": "provides"
+    },
+    {
+      "target": 8,
+      "source": 1,
+      "type": "requires"
+    },
+    {
+      "target": 8,
+      "source": 2,
+      "type": "requires"
+    },
+    {
+      "target": 8,
+      "source": 3,
+      "type": "requires"
+    },
+    {
+      "target": 8,
+      "source": 4,
+      "type": "can_use"
+    },
+    {
+      "target": 8,
+      "source": 5,
+      "type": "can_use"
+    },
+    {
+      "target": 8,
+      "source": 6,
+      "type": "can_use"
     },
     {
       "source": 8,
-      "target": 1
-    },
-    {
-      "target": 8,
-      "source": 2
-    },
-    {
-      "target": 8,
-      "source": 3
-    },
-    {
-      "target": 8,
-      "source": 4
-    },
-    {
-      "target": 8,
-      "source": 5
-    },
-    {
-      "target": 8,
-      "source": 6
-    },
-    {
-      "target": 8,
-      "source": 7
+      "target": 7,
+      "type": "can_provide"
     }
   ],
   "directed": false,

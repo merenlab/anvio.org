@@ -5,44 +5,8 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "collection",
-      "name": "collection",
-      "provided_by_anvio": true,
-      "type": "COLLECTION"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "bin",
-      "name": "bin",
-      "provided_by_anvio": true,
-      "type": "BIN"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
       "id": "interactive",
       "name": "interactive",
-      "provided_by_anvio": true,
-      "type": "DISPLAY"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "svg",
-      "name": "svg",
-      "provided_by_anvio": true,
-      "type": "SVG"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "gene-cluster-inspection",
-      "name": "gene-cluster-inspection",
       "provided_by_anvio": true,
       "type": "DISPLAY"
     },
@@ -65,6 +29,42 @@
       "type": "DB"
     },
     {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "svg",
+      "name": "svg",
+      "provided_by_anvio": true,
+      "type": "SVG"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "collection",
+      "name": "collection",
+      "provided_by_anvio": true,
+      "type": "COLLECTION"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "bin",
+      "name": "bin",
+      "provided_by_anvio": true,
+      "type": "BIN"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "gene-cluster-inspection",
+      "name": "gene-cluster-inspection",
+      "provided_by_anvio": true,
+      "type": "DISPLAY"
+    },
+    {
       "size": 7,
       "score": 0.1,
       "color": "#AAAA00",
@@ -76,31 +76,38 @@
   "links": [
     {
       "source": 7,
-      "target": 0
-    },
-    {
-      "source": 7,
-      "target": 1
-    },
-    {
-      "source": 7,
-      "target": 2
-    },
-    {
-      "source": 7,
-      "target": 3
-    },
-    {
-      "source": 7,
-      "target": 4
+      "target": 0,
+      "type": "provides"
     },
     {
       "target": 7,
-      "source": 5
+      "source": 1,
+      "type": "requires"
     },
     {
       "target": 7,
-      "source": 6
+      "source": 2,
+      "type": "requires"
+    },
+    {
+      "source": 7,
+      "target": 3,
+      "type": "can_provide"
+    },
+    {
+      "source": 7,
+      "target": 4,
+      "type": "can_provide"
+    },
+    {
+      "source": 7,
+      "target": 5,
+      "type": "can_provide"
+    },
+    {
+      "source": 7,
+      "target": 6,
+      "type": "can_provide"
     }
   ],
   "directed": false,

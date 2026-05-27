@@ -26,10 +26,14 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 There are no anvi'o tools that generate this artifact, which means it is most likely provided to the anvi'o ecosystem by the user.
 
 
-## Required or used by
+
+
+## Required by
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-taxonomy-for-layers](../../programs/anvi-import-taxonomy-for-layers)</span></p>
+
+
 
 
 ## Description

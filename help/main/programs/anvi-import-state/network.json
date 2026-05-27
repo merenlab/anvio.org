@@ -14,10 +14,10 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "pan-db",
-      "name": "pan-db",
+      "id": "state-json",
+      "name": "state-json",
       "provided_by_anvio": true,
-      "type": "DB"
+      "type": "JSON"
     },
     {
       "size": 1,
@@ -32,10 +32,10 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "state-json",
-      "name": "state-json",
+      "id": "pan-db",
+      "name": "pan-db",
       "provided_by_anvio": true,
-      "type": "JSON"
+      "type": "DB"
     },
     {
       "size": 4,
@@ -49,19 +49,23 @@
   "links": [
     {
       "source": 4,
-      "target": 0
+      "target": 0,
+      "type": "provides"
     },
     {
       "target": 4,
-      "source": 1
+      "source": 1,
+      "type": "requires"
     },
     {
       "target": 4,
-      "source": 2
+      "source": 2,
+      "type": "requires"
     },
     {
       "target": 4,
-      "source": 3
+      "source": 3,
+      "type": "can_use"
     }
   ],
   "directed": false,

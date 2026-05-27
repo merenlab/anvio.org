@@ -26,8 +26,16 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-setup-modelseed-database](../../programs/anvi-setup-modelseed-database)</span></p>
 
 
-## Required or used by
 
+
+## Required by
+
+
+There are no anvi'o tools that require this artifact directly, which means it is most likely an end-product for the user.
+
+
+
+## Can be used by
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-predict-metabolic-exchanges](../../programs/anvi-predict-metabolic-exchanges)</span> <span class="artifact-r">[anvi-reaction-network](../../programs/anvi-reaction-network)</span></p>
 

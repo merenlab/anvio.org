@@ -26,10 +26,14 @@ A TXT-type anvi'o artifact. This artifact is typically generated, used, and/or e
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-tabulate-trnaseq](../../programs/anvi-tabulate-trnaseq)</span></p>
 
 
-## Required or used by
+
+
+## Required by
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-integrate-trnaseq](../../programs/anvi-integrate-trnaseq)</span> <span class="artifact-r">[anvi-plot-trnaseq](../../programs/anvi-plot-trnaseq)</span></p>
+
+
 
 
 ## Description

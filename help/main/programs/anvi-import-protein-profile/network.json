@@ -22,7 +22,8 @@
   "links": [
     {
       "target": 1,
-      "source": 0
+      "source": 0,
+      "type": "requires"
     }
   ],
   "directed": false,

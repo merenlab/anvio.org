@@ -26,10 +26,14 @@ A TXT-type anvi'o artifact. This artifact is typically provided **by the user** 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-structures](../../programs/anvi-export-structures)</span></p>
 
 
-## Required or used by
 
 
-There are no anvi'o tools that use or require this artifact directly, which means it is most likely an end-product for the user.
+## Required by
+
+
+There are no anvi'o tools that require this artifact directly, which means it is most likely an end-product for the user.
+
+
 
 
 ## Description

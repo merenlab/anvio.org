@@ -23,13 +23,21 @@ A DISPLAY-type anvi'o artifact. This artifact is typically generated, used, and/
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-inspect](../../programs/anvi-inspect)</span> <span class="artifact-p">[anvi-interactive](../../programs/anvi-interactive)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-inspect](../../programs/anvi-inspect)</span></p>
 
 
-## Required or used by
+
+## Can be provided by
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-interactive](../../programs/anvi-interactive)</span></p>
 
 
-There are no anvi'o tools that use or require this artifact directly, which means it is most likely an end-product for the user.
+## Required by
+
+
+There are no anvi'o tools that require this artifact directly, which means it is most likely an end-product for the user.
+
+
 
 
 ## Description

@@ -26,10 +26,18 @@ A DB-type anvi'o artifact. This artifact can be generated, used, and/or exported
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-setup-user-modules](../../programs/anvi-setup-user-modules)</span> <span class="artifact-p">[anvi-script-gen-user-module-file](../../programs/anvi-script-gen-user-module-file)</span></p>
 
 
-## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-estimate-metabolism](../../programs/anvi-estimate-metabolism)</span> <span class="artifact-r">[anvi-setup-user-modules](../../programs/anvi-setup-user-modules)</span></p>
+## Required by
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-setup-user-modules](../../programs/anvi-setup-user-modules)</span></p>
+
+
+
+## Can be used by
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-estimate-metabolism](../../programs/anvi-estimate-metabolism)</span></p>
 
 
 ## Description

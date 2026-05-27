@@ -26,10 +26,14 @@ A FASTA-type anvi'o artifact. This artifact can be generated, used, and/or expor
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-contigs](../../programs/anvi-export-contigs)</span> <span class="artifact-p">[anvi-export-splits-and-coverages](../../programs/anvi-export-splits-and-coverages)</span> <span class="artifact-p">[anvi-script-filter-fasta-by-blast](../../programs/anvi-script-filter-fasta-by-blast)</span> <span class="artifact-p">[anvi-script-process-genbank](../../programs/anvi-script-process-genbank)</span> <span class="artifact-p">[anvi-script-process-genbank-metadata](../../programs/anvi-script-process-genbank-metadata)</span> <span class="artifact-p">[anvi-script-reformat-fasta](../../programs/anvi-script-reformat-fasta)</span></p>
 
 
-## Required or used by
+
+
+## Required by
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-gen-contigs-database](../../programs/anvi-gen-contigs-database)</span> <span class="artifact-r">[anvi-script-filter-fasta-by-blast](../../programs/anvi-script-filter-fasta-by-blast)</span></p>
+
+
 
 
 ## Description

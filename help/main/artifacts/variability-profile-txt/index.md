@@ -26,10 +26,18 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-gen-variability-profile](../../programs/anvi-gen-variability-profile)</span></p>
 
 
-## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-display-structure](../../programs/anvi-display-structure)</span> <span class="artifact-r">[anvi-gen-fixation-index-matrix](../../programs/anvi-gen-fixation-index-matrix)</span> <span class="artifact-r">[anvi-gen-variability-network](../../programs/anvi-gen-variability-network)</span> <span class="artifact-r">[anvi-get-pn-ps-ratio](../../programs/anvi-get-pn-ps-ratio)</span> <span class="artifact-r">[anvi-script-snvs-to-interactive](../../programs/anvi-script-snvs-to-interactive)</span> <span class="artifact-r">[anvi-script-variability-to-vcf](../../programs/anvi-script-variability-to-vcf)</span></p>
+## Required by
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-gen-variability-network](../../programs/anvi-gen-variability-network)</span> <span class="artifact-r">[anvi-get-pn-ps-ratio](../../programs/anvi-get-pn-ps-ratio)</span> <span class="artifact-r">[anvi-script-snvs-to-interactive](../../programs/anvi-script-snvs-to-interactive)</span> <span class="artifact-r">[anvi-script-variability-to-vcf](../../programs/anvi-script-variability-to-vcf)</span></p>
+
+
+
+## Can be used by
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-display-structure](../../programs/anvi-display-structure)</span> <span class="artifact-r">[anvi-gen-fixation-index-matrix](../../programs/anvi-gen-fixation-index-matrix)</span></p>
 
 
 ## Description

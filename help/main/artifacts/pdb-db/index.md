@@ -26,8 +26,16 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-setup-pdb-database](../../programs/anvi-setup-pdb-database)</span></p>
 
 
-## Required or used by
 
+
+## Required by
+
+
+There are no anvi'o tools that require this artifact directly, which means it is most likely an end-product for the user.
+
+
+
+## Can be used by
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-gen-structure-database](../../programs/anvi-gen-structure-database)</span></p>
 

@@ -26,10 +26,14 @@ A JSON-type anvi'o artifact. This artifact can be generated, used, and/or export
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-state](../../programs/anvi-export-state)</span></p>
 
 
-## Required or used by
+
+
+## Required by
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-state](../../programs/anvi-import-state)</span></p>
+
+
 
 
 ## Description

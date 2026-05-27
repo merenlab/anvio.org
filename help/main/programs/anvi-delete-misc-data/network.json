@@ -5,8 +5,8 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "pan-db",
-      "name": "pan-db",
+      "id": "profile-db",
+      "name": "profile-db",
       "provided_by_anvio": true,
       "type": "DB"
     },
@@ -14,8 +14,8 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "profile-db",
-      "name": "profile-db",
+      "id": "pan-db",
+      "name": "pan-db",
       "provided_by_anvio": true,
       "type": "DB"
     },
@@ -76,31 +76,38 @@
   "links": [
     {
       "target": 7,
-      "source": 0
+      "source": 0,
+      "type": "requires"
     },
     {
       "target": 7,
-      "source": 1
+      "source": 1,
+      "type": "can_use"
     },
     {
       "target": 7,
-      "source": 2
+      "source": 2,
+      "type": "can_use"
     },
     {
       "target": 7,
-      "source": 3
+      "source": 3,
+      "type": "can_use"
     },
     {
       "target": 7,
-      "source": 4
+      "source": 4,
+      "type": "can_use"
     },
     {
       "target": 7,
-      "source": 5
+      "source": 5,
+      "type": "can_use"
     },
     {
       "target": 7,
-      "source": 6
+      "source": 6,
+      "type": "can_use"
     }
   ],
   "directed": false,

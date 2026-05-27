@@ -23,13 +23,21 @@ A FASTA-type anvi'o artifact. This artifact is typically generated, used, and/or
 ## Provided by
 
 
+There are no anvi'o tools that generate this artifact, which means it is most likely provided to the anvi'o ecosystem by the user.
+
+
+
+## Can be provided by
+
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-get-sequences-for-gene-clusters](../../programs/anvi-get-sequences-for-gene-clusters)</span> <span class="artifact-p">[anvi-get-sequences-for-hmm-hits](../../programs/anvi-get-sequences-for-hmm-hits)</span></p>
 
 
-## Required or used by
+## Required by
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-gen-phylogenomic-tree](../../programs/anvi-gen-phylogenomic-tree)</span></p>
+
+
 
 
 ## Description

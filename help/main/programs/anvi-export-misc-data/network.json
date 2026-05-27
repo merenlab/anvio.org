@@ -50,8 +50,8 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "pan-db",
-      "name": "pan-db",
+      "id": "profile-db",
+      "name": "profile-db",
       "provided_by_anvio": true,
       "type": "DB"
     },
@@ -59,8 +59,8 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "profile-db",
-      "name": "profile-db",
+      "id": "pan-db",
+      "name": "pan-db",
       "provided_by_anvio": true,
       "type": "DB"
     },
@@ -130,55 +130,68 @@
   "links": [
     {
       "source": 13,
-      "target": 0
+      "target": 0,
+      "type": "provides"
     },
     {
       "source": 13,
-      "target": 1
+      "target": 1,
+      "type": "provides"
     },
     {
       "source": 13,
-      "target": 2
+      "target": 2,
+      "type": "provides"
     },
     {
       "source": 13,
-      "target": 3
+      "target": 3,
+      "type": "provides"
     },
     {
       "source": 13,
-      "target": 4
+      "target": 4,
+      "type": "provides"
     },
     {
       "target": 13,
-      "source": 5
+      "source": 5,
+      "type": "requires"
     },
     {
       "target": 13,
-      "source": 6
+      "source": 6,
+      "type": "can_use"
     },
     {
       "target": 13,
-      "source": 7
+      "source": 7,
+      "type": "can_use"
     },
     {
       "target": 13,
-      "source": 8
+      "source": 8,
+      "type": "can_use"
     },
     {
       "target": 13,
-      "source": 9
+      "source": 9,
+      "type": "can_use"
     },
     {
       "target": 13,
-      "source": 10
+      "source": 10,
+      "type": "can_use"
     },
     {
       "target": 13,
-      "source": 11
+      "source": 11,
+      "type": "can_use"
     },
     {
       "target": 13,
-      "source": 12
+      "source": 12,
+      "type": "can_use"
     }
   ],
   "directed": false,

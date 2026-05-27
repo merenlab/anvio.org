@@ -26,10 +26,14 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-items-order](../../programs/anvi-export-items-order)</span></p>
 
 
-## Required or used by
+
+
+## Required by
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-items-order](../../programs/anvi-import-items-order)</span></p>
+
+
 
 
 ## Description

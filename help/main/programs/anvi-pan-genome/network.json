@@ -14,15 +14,6 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "misc-data-items-order",
-      "name": "misc-data-items-order",
-      "provided_by_anvio": true,
-      "type": "CONCEPT"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
       "id": "gene-clusters",
       "name": "gene-clusters",
       "provided_by_anvio": true,
@@ -47,6 +38,15 @@
       "type": "TXT"
     },
     {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-items-order",
+      "name": "misc-data-items-order",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
       "size": 5,
       "score": 0.1,
       "color": "#AAAA00",
@@ -58,23 +58,28 @@
   "links": [
     {
       "source": 5,
-      "target": 0
+      "target": 0,
+      "type": "provides"
     },
     {
       "source": 5,
-      "target": 1
+      "target": 1,
+      "type": "provides"
+    },
+    {
+      "target": 5,
+      "source": 2,
+      "type": "requires"
+    },
+    {
+      "target": 5,
+      "source": 3,
+      "type": "can_use"
     },
     {
       "source": 5,
-      "target": 2
-    },
-    {
-      "target": 5,
-      "source": 3
-    },
-    {
-      "target": 5,
-      "source": 4
+      "target": 4,
+      "type": "can_provide"
     }
   ],
   "directed": false,

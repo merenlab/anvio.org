@@ -23,13 +23,21 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-import-items-order](../../programs/anvi-import-items-order)</span> <span class="artifact-p">[anvi-merge](../../programs/anvi-merge)</span> <span class="artifact-p">[anvi-pan-genome](../../programs/anvi-pan-genome)</span> <span class="artifact-p">[anvi-profile](../../programs/anvi-profile)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-import-items-order](../../programs/anvi-import-items-order)</span></p>
 
 
-## Required or used by
+
+## Can be provided by
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-merge](../../programs/anvi-merge)</span> <span class="artifact-p">[anvi-pan-genome](../../programs/anvi-pan-genome)</span> <span class="artifact-p">[anvi-profile](../../programs/anvi-profile)</span></p>
 
 
-There are no anvi'o tools that use or require this artifact directly, which means it is most likely an end-product for the user.
+## Required by
+
+
+There are no anvi'o tools that require this artifact directly, which means it is most likely an end-product for the user.
+
+
 
 
 ## Description

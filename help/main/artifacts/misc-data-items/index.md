@@ -23,11 +23,23 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-get-sequences-for-gene-clusters](../../programs/anvi-get-sequences-for-gene-clusters)</span> <span class="artifact-p">[anvi-import-misc-data](../../programs/anvi-import-misc-data)</span> <span class="artifact-p">[anvi-search-sequence-motifs](../../programs/anvi-search-sequence-motifs)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-import-misc-data](../../programs/anvi-import-misc-data)</span></p>
 
 
-## Required or used by
 
+## Can be provided by
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-get-sequences-for-gene-clusters](../../programs/anvi-get-sequences-for-gene-clusters)</span> <span class="artifact-p">[anvi-search-sequence-motifs](../../programs/anvi-search-sequence-motifs)</span></p>
+
+
+## Required by
+
+
+There are no anvi'o tools that require this artifact directly, which means it is most likely an end-product for the user.
+
+
+
+## Can be used by
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-delete-misc-data](../../programs/anvi-delete-misc-data)</span> <span class="artifact-r">[anvi-export-misc-data](../../programs/anvi-export-misc-data)</span></p>
 

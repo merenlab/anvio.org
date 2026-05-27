@@ -5,44 +5,8 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "collection",
-      "name": "collection",
-      "provided_by_anvio": true,
-      "type": "COLLECTION"
-    },
-    {
-      "size": 2,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "bin",
-      "name": "bin",
-      "provided_by_anvio": true,
-      "type": "BIN"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
       "id": "interactive",
       "name": "interactive",
-      "provided_by_anvio": true,
-      "type": "DISPLAY"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "svg",
-      "name": "svg",
-      "provided_by_anvio": true,
-      "type": "SVG"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "contig-inspection",
-      "name": "contig-inspection",
       "provided_by_anvio": true,
       "type": "DISPLAY"
     },
@@ -83,6 +47,15 @@
       "type": "DB"
     },
     {
+      "size": 2,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "bin",
+      "name": "bin",
+      "provided_by_anvio": true,
+      "type": "BIN"
+    },
+    {
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
@@ -92,7 +65,7 @@
       "type": "TXT"
     },
     {
-      "size": 1,
+      "size": 2,
       "score": 0.5,
       "color": "#00AA00",
       "id": "dendrogram",
@@ -101,7 +74,7 @@
       "type": "NEWICK"
     },
     {
-      "size": 1,
+      "size": 2,
       "score": 0.5,
       "color": "#00AA00",
       "id": "phylogeny",
@@ -110,7 +83,34 @@
       "type": "NEWICK"
     },
     {
-      "size": 13,
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "svg",
+      "name": "svg",
+      "provided_by_anvio": true,
+      "type": "SVG"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "collection",
+      "name": "collection",
+      "provided_by_anvio": true,
+      "type": "COLLECTION"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contig-inspection",
+      "name": "contig-inspection",
+      "provided_by_anvio": true,
+      "type": "DISPLAY"
+    },
+    {
+      "size": 15,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-interactive",
@@ -121,55 +121,78 @@
   "links": [
     {
       "source": 12,
-      "target": 0
+      "target": 0,
+      "type": "provides"
+    },
+    {
+      "target": 12,
+      "source": 1,
+      "type": "requires"
+    },
+    {
+      "target": 12,
+      "source": 2,
+      "type": "can_use"
+    },
+    {
+      "target": 12,
+      "source": 3,
+      "type": "can_use"
+    },
+    {
+      "target": 12,
+      "source": 4,
+      "type": "can_use"
+    },
+    {
+      "target": 12,
+      "source": 5,
+      "type": "can_use"
     },
     {
       "source": 12,
-      "target": 1
+      "target": 5,
+      "type": "can_provide"
     },
     {
       "target": 12,
-      "source": 1
+      "source": 6,
+      "type": "can_use"
+    },
+    {
+      "target": 12,
+      "source": 7,
+      "type": "can_use"
     },
     {
       "source": 12,
-      "target": 2
+      "target": 7,
+      "type": "can_provide"
+    },
+    {
+      "target": 12,
+      "source": 8,
+      "type": "can_use"
     },
     {
       "source": 12,
-      "target": 3
+      "target": 8,
+      "type": "can_provide"
     },
     {
       "source": 12,
-      "target": 4
+      "target": 9,
+      "type": "can_provide"
     },
     {
-      "target": 12,
-      "source": 5
+      "source": 12,
+      "target": 10,
+      "type": "can_provide"
     },
     {
-      "target": 12,
-      "source": 6
-    },
-    {
-      "target": 12,
-      "source": 7
-    },
-    {
-      "target": 12,
-      "source": 8
-    },
-    {
-      "target": 12,
-      "source": 9
-    },
-    {
-      "target": 12,
-      "source": 10
-    },
-    {
-      "target": 12,
-      "source": 11
+      "source": 12,
+      "target": 11,
+      "type": "can_provide"
     }
   ],
   "directed": false,

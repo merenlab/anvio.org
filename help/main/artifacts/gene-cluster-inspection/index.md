@@ -23,13 +23,21 @@ A DISPLAY-type anvi'o artifact. This artifact is typically generated, used, and/
 ## Provided by
 
 
+There are no anvi'o tools that generate this artifact, which means it is most likely provided to the anvi'o ecosystem by the user.
+
+
+
+## Can be provided by
+
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-display-pan](../../programs/anvi-display-pan)</span></p>
 
 
-## Required or used by
+## Required by
 
 
-There are no anvi'o tools that use or require this artifact directly, which means it is most likely an end-product for the user.
+There are no anvi'o tools that require this artifact directly, which means it is most likely an end-product for the user.
+
+
 
 
 ## Description

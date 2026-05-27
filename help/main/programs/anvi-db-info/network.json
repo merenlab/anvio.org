@@ -5,6 +5,15 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
+      "id": "contigs-db",
+      "name": "contigs-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "pan-db",
       "name": "pan-db",
       "provided_by_anvio": true,
@@ -16,15 +25,6 @@
       "color": "#00AA00",
       "id": "profile-db",
       "name": "profile-db",
-      "provided_by_anvio": true,
-      "type": "DB"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "contigs-db",
-      "name": "contigs-db",
       "provided_by_anvio": true,
       "type": "DB"
     },
@@ -67,27 +67,33 @@
   "links": [
     {
       "target": 6,
-      "source": 0
+      "source": 0,
+      "type": "requires"
     },
     {
       "target": 6,
-      "source": 1
+      "source": 1,
+      "type": "can_use"
     },
     {
       "target": 6,
-      "source": 2
+      "source": 2,
+      "type": "can_use"
     },
     {
       "target": 6,
-      "source": 3
+      "source": 3,
+      "type": "can_use"
     },
     {
       "target": 6,
-      "source": 4
+      "source": 4,
+      "type": "can_use"
     },
     {
       "target": 6,
-      "source": 5
+      "source": 5,
+      "type": "can_use"
     }
   ],
   "directed": false,

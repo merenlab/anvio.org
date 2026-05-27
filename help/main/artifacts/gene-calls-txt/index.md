@@ -26,10 +26,14 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-gene-calls](../../programs/anvi-export-gene-calls)</span> <span class="artifact-p">[anvi-script-transpose-matrix](../../programs/anvi-script-transpose-matrix)</span></p>
 
 
-## Required or used by
+
+
+## Required by
 
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-script-transpose-matrix](../../programs/anvi-script-transpose-matrix)</span></p>
+
+
 
 
 ## Description

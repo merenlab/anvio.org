@@ -26,10 +26,14 @@ A DATA-type anvi'o artifact. This artifact is typically generated, used, and/or 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-setup-pfams](../../programs/anvi-setup-pfams)</span></p>
 
 
-## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-run-pfams](../../programs/anvi-run-pfams)</span></p>
+## Required by
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-run-pfams](../../programs/anvi-run-pfams)</span> <span class="artifact-r">[anvi-script-pfam-accessions-to-hmms-directory](../../programs/anvi-script-pfam-accessions-to-hmms-directory)</span></p>
+
+
 
 
 ## Description
