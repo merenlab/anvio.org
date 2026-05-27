@@ -21,7 +21,7 @@ image:
 <br /><br />
 Through its modular design principles, <b>anvi'o resembles LEGO, where the same simple blocks can build non-identical complex structures</b>. Interfaces between anvi'o tools are established by self-contained databases that are generated, modified, queried, visualized, and merged with other databases through atomic anvi'o programs. Through this modularity, anvi'o aims to empower microbiologists without imposing rigid workflows or adding substantial limitations on creativity and to help them explore large datasets through their unique and diverse approaches.
 <br /><br />
-You can zoom-in, zoom-out and move the network around. If you click on any item on this page, you will see how to acquire that item and what you can do with it: red lines show where is it coming from, and green lines show where can you go with it. The descriptions of each icon is below.
+You can zoom-in, zoom-out and move the network around. If you click on any item on this page, you will see how to acquire that item and what you can do with it. Lines connecting items are color-coded: <span style="color:#00AA00;font-weight:bold">solid green</span> = provides, <span style="color:#55BB55;font-weight:bold">dashed green</span> = can provide (optional), <span style="color:#AA0000;font-weight:bold">solid red</span> = requires, <span style="color:#BB5555;font-weight:bold">dashed red</span> = can use (optional). The descriptions of each icon is below.
 </p>
 
 <div class="info">

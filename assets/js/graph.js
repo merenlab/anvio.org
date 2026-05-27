@@ -104,9 +104,12 @@ var link = g.selectAll(".link")
   .attr("class", "link")
   .attr("marker-end", "url(#arrow)")
   .style("stroke-width",nominal_stroke)
+  .style("stroke-dasharray", function(d) {
+    return (d.type === 'can_use' || d.type === 'can_provide') ? '6,3' : null;
+  })
   .style("stroke", function(d) {
   if (isNumber(d.score) && d.score>=0) return color(d.score);
-  else return default_link_color; })
+  else return get_link_color(d.type); })
 
 
 var node = g.selectAll(".node")
@@ -205,7 +208,7 @@ function exit_highlight(){
             circle.style(towhite, "white");
             text.style("font-weight", "normal");
             link.style("stroke", function(o){
-                return (isNumber(o.score) && o.score>=0)?color(o.score):default_link_color
+                return (isNumber(o.score) && o.score>=0)?color(o.score):get_link_color(o.type)
             });
         }
     }
@@ -248,10 +251,8 @@ function set_highlight(d){
         });
 
         link.style("stroke", function(o) {
-          if (o.source.index == d.index)
-            return '#00AA00';
-          if (o.target.index == d.index)
-            return '#AA0000';
+          if (o.source.index == d.index || o.target.index == d.index)
+            return get_link_color(o.type);
 
           return default_link_color;
         });
@@ -393,4 +394,12 @@ function vis_by_link_score(score){
 
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function get_link_color(type) {
+    if (type === 'provides') return '#00AA00';
+    if (type === 'can_provide') return '#55BB55';
+    if (type === 'requires') return '#AA0000';
+    if (type === 'can_use') return '#BB5555';
+    return default_link_color;
 }
