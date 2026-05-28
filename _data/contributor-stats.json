@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2351,
+        "total_commits": 2353,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 10
+            "2026": 12
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "formulas can now take into account charge in matching reaction network compounds",
-        "latest_commit_hash": "d5fd00e9bf8c8ce927251242f0110d47c545f9f0",
-        "latest_commit_date": "22 May 2026"
+        "latest_commit_message": "speed up intermediate chain removal after network walking by precomputing chain information instead of rebuilding in pairwise comparisons and by indexing chain candidates by consumption vs. production type and first compound ID, since superchains must contain a subchain's compounds in the same order",
+        "latest_commit_hash": "4f4a4fbb06a9865a6749980817bfe21d08a08806",
+        "latest_commit_date": "27 May 2026"
     },
     "ahenoch": {
         "total_commits": 313,
