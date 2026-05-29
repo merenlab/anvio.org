@@ -23,6 +23,9 @@ If you have any questions about this tutorial, or have ideas to make it better, 
 {% include _join-anvio-discord.html %}
 </div>
 
+{:.warning}
+This tutorial is design for [anvi'o dev version](https://anvio.org/install/#development-version). It will not work for v9 and older version.
+
 ---
 
 ## Download the datapack
