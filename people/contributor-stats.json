@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2355,
+        "total_commits": 2363,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 14
+            "2026": 22
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "remove unreachable except block, since missing reference isoacceptors have already been filtered",
-        "latest_commit_hash": "9a3e2ba4a09579afdd61392720f6468b56ca5402",
-        "latest_commit_date": "28 May 2026"
+        "latest_commit_message": "edit comments",
+        "latest_commit_hash": "b5b0e9c4db1d69b014574ede1ac762e5af239b43",
+        "latest_commit_date": "01 June 2026"
     },
     "ahenoch": {
         "total_commits": 313,
