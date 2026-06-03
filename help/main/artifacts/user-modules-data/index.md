@@ -161,7 +161,7 @@ Annotating PF06603.14 requires an extra step, because we first need to create a 
 
 <div class="codeblock" markdown="1">
 <span class="artifact&#45;p">[anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory](/help/main/programs/anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory)</span> &#45;&#45;pfam&#45;accessions&#45;list PF06603.14 \
-                                               &#45;O METABOLISM_HMM
+                                               &#45;o METABOLISM_HMM
 <span class="artifact&#45;p">[anvi&#45;run&#45;hmms](/help/main/programs/anvi&#45;run&#45;hmms)</span> &#45;c CONTIGS.db \
                &#45;H METABOLISM_HMM \
                &#45;&#45;add&#45;to&#45;functions&#45;table \

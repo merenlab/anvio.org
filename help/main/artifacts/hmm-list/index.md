@@ -54,7 +54,7 @@ Here is an example of an <span class="artifact-n">[hmm-list](/help/main/artifact
 You can also use external <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>s! An easy way to get an anvi'o ready HMM directory is to use the script <span class="artifact-p">[anvi-script-pfam-accessions-to-hmms-directory](/help/main/programs/anvi-script-pfam-accessions-to-hmms-directory)</span> to download a [Pfam HMM](https://pfam.xfam.org/).
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory &#45;&#45;pfam&#45;accessions&#45;list PF00016 &#45;O RuBisCO_large_HMM
+anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory &#45;&#45;pfam&#45;accessions&#45;list PF00016 &#45;o RuBisCO_large_HMM
 </div>
 
 Here is what the `hmm_list.txt` should look like with a combination of internal and external <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>s:

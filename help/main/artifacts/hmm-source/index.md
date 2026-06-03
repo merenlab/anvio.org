@@ -108,7 +108,7 @@ It is also possible to generate an anvi'o compatible HMMs directory for a given 
 
 <div class="codeblock" markdown="1">
 <span class="artifact&#45;p">[anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory](/help/main/programs/anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory)</span> &#45;&#45;pfam&#45;accessions&#45;list PF00705 PF00706 \
-                                               &#45;O AD_HOC_HMMs
+                                               &#45;o AD_HOC_HMMs
 </div>
 
 These IDs can be given through the command line as a list, or through an input file where every line is a unique accession id.
@@ -123,7 +123,7 @@ One can run this command:
 
 <div class="codeblock" markdown="1">
 <span class="artifact&#45;p">[anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory](/help/main/programs/anvi&#45;script&#45;pfam&#45;accessions&#45;to&#45;hmms&#45;directory)</span> &#45;&#45;pfam&#45;accessions&#45;list PF06603 \
-                                                &#45;O UpxZ
+                                                &#45;o UpxZ
 </div>
 
 which would createa a directory called `UpxZ`. Then, one would run this command to find matches to this model in a given contigs database:
