@@ -37,7 +37,7 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 
 ## Can be used by
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-export-collection](../../programs/anvi-export-collection)</span> <span class="artifact-r">[anvi-import-collection](../../programs/anvi-import-collection)</span> <span class="artifact-r">[anvi-show-collections-and-bins](../../programs/anvi-show-collections-and-bins)</span> <span class="artifact-r">[anvi-summarize](../../programs/anvi-summarize)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-export-collection](../../programs/anvi-export-collection)</span> <span class="artifact-r">[anvi-import-collection](../../programs/anvi-import-collection)</span> <span class="artifact-r">[anvi-show-collections-and-bins](../../programs/anvi-show-collections-and-bins)</span> <span class="artifact-r">[anvi-summarize](../../programs/anvi-summarize)</span> <span class="artifact-r">[anvi-update-db-description](../../programs/anvi-update-db-description)</span></p>
 
 
 ## Description

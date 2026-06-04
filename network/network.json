@@ -317,7 +317,7 @@
       "type": "DISPLAY"
     },
     {
-      "size": 7,
+      "size": 8,
       "score": 0.5,
       "color": "#00AA00",
       "id": "pan-graph-db",
@@ -2389,7 +2389,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 5,
+      "size": 6,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-update-db-description",
@@ -4813,6 +4813,11 @@
     },
     {
       "target": 276,
+      "source": 35,
+      "type": "can_use"
+    },
+    {
+      "target": 280,
       "source": 35,
       "type": "can_use"
     },
