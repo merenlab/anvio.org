@@ -139,8 +139,10 @@
     - name: anvi-compute-functional-enrichment-across-genomes
     - name: anvi-compute-functional-enrichment-in-pan
     - name: anvi-compute-metabolic-enrichment
+    - name: anvi-delete-contig-classification
     - name: anvi-display-metabolism
     - name: anvi-estimate-metabolism
+    - name: anvi-import-contig-classification
     - name: anvi-migrate
     - name: anvi-predict-metabolic-exchanges
     - name: anvi-profile-blitz
@@ -151,6 +153,7 @@
     - name: anvi-setup-kegg-data
     - name: anvi-setup-pfams
     - name: anvi-setup-user-modules
+    - name: anvi-split
     - name: anvi-summarize-blitz
     - name: anvi-script-estimate-metabolic-independence
     - name: anvi-script-gen-genomes-file
@@ -201,10 +204,13 @@
 - author: ahenoch
   programs:
     - name: anvi-compute-rarefaction-curves
+    - name: anvi-delete-contig-classification
     - name: anvi-display-pan-graph
     - name: anvi-export-pan-subgraph
+    - name: anvi-import-contig-classification
     - name: anvi-pan-genome-graph
     - name: anvi-reorient-genomes
+    - name: anvi-split
     - name: anvi-script-gen-fasta-txt
 - author: semiller10
   programs:
@@ -225,6 +231,26 @@
     - name: anvi-setup-kegg-data
     - name: anvi-setup-modelseed-database
     - name: anvi-trnaseq
+- author: tucker4
+  programs:
+    - name: anvi-delete-contig-classification
+    - name: anvi-import-contig-classification
+    - name: anvi-split
+- author: u-xixi
+  programs:
+    - name: anvi-delete-contig-classification
+    - name: anvi-import-contig-classification
+    - name: anvi-split
+- author: avihuene
+  programs:
+    - name: anvi-delete-contig-classification
+    - name: anvi-import-contig-classification
+    - name: anvi-split
+- author: guille0387
+  programs:
+    - name: anvi-delete-contig-classification
+    - name: anvi-import-contig-classification
+    - name: anvi-split
 - author: floriantrigodet
   programs:
     - name: anvi-display-contigs-stats

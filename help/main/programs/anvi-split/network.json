@@ -56,7 +56,25 @@
       "type": "DB"
     },
     {
-      "size": 6,
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contig-classification",
+      "name": "contig-classification",
+      "provided_by_anvio": true,
+      "type": "COLLECTION"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "collection-txt",
+      "name": "collection-txt",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 8,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-split",
@@ -66,33 +84,43 @@
   ],
   "links": [
     {
-      "source": 6,
+      "source": 8,
       "target": 0,
       "type": "provides"
     },
     {
-      "target": 6,
+      "target": 8,
       "source": 1,
       "type": "requires"
     },
     {
-      "target": 6,
+      "target": 8,
       "source": 2,
       "type": "requires"
     },
     {
-      "target": 6,
+      "target": 8,
       "source": 3,
       "type": "can_use"
     },
     {
-      "target": 6,
+      "target": 8,
       "source": 4,
       "type": "can_use"
     },
     {
-      "target": 6,
+      "target": 8,
       "source": 5,
+      "type": "can_use"
+    },
+    {
+      "target": 8,
+      "source": 6,
+      "type": "can_use"
+    },
+    {
+      "target": 8,
+      "source": 7,
       "type": "can_use"
     }
   ],

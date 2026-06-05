@@ -37,7 +37,7 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 
 ## Can be used by
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-profile-blitz](../../programs/anvi-profile-blitz)</span> <span class="artifact-r">[anvi-script-get-coverage-from-bam](../../programs/anvi-script-get-coverage-from-bam)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-profile-blitz](../../programs/anvi-profile-blitz)</span> <span class="artifact-r">[anvi-split](../../programs/anvi-split)</span> <span class="artifact-r">[anvi-script-get-coverage-from-bam](../../programs/anvi-script-get-coverage-from-bam)</span></p>
 
 
 ## Description

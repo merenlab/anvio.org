@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2544,
+        "total_commits": 2568,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 29
+            "2026": 53
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "add to the docs",
-        "latest_commit_hash": "c84047e88ab0838ee32c6b981e7f90684a173f85",
-        "latest_commit_date": "26 May 2026"
+        "latest_commit_message": "try again with explicit unregister only when workers are started using 'spawn'",
+        "latest_commit_hash": "46baf81cd370364b76e6ec6a8f05cd25a2e12098",
+        "latest_commit_date": "04 June 2026"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -176,7 +176,7 @@
         "latest_commit_date": "01 June 2026"
     },
     "ahenoch": {
-        "total_commits": 313,
+        "total_commits": 316,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -190,12 +190,12 @@
             "2023": 10,
             "2024": 132,
             "2025": 129,
-            "2026": 42
+            "2026": 45
         },
         "top_file": "anvio/panops.py",
-        "latest_commit_message": "get-sequences-for-genecalls fix when using genomes.db",
-        "latest_commit_hash": "2d65d55a5583b7ec43031287046800773d24967c",
-        "latest_commit_date": "05 May 2026"
+        "latest_commit_message": "fix for the getter function, contig id has to have it's own entry in the subdict under 'contig' key",
+        "latest_commit_hash": "64ff26c9de5376dd8cd32db88bae55b6e50a56dd",
+        "latest_commit_date": "20 May 2026"
     },
     "isaacfink21": {
         "total_commits": 120,
@@ -748,7 +748,7 @@
         "latest_commit_date": "27 January 2026"
     },
     "Med1Bel": {
-        "total_commits": 16,
+        "total_commits": 17,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -762,7 +762,7 @@
             "2023": 0,
             "2024": 0,
             "2025": 0,
-            "2026": 16
+            "2026": 17
         },
         "top_file": "anvio/panrep.py",
         "latest_commit_message": "added logging and simplified sanity_check",
@@ -790,6 +790,94 @@
         "latest_commit_message": "updated documentation for pan representative",
         "latest_commit_hash": "edcca9716754964ae908c22de04404ca2aed7733",
         "latest_commit_date": "21 May 2026"
+    },
+    "tucker4": {
+        "total_commits": 10,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 2,
+            "2026": 8
+        },
+        "top_file": "anvio/tables/contigclassification.py",
+        "latest_commit_message": "fix end of file",
+        "latest_commit_hash": "3ee782f9f03d5596daa91cb4795be396bcb95f99",
+        "latest_commit_date": "21 May 2026"
+    },
+    "AviHuene": {
+        "total_commits": 1,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 1
+        },
+        "top_file": "anvio/data/misc/PEOPLE/AVATARS/avrilhoyningen.jpg",
+        "latest_commit_message": "add avril and xixi to contributors.yaml",
+        "latest_commit_hash": "230173197242f0b375a66788e1d5b1cb81ec304c",
+        "latest_commit_date": "20 May 2026"
+    },
+    "u-xixi": {
+        "total_commits": 5,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 5
+        },
+        "top_file": "anvio/docs/programs/anvi-split.md",
+        "latest_commit_message": "Update anvi-split docs to reflect contig-only split mode. See issue 2605.",
+        "latest_commit_hash": "e19be42bdf62cbb800033d1db4a16a594985ecc7",
+        "latest_commit_date": "20 May 2026"
+    },
+    "guille0387": {
+        "total_commits": 1,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 0,
+            "2022": 0,
+            "2023": 0,
+            "2024": 0,
+            "2025": 0,
+            "2026": 1
+        },
+        "top_file": "anvio/data/misc/PEOPLE/AVATARS/anvio-yunjeong.png",
+        "latest_commit_message": "added contributors details Guillermo, Mateu, Yunjeong",
+        "latest_commit_hash": "9a55318370ee6e3fc231bb45d95fbdb4b1767f3e",
+        "latest_commit_date": "20 May 2026"
     },
     "btrouche": {
         "total_commits": 2,
@@ -1275,50 +1363,6 @@
         "latest_commit_hash": "eff374769fe5425a2d11a78e6279592c21ce1b98",
         "latest_commit_date": "05 December 2025"
     },
-    "tucker4": {
-        "total_commits": 2,
-        "commits_per_year": {
-            "2014": 0,
-            "2015": 0,
-            "2016": 0,
-            "2017": 0,
-            "2018": 0,
-            "2019": 0,
-            "2020": 0,
-            "2021": 0,
-            "2022": 0,
-            "2023": 0,
-            "2024": 0,
-            "2025": 2,
-            "2026": 0
-        },
-        "top_file": "anvio/data/misc/PEOPLE/CONTRIBUTORS.yaml",
-        "latest_commit_message": "Add git_records for Sarah Tucker",
-        "latest_commit_hash": "7fa034fda223fc3571187e201ca1a587e4156fc8",
-        "latest_commit_date": "15 December 2025"
-    },
-    "guille0387": {
-        "total_commits": 1,
-        "commits_per_year": {
-            "2014": 0,
-            "2015": 0,
-            "2016": 0,
-            "2017": 0,
-            "2018": 0,
-            "2019": 0,
-            "2020": 0,
-            "2021": 0,
-            "2022": 0,
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026": 1
-        },
-        "top_file": "anvio/data/misc/PEOPLE/AVATARS/anvio-yunjeong.png",
-        "latest_commit_message": "added contributors details Guillermo, Mateu, Yunjeong",
-        "latest_commit_hash": "9a55318370ee6e3fc231bb45d95fbdb4b1767f3e",
-        "latest_commit_date": "20 May 2026"
-    },
     "mateumenendez": {
         "total_commits": 0,
         "commits_per_year": {
@@ -1384,49 +1428,5 @@
         "latest_commit_message": null,
         "latest_commit_hash": null,
         "latest_commit_date": null
-    },
-    "AviHuene": {
-        "total_commits": 1,
-        "commits_per_year": {
-            "2014": 0,
-            "2015": 0,
-            "2016": 0,
-            "2017": 0,
-            "2018": 0,
-            "2019": 0,
-            "2020": 0,
-            "2021": 0,
-            "2022": 0,
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026": 1
-        },
-        "top_file": "anvio/data/misc/PEOPLE/AVATARS/avrilhoyningen.jpg",
-        "latest_commit_message": "add avril and xixi to contributors.yaml",
-        "latest_commit_hash": "230173197242f0b375a66788e1d5b1cb81ec304c",
-        "latest_commit_date": "20 May 2026"
-    },
-    "u-xixi": {
-        "total_commits": 2,
-        "commits_per_year": {
-            "2014": 0,
-            "2015": 0,
-            "2016": 0,
-            "2017": 0,
-            "2018": 0,
-            "2019": 0,
-            "2020": 0,
-            "2021": 0,
-            "2022": 0,
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026": 2
-        },
-        "top_file": "anvio/docs/programs/anvi-split.md",
-        "latest_commit_message": "Update anvi-split docs to reflect contig-only split mode. See issue 2605.",
-        "latest_commit_hash": "875cf6f2240f4dd59b18d36788a462c097ed9fe6",
-        "latest_commit_date": "20 May 2026"
     }
 }
