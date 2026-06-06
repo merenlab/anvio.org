@@ -6,7 +6,7 @@ if (__height) {
     var innerHeight = parseInt(__height);
 } else {
     var innerWidth = window.innerWidth;
-    var innerHeight = window.innerHeight - 90;
+    var innerHeight = window.innerHeight;
 }
 
 var w = innerWidth;
