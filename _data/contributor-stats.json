@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8061,
+        "total_commits": 8067,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 339
+            "2026": 345
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "EVEN MORE COSMETICS",
-        "latest_commit_hash": "2ac1ac21334787697d14d86855afe3dfa87e25cc",
-        "latest_commit_date": "03 June 2026"
+        "latest_commit_message": "docs update",
+        "latest_commit_hash": "7eba19d01732560174984bb005b9e1d042f4e2fc",
+        "latest_commit_date": "05 June 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 361,

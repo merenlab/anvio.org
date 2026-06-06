@@ -37,7 +37,7 @@ Write KEGG pathway map files incorporating data sourced from anvi&#x27;o databas
 
 ## Can use
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[external-genomes](../../artifacts/external-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[external-genomes](../../artifacts/external-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[reaction-network](../../artifacts/reaction-network) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Provides
@@ -128,6 +128,25 @@ Here is a simple example of the output file structure produced with `--name-file
 ## KO occurrence
 
 Gene sequences in anvi'o databases can be annotated with KEGG Orthologs (KOs): see <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span>. A KO indicates functional capabilities of the gene product. KO data from one or more contigs databases or a pan database can be mapped using the `--ko` flag, enabling investigation of the metabolic capabilities of individual organisms or multiple organisms, including community samples. Reactions associated with KOs are colored on the pathway maps.
+
+### From a reaction network JSON file
+
+Pathway maps can be drawn from a reaction network JSON file produced by <span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span> or <span class="artifact-p">[anvi-get-metabolic-model-file](/help/main/programs/anvi-get-metabolic-model-file)</span>, bypassing the need for a contigs database entirely. This is especially useful with custom enzyme lists — for example, annotations from transcriptomic or proteomic data, or predicted gene content of a last common ancestor.
+
+First, generate the reaction network JSON from an enzymes file:
+
+<div class="codeblock" markdown="1">
+anvi&#45;reaction&#45;network &#45;&#45;enzymes&#45;txt /path/to/enzymes.txt \
+                      &#45;&#45;output&#45;json /path/to/network.json
+</div>
+
+Then draw pathway maps directly from that JSON:
+
+<div class="codeblock" markdown="1">
+anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;reaction&#45;network&#45;json /path/to/network.json \
+                        &#45;&#45;ko \
+                        &#45;o output_maps/
+</div>
 
 ### Single contigs database
 

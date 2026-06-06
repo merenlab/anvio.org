@@ -37,7 +37,7 @@ There are no anvi'o tools that require this artifact directly, which means it is
 
 ## Can be used by
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-estimate-metabolism](../../programs/anvi-estimate-metabolism)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-estimate-metabolism](../../programs/anvi-estimate-metabolism)</span> <span class="artifact-r">[anvi-reaction-network](../../programs/anvi-reaction-network)</span></p>
 
 
 ## Description

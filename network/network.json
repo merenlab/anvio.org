@@ -362,6 +362,15 @@
       "type": "DISPLAY"
     },
     {
+      "size": 4,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "reaction-network",
+      "name": "REACTION NETWORK",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
@@ -389,7 +398,7 @@
       "type": "DB"
     },
     {
-      "size": 1,
+      "size": 2,
       "score": 1,
       "color": "#AA0000",
       "id": "enzymes-txt",
@@ -711,15 +720,6 @@
       "name": "REACTION NETWORK JSON",
       "provided_by_anvio": true,
       "type": "JSON"
-    },
-    {
-      "size": 3,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "reaction-network",
-      "name": "REACTION NETWORK",
-      "provided_by_anvio": true,
-      "type": "CONCEPT"
     },
     {
       "size": 1,
@@ -1551,7 +1551,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 7,
+      "size": 8,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-draw-kegg-pathways",
@@ -2103,7 +2103,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 6,
+      "size": 7,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-reaction-network",
@@ -3983,7 +3983,7 @@
     {
       "target": 244,
       "source": 8,
-      "type": "requires"
+      "type": "can_use"
     },
     {
       "target": 245,
@@ -4971,44 +4971,44 @@
       "type": "provides"
     },
     {
-      "source": 176,
+      "target": 175,
+      "source": 40,
+      "type": "can_use"
+    },
+    {
+      "target": 208,
+      "source": 40,
+      "type": "requires"
+    },
+    {
+      "target": 241,
+      "source": 40,
+      "type": "can_use"
+    },
+    {
+      "source": 244,
       "target": 40,
       "type": "provides"
     },
     {
+      "source": 176,
+      "target": 41,
+      "type": "provides"
+    },
+    {
       "target": 177,
-      "source": 41,
+      "source": 42,
       "type": "can_use"
     },
     {
       "target": 178,
-      "source": 41,
+      "source": 42,
       "type": "can_use"
     },
     {
       "target": 179,
-      "source": 41,
-      "type": "can_use"
-    },
-    {
-      "target": 177,
       "source": 42,
       "type": "can_use"
-    },
-    {
-      "source": 276,
-      "target": 42,
-      "type": "provides"
-    },
-    {
-      "target": 276,
-      "source": 42,
-      "type": "requires"
-    },
-    {
-      "source": 306,
-      "target": 42,
-      "type": "provides"
     },
     {
       "target": 177,
@@ -5016,212 +5016,222 @@
       "type": "can_use"
     },
     {
-      "source": 178,
-      "target": 44,
+      "source": 276,
+      "target": 43,
       "type": "provides"
     },
     {
-      "source": 179,
-      "target": 44,
-      "type": "provides"
-    },
-    {
-      "target": 178,
-      "source": 45,
+      "target": 276,
+      "source": 43,
       "type": "requires"
     },
     {
-      "source": 258,
+      "source": 306,
+      "target": 43,
+      "type": "provides"
+    },
+    {
+      "target": 177,
+      "source": 44,
+      "type": "can_use"
+    },
+    {
+      "target": 244,
+      "source": 44,
+      "type": "can_use"
+    },
+    {
+      "source": 178,
       "target": 45,
       "type": "provides"
     },
     {
-      "source": 178,
+      "source": 179,
+      "target": 45,
+      "type": "provides"
+    },
+    {
+      "target": 178,
+      "source": 46,
+      "type": "requires"
+    },
+    {
+      "source": 258,
       "target": 46,
+      "type": "provides"
+    },
+    {
+      "source": 178,
+      "target": 47,
       "type": "can_provide"
     },
     {
       "source": 179,
-      "target": 46,
+      "target": 47,
       "type": "can_provide"
     },
     {
       "target": 179,
-      "source": 47,
+      "source": 48,
       "type": "requires"
     },
     {
       "source": 259,
-      "target": 47,
+      "target": 48,
       "type": "provides"
     },
     {
       "target": 179,
-      "source": 48,
+      "source": 49,
       "type": "can_use"
     },
     {
       "target": 263,
-      "source": 48,
+      "source": 49,
       "type": "can_use"
     },
     {
       "source": 180,
-      "target": 49,
+      "target": 50,
       "type": "provides"
     },
     {
       "source": 187,
-      "target": 49,
+      "target": 50,
       "type": "provides"
     },
     {
       "target": 220,
-      "source": 49,
+      "source": 50,
       "type": "can_use"
     },
     {
       "target": 222,
-      "source": 49,
+      "source": 50,
       "type": "can_use"
     },
     {
       "target": 230,
-      "source": 49,
+      "source": 50,
       "type": "can_use"
     },
     {
       "source": 230,
-      "target": 49,
+      "target": 50,
       "type": "can_provide"
     },
     {
       "source": 231,
-      "target": 49,
+      "target": 50,
       "type": "provides"
     },
     {
       "target": 180,
-      "source": 50,
+      "source": 51,
       "type": "requires"
     },
     {
       "source": 181,
-      "target": 51,
+      "target": 52,
       "type": "provides"
     },
     {
       "target": 217,
-      "source": 51,
+      "source": 52,
       "type": "requires"
     },
     {
       "target": 243,
-      "source": 51,
+      "source": 52,
       "type": "can_use"
     },
     {
       "target": 279,
-      "source": 51,
+      "source": 52,
       "type": "can_use"
     },
     {
       "target": 307,
-      "source": 51,
+      "source": 52,
       "type": "can_use"
     },
     {
       "target": 311,
-      "source": 51,
+      "source": 52,
       "type": "requires"
     },
     {
       "source": 182,
-      "target": 52,
+      "target": 53,
       "type": "provides"
     },
     {
       "source": 191,
-      "target": 52,
+      "target": 53,
       "type": "provides"
     },
     {
       "target": 195,
-      "source": 52,
+      "source": 53,
       "type": "requires"
     },
     {
       "source": 293,
-      "target": 52,
+      "target": 53,
       "type": "provides"
     },
     {
       "target": 293,
-      "source": 52,
+      "source": 53,
       "type": "requires"
     },
     {
       "source": 313,
-      "target": 52,
+      "target": 53,
       "type": "provides"
     },
     {
       "source": 314,
-      "target": 52,
+      "target": 53,
       "type": "provides"
     },
     {
       "source": 316,
-      "target": 52,
+      "target": 53,
       "type": "provides"
     },
     {
       "source": 183,
-      "target": 53,
+      "target": 54,
       "type": "provides"
     },
     {
       "target": 219,
-      "source": 53,
+      "source": 54,
       "type": "requires"
     },
     {
       "source": 256,
-      "target": 53,
+      "target": 54,
       "type": "can_provide"
     },
     {
       "source": 262,
-      "target": 53,
+      "target": 54,
       "type": "provides"
     },
     {
       "source": 308,
-      "target": 53,
+      "target": 54,
       "type": "provides"
     },
     {
       "source": 313,
-      "target": 53,
+      "target": 54,
       "type": "provides"
     },
     {
       "source": 314,
-      "target": 53,
-      "type": "provides"
-    },
-    {
-      "source": 318,
-      "target": 53,
-      "type": "provides"
-    },
-    {
-      "target": 318,
-      "source": 53,
-      "type": "requires"
-    },
-    {
-      "source": 184,
       "target": 54,
       "type": "provides"
     },
@@ -5236,34 +5246,29 @@
       "type": "requires"
     },
     {
-      "source": 185,
+      "source": 184,
       "target": 55,
       "type": "provides"
     },
     {
-      "target": 238,
+      "source": 318,
+      "target": 55,
+      "type": "provides"
+    },
+    {
+      "target": 318,
       "source": 55,
+      "type": "requires"
+    },
+    {
+      "source": 185,
+      "target": 56,
+      "type": "provides"
+    },
+    {
+      "target": 238,
+      "source": 56,
       "type": "can_use"
-    },
-    {
-      "source": 186,
-      "target": 56,
-      "type": "provides"
-    },
-    {
-      "source": 191,
-      "target": 56,
-      "type": "provides"
-    },
-    {
-      "source": 215,
-      "target": 56,
-      "type": "provides"
-    },
-    {
-      "source": 307,
-      "target": 56,
-      "type": "provides"
     },
     {
       "source": 186,
@@ -5271,79 +5276,74 @@
       "type": "provides"
     },
     {
-      "source": 187,
+      "source": 191,
+      "target": 57,
+      "type": "provides"
+    },
+    {
+      "source": 215,
+      "target": 57,
+      "type": "provides"
+    },
+    {
+      "source": 307,
+      "target": 57,
+      "type": "provides"
+    },
+    {
+      "source": 186,
       "target": 58,
       "type": "provides"
     },
     {
-      "target": 220,
-      "source": 58,
-      "type": "requires"
-    },
-    {
       "source": 187,
       "target": 59,
       "type": "provides"
     },
     {
-      "source": 201,
-      "target": 59,
-      "type": "provides"
-    },
-    {
       "target": 220,
-      "source": 59,
-      "type": "can_use"
-    },
-    {
-      "target": 222,
-      "source": 59,
-      "type": "can_use"
-    },
-    {
-      "target": 230,
-      "source": 59,
-      "type": "can_use"
-    },
-    {
-      "source": 230,
-      "target": 59,
-      "type": "can_provide"
-    },
-    {
-      "target": 289,
       "source": 59,
       "type": "requires"
     },
     {
-      "source": 188,
+      "source": 187,
       "target": 60,
       "type": "provides"
     },
     {
-      "source": 189,
-      "target": 61,
+      "source": 201,
+      "target": 60,
       "type": "provides"
+    },
+    {
+      "target": 220,
+      "source": 60,
+      "type": "can_use"
     },
     {
       "target": 222,
-      "source": 61,
+      "source": 60,
+      "type": "can_use"
+    },
+    {
+      "target": 230,
+      "source": 60,
+      "type": "can_use"
+    },
+    {
+      "source": 230,
+      "target": 60,
+      "type": "can_provide"
+    },
+    {
+      "target": 289,
+      "source": 60,
       "type": "requires"
     },
     {
-      "source": 298,
+      "source": 188,
       "target": 61,
       "type": "provides"
-    },
-    {
-      "source": 318,
-      "target": 61,
-      "type": "provides"
-    },
-    {
-      "target": 318,
-      "source": 61,
-      "type": "requires"
     },
     {
       "source": 189,
@@ -5353,7 +5353,12 @@
     {
       "target": 222,
       "source": 62,
-      "type": "can_use"
+      "type": "requires"
+    },
+    {
+      "source": 298,
+      "target": 62,
+      "type": "provides"
     },
     {
       "source": 318,
@@ -5376,6 +5381,16 @@
       "type": "can_use"
     },
     {
+      "source": 318,
+      "target": 63,
+      "type": "provides"
+    },
+    {
+      "target": 318,
+      "source": 63,
+      "type": "requires"
+    },
+    {
       "source": 189,
       "target": 64,
       "type": "provides"
@@ -5396,123 +5411,128 @@
       "type": "can_use"
     },
     {
-      "source": 192,
+      "source": 189,
       "target": 66,
       "type": "provides"
     },
     {
-      "source": 193,
+      "target": 222,
+      "source": 66,
+      "type": "can_use"
+    },
+    {
+      "source": 192,
       "target": 67,
       "type": "provides"
     },
     {
-      "target": 224,
-      "source": 67,
-      "type": "requires"
-    },
-    {
-      "source": 194,
+      "source": 193,
       "target": 68,
       "type": "provides"
     },
     {
+      "target": 224,
+      "source": 68,
+      "type": "requires"
+    },
+    {
+      "source": 194,
+      "target": 69,
+      "type": "provides"
+    },
+    {
       "target": 195,
-      "source": 69,
+      "source": 70,
       "type": "can_use"
     },
     {
       "source": 210,
-      "target": 69,
-      "type": "provides"
-    },
-    {
-      "source": 288,
-      "target": 69,
-      "type": "provides"
-    },
-    {
-      "source": 313,
-      "target": 69,
-      "type": "provides"
-    },
-    {
-      "source": 314,
-      "target": 69,
-      "type": "provides"
-    },
-    {
-      "source": 196,
       "target": 70,
       "type": "provides"
     },
     {
-      "source": 197,
+      "source": 288,
+      "target": 70,
+      "type": "provides"
+    },
+    {
+      "source": 313,
+      "target": 70,
+      "type": "provides"
+    },
+    {
+      "source": 314,
+      "target": 70,
+      "type": "provides"
+    },
+    {
+      "source": 196,
       "target": 71,
+      "type": "provides"
+    },
+    {
+      "source": 197,
+      "target": 72,
       "type": "provides"
     },
     {
       "source": 210,
-      "target": 71,
+      "target": 72,
       "type": "provides"
     },
     {
       "source": 211,
-      "target": 71,
+      "target": 72,
       "type": "provides"
     },
     {
       "source": 212,
-      "target": 71,
+      "target": 72,
       "type": "provides"
     },
     {
       "target": 201,
-      "source": 72,
+      "source": 73,
       "type": "requires"
     },
     {
       "source": 211,
-      "target": 72,
+      "target": 73,
       "type": "can_provide"
     },
     {
       "source": 212,
-      "target": 72,
+      "target": 73,
       "type": "can_provide"
     },
     {
       "target": 202,
-      "source": 73,
+      "source": 74,
       "type": "can_use"
     },
     {
       "source": 272,
-      "target": 73,
-      "type": "provides"
-    },
-    {
-      "source": 203,
       "target": 74,
       "type": "provides"
     },
     {
-      "target": 204,
-      "source": 75,
-      "type": "can_use"
-    },
-    {
-      "source": 242,
+      "source": 203,
       "target": 75,
       "type": "provides"
     },
     {
-      "source": 205,
+      "target": 204,
+      "source": 76,
+      "type": "can_use"
+    },
+    {
+      "source": 242,
       "target": 76,
       "type": "provides"
     },
     {
-      "source": 206,
-      "target": 76,
+      "source": 205,
+      "target": 77,
       "type": "provides"
     },
     {
@@ -5521,22 +5541,12 @@
       "type": "provides"
     },
     {
-      "source": 208,
+      "source": 206,
       "target": 78,
       "type": "provides"
     },
     {
-      "target": 208,
-      "source": 79,
-      "type": "requires"
-    },
-    {
-      "target": 241,
-      "source": 79,
-      "type": "can_use"
-    },
-    {
-      "source": 244,
+      "source": 208,
       "target": 79,
       "type": "provides"
     },

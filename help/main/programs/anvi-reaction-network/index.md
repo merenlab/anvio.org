@@ -31,13 +31,13 @@ This program generates a metabolic reaction network in an anvi&#x27;o contigs or
 ## Requires
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[kegg-functions](../../artifacts/kegg-functions) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[kegg-functions](../../artifacts/kegg-functions) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 
 
 ## Can use
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[reaction-ref-data](../../artifacts/reaction-ref-data) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[kegg-data](../../artifacts/kegg-data) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[enzymes-txt](../../artifacts/enzymes-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[reaction-ref-data](../../artifacts/reaction-ref-data) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[kegg-data](../../artifacts/kegg-data) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Provides
@@ -96,6 +96,27 @@ anvi&#45;setup&#45;modelseed&#45;database &#45;&#45;dir path/to/other/directory
 </div>
 
 ## Usage
+
+### From an enzymes file (no contigs database needed)
+
+<span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span> can build a reaction network directly from a tab-delimited enzymes file — no contigs database required. This is useful when working with custom enzyme lists from transcriptomic/proteomic data, ancestral gene content predictions, or any other source outside of anvi'o's standard annotation workflow.
+
+The enzymes file must have three columns: `gene_id`, `enzyme_accession`, and `source`. Only rows where `source` is `KOfam` are used. This is the same format used by <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>.
+
+<div class="codeblock" markdown="1">
+anvi&#45;reaction&#45;network &#45;&#45;enzymes&#45;txt /path/to/enzymes.txt \
+                      &#45;&#45;output&#45;json /path/to/network.json
+</div>
+
+The resulting JSON file can be directly used by <span class="artifact-p">[anvi-draw-kegg-pathways](/help/main/programs/anvi-draw-kegg-pathways)</span> via its `--reaction-network-json` option:
+
+<div class="codeblock" markdown="1">
+anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;reaction&#45;network&#45;json /path/to/network.json \
+                        &#45;&#45;ko \
+                        &#45;o output_maps/
+</div>
+
+### From a contigs database
 
 <span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span> takes a either a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> OR a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> as required input. Genes stored within the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> or <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> must have KO protein annotations, which can be assigned by <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span>.
 

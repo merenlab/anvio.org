@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **05 Jun 26 05:33:53** for anvi'o version **9-dev (eunice)**.
+The help contents were last updated on **06 Jun 26 05:20:51** for anvi'o version **9-dev (eunice)**.
 
 
 {% include _project-anvio-version.html %}
@@ -3049,7 +3049,7 @@ Listed below **a total of 173 programs**.
 <tr>
     <td class="artifact-r-td">
     <span class="artifact-emoji">🧀</span>
-        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[kegg-functions](artifacts/kegg-functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-r" markdown="1">[kegg-functions](artifacts/kegg-functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr>
