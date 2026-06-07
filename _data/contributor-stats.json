@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8067,
+        "total_commits": 8074,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 345
+            "2026": 352
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "docs update",
-        "latest_commit_hash": "7eba19d01732560174984bb005b9e1d042f4e2fc",
-        "latest_commit_date": "05 June 2026"
+        "latest_commit_message": "region id bug fixy",
+        "latest_commit_hash": "afe67ee7b68fb372c40b5de35d6b1a0ccc34f659",
+        "latest_commit_date": "07 June 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 361,
