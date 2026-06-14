@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8077,
+        "total_commits": 8085,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 355
+            "2026": 363
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "more accurate messages / tooltips.",
-        "latest_commit_hash": "c0ec7f987f325db64073f8725fb548c0fd8880a9",
-        "latest_commit_date": "11 June 2026"
+        "latest_commit_message": "While loading the data, make it more obvious that things are happening behind the scenes",
+        "latest_commit_hash": "26d108e35e702f3bdd503ea225fad8eadf3b97d9",
+        "latest_commit_date": "13 June 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 361,
