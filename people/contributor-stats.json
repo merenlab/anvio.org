@@ -22,7 +22,7 @@
         "latest_commit_date": "13 June 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 361,
+        "total_commits": 362,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 144
+            "2026": 145
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "update doc for gene highlight",
-        "latest_commit_hash": "d3ecc41ea2103cee8d7e0fe4d9387ea2b2edf505",
-        "latest_commit_date": "29 May 2026"
+        "latest_commit_message": "restore setting panel closing annimation",
+        "latest_commit_hash": "0ad83e2197475431985ffd8b3f9069c52a7bd031",
+        "latest_commit_date": "15 June 2026"
     },
     "watsonar": {
         "total_commits": 10,
