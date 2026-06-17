@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8085,
+        "total_commits": 8086,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,15 +14,15 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 363
+            "2026": 364
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "While loading the data, make it more obvious that things are happening behind the scenes",
-        "latest_commit_hash": "26d108e35e702f3bdd503ea225fad8eadf3b97d9",
-        "latest_commit_date": "13 June 2026"
+        "latest_commit_message": "Update badge for daily component tests in README",
+        "latest_commit_hash": "3f4bb97e437b8a261595f550222662726e9a10dd",
+        "latest_commit_date": "16 June 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 362,
+        "total_commits": 371,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 145
+            "2026": 154
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "restore setting panel closing annimation",
-        "latest_commit_hash": "0ad83e2197475431985ffd8b3f9069c52a7bd031",
-        "latest_commit_date": "15 June 2026"
+        "latest_commit_message": "add claude.md to .gitignore",
+        "latest_commit_hash": "d8c79154f3fa8b9e8a6b34e47d6cd2cb95c07418",
+        "latest_commit_date": "16 June 2026"
     },
     "watsonar": {
         "total_commits": 10,
@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2568,
+        "total_commits": 2569,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 53
+            "2026": 54
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "try again with explicit unregister only when workers are started using 'spawn'",
-        "latest_commit_hash": "46baf81cd370364b76e6ec6a8f05cd25a2e12098",
-        "latest_commit_date": "04 June 2026"
+        "latest_commit_message": "remove the @ symbol that is breaking our automated YAML checks :)",
+        "latest_commit_hash": "65f679f93b3cb2e596798b426a614711bd0c21e8",
+        "latest_commit_date": "16 June 2026"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -550,7 +550,7 @@
         "latest_commit_date": "27 July 2023"
     },
     "Kekananen": {
-        "total_commits": 22,
+        "total_commits": 41,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -564,12 +564,12 @@
             "2023": 0,
             "2024": 6,
             "2025": 0,
-            "2026": 16
+            "2026": 35
         },
-        "top_file": "anvio/tests/unit/workflows/test_manifest.py",
-        "latest_commit_message": "Fixed workflow -pan.db ending error; fixed component test json reference",
-        "latest_commit_hash": "8da9b72fec19dadf8de4c02eaa0a614e9ff447d5",
-        "latest_commit_date": "21 May 2026"
+        "top_file": "anvio/workflows/__init__.py",
+        "latest_commit_message": "Revert \"Accept numpy integers in external gene calls\"",
+        "latest_commit_hash": "7d92cd3a4420977adc70b43a6e6372760f243cf9",
+        "latest_commit_date": "30 May 2026"
     },
     "ge0rges": {
         "total_commits": 38,
@@ -682,7 +682,7 @@
         "latest_commit_date": "11 February 2026"
     },
     "katysloz": {
-        "total_commits": 34,
+        "total_commits": 52,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -696,12 +696,12 @@
             "2023": 0,
             "2024": 0,
             "2025": 33,
-            "2026": 1
+            "2026": 19
         },
-        "top_file": "anvio/data/misc/PEOPLE/DEVELOPERS.yaml",
-        "latest_commit_message": "fix cazyme description",
-        "latest_commit_hash": "243eeb9c461857da239f8d5f6cfc6bc6d1c72038",
-        "latest_commit_date": "28 January 2026"
+        "top_file": "anvio/workflows/metagenomics/__init__.py",
+        "latest_commit_message": "update workflow contract tests to include QC module snakefiles",
+        "latest_commit_hash": "50561ad23726d35edcabe792ce53f3374df6f266",
+        "latest_commit_date": "22 May 2026"
     },
     "mankeldy": {
         "total_commits": 5,
@@ -792,7 +792,7 @@
         "latest_commit_date": "21 May 2026"
     },
     "tucker4": {
-        "total_commits": 10,
+        "total_commits": 11,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -806,7 +806,7 @@
             "2023": 0,
             "2024": 0,
             "2025": 2,
-            "2026": 8
+            "2026": 9
         },
         "top_file": "anvio/tables/contigclassification.py",
         "latest_commit_message": "fix end of file",
@@ -880,7 +880,7 @@
         "latest_commit_date": "20 May 2026"
     },
     "btrouche": {
-        "total_commits": 2,
+        "total_commits": 4,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -894,7 +894,7 @@
             "2023": 0,
             "2024": 0,
             "2025": 0,
-            "2026": 2
+            "2026": 4
         },
         "top_file": "anvio/data/misc/PEOPLE/AVATARS/btrouche.png",
         "latest_commit_message": "added picture btrouche",
@@ -1100,7 +1100,7 @@
         "latest_commit_date": "20 May 2026"
     },
     "karkman": {
-        "total_commits": 2,
+        "total_commits": 3,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -1114,11 +1114,11 @@
             "2023": 0,
             "2024": 0,
             "2025": 0,
-            "2026": 1
+            "2026": 2
         },
-        "top_file": "anvio/cli/process_genbank.py",
-        "latest_commit_message": "anvi-process-genbank now also includes the tRNA and rRNA, and non-coding features (pseudogenes)",
-        "latest_commit_hash": "17998538481b10c0a204013f669f4c1e8efc5ce8",
+        "top_file": "anvio/data/misc/PEOPLE/CONTRIBUTORS.yaml",
+        "latest_commit_message": "new pic and profile",
+        "latest_commit_hash": "fb9daa3c7d1d2739b3d553ec8554d1e9381a7ae2",
         "latest_commit_date": "20 May 2026"
     },
     "edgraham": {
