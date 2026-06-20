@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2363,
+        "total_commits": 2372,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 22
+            "2026": 31
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "edit comments",
-        "latest_commit_hash": "b5b0e9c4db1d69b014574ede1ac762e5af239b43",
-        "latest_commit_date": "01 June 2026"
+        "latest_commit_message": "redefine tRNA-seq affinity as the demand-weighted log-supply index",
+        "latest_commit_hash": "4428e849401e5689ddbca66199f630c6558fa933",
+        "latest_commit_date": "19 June 2026"
     },
     "ahenoch": {
         "total_commits": 316,
