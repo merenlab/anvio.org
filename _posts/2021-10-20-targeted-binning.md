@@ -11,11 +11,11 @@ comments: true
 In this blog post, I will demonstrate how to use {% include PROGRAM name="anvi-estimate-metabolism" %} to find and bin a novel, nitrogen-fixing population from a set of publicly-available Arctic Ocean metagenomes. Of course, nitrogen fixation is just an example here, and the same technique can be applied to survey metagenomic datasets for microbial populations with other characteristic metabolic capabilities. So if you are interested in learning about how to leverage anvi'o's metabolism estimation capabilities to go fishing through your data, or if you just can't get enough of cool marine nitrogen fixation stories, keep on reading!
 
 {:.notice}
-This post also doubles as a reproducible workflow. Feel free to download the associated datapack from [this link](https://figshare.com/ndownloader/files/31119277) (or use the bash commands below) and follow along with the commands - or, go your own way and explore the data yourself. The commands below were written for anvi'o `v7.1`. If you have a newer version of anvi'o and find a command that is not working - sorry. We don't always retroactively update these posts as anvi'o evolves. Please let us know and we'll see if we can help.  
+This post also doubles as a reproducible workflow. Feel free to download the associated datapack from [this link](https://api.figshare.com/v2/file/download/31119277) (or use the bash commands below) and follow along with the commands - or, go your own way and explore the data yourself. The commands below were written for anvi'o `v7.1`. If you have a newer version of anvi'o and find a command that is not working - sorry. We don't always retroactively update these posts as anvi'o evolves. Please let us know and we'll see if we can help.  
 
 ```bash
 # Download tutorial datapack (the unzipped datapack is 3.4 GB in size)
-wget -O NIF_MAG_DATAPACK.tar.gz https://figshare.com/ndownloader/files/31119277
+curl -L -o NIF_MAG_DATAPACK.tar.gz https://api.figshare.com/v2/file/download/31119277
 
 # unzip and cd into working directory
 tar -xvf NIF_MAG_DATAPACK.tar.gz && cd NIF_MAG_DATAPACK
@@ -108,7 +108,7 @@ What this loop does is read each line of the `metagenomes.txt` file, except for 
 
 It _is_ possible to run `anvi-estimate-metabolism` on more than one contigs database at a time, using multi-mode, which you can read about on the {% include PROGRAM name="anvi-estimate-metabolism" %} help page. However, I did not do this here because I wanted the output for each sample to be printed to a separate output file, for purely organizational purposes.
 
-You will find the resulting output files in the [datapack](https://figshare.com/ndownloader/files/31119277), which you should have downloaded at the beginning of this post. Notice that there are 32 text files, two for each metagenome assembly, in the `METABOLISM_ESTIMATION_TXT` folder. Let's take a look at the first few lines of the `modules` file for sample N02:
+You will find the resulting output files in the [datapack](https://api.figshare.com/v2/file/download/31119277), which you should have downloaded at the beginning of this post. Notice that there are 32 text files, two for each metagenome assembly, in the `METABOLISM_ESTIMATION_TXT` folder. Let's take a look at the first few lines of the `modules` file for sample N02:
 
 ```bash
 cd METABOLISM_ESTIMATION_TXT/
@@ -330,7 +330,7 @@ We're going to check how similar our population is to this "Ca. M. diazotrophica
 
 ```bash
 # download the genome
-wget http://enve-omics.ce.gatech.edu/data/public_macondimonas/Macon_spades_assembly.fasta.gz
+curl -LO http://enve-omics.ce.gatech.edu/data/public_macondimonas/Macon_spades_assembly.fasta.gz
 gunzip Macon_spades_assembly.fasta.gz
 
 # extract N25_c_000000000104 sequence into its own file
@@ -415,7 +415,7 @@ The loop in the following code learns the MAG number from its FASTA file name an
 # download Cao et al MAG set
 mkdir Cao_et_al_MAGs
 cd Cao_et_al_MAGs/
-wget https://figshare.com/ndownloader/articles/10302425?private_link=fd5f60b5da7a63aaa74b -O Cao_et_al_MAGs.zip
+curl -L "https://figshare.com/ndownloader/articles/10302425?private_link=fd5f60b5da7a63aaa74b" -o Cao_et_al_MAGs.zip
 unzip Cao_et_al_MAGs.zip
 cd ..
 

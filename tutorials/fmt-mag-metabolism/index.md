@@ -20,7 +20,7 @@ For this example, we'll be using a bacterial isolate genome from the NCBI - the 
 Here is how you can download and unpack the _A. muciniphila_ genome:
 
 ```bash
-wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/731/575/GCF_009731575.1_ASM973157v1/GCF_009731575.1_ASM973157v1_genomic.fna.gz && \
+curl -LO https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/731/575/GCF_009731575.1_ASM973157v1/GCF_009731575.1_ASM973157v1_genomic.fna.gz && \
 gunzip GCF_009731575.1_ASM973157v1_genomic.fna.gz
 ```
 
@@ -803,7 +803,7 @@ For the analyses in that paper, we were working with anvi'o `v7.1` and our MAGs 
 
 ### A dataset of high- and low-fitness MAGs
 
-You can download the [datapack](https://figshare.com/ndownloader/files/42699766) for this tutorial by running the following code:
+You can download the [datapack](https://api.figshare.com/v2/file/download/42699766) for this tutorial by running the following code:
 
 ```bash
 curl -L https://cloud.uol.de/public.php/dav/files/YSrZ3mz3P2ttz9y \

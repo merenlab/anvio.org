@@ -105,11 +105,11 @@ First, download the AGNOSTOS-DB profiles and cluster categories here:
 mkdir -p IGD_agnostos
 
 # Download and unzip AGNOSTOS profiles
-wget https://ndownloader.figshare.com/files/23066963 -O IGD_agnostos/GC_profiles.tar.gz
+curl -L https://api.figshare.com/v2/file/download/23066963 -o IGD_agnostos/GC_profiles.tar.gz
 tar -zxvf IGD_agnostos/GC_profiles.tar.gz
 
 # Download and unzip AGNOSTOS cluster categories
-wget https://ndownloader.figshare.com/files/23067140 -O IGD_agnostos/cluster_ids_categ.tsv.gz
+curl -L https://api.figshare.com/v2/file/download/23067140 -o IGD_agnostos/cluster_ids_categ.tsv.gz
 gunzip IGD_agnostos/cluster_ids_categ.tsv.gz
 ```
 
@@ -144,10 +144,10 @@ Please download these files to start the analysis:
 mkdir -p IGD_agnostos
 
 # Download AGNOSTOS integrated IGD metagenomic
-wget https://ndownloader.figshare.com/files/28329447 -O IGD_agnostos/IGD_genes_summary_info_exp_coverage.tsv
+curl -L https://api.figshare.com/v2/file/download/28329447 -o IGD_agnostos/IGD_genes_summary_info_exp_coverage.tsv
 
 # Download AGNOSTOS integrated E. faecalis genomes
-wget https://ndownloader.figshare.com/files/24028730 -O IGD_agnostos/IGD_ext_genomes_summary_info_exp.tsv
+curl -L https://api.figshare.com/v2/file/download/24028730 -o IGD_agnostos/IGD_ext_genomes_summary_info_exp.tsv
 ```
 
 {:.notice}

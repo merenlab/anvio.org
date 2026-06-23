@@ -48,8 +48,7 @@ Open your Terminal (if using OSX / Linux) or WSL (Ubuntu) prompt (if using Windo
 
 ```bash
 # 1) download the datapack from the internet (FigShare)
-curl -L https://figshare.com/ndownloader/files/39245762 \
-     -H "User-Agent: Chrome/115.0.0.0" \
+curl -L https://api.figshare.com/v2/file/download/39245762 \
      -o DFI_ANVIO_WORKSHOP.tar.gz
 
 # 2) unpack data and move into the datapack folder
