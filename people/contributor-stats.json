@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2569,
+        "total_commits": 2576,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 54
+            "2026": 61
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "remove the @ symbol that is breaking our automated YAML checks :)",
-        "latest_commit_hash": "65f679f93b3cb2e596798b426a614711bd0c21e8",
-        "latest_commit_date": "16 June 2026"
+        "latest_commit_message": "explicit styling for context slider box",
+        "latest_commit_hash": "e200184c40ff01842b53845f6c92d49e34a78deb",
+        "latest_commit_date": "23 June 2026"
     },
     "moritzbuck": {
         "total_commits": 3,
