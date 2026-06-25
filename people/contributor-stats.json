@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2576,
+        "total_commits": 2578,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 61
+            "2026": 63
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "explicit styling for context slider box",
-        "latest_commit_hash": "e200184c40ff01842b53845f6c92d49e34a78deb",
-        "latest_commit_date": "23 June 2026"
+        "latest_commit_message": "remove empty logs after the workflow ends",
+        "latest_commit_hash": "89e683605911aa4da411ce2980c32c05b9f3189f",
+        "latest_commit_date": "24 June 2026"
     },
     "moritzbuck": {
         "total_commits": 3,
