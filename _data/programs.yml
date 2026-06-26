@@ -233,6 +233,7 @@
     - name: anvi-trnaseq
 - author: tucker4
   programs:
+    - name: anvi-compute-trnaseq-functional-affinity
     - name: anvi-delete-contig-classification
     - name: anvi-import-contig-classification
     - name: anvi-split
