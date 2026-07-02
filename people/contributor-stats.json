@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8091,
+        "total_commits": 8092,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,15 +14,15 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 369
+            "2026": 370
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "Update badge for daily component tests in README",
-        "latest_commit_hash": "3f4bb97e437b8a261595f550222662726e9a10dd",
-        "latest_commit_date": "16 June 2026"
+        "latest_commit_message": "author uppities",
+        "latest_commit_hash": "5a8e036ea17e97a10de01a6989bdbfdfa75b20a6",
+        "latest_commit_date": "01 July 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 371,
+        "total_commits": 373,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 154
+            "2026": 156
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "add claude.md to .gitignore",
-        "latest_commit_hash": "d8c79154f3fa8b9e8a6b34e47d6cd2cb95c07418",
-        "latest_commit_date": "16 June 2026"
+        "latest_commit_message": "add ressources node to trnaseq workflow",
+        "latest_commit_hash": "7b941a62fff38d157e8eae0f65c60de7cc4f6843",
+        "latest_commit_date": "30 June 2026"
     },
     "watsonar": {
         "total_commits": 10,
