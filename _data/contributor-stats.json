@@ -22,7 +22,7 @@
         "latest_commit_date": "01 July 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 373,
+        "total_commits": 378,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 156
+            "2026": 161
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "add ressources node to trnaseq workflow",
-        "latest_commit_hash": "7b941a62fff38d157e8eae0f65c60de7cc4f6843",
-        "latest_commit_date": "30 June 2026"
+        "latest_commit_message": "fix crash when additional_params default is null in workflow params.json",
+        "latest_commit_hash": "730c39fa3b3d051fc02fdcc1b98948521012b1f9",
+        "latest_commit_date": "02 July 2026"
     },
     "watsonar": {
         "total_commits": 10,
