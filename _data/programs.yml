@@ -300,6 +300,9 @@
     - name: anvi-script-hmm-to-hmm-directory
     - name: anvi-script-kofam-accessions-to-hmms-directory
     - name: anvi-script-pfam-accessions-to-hmms-directory
+- author: btrouche
+  programs:
+    - name: anvi-summarize
 - author: moritzbuck
   programs:
     - name: anvi-script-compute-bayesian-pan-core

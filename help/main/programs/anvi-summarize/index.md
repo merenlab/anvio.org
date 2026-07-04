@@ -26,6 +26,8 @@ Summarizer for anvi&#x27;o pan, pan-graph, or profile databases. Depending on th
 
 <div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="anvio-person-info-box"><a href="/people/meren" target="_blank"><span class="anvio-person-name">A. Murat Eren (Meren)</span></a><div class="anvio-person-social-box"><a href="http://merenlab.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
 
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/btrouche.png" /></div><div class="anvio-person-info-box"><a href="/people/btrouche" target="_blank"><span class="anvio-person-name">Blandine Trouche</span></a><div class="anvio-person-social-box"><a href="mailto:blandine.trouche@orange.fr" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://github.com/btrouche" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+
 
 
 ## Requires
@@ -46,6 +48,10 @@ Summarizer for anvi&#x27;o pan, pan-graph, or profile databases. Depending on th
 <p style="text-align: left" markdown="1"><span class="artifact-p">[pan-summary](../../artifacts/pan-summary) <img src="../../images/icons/SUMMARY.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[pan-graph-summary](../../artifacts/pan-graph-summary) <img src="../../images/icons/SUMMARY.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[profile-summary](../../artifacts/profile-summary) <img src="../../images/icons/SUMMARY.png" class="artifact-icon-mini" /></span></p>
 
 
+
+## Can provide
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[discov-stats](../../artifacts/discov-stats) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Usage
@@ -120,11 +126,52 @@ anvi&#45;summarize &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;
                &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span>
 </div>
 
+### Computing DisCov statistics
+
+When summarizing a profile database, you can optionally compute the Distribution of Coverage (DisCov) score for each bin and each contig within each bin. See <span class="artifact-n">[discov-stats](/help/main/artifacts/discov-stats)</span> for a full description of the metric and its parameters.
+
+To enable DisCov computation, use the `--report-discov` flag:
+
+<div class="codeblock" markdown="1">
+anvi&#45;summarize &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+               &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span> \
+               &#45;o MY_SUMMARY \
+               &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span> \
+               &#45;&#45;report&#45;discov
+</div>
+
+This requires access to the auxiliary data file (`AUXILIARY-DATA.db`) in the same directory as the profile database and produces two additional output files under `bins_across_samples/`:
+
+* `discov_bins.txt` — one row per bin × sample
+* `discov_contigs.txt` — one row per contig × sample
+
+You can adjust how DisCov is computed using the following parameters. When neither `--window-length` nor `--window-length-as-percentage` is specified, anvi'o applies context-sensitive defaults: a fixed 1,000 bp window for bins, and a percentage-based window (1% of contig length, minimum 300 bp) for individual contigs.
+
+**Window sizing for S**
+
+* `--window-length INT` — use a fixed window size in bp for all sequences (bins and contigs)
+* `--window-length-as-percentage FLOAT` — set window length as a percentage of each sequence's length
+* `--min-window-length INT` — minimum window length floor for percentage mode
+
+**Fold-range for E**
+
+* `--foldrange-lower FLOAT` — lower bound of the coverage fold-range (default: 0.5)
+* `--foldrange-upper FLOAT` — upper bound of the coverage fold-range (default: 2.0)
+
+**Combining S and E**
+
+* `--alpha FLOAT` — weight of S relative to E, in [0, 1] (default: 0.5)
+* `--discov-formula STRING` — `linear` (DisCov = αS + (1-α)E) or `geometric` (DisCov = S^α × E^(1-α)) (default: `linear`)
+
 ### Other notes
 
 If you are unsure what collections are in your database, you can run this program with the flag `--list-collections` or by running <span class="artifact-p">[anvi-show-collections-and-bins](/help/main/programs/anvi-show-collections-and-bins)</span>.
 
 You can also use the flag `--quick-summary` to get a less comprehensive summary with a much shorter processing time. For profile-db summaries it skips several heavier computations; for pan-db summaries it omits sequences and annotation text from the gene clusters file; for pan-graph-db summaries it omits sequences from `GENESxSYNGCs.txt`.
+
+For cases where you want the aggregate bin statistics and per-sample coverage matrices from your profile-db but not per-bin sequence files, you can use the flag `--light-summary` instead.
+
+Just for your reference, in the context of <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> summaries, and for a dataset of ~2,000 MAGs described in a 42Gb <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and a 9.5G <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> files, <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span> took over 240 minutes to run during a test in 2026. With `--light-summary`, the program took about 40 minutes, and with `--quick-summary`, it took about 10 minutes to run on the same dataset.
 
 
 {:.notice}

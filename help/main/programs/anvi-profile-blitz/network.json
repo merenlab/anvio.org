@@ -12,6 +12,15 @@
     },
     {
       "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "discov-stats",
+      "name": "discov-stats",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
       "score": 1,
       "color": "#AA0000",
       "id": "bam-file",
@@ -47,7 +56,7 @@
       "type": "TXT"
     },
     {
-      "size": 5,
+      "size": 6,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-profile-blitz",
@@ -57,28 +66,33 @@
   ],
   "links": [
     {
-      "source": 5,
+      "source": 6,
       "target": 0,
       "type": "provides"
     },
     {
-      "target": 5,
-      "source": 1,
-      "type": "requires"
+      "source": 6,
+      "target": 1,
+      "type": "provides"
     },
     {
-      "target": 5,
+      "target": 6,
       "source": 2,
       "type": "requires"
     },
     {
-      "target": 5,
+      "target": 6,
       "source": 3,
+      "type": "requires"
+    },
+    {
+      "target": 6,
+      "source": 4,
       "type": "can_use"
     },
     {
-      "target": 5,
-      "source": 4,
+      "target": 6,
+      "source": 5,
       "type": "can_use"
     }
   ],

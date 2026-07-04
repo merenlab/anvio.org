@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8092,
+        "total_commits": 8096,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,15 +14,15 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 370
+            "2026": 374
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "author uppities",
-        "latest_commit_hash": "5a8e036ea17e97a10de01a6989bdbfdfa75b20a6",
-        "latest_commit_date": "01 July 2026"
+        "latest_commit_message": "udpate component tests with the new flag",
+        "latest_commit_hash": "c4bca6a6607316ab08eb8d2e2e0619af19ab7890",
+        "latest_commit_date": "03 July 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 378,
+        "total_commits": 380,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 161
+            "2026": 163
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "fix crash when additional_params default is null in workflow params.json",
-        "latest_commit_hash": "730c39fa3b3d051fc02fdcc1b98948521012b1f9",
-        "latest_commit_date": "02 July 2026"
+        "latest_commit_message": "remove gene call unit test",
+        "latest_commit_hash": "c52014f9c8a603cc398be367f2cac2b98839767f",
+        "latest_commit_date": "03 July 2026"
     },
     "watsonar": {
         "total_commits": 10,
@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2578,
+        "total_commits": 2615,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 63
+            "2026": 100
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "remove empty logs after the workflow ends",
-        "latest_commit_hash": "89e683605911aa4da411ce2980c32c05b9f3189f",
-        "latest_commit_date": "24 June 2026"
+        "latest_commit_message": "remove extra spaces because codefactor dont like that",
+        "latest_commit_hash": "bc15d1e13abbc50b26924c053b260884d806143a",
+        "latest_commit_date": "03 July 2026"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -550,7 +550,7 @@
         "latest_commit_date": "27 July 2023"
     },
     "Kekananen": {
-        "total_commits": 41,
+        "total_commits": 42,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -564,7 +564,7 @@
             "2023": 0,
             "2024": 6,
             "2025": 0,
-            "2026": 35
+            "2026": 36
         },
         "top_file": "anvio/workflows/__init__.py",
         "latest_commit_message": "Revert \"Accept numpy integers in external gene calls\"",
@@ -880,7 +880,7 @@
         "latest_commit_date": "20 May 2026"
     },
     "btrouche": {
-        "total_commits": 4,
+        "total_commits": 8,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -894,12 +894,12 @@
             "2023": 0,
             "2024": 0,
             "2025": 0,
-            "2026": 4
+            "2026": 8
         },
-        "top_file": "anvio/data/misc/PEOPLE/AVATARS/btrouche.png",
-        "latest_commit_message": "added picture btrouche",
-        "latest_commit_hash": "4941d8f6cb8ebdb69dc469377dacc1faa4f7dc7a",
-        "latest_commit_date": "20 May 2026"
+        "top_file": "anvio/summarizer.py",
+        "latest_commit_message": "Update doc",
+        "latest_commit_hash": "e41f03b945505a2a31e8493f829a2563a94d6298",
+        "latest_commit_date": "22 May 2026"
     },
     "dspeth": {
         "total_commits": 4,

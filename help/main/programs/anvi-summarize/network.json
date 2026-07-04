@@ -83,7 +83,16 @@
       "type": "DB"
     },
     {
-      "size": 9,
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "discov-stats",
+      "name": "discov-stats",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 10,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-summarize",
@@ -93,49 +102,54 @@
   ],
   "links": [
     {
-      "source": 9,
+      "source": 10,
       "target": 0,
       "type": "provides"
     },
     {
-      "source": 9,
+      "source": 10,
       "target": 1,
       "type": "provides"
     },
     {
-      "source": 9,
+      "source": 10,
       "target": 2,
       "type": "provides"
     },
     {
-      "target": 9,
+      "target": 10,
       "source": 3,
       "type": "requires"
     },
     {
-      "target": 9,
+      "target": 10,
       "source": 4,
       "type": "requires"
     },
     {
-      "target": 9,
+      "target": 10,
       "source": 5,
       "type": "can_use"
     },
     {
-      "target": 9,
+      "target": 10,
       "source": 6,
       "type": "can_use"
     },
     {
-      "target": 9,
+      "target": 10,
       "source": 7,
       "type": "can_use"
     },
     {
-      "target": 9,
+      "target": 10,
       "source": 8,
       "type": "can_use"
+    },
+    {
+      "source": 10,
+      "target": 9,
+      "type": "can_provide"
     }
   ],
   "directed": false,

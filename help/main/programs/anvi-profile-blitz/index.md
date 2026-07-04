@@ -45,7 +45,7 @@ FAST profiling of BAM files to get gene-, contig-, or genome-level coverage and 
 ## Provides
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[bam-stats-txt](../../artifacts/bam-stats-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[bam-stats-txt](../../artifacts/bam-stats-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[discov-stats](../../artifacts/discov-stats) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 
 
@@ -145,7 +145,6 @@ anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/mai
 You don't want to profile all genes in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>? Then you should tell anvi'o which specific genes you are interested in by either providing a comma-separated list of gene-caller IDs:
 
 <div class="codeblock" markdown="1">
-# the following will profile 4 specific gene calls
 anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/main/artifacts/bam&#45;file)</span> \
                    &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                    &#45;&#45;gene&#45;mode \
@@ -162,6 +161,49 @@ anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/mai
                    &#45;o OUTPUT.txt \
                    &#45;&#45;genes&#45;of&#45;interest <span class="artifact&#45;n">[genes&#45;of&#45;interest&#45;txt](/help/main/artifacts/genes&#45;of&#45;interest&#45;txt)</span>
 </div>
+
+## Modifying DisCov parameters
+
+For genomes or contigs, <span class="artifact-p">[anvi-profile-blitz](/help/main/programs/anvi-profile-blitz)</span> can compute the Distribution of Coverage (DisCov) score alongside other coverage statistics. DisCov combines a spread score _S_ (proportion of windows with coverage) and an evenness score _E_ (proportion of covered bases within a fold-range of the median nonzero coverage). See <span class="artifact-n">[discov-stats](/help/main/artifacts/discov-stats)</span> for a full description of the metric and parameters.
+
+The default parameters are designed to work well across typical metagenomics data, but you can adjust them:
+
+**Window sizing for _S_**
+
+The spread score (_S_) is computed by dividing the input sequence into non-overlapping windows. By default, contig-level stats use a window length equal to 1% of the contig length (minimum 300 bp). Genome/bin-level stats (when using `--collection-txt`) use a fixed 1,000 bp window. You can override these defaults with the following parameters:
+
+* `--window-length INT` — use a fixed window size in bp for all sequences
+* `--window-length-as-percentage FLOAT` — set window length as a percentage of each sequence's length
+* `--min-window-length INT` — set a minimum window length floor when using percentage mode
+
+**Fold-range for _E_**
+
+The evenness score (_E_) counts bases with coverage between a lower and upper fold-multiple of the median nonzero coverage. The default fold-range endpoints are 0.5x and 2.0x. To adjust:
+
+* `--foldrange-lower FLOAT` — lower bound (default: 0.5)
+* `--foldrange-upper FLOAT` — upper bound (default: 2.0)
+
+**Combining _S_ and _E_**
+
+You can adjust how _S_ and _E_ are combined by changing either their weights or the overall DisCov formula:
+
+* `--alpha FLOAT` — weight of _S_ relative to _E_, in [0, 1] (default: 0.5)
+* `--discov-formula STRING` — `linear` (DisCov = _αS_ + (1-_α_)_E_) or `geometric` (DisCov = _S_^_α_ × _E_^(1-_α_)) (default: `linear`)
+
+**Window-level output**
+
+To inspect the per-window values used to compute _S_ (useful for debugging or visualization), add the `--gen-window-level-output` flag:
+
+<div class="codeblock" markdown="1">
+anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/main/artifacts/bam&#45;file)</span> \
+                   &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                   &#45;o OUTPUT.txt \
+                   &#45;&#45;gen&#45;window&#45;level&#45;output
+</div>
+
+This produces an additional file named `OUTPUT-WINDOWS.txt` with per-window start/stop positions, coverage presence, and base counts within the fold-range.
+
+Note that computing DisCov is not compatible with `--gene-mode` or `--report-minimal`.
 
 ## Performance
 
