@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8096,
+        "total_commits": 8100,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 374
+            "2026": 378
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "udpate component tests with the new flag",
-        "latest_commit_hash": "c4bca6a6607316ab08eb8d2e2e0619af19ab7890",
-        "latest_commit_date": "03 July 2026"
+        "latest_commit_message": "critical note on migration scripts",
+        "latest_commit_hash": "9c641213b5dee01d39f959e05bbd7044ed0687f2",
+        "latest_commit_date": "06 July 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 380,
