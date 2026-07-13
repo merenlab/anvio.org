@@ -5,19 +5,10 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "functions-across-genomes-txt",
-      "name": "functions-across-genomes-txt",
+      "id": "hmm-hits-across-genomes-txt",
+      "name": "hmm-hits-across-genomes-txt",
       "provided_by_anvio": true,
       "type": "TXT"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "functions",
-      "name": "functions",
-      "provided_by_anvio": true,
-      "type": "CONCEPT"
     },
     {
       "size": 1,
@@ -39,75 +30,56 @@
     },
     {
       "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "genomes-storage-db",
-      "name": "genomes-storage-db",
-      "provided_by_anvio": true,
-      "type": "DB"
-    },
-    {
-      "size": 1,
       "score": 1,
       "color": "#AA0000",
-      "id": "groups-txt",
-      "name": "groups-txt",
+      "id": "hmm-source",
+      "name": "hmm-source",
       "provided_by_anvio": false,
-      "type": "TXT"
+      "type": "HMM"
     },
     {
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "functional-enrichment-txt",
-      "name": "functional-enrichment-txt",
+      "id": "hmm-hits",
+      "name": "hmm-hits",
       "provided_by_anvio": true,
-      "type": "TXT"
+      "type": "CONCEPT"
     },
     {
-      "size": 7,
+      "size": 5,
       "score": 0.1,
       "color": "#AAAA00",
-      "id": "anvi-script-gen-function-matrix-across-genomes",
-      "name": "anvi-script-gen-function-matrix-across-genomes",
+      "id": "anvi-gen-hmm-hits-matrix",
+      "name": "anvi-gen-hmm-hits-matrix",
       "type": "PROGRAM"
     }
   ],
   "links": [
     {
-      "source": 7,
+      "source": 5,
       "target": 0,
       "type": "provides"
     },
     {
-      "target": 7,
+      "target": 5,
       "source": 1,
       "type": "requires"
     },
     {
-      "target": 7,
+      "target": 5,
       "source": 2,
-      "type": "requires"
+      "type": "can_use"
     },
     {
-      "target": 7,
+      "target": 5,
       "source": 3,
       "type": "can_use"
     },
     {
-      "target": 7,
+      "target": 5,
       "source": 4,
       "type": "can_use"
-    },
-    {
-      "target": 7,
-      "source": 5,
-      "type": "can_use"
-    },
-    {
-      "source": 7,
-      "target": 6,
-      "type": "can_provide"
     }
   ],
   "directed": false,

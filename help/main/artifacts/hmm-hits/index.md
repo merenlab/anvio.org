@@ -37,7 +37,7 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 
 ## Can be used by
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-delete-hmms](../../programs/anvi-delete-hmms)</span> <span class="artifact-r">[anvi-run-scg-taxonomy](../../programs/anvi-run-scg-taxonomy)</span> <span class="artifact-r">[anvi-script-filter-hmm-hits-table](../../programs/anvi-script-filter-hmm-hits-table)</span> <span class="artifact-r">[anvi-script-gen-hmm-hits-matrix-across-genomes](../../programs/anvi-script-gen-hmm-hits-matrix-across-genomes)</span> <span class="artifact-r">[anvi-script-get-hmm-hits-per-gene-call](../../programs/anvi-script-get-hmm-hits-per-gene-call)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-delete-hmms](../../programs/anvi-delete-hmms)</span> <span class="artifact-r">[anvi-gen-hmm-hits-matrix](../../programs/anvi-gen-hmm-hits-matrix)</span> <span class="artifact-r">[anvi-run-scg-taxonomy](../../programs/anvi-run-scg-taxonomy)</span> <span class="artifact-r">[anvi-script-filter-hmm-hits-table](../../programs/anvi-script-filter-hmm-hits-table)</span> <span class="artifact-r">[anvi-script-get-hmm-hits-per-gene-call](../../programs/anvi-script-get-hmm-hits-per-gene-call)</span></p>
 
 
 ## Description

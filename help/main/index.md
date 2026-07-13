@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **12 Jul 26 06:30:40** for anvi'o version **9-dev (eunice)**.
+The help contents were last updated on **13 Jul 26 07:59:56** for anvi'o version **9-dev (eunice)**.
 
 
 {% include _project-anvio-version.html %}
@@ -1614,6 +1614,37 @@ Listed below **a total of 173 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-gen-function-matrix](programs/anvi-gen-function-matrix)**</span>. <span markdown="1">A program to generate reports for the distribution of functions across genomes</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[external-genomes](artifacts/external-genomes) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">[functions-across-genomes-txt](artifacts/functions-across-genomes-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/meren" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/jessika-fuessel" target="_blank"><img class="anvio-person-photo-img-mini" title="Jessika Fuessel" src="images/authors/bio-jessika.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
         <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-gen-gene-consensus-sequences](programs/anvi-gen-gene-consensus-sequences)**</span>. <span markdown="1">Collapse variability for a set of genes across samples</span>.
     </td>
 </tr>
@@ -1687,6 +1718,36 @@ Listed below **a total of 173 programs**.
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span>
         <span class="artifact-p" markdown="1">[genomes-storage-db](artifacts/genomes-storage-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/meren" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-gen-hmm-hits-matrix](programs/anvi-gen-hmm-hits-matrix)**</span>. <span markdown="1">A simple script to generate a TAB-delimited file that reports the frequency of HMM hits for a given HMM source across contigs databases</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">[external-genomes](artifacts/external-genomes) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">[hmm-hits-across-genomes-txt](artifacts/hmm-hits-across-genomes-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr style="border:none;">
@@ -4763,36 +4824,6 @@ Listed below **a total of 173 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-gen-function-matrix-across-genomes](programs/anvi-script-gen-function-matrix-across-genomes)**</span>. <span markdown="1">A program to generate reports for the distribution of functions across genomes</span>.
-    </td>
-</tr>
-<tr>
-    <td class="artifact-r-td">
-    <span class="artifact-emoji">🧀</span>
-        <span class="artifact-r" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[external-genomes](artifacts/external-genomes) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
-    </td>
-</tr>
-<tr>
-    <td class="artifact-p-td">
-    <span class="artifact-emoji">🍕</span>
-        <span class="artifact-p" markdown="1">[functions-across-genomes-txt](artifacts/functions-across-genomes-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
-    </td>
-</tr>
-<tr style="border:none;">
-    <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/meren" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-
-    </td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<div style="width:100%;">
-<table class="programs-table">
-<tbody>
-<tr style="border:none;">
-    <td class="program-td">
         <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-gen-functions-per-group-stats-output](programs/anvi-script-gen-functions-per-group-stats-output)**</span>. <span markdown="1">Generate a TAB delimited file for the distribution of functions across groups of genomes/metagenomes</span>.
     </td>
 </tr>
@@ -4842,36 +4873,6 @@ Listed below **a total of 173 programs**.
 <tr style="border:none;">
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ivagljiva" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
-
-    </td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<div style="width:100%;">
-<table class="programs-table">
-<tbody>
-<tr style="border:none;">
-    <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-gen-hmm-hits-matrix-across-genomes](programs/anvi-script-gen-hmm-hits-matrix-across-genomes)**</span>. <span markdown="1">A simple script to generate a TAB-delimited file that reports the frequency of HMM hits for a given HMM source across contigs databases</span>.
-    </td>
-</tr>
-<tr>
-    <td class="artifact-r-td">
-    <span class="artifact-emoji">🧀</span>
-        <span class="artifact-r" markdown="1">[external-genomes](artifacts/external-genomes) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
-    </td>
-</tr>
-<tr>
-    <td class="artifact-p-td">
-    <span class="artifact-emoji">🍕</span>
-        <span class="artifact-p" markdown="1">[hmm-hits-across-genomes-txt](artifacts/hmm-hits-across-genomes-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
-    </td>
-</tr>
-<tr style="border:none;">
-    <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/meren" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>

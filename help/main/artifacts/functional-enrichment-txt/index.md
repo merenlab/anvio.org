@@ -29,7 +29,7 @@ A TXT-type anvi'o artifact. This artifact is typically generated, used, and/or e
 
 ## Can be provided by
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-display-functions](../../programs/anvi-display-functions)</span> <span class="artifact-p">[anvi-script-gen-function-matrix-across-genomes](../../programs/anvi-script-gen-function-matrix-across-genomes)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-display-functions](../../programs/anvi-display-functions)</span> <span class="artifact-p">[anvi-gen-function-matrix](../../programs/anvi-gen-function-matrix)</span></p>
 
 
 ## Required by

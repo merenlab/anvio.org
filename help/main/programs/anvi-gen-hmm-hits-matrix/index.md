@@ -1,10 +1,10 @@
 ---
 layout: program
-title: anvi-script-gen-hmm-hits-matrix-across-genomes
+title: anvi-gen-hmm-hits-matrix
 excerpt: An anvi'o program. A simple script to generate a TAB-delimited file that reports the frequency of HMM hits for a given HMM source across contigs databases.
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-script-gen-hmm-hits-matrix-across-genomes
+redirect_from: /m/anvi-gen-hmm-hits-matrix
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -54,14 +54,14 @@ A simple script to generate a TAB-delimited file that reports the frequency of H
 This program lets you look at the <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> from a single <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span> across multiple genomes or bins, by creating a <span class="artifact-n">[hmm-hits-across-genomes-txt](/help/main/artifacts/hmm-hits-across-genomes-txt)</span>.
 
 {:.notice}
-For a simlar program that reports function hits across genomes, see <span class="artifact-p">[anvi-script-gen-function-matrix-across-genomes](/help/main/programs/anvi-script-gen-function-matrix-across-genomes)</span>.
+For a simlar program that reports function hits across genomes, see <span class="artifact-p">[anvi-gen-function-matrix](/help/main/programs/anvi-gen-function-matrix)</span>.
 
 The input of this program can be either an <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span> or an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>.
 
 Here are two example run on an internal-genomes:
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen&#45;hmm&#45;hits&#45;matrix&#45;across&#45;genomes &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/help/main/artifacts/internal&#45;genomes)</span> \
+anvi&#45;gen&#45;hmm&#45;hits&#45;matrix &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/help/main/artifacts/internal&#45;genomes)</span> \
                                                &#45;&#45;hmm&#45;source Bacteria_71 \
                                                &#45;o output.txt
 </div>
@@ -69,13 +69,13 @@ anvi&#45;script&#45;gen&#45;hmm&#45;hits&#45;matrix&#45;across&#45;genomes &#45;
 To list the <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>s common to the datasets that you're analyzing, just add the flag `--list-hmm-sources`, as so:
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen&#45;hmm&#45;hits&#45;matrix&#45;across&#45;genomes &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \
+anvi&#45;gen&#45;hmm&#45;hits&#45;matrix &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \
                                                &#45;&#45;list&#45;hmm&#45;sources
 </div>
 
 
 {:.notice}
-Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-gen-hmm-hits-matrix-across-genomes.md) to update this information.
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-gen-hmm-hits-matrix.md) to update this information.
 
 
 ## Additional Resources
@@ -83,4 +83,4 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 
 
 {:.notice}
-Are you aware of resources that may help users better understand the utility of this program? Please feel free to edit [this file](https://github.com/merenlab/anvio/blob/master/anvio/cli/gen_hmm_hits_matrix_across_genomes.py) on GitHub. If you are not sure how to do that, find the `__resources__` tag in [this file](https://github.com/merenlab/anvio/blob/master/anvio/cli/interactive.py) to see an example.
+Are you aware of resources that may help users better understand the utility of this program? Please feel free to edit [this file](https://github.com/merenlab/anvio/blob/master/anvio/cli/gen_hmm_hits_matrix.py) on GitHub. If you are not sure how to do that, find the `__resources__` tag in [this file](https://github.com/merenlab/anvio/blob/master/anvio/cli/interactive.py) to see an example.

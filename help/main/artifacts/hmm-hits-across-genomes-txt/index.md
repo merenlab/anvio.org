@@ -23,7 +23,7 @@ A TXT-type anvi'o artifact. This artifact is typically generated, used, and/or e
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-script-gen-hmm-hits-matrix-across-genomes](../../programs/anvi-script-gen-hmm-hits-matrix-across-genomes)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-gen-hmm-hits-matrix](../../programs/anvi-gen-hmm-hits-matrix)</span></p>
 
 
 
@@ -38,11 +38,11 @@ There are no anvi'o tools that require this artifact directly, which means it is
 
 ## Description
 
-This file is the output of <span class="artifact-p">[anvi-script-gen-hmm-hits-matrix-across-genomes](/help/main/programs/anvi-script-gen-hmm-hits-matrix-across-genomes)</span> and describes the <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> across multiple genomes or bins for a single <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>.
+This file is the output of <span class="artifact-p">[anvi-gen-hmm-hits-matrix](/help/main/programs/anvi-gen-hmm-hits-matrix)</span> and describes the <span class="artifact-n">[hmm-hits](/help/main/artifacts/hmm-hits)</span> across multiple genomes or bins for a single <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>.
 
 The first column describes each of the genomes (if the input was an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>) or bins (if the input was an <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span>) that the matrix describes. The following columns describe each of the genes in your <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span>. The data within the table describes the number of hits that gene had in that genome or bin.
 
-For example, if you were to run <span class="artifact-p">[anvi-script-gen-hmm-hits-matrix-across-genomes](/help/main/programs/anvi-script-gen-hmm-hits-matrix-across-genomes)</span> with the `Bacteria_71` <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span> on two hypothetical genomes, you would get a file like this:
+For example, if you were to run <span class="artifact-p">[anvi-gen-hmm-hits-matrix](/help/main/programs/anvi-gen-hmm-hits-matrix)</span> with the `Bacteria_71` <span class="artifact-n">[hmm-source](/help/main/artifacts/hmm-source)</span> on two hypothetical genomes, you would get a file like this:
 
     genome_or_bin    ADK    AICARFT_IMPCHas    ATP-synt    ATP-synt_A    Adenylsucc_synt    Chorismate_synt    EF_TS    ...
     Genome_1         11     10                 9           9             11                 8                  9        ...

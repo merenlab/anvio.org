@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8102,
+        "total_commits": 8110,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 380
+            "2026": 388
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "critical note on migration scripts",
-        "latest_commit_hash": "9c641213b5dee01d39f959e05bbd7044ed0687f2",
-        "latest_commit_date": "06 July 2026"
+        "latest_commit_message": "jessika-fuessel from contributors to devs file",
+        "latest_commit_hash": "1057c1dd01899f4ef8123cdc88015a70a957a39d",
+        "latest_commit_date": "13 July 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 380,
@@ -1011,6 +1011,28 @@
         "latest_commit_hash": "c55dfd711c5b446ce6afd5a5d7652b6446beb11e",
         "latest_commit_date": "21 May 2026"
     },
+    "jessika-fuessel": {
+        "total_commits": 8,
+        "commits_per_year": {
+            "2014": 0,
+            "2015": 0,
+            "2016": 0,
+            "2017": 0,
+            "2018": 0,
+            "2019": 0,
+            "2020": 0,
+            "2021": 4,
+            "2022": 1,
+            "2023": 0,
+            "2024": 2,
+            "2025": 0,
+            "2026": 1
+        },
+        "top_file": "anvio/__init__.py",
+        "latest_commit_message": "Add per-population copy number (PPCN) normalization to anvi-script-gen-function-matrix-across-genomes",
+        "latest_commit_hash": "133e41394a7987880e0ad5029d33936590c74ec4",
+        "latest_commit_date": "12 July 2026"
+    },
     "tdelmont": {
         "total_commits": 0,
         "commits_per_year": {
@@ -1054,28 +1076,6 @@
         "latest_commit_message": null,
         "latest_commit_hash": null,
         "latest_commit_date": null
-    },
-    "jessika-fuessel": {
-        "total_commits": 7,
-        "commits_per_year": {
-            "2014": 0,
-            "2015": 0,
-            "2016": 0,
-            "2017": 0,
-            "2018": 0,
-            "2019": 0,
-            "2020": 0,
-            "2021": 4,
-            "2022": 1,
-            "2023": 0,
-            "2024": 2,
-            "2025": 0,
-            "2026": 0
-        },
-        "top_file": "anvio/docs/programs/anvi-interactive.md",
-        "latest_commit_message": "Update anvi-interactive.md",
-        "latest_commit_hash": "da4e69a3b674683342dedc32b45c94dba821f945",
-        "latest_commit_date": "25 April 2024"
     },
     "ChiaraVanni": {
         "total_commits": 1,
