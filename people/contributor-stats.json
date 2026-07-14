@@ -22,7 +22,7 @@
         "latest_commit_date": "13 July 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 380,
+        "total_commits": 432,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 163
+            "2026": 215
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "remove gene call unit test",
-        "latest_commit_hash": "c52014f9c8a603cc398be367f2cac2b98839767f",
-        "latest_commit_date": "03 July 2026"
+        "latest_commit_message": "better migration message",
+        "latest_commit_hash": "069ac209dd2a40a9c9cbba83561760b9228669b9",
+        "latest_commit_date": "14 July 2026"
     },
     "watsonar": {
         "total_commits": 10,
