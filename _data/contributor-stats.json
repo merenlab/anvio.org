@@ -22,7 +22,7 @@
         "latest_commit_date": "13 July 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 432,
+        "total_commits": 434,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 215
+            "2026": 217
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "better migration message",
-        "latest_commit_hash": "069ac209dd2a40a9c9cbba83561760b9228669b9",
-        "latest_commit_date": "14 July 2026"
+        "latest_commit_message": "from imap_unordered to just imap",
+        "latest_commit_hash": "235b3c4a00ef0e999c34bebe5297591db4fa5ca7",
+        "latest_commit_date": "15 July 2026"
     },
     "watsonar": {
         "total_commits": 10,
