@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8110,
+        "total_commits": 8112,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,7 +14,7 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 388
+            "2026": 390
         },
         "top_file": "anvio/dbops.py",
         "latest_commit_message": "jessika-fuessel from contributors to devs file",
@@ -176,7 +176,7 @@
         "latest_commit_date": "25 June 2026"
     },
     "ahenoch": {
-        "total_commits": 316,
+        "total_commits": 396,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -190,12 +190,12 @@
             "2023": 10,
             "2024": 132,
             "2025": 129,
-            "2026": 45
+            "2026": 125
         },
         "top_file": "anvio/panops.py",
-        "latest_commit_message": "fix for the getter function, contig id has to have it's own entry in the subdict under 'contig' key",
-        "latest_commit_hash": "64ff26c9de5376dd8cd32db88bae55b6e50a56dd",
-        "latest_commit_date": "20 May 2026"
+        "latest_commit_message": "fixy",
+        "latest_commit_hash": "b1f3e44fc0068fae26d7b578137fb903738dca06",
+        "latest_commit_date": "16 July 2026"
     },
     "isaacfink21": {
         "total_commits": 120,
