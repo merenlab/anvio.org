@@ -65,7 +65,16 @@
       "type": "CONCEPT"
     },
     {
-      "size": 7,
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "enzymes-txt",
+      "name": "enzymes-txt",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 8,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-draw-kegg-pathways",
@@ -75,38 +84,43 @@
   ],
   "links": [
     {
-      "source": 7,
+      "source": 8,
       "target": 0,
       "type": "provides"
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 1,
       "type": "requires"
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 2,
       "type": "can_use"
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 3,
       "type": "can_use"
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 4,
       "type": "can_use"
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 5,
       "type": "can_use"
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 6,
+      "type": "can_use"
+    },
+    {
+      "target": 8,
+      "source": 7,
       "type": "can_use"
     }
   ],

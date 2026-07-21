@@ -22,7 +22,7 @@
         "latest_commit_date": "13 July 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 434,
+        "total_commits": 452,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 217
+            "2026": 235
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "from imap_unordered to just imap",
-        "latest_commit_hash": "235b3c4a00ef0e999c34bebe5297591db4fa5ca7",
-        "latest_commit_date": "15 July 2026"
+        "latest_commit_message": "parse score once",
+        "latest_commit_hash": "f3b3b430a2aac26449be8025a70637d9061ee129",
+        "latest_commit_date": "20 July 2026"
     },
     "watsonar": {
         "total_commits": 10,
@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2373,
+        "total_commits": 2375,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 32
+            "2026": 34
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "add Sarah Tucker authorship",
-        "latest_commit_hash": "a3422cf845cd9f1d911147827c41bc73651fcfc1",
-        "latest_commit_date": "25 June 2026"
+        "latest_commit_message": "add support for sample origin column in enzymes-txt so KOs can be directly mapped from different samples/genomes and, with groups-txt, in sample groups",
+        "latest_commit_hash": "14ed8f80ba9a219033eeaa7b585e211e81d456c4",
+        "latest_commit_date": "20 July 2026"
     },
     "ahenoch": {
         "total_commits": 396,

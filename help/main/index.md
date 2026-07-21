@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **20 Jul 26 06:42:58** for anvi'o version **9-dev (eunice)**.
+The help contents were last updated on **21 Jul 26 06:26:17** for anvi'o version **9-dev (eunice)**.
 
 
 {% include _project-anvio-version.html %}
@@ -1827,7 +1827,7 @@ Listed below **a total of 173 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-gen-structure-database](programs/anvi-gen-structure-database)**</span>. <span markdown="1">Creates a database of protein structures. Predict protein structures using template-based homology modelling of genes in your contigs database, or import pre-computed PDB structures you already have.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-gen-structure-database](programs/anvi-gen-structure-database)**</span>. <span markdown="1">Creates a database of protein structures. Predict protein structures for genes in your contigs database using either template-based homology modelling (MODELLER) or AlphaFold2 (ColabFold), or import pre-computed PDB structures you already have.</span>.
     </td>
 </tr>
 <tr>

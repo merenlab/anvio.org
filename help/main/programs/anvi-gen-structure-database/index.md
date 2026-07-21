@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-Creates a database of protein structures. Predict protein structures using template-based homology modelling of genes in your contigs database, or import pre-computed PDB structures you already have..
+Creates a database of protein structures. Predict protein structures for genes in your contigs database using either template-based homology modelling (MODELLER) or AlphaFold2 (ColabFold), or import pre-computed PDB structures you already have..
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -52,11 +52,11 @@ Creates a database of protein structures. Predict protein structures using templ
 
 
 
-This program creates a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> either by (a) attempting to solve for the 3D structures of proteins encoded by genes in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> using DIAMOND and MODELLER, or (b) importing pre-existing structures provided by the user using an <span class="artifact-n">[external-structures](/help/main/artifacts/external-structures)</span> file.
+This program creates a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> by predicting the 3D structures of proteins encoded by genes in your <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>. You can choose between two prediction engines with the `--engine` flag: (a) `modeller` (the default), which uses template-based homology modelling with DIAMOND and MODELLER, or (b) `colabfold`, which uses AlphaFold2 via [ColabFold](https://github.com/sokrypton/ColabFold). Alternatively, you can (c) import pre-existing structures you already have using an <span class="artifact-n">[external-structures](/help/main/artifacts/external-structures)</span> file.
 
-### The basics of the pipeline
+### The basics of the MODELLER pipeline
 
-This section covers option (a), where the user is interested in having structures predicted for them.
+This section covers the default `modeller` engine, where structures are predicted with homology modelling.
 
 DIAMOND first searches your sequence(s) against a database of proteins with a known structure.  This database is downloaded from the [Sali lab](https://salilab.org/modeller/supplemental.html), who created and maintain MODELLER, and contains all of the PDB sequences clustered at 95% identity.
 
@@ -86,6 +86,41 @@ anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[con
 </div>
 
 To quickly get a very rough estimate for your structures, you can run with the flag `--very-fast`.
+
+### Predicting structures with ColabFold (AlphaFold2)
+
+Instead of homology modelling, you can predict structures with AlphaFold2 via [ColabFold](https://github.com/sokrypton/ColabFold) by setting `--engine colabfold`. This does not require good templates to exist for your proteins.
+
+Anvi'o does not assume ColabFold is on your `$PATH`. If you installed it in a conda environment (for example, one named `colabfold`), tell anvi'o its name and every ColabFold command will be run via `conda run -n <name>`:
+
+ColabFold generates a multiple sequence alignment (MSA) and then predicts the structure. You must explicitly choose how the MSA step is done. The simplest option is to use the public MMseqs2 MSA server hosted by the ColabFold team with `--colabfold-msa-server` (this requires an internet connection and is appropriate for a handful of sequences):
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                            &#45;&#45;engine colabfold \
+                            &#45;&#45;colabfold&#45;conda&#45;env colabfold \
+                            &#45;&#45;colabfold&#45;msa&#45;server \
+                            &#45;&#45;gene&#45;caller&#45;ids 1,2,3 \
+                            &#45;o STRUCTURE.db
+</div>
+
+{:.notice}
+The public MSA server is a limited shared resource. If you have many sequences, please set up a local ColabFold database instead (see below).
+
+If you have set up a local ColabFold database (with ColabFold's `setup_databases.sh`), generate the MSA locally by pointing anvi'o to that directory with `--colabfold-db` instead of `--colabfold-msa-server`:
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                            &#45;&#45;engine colabfold \
+                            &#45;&#45;colabfold&#45;conda&#45;env colabfold \
+                            &#45;&#45;colabfold&#45;db /path/to/colabfold_db \
+                            &#45;&#45;gene&#45;caller&#45;ids 1,2,3 \
+                            &#45;o STRUCTURE.db
+</div>
+
+All genes of interest are predicted together in a single ColabFold run, which is far more efficient on a GPU than predicting one gene at a time. ColabFold reports its own confidence metrics (per-residue pLDDT and model-level pTM), which anvi'o stores in the resulting <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span>.
+
+You can tune the prediction with `--num-models` (how many AlphaFold2 models to run per gene), `--num-recycle` (more recycles can improve quality at the cost of runtime), and `--amber` (relax the best model with OpenMM/Amber for better side-chains). Anything not exposed as a dedicated flag can be passed straight through to `colabfold_batch` with `--colabfold-additional-parameters` (because its value starts with dashes, attach it with an equals sign, e.g. `--colabfold-additional-parameters="--num-seeds 2"`). As with the MODELLER engine, you can provide a `--dump-dir` to keep all of the raw ColabFold output.
 
 ### Basic import run
 

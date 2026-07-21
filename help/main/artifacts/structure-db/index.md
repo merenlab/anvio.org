@@ -45,6 +45,8 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 
 This database contains the protein structural data for genes in a corresponding <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and can be generated with <span class="artifact-p">[anvi-gen-structure-database](/help/main/programs/anvi-gen-structure-database)</span>.
 
+The structures can be predicted with either template-based homology modelling (MODELLER) or AlphaFold2 (ColabFold), or imported from pre-computed structures you provide. The database records which engine was used, along with that engine's confidence metrics: MODELLER's DOPE/GA341/molpdf scores, or ColabFold's per-residue pLDDT and model-level pTM.
+
 
 Currently, this database is best utilized for visualizing 3D structures with <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span>.
 

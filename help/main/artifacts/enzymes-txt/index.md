@@ -37,14 +37,14 @@ There are no anvi'o tools that require this artifact directly, which means it is
 
 ## Can be used by
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-estimate-metabolism](../../programs/anvi-estimate-metabolism)</span> <span class="artifact-r">[anvi-reaction-network](../../programs/anvi-reaction-network)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-draw-kegg-pathways](../../programs/anvi-draw-kegg-pathways)</span> <span class="artifact-r">[anvi-estimate-metabolism](../../programs/anvi-estimate-metabolism)</span> <span class="artifact-r">[anvi-reaction-network](../../programs/anvi-reaction-network)</span></p>
 
 
 ## Description
 
 This artifact is a TAB-delimited file that describes a set of enzymes.
 
-The user can generate this file to define an arbitrary set of enzymes that they want to estimate metabolism on, using the program <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>.
+The user can generate this file to define an arbitrary set of enzymes that they want to estimate metabolism on, using the program <span class="artifact-p">[anvi-estimate-metabolism](/help/main/programs/anvi-estimate-metabolism)</span>. The file can be used to draw KEGG pathway maps highlighting its KOfam annotations with <span class="artifact-p">[anvi-draw-kegg-pathways](/help/main/programs/anvi-draw-kegg-pathways)</span> and to build a metabolic reaction network with <span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span>.
 
 
 ## Minimal file format
@@ -85,6 +85,23 @@ If these columns are included, you can use the `--add-coverage` flag with <span 
 |aca:ACP_1744|K02626|KOfam|4.522875816993464|0.7790055248618785|
 |aco:Amico_1604|K00606|KOfam|2.63953488372093|0.8063380281690141|
 |ade:Adeh_0623|K02669|KOfam|2.011764705882353|0.6639344262295082|
+
+## Assigning enzymes to samples
+
+If the enzymes in the file come from more than one origin (for example, different genomes such as *E. coli* and *K. pneumoniae*, or different metagenomic/transcriptomic/proteomic samples such as `Sample_1`, `Sample_2`, and `Sample_3`), you can add an optional `sample` column that assigns each row to a sample of origin.
+
+This column is currently used by <span class="artifact-p">[anvi-draw-kegg-pathways](/help/main/programs/anvi-draw-kegg-pathways)</span>: when a `sample` column is present, that program compares the KOfam annotations across samples on the pathway maps, coloring reactions by the sample or number of samples in which they occur, exactly as it does when comparing multiple <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> files or the genomes of a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span>. Samples can also be grouped with a <span class="artifact-n">[groups-txt](/help/main/artifacts/groups-txt)</span> file. When the `sample` column is absent, all KOfam annotations are instead drawn in a single color.
+
+Every KOfam row must have a value in the `sample` column, since the sample identifies the origin used to color reactions.
+
+## Example with samples
+
+|**gene_id**|**enzyme_accession**|**source**|**sample**|
+|:--|:--|:--|:--|
+|aad:TC41_3038|K02886|KOfam|Sample_1|
+|aca:ACP_1744|K02626|KOfam|Sample_1|
+|aco:Amico_1604|K00606|KOfam|Sample_2|
+|ade:Adeh_0623|K02669|KOfam|Sample_3|
 
 
 {:.notice}

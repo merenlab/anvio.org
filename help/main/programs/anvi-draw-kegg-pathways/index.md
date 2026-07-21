@@ -37,7 +37,7 @@ Write KEGG pathway map files incorporating data sourced from anvi&#x27;o databas
 
 ## Can use
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[external-genomes](../../artifacts/external-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[reaction-network](../../artifacts/reaction-network) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[external-genomes](../../artifacts/external-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[reaction-network](../../artifacts/reaction-network) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[enzymes-txt](../../artifacts/enzymes-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Provides
@@ -127,20 +127,23 @@ Here is a simple example of the output file structure produced with `--name-file
 
 ## KO occurrence
 
-Gene sequences in anvi'o databases can be annotated with KEGG Orthologs (KOs): see <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span>. A KO indicates functional capabilities of the gene product. KO data from one or more contigs databases or a pan database can be mapped using the `--ko` flag, enabling investigation of the metabolic capabilities of individual organisms or multiple organisms, including community samples. Reactions associated with KOs are colored on the pathway maps.
+Gene sequences in anvi'o databases can be annotated with KEGG Orthologs (KOs): see <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span>. A KO indicates functional capabilities of the gene product. KO data from one or more organisms can be mapped using the `--ko` flag, enabling the comparison of metabolic capabilities. Reactions associated with KOs are colored on the pathway maps.
 
-### From a reaction network JSON file
+### Enzymes text file
 
-Pathway maps can be drawn from a reaction network JSON file produced by <span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span> or <span class="artifact-p">[anvi-get-metabolic-model-file](/help/main/programs/anvi-get-metabolic-model-file)</span>, bypassing the need for a contigs database entirely. This is especially useful with custom enzyme lists — for example, annotations from transcriptomic or proteomic data, or predicted gene content of a last common ancestor.
-
-First, generate the reaction network JSON from an enzymes file:
+Pathway maps can be drawn directly from an <span class="artifact-n">[enzymes-txt](/help/main/artifacts/enzymes-txt)</span> file. This is the quickest way to visualize a custom enzyme list. KO IDs are read from the rows of the file where the `source` column is `KOfam`. Here is a basic command.
 
 <div class="codeblock" markdown="1">
-anvi&#45;reaction&#45;network &#45;&#45;enzymes&#45;txt /path/to/enzymes.txt \
-                      &#45;&#45;output&#45;json /path/to/network.json
+anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;enzymes&#45;txt /path/to/enzymes.txt \
+                        &#45;&#45;ko \
+                        &#45;o output_maps/
 </div>
 
-Then draw pathway maps directly from that JSON:
+Enzymes from more than one origin, such as multiple genomes or samples, can also be compared on the same maps by adding a `sample` column to the <span class="artifact-n">[enzymes-txt](/help/main/artifacts/enzymes-txt)</span>. Because this works just like comparing multiple contigs databases, it is described further below, under [Compare samples in an enzymes text file](#compare-samples-in-an-enzymes-text-file).
+
+### Reaction network JSON file
+
+Pathway maps can be drawn from a reaction network JSON file produced by <span class="artifact-p">[anvi-reaction-network](/help/main/programs/anvi-reaction-network)</span> or <span class="artifact-p">[anvi-get-metabolic-model-file](/help/main/programs/anvi-get-metabolic-model-file)</span>. This is especially useful with custom enzyme lists — for example, annotations from transcriptomic or proteomic data, or predicted gene content of a last common ancestor.
 
 <div class="codeblock" markdown="1">
 anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;reaction&#45;network&#45;json /path/to/network.json \
@@ -150,7 +153,7 @@ anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;reaction&#45;network&#45;json /pat
 
 ### Single contigs database
 
-Here is the basic command to draw KO data from a single <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>.
+Pathway maps can be drawn from KO data in a single <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>.
 
 <div class="codeblock" markdown="1">
 anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;contigs&#45;dbs <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -319,6 +322,30 @@ anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;external&#45;genomes <span class="
 Continuing with the comparison of *Enterococcus* species, the `Folate biosynthesis` map from above shows, on the left side, that all *faecalis* genomes have the pathway for molybdenum cofactor (MoCo) biosynthesis, unlike any *faecium* genomes. A molybdenum requirement in *faecalis* but not *faecium* is supported by the annotation of a molybdate transporter in all *faecalis* genomes and no *faecium* genomes, as seen in an `ABC transporters` map grid -- in the map of "all" groups, it is the top transporter colored blue in the first column.
 
 ![ABC transporter group maps using two group thresholds](../../images/anvi-draw-kegg-pathways/kos_db_group_grid.png)
+
+### Compare samples in an enzymes text file
+
+The <span class="artifact-n">[enzymes-txt](/help/main/artifacts/enzymes-txt)</span> introduced above can compare KOs across origins in the same way as multiple contigs databases, without any anvi'o database. Add a `sample` column that assigns each row to its sample of origin, where a sample can be, for example, a genome (e.g., *E. coli* versus *K. pneumoniae*), a metagenome, or a transcriptomic or proteomic sample. KOs are still read from the rows where the `source` column is `KOfam`, and every such row must have a sample value.
+
+When the `sample` column is present, reactions are compared across samples just as they are across contigs databases: they are colored by the sample or by the number of samples in which they occur, a `colorbar.pdf` key is written, and all of the same coloring and output options apply, including `--colormap`, `--colormap-scheme`, `--reverse-overlay`, `--draw-individual-files`, and `--draw-grid`.
+
+<div class="codeblock" markdown="1">
+anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;enzymes&#45;txt /path/to/enzymes.txt \
+                        &#45;&#45;ko \
+                        &#45;&#45;draw&#45;grid \
+                        &#45;&#45;draw&#45;individual&#45;files \
+                        &#45;o output_dir
+</div>
+
+Samples can be grouped with a <span class="artifact-n">[groups-txt](/help/main/artifacts/groups-txt)</span> file, like contigs databases. The file has the same format, but the items in its first column must be the sample names from the `sample` column. As with contigs databases, `--group-threshold` must accompany `--groups-txt`.
+
+<div class="codeblock" markdown="1">
+anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;enzymes&#45;txt /path/to/enzymes.txt \
+                        &#45;&#45;ko \
+                        &#45;&#45;groups&#45;txt <span class="artifact&#45;n">[groups&#45;txt](/help/main/artifacts/groups&#45;txt)</span> \
+                        &#45;&#45;group&#45;threshold 0.5 \
+                        &#45;o output_dir
+</div>
 
 ### Pangenomic database
 

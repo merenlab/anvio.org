@@ -371,6 +371,15 @@
       "type": "CONCEPT"
     },
     {
+      "size": 3,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "enzymes-txt",
+      "name": "ENZYMES TXT",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
@@ -396,15 +405,6 @@
       "name": "USER MODULES DB",
       "provided_by_anvio": true,
       "type": "DB"
-    },
-    {
-      "size": 2,
-      "score": 1,
-      "color": "#AA0000",
-      "id": "enzymes-txt",
-      "name": "ENZYMES TXT",
-      "provided_by_anvio": false,
-      "type": "TXT"
     },
     {
       "size": 2,
@@ -1560,7 +1560,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 8,
+      "size": 9,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-draw-kegg-pathways",
@@ -5000,54 +5000,59 @@
       "type": "provides"
     },
     {
-      "source": 177,
-      "target": 41,
-      "type": "provides"
-    },
-    {
-      "target": 178,
-      "source": 42,
-      "type": "can_use"
-    },
-    {
-      "target": 179,
-      "source": 42,
-      "type": "can_use"
-    },
-    {
-      "target": 180,
-      "source": 42,
+      "target": 176,
+      "source": 41,
       "type": "can_use"
     },
     {
       "target": 178,
-      "source": 43,
-      "type": "can_use"
-    },
-    {
-      "source": 279,
-      "target": 43,
-      "type": "provides"
-    },
-    {
-      "target": 279,
-      "source": 43,
-      "type": "requires"
-    },
-    {
-      "source": 307,
-      "target": 43,
-      "type": "provides"
-    },
-    {
-      "target": 178,
-      "source": 44,
+      "source": 41,
       "type": "can_use"
     },
     {
       "target": 247,
+      "source": 41,
+      "type": "can_use"
+    },
+    {
+      "source": 177,
+      "target": 42,
+      "type": "provides"
+    },
+    {
+      "target": 178,
+      "source": 43,
+      "type": "can_use"
+    },
+    {
+      "target": 179,
+      "source": 43,
+      "type": "can_use"
+    },
+    {
+      "target": 180,
+      "source": 43,
+      "type": "can_use"
+    },
+    {
+      "target": 178,
       "source": 44,
       "type": "can_use"
+    },
+    {
+      "source": 279,
+      "target": 44,
+      "type": "provides"
+    },
+    {
+      "target": 279,
+      "source": 44,
+      "type": "requires"
+    },
+    {
+      "source": 307,
+      "target": 44,
+      "type": "provides"
     },
     {
       "source": 179,
