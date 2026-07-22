@@ -93,15 +93,6 @@
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
-      "id": "metagenomes",
-      "name": "metagenomes",
-      "provided_by_anvio": false,
-      "type": "TXT"
-    },
-    {
-      "size": 1,
       "score": 0.5,
       "color": "#00AA00",
       "id": "user-modules-data",
@@ -137,7 +128,7 @@
       "type": "DB"
     },
     {
-      "size": 15,
+      "size": 14,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-estimate-metabolism",
@@ -147,78 +138,73 @@
   ],
   "links": [
     {
-      "source": 15,
+      "source": 14,
       "target": 0,
       "type": "provides"
     },
     {
-      "source": 15,
+      "source": 14,
       "target": 1,
       "type": "provides"
     },
     {
-      "target": 15,
+      "target": 14,
       "source": 2,
       "type": "requires"
     },
     {
-      "target": 15,
+      "target": 14,
       "source": 3,
       "type": "requires"
     },
     {
-      "target": 15,
+      "target": 14,
       "source": 4,
       "type": "requires"
     },
     {
-      "target": 15,
+      "target": 14,
       "source": 5,
       "type": "can_use"
     },
     {
-      "target": 15,
+      "target": 14,
       "source": 6,
       "type": "can_use"
     },
     {
-      "target": 15,
+      "target": 14,
       "source": 7,
       "type": "can_use"
     },
     {
-      "target": 15,
+      "target": 14,
       "source": 8,
       "type": "can_use"
     },
     {
-      "target": 15,
+      "target": 14,
       "source": 9,
       "type": "can_use"
     },
     {
-      "target": 15,
+      "target": 14,
       "source": 10,
       "type": "can_use"
     },
     {
-      "target": 15,
+      "target": 14,
       "source": 11,
       "type": "can_use"
     },
     {
-      "target": 15,
+      "target": 14,
       "source": 12,
       "type": "can_use"
     },
     {
-      "target": 15,
+      "target": 14,
       "source": 13,
-      "type": "can_use"
-    },
-    {
-      "target": 15,
-      "source": 14,
       "type": "can_use"
     }
   ],

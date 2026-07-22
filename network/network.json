@@ -389,15 +389,6 @@
       "type": "CONCEPT"
     },
     {
-      "size": 3,
-      "score": 1,
-      "color": "#AA0000",
-      "id": "metagenomes",
-      "name": "METAGENOMES",
-      "provided_by_anvio": false,
-      "type": "TXT"
-    },
-    {
       "size": 4,
       "score": 0.5,
       "color": "#00AA00",
@@ -423,6 +414,15 @@
       "name": "SCG TAXONOMY",
       "provided_by_anvio": true,
       "type": "CONCEPT"
+    },
+    {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "metagenomes",
+      "name": "METAGENOMES",
+      "provided_by_anvio": false,
+      "type": "TXT"
     },
     {
       "size": 2,
@@ -1576,7 +1576,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 17,
+      "size": 16,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-estimate-metabolism",
@@ -5025,54 +5025,49 @@
       "type": "can_use"
     },
     {
-      "target": 179,
-      "source": 43,
-      "type": "can_use"
-    },
-    {
-      "target": 180,
-      "source": 43,
-      "type": "can_use"
-    },
-    {
-      "target": 178,
-      "source": 44,
-      "type": "can_use"
-    },
-    {
       "source": 279,
-      "target": 44,
+      "target": 43,
       "type": "provides"
     },
     {
       "target": 279,
-      "source": 44,
+      "source": 43,
       "type": "requires"
     },
     {
       "source": 307,
-      "target": 44,
+      "target": 43,
       "type": "provides"
     },
     {
       "source": 179,
-      "target": 45,
+      "target": 44,
       "type": "provides"
     },
     {
       "source": 180,
+      "target": 44,
+      "type": "provides"
+    },
+    {
+      "target": 179,
+      "source": 45,
+      "type": "requires"
+    },
+    {
+      "source": 261,
       "target": 45,
       "type": "provides"
     },
     {
       "target": 179,
       "source": 46,
-      "type": "requires"
+      "type": "can_use"
     },
     {
-      "source": 261,
-      "target": 46,
-      "type": "provides"
+      "target": 180,
+      "source": 46,
+      "type": "can_use"
     },
     {
       "source": 179,

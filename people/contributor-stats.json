@@ -22,7 +22,7 @@
         "latest_commit_date": "13 July 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 452,
+        "total_commits": 456,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 235
+            "2026": 239
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "parse score once",
-        "latest_commit_hash": "f3b3b430a2aac26449be8025a70637d9061ee129",
-        "latest_commit_date": "20 July 2026"
+        "latest_commit_message": "fixies",
+        "latest_commit_hash": "cf0bd98f8e25c7331218d3a2411d117bc1f0c152",
+        "latest_commit_date": "21 July 2026"
     },
     "watsonar": {
         "total_commits": 10,
@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2615,
+        "total_commits": 2643,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 100
+            "2026": 128
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "remove extra spaces because codefactor dont like that",
-        "latest_commit_hash": "bc15d1e13abbc50b26924c053b260884d806143a",
-        "latest_commit_date": "03 July 2026"
+        "latest_commit_message": "documentation updates",
+        "latest_commit_hash": "37bc87045627e356f840a9e5791808a409758812",
+        "latest_commit_date": "16 July 2026"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -176,7 +176,7 @@
         "latest_commit_date": "20 July 2026"
     },
     "ahenoch": {
-        "total_commits": 396,
+        "total_commits": 397,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -190,12 +190,12 @@
             "2023": 10,
             "2024": 132,
             "2025": 129,
-            "2026": 125
+            "2026": 126
         },
         "top_file": "anvio/panops.py",
-        "latest_commit_message": "fixy",
-        "latest_commit_hash": "b1f3e44fc0068fae26d7b578137fb903738dca06",
-        "latest_commit_date": "16 July 2026"
+        "latest_commit_message": "sanity check for same genome-names in both pan and pangraph",
+        "latest_commit_hash": "b7bc9b5f1d8337da8d268cbe50f9479ac5efd075",
+        "latest_commit_date": "21 July 2026"
     },
     "isaacfink21": {
         "total_commits": 120,

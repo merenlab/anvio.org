@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **21 Jul 26 06:26:17** for anvi'o version **9-dev (eunice)**.
+The help contents were last updated on **22 Jul 26 06:25:54** for anvi'o version **9-dev (eunice)**.
 
 
 {% include _project-anvio-version.html %}
@@ -1024,6 +1024,7 @@ Listed below **a total of 173 programs**.
 <tr style="border:none;">
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ivagljiva" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
+<div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/jessika-fuessel" target="_blank"><img class="anvio-person-photo-img-mini" title="Jessika Fuessel" src="images/authors/bio-jessika.jpg" /></a></div></div>
 
     </td>
 </tr>

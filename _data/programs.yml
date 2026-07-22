@@ -261,6 +261,10 @@
 - author: watsonar
   programs:
     - name: anvi-display-contigs-stats
+- author: jessika-fuessel
+  programs:
+    - name: anvi-estimate-metabolism
+    - name: anvi-gen-function-matrix
 - author: qclayssen
   programs:
     - name: anvi-estimate-scg-taxonomy
@@ -271,9 +275,6 @@
     - name: anvi-export-locus
     - name: anvi-gen-variability-profile
     - name: anvi-run-workflow
-- author: jessika-fuessel
-  programs:
-    - name: anvi-gen-function-matrix
 - author: med1bel
   programs:
     - name: anvi-gen-pan-representative
