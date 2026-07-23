@@ -22,7 +22,7 @@
         "latest_commit_date": "13 July 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 456,
+        "total_commits": 470,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 239
+            "2026": 253
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "fixies",
-        "latest_commit_hash": "cf0bd98f8e25c7331218d3a2411d117bc1f0c152",
-        "latest_commit_date": "21 July 2026"
+        "latest_commit_message": "update test with user-controlled threads number",
+        "latest_commit_hash": "1ff35c6a1069187659f49adf7e23824cbbded3a6",
+        "latest_commit_date": "23 July 2026"
     },
     "watsonar": {
         "total_commits": 10,

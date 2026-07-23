@@ -122,6 +122,34 @@ All genes of interest are predicted together in a single ColabFold run, which is
 
 You can tune the prediction with `--num-models` (how many AlphaFold2 models to run per gene), `--num-recycle` (more recycles can improve quality at the cost of runtime), and `--amber` (relax the best model with OpenMM/Amber for better side-chains). Anything not exposed as a dedicated flag can be passed straight through to `colabfold_batch` with `--colabfold-additional-parameters` (because its value starts with dashes, attach it with an equals sign, e.g. `--colabfold-additional-parameters="--num-seeds 2"`). As with the MODELLER engine, you can provide a `--dump-dir` to keep all of the raw ColabFold output.
 
+### Splitting the MSA and prediction steps (--only-msa / --only-predict)
+
+A ColabFold run has two very differently-shaped halves: generating the multiple sequence alignments (MSA) is CPU-heavy, while predicting the structures is GPU-heavy. When you scale up to many genes or genomes, you often want to run these on different machines — for example, the MSA step on CPU nodes and the prediction step on GPU nodes of a cluster, wired together by a workflow manager like Snakemake. The `--only-msa` and `--only-predict` flags let you split the run at that seam, using a `--dump-dir` as an on-disk checkpoint that connects the two steps.
+
+`--only-msa` runs only the MSA step and stops, writing the alignments and a small checkpoint manifest into `--dump-dir`. This only works with a local ColabFold database (`--colabfold-db`): the public MSA server (`--colabfold-msa-server`) generates the MSA and predicts the structure in a single step that cannot be split. No structure database is produced yet.
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                            &#45;&#45;engine colabfold \
+                            &#45;&#45;colabfold&#45;conda&#45;env colabfold \
+                            &#45;&#45;colabfold&#45;db /path/to/colabfold_db \
+                            &#45;&#45;gene&#45;caller&#45;ids 1,2,3 \
+                            &#45;&#45;only&#45;msa \
+                            &#45;&#45;dump&#45;dir MY_CHECKPOINT
+</div>
+
+`--only-predict` then resumes from that checkpoint, predicting the structures and building the <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span>. You must give it the **same** <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> and genes of interest as the `--only-msa` run: anvi'o verifies that the sequences match the checkpoint before predicting and refuses to continue if they do not, so you cannot accidentally predict structures against MSAs that were built for different genes.
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                            &#45;&#45;engine colabfold \
+                            &#45;&#45;colabfold&#45;conda&#45;env colabfold \
+                            &#45;&#45;gene&#45;caller&#45;ids 1,2,3 \
+                            &#45;&#45;only&#45;predict \
+                            &#45;&#45;dump&#45;dir MY_CHECKPOINT \
+                            &#45;o STRUCTURE.db
+</div>
+
 ### Basic import run
 
 If you already possess structures and would like to create a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span> for downstream anvi'o uses such as <span class="artifact-p">[anvi-display-structure](/help/main/programs/anvi-display-structure)</span>, you should create a <span class="artifact-n">[external-structures](/help/main/artifacts/external-structures)</span> file. Then, create the database as follows:
