@@ -176,7 +176,7 @@
         "latest_commit_date": "20 July 2026"
     },
     "ahenoch": {
-        "total_commits": 397,
+        "total_commits": 399,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -190,12 +190,12 @@
             "2023": 10,
             "2024": 132,
             "2025": 129,
-            "2026": 126
+            "2026": 128
         },
         "top_file": "anvio/panops.py",
-        "latest_commit_message": "sanity check for same genome-names in both pan and pangraph",
-        "latest_commit_hash": "b7bc9b5f1d8337da8d268cbe50f9479ac5efd075",
-        "latest_commit_date": "21 July 2026"
+        "latest_commit_message": "slightly change defaults",
+        "latest_commit_hash": "3b6d2d674572260fdf4a3f66ab090f768b3ef66b",
+        "latest_commit_date": "22 July 2026"
     },
     "isaacfink21": {
         "total_commits": 120,
