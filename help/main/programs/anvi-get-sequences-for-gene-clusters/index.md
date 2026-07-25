@@ -72,6 +72,21 @@ anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="art
 {:.notice}
 The program will report the DNA sequences if the flag `--report-DNA-sequences` is used.
 
+### Reporting a single representative sequence per gene cluster
+
+By default this program reports every gene sequence in each gene cluster. If instead you want a single representative amino acid sequence per gene cluster, use the flag `--representative-sequences`:
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
+                                     &#45;&#45;representative&#45;sequences \
+                                     &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/help/main/artifacts/genes&#45;fasta)</span>
+</div>
+
+Anvi'o picks the representative using a medoid-based strategy: it discards length outliers, prefers complete (non-partial) gene calls, and selects the sequence that is most similar to the others in the gene cluster. The resulting <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> uses the gene cluster names as deflines and contains no gap characters.
+
+This flag requires a pangenome for which gene alignments were computed (i.e., **not** created with `--skip-alignments`), and it cannot be combined with `--concatenate-gene-clusters` or `--report-DNA-sequences`. It honors all the same selection and filtering options described below, as well as `--split-output-per-gene-cluster`.
+
 ### Splitting gene clusters into their own files
 
 The command above will put all gene cluster sequences in a single output <span class="artifact-n">[fasta](/help/main/artifacts/fasta)</span> file. If you would like to report each gene cluster in a separate FASTA file, it is also an option thanks to the flag `--split-output-per-gene-cluster`. This optional reporting throught this flag applies to all commands shown on this page. For instance, the following command will report every gene cluster as a separate FASTA file in your directory,
