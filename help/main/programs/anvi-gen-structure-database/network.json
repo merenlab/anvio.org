@@ -23,6 +23,24 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
+      "id": "pan-db",
+      "name": "pan-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "genomes-storage-db",
+      "name": "genomes-storage-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "pdb-db",
       "name": "pdb-db",
       "provided_by_anvio": true,
@@ -38,7 +56,16 @@
       "type": "TXT"
     },
     {
-      "size": 4,
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "external-structures",
+      "name": "external-structures",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 7,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-gen-structure-database",
@@ -48,23 +75,38 @@
   ],
   "links": [
     {
-      "source": 4,
+      "source": 7,
       "target": 0,
       "type": "provides"
     },
     {
-      "target": 4,
+      "target": 7,
       "source": 1,
       "type": "requires"
     },
     {
-      "target": 4,
+      "target": 7,
       "source": 2,
+      "type": "requires"
+    },
+    {
+      "target": 7,
+      "source": 3,
+      "type": "requires"
+    },
+    {
+      "target": 7,
+      "source": 4,
       "type": "can_use"
     },
     {
-      "target": 4,
-      "source": 3,
+      "target": 7,
+      "source": 5,
+      "type": "can_use"
+    },
+    {
+      "target": 7,
+      "source": 6,
       "type": "can_use"
     }
   ],

@@ -2,6 +2,15 @@
   "graph": [],
   "nodes": [
     {
+      "size": 2,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "structure-db",
+      "name": "structure-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
@@ -14,8 +23,17 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "structure-db",
-      "name": "structure-db",
+      "id": "pan-db",
+      "name": "pan-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "genomes-storage-db",
+      "name": "genomes-storage-db",
       "provided_by_anvio": true,
       "type": "DB"
     },
@@ -29,7 +47,16 @@
       "type": "TXT"
     },
     {
-      "size": 3,
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "external-structures",
+      "name": "external-structures",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 7,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-update-structure-database",
@@ -39,18 +66,38 @@
   ],
   "links": [
     {
-      "target": 3,
+      "source": 6,
+      "target": 0,
+      "type": "provides"
+    },
+    {
+      "target": 6,
       "source": 0,
       "type": "requires"
     },
     {
-      "target": 3,
+      "target": 6,
       "source": 1,
       "type": "requires"
     },
     {
-      "target": 3,
+      "target": 6,
       "source": 2,
+      "type": "requires"
+    },
+    {
+      "target": 6,
+      "source": 3,
+      "type": "requires"
+    },
+    {
+      "target": 6,
+      "source": 4,
+      "type": "can_use"
+    },
+    {
+      "target": 6,
+      "source": 5,
       "type": "can_use"
     }
   ],

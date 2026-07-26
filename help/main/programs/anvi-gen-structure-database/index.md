@@ -10,7 +10,7 @@ image:
   display: true
 ---
 
-Creates a database of protein structures. Predict protein structures for genes in your contigs database using either template-based homology modelling (MODELLER) or AlphaFold2 (ColabFold), or import pre-computed PDB structures you already have..
+Creates a database of protein structures. Predict protein structures for the genes of a contigs database or a pangenome using either template-based homology modelling (MODELLER) or AlphaFold2 (ColabFold), or import pre-computed PDB structures you already have..
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,13 +31,13 @@ Creates a database of protein structures. Predict protein structures for genes i
 ## Requires
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
 
 
 ## Can use
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[pdb-db](../../artifacts/pdb-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genes-of-interest-txt](../../artifacts/genes-of-interest-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[pdb-db](../../artifacts/pdb-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genes-of-interest-txt](../../artifacts/genes-of-interest-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[external-structures](../../artifacts/external-structures) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Provides
@@ -159,6 +159,17 @@ anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[con
                             &#45;&#45;external&#45;structures <span class="artifact&#45;n">[external&#45;structures](/help/main/artifacts/external&#45;structures)</span> \
                             &#45;o STRUCTURE.db
 </div>
+
+You can also import structures for a pangenome, by pointing at a <span class="artifact-n">[pan-db](/help/main/artifacts/pan-db)</span> and its <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span> instead of a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>:
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;structure&#45;database &#45;&#45;pan&#45;db <span class="artifact&#45;n">[pan&#45;db](/help/main/artifacts/pan&#45;db)</span> \
+                            &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                            &#45;&#45;external&#45;structures <span class="artifact&#45;n">[external&#45;structures](/help/main/artifacts/external&#45;structures)</span> \
+                            &#45;o STRUCTURE.db
+</div>
+
+The <span class="artifact-n">[external-structures](/help/main/artifacts/external-structures)</span> file format differs slightly between the two (a pangenome file names the genome each gene comes from); see <span class="artifact-n">[external-structures](/help/main/artifacts/external-structures)</span> for both layouts.
 
 {:.notice}
 Please avoid using any MODELLER-specific parameters when using this mode, as they will be silently ignored.

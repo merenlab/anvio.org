@@ -23,7 +23,7 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-gen-structure-database](../../programs/anvi-gen-structure-database)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-gen-structure-database](../../programs/anvi-gen-structure-database)</span> <span class="artifact-p">[anvi-update-structure-database](../../programs/anvi-update-structure-database)</span></p>
 
 
 

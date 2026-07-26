@@ -22,7 +22,7 @@
         "latest_commit_date": "13 July 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 489,
+        "total_commits": 496,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 272
+            "2026": 279
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "new test for pangenome structure database",
-        "latest_commit_hash": "61dca3b6f7a88b48f0c1ac78588df1769479ae5b",
-        "latest_commit_date": "24 July 2026"
+        "latest_commit_message": "update docstring, drop unused attr, check empty ext struct",
+        "latest_commit_hash": "d73f7a1feda94d7f37862034d697284fcb90b18e",
+        "latest_commit_date": "25 July 2026"
     },
     "watsonar": {
         "total_commits": 10,

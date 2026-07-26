@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **25 Jul 26 06:14:33** for anvi'o version **9-dev (eunice)**.
+The help contents were last updated on **26 Jul 26 06:33:48** for anvi'o version **9-dev (eunice)**.
 
 
 {% include _project-anvio-version.html %}
@@ -1828,13 +1828,13 @@ Listed below **a total of 173 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-gen-structure-database](programs/anvi-gen-structure-database)**</span>. <span markdown="1">Creates a database of protein structures. Predict protein structures for genes in your contigs database using either template-based homology modelling (MODELLER) or AlphaFold2 (ColabFold), or import pre-computed PDB structures you already have.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-gen-structure-database](programs/anvi-gen-structure-database)**</span>. <span markdown="1">Creates a database of protein structures. Predict protein structures for the genes of a contigs database or a pangenome using either template-based homology modelling (MODELLER) or AlphaFold2 (ColabFold), or import pre-computed PDB structures you already have.</span>.
     </td>
 </tr>
 <tr>
     <td class="artifact-r-td">
     <span class="artifact-emoji">🧀</span>
-        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[pan-db](artifacts/pan-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[genomes-storage-db](artifacts/genomes-storage-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr>
@@ -4408,13 +4408,13 @@ Listed below **a total of 173 programs**.
 <tr>
     <td class="artifact-r-td">
     <span class="artifact-emoji">🧀</span>
-        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[structure-db](artifacts/structure-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[structure-db](artifacts/structure-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[pan-db](artifacts/pan-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[genomes-storage-db](artifacts/genomes-storage-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span>
-        <span class="artifact-p" markdown="1">n/a</span>
+        <span class="artifact-p" markdown="1">[structure-db](artifacts/structure-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr style="border:none;">
