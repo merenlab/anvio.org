@@ -54,6 +54,28 @@ When you run <span class="artifact-p">[anvi-estimate-scg-taxonomy](/help/main/pr
 
 This may sound confusing, but it is easier to understand when looking at the functionality of <span class="artifact-p">[anvi-estimate-scg-taxonomy](/help/main/programs/anvi-estimate-scg-taxonomy)</span> and the comprehensive examples given on [this page](http://merenlab.org/2019/10/08/anvio-scg-taxonomy/#estimating-taxonomy-in-the-terminal).
 
+## Tables are not the only way to look at this
+
+Every one of the scenarios above describes a table, where each row spells out the entire lineage of a single thing. That is a fine way to store these results, but not always the best way to make sense of them: when 30 of your hits belong to the same genus, that fact is spread across 30 nearly identical rows, and the composition of what you are looking at is nowhere to be seen.
+
+For those cases, both <span class="artifact-p">[anvi-estimate-scg-taxonomy](/help/main/programs/anvi-estimate-scg-taxonomy)</span> and <span class="artifact-p">[anvi-estimate-trna-taxonomy](/help/main/programs/anvi-estimate-trna-taxonomy)</span> accept the flag `--tree-output`, which displays the very same results as a hierarchical tree instead like a pro (but without any real phylogenetic order or meaning, obviously):
+
+```
+All Ribosomal_S11 copies (96)
+├── Bacteria (94)
+│   ├── Campylobacterota (36)
+│   │   └── Campylobacteria (36)
+│   │       └── Campylobacterales (36)
+│   ├── Desulfobacterota (16)
+(...)
+└── Archaea (2)
+    └── Halobacteriota (2)
+```
+
+The number next to each taxon is the number of things assigned to it *or to anything under it*, so the numbers of a node's children always add up to the number of the node itself. What is being counted is named at the root of the tree: copies of the single-copy core gene or anticodon that was surveyed in metagenome mode, bins if you provided a <span class="artifact-n">[collection](/help/main/artifacts/collection)</span>, and genomes otherwise. Anything that could not be resolved all the way down gets an explicit `Unknown_*` node rather than disappearing. If coverages were computed, each node will also report the total coverage of everything under it, summed across your samples.
+
+You can cap how deep the tree goes with `--tree-output-level` (which defaults to `t_genus`, and has nothing to do with `--taxonomic-level`). This flag only changes what is displayed in your terminal -- if you also ask for an output file, that file will still be a <span class="artifact-n">[genome-taxonomy-txt](/help/main/artifacts/genome-taxonomy-txt)</span>.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/genome-taxonomy.md) to update this information.

@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8112,
+        "total_commits": 8120,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 390
+            "2026": 398
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "jessika-fuessel from contributors to devs file",
-        "latest_commit_hash": "1057c1dd01899f4ef8123cdc88015a70a957a39d",
-        "latest_commit_date": "13 July 2026"
+        "latest_commit_message": "-=",
+        "latest_commit_hash": "b00dfb9760d36c8adb7a00d01850337a3b04b48e",
+        "latest_commit_date": "29 July 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 496,

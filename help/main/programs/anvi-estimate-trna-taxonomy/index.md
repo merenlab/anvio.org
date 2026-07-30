@@ -93,6 +93,37 @@ anvi&#45;estimate&#45;trna&#45;taxonomy &#45;c <span class="artifact&#45;n">[con
                            &#45;S GGT
 </div>
 
+Since each row of the resulting table spells out an entire lineage, it can be hard to tell what is actually in your metagenome when the same taxon shows up over and over again. If you would rather see the taxonomic composition itself, add the flag `--tree-output`:
+
+<div class="codeblock" markdown="1">
+anvi&#45;estimate&#45;trna&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                           &#45;&#45;metagenome&#45;mode \
+                           &#45;&#45;tree&#45;output
+</div>
+
+which will show you the very same results as a hierarchical tree, where the number next to each taxon is the number of tRNA genes that were assigned to it or to anything under it. Since metagenome mode surveys a single anticodon, the root of the tree names the one anvi'o ended up using:
+
+```
+All GGG copies (28)
+├── Bacteria (26)
+│   ├── Bacillota (14)
+│   │   └── Bacilli (14)
+│   │       └── Staphylococcales (14)
+│   └── Unknown_phyla (12)
+└── Archaea (2)
+```
+
+By default the tree does not go deeper than genus names. Use `--tree-output-level` if you want a different cutoff (note that this parameter has nothing to do with `--taxonomic-level`, and only influences the tree in your terminal):
+
+<div class="codeblock" markdown="1">
+anvi&#45;estimate&#45;trna&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                           &#45;&#45;metagenome&#45;mode \
+                           &#45;&#45;tree&#45;output \
+                           &#45;&#45;tree&#45;output&#45;level t_family
+</div>
+
+This flag only changes what is displayed -- any output file you ask for will contain the usual TAB-delimited table. And since the tree is the only thing this flag produces, anvi'o will not let you use it together with `--quiet` or `--as-markdown`.
+
 ### 3: Running on multiple metagenomes
 
 You can use this program to look at multiple metagenomes by providing a <span class="artifact-n">[metagenomes](/help/main/artifacts/metagenomes)</span> artifact. This is useful to get an overview of what kinds of taxa might be in your metagenomes, and what kinds of taxa they share.
