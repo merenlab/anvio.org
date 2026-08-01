@@ -70,8 +70,8 @@ You can run the program on a set of genomes for a given annotation source:
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;function&#45;matrix &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \
-                                               &#45;&#45;annotation&#45;source COG20_FUNCTION \
-                                               &#45;&#45;output&#45;file&#45;prefix MY&#45;GENOMES
+                         &#45;&#45;annotation&#45;source COG20_FUNCTION \
+                         &#45;&#45;output&#45;file&#45;prefix MY&#45;GENOMES
 </div>
 
 The command above will result in two files in your work directory, both of which will be of type <span class="artifact-n">[functions-across-genomes-txt](/help/main/artifacts/functions-across-genomes-txt)</span>:
@@ -90,9 +90,9 @@ If we want to get an idea of differences in functional capacity across different
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;function&#45;matrix &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \
-                                               &#45;&#45;annotation&#45;source COG20_FUNCTION \
-                                               &#45;&#45;output&#45;file&#45;prefix MY&#45;METAGENOMES \
-                                               &#45;&#45;add&#45;per&#45;population&#45;copy&#45;number
+                         &#45;&#45;annotation&#45;source COG20_FUNCTION \
+                         &#45;&#45;output&#45;file&#45;prefix MY&#45;METAGENOMES \
+                         &#45;&#45;add&#45;per&#45;population&#45;copy&#45;number
 </div>
 
 Adding the flag generates an additional output file of type <span class="artifact-n">[functions-across-genomes-txt](/help/main/artifacts/functions-across-genomes-txt)</span>:
@@ -109,9 +109,9 @@ Alternatively, you can run it with a <span class="artifact-n">[groups-txt](/help
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;function&#45;matrix &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/help/main/artifacts/internal&#45;genomes)</span> \
-                                               &#45;&#45;annotation&#45;source COG20_FUNCTION \
-                                               &#45;&#45;output&#45;file&#45;prefix MY&#45;GENOMES \
-                                               &#45;&#45;groups&#45;txt groups.txt
+                         &#45;&#45;annotation&#45;source COG20_FUNCTION \
+                         &#45;&#45;output&#45;file&#45;prefix MY&#45;GENOMES \
+                         &#45;&#45;groups&#45;txt groups.txt
 </div>
 
 which would generate an additional file in your work directory of type <span class="artifact-n">[functional-enrichment-txt](/help/main/artifacts/functional-enrichment-txt)</span>:

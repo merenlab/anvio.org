@@ -344,7 +344,7 @@
       "type": "TXT"
     },
     {
-      "size": 10,
+      "size": 11,
       "score": 1,
       "color": "#AA0000",
       "id": "genes-of-interest-txt",
@@ -1625,7 +1625,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 4,
+      "size": 5,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-export-contigs",
@@ -4960,6 +4960,11 @@
     },
     {
       "target": 176,
+      "source": 38,
+      "type": "can_use"
+    },
+    {
+      "target": 184,
       "source": 38,
       "type": "can_use"
     },

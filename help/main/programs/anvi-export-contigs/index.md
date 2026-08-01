@@ -35,6 +35,10 @@ Export contigs (or splits) from an anvi&#x27;o contigs database.
 
 
 
+## Can use
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[genes-of-interest-txt](../../artifacts/genes-of-interest-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+
 
 ## Provides
 
@@ -49,14 +53,14 @@ Export contigs (or splits) from an anvi&#x27;o contigs database.
 
 This program **exports the contig sequences from a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>**, outputting them as a <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span>. It also has the ability to output the sequences of your splits instead.
 
-You can run this program as follows:
+You can run this program as follows, which will return ALL contigs in a given <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> file:
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
                     &#45;o path/to/<span class="artifact&#45;n">[contigs&#45;fasta](/help/main/artifacts/contigs&#45;fasta)</span>
 </div>
 
-To run it on only a named subset of your contigs, you can provide a list of contigs as a separate file (in the same format as a <span class="artifact-n">[splits-txt](/help/main/artifacts/splits-txt)</span>). For example:
+You can also limit the contigs you may be interested in to a subset by providing the list of contig names you wish to export in a file. For example:
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -66,9 +70,29 @@ anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db]
 
 where `my_favorite_contigs.txt` looks like this:
 
-    contig_0001
-    contig_0005
-    contig_0035
+```
+contig_0001
+contig_0005
+contig_0035
+```
+
+Alternatively, you may be interested in contigs that include one or more *genes* you are interested. In that case you can use `--genes-of-interest` with a <span class="artifact-n">[genes-of-interest-txt](/help/main/artifacts/genes-of-interest-txt)</span>, and anvi'o will export only those contigs that contain at least one of the gene calls you listed:
+
+<div class="codeblock" markdown="1">
+anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                    &#45;o path/to/<span class="artifact&#45;n">[contigs&#45;fasta](/help/main/artifacts/contigs&#45;fasta)</span> \
+                    &#45;&#45;genes&#45;of&#45;interest my_favorite_genes.txt
+</div>
+
+where `my_favorite_genes.txt` looks like this:
+
+```
+5
+13
+206
+```
+
+Please note that `--contigs-of-interest` and `--genes-of-interest` are mutually exclusive: you can use one or the other in a given command, but not both at the same time.
 
 ### Splits mode
 
