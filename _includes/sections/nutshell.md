@@ -3,7 +3,7 @@ Anvi'o is a comprehensive platform that brings together many aspects of today's 
 {:.notice}
 The latest stable version of anvi'o is `v{% include _project-anvio-version-number.html %}`, and you can see the release notes [here](https://github.com/merenlab/anvio/releases/v{% include _project-anvio-version-number-major.html %}).
 
-The platform stands on **more than 200,000 lines of Python and JavaScript code** that follow modern software development paradigms thanks to the voluntary contributions of **more than [30 developers](/people)** from the academia and industry to [empower microbiologists](/testimonials/) for their [complex needs](https://github.com/merenlab/anvio/releases) through an architecture that [enables reproducible science](http://merenlab.org/2016/11/21/bacteroides-genome-variants/) and simple interfaces for data access.
+The platform stands on **more than 200,000 lines of Python and JavaScript code** that follow modern software development paradigms thanks to the voluntary work of **more than [60 developers and contributors](/people)** from the academia and industry to [empower microbiologists](/testimonials/) for their [complex needs](https://github.com/merenlab/anvio/releases) through an architecture that [enables reproducible science](http://merenlab.org/2016/11/21/bacteroides-genome-variants/) and simple interfaces for data access.
 
 As a principle, anvi'o does not track its users by any means, but based on [self-reported data on Twitter](https://twitter.com/merenbey/status/1218364014641786882), there is at least one anvi'o user in the following countries:
 
@@ -13,7 +13,7 @@ We **welcome you** to join in our growing international community, and we look f
 
 <hr />
 
-Want to see just a little more? [Here is a seminar](https://www.youtube.com/watch?v=P8I6hAq4dkM&t=1152s) given by {% include person/display_mini_single.html github="ivagljiva" %} to introduce anvi'o to [the Center for Dark Energy Biosphere Investigations](https://www.darkenergybiosphere.org/) (C-DEBI) by showcasing a few of the [anvi'o programs](/help/main/) and their applications (if you wish, you can also start from [an earlier timepoint](https://youtu.be/P8I6hAq4dkM?si=o5wOVfbbmUzyozi9&t=633) to this seminar to have a more comprehensive introduction to the platform).
+Want to see just a little more? [Here is an introduction video](https://www.youtube.com/watch?v=fExu_euHXwQ) given by {% include person/display_mini_single.html github="ivagljiva" %} that describes what anvi'o can do.
 
 ### Funding and Support
 
