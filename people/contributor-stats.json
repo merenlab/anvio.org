@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2375,
+        "total_commits": 2378,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 34
+            "2026": 37
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "add support for sample origin column in enzymes-txt so KOs can be directly mapped from different samples/genomes and, with groups-txt, in sample groups",
-        "latest_commit_hash": "14ed8f80ba9a219033eeaa7b585e211e81d456c4",
-        "latest_commit_date": "20 July 2026"
+        "latest_commit_message": "fix selection of genes by higher BRITE categories, which left the default CUB reference gene set empty",
+        "latest_commit_hash": "7bff3a50a2d99cca2e63745003c4471999345712",
+        "latest_commit_date": "11 August 2026"
     },
     "ahenoch": {
         "total_commits": 399,
