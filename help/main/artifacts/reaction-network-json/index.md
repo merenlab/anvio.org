@@ -35,6 +35,10 @@ There are no anvi'o tools that require this artifact directly, which means it is
 
 
 
+## Can be used by
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-draw-kegg-pathways](../../programs/anvi-draw-kegg-pathways)</span></p>
+
 
 ## Description
 

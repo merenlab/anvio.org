@@ -112,7 +112,6 @@ The resulting JSON file can be directly used by <span class="artifact-p">[anvi-d
 
 <div class="codeblock" markdown="1">
 anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;reaction&#45;network&#45;json /path/to/network.json \
-                        &#45;&#45;ko \
                         &#45;o output_maps/
 </div>
 

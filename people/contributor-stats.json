@@ -22,7 +22,7 @@
         "latest_commit_date": "10 August 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 496,
+        "total_commits": 499,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 279
+            "2026": 282
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "update docstring, drop unused attr, check empty ext struct",
-        "latest_commit_hash": "d73f7a1feda94d7f37862034d697284fcb90b18e",
-        "latest_commit_date": "25 July 2026"
+        "latest_commit_message": "rename the sra_download FASTQ output directory",
+        "latest_commit_hash": "bf5069cd5bbb39170c9abbb0471eb5658f87fe88",
+        "latest_commit_date": "12 August 2026"
     },
     "watsonar": {
         "total_commits": 10,
@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2378,
+        "total_commits": 2390,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 37
+            "2026": 49
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "fix selection of genes by higher BRITE categories, which left the default CUB reference gene set empty",
-        "latest_commit_hash": "7bff3a50a2d99cca2e63745003c4471999345712",
-        "latest_commit_date": "11 August 2026"
+        "latest_commit_message": "reject group map coloring options for database runs lacking group map output",
+        "latest_commit_hash": "87530978097d24845af13d92b02cc6801d3c10a1",
+        "latest_commit_date": "12 August 2026"
     },
     "ahenoch": {
         "total_commits": 399,

@@ -59,22 +59,40 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "reaction-network",
-      "name": "reaction-network",
+      "id": "reaction-network-json",
+      "name": "reaction-network-json",
       "provided_by_anvio": true,
-      "type": "CONCEPT"
+      "type": "JSON"
     },
     {
       "size": 1,
       "score": 1,
       "color": "#AA0000",
-      "id": "enzymes-txt",
-      "name": "enzymes-txt",
+      "id": "kegg-reaction-txt",
+      "name": "kegg-reaction-txt",
       "provided_by_anvio": false,
       "type": "TXT"
     },
     {
-      "size": 8,
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "kegg-compound-txt",
+      "name": "kegg-compound-txt",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "kegg-category-colors-txt",
+      "name": "kegg-category-colors-txt",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 10,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-draw-kegg-pathways",
@@ -84,43 +102,53 @@
   ],
   "links": [
     {
-      "source": 8,
+      "source": 10,
       "target": 0,
       "type": "provides"
     },
     {
-      "target": 8,
+      "target": 10,
       "source": 1,
       "type": "requires"
     },
     {
-      "target": 8,
+      "target": 10,
       "source": 2,
       "type": "can_use"
     },
     {
-      "target": 8,
+      "target": 10,
       "source": 3,
       "type": "can_use"
     },
     {
-      "target": 8,
+      "target": 10,
       "source": 4,
       "type": "can_use"
     },
     {
-      "target": 8,
+      "target": 10,
       "source": 5,
       "type": "can_use"
     },
     {
-      "target": 8,
+      "target": 10,
       "source": 6,
       "type": "can_use"
     },
     {
-      "target": 8,
+      "target": 10,
       "source": 7,
+      "type": "can_use"
+    },
+    {
+      "target": 10,
+      "source": 8,
+      "type": "can_use"
+    },
+    {
+      "target": 10,
+      "source": 9,
       "type": "can_use"
     }
   ],
