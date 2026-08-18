@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2390,
+        "total_commits": 2391,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 49
+            "2026": 50
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "reject group map coloring options for database runs lacking group map output",
-        "latest_commit_hash": "87530978097d24845af13d92b02cc6801d3c10a1",
-        "latest_commit_date": "12 August 2026"
+        "latest_commit_message": "limit, center, and separately color draw-kegg-pathways value scales",
+        "latest_commit_hash": "6f5cbd6b577ab0483840a1ee7f2ccc5394ef11bf",
+        "latest_commit_date": "17 August 2026"
     },
     "ahenoch": {
         "total_commits": 399,
