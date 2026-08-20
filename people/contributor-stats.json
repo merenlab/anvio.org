@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2394,
+        "total_commits": 2396,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 53
+            "2026": 55
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "hard link `anvi-draw-kegg-pathways` maps into a flat directory, renaming `symlink` to `all_maps`",
-        "latest_commit_hash": "408b08f6d979a42ada6f4166e912507e1d1ec192",
-        "latest_commit_date": "18 August 2026"
+        "latest_commit_message": "conform the KEGG mapping component tests to the other component tests",
+        "latest_commit_hash": "2b38db38fe563621372bf551071cd0016a1a5a9b",
+        "latest_commit_date": "19 August 2026"
     },
     "ahenoch": {
         "total_commits": 399,
