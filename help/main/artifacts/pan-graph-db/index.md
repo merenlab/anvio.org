@@ -31,7 +31,7 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 ## Required by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-display-pan-graph](../../programs/anvi-display-pan-graph)</span> <span class="artifact-r">[anvi-export-pan-subgraph](../../programs/anvi-export-pan-subgraph)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-display-pan-graph](../../programs/anvi-display-pan-graph)</span> <span class="artifact-r">[anvi-export-pan-subgraph](../../programs/anvi-export-pan-subgraph)</span> <span class="artifact-r">[anvi-script-gen-pan-graph-video](../../programs/anvi-script-gen-pan-graph-video)</span></p>
 
 
 

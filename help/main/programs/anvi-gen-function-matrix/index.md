@@ -57,47 +57,48 @@ A program to generate reports for the distribution of functions across genomes.
 ## Usage
 
 
-Generates TAB-delmited output files for <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> from a single function annotation source across genomes.
+Generates TAB-delmited output files for <span class="artifact-n">[functions](/help/main/artifacts/functions)</span> from a single function annotation source across all <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> files it receives.
 
 {:.notice}
-For a simlar program that reports HMM hits across genomes, see <span class="artifact-p">[anvi-gen-hmm-hits-matrix](/help/main/programs/anvi-gen-hmm-hits-matrix)</span>.
+For a simlar program that reports HMM hits instead, see <span class="artifact-p">[anvi-gen-hmm-hits-matrix](/help/main/programs/anvi-gen-hmm-hits-matrix)</span>.
 
-The input genomes for this program can be provided through an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>, <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span>, <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>, or any combination of these sources.
+The input genomes, metagenomes, or loci for this program can be provided through an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span>, <span class="artifact-n">[internal-genomes](/help/main/artifacts/internal-genomes)</span>, <span class="artifact-n">[genomes-storage-db](/help/main/artifacts/genomes-storage-db)</span>, or any combination of these sources.
 
-This program is very similar to <span class="artifact-p">[anvi-display-functions](/help/main/programs/anvi-display-functions)</span>, and can also perform a functional enrichment analysis on-the-fly if you provide it with an optional <span class="artifact-n">[groups-txt](/help/main/artifacts/groups-txt)</span> file. Unlike, <span class="artifact-p">[anvi-display-functions](/help/main/programs/anvi-display-functions)</span>, this program will report TAB-delmited output files for you to further analyze.
-
-You can run the program on a set of genomes for a given annotation source:
-
-<div class="codeblock" markdown="1">
-anvi&#45;gen&#45;function&#45;matrix &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \
-                         &#45;&#45;annotation&#45;source COG20_FUNCTION \
-                         &#45;&#45;output&#45;file&#45;prefix MY&#45;GENOMES
-</div>
-
-The command above will result in two files in your work directory, both of which will be of type <span class="artifact-n">[functions-across-genomes-txt](/help/main/artifacts/functions-across-genomes-txt)</span>:
-
-* MY-GENOMES-FREQUENCY.txt
-* MY-GENOMES-PRESENCE-ABSENCE.txt
-
-In each of these files, the first columns describe each function (a unique `key`, the function name, and optionally the function accession ids), and the remaining columns hold one value per genome.
+This program is very similar to <span class="artifact-p">[anvi-display-functions](/help/main/programs/anvi-display-functions)</span>, and can also perform a functional enrichment analysis on-the-fly if you provide it with an optional <span class="artifact-n">[groups-txt](/help/main/artifacts/groups-txt)</span> file. But unlike, <span class="artifact-p">[anvi-display-functions](/help/main/programs/anvi-display-functions)</span>, this program will report TAB-delmited output files for you to further analyze.
 
 {:.notice}
 You can always learn about which functions are in a given <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> using the program <span class="artifact-p">[anvi-db-info](/help/main/programs/anvi-db-info)</span>.
 
-## Per-population copy number normalization for metagenomic assemblies
-
-If we want to get an idea of differences in functional capacity across different metagenomic assemblies (or long-read sequence metagenomes) but, for some good reasons, we do not have MAGs from these assemblies, or we want to make sure that we make use of all the sequence data we have and not only those reads that are used to reconstruct genomes, we can't just look at the distribution of functions across genomes, because all functions and metabolic pathways will most likely occur nearly everywhere, at least in one population, and population numbers may differ dramatically across samples, and just counting the occurrence of a given function would not provide ecologically meaningful insights. To overcome this, Iva Veseli introduced the [per-population copy number](https://elifesciences.org/reviewed-preprints/89862) normalization. Based on the same principle, adding the flag `--add-per-population-copy-number` allows you to normalize individual functional annotations within a metagenomic assembly using the SCG-based estimate of population numbers within the sample.
+You can run the program on a set of <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> files with a specific source of function annotation:
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;function&#45;matrix &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \
-                         &#45;&#45;annotation&#45;source COG20_FUNCTION \
+                         &#45;&#45;annotation&#45;source <span class="artifact&#45;n">[functions](/help/main/artifacts/functions)</span> \
+                         &#45;&#45;output&#45;file&#45;prefix MY&#45;GENOMES
+</div>
+
+The command above will result in two files in your work directory (`MY-GENOMES-FREQUENCY.txt` and `MY-GENOMES-PRESENCE-ABSENCE.txt`) of type <span class="artifact-n">[functions-across-genomes-txt](/help/main/artifacts/functions-across-genomes-txt)</span>.
+
+In each of these files, the first few columns will describe functions (with a unique `key`, the full function name, and optionally the function accession ID), and the remaining columns will hold one value per genome.
+
+These files will report raw frequency and presence/absence of functions across <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> files that you can use for downstream analyses.
+
+## Per-population copy number normalization for metagenomic assemblies
+
+If you want to get an idea of differences in functional capacity across different metagenomic assemblies, but if you do not have MAGs from these assemblies or if you wish to make use of a larger fraction of the sequence data and not only only those reads that are used to reconstruct genomes, looking at the raw frequencies or raw presence/absence data becomes less effective for any downstream analysis as almost all functions and metabolic modules known will likely occur in at least in one population in a given metagenome. Although, normalizing the raw frequencies based on the estimated number of populations in a given environment would make such comparisons across metagenomes much more effective.
+
+Anvi'o includes a means to estimate the number of populations observed in a given assembly using single-copy core genes, which is used in <span class="artifact-p">[anvi-display-contigs-stats](/help/main/programs/anvi-display-contigs-stats)</span>, and Veseli et al. has previously demonstrated its utility by predicting [per-population copy number](https://doi.org/10.7554/eLife.89862) of metabolic modules observed across samples.
+
+<span class="artifact-p">[anvi-gen-function-matrix](/help/main/programs/anvi-gen-function-matrix)</span> makes the same principle accessible with for functions via the flag `--add-per-population-copy-number`, which produces an additional output file with normalized copy numbers of the frequency of functions across samples:
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;function&#45;matrix &#45;e <span class="artifact&#45;n">[external&#45;genomes](/help/main/artifacts/external&#45;genomes)</span> \
+                         &#45;&#45;annotation&#45;source <span class="artifact&#45;n">[functions](/help/main/artifacts/functions)</span> \
                          &#45;&#45;output&#45;file&#45;prefix MY&#45;METAGENOMES \
                          &#45;&#45;add&#45;per&#45;population&#45;copy&#45;number
 </div>
 
-Adding the flag generates an additional output file of type <span class="artifact-n">[functions-across-genomes-txt](/help/main/artifacts/functions-across-genomes-txt)</span>:
-
-* MY-METAGENOMES-PER-POPULATION-COPY-NUMBER.txt
+Adding the flag generates an additional output file, `MY-METAGENOMES-PER-POPULATION-COPY-NUMBER.txt`, of type <span class="artifact-n">[functions-across-genomes-txt](/help/main/artifacts/functions-across-genomes-txt)</span>.
 
 By dividing the frequency of each function in a given metagenomic assembly by the number of populations estimated to be present in that same assembly based on counts of single-copy core genes (SCGs) in each <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>: for each domain-specific SCG set, anvi'o takes the mode of the number of hits across all SCGs, and sums these per-domain estimates across Bacteria, Archaea, and Eukarya.
 
@@ -109,14 +110,12 @@ Alternatively, you can run it with a <span class="artifact-n">[groups-txt](/help
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;function&#45;matrix &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/help/main/artifacts/internal&#45;genomes)</span> \
-                         &#45;&#45;annotation&#45;source COG20_FUNCTION \
+                         &#45;&#45;annotation&#45;source <span class="artifact&#45;n">[functions](/help/main/artifacts/functions)</span> \
                          &#45;&#45;output&#45;file&#45;prefix MY&#45;GENOMES \
                          &#45;&#45;groups&#45;txt groups.txt
 </div>
 
-which would generate an additional file in your work directory of type <span class="artifact-n">[functional-enrichment-txt](/help/main/artifacts/functional-enrichment-txt)</span>:
-
-* MY-GENOMES-FUNCTIONAL-ENRICHMENT.txt
+which would generate an additional file in your work directory, `MY-GENOMES-FUNCTIONAL-ENRICHMENT.txt`, of type <span class="artifact-n">[functional-enrichment-txt](/help/main/artifacts/functional-enrichment-txt)</span>.
 
 
 {:.notice}

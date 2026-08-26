@@ -1,0 +1,31 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "pan-graph-db",
+      "name": "pan-graph-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-script-gen-pan-graph-video",
+      "name": "anvi-script-gen-pan-graph-video",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "target": 1,
+      "source": 0,
+      "type": "requires"
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

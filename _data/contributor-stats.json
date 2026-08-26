@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8151,
+        "total_commits": 8161,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 429
+            "2026": 439
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "genome tracks multi-edit update",
-        "latest_commit_hash": "9512161ce50d305831afd2e8bcc216d7c6e52d7d",
-        "latest_commit_date": "24 August 2026"
+        "latest_commit_message": "the anvi-script-gen-pan-graph-video",
+        "latest_commit_hash": "2a5ee1280a133f5af99eb1dc397d0800bb96a18c",
+        "latest_commit_date": "25 August 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 499,

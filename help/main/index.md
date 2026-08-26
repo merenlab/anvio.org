@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **25 Aug 26 04:17:27** for anvi'o version **9-dev (eunice)**.
+The help contents were last updated on **26 Aug 26 04:16:42** for anvi'o version **9-dev (eunice)**.
 
 
 {% include _project-anvio-version.html %}
@@ -138,7 +138,7 @@ Listed below **a total of 158 artifacts**.
 
 Anvi'o programs perform atomic tasks that can be weaved together to implement complete 'omics workflows. Please note that there may be programs that are not listed on this page. You can type 'anvi-' in your terminal, and press the TAB key twice to see the full list of programs available to you on your system, and type `anvi-program-name --help` to read the full list of command line options.
 
-Listed below **a total of 173 programs**.
+Listed below **a total of 174 programs**.
 
 
 <div style="width:100%;">
@@ -5419,6 +5419,36 @@ Listed below **a total of 173 programs**.
 <tr style="border:none;">
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ahenoch" target="_blank"><img class="anvio-person-photo-img-mini" title="Alexander Henoch" src="images/authors/ahenoch.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-gen-pan-graph-video](programs/anvi-script-gen-pan-graph-video)**</span>. <span markdown="1">Render an MP4 &#x27;growth&#x27; animation of a pangenome graph directly from a pan-graph-db by recomputing the graph&#x27;s layout for growing genome subsets through the same PangraphInteractive backend `anvi-display-pan-graph` uses.</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">[pan-graph-db](artifacts/pan-graph-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">n/a</span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/meren" target="_blank"><img class="anvio-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 
     </td>
 </tr>

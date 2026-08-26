@@ -326,7 +326,7 @@
       "type": "DISPLAY"
     },
     {
-      "size": 8,
+      "size": 9,
       "score": 0.5,
       "color": "#00AA00",
       "id": "pan-graph-db",
@@ -2762,6 +2762,14 @@
       "id": "anvi-script-gen-fasta-txt",
       "name": "anvi-script-gen-fasta-txt",
       "type": "PROGRAM"
+    },
+    {
+      "size": 1,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-script-gen-pan-graph-video",
+      "name": "anvi-script-gen-pan-graph-video",
+      "type": "PROGRAM"
     }
   ],
   "links": [
@@ -4949,6 +4957,11 @@
       "target": 291,
       "source": 36,
       "type": "can_use"
+    },
+    {
+      "target": 326,
+      "source": 36,
+      "type": "requires"
     },
     {
       "target": 179,
