@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **26 Aug 26 04:16:42** for anvi'o version **9-dev (eunice)**.
+The help contents were last updated on **27 Aug 26 06:06:20** for anvi'o version **9-dev (eunice)**.
 
 
 {% include _project-anvio-version.html %}
@@ -421,13 +421,13 @@ Listed below **a total of 174 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-compute-rarefaction-curves](programs/anvi-compute-rarefaction-curves)**</span>. <span markdown="1">A program that computes rarefaction curves and Heaps&#x27; Law fit for a given pangenome</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-compute-rarefaction-curves](programs/anvi-compute-rarefaction-curves)**</span>. <span markdown="1">A program that computes rarefaction curves and Heaps&#x27; Law fit for a given pangenome or pangenome graph</span>.
     </td>
 </tr>
 <tr>
     <td class="artifact-r-td">
     <span class="artifact-emoji">🧀</span>
-        <span class="artifact-r" markdown="1">[pan-db](artifacts/pan-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-r" markdown="1">n/a</span>
     </td>
 </tr>
 <tr>

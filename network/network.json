@@ -173,6 +173,15 @@
       "type": "SVG"
     },
     {
+      "size": 10,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "pan-graph-db",
+      "name": "PAN GRAPH",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
       "size": 5,
       "score": 0.5,
       "color": "#00AA00",
@@ -324,15 +333,6 @@
       "name": "GENE CLUSTER INSPECTION",
       "provided_by_anvio": true,
       "type": "DISPLAY"
-    },
-    {
-      "size": 9,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "pan-graph-db",
-      "name": "PAN GRAPH",
-      "provided_by_anvio": true,
-      "type": "DB"
     },
     {
       "size": 7,
@@ -1460,7 +1460,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 2,
+      "size": 3,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-compute-rarefaction-curves",
@@ -2941,7 +2941,7 @@
     {
       "target": 163,
       "source": 2,
-      "type": "requires"
+      "type": "can_use"
     },
     {
       "target": 165,
@@ -4464,87 +4464,107 @@
       "type": "provides"
     },
     {
-      "target": 164,
+      "target": 163,
+      "source": 19,
+      "type": "can_use"
+    },
+    {
+      "target": 178,
       "source": 19,
       "type": "requires"
     },
     {
-      "target": 236,
+      "target": 186,
+      "source": 19,
+      "type": "can_use"
+    },
+    {
+      "target": 195,
       "source": 19,
       "type": "requires"
     },
     {
-      "source": 241,
+      "target": 224,
+      "source": 19,
+      "type": "can_use"
+    },
+    {
+      "source": 246,
       "target": 19,
       "type": "provides"
     },
     {
-      "target": 247,
+      "target": 284,
       "source": 19,
+      "type": "can_use"
+    },
+    {
+      "target": 287,
+      "source": 19,
+      "type": "can_use"
+    },
+    {
+      "target": 291,
+      "source": 19,
+      "type": "can_use"
+    },
+    {
+      "target": 326,
+      "source": 19,
+      "type": "requires"
+    },
+    {
+      "target": 164,
+      "source": 20,
+      "type": "requires"
+    },
+    {
+      "target": 236,
+      "source": 20,
+      "type": "requires"
+    },
+    {
+      "source": 241,
+      "target": 20,
+      "type": "provides"
+    },
+    {
+      "target": 247,
+      "source": 20,
       "type": "requires"
     },
     {
       "target": 289,
-      "source": 19,
+      "source": 20,
       "type": "requires"
     },
     {
       "target": 165,
-      "source": 20,
+      "source": 21,
       "type": "can_use"
     },
     {
       "target": 179,
-      "source": 20,
+      "source": 21,
       "type": "requires"
     },
     {
       "target": 199,
-      "source": 20,
+      "source": 21,
       "type": "requires"
     },
     {
       "target": 201,
-      "source": 20,
+      "source": 21,
       "type": "can_use"
     },
     {
       "source": 209,
-      "target": 20,
-      "type": "provides"
-    },
-    {
-      "target": 211,
-      "source": 20,
-      "type": "can_use"
-    },
-    {
-      "target": 243,
-      "source": 20,
-      "type": "can_use"
-    },
-    {
-      "source": 292,
-      "target": 20,
-      "type": "provides"
-    },
-    {
-      "target": 292,
-      "source": 20,
-      "type": "requires"
-    },
-    {
-      "target": 165,
-      "source": 21,
-      "type": "can_use"
-    },
-    {
-      "source": 204,
       "target": 21,
       "type": "provides"
     },
     {
-      "target": 237,
+      "target": 211,
       "source": 21,
       "type": "can_use"
     },
@@ -4554,109 +4574,124 @@
       "type": "can_use"
     },
     {
-      "target": 272,
-      "source": 21,
-      "type": "can_use"
+      "source": 292,
+      "target": 21,
+      "type": "provides"
     },
     {
-      "target": 167,
-      "source": 22,
+      "target": 292,
+      "source": 21,
       "type": "requires"
     },
     {
-      "source": 225,
+      "target": 165,
+      "source": 22,
+      "type": "can_use"
+    },
+    {
+      "source": 204,
       "target": 22,
       "type": "provides"
     },
     {
-      "target": 286,
+      "target": 237,
       "source": 22,
       "type": "can_use"
     },
     {
-      "target": 169,
-      "source": 23,
+      "target": 243,
+      "source": 22,
       "type": "can_use"
     },
     {
-      "target": 206,
-      "source": 23,
+      "target": 272,
+      "source": 22,
       "type": "can_use"
     },
     {
-      "target": 219,
+      "target": 167,
       "source": 23,
       "type": "requires"
     },
     {
-      "source": 259,
+      "source": 225,
       "target": 23,
+      "type": "provides"
+    },
+    {
+      "target": 286,
+      "source": 23,
+      "type": "can_use"
+    },
+    {
+      "target": 169,
+      "source": 24,
+      "type": "can_use"
+    },
+    {
+      "target": 206,
+      "source": 24,
+      "type": "can_use"
+    },
+    {
+      "target": 219,
+      "source": 24,
+      "type": "requires"
+    },
+    {
+      "source": 259,
+      "target": 24,
       "type": "provides"
     },
     {
       "target": 265,
-      "source": 23,
+      "source": 24,
       "type": "can_use"
     },
     {
       "source": 268,
-      "target": 23,
+      "target": 24,
       "type": "provides"
     },
     {
       "source": 301,
-      "target": 23,
+      "target": 24,
       "type": "provides"
     },
     {
       "target": 301,
-      "source": 23,
+      "source": 24,
       "type": "can_use"
     },
     {
       "target": 313,
-      "source": 23,
+      "source": 24,
       "type": "can_use"
     },
     {
       "target": 170,
-      "source": 24,
+      "source": 25,
       "type": "can_use"
     },
     {
       "target": 194,
-      "source": 24,
+      "source": 25,
       "type": "can_use"
     },
     {
       "source": 218,
-      "target": 24,
+      "target": 25,
       "type": "can_provide"
-    },
-    {
-      "source": 229,
-      "target": 24,
-      "type": "provides"
-    },
-    {
-      "source": 272,
-      "target": 24,
-      "type": "can_provide"
-    },
-    {
-      "target": 170,
-      "source": 25,
-      "type": "can_use"
-    },
-    {
-      "target": 194,
-      "source": 25,
-      "type": "can_use"
     },
     {
       "source": 229,
       "target": 25,
       "type": "provides"
+    },
+    {
+      "source": 272,
+      "target": 25,
+      "type": "can_provide"
     },
     {
       "target": 170,
@@ -4689,279 +4724,249 @@
       "type": "provides"
     },
     {
-      "source": 260,
-      "target": 27,
-      "type": "provides"
-    },
-    {
-      "target": 171,
+      "target": 170,
       "source": 28,
       "type": "can_use"
     },
     {
-      "target": 198,
+      "target": 194,
       "source": 28,
       "type": "can_use"
     },
     {
-      "source": 231,
+      "source": 229,
       "target": 28,
       "type": "provides"
     },
     {
+      "source": 260,
+      "target": 28,
+      "type": "provides"
+    },
+    {
+      "target": 171,
+      "source": 29,
+      "type": "can_use"
+    },
+    {
+      "target": 198,
+      "source": 29,
+      "type": "can_use"
+    },
+    {
+      "source": 231,
+      "target": 29,
+      "type": "provides"
+    },
+    {
       "source": 172,
-      "target": 29,
-      "type": "provides"
-    },
-    {
-      "target": 172,
-      "source": 29,
-      "type": "requires"
-    },
-    {
-      "source": 254,
-      "target": 29,
-      "type": "provides"
-    },
-    {
-      "target": 263,
-      "source": 29,
-      "type": "can_use"
-    },
-    {
-      "target": 270,
-      "source": 29,
-      "type": "can_use"
-    },
-    {
-      "target": 297,
-      "source": 29,
-      "type": "requires"
-    },
-    {
-      "source": 303,
-      "target": 29,
-      "type": "provides"
-    },
-    {
-      "target": 303,
-      "source": 29,
-      "type": "requires"
-    },
-    {
-      "target": 309,
-      "source": 29,
-      "type": "requires"
-    },
-    {
-      "target": 321,
-      "source": 29,
-      "type": "requires"
-    },
-    {
-      "target": 325,
-      "source": 29,
-      "type": "requires"
-    },
-    {
-      "source": 173,
       "target": 30,
       "type": "provides"
     },
     {
+      "target": 172,
+      "source": 30,
+      "type": "requires"
+    },
+    {
+      "source": 254,
+      "target": 30,
+      "type": "provides"
+    },
+    {
+      "target": 263,
+      "source": 30,
+      "type": "can_use"
+    },
+    {
+      "target": 270,
+      "source": 30,
+      "type": "can_use"
+    },
+    {
+      "target": 297,
+      "source": 30,
+      "type": "requires"
+    },
+    {
+      "source": 303,
+      "target": 30,
+      "type": "provides"
+    },
+    {
+      "target": 303,
+      "source": 30,
+      "type": "requires"
+    },
+    {
+      "target": 309,
+      "source": 30,
+      "type": "requires"
+    },
+    {
+      "target": 321,
+      "source": 30,
+      "type": "requires"
+    },
+    {
+      "target": 325,
+      "source": 30,
+      "type": "requires"
+    },
+    {
       "source": 173,
       "target": 31,
       "type": "provides"
     },
     {
+      "source": 173,
+      "target": 32,
+      "type": "provides"
+    },
+    {
       "source": 174,
-      "target": 31,
+      "target": 32,
       "type": "provides"
     },
     {
       "source": 175,
-      "target": 31,
+      "target": 32,
       "type": "provides"
     },
     {
       "source": 176,
-      "target": 31,
+      "target": 32,
       "type": "provides"
     },
     {
       "source": 177,
-      "target": 31,
+      "target": 32,
       "type": "provides"
     },
     {
       "source": 178,
-      "target": 31,
+      "target": 32,
       "type": "provides"
     },
     {
       "source": 179,
-      "target": 31,
+      "target": 32,
       "type": "provides"
     },
     {
       "source": 235,
-      "target": 31,
+      "target": 32,
       "type": "provides"
     },
     {
       "source": 237,
-      "target": 31,
+      "target": 32,
       "type": "provides"
     },
     {
       "source": 296,
-      "target": 31,
+      "target": 32,
       "type": "provides"
     },
     {
       "source": 306,
-      "target": 31,
+      "target": 32,
       "type": "provides"
     },
     {
       "source": 322,
-      "target": 31,
+      "target": 32,
       "type": "provides"
     },
     {
       "source": 173,
-      "target": 32,
+      "target": 33,
       "type": "can_provide"
     },
     {
       "source": 174,
-      "target": 32,
+      "target": 33,
       "type": "can_provide"
     },
     {
       "source": 177,
-      "target": 32,
+      "target": 33,
       "type": "can_provide"
     },
     {
       "source": 178,
-      "target": 32,
+      "target": 33,
       "type": "can_provide"
     },
     {
       "source": 237,
-      "target": 32,
+      "target": 33,
       "type": "can_provide"
     },
     {
       "target": 176,
-      "source": 33,
+      "source": 34,
       "type": "requires"
     },
     {
       "target": 180,
-      "source": 33,
+      "source": 34,
       "type": "requires"
     },
     {
       "target": 182,
-      "source": 33,
+      "source": 34,
       "type": "requires"
     },
     {
       "target": 248,
-      "source": 33,
+      "source": 34,
       "type": "can_use"
     },
     {
       "target": 251,
-      "source": 33,
+      "source": 34,
       "type": "can_use"
     },
     {
       "target": 261,
-      "source": 33,
+      "source": 34,
       "type": "requires"
     },
     {
       "source": 275,
-      "target": 33,
-      "type": "provides"
-    },
-    {
-      "target": 315,
-      "source": 33,
-      "type": "requires"
-    },
-    {
-      "target": 176,
-      "source": 34,
-      "type": "requires"
-    },
-    {
-      "target": 182,
-      "source": 34,
-      "type": "requires"
-    },
-    {
-      "target": 251,
-      "source": 34,
-      "type": "requires"
-    },
-    {
-      "source": 261,
       "target": 34,
       "type": "provides"
     },
     {
-      "source": 177,
+      "target": 315,
+      "source": 34,
+      "type": "requires"
+    },
+    {
+      "target": 176,
+      "source": 35,
+      "type": "requires"
+    },
+    {
+      "target": 182,
+      "source": 35,
+      "type": "requires"
+    },
+    {
+      "target": 251,
+      "source": 35,
+      "type": "requires"
+    },
+    {
+      "source": 261,
       "target": 35,
-      "type": "can_provide"
-    },
-    {
-      "target": 178,
-      "source": 36,
-      "type": "requires"
-    },
-    {
-      "target": 186,
-      "source": 36,
-      "type": "can_use"
-    },
-    {
-      "target": 195,
-      "source": 36,
-      "type": "requires"
-    },
-    {
-      "target": 224,
-      "source": 36,
-      "type": "can_use"
-    },
-    {
-      "source": 246,
-      "target": 36,
       "type": "provides"
     },
     {
-      "target": 284,
-      "source": 36,
-      "type": "can_use"
-    },
-    {
-      "target": 287,
-      "source": 36,
-      "type": "can_use"
-    },
-    {
-      "target": 291,
-      "source": 36,
-      "type": "can_use"
-    },
-    {
-      "target": 326,
-      "source": 36,
-      "type": "requires"
+      "source": 177,
+      "target": 36,
+      "type": "can_provide"
     },
     {
       "target": 179,
