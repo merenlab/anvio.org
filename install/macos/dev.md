@@ -27,11 +27,35 @@ This page is for users who want to install the development version of anvi'o, `a
 
 {% include install/commons/conda_packages.md %}
 
-## (3) Generate a local copy of the anvi'o codebase
+## (3) Common problems
+
+{% include install/commons/known_issues.md %}
+
+### ClobberError with `libgfortran` and `gfortran`
+
+If your `conda install` command yields an error like this:
+
+```
+ClobberError: This transaction has incompatible packages due to a shared path
+  packages: conda-forge/noarch::libgfortran-devel_osx-64-14.4.0-h7e5c614_0, conda-forge/osx-64::gfortran_impl_osx-64-14.4.0-hd79ce19_0
+  path: 'lib/gcc/x86_64-apple-darwin13.4.0/14.4.0/include/ISO_Fortran_binding.h
+```
+
+It is happening because these two packages are trying to install a file with the same name, and conda doesn't like that. The way to fix it is to allow conda to overwrite the first file during the installation of the second package (they should be similar enough that either will work).
+
+First, make sure you start from a clean slate by running `conda deactivate`, going back up to the start of this installation page, and removing/remaking the environment. _Before_ you run the `conda install` command, run this command to allow overwriting files when they have to be installed at the same path:
+
+```bash
+conda config --env --set path_conflict warn
+```
+
+Then you can continue on with the `conda install` and later commands to finish the installation. The `ClobberError` should be converted into a `ClobberWarning` and the install command should finish successfully with a `done`.
+
+## (4) Generate a local copy of the anvi'o codebase
 
 {% include install/commons/dev/codebase.md %}
 
-## (4) Install anvi'o in development mode
+## (5) Install anvi'o in development mode
 
 Some packages may require to be installed with a more up to date C compiler on Mac OSX. Hence, please run the following commands first:
 
@@ -47,11 +71,11 @@ cd ~/github/anvio/
 pip install -e .
 ```
 
-## (5) Update conda activation script
+## (6) Update conda activation script
 
 {% include install/commons/dev/update_conda_activation_script.md %}
 
-## (6) Check your installation
+## (7) Check your installation
 
 {% include install/commons/check_installation.md %}
 
