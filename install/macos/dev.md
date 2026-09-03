@@ -27,11 +27,13 @@ This page is for users who want to install the development version of anvi'o, `a
 
 {% include install/commons/conda_packages.md %}
 
-## (3) Generate a local copy of the anvi'o codebase
+## (3) Install anvi'o within the environment
+
+### (3.1) Generate a local copy of the anvi'o codebase
 
 {% include install/commons/dev/codebase.md %}
 
-## (4) Install anvi'o in development mode
+## (3.2) Install anvi'o in development mode
 
 Some packages may require to be installed with a more up to date C compiler on Mac OSX. Hence, please run the following commands first:
 
@@ -47,7 +49,7 @@ cd ~/github/anvio/
 pip install -e .
 ```
 
-## (5) Common problems
+## (4) Common problems
 
 {% include install/commons/known_issues.md %}
 
@@ -71,11 +73,11 @@ conda config --env --set path_conflict warn
 
 Then you can continue on with the `conda install` and later commands to finish the installation. The `ClobberError` should be converted into a `ClobberWarning` and the install command should finish successfully with a `done`.
 
-## (6) Update conda activation script
+## (5) Update conda activation script
 
 {% include install/commons/dev/update_conda_activation_script.md %}
 
-## (7) Check your installation
+## (6) Check your installation
 
 {% include install/commons/check_installation.md %}
 

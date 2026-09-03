@@ -25,11 +25,13 @@ This page is for users who want to install the development version of anvi'o, `a
 {% include install/commons/dev/conda_setup.md %}
 {% include install/commons/conda_packages.md %}
 
-## (3) Generate a local copy of the anvi'o codebase
+## (3) Install anvi'o within the environment
+
+### (3.1) Generate a local copy of the anvi'o codebase
 
 {% include install/commons/dev/codebase.md %}
 
-## (4) Install anvi'o in development mode
+## (3.2) Install anvi'o in development mode
 
 ```bash
 cd ~/github/anvio/
@@ -39,15 +41,15 @@ pip install -e .
 {:.warning}
 You might see errors during the pip installation that include a line like `Building wheel for XXXXXX did not run successfully.` and also a line like `error: command 'gcc' failed: No such file or directory`. If this is the case, the problem is that your Linux installation does not include the GCC compiler. You can fix that by running the following commands to upgrade your system and install the compiler: `sudo apt update`, followed by `sudo apt full-upgrade`, and finally `sudo apt install gcc clang`. Once those are complete, please retry the `pip install` command.
 
-## (5) Common problems
+## (4) Common problems
 
 {% include install/commons/known_issues.md %}
 
-## (6) Update conda activation script
+## (5) Update conda activation script
 
 {% include install/commons/dev/update_conda_activation_script.md %}
 
-## (7) Check your installation
+## (6) Check your installation
 
 {% include install/commons/check_installation.md %}
 
