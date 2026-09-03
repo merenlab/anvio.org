@@ -50,6 +50,12 @@ $ ls
 AUXILIARY-DATA.db CONTIGS.db        data.txt          GENOMES.db        PAN.db            PROFILE_MANUAL.db PROFILE.db        tree.nwk
 ```
 
+Since anvi'o is regularly updated, there is a chance the databases in this datapack are older versions than what the current development version works with. Just in case, you can try migrating the databases to the latest version (don't worry, nothing will happen if they are not outdated):
+
+```bash
+anvi-migrate --migrate-safely *.db
+```
+
 ---
 
 ## The interactive interface at a glance
