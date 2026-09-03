@@ -20,13 +20,13 @@ This page describes the anvi'o installation process for the current stable relea
 {% include install/windows/things_you_need.md %}
 
 {:.warning}
-If the WSL installation fails with an error that looks like this: `WslRegisterDistribution failed with error: 0x80070032`. Then you could try the following solution: Open the Start menu and search for 'Turn Windows Features On or Off'. In the resulting pop-up box, click the checkboxes to activate "Windows Subsystem for Linux" and "Virtual Machine Platform". Then try the WSL installation again.
+If the WSL installation fails with an error that looks like this: `WslRegisterDistribution failed with error: 0x80070032`, then you could try the following solution: Open the Start menu and search for 'Turn Windows Features On or Off'. In the resulting pop-up box, click the checkboxes to activate "Windows Subsystem for Linux" and "Virtual Machine Platform". Then try the WSL installation again.
 
 ## (2) Set up conda
 
 {:.notice}
 Anvi'o will only run inside the WSL (Windows Subsystem for Linux, see above). If you prompt includes something like "C:\Users" you are inside the Windows Powershell (not WSL). From powershell type `wsl` to open your Linux subsystem.
-To ensure you are inside the WS, type `uname` (should print "Linux"). 
+To ensure you are inside the WSL, type `uname` (it should print "Linux"). 
 
 {% include install/commons/stable/conda_setup.md %}
 
