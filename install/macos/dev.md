@@ -33,7 +33,7 @@ This page is for users who want to install the development version of anvi'o, `a
 
 {% include install/commons/dev/codebase.md %}
 
-## (3.2) Install anvi'o in development mode
+### (3.2) Install anvi'o in development mode
 
 Some packages may require to be installed with a more up to date C compiler on Mac OSX. Hence, please run the following commands first:
 

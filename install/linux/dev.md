@@ -31,7 +31,7 @@ This page is for users who want to install the development version of anvi'o, `a
 
 {% include install/commons/dev/codebase.md %}
 
-## (3.2) Install anvi'o in development mode
+### (3.2) Install anvi'o in development mode
 
 ```bash
 cd ~/github/anvio/

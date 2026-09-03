@@ -35,7 +35,7 @@ Before going on, ensure you are inside the WSL, type `uname` (should print "Linu
 
 {% include install/commons/dev/codebase.md %}
 
-## (3.2) Install anvi'o in development mode
+### (3.2) Install anvi'o in development mode
 
 Now you can install anvi'o as a Python package in "editable" or "development" mode:
 
