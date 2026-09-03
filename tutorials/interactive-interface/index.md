@@ -67,7 +67,6 @@ Several anvi'o programs open an interactive display. The most commonly used are:
 - {% include PROGRAM name="anvi-inspect" %} — a nucleotide-level contig inspector.
 - {% include PROGRAM name="anvi-display-contigs-stats" %} — summary statistics for contigs databases.
 - {% include PROGRAM name="anvi-display-functions" %} — a browser for functional annotations.
-- {% include PROGRAM name="anvi-display-metabolism" %} — an interactive view of metabolism estimation data.
 - {% include PROGRAM name="anvi-display-structure" %} — a protein structure viewer.
 
 And a few others. This tutorial focuses on {% include PROGRAM name="anvi-interactive" %} and {% include PROGRAM name="anvi-display-pan" %}, but the concepts apply broadly.
