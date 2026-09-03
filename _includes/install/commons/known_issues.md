@@ -17,3 +17,15 @@ pip install matplotlib==3.5.1
 ```
 
 Or you can just switch to using FastANI instead. See [this Discord thread](https://discord.com/channels/1002537821212512296/1243341200694710363/1243341200694710363) for more context and details.
+
+### LinkError for SPAdes or Vmatch
+
+SPAdes and Vmatch are optional dependencies because they are only required for certain tasks and not everyone will need them. The reason we try to install these packages separately is that they each have a post-link script that runs during their conda installation which can sometimes fail (we've experienced it only on Mac systems so far). You may see an error like the following:
+
+```
+LinkError: post-link script failed for package bioconda::spades-4.3.0-hb11480c_1
+```
+
+The Vmatch error starts with a similar line which is followed by a lot of output from the post-link script.
+
+Unfortunately, we don't currently have a solution for these errors, but this section is here to tell you that you probably don't need to worry about it. SPAdes is only one of the assembler options that is part of the [metagenomics workflow](https://anvio.org/help/main/workflows/metagenomics/) -- if you want to use that workflow, you can either choose a different assembler, or if you specifically want to use SPAdes, then you can install it yourself in a separate conda environment and use it through that environment. Vmatch is only used in the tRNA-seq programs of anvi'o, specifically [`anvi-trnaseq`](https://anvio.org/help/main/programs/anvi-trnaseq/), so the likelihood that you will need it is pretty low (and if you are one of the few people working on tRNA-seq data, you are probably used to troubleshooting stuff).
