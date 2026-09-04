@@ -418,6 +418,23 @@ Here is what the tree looked like when I was done with it:
 
 It needs a bit more polishing in an SVG editor like [Inkscape](https://inkscape.org/) to be as pretty as Tom's figure, but is good enough for our purposes today.
 
+## What we've learned
+
+We've seen that anvi'o is not a software for _making_ phylogenomic trees, but can be a good tool for _preparing the input sequences_ used to make trees and for _visualizing_ them after they are made. To this end, we've learned:
+
+- how to select the 'right' genes for phylogenomics
+- how to extract the genes sequences into concatenated alignments ready for other phylogenomic software
+- how to get a quick'n'dirty tree using _FastTree_ without leaving the anvi'o ecosystem
+- how to visualize any Newick file using the manual mode of the interactive interface
+- how to root trees using outgroup and rotate branches in the interface
+- how to decorate tree visualizations with miscellaneous data associated to each leaf node
+
+In addition, here are a few takeaways from working with our _Trichodesmium_ dataset:
+- the phylogenomic tree arranges these genomes in the same way as our earlier pangenome display. Their functional content largely matches their evolutionary relationships.
+- _Trichodesmium_ is more closely-related to _Ca._ A. thalassa than to _P. marinus_ or SAR11
+- _Ca._ A. thalassa has a _NifH_ gene just like most of the other _Trichodesmium_ genomes
+- when results or visualizations look weird (i.e., the double root in our tree from IQ-Tree), it can be helpful to look through terminal outputs of previous steps for an explanation
+
 ## The next chapter
 
 If you want to immediately move on to the next chapter of this tutorial, here is the link:
