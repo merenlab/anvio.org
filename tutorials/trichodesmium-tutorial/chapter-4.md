@@ -466,12 +466,19 @@ I bet you are wondering how this map looks different across our _Trichodesmium_ 
 
 First, we will need to run {% include PROGRAM name="anvi-reaction-network" %} on all the other genomes. This program unfortunately doesn't accept an {% include ARTIFACT name="external-genomes" text="external genomes file" %} as input; however, we can reuse our BASH loop strategy from [chapter 1]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1/#working-with-multiple-genomes).
 
+**Exercise 2: Run anvi-reaction-network in a loop**
+Try making the loop yourself. If you need to check the answer, click the Show/Hide box below.
+
+<details markdown="1"><summary>Show/Hide  Answer to Exercise 2: how to run `anvi-reaction-network` on multiple genomes </summary>
+
 ```bash
 while read genome
 do
     anvi-reaction-network -c ../${genome}-contigs.db; \
 done < ../genomes.txt
 ```
+
+</details>
 
 Once that is done, we can run {% include PROGRAM name="anvi-draw-kegg-pathways" %} again, and this time we can provide an {% include ARTIFACT name="external-genomes" text="external genomes file" %}. We will also provide the `--draw-grid` flag so that we get maps showing the results from each individual genome (in addition to the default map showing the total annotations across all genomes). Since it would take a long time to draw every single Pathway Map for all 8 genomes, we will focus on a subset of maps as specified by the `--pathway-numbers` parameter -- the list below includes a couple of maps related to nitrogen metabolism, a few for photosynthesis and related metabolic capacities, and a map for metabolism of some amino acids.
 
