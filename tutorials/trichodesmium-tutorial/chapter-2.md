@@ -292,7 +292,7 @@ In addition, we've learned a bit more about our dataset:
 - that several genes for nitrogen fixation (_nif_) are part of the _T. erythraeum_ and _T. thiebautii_ accessory genomes (and not in _T. miru_ or _T. nobis_)
 - that organizing these _Trichodesmium_ genomes according to their functional similarity matches to their taxonomic organization, and their organization according to ANI
 
-We've so far analyzed nitrogen fixation in these genomes by looking at the distribution of specific genes or gene clusters. In a later chapter about metabolism, we'll generate quantitative estimates of _many_ metabolic capabilities at once using methods that consider multiple functionally-related genes as a cohesive unit. But before we get there, we'll consider these genomes in their evolutionary context using phylogenomics.
+We've so far analyzed nitrogen fixation in these genomes by looking at the distribution of specific genes or gene clusters. In a [later chapter]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-4) about metabolism, we'll generate quantitative estimates of _many_ metabolic capabilities at once using methods that consider multiple functionally-related genes as a cohesive unit. But before we get there, we'll consider these genomes in their evolutionary context using phylogenomics.
 
 ## The next chapter
 
