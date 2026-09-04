@@ -682,14 +682,19 @@ anvi-predict-metabolic-exchanges -c1 ../MAG_Trichodesmium_thiebautii_Atlantic-co
 
 This time, the number of predictions from the Pathway Map walk approach is a little bit smaller (122 predictions, compared to 128 from before). Some predictions likely went away because we excluded an additional Pathway Map. But the top-ranked results in the table above mostly didn't change, except for some of the reaction chains getting a bit longer.
 
-So now is the time to do some targeted searches through the rest of the file. You can look through the rest of the predictions using whatever strategy you think is best. I would recommend focusing on our first set of output files (the ones made without considering gaps), as those are more stringent and seem to be more reliable predictions overall.
+**Exercise 3: what predictions in the output look reasonable or interesting?**
+So now is the time to do some targeted searches through the rest of the file. You can look through the rest of the predictions using whatever strategy you think is best. I would recommend focusing on our first set of output files (the ones made without considering gaps), as those are more stringent and seem to be more reliable predictions overall. Once you have an answer, feel free to check some of the examples I noticed in the Show/Hide box below.
 
 {:.notice}
 Confused by the ModelSEED compound names? You are not a biochemist and are overwhelmed with all this molecular information? Us, too. One option for you is to take the output, pick out the predictions that you have high-confidence in, and give that list to a large-language model (LLM) so it can pick out the ones that are likely to be biologically-relevant in your system. Then you can focus your efforts on carefully validating those predictions.
 
+<details markdown="1"><summary>Show/Hide  (Partial) Answer to Exercise 3: predicted exchanges between these genomes </summary>
+
 Here are some of the interesting predictions that I found:
 - Nitrate (cpd00209), produced by *A. macleodii* and consumed by *T. thiebautii*. You might remember from our earlier exploration of Pathway Map 00910 that *T. thiebautii* has the enzymes to import extracellular nitrate and convert it to nitrite. Perhaps some of that exterior nitrate is coming from its associated bacteria.
 - Thymine (cpd00151) or Thymidine (cpd00184), produced by *T. thiebautii* and consumed by *A. macleodii*. These are part of 'T' nucleotides and are needed by both organisms. Other marine microbes are known to exchange nucleotide components, so perhaps these do, too.
+
+</details>
 
 #### Analyzing multiple pairs of genomes
 When we are working with a whole consortium of microbes, we can ask {% include PROGRAM name="anvi-predict-metabolic-exchanges" %} to process all genomes by providing an {% include ARTIFACT name="external-genomes" text="external genomes file" %}. If you don't do anything else, the program will process all possible pairs of genomes. But you can also provide a {% include ARTIFACT name="genome-pairs" %} file to specify which pairwise comparisons it should do.
