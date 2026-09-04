@@ -158,7 +158,13 @@ From there you can learn about its functional annotations, if any. You can also 
 
 ### Bin and summarize a pangenome
 
-Looking at individual genes clusters is great, but not very practical to summarize a large selection of gene clusters. Fortunately for you, you can select gene clusters in the main interface and create {% include ARTIFACT name="bin" text="'bins'" %} which you can meaningfully rename. In the next screenshot, I have selected the core genome, the near core, the accessory genome of *Trichodesmium erythraeum* and *Trichodesmium thiebautii*, and all the singleton gene clusters.
+Looking at individual genes clusters is great, but not very practical to summarize a large selection of gene clusters. Fortunately for you, you can select gene clusters in the main interface and create {% include ARTIFACT name="bin" text="'bins'" %} which you can meaningfully rename.
+
+{:.notice}
+**Exercise: Try binning some gene clusters!**
+Before you scroll down on this webpage, try to bin some gene clusters yourself. Focus on binning GCs that are meaningful in pangenomics, such as the core genome (shared by all _Trichodesmium_ genomes), accessory genomes of different _Trichodesmium_ species, or singletons. Afterwards, you can cross-check what you did with my bins below.
+
+In the next screenshot, I have selected the core genome, the near core, the accessory genome of *Trichodesmium erythraeum* and *Trichodesmium thiebautii*, and all the singleton gene clusters.
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_08.png" width=80 %}
 
