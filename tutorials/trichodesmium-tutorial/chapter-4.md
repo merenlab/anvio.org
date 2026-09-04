@@ -738,9 +738,19 @@ Notice that here we set the number of processes (`-P`) to 2, so that two genome 
 
 When the program finishes, you will get similar output files as before, except that multiple pairs of genomes will be included in the results. The predictions include many of the same exchanges that we saw between *T. thiebautii* and *A. macleodii* before, like 'BIOT', nitrate, and thymine. So it seems like the bacterial associates have similar interactions with their cyanobacterial partner.
 
-### Metabolic conclusions
+### What we've learned
 
-We've now used several different strategies to investigate the metabolism of our _Trichodesmium_ genomes and their bacterial associates. We've once again recapitulated the lack of nitrogen fixation in *T. miru* and *T. nobis*, and we've tried some very new programs for visualizing KEGG Pathway Maps and for predicting metabolic interactions.
+We've now used several different strategies to investigate the metabolism of our _Trichodesmium_ genomes and their bacterial associates. We've once again recapitulated the lack of nitrogen fixation in *T. miru* and *T. nobis*, and we've tried some very new programs for visualizing KEGG Pathway Maps and for predicting metabolic interactions. Here are some of the specific things we've learned:
+- why pathwise and stepwise completeness scores can sometimes be extremely different
+- how to make nice heatmaps using the manual mode of the interactive interface (and clustering)
+- that the incompleteness of the _T. thiebautii_ H9 genome is reflected in its predicted metabolic capacity
+- that _T. miru_ and _T. nobis_ have similar metabolic capacities distinct from the other genomes, which does _not_ include nitrogen fixation or Lactosylceramide biosynthesis
+- that instead, _T. miru_ and _T. nobis_ have multiple copies of nitrogen uptake transporters to help them acquire the nitrogen they need
+- that running certain anvi'o programs (like `anvi-estimate-metabolism`) on individual genomes, or running them with the `--debug` flag, is a good way to get more terminal output that could explain weird results
+- how to use KEGG Pathway Maps to visually compare metabolic capacity
+- that _T. miru_ and _T. nobis_ are the only genomes that can catalyze a reaction from threonine to 2-oxobutanoate
+- that our Atlantic _T. thiebautii_ MAG could be cross-feeding biotin (among other things) to its bacterial associates, while those associates may be exchanging nitrate and thymine in return
+- but that annotation gaps (especially at the ends of reaction chains) can confuse predictions for metabolic exchanges, requiring extra verification (with the help of Pathway Map visualizations!)
 
 Don't forget to go back to the parent directory before you move on to the next tutorial section:
 ```bash
