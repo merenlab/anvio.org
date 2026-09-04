@@ -38,6 +38,14 @@ anvi-estimate-scg-taxonomy -e external-genomes.txt -o taxonomy_multi_genomes.txt
 
 Pangenomics represents a set of computational strategies to compare and study the relationship between a set of genomes through gene clusters. For a more comprehensive introduction into the subject, [see this video.](https://youtu.be/nyv7Xr07LCY)
 
+In this tutorial, we will learn how to:
+- generate a pangenome from multiple genomes (that have already been turned into {% include ARTIFACT name="contigs-db" text="contigs databases" %})
+- use the anvi'o interactive interface to study the pangenome, including by:
+  - looking at gene cluster sequence alignments and functional annotations
+  - binning and summarizing groups of gene clusters
+  - searching for functions of interest
+- enhance the pangenome display with additional information about our input genomes
+
 Since the core concept of pangenomics is to compare genomes based on their gene content, it is important to know which genomes you plan you to use. Pangenomics is typically used with somewhat closely related organisms, at the species, genus, or sometimes family level. It is also valuable to check the estimated completeness and overall quality of the genomes you want to include in your pangenome analysis.
 
 Low completeness genomes are likely missing some portion of their gene content. For that reason, we will include 7 out of the 8 *Trichodesmium* genomes to compute a pangenome. We won't use the *Trichodesmium thiebautii* H9_4 because of its low estimated completeness and overall smaller genome size.
@@ -268,6 +276,20 @@ At the end of the day, you can have a figure like this one, with ecology and evo
 </div>
 
 But that analysis is for another time.
+
+## What we've learned
+
+Beyond the essentials of making and working with pangenomes in anvi'o, we've learned a few more generalizable anvi'o tricks:
+
+- how to use {% include ARTIFACT name="state" text="states" %} to save interface settings for easy recall between interface sessions
+- how to bin groups of 'items' (in this case, gene clusters) and save them as {% include ARTIFACT name="collection" text="collections" %} so we can analyze them collectively
+
+In addition, we've learned a bit more about our dataset:
+
+- that several genes for nitrogen fixation (_nif_) are part of the _T. erythraeum_ and _T. thiebautii_ accessory genomes (and not in _T. miru_ or _T. nobis_)
+- that organizing these _Trichodesmium_ genomes according to their functional similarity matches to their taxonomic organization, and their organization according to ANI
+
+We've so far analyzed nitrogen fixation in these genomes by looking at the distribution of specific genes or gene clusters. In the next chapter, we'll generate quantitative estimates of _many_ metabolic capabilities at once using methods that consider multiple functionally-related genes as a cohesive unit.
 
 ## The next chapter
 
