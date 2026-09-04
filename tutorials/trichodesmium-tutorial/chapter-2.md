@@ -160,13 +160,16 @@ From there you can learn about its functional annotations, if any. You can also 
 
 Looking at individual genes clusters is great, but not very practical to summarize a large selection of gene clusters. Fortunately for you, you can select gene clusters in the main interface and create {% include ARTIFACT name="bin" text="'bins'" %} which you can meaningfully rename.
 
-{:.notice}
-**Exercise: Try binning some gene clusters!**
-Before you scroll down on this webpage, try to bin some gene clusters yourself. Focus on binning GCs that are meaningful in pangenomics, such as the core genome (shared by all _Trichodesmium_ genomes), accessory genomes of different _Trichodesmium_ species, or singletons. Afterwards, you can cross-check what you did with my bins below.
+**Exercise 1: Try binning some gene clusters!**
+Try to bin some gene clusters yourself. Focus on binning GCs that are meaningful in pangenomics, such as the core genome (shared by all _Trichodesmium_ genomes), accessory genomes of different _Trichodesmium_ species, or singletons. Afterwards, you can cross-check what you did by clicking the Show/Hide box below to see the screenshot of my binning efforts.
+
+<details markdown="1"><summary>Show/Hide  Answer to Exercise 1: my example gene cluster bins </summary>
 
 In the next screenshot, I have selected the core genome, the near core, the accessory genome of *Trichodesmium erythraeum* and *Trichodesmium thiebautii*, and all the singleton gene clusters.
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_08.png" width=80 %}
+
+</details>
 
 Once you are happy with your bins, don't forget to save them into a {% include ARTIFACT name="collection" %}. Just like the 'state' saves the current settings for the figure, the 'collection' stores your selection of items, here gene clusters. You can save as many collections as you want, and the collection called `default` will always appear when you start the interactive interface with {% include PROGRAM name="anvi-display-pan" %}.
 
