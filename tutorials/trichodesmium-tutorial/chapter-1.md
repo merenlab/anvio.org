@@ -73,7 +73,19 @@ Config Error: At least one of the deflines in your FASTA File does not comply wi
               look-at-your-fasta-file
 ```
 
-We can use {% include PROGRAM name="anvi-script-reformat-fasta" %} to simplify the FASTA's headers with the flag `--simplify-names`. This command can (optionally) generate a summary report, which is a two column file matching the new and old names of each sequence in the FASTA file. While we are using this command, we can use it to include a specific prefix in the renamed headers with the flag `--prefix` and filter out short contigs (in this example, smaller than 500 bp) with the flag `-l`.
+We can use {% include PROGRAM name="anvi-script-reformat-fasta" %} to simplify the FASTA's headers, as well as to run a number of other sanity checks and filters on our input data. But what flag(s) should we use to achieve this?
+
+**Exercise 1: build your `anvi-script-reformat-fasta` command**
+Take a look at the options for this program by either checking its online [help page](https://anvio.org/help/main/programs/anvi-script-reformat-fasta/), or by running `anvi-script-reformat-fasta --h` in the terminal. Pick out the flags that you will need and put them together into a command to process our downloaded FASTA file into a new FASTA file called `Trichodesmium_sp.fa`. Once you are ready, click on the Show/Hide box below to see the answer.
+
+<details markdown="1"><summary>Show/Hide  Answer to Exercise 1: how to run `anvi-script-reformat-fasta` </summary>
+
+ Here is our `anvi-script-reformat-fasta` command. It uses the flag `--simplify-names` to change the contig headers into a friendlier set of alphanumeric characters. While this flag is the minimum to get anvi'o working on our FASTA file, we've also added a number of other useful flags:
+ 
+ - with `-r`, we've generated an (optional) reformat report, which is a two column file matching the new and old names of each sequence in the FASTA file to make the change traceable/reversable
+ - we've asked for a specific prefix in the renamed headers with the flag `--prefix` to identify which genome these sequences come from
+ - with `-l`, we've filtered out short contigs (in this example, smaller than 500 bp)
+
 ```bash
 anvi-script-reformat-fasta GCA_023356555.1_ASM2335655v1_genomic.fna \
                            -o Trichodesmium_sp.fa \
@@ -83,6 +95,8 @@ anvi-script-reformat-fasta GCA_023356555.1_ASM2335655v1_genomic.fna \
                            -l 500 \
                            --seq-type NT
 ```
+
+</details>
 
 {:.notice}
 You can use this command to further filter your FASTA file: check the options with the online [help page](https://anvio.org/help/main/), or by using the flag `--help` in the terminal.
@@ -550,10 +564,29 @@ To avoid too much manual labor, we'll use BASH loops to automate the process. Th
 ls 00_DATA/fasta | cut -d "." -f1 > genomes.txt
 ```
 
-The second thing to do is to make sure our FASTA files are properly formatted. Fortunately for you, we provided genomes with anvi'o compatible headers. If you don't believe me (and you should never believe me, and always check your data), then have a look at them.
+Here is an example BASH loop that uses this file to print out the name of each genome, one after another:
 
-The next step is to generate {% include ARTIFACT name="contigs-db" %} for each of our genomes with the following BASH loop:
+```bash
+while read genome
+do
+    echo $genome
+done < genomes.txt
+```
 
+In case you have never learned about BASH loops before, here is a little breakdown:
+- the `while read` command tells your terminal to read an input file line-by-line
+- in this case, the input file is provided by the last line of the loop, where the `<` character redirects the contents of `genomes.txt` to be the loop input
+- the word `genome` in the loop header has been turned into a BASH variable that will store each line of the file, one at a time
+- the current value stored in any BASH variable is accessed by prefixing the variable name with a `$` character; in this case, `$genome`
+- in each iteration of the loop, it reads the next line of the file, assigns that line to the `genome` variable, and then uses the `echo` command to print it out
+You can change what happens in each iteration of the loop by modifying or adding lines between `do` and `done`.
+
+Now that we have the file of genome names, the second thing to do is to make sure our FASTA files are properly formatted. Fortunately for you, we provided genomes with anvi'o compatible headers. If you don't believe me (and you should never believe me, and always check your data), then have a look at them.
+
+**Exercise 2: Convert all genome FASTA files into anvi'o contigs databases**
+The next step is to generate {% include ARTIFACT name="contigs-db" text="contigs databases" %} for each of our genomes. Can you figure out how to adapt the example BASH loop above to do this? Try it yourself, then check the answer in the Show/Hide box below.
+
+<details markdown="1"><summary>Show/Hide  Answer to Exercise 2: how to run `anvi-gen-contigs-database` in a loop </summary>
 ```bash
 while read genome
 do
@@ -562,6 +595,8 @@ do
                               -T 4
 done < genomes.txt
 ```
+
+</details>
 
 Now we can annotate these genomes with {% include PROGRAM name="anvi-run-hmms" %}, {% include PROGRAM name="anvi-run-ncbi-cogs" %}, {% include PROGRAM name="anvi-run-kegg-kofams" %}, and {% include PROGRAM name="anvi-run-pfams" %}. Some of those annotation commands can take a while, so if you don't want to wait, click the Show/Hide box below to instead get the already-annotated contigs databases from the datapack:
 
