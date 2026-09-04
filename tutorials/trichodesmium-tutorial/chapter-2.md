@@ -92,6 +92,9 @@ anvi-pan-genome -g 01_PANGENOME/Trichodesmium-GENOMES.db \
 
 Under the hood, {% include PROGRAM name="anvi-pan-genome" %} uses [DIAMOND](https://www.wsi.uni-tuebingen.de/lehrstuehle/algorithms-in-bioinformatics/software/diamond/) (or BLASTp if you choose the alternative) to compute the similarity between amino acid sequences from every genomes. From this all-vs-all search, it will use the [MCL](https://micans.org/mcl/) algorithm to cluster the genes into groups of relatively high similarity. The {% include ARTIFACT name="pan-db" %} stores the gene cluster information.
 
+{:.notice}
+If you use `-h` to take a look at the help page for `anvi-pan-genome`, you might notice that there are lots of parameters you can tweak to adjust how the pangenome is calculated. For a nice explanation of these parameters and their practical effects, check out [this section of a much-earler pangenomics tutorial](https://merenlab.org/blog/pangenomics-v2/#running-a-pangenome-analysis).
+
 ### Interactive pangenomics display
 
 Now that we have a {% include ARTIFACT name="genomes-storage-db" %} and a {% include ARTIFACT name="pan-db" %}, we can use the command {% include PROGRAM name="anvi-display-pan" %} to start an interactive interface of our pangenome:
