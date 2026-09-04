@@ -282,19 +282,10 @@ anvi-estimate-metabolism -e external-genomes.txt \
             -O nitrogen_metabolism
 ```
 
-Take a look at the output (`nitrogen_metabolism_modules.txt`). What do you notice?
+**Exercise 1: interpret the output for custom modules**
+Take a look at the output (`nitrogen_metabolism_modules.txt`). What do you notice? To help you make sense of the output, it might be helpful to create heatmaps, following the same strategy we used above, for both the pathway completeness scores and the per-step copy numbers. Try it yourself first, but if you need help, you can click on the Show/Hide box below.
 
-For convenience, I'll also show the heatmap of pathway completeness scores and the heatmap of per-step copy numbers:
-
-<div style="display: flex; gap: 10px;">
-  {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_04.png" width=100 %}
-  {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_05.png" width=100 %}
-</div>
-
-{:.notice}
-In these visualizations, we've adjusted the min/max values to better show the different values. The completeness score heatmap has a minimum of 0.25 (so any completeness value below that appears white) and the normal maximum of 1.0. The copy number heatmap has the normal minimum of 0 and a maximum of 10 (so any copy number above 10 appears black) -- there are some steps that have way more than 10 copies, which makes the typical range of 0-2 copies extremely difficult to see on the heatmap unless we cap the value.
-
-<details markdown="1"><summary>Show/Hide Commands to generate the heatmaps</summary>
+<details markdown="1"><summary>Show/Hide Exercise 1: Commands to generate the heatmaps</summary>
 
 Just like before, if you want a heatmap, you'll have to generate the output in matrix format:
 
@@ -370,6 +361,16 @@ anvi-interactive -d nitrogen_metabolism-step_copy_number-MATRIX.txt \
 ```
 
 </details>
+
+Here is what I came up with for the heatmap of pathway completeness scores and the heatmap of per-step copy numbers:
+
+<div style="display: flex; gap: 10px;">
+  {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_04.png" width=100 %}
+  {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_05.png" width=100 %}
+</div>
+
+{:.notice}
+In these visualizations, we've adjusted the min/max values to better show the different values. The completeness score heatmap has a minimum of 0.25 (so any completeness value below that appears white) and the normal maximum of 1.0. The copy number heatmap has the normal minimum of 0 and a maximum of 10 (so any copy number above 10 appears black) -- there are some steps that have way more than 10 copies, which makes the typical range of 0-2 copies extremely difficult to see on the heatmap unless we cap the value.
 
 Here are some of my observations:
 - As we expected, *T. miru* and *T. nobis* only have the `NIF004` (Nitrogen uptake) module complete.
