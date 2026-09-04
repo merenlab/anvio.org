@@ -40,6 +40,14 @@ Looking at individual gene functions is undisputably useful for understanding th
 
 This section of the tutorial covers **metabolism reconstruction**, a strategy for summarizing all the metabolic capacities of a given organism (or community) by examining functional annotations in their metabolic context. To do this, one can either aggregate the genes related to multiple individual metabolic pathways to evaluate the organism's capacity to do specific, ecologically-relevant things ("pathway prediction") or use all annotated enzymes to create the entire network of chemical reactions that the organism can catalyze ("metabolic modeling").
 
+We will learn how to do both of these things (kind-of), including:
+- how to estimate completeness scores and copy numbers of metabolic modules
+- how to visualize these scores in heatmaps using the interactive interface
+- how to create custom metabolic modules to supplement or replace those from the KEGG MODULE database
+- how to generate reaction networks (which can be used for metabolic modeling _outside_ of anvi'o)
+- how to use reaction networks to visualize metabolic capacity in KEGG Pathway Maps (for one or more genomes)
+- how to use reaction networks to predict which metabolic compounds could potentially be exchanged between pairs of organisms
+
 To keep things organized, we'll make a new subdirectory for ourselves in which we can work. We'll copy the external genomes file in here for convenience.
 
 ```bash
