@@ -772,6 +772,19 @@ If you have multiple metagenomes, you can use the flag `--matrix` to get an outp
 
 </div>
 
+## What we've learned
+
+In addition to learning about {% include ARTIFACT name="contigs-db" text="contigs databases" %} and how to do basic bioinformatic tasks with individual genome and metagenome assemblies in anvi'o (gene-calling, functional annotation, taxonomy estimation), we've also learned:
+
+- that the _Trichodesmium sp._ MAG_R01 genome obtained from the Red Sea is actually a _T. erythreum_ genome
+- that the NifH gene is not always well-annotated with some functional annotation sources
+- that the _Trichodesmium thiebautii_ H9 MAG is rather incomplete
+- how to use BASH loops to run repetitive tasks on different inputs
+- that you can use single-copy core genes to estimate how many microbial populations are present in a metagenomic assembly
+
+Some of these points may come up again in later chapters of this tutorial. :)
+
+
 ## The next chapter
 
 If you want to immediately move on to the next chapter of this tutorial, here is the link:
