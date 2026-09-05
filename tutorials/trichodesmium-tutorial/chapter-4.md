@@ -630,7 +630,7 @@ There are also a few unexpected predictions that look interesting: *A. macleodii
 <details markdown="1"><summary>Show/Hide How to get this table</summary>
 
 To get the two rows of information shown above, you can search for L-Tryptophan's compound ID, followed by a search for the Pathway Map 00400:
-```
+```bash
 grep cpd00065 thiebautii-vs-macleodii-evidence.txt | grep 00400
 ```
 
