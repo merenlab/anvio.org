@@ -419,9 +419,96 @@ If something goes wrong (or weird) while using anvi'o, you may want to try re-ru
 
 If you found this section useful and you want to make your own custom metabolic modules, check out this guide on the {% include ARTIFACT name="user-modules-data" %} help page.
 
+### Analyzing metagenomes with per-population copy numbers
+
+{:.notice}
+This section of the tutorial only works for `anvio-dev` users as it relies on recently-added flags.
+
+We're going to take a quick break from our _Trichodesmium_ genomes to learn how we can estimate metabolic capacity at the metagenome level. You might recall from Chapter 1 ([this section]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1/#working-with-one-or-more-metagenomes) that we briefly looked at a mock metagenome containing 6 microbial populations. Let's use this mock metagenome once more.
+
+There are several options for analyzing metagenomes with this program:
+1. If the metagenome has been binned and we have a {% include ARTIFACT name="collection" %} of MAGs, we can estimate metabolism for each genome in that collection separately
+2. We can treat the metagenome as though it were one big genome, combining all annotated enzymes from all populations when computing module scores
+3. We can estimate metabolism for each _contig_ in the metagenome assembly separately (`--per-contig-estimates`)
+
+In our case, option (1) does not apply and we're not planning to do any targeted binning of particular metabolic pathways, so let's go with option (2):
+
+```bash
+anvi-estimate-metabolism -c ../00_DATA/metagenome/sample01-contigs.db \
+                  -O metagenome_metabolism
+```
+
+You will likely see several warnings in the terminal output about several genes with multiple annotations to a single gene that affects step copy numbers within certain modules (the same warning we just learned about in the previous section). Let's keep this in mind as we look at the output, specifically the columns for module completeness and copy number values:
+
+```bash
+# extract columns for module completeness and copy number into a little table
+cut -f 1,3,8,10,18- metagenome_metabolism_modules.txt > metagenome_metabolism_table.txt
+```
+
+The first 10 lines of this table are as follows:
+
+|**`module`**|**`module_name`**|**`stepwise_module_completeness`**|**`pathwise_module_completeness`**|**`pathwise_copy_number`**|**`stepwise_copy_number`**|**`per_step_copy_numbers`**|
+|:--|:--|:--|:--|:--|:--|:--|
+|M00001|Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate|1.0|1.0|5|2|6,5,2,10,7,6,7,7,6|
+|M00002|Glycolysis, core module involving three-carbon compounds|1.0|1.0|6|6|7,6,7,7,6|
+|M00003|Gluconeogenesis, oxaloacetate => fructose-6P|1.0|1.0|5|3|3,7,7,6,10,7,4|
+|M00307|Pyruvate oxidation, pyruvate => acetyl-CoA|1.0|1.0|4|5|5|
+|M00009|Citrate cycle (TCA cycle, Krebs cycle)|1.0|1.0|5|3|9,10,8,5,5,3,8,7|
+|M00010|Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate|1.0|1.0|5|8|9,10,8|
+|M00011|Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate|1.0|1.0|3|3|5,5,3,8,7|
+|M00004|Pentose phosphate pathway (Pentose phosphate cycle)|1.0|1.0|4|3|3,3,7,7,9,5|
+|M00006|Pentose phosphate pathway, oxidative phase, glucose 6P => ribulose 5P|1.0|1.0|3|3|3,3|
+
+The first thing to notice is that completeness scores are not super informative here. All of the central carbon metabolism pathways shown above are quite common across microbes, so it is no surprise that they all have completeness scores of 1.0 given that there are 6 different microbes contributing enzymes to the mix in this metagenome assembly. Studying whole communities like this is the perfect use-case for copy numbers, which can actually scale properly when more microbes encode a given metabolic capacity. Notice here that the core module for Glycolysis (M00002) has a copy number of 6, suggesting that every single microbe in this metagenome has it. Meanwhile, the oxidative phase of the Pentose phosphate pathway (M00006) only has a copy number of 3, suggesting that only half of the community members can do this (or our data is complete).
+
+The second thing to notice is that stepwise copy numbers once again can vary dramatically from pathwise copy numbers. Some of these differences might be related to the warnings we saw earlier about multiple annotations (though the smallest affected module number in those warnings was M00009 so this doesn't apply to any of the examples above). In the case of M00001, the 3rd step of the module is constraining the stepwise copy number to 2. But eight other steps have at least 5 copies each, so the pathwise copy number (which counts the number of times we see the 'most complete' path through the module with >=75% completeness) is 5. For this particular module and metabolic pathway, all of the community members appear to be using the same set of enzymes, and therefore pathwise copy number is more accurate. But in cases when different microbes in the community could be using alternative routes for a given metabolic pathway, stepwise copy number will make more sense. (We know you are asking, 'why can't there be just one number that works for everything?' Life is not simple like that, sadly. But we also know you have the capacity to appreciate complexity ;)
+
+Finally, we can interpret the copy numbers using the knowledge that our mock metagenome here contains 6 microbial populations. When we see a copy number of 6, we know that the metabolic pathway is universal in our community (6 out of 6 populations have it), and when we see a copy number of 1, we know that it is a more specialized pathway. An example of the former is energy generation via a prokaryotic F-type ATPase (M00157), and an example of the latter is photosynthesis (M00161 and M00163):
+
+|**`module`**|**`module_name`**|**`stepwise_module_completeness`**|**`pathwise_module_completeness`**|**`pathwise_copy_number`**|**`stepwise_copy_number`**|**`per_step_copy_numbers`**|
+|:--|:--|:--|:--|:--|:--|:--|
+|M00161|Photosystem II|1.0|1.0|1|1|1|
+|M00163|Photosystem I|1.0|1.0|1|1|1|
+|M00157|F-type ATPase, prokaryotes and chloroplasts|1.0|1.0|6|6|6|
+|M00158|F-type ATPase, eukaryotes|0.0|0.06666666666666667|0|0|0|
+|M00159|V/A-type ATPase, prokaryotes|0.0|0.6666666666666666|0|0|0|
+
+<details markdown="1"><summary>Show/Hide How to get this table</summary>
+
+Here is how to search for the rows related to ATPases and Photosystems:
+```bash
+grep -E "ATPase|Photosystem" metagenome_metabolism_table.txt
+```
+
+</details>
+
+What's that? You are saying that not every metagenome contains 6 populations and you would like a way to easily interpret and compare metabolic capacity across communities of different sizes? Well, you are absolutely correct and anvi'o is happily to assist you with this. With the recently-added `--add-per-population-copy-number` flag, you can ensure your output files include Per-Population Copy Numbers (or PPCNs), meaning the module copy number divided by the estimated number of populations in the metagenome:
+
+```bash
+anvi-estimate-metabolism -c ../00_DATA/metagenome/sample01-contigs.db \
+                  -O metagenome_metabolism \
+                  --force-overwrite \
+                  --add-per-population-copy-number
+
+# remake the table subset, with PPCN this time
+cut -f 1,3,8,10,18- metagenome_metabolism_modules.txt > metagenome_metabolism_table.txt
+```
+
+Here are our ATPase and Photosynthesis examples in the updated table, where the corresponding PPCN values are 1.0 and 0.167, respectively:
+
+|**`module`**|**`module_name`**|**`stepwise_module_completeness`**|**`pathwise_module_completeness`**|**`pathwise_copy_number`**|**`stepwise_copy_number`**|**`per_step_copy_numbers`**|**`pathwise_ppcn`**|**`stepwise_ppcn`**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|M00161|Photosystem II|1.0|1.0|1|1|1|0.16666666666666666|0.16666666666666666|
+|M00163|Photosystem I|1.0|1.0|1|1|1|0.16666666666666666|0.16666666666666666|
+|M00157|F-type ATPase, prokaryotes and chloroplasts|1.0|1.0|6|6|6|1.0|1.0|
+|M00158|F-type ATPase, eukaryotes|0.0|0.06666666666666667|0|0|0|0.0|0.0|
+|M00159|V/A-type ATPase, prokaryotes|0.0|0.6666666666666666|0|0|0|0.0|0.0|
+
+For a more in-depth explanation and practical application of PPCN values, feel free to check out [this paper](https://doi.org/10.7554/eLife.89862.3).
+
 ### Reaction networks and drawing KEGG Pathway Maps
 
-Let's move onto the second type of metabolism reconstruction: metabolic modeling. Anvi'o can generate a {% include ARTIFACT name="reaction-network" %} from the KEGG Ortholog (KO) annotations in any {% include ARTIFACT name="contigs-db" text="contigs database" %} or {% include ARTIFACT name="pan-db" text="pangenome database" %}. The network connects all genes with KO annotations to the chemical reactions they catalyze, and the metabolites consumed or produced by those reactions. Reaction and compound information are taken from the [ModelSEED](https://github.com/ModelSEED/ModelSEEDDatabase) database.
+Let's go back to our _Trichodesmium_ genomes and move onto the second type of metabolism reconstruction: metabolic modeling. Anvi'o can generate a {% include ARTIFACT name="reaction-network" %} from the KEGG Ortholog (KO) annotations in any {% include ARTIFACT name="contigs-db" text="contigs database" %} or {% include ARTIFACT name="pan-db" text="pangenome database" %}. The network connects all genes with KO annotations to the chemical reactions they catalyze, and the metabolites consumed or produced by those reactions. Reaction and compound information are taken from the [ModelSEED](https://github.com/ModelSEED/ModelSEEDDatabase) database.
 
 {:.notice}
 If you want to use these programs, you will first have to run {% include PROGRAM name="anvi-setup-modelseed-database" %} (if you haven't already done so in your anvi'o environment).
