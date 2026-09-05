@@ -82,10 +82,13 @@ anvi-gen-genomes-storage -e external-genomes-pangenomics.txt -o 01_PANGENOME/Tri
 
 To actually run the pangenomic analysis, we will use the command {% include PROGRAM name="anvi-pan-genome" %}. The sole input is the {% include ARTIFACT name="genomes-storage-db" %} and it will generate a new database, called the {% include ARTIFACT name="pan-db" %}:
 
+{:.warning}
+If you are running this tutorial with anvi'o `v9`, you should use the following `-o` parameter _instead of_ the one in the command below: `-o 01_PANGENOME`
+
 ```bash
 # will take several minutes
 anvi-pan-genome -g 01_PANGENOME/Trichodesmium-GENOMES.db \
-                -o 01_PANGENOME \
+                -o 01_PANGENOME/Trichodesmium-PAN.db \
                 -n Trichodesmium \
                 -T 4
 ```
@@ -186,7 +189,7 @@ anvi-summarize -g 01_PANGENOME/Trichodesmium-GENOMES.db \
                -o 01_PANGENOME/SUMMARY
 ```
 
-The interactive interface button and the above command generate the same output directory, which contains a large table summarizing ALL genes from all genomes. Here are the first few rows:
+The interactive interface button and the above command generate the same output directory, which contains a large table summarizing ALL genes from all genomes. Here are the first few rows for my collection:
 
 |**`unique_id`**|**`gene_cluster_id`**|**`bin_name`**|**`genome_name`**|**`gene_callers_id`**|**`num_genomes_gene_cluster_has_hits`**|**`num_genes_in_gene_cluster`**|**`max_num_paralogs`**|**`SCG`**|**`functional_homogeneity_index`**|**`geometric_homogeneity_index`**|**`combined_homogeneity_index`**|**`AAI_min`**|**`AAI_max`**|**`AAI_avg`**|**`COG24_PATHWAY_ACC`**|**`COG24_PATHWAY`**|**`COG24_FUNCTION_ACC`**|**`COG24_FUNCTION`**|**`KEGG_BRITE_ACC`**|**`KEGG_BRITE`**|**`KOfam_ACC`**|**`KOfam`**|**`COG24_CATEGORY_ACC`**|**`COG24_CATEGORY`**|**`KEGG_Class_ACC`**|**`KEGG_Class`**|**`KEGG_Module_ACC`**|**`KEGG_Module`**|**`aa_sequence`**|
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
