@@ -140,7 +140,7 @@ anvi-migrate --migrate-safely 00_DATA/contigs/*.db \
 Before you start, don't forget to activate your anvi'o environment:
 
  {:.notice}
- We use the development version of anvi'o here, but you could also use a stable release of anvi'o if that is what you have installed. Any stable release starting from `v9` or later will include all of the programs covered in this tutorial. If you try an earlier release, you may see "command not found" errors for some of the commands.
+ We use the development version of anvi'o here, but you could also use a stable release of anvi'o if that is what you have installed. Any stable release starting from `v9` or later will include all of the programs covered in this tutorial (though some flags and outputs are different due to ongoing development, so stable release users will need to pay attention to warnings and make adjustments as necessary throughput the tutorial). If you try an earlier release, you may see "command not found" errors for some of the commands.
 
 ```bash
 conda activate anvio-dev
