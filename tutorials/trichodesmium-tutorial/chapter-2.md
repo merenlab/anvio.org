@@ -73,7 +73,7 @@ grep -v Trichodesmium_thiebautii_H9_4 external-genomes.txt > external-genomes-pa
 
 Then we can use the command {% include PROGRAM name="anvi-gen-genomes-storage" %}:
 ```bash
-# make a directory of the pangenome analysis
+# make a directory for the pangenome analysis
 mkdir -p 01_PANGENOME
 anvi-gen-genomes-storage -e external-genomes-pangenomics.txt -o 01_PANGENOME/Trichodesmium-GENOMES.db
 ```

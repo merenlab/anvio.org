@@ -75,8 +75,8 @@ Config Error: At least one of the deflines in your FASTA File does not comply wi
 
 We can use {% include PROGRAM name="anvi-script-reformat-fasta" %} to simplify the FASTA's headers, as well as to run a number of other sanity checks and filters on our input data. But what flag(s) should we use to achieve this?
 
-**Exercise 1: build your `anvi-script-reformat-fasta` command**
-Take a look at the options for this program by either checking its online [help page](https://anvio.org/help/main/programs/anvi-script-reformat-fasta/), or by running `anvi-script-reformat-fasta --h` in the terminal. Pick out the flags that you will need and put them together into a command to process our downloaded FASTA file into a new FASTA file called `Trichodesmium_sp.fa`. Once you are ready, click on the Show/Hide box below to see the answer.
+**Exercise 1: build your `anvi-script-reformat-fasta` command.**
+Take a look at the options for this program by either checking its online [help page](https://anvio.org/help/main/programs/anvi-script-reformat-fasta/), or by running `anvi-script-reformat-fasta -h` in the terminal. Pick out the flags that you will need and put them together into a command to process our downloaded FASTA file into a new FASTA file called `Trichodesmium_sp.fa`. Once you are ready, click on the Show/Hide box below to see the answer.
 
 <details markdown="1"><summary>Show/Hide  Answer to Exercise 1: how to run `anvi-script-reformat-fasta` </summary>
 
@@ -583,7 +583,7 @@ You can change what happens in each iteration of the loop by modifying or adding
 
 Now that we have the file of genome names, the second thing to do is to make sure our FASTA files are properly formatted. Fortunately for you, we provided genomes with anvi'o compatible headers. If you don't believe me (and you should never believe me, and always check your data), then have a look at them.
 
-**Exercise 2: Convert all genome FASTA files into anvi'o contigs databases**
+**Exercise 2: Convert all genome FASTA files into anvi'o contigs databases.**
 The next step is to generate {% include ARTIFACT name="contigs-db" text="contigs databases" %} for each of our genomes. Can you figure out how to adapt the example BASH loop above to do this? Try it yourself, then check the answer in the Show/Hide box below.
 
 <details markdown="1"><summary>Show/Hide  Answer to Exercise 2: how to run `anvi-gen-contigs-database` in a loop </summary>

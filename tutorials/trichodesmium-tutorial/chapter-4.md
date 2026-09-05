@@ -291,7 +291,7 @@ anvi-estimate-metabolism -e external-genomes.txt \
 {:.warning}
 If you are running this tutorial with anvi'o `v9`, you will need to add the `--add-copy-number` flag to the above command in order to see copy number columns in the output file. As of `v9-dev`, these output columns are automatically included.
 
-**Exercise 1: interpret the output for custom modules**
+**Exercise 1: interpret the output for custom modules.**
 Take a look at the output (`nitrogen_metabolism_modules.txt`). What do you notice? To help you make sense of the output, it might be helpful to create heatmaps, following the same strategy we used above, for both the pathway completeness scores and the per-step copy numbers. Try it yourself first, but if you need help, you can click on the Show/Hide box below.
 
 <details markdown="1"><summary>Show/Hide  Answer to Exercise 1: Commands to generate the heatmaps</summary>
@@ -424,7 +424,7 @@ If you found this section useful and you want to make your own custom metabolic 
 {:.notice}
 This section of the tutorial only works for `anvio-dev` users as it relies on recently-added flags.
 
-We're going to take a quick break from our _Trichodesmium_ genomes to learn how we can estimate metabolic capacity at the metagenome level. You might recall from Chapter 1 ([this section]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1/#working-with-one-or-more-metagenomes) that we briefly looked at a mock metagenome containing 6 microbial populations. Let's use this mock metagenome once more.
+We're going to take a quick break from our _Trichodesmium_ genomes to learn how we can estimate metabolic capacity at the metagenome level. You might recall from Chapter 1 ([this section]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1/#working-with-one-or-more-metagenomes)) that we briefly looked at a mock metagenome containing 6 microbial populations. Let's use this mock metagenome once more.
 
 There are several options for analyzing metagenomes with this program:
 1. If the metagenome has been binned and we have a {% include ARTIFACT name="collection" %} of MAGs, we can estimate metabolism for each genome in that collection separately
@@ -482,7 +482,7 @@ grep -E "ATPase|Photosystem" metagenome_metabolism_table.txt
 
 </details>
 
-What's that? You are saying that not every metagenome contains 6 populations and you would like a way to easily interpret and compare metabolic capacity across communities of different sizes? Well, you are absolutely correct and anvi'o is happily to assist you with this. With the recently-added `--add-per-population-copy-number` flag, you can ensure your output files include Per-Population Copy Numbers (or PPCNs), meaning the module copy number divided by the estimated number of populations in the metagenome:
+What's that? You are saying that not every metagenome contains 6 populations and you would like a way to easily interpret and compare metabolic capacity across communities of different sizes? Well, you are absolutely correct and anvi'o is happy to assist you with this. With the recently-added `--add-per-population-copy-number` flag, you can ensure your output files include Per-Population Copy Numbers (or PPCNs), meaning the module copy number divided by the estimated number of populations in the metagenome:
 
 ```bash
 anvi-estimate-metabolism -c ../00_DATA/metagenome/sample01-contigs.db \
@@ -554,7 +554,7 @@ I bet you are wondering how this map looks different across our _Trichodesmium_ 
 
 First, we will need to run {% include PROGRAM name="anvi-reaction-network" %} on all the other genomes. This program unfortunately doesn't accept an {% include ARTIFACT name="external-genomes" text="external genomes file" %} as input; however, we can reuse our BASH loop strategy from [chapter 1]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1/#working-with-multiple-genomes).
 
-**Exercise 2: Run anvi-reaction-network in a loop**
+**Exercise 2: Run anvi-reaction-network in a loop.**
 Try making the loop yourself. If you need to check the answer, click the Show/Hide box below.
 
 <details markdown="1"><summary>Show/Hide  Answer to Exercise 2: how to run `anvi-reaction-network` on multiple genomes </summary>
