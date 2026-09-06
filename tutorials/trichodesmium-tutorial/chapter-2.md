@@ -38,6 +38,14 @@ anvi-estimate-scg-taxonomy -e external-genomes.txt -o taxonomy_multi_genomes.txt
 
 Pangenomics represents a set of computational strategies to compare and study the relationship between a set of genomes through gene clusters. For a more comprehensive introduction into the subject, [see this video.](https://youtu.be/nyv7Xr07LCY)
 
+In this tutorial, we will learn how to:
+- generate a pangenome from multiple genomes (that have already been turned into {% include ARTIFACT name="contigs-db" text="contigs databases" %})
+- use the anvi'o interactive interface to study the pangenome, including by:
+  - looking at gene cluster sequence alignments and functional annotations
+  - binning and summarizing groups of gene clusters
+  - searching for functions of interest
+- enhance the pangenome display with additional information about our input genomes
+
 Since the core concept of pangenomics is to compare genomes based on their gene content, it is important to know which genomes you plan you to use. Pangenomics is typically used with somewhat closely related organisms, at the species, genus, or sometimes family level. It is also valuable to check the estimated completeness and overall quality of the genomes you want to include in your pangenome analysis.
 
 Low completeness genomes are likely missing some portion of their gene content. For that reason, we will include 7 out of the 8 *Trichodesmium* genomes to compute a pangenome. We won't use the *Trichodesmium thiebautii* H9_4 because of its low estimated completeness and overall smaller genome size.
@@ -65,7 +73,7 @@ grep -v Trichodesmium_thiebautii_H9_4 external-genomes.txt > external-genomes-pa
 
 Then we can use the command {% include PROGRAM name="anvi-gen-genomes-storage" %}:
 ```bash
-# make a directory of the pangenome analysis
+# make a directory for the pangenome analysis
 mkdir -p 01_PANGENOME
 anvi-gen-genomes-storage -e external-genomes-pangenomics.txt -o 01_PANGENOME/Trichodesmium-GENOMES.db
 ```
@@ -74,15 +82,21 @@ anvi-gen-genomes-storage -e external-genomes-pangenomics.txt -o 01_PANGENOME/Tri
 
 To actually run the pangenomic analysis, we will use the command {% include PROGRAM name="anvi-pan-genome" %}. The sole input is the {% include ARTIFACT name="genomes-storage-db" %} and it will generate a new database, called the {% include ARTIFACT name="pan-db" %}:
 
+{:.warning}
+If you are running this tutorial with anvi'o `v9`, you should use the following `-o` parameter _instead of_ the one in the command below: `-o 01_PANGENOME`
+
 ```bash
 # will take several minutes
 anvi-pan-genome -g 01_PANGENOME/Trichodesmium-GENOMES.db \
-                -o 01_PANGENOME \
+                -o 01_PANGENOME/Trichodesmium-PAN.db \
                 -n Trichodesmium \
                 -T 4
 ```
 
 Under the hood, {% include PROGRAM name="anvi-pan-genome" %} uses [DIAMOND](https://www.wsi.uni-tuebingen.de/lehrstuehle/algorithms-in-bioinformatics/software/diamond/) (or BLASTp if you choose the alternative) to compute the similarity between amino acid sequences from every genomes. From this all-vs-all search, it will use the [MCL](https://micans.org/mcl/) algorithm to cluster the genes into groups of relatively high similarity. The {% include ARTIFACT name="pan-db" %} stores the gene cluster information.
+
+{:.notice}
+If you use `-h` to take a look at the help page for `anvi-pan-genome`, you might notice that there are lots of parameters you can tweak to adjust how the pangenome is calculated. For a nice explanation of these parameters and their practical effects, check out [this section of a much-earler pangenomics tutorial](https://merenlab.org/blog/pangenomics-v2/#running-a-pangenome-analysis).
 
 ### Interactive pangenomics display
 
@@ -147,9 +161,18 @@ From there you can learn about its functional annotations, if any. You can also 
 
 ### Bin and summarize a pangenome
 
-Looking at individual genes clusters is great, but not very practical to summarize a large selection of gene clusters. Fortunately for you, you can select gene clusters in the main interface and create {% include ARTIFACT name="bin" text="'bins'" %} which you can meaningfully rename. In the next screenshot, I have selected the core genome, the near core, the accessory genome of *Trichodesmium erythraeum* and *Trichodesmium thiebautii*, and all the singleton gene clusters.
+Looking at individual genes clusters is great, but not very practical to summarize a large selection of gene clusters. Fortunately for you, you can select gene clusters in the main interface and create {% include ARTIFACT name="bin" text="'bins'" %} which you can meaningfully rename.
+
+**Exercise 1: Try binning some gene clusters!**
+Try to bin some gene clusters yourself. Focus on binning GCs that are meaningful in pangenomics, such as the core genome (shared by all _Trichodesmium_ genomes), accessory genomes of different _Trichodesmium_ species, or singletons. Afterwards, you can cross-check what you did by clicking the Show/Hide box below to see the screenshot of my binning efforts.
+
+<details markdown="1"><summary>Show/Hide  Answer to Exercise 1: my example gene cluster bins </summary>
+
+In the next screenshot, I have selected the core genome, the near core, the accessory genome of *Trichodesmium erythraeum* and *Trichodesmium thiebautii*, and all the singleton gene clusters.
 
 {% include IMAGE path="/images/trichodesmium_tutorial/pan_08.png" width=80 %}
+
+</details>
 
 Once you are happy with your bins, don't forget to save them into a {% include ARTIFACT name="collection" %}. Just like the 'state' saves the current settings for the figure, the 'collection' stores your selection of items, here gene clusters. You can save as many collections as you want, and the collection called `default` will always appear when you start the interactive interface with {% include PROGRAM name="anvi-display-pan" %}.
 
@@ -166,7 +189,7 @@ anvi-summarize -g 01_PANGENOME/Trichodesmium-GENOMES.db \
                -o 01_PANGENOME/SUMMARY
 ```
 
-The interactive interface button and the above command generate the same output directory, which contains a large table summarizing ALL genes from all genomes. Here are the first few rows:
+The interactive interface button and the above command generate the same output directory, which contains a large table summarizing ALL genes from all genomes. Here are the first few rows for my collection:
 
 |**`unique_id`**|**`gene_cluster_id`**|**`bin_name`**|**`genome_name`**|**`gene_callers_id`**|**`num_genomes_gene_cluster_has_hits`**|**`num_genes_in_gene_cluster`**|**`max_num_paralogs`**|**`SCG`**|**`functional_homogeneity_index`**|**`geometric_homogeneity_index`**|**`combined_homogeneity_index`**|**`AAI_min`**|**`AAI_max`**|**`AAI_avg`**|**`COG24_PATHWAY_ACC`**|**`COG24_PATHWAY`**|**`COG24_FUNCTION_ACC`**|**`COG24_FUNCTION`**|**`KEGG_BRITE_ACC`**|**`KEGG_BRITE`**|**`KOfam_ACC`**|**`KOfam`**|**`COG24_CATEGORY_ACC`**|**`COG24_CATEGORY`**|**`KEGG_Class_ACC`**|**`KEGG_Class`**|**`KEGG_Module_ACC`**|**`KEGG_Module`**|**`aa_sequence`**|
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
@@ -236,7 +259,7 @@ A companion metric to pangenomes is the Average Nucleotide Identity, or ANI, whi
 The sole required input is an {% include ARTIFACT name="external-genomes" %} file, and the output is a directory with multiple files containing the ANI value, coverage, and more. Optionally, you can also provide a {% include ARTIFACT name="pan-db" %} and anvi'o will import the ANI values directly into your pangenome.
 
 ```bash
-## takes ~9 minutes
+## takes ~14 minutes
 anvi-compute-genome-similarity -e external-genomes-pangenomics.txt \
                                -p 01_PANGENOME/Trichodesmium-PAN.db \
                                -o 01_PANGENOME/ANI \
@@ -268,6 +291,20 @@ At the end of the day, you can have a figure like this one, with ecology and evo
 </div>
 
 But that analysis is for another time.
+
+## What we've learned
+
+Beyond the essentials of making and working with pangenomes in anvi'o, we've learned a few more generalizable anvi'o tricks:
+
+- how to use {% include ARTIFACT name="state" text="states" %} to save interface settings for easy recall between interface sessions
+- how to bin groups of 'items' (in this case, gene clusters) and save them as {% include ARTIFACT name="collection" text="collections" %} so we can analyze them collectively
+
+In addition, we've learned a bit more about our dataset:
+
+- that several genes for nitrogen fixation (_nif_) are part of the _T. erythraeum_ and _T. thiebautii_ accessory genomes (and not in _T. miru_ or _T. nobis_)
+- that organizing these _Trichodesmium_ genomes according to their functional similarity matches to their taxonomic organization, and their organization according to ANI
+
+We've so far analyzed nitrogen fixation in these genomes by looking at the distribution of specific genes or gene clusters. In a [later chapter]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-4) about metabolism, we'll generate quantitative estimates of _many_ metabolic capabilities at once using methods that consider multiple functionally-related genes as a cohesive unit. But before we get there, we'll consider these genomes in their evolutionary context using phylogenomics.
 
 ## The next chapter
 

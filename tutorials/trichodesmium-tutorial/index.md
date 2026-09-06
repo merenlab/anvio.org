@@ -124,12 +124,23 @@ contigs                   genome-pairs.txt          metagenome                mo
 
 Inside the `00_DATA` folder, there are several files that will be useful for various parts of this tutorial. We will start from the seven *Trichodesmium* genomes stored in the `fasta` directory. Some are metagenome-assembled genomes (MAGs) binned from the TARA Ocean metagenomic dataset, and others are reference genomes taken from NCBI RefSeq.
 
+## Migrating all databases
+
+Just in case the anvi'o database versions have been updated since the last time we worked on this tutorial, you can run {% include PROGRAM name="anvi-migrate" %} on all databases in this datapack to make sure they will be ready to go later:
+
+```bash
+anvi-migrate --migrate-safely 00_DATA/contigs/*.db \
+                              00_DATA/associate_dbs/*.db \
+                              00_DATA/metagenome/*.db \
+                              00_DATA/phylo_dbs/*.db
+```
+
 ## Activating anvi'o
 
 Before you start, don't forget to activate your anvi'o environment:
 
  {:.notice}
- We use the development version of anvi'o here, but you could also use a stable release of anvi'o if that is what you have installed. Any stable release starting from `v9` or later will include all of the programs covered in this tutorial. If you try an earlier release, you may see "command not found" errors for some of the commands.
+ We use the development version of anvi'o here, but you could also use a stable release of anvi'o if that is what you have installed. Any stable release starting from `v9` or later will include all of the programs covered in this tutorial (though some flags and outputs are different due to ongoing development, so stable release users will need to pay attention to warnings and make adjustments as necessary throughput the tutorial). If you try an earlier release, you may see "command not found" errors for some of the commands.
 
 ```bash
 conda activate anvio-dev

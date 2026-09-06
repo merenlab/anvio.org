@@ -40,6 +40,14 @@ Looking at individual gene functions is undisputably useful for understanding th
 
 This section of the tutorial covers **metabolism reconstruction**, a strategy for summarizing all the metabolic capacities of a given organism (or community) by examining functional annotations in their metabolic context. To do this, one can either aggregate the genes related to multiple individual metabolic pathways to evaluate the organism's capacity to do specific, ecologically-relevant things ("pathway prediction") or use all annotated enzymes to create the entire network of chemical reactions that the organism can catalyze ("metabolic modeling").
 
+We will learn how to do both of these things (kind-of), including:
+- how to estimate completeness scores and copy numbers of metabolic modules
+- how to visualize these scores in heatmaps using the interactive interface
+- how to create custom metabolic modules to supplement or replace those from the KEGG MODULE database
+- how to generate reaction networks (which can be used for metabolic modeling _outside_ of anvi'o)
+- how to use reaction networks to visualize metabolic capacity in KEGG Pathway Maps (for one or more genomes)
+- how to use reaction networks to predict which metabolic compounds could potentially be exchanged between pairs of organisms
+
 To keep things organized, we'll make a new subdirectory for ourselves in which we can work. We'll copy the external genomes file in here for convenience.
 
 ```bash
@@ -74,19 +82,18 @@ anvi-estimate-metabolism -e external-genomes.txt -O tricho_metabolism
 
 You should get an output file called `tricho_metabolism_modules.txt` that looks like this:
 
-|**`module`**|**`genome_name`**|**`db_name`**|**`module_name`**|**`module_class`**|**`module_category`**|**`module_subcategory`**|**`module_definition`**|**`stepwise_module_completeness`**|**`stepwise_module_is_complete`**|**`pathwise_module_completeness`**|**`pathwise_module_is_complete`**|**`proportion_unique_enzymes_present`**|**`enzymes_unique_to_module`**|**`unique_enzymes_hit_counts`**|**`enzyme_hits_in_module`**|**`gene_caller_ids_in_module`**|**`warnings`**|
-|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|M00001|MAG_Candidatus_Trichodesmium_miru|MAG_Candidatus_Trichodesmium_miru|Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"(K00844,K12407,K00845,K25026,K00886,K08074,K00918) (K01810,K06859,K13810,K15916) (K00850,K16370,K21071,K24182,K00918) (K01623,K01624,K11645,K16305,K16306) K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) (K01689,K27394) (K00873,K12406)"|1.0|True|1.0|True|NA|No enzymes unique to module|NA|K00134,K00134,K00845,K00845,K00873,K00927,K01623,K01624,K01689,K01803,K01803,K01810,K01834,K15633,K21071,K25026|2899,2579,4200,3691,985,2838,2319,1760,2136,4011,3621,2573,2274,2197,1300,1049|K00134 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00611/M00612,K00845 is present in multiple modules: M00001/M00549,K00873 is present in multiple modules: M00001/M00002,K00927 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00611/M00612,K01623 is present in multiple modules: M00001/M00003/M00165/M00611/M00612,K01624 is present in multiple modules: M00001/M00003/M00165/M00345/M00344/M00611/M00612,K01689 is present in multiple modules: M00001/M00002/M00003/M00346,K01803 is present in multiple modules: M00001/M00002/M00003/M00165,K01810 is present in multiple modules: M00001/M00004,K01834 is present in multiple modules: M00001/M00002/M00003,K15633 is present in multiple modules: M00001/M00002/M00003,K21071 is present in multiple modules: M00001/M00345,K25026 is present in multiple modules: M00001/M00549|
-|M00002|MAG_Candidatus_Trichodesmium_miru|MAG_Candidatus_Trichodesmium_miru|Glycolysis, core module involving three-carbon compounds|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) (K01689,K27394) (K00873,K12406)"|1.0|True|1.0|True|NA|No enzymes unique to module|NA|K00134,K00134,K00873,K00927,K01689,K01803,K01803,K01834,K15633|2899,2579,985,2838,2136,4011,3621,2274,2197|K00134 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00611/M00612,K00873 is present in multiple modules: M00001/M00002,K00927 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00611/M00612,K01689 is present in multiple modules: M00001/M00002/M00003/M00346,K01803 is present in multiple modules: M00001/M00002/M00003/M00165,K01834 is present in multiple modules: M00001/M00002/M00003,K15633 is present in multiple modules: M00001/M00002/M00003|
-|M00003|MAG_Candidatus_Trichodesmium_miru|MAG_Candidatus_Trichodesmium_miru|Gluconeogenesis, oxaloacetate => fructose-6P|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"(K01596,K01610) (K01689,K27394) (K01834,K15633,K15634,K15635) K00927 (K00134,K00150) K01803 ((K01623,K01624,K11645) (K03841,K02446,K11532,K01086,K04041),K01622)"|0.8571428571428571|True|0.875|True|NA|No enzymes unique to module|NA|K00134,K00134,K00927,K01623,K01624,K01689,K01803,K01803,K01834,K03841,K15633|2899,2579,2838,2319,1760,2136,4011,3621,2274,18,2197|K00134 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00611/M00612,K00927 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00611/M00612,K01623 is present in multiple modules: M00001/M00003/M00165/M00611/M00612,K01624 is present in multiple modules: M00001/M00003/M00165/M00345/M00344/M00611/M00612,K01689 is present in multiple modules: M00001/M00002/M00003/M00346,K01803 is present in multiple modules: M00001/M00002/M00003/M00165,K01834 is present in multiple modules: M00001/M00002/M00003,K03841 is present in multiple modules: M00003/M00165/M00344/M00611/M00612,K15633 is present in multiple modules: M00001/M00002/M00003|
-|M00307|MAG_Candidatus_Trichodesmium_miru|MAG_Candidatus_Trichodesmium_miru|Pyruvate oxidation, pyruvate => acetyl-CoA|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"((K00163,K00161+K00162)+K00627+K00382-K13997),K00169+K00170+K00171+(K00172,K00189),K03737"|1.0|True|1.0|True|1.0|K00161,K00162,K00627|1,1,1|K00161,K00162,K00382,K00627|2967,1381,2978,1001|K00382 is present in multiple modules: M00307/M00009/M00011/M00532/M00621/M00036/M00032|
-|M00009|MAG_Candidatus_Trichodesmium_miru|MAG_Candidatus_Trichodesmium_miru|Citrate cycle (TCA cycle, Krebs cycle)|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"(K01647,K05942,K01659) (K01681,K27802,K01682) (K00031,K00030) ((K00164+K00658,K01616)+K00382,K00174+K00175-K00177-K00176) (K01902+K01903,K01899+K01900,K18118) (K00234+K00235+K00236+(K00237,K25801),K00239+K00240+K00241-(K00242,K18859,K18860),K00244+K00245+K00246-K00247) (K01676,K01679,K01677+K01678) (K00026,K00025,K00024,K00116)"|0.625|False|0.7708333333333334|True|NA|No enzymes unique to module|NA|K00031,K00239,K00240,K00382,K01659,K01679,K01682,K01902,K01903|3698,3854,3955,2978,1925,1837,3626,2385,2386|K00031 is present in multiple modules: M00009/M00010/M00740/M00173/M00614,K00239 is present in multiple modules: M00009/M00011/M00982/M00173/M00376/M00374/M00149/M00613/M00614,K00240 is present in multiple modules: M00009/M00011/M00982/M00173/M00376/M00374/M00149/M00613/M00614,K00382 is present in multiple modules: M00307/M00009/M00011/M00532/M00621/M00036/M00032,K01659 is present in multiple modules: M00009/M00010/M00012/M00740/M00982,K01679 is present in multiple modules: M00009/M00011/M00982/M00173/M00376/M00613/M00614,K01682 is present in multiple modules: M00009/M00010/M00012/M00982/M00173/M00614,K01902 is present in multiple modules: M00009/M00011/M00173/M00374/M00620/M00614,K01903 is present in multiple modules: M00009/M00011/M00173/M00374/M00620/M00614|
+|**`module`**|**`genome_name`**|**`db_name`**|**`module_name`**|**`module_class`**|**`module_category`**|**`module_subcategory`**|**`module_definition`**|**`stepwise_module_completeness`**|**`stepwise_module_is_complete`**|**`pathwise_module_completeness`**|**`pathwise_module_is_complete`**|**`proportion_unique_enzymes_present`**|**`enzymes_unique_to_module`**|**`unique_enzymes_hit_counts`**|**`enzyme_hits_in_module`**|**`gene_caller_ids_in_module`**|**`warnings`**|**`pathwise_copy_number`**|**`stepwise_copy_number`**|**`per_step_copy_numbers`**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|M00001|MAG_Candidatus_Trichodesmium_miru|MAG_Candidatus_Trichodesmium_miru|Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"(K00844,K12407,K00845,K25026,K00886,K08074,K00918) (K01810,K06859,K13810,K15916) (K00850,K16370,K21071,K24182,K00918) (K01623,K01624,K11645,K16305,K16306) K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) (K01689,K27394) (K00873,K12406)"|1.0|True|1.0|True|NA|No enzymes unique to module|NA|K00134,K00134,K00845,K00845,K00873,K00927,K01623,K01624,K01689,K01803,K01803,K01810,K01834,K15633,K21071,K25026|2899,2579,4200,3691,985,2838,2319,1760,2136,4011,3621,2573,2274,2197,1300,1049|K00134 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00611/M00612,K00845 is present in multiple modules: M00001/M00549,K00873 is present in multiple modules: M00001/M00002,K00927 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00611/M00612,K01623 is present in multiple modules: M00001/M00003/M00165/M00611/M00612,K01624 is present in multiple modules: M00001/M00003/M00165/M00345/M00344/M00611/M00612,K01689 is present in multiple modules: M00001/M00002/M00003/M00346,K01803 is present in multiple modules: M00001/M00002/M00003/M00165,K01810 is present in multiple modules: M00001/M00004,K01834 is present in multiple modules: M00001/M00002/M00003,K15633 is present in multiple modules: M00001/M00002/M00003,K21071 is present in multiple modules: M00001/M00345,K25026 is present in multiple modules: M00001/M00549|1|1|3,1,1,2,2,1,2,1,1|
+|M00002|MAG_Candidatus_Trichodesmium_miru|MAG_Candidatus_Trichodesmium_miru|Glycolysis, core module involving three-carbon compounds|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) (K01689,K27394) (K00873,K12406)"|1.0|True|1.0|True|NA|No enzymes unique to module|NA|K00134,K00134,K00873,K00927,K01689,K01803,K01803,K01834,K15633|2899,2579,985,2838,2136,4011,3621,2274,2197|K00134 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00611/M00612,K00873 is present in multiple modules: M00001/M00002,K00927 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00611/M00612,K01689 is present in multiple modules: M00001/M00002/M00003/M00346,K01803 is present in multiple modules: M00001/M00002/M00003/M00165,K01834 is present in multiple modules: M00001/M00002/M00003,K15633 is present in multiple modules: M00001/M00002/M00003|1|1|2,1,2,1,1|
+|M00003|MAG_Candidatus_Trichodesmium_miru|MAG_Candidatus_Trichodesmium_miru|Gluconeogenesis, oxaloacetate => fructose-6P|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"(K01596,K01610) (K01689,K27394) (K01834,K15633,K15634,K15635) K00927 (K00134,K00150) K01803 ((K01623,K01624,K11645) (K03841,K02446,K11532,K01086,K04041),K01622)"|0.8571428571428571|True|0.875|True|NA|No enzymes unique to module|NA|K00134,K00134,K00927,K01623,K01624,K01689,K01803,K01803,K01834,K03841,K15633|2899,2579,2838,2319,1760,2136,4011,3621,2274,18,2197|K00134 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00611/M00612,K00927 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00611/M00612,K01623 is present in multiple modules: M00001/M00003/M00165/M00611/M00612,K01624 is present in multiple modules: M00001/M00003/M00165/M00345/M00344/M00611/M00612,K01689 is present in multiple modules: M00001/M00002/M00003/M00346,K01803 is present in multiple modules: M00001/M00002/M00003/M00165,K01834 is present in multiple modules: M00001/M00002/M00003,K03841 is present in multiple modules: M00003/M00165/M00344/M00611/M00612,K15633 is present in multiple modules: M00001/M00002/M00003|1|0|0,1,2,1,2,2,1|
+|M00307|MAG_Candidatus_Trichodesmium_miru|MAG_Candidatus_Trichodesmium_miru|Pyruvate oxidation, pyruvate => acetyl-CoA|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"((K00163,K00161+K00162)+K00627+K00382-K13997),K00169+K00170+K00171+(K00172,K00189),K03737"|1.0|True|1.0|True|1.0|K00161,K00162,K00627|1,1,1|K00161,K00162,K00382,K00627|2967,1381,2978,1001|K00382 is present in multiple modules: M00307/M00009/M00011/M00532/M00621/M00036/M00032|1|1|1|
 
 An explanation of the output columns can be found on the {% include ARTIFACT name="kegg-metabolism" %} help page. There, you will also see the other possible output types you could request using the `--output-modes` flag.
 
 To stick with the nitrogen fixation theme we've been following so far, let's look for nitrogen fixation in this file. KEGG's nitrogen fixation module is [M00175](https://www.kegg.jp/module/M00175). To have this module complete, a genome has to include either the `nifHDK` genes of the molybdenum-dependent nitrogenase enzyme complex, OR the `vnfDKGH` genes of the vanadium-dependent nitrogenase complex. This module unfortunately does not include other necessary nitrogen fixation genes ([as Iva has complained about before](https://anvio.org/blog/targeted-binning/#the-nitrogen-fixation-pathway---kegg-vs-reality)), but it is a good enough start.
 
-There are many ways to search for the nitrogen fixation module and look at its completeness scores within each genome. Here is one way using BASH:
+There are many ways to search for the nitrogen fixation module and look at its completeness scores within each genome. Here is one way using BASH to extract the relevant columns from the output file:
 ```bash
 head -n 1 tricho_metabolism_modules.txt | cut -f 1,2,9,11 > nif_table.txt
 grep -i "nitrogen fixation" tricho_metabolism_modules.txt | cut -f 1,2,9,11 >> nif_table.txt
@@ -272,29 +279,22 @@ anvi-setup-user-modules -u ../00_DATA/
 
 Doing so creates a database at `00_DATA/USER_MODULES.db` containing these four modules. We can now give this database to {% include PROGRAM name="anvi-estimate-metabolism" %} with the `-u` parameter. We'll also use the `--only-user-modules` flag to skip the KEGG module estimation.
 
-Additionally, we will ask the program to compute module copy numbers for us with the `--add-copy-number` flag. Copy numbers are usually more suitable for metagenomic input rather than individual genomes, but transporter genes can often occur in multiple copies in a single genome and we want to be able to capture that signal in our estimation output.
+This time, in addition to completeness scores, we are going to pay attention to the _module copy numbers_ in the output. Copy numbers are often more useful for metagenomic input rather than individual genomes, but transporter genes can often occur in multiple copies in a single genome and module copy numbers will be able to capture that signal in our estimation output.
 
 ```bash
 anvi-estimate-metabolism -e external-genomes.txt \
             -u ../00_DATA/ \
             --only-user-modules \
-            --add-copy-number \
             -O nitrogen_metabolism
 ```
 
-Take a look at the output (`nitrogen_metabolism_modules.txt`). What do you notice?
+{:.warning}
+If you are running this tutorial with anvi'o `v9`, you will need to add the `--add-copy-number` flag to the above command in order to see copy number columns in the output file. As of `v9-dev`, these output columns are automatically included.
 
-For convenience, I'll also show the heatmap of pathway completeness scores and the heatmap of per-step copy numbers:
+**Exercise 1: interpret the output for custom modules.**
+Take a look at the output (`nitrogen_metabolism_modules.txt`). What do you notice? To help you make sense of the output, it might be helpful to create heatmaps, following the same strategy we used above, for both the pathway completeness scores and the per-step copy numbers. Try it yourself first, but if you need help, you can click on the Show/Hide box below.
 
-<div style="display: flex; gap: 10px;">
-  {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_04.png" width=100 %}
-  {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_05.png" width=100 %}
-</div>
-
-{:.notice}
-In these visualizations, we've adjusted the min/max values to better show the different values. The completeness score heatmap has a minimum of 0.25 (so any completeness value below that appears white) and the normal maximum of 1.0. The copy number heatmap has the normal minimum of 0 and a maximum of 10 (so any copy number above 10 appears black) -- there are some steps that have way more than 10 copies, which makes the typical range of 0-2 copies extremely difficult to see on the heatmap unless we cap the value.
-
-<details markdown="1"><summary>Show/Hide Commands to generate the heatmaps</summary>
+<details markdown="1"><summary>Show/Hide  Answer to Exercise 1: Commands to generate the heatmaps</summary>
 
 Just like before, if you want a heatmap, you'll have to generate the output in matrix format:
 
@@ -302,7 +302,6 @@ Just like before, if you want a heatmap, you'll have to generate the output in m
 anvi-estimate-metabolism -e external-genomes.txt \
             -u ../00_DATA/ \
             --only-user-modules \
-            --add-copy-number \
             -O nitrogen_metabolism \
             --matrix-format
 ```
@@ -371,6 +370,16 @@ anvi-interactive -d nitrogen_metabolism-step_copy_number-MATRIX.txt \
 
 </details>
 
+Here is what I came up with for the heatmap of pathway completeness scores and the heatmap of per-step copy numbers:
+
+<div style="display: flex; gap: 10px;">
+  {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_04.png" width=100 %}
+  {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_05.png" width=100 %}
+</div>
+
+{:.notice}
+In these visualizations, we've adjusted the min/max values to better show the different values. The completeness score heatmap has a minimum of 0.25 (so any completeness value below that appears white) and the normal maximum of 1.0. The copy number heatmap has the normal minimum of 0 and a maximum of 10 (so any copy number above 10 appears black) -- there are some steps that have way more than 10 copies, which makes the typical range of 0-2 copies extremely difficult to see on the heatmap unless we cap the value.
+
 Here are some of my observations:
 - As we expected, *T. miru* and *T. nobis* only have the `NIF004` (Nitrogen uptake) module complete.
 - The other 6 genomes have all the modules >80% complete (except for H9, which is missing several genes from the hydrogen recycling and nitrogen uptake modules. But we already know it is quite an incomplete genome).
@@ -385,8 +394,7 @@ The *T. erythraeum* genome shows this weird copy number pattern, so let's use th
 anvi-estimate-metabolism -c ../Trichodesmium_erythraeum_IMS101-contigs.db \
                   -u ../00_DATA/ \
                   --only-user-modules \
-                  -O test \
-                  --add-copy-number
+                  -O test
 ```
 
 Aha! There is a relevant warning in the terminal output:
@@ -411,9 +419,96 @@ If something goes wrong (or weird) while using anvi'o, you may want to try re-ru
 
 If you found this section useful and you want to make your own custom metabolic modules, check out this guide on the {% include ARTIFACT name="user-modules-data" %} help page.
 
+### Analyzing metagenomes with per-population copy numbers
+
+{:.notice}
+This section of the tutorial only works for `anvio-dev` users as it relies on recently-added flags.
+
+We're going to take a quick break from our _Trichodesmium_ genomes to learn how we can estimate metabolic capacity at the metagenome level. You might recall from Chapter 1 ([this section]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1/#working-with-one-or-more-metagenomes)) that we briefly looked at a mock metagenome containing 6 microbial populations. Let's use this mock metagenome once more.
+
+There are several options for analyzing metagenomes with this program:
+1. If the metagenome has been binned and we have a {% include ARTIFACT name="collection" %} of MAGs, we can estimate metabolism for each genome in that collection separately
+2. We can treat the metagenome as though it were one big genome, combining all annotated enzymes from all populations when computing module scores
+3. We can estimate metabolism for each _contig_ in the metagenome assembly separately (`--per-contig-estimates`)
+
+In our case, option (1) does not apply and we're not planning to do any targeted binning of particular metabolic pathways, so let's go with option (2):
+
+```bash
+anvi-estimate-metabolism -c ../00_DATA/metagenome/sample01-contigs.db \
+                  -O metagenome_metabolism
+```
+
+You will likely see several warnings in the terminal output about several genes with multiple annotations to a single gene that affects step copy numbers within certain modules (the same warning we just learned about in the previous section). Let's keep this in mind as we look at the output, specifically the columns for module completeness and copy number values:
+
+```bash
+# extract columns for module completeness and copy number into a little table
+cut -f 1,3,8,10,18- metagenome_metabolism_modules.txt > metagenome_metabolism_table.txt
+```
+
+The first 10 lines of this table are as follows:
+
+|**`module`**|**`module_name`**|**`stepwise_module_completeness`**|**`pathwise_module_completeness`**|**`pathwise_copy_number`**|**`stepwise_copy_number`**|**`per_step_copy_numbers`**|
+|:--|:--|:--|:--|:--|:--|:--|
+|M00001|Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate|1.0|1.0|5|2|6,5,2,10,7,6,7,7,6|
+|M00002|Glycolysis, core module involving three-carbon compounds|1.0|1.0|6|6|7,6,7,7,6|
+|M00003|Gluconeogenesis, oxaloacetate => fructose-6P|1.0|1.0|5|3|3,7,7,6,10,7,4|
+|M00307|Pyruvate oxidation, pyruvate => acetyl-CoA|1.0|1.0|4|5|5|
+|M00009|Citrate cycle (TCA cycle, Krebs cycle)|1.0|1.0|5|3|9,10,8,5,5,3,8,7|
+|M00010|Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate|1.0|1.0|5|8|9,10,8|
+|M00011|Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate|1.0|1.0|3|3|5,5,3,8,7|
+|M00004|Pentose phosphate pathway (Pentose phosphate cycle)|1.0|1.0|4|3|3,3,7,7,9,5|
+|M00006|Pentose phosphate pathway, oxidative phase, glucose 6P => ribulose 5P|1.0|1.0|3|3|3,3|
+
+The first thing to notice is that completeness scores are not super informative here. All of the central carbon metabolism pathways shown above are quite common across microbes, so it is no surprise that they all have completeness scores of 1.0 given that there are 6 different microbes contributing enzymes to the mix in this metagenome assembly. Studying whole communities like this is the perfect use-case for copy numbers, which can actually scale properly when more microbes encode a given metabolic capacity. Notice here that the core module for Glycolysis (M00002) has a copy number of 6, suggesting that every single microbe in this metagenome has it. Meanwhile, the oxidative phase of the Pentose phosphate pathway (M00006) only has a copy number of 3, suggesting that only half of the community members can do this (or our data is complete).
+
+The second thing to notice is that stepwise copy numbers once again can vary dramatically from pathwise copy numbers. Some of these differences might be related to the warnings we saw earlier about multiple annotations (though the smallest affected module number in those warnings was M00009 so this doesn't apply to any of the examples above). In the case of M00001, the 3rd step of the module is constraining the stepwise copy number to 2. But eight other steps have at least 5 copies each, so the pathwise copy number (which counts the number of times we see the 'most complete' path through the module with >=75% completeness) is 5. For this particular module and metabolic pathway, all of the community members appear to be using the same set of enzymes, and therefore pathwise copy number is more accurate. But in cases when different microbes in the community could be using alternative routes for a given metabolic pathway, stepwise copy number will make more sense. (We know you are asking, 'why can't there be just one number that works for everything?' Life is not simple like that, sadly. But we also know you have the capacity to appreciate complexity ;)
+
+Finally, we can interpret the copy numbers using the knowledge that our mock metagenome here contains 6 microbial populations. When we see a copy number of 6, we know that the metabolic pathway is universal in our community (6 out of 6 populations have it), and when we see a copy number of 1, we know that it is a more specialized pathway. An example of the former is energy generation via a prokaryotic F-type ATPase (M00157), and an example of the latter is photosynthesis (M00161 and M00163):
+
+|**`module`**|**`module_name`**|**`stepwise_module_completeness`**|**`pathwise_module_completeness`**|**`pathwise_copy_number`**|**`stepwise_copy_number`**|**`per_step_copy_numbers`**|
+|:--|:--|:--|:--|:--|:--|:--|
+|M00161|Photosystem II|1.0|1.0|1|1|1|
+|M00163|Photosystem I|1.0|1.0|1|1|1|
+|M00157|F-type ATPase, prokaryotes and chloroplasts|1.0|1.0|6|6|6|
+|M00158|F-type ATPase, eukaryotes|0.0|0.06666666666666667|0|0|0|
+|M00159|V/A-type ATPase, prokaryotes|0.0|0.6666666666666666|0|0|0|
+
+<details markdown="1"><summary>Show/Hide How to get this table</summary>
+
+Here is how to search for the rows related to ATPases and Photosystems:
+```bash
+grep -E "ATPase|Photosystem" metagenome_metabolism_table.txt
+```
+
+</details>
+
+What's that? You are saying that not every metagenome contains 6 populations and you would like a way to easily interpret and compare metabolic capacity across communities of different sizes? Well, you are absolutely correct and anvi'o is happy to assist you with this. With the recently-added `--add-per-population-copy-number` flag, you can ensure your output files include Per-Population Copy Numbers (or PPCNs), meaning the module copy number divided by the estimated number of populations in the metagenome:
+
+```bash
+anvi-estimate-metabolism -c ../00_DATA/metagenome/sample01-contigs.db \
+                  -O metagenome_metabolism \
+                  --force-overwrite \
+                  --add-per-population-copy-number
+
+# remake the table subset, with PPCN this time
+cut -f 1,3,8,10,18- metagenome_metabolism_modules.txt > metagenome_metabolism_table.txt
+```
+
+Here are our ATPase and Photosynthesis examples in the updated table, where the corresponding PPCN values are 1.0 and 0.167, respectively:
+
+|**`module`**|**`module_name`**|**`stepwise_module_completeness`**|**`pathwise_module_completeness`**|**`pathwise_copy_number`**|**`stepwise_copy_number`**|**`per_step_copy_numbers`**|**`pathwise_ppcn`**|**`stepwise_ppcn`**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|M00161|Photosystem II|1.0|1.0|1|1|1|0.16666666666666666|0.16666666666666666|
+|M00163|Photosystem I|1.0|1.0|1|1|1|0.16666666666666666|0.16666666666666666|
+|M00157|F-type ATPase, prokaryotes and chloroplasts|1.0|1.0|6|6|6|1.0|1.0|
+|M00158|F-type ATPase, eukaryotes|0.0|0.06666666666666667|0|0|0|0.0|0.0|
+|M00159|V/A-type ATPase, prokaryotes|0.0|0.6666666666666666|0|0|0|0.0|0.0|
+
+For a more in-depth explanation and practical application of PPCN values, feel free to check out [this paper](https://doi.org/10.7554/eLife.89862.3).
+
 ### Reaction networks and drawing KEGG Pathway Maps
 
-Let's move onto the second type of metabolism reconstruction: metabolic modeling. Anvi'o can generate a {% include ARTIFACT name="reaction-network" %} from the KEGG Ortholog (KO) annotations in any {% include ARTIFACT name="contigs-db" text="contigs database" %} or {% include ARTIFACT name="pan-db" text="pangenome database" %}. The network connects all genes with KO annotations to the chemical reactions they catalyze, and the metabolites consumed or produced by those reactions. Reaction and compound information are taken from the [ModelSEED](https://github.com/ModelSEED/ModelSEEDDatabase) database.
+Let's go back to our _Trichodesmium_ genomes and move onto the second type of metabolism reconstruction: metabolic modeling. Anvi'o can generate a {% include ARTIFACT name="reaction-network" %} from the KEGG Ortholog (KO) annotations in any {% include ARTIFACT name="contigs-db" text="contigs database" %} or {% include ARTIFACT name="pan-db" text="pangenome database" %}. The network connects all genes with KO annotations to the chemical reactions they catalyze, and the metabolites consumed or produced by those reactions. Reaction and compound information are taken from the [ModelSEED](https://github.com/ModelSEED/ModelSEEDDatabase) database.
 
 {:.notice}
 If you want to use these programs, you will first have to run {% include PROGRAM name="anvi-setup-modelseed-database" %} (if you haven't already done so in your anvi'o environment).
@@ -439,13 +534,15 @@ What we _will_ do in anvi'o is to use this {% include ARTIFACT name="reaction-ne
 
 ```bash
 anvi-draw-kegg-pathways --contigs-dbs ../Trichodesmium_sp-contigs.db \
-              -o Trichodesmium_sp_PATHWAY_MAPS \
-              --ko
+              -o Trichodesmium_sp_PATHWAY_MAPS
 ```
+
+{:.warning}
+If you are working with anvi'o `v9`, you will need to add the `--ko` flag to the above command to ensure the KEGG Ortholog-based maps are drawn. The maps we look at below will also be at a different paths (directly within the output directory rather than in the `unified` subdirectory; for example, `Trichodesmium_sp_PATHWAY_MAPS/kos_00910.pdf`).
 
 For each KEGG Pathway Map, the program will highlight the KOs from the map that are annotated in each provided genome, and create a PDF file in the specified output directory. We only provided a single genome, so the resulting maps are specific to that genome's annotations.
 
-Let's look at an example map. Of course we will look at the [Nitrogen Metabolism](https://www.kegg.jp/pathway/map00910) map (which is map 00910 and stored at `Trichodesmium_sp_PATHWAY_MAPS/kos_00910.pdf`):
+Let's look at an example map. Of course we will look at the [Nitrogen Metabolism](https://www.kegg.jp/pathway/map00910) map (which is map 00910 and stored at `Trichodesmium_sp_PATHWAY_MAPS/unified/ko00910.pdf`):
 
 {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_06.png" width=100 %}
 
@@ -457,6 +554,11 @@ I bet you are wondering how this map looks different across our _Trichodesmium_ 
 
 First, we will need to run {% include PROGRAM name="anvi-reaction-network" %} on all the other genomes. This program unfortunately doesn't accept an {% include ARTIFACT name="external-genomes" text="external genomes file" %} as input; however, we can reuse our BASH loop strategy from [chapter 1]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1/#working-with-multiple-genomes).
 
+**Exercise 2: Run anvi-reaction-network in a loop.**
+Try making the loop yourself. If you need to check the answer, click the Show/Hide box below.
+
+<details markdown="1"><summary>Show/Hide  Answer to Exercise 2: how to run `anvi-reaction-network` on multiple genomes </summary>
+
 ```bash
 while read genome
 do
@@ -464,28 +566,29 @@ do
 done < ../genomes.txt
 ```
 
+</details>
+
 Once that is done, we can run {% include PROGRAM name="anvi-draw-kegg-pathways" %} again, and this time we can provide an {% include ARTIFACT name="external-genomes" text="external genomes file" %}. We will also provide the `--draw-grid` flag so that we get maps showing the results from each individual genome (in addition to the default map showing the total annotations across all genomes). Since it would take a long time to draw every single Pathway Map for all 8 genomes, we will focus on a subset of maps as specified by the `--pathway-numbers` parameter -- the list below includes a couple of maps related to nitrogen metabolism, a few for photosynthesis and related metabolic capacities, and a map for metabolism of some amino acids.
 
 ```bash
 anvi-draw-kegg-pathways --external-genomes ../external-genomes.txt \
                 -o ALL_PATHWAY_MAPS \
-                --ko \
                 --draw-grid \
                 --pathway-numbers 00910 01310 00195 00860 00906 00900 00260 00290
 ```
 
 The resulting files in the `ALL_PATHWAY_MAPS` include:
-- multiple map `.pdf` files (one per requested Pathway Map) with colored boxes showing the number of annotations to a given KO across all input genomes 
-- a `colorbar.pdf` showing the legend -- what color corresponds to what count
+- a `unified/` subdirectory containing multiple map `.pdf` files (one per requested Pathway Map) with colored boxes showing the number of annotations to a given KO across all input genomes
 - a `grid/` subdirectory containing similarly-named map `.pdf` files, except this time each one shows a grid of individual maps for each genome
+- a `colorbar_reactions.pdf` showing the legend for unified maps -- what color corresponds to what count
 
-For consistency with above, we'll look at Pathway Map 00910 for Nitrogen Metabolism again. Here is the combined map at `ALL_PATHWAY_MAPS/kos_00910.pdf`:
+For consistency with above, we'll look at Pathway Map 00910 for Nitrogen Metabolism again. Here is the combined map at `ALL_PATHWAY_MAPS/unified/ko00910.pdf`:
 
 {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_07.png" width=100 %}
 
 The legend tell us that smaller counts are warm colors (starting from a count of 1 in yellow) and higher counts are warm colors (going to a max of 8 in dark purple). So we can tell from this map that all the genomes encode enzymes for assimilatory nitrate reduction, 6 out of the 8 genomes encode nitrogen fixation, and only 1 genome can convert nitrite to ammonia. But we don't know which genome can do what. 
 
-To reveal the specific distribution of enzymes across genomes, here is the corresponding grid map (`ALL_PATHWAY_MAPS/grid/kos_00910.pdf`):
+To reveal the specific distribution of enzymes across genomes, here is the corresponding grid map (`ALL_PATHWAY_MAPS/grid/ko00910.pdf`):
 
 {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_08.png" width=100 %}
 
@@ -500,7 +603,7 @@ The KEGG Pathway Maps cover many metabolic capacities that KEGG modules do not, 
 
 ### Predicting metabolic interactions
 
-One cool thing about _Trichodesmium_ is that they have friends. Bacterial friends, to be specific. _Trichodesmium_ colonies harbor associated bacteria like _Alteromonas_, _Roseibium_, and _Balneolales_ species. Based on a recent study about a Red Sea *T. thiebautii* colony and its bacterial associates [Koedooder et al 2023](https://doi.org/10.1128/msystems.00742-23), these microbes have a symbiotic relationship -- they help each other by exchanging important molecules. The bacterial associates are known to produce siderophores, which help with harvesting iron from dust in their environment and which _Trichodesmium_ cannot make itself. Meanwhile, _Trichodesmium_ can make several B vitamins that the bacterial associates are auxotrophic for.
+One cool thing about _Trichodesmium_ is that they have friends. Bacterial friends, to be specific. _Trichodesmium_ colonies harbor associated bacteria like _Alteromonas_, _Roseibium_, and _Balneolales_ species. Based on a recent study about a Red Sea *T. thiebautii* colony and its bacterial associates ([Koedooder et al 2023](https://doi.org/10.1128/msystems.00742-23)), these microbes have a symbiotic relationship -- they help each other by exchanging important molecules. The bacterial associates are known to produce siderophores, which help with harvesting iron from dust in their environment and which _Trichodesmium_ cannot make itself. Meanwhile, _Trichodesmium_ can make several B vitamins that the bacterial associates are auxotrophic for.
 
 Wouldn't it be cool if we could investigate metabolic interactions using our genomes, without having to painstakingly search for individual gene annotations? Anvi'o got u, fam.
 
@@ -592,15 +695,15 @@ But we might be able to find the B vitamin exchanges mentioned in that paper, or
 
 |**`compound_id`**|**`compound_name`**|**`genomes`**|**`produced_by`**|**`consumed_by`**|**`prediction_method`**|**`max_reaction_chain_length`**|**`max_production_chain_length`**|**`production_overlap_length`**|**`production_overlap_proportion`**|**`production_chain_pathway_map`**|**`max_consumption_chain_length`**|**`consumption_overlap_length`**|**`consumption_overlap_proportion`**|**`consumption_chain_pathway_map`**|
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|cpd00027|D-Glucose|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|10|8|None|None|00500|2|2|1.0|00500|
-|cpd00037|UDP-N-acetylglucosamine|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|14|6|None|None|00520|8|8|1.0|00550|
-|cpd00044|3-phosphoadenylylsulfate|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|9|6|None|None|00920|3|3|1.0|00920|
-|cpd00065|L-Tryptophan|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|14|13|None|None|00400|1|1|1.0|00380|
-|cpd00098|Choline|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|Pathway_Map_Walk|3|1|1|1.0|00564|2|None|None|00260,00670|
-|cpd00100|Glycerol|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|2|1|None|None|00052,00561|1|1|1.0|00561|
-|cpd00104|BIOT|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|Pathway_Map_Walk|5|2|2|1.0|00780|3|None|None|00780|
-|cpd00107|L-Leucine|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|11|10|None|None|00290|1|1|1.0|00970|
-|cpd00108|Galactose|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|A_macleodii|A_macleodii,MAG_Trichodesmium_thiebautii_Atlantic|Pathway_Map_Walk|8|7|None|None|00052|1|1|1.0|00052|
+|cpd00027|D-Glucose|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|Pathway_Map_Walk|10|8|None|None|00500|2|2|1.0|00500|
+|cpd00037|UDP-N-acetylglucosamine|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|Pathway_Map_Walk|14|6|None|None|00520|8|8|1.0|00550|
+|cpd00044|3-phosphoadenylylsulfate|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|Pathway_Map_Walk|9|6|None|None|00920|3|3|1.0|00920|
+|cpd00065|L-Tryptophan|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|Pathway_Map_Walk|14|13|None|None|00400|1|1|1.0|00380|
+|cpd00098|Choline|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|A_macleodii|Pathway_Map_Walk|3|1|1|1.0|00564|2|None|None|00260,00670|
+|cpd00100|Glycerol|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|Pathway_Map_Walk|2|1|None|None|00052,00561|1|1|1.0|00561|
+|cpd00104|BIOT|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|A_macleodii|Pathway_Map_Walk|5|2|2|1.0|00780|3|None|None|00780|
+|cpd00107|L-Leucine|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|Pathway_Map_Walk|11|10|None|None|00290|1|1|1.0|00970|
+|cpd00108|Galactose|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|A_macleodii|MAG_Trichodesmium_thiebautii_Atlantic,A_macleodii|Pathway_Map_Walk|8|7|None|None|00052|1|1|1.0|00052|
 
 The predictions are ranked in order from best evidence to no evidence, so all of these at the top are coming from the `Pathway_Map_Walk` prediction strategy. And here already is one of our expected exchanges: the compound called 'BIOT' is actually biotin aka Vitamin B7, and *T. thiebautii* is potentially cross-feeding it to *A. macleodii* as suggested in the [Koedooder et al 2023](https://doi.org/10.1128/msystems.00742-23) paper.
 
@@ -614,7 +717,7 @@ There are also a few unexpected predictions that look interesting: *A. macleodii
 <details markdown="1"><summary>Show/Hide How to get this table</summary>
 
 To get the two rows of information shown above, you can search for L-Tryptophan's compound ID, followed by a search for the Pathway Map 00400:
-```
+```bash
 grep cpd00065 thiebautii-vs-macleodii-evidence.txt | grep 00400
 ```
 
@@ -626,8 +729,7 @@ Okay, so far it looks pretty promising. There is a very long chain of reactions 
 anvi-draw-kegg-pathways --contigs-dbs ../MAG_Trichodesmium_thiebautii_Atlantic-contigs.db A_macleodii-contigs.db \
               -o thiebautii-vs-macleodii_PATHWAY_MAPS \
               --pathway-numbers 00400 00500 00290 \
-              --draw-grid \
-              --ko
+              --draw-grid
 ```
 
 Here is the part of that map where tryptophan is produced:
@@ -647,10 +749,10 @@ Regardless, one lesson to take away from this section is: predicting metabolic e
 #### Allowing for gaps in reaction chains
 You might be wondering if there is a way to change the stringency of the Pathway Map walks so that they can handle small gaps. Indeed there is! We can set the `--maximum-gaps` parameter to allow for some number of gaps in the reaction chains. Unfortunately, this won't fix the case of L-Tryptophan or L-Leucine, because the gap occurs right at the start of the reaction chain and you cannot build a chain that starts from nothing (Iva and Sam need to think about how to get around this edge case). However, it could help create a better ranking for other ambiguous cases in which the gaps are internal to the reaction chain.
 
-So let's run the predictions again -- this time allowing for a gap of 1 missing enzyme. We will also exclude those problematic pathway maps that gave us pesky warnings before. While creating the tutorial, I noticed that allowing for a gap of 1 causes problems with the Pathway Walk on a specific map, 00061 (Fatty acid biosynthesis) -- processing that map takes forever, potentially because the gap causes a cycle that the codebase can't handle quite yet. To avoid the long (potentially infinite) runtime, we will also exclude this specific map.
+So let's run the predictions again -- this time allowing for a gap of 1 missing enzyme. We will also exclude those problematic pathway maps that gave us pesky warnings before.
 
 {:.notice}
-How did I figure out that map 00061 was the problematic one? I re-ran the program with the `--debug` flag to get more verbose output, and noticed that map 00061 was the only one that started processing but didn't finish.
+If you ever have trouble with this program (long runtimes that never finish, weird warnings that you don't understand, etc), remember that you can always kill and re-run the program with the `--debug` flag to get more verbose output.
 
 In addition, since we've been seeing amino acids in the prediction output, we will add the `--use-equivalent-amino-acids` flag to make sure that we are considering metabolites like "Lysine" and "L-Lysine" to be the same (which could affect our results). Here is the full command:
 
@@ -660,20 +762,25 @@ anvi-predict-metabolic-exchanges -c1 ../MAG_Trichodesmium_thiebautii_Atlantic-co
                 -O thiebautii-vs-macleodii-gap1 \
                 --maximum-gaps 1 \
                 --use-equivalent-amino-acids \
-                --exclude-pathway-maps 00061,00121,00190,00195,00196,00511,00542,00543 \
+                --exclude-pathway-maps 00121,00190,00195,00196,00511,00542,00543 \
                 -T 4
 ```
 
-This time, the number of predictions from the Pathway Map walk approach is a little bit smaller (122 predictions, compared to 128 from before). Some predictions likely went away because we excluded an additional Pathway Map. But the top-ranked results in the table above mostly didn't change, except for some of the reaction chains getting a bit longer.
+We get the same number of predictions from the Pathway Map walk approach as before (128), which means that allowing for the gap didn't help us catch any additional potential exchanges. The top-ranked results in the table above mostly didn't change, except for some of the reaction chains getting a bit longer.
 
-So now is the time to do some targeted searches through the rest of the file. You can look through the rest of the predictions using whatever strategy you think is best. I would recommend focusing on our first set of output files (the ones made without considering gaps), as those are more stringent and seem to be more reliable predictions overall.
+**Exercise 3: what predictions in the output look reasonable or interesting?**
+So now is the time to do some targeted searches through the rest of the file. You can look through the rest of the predictions using whatever strategy you think is best. I would recommend focusing on our first set of output files (the ones made without considering gaps), as those are more stringent and seem to be more reliable predictions overall. Once you have an answer, feel free to check some of the examples I noticed in the Show/Hide box below.
 
 {:.notice}
 Confused by the ModelSEED compound names? You are not a biochemist and are overwhelmed with all this molecular information? Us, too. One option for you is to take the output, pick out the predictions that you have high-confidence in, and give that list to a large-language model (LLM) so it can pick out the ones that are likely to be biologically-relevant in your system. Then you can focus your efforts on carefully validating those predictions.
 
+<details markdown="1"><summary>Show/Hide  (Partial) Answer to Exercise 3: predicted exchanges between these genomes </summary>
+
 Here are some of the interesting predictions that I found:
 - Nitrate (cpd00209), produced by *A. macleodii* and consumed by *T. thiebautii*. You might remember from our earlier exploration of Pathway Map 00910 that *T. thiebautii* has the enzymes to import extracellular nitrate and convert it to nitrite. Perhaps some of that exterior nitrate is coming from its associated bacteria.
 - Thymine (cpd00151) or Thymidine (cpd00184), produced by *T. thiebautii* and consumed by *A. macleodii*. These are part of 'T' nucleotides and are needed by both organisms. Other marine microbes are known to exchange nucleotide components, so perhaps these do, too.
+
+</details>
 
 #### Analyzing multiple pairs of genomes
 When we are working with a whole consortium of microbes, we can ask {% include PROGRAM name="anvi-predict-metabolic-exchanges" %} to process all genomes by providing an {% include ARTIFACT name="external-genomes" text="external genomes file" %}. If you don't do anything else, the program will process all possible pairs of genomes. But you can also provide a {% include ARTIFACT name="genome-pairs" %} file to specify which pairwise comparisons it should do.
@@ -698,28 +805,38 @@ anvi-script-gen-genomes-file --input-dir . -o consortium_external_genomes.txt
 grep thiebautii_Atlantic ../external-genomes.txt >> consortium_external_genomes.txt
 ```
 
-Here is how you can run {% include PROGRAM name="anvi-predict-metabolic-exchanges" %} on those pairs:
+Here is how you can run {% include PROGRAM name="anvi-predict-metabolic-exchanges" %} on those pairs (once again excluding those Pathway Maps with missing map files):
 
 ```bash
 anvi-predict-metabolic-exchanges -e consortium_external_genomes.txt \
                 --genome-pairs-txt genome-pairs.txt \
                 -O thiebautii-vs-many \
                 --use-equivalent-amino-acids \
-                --exclude-pathway-maps 00061,00071,00121,00190,00195,00196,00270,00511,00542,00543 \
+                --exclude-pathway-maps 00121,00190,00195,00196,00511,00542,00543,00270 \
                 -T 2 \
                 -P 2
 ```
 
 {:.notice}
-We are excluding several pathway maps here because our algorithms cannot currently handle them (or cannot process them efficiently enough for a tutorial setting).
+We are excluding additional pathway maps here because our algorithms cannot currently handle them (or cannot process them efficiently enough for a tutorial setting).
 
 Notice that here we set the number of processes (`-P`) to 2, so that two genome pairs can be processed in parallel. And we set the number of threads per process (`-T`) to 2 as well, so in total the program will be using 4 threads.
 
 When the program finishes, you will get similar output files as before, except that multiple pairs of genomes will be included in the results. The predictions include many of the same exchanges that we saw between *T. thiebautii* and *A. macleodii* before, like 'BIOT', nitrate, and thymine. So it seems like the bacterial associates have similar interactions with their cyanobacterial partner.
 
-### Metabolic conclusions
+### What we've learned
 
-We've now used several different strategies to investigate the metabolism of our _Trichodesmium_ genomes and their bacterial associates. We've once again recapitulated the lack of nitrogen fixation in *T. miru* and *T. nobis*, and we've tried some very new programs for visualizing KEGG Pathway Maps and for predicting metabolic interactions.
+We've now used several different strategies to investigate the metabolism of our _Trichodesmium_ genomes and their bacterial associates. We've once again recapitulated the lack of nitrogen fixation in *T. miru* and *T. nobis*, and we've tried some very new programs for visualizing KEGG Pathway Maps and for predicting metabolic interactions. Here are some of the specific things we've learned:
+- why pathwise and stepwise completeness scores can sometimes be extremely different
+- how to make nice heatmaps using the manual mode of the interactive interface (and clustering)
+- that the incompleteness of the _T. thiebautii_ H9 genome is reflected in its predicted metabolic capacity
+- that _T. miru_ and _T. nobis_ have similar metabolic capacities distinct from the other genomes, which does _not_ include nitrogen fixation or Lactosylceramide biosynthesis
+- that instead, _T. miru_ and _T. nobis_ have multiple copies of nitrogen uptake transporters to help them acquire the nitrogen they need
+- that running certain anvi'o programs (like `anvi-estimate-metabolism`) on individual genomes, or running them with the `--debug` flag, is a good way to get more terminal output that could explain weird results
+- how to use KEGG Pathway Maps to visually compare metabolic capacity
+- that _T. miru_ and _T. nobis_ are the only genomes that can catalyze a reaction from threonine to 2-oxobutanoate
+- that our Atlantic _T. thiebautii_ MAG could be cross-feeding biotin (among other things) to its bacterial associates, while those associates may be exchanging nitrate and thymine in return
+- but that annotation gaps (especially at the ends of reaction chains) can confuse predictions for metabolic exchanges, requiring extra verification (with the help of Pathway Map visualizations!)
 
 Don't forget to go back to the parent directory before you move on to the next tutorial section:
 ```bash

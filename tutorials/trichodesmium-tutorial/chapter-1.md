@@ -73,7 +73,19 @@ Config Error: At least one of the deflines in your FASTA File does not comply wi
               look-at-your-fasta-file
 ```
 
-We can use {% include PROGRAM name="anvi-script-reformat-fasta" %} to simplify the FASTA's headers with the flag `--simplify-names`. This command can (optionally) generate a summary report, which is a two column file matching the new and old names of each sequence in the FASTA file. While we are using this command, we can use it to include a specific prefix in the renamed headers with the flag `--prefix` and filter out short contigs (in this example, smaller than 500 bp) with the flag `-l`.
+We can use {% include PROGRAM name="anvi-script-reformat-fasta" %} to simplify the FASTA's headers, as well as to run a number of other sanity checks and filters on our input data. But what flag(s) should we use to achieve this?
+
+**Exercise 1: build your `anvi-script-reformat-fasta` command.**
+Take a look at the options for this program by either checking its online [help page](https://anvio.org/help/main/programs/anvi-script-reformat-fasta/), or by running `anvi-script-reformat-fasta -h` in the terminal. Pick out the flags that you will need and put them together into a command to process our downloaded FASTA file into a new FASTA file called `Trichodesmium_sp.fa`. Once you are ready, click on the Show/Hide box below to see the answer.
+
+<details markdown="1"><summary>Show/Hide  Answer to Exercise 1: how to run `anvi-script-reformat-fasta` </summary>
+
+ Here is our `anvi-script-reformat-fasta` command. It uses the flag `--simplify-names` to change the contig headers into a friendlier set of alphanumeric characters. While this flag is the minimum to get anvi'o working on our FASTA file, we've also added a number of other useful flags:
+ 
+ - with `-r`, we've generated an (optional) reformat report, which is a two column file matching the new and old names of each sequence in the FASTA file to make the change traceable/reversable
+ - we've asked for a specific prefix in the renamed headers with the flag `--prefix` to identify which genome these sequences come from
+ - with `-l`, we've filtered out short contigs (in this example, smaller than 500 bp)
+
 ```bash
 anvi-script-reformat-fasta GCA_023356555.1_ASM2335655v1_genomic.fna \
                            -o Trichodesmium_sp.fa \
@@ -83,6 +95,8 @@ anvi-script-reformat-fasta GCA_023356555.1_ASM2335655v1_genomic.fna \
                            -l 500 \
                            --seq-type NT
 ```
+
+</details>
 
 {:.notice}
 You can use this command to further filter your FASTA file: check the options with the online [help page](https://anvio.org/help/main/), or by using the flag `--help` in the terminal.
@@ -133,24 +147,27 @@ DB Info (no touch)
 Database Path ................................: Trichodesmium_sp-contigs.db
 description ..................................: [Not found, but it's OK]
 db_type ......................................: contigs (variant: unknown)
-version ......................................: 24
+version ......................................: 25
 
 
 DB Info (no touch also)
 ===============================================
 project_name .................................: Trichodesmium_sp
-contigs_db_hash ..............................: hash0d1122fb
+contigs_db_hash ..............................: hashdd485125
 split_length .................................: 20000
 kmer_size ....................................: 4
 num_contigs ..................................: 269
 total_length .................................: 6640707
 num_splits ...................................: 358
 gene_level_taxonomy_source ...................: None
+gene_function_sources ........................: None
 genes_are_called .............................: 1
 external_gene_calls ..........................: 0
 external_gene_amino_acid_seqs ................: 0
 skip_predict_frame ...........................: 0
 splits_consider_gene_calls ...................: 1
+scg_taxonomy_was_run .........................: 0
+scg_taxonomy_database_version ................: None
 trna_taxonomy_was_run ........................: 0
 trna_taxonomy_database_version ...............: None
 reaction_network_ko_annotations_hash .........: None
@@ -158,11 +175,8 @@ reaction_network_kegg_database_release .......: None
 reaction_network_modelseed_database_sha ......: None
 reaction_network_consensus_threshold .........: None
 reaction_network_discard_ties ................: None
-creation_date ................................: 1760017061.92556
-scg_taxonomy_was_run .........................: 1
-scg_taxonomy_database_version ................: GTDB: v214.1; Anvi'o: v1
-gene_function_sources ........................: COG24_FUNCTION,COG24_PATHWAY,COG24_CATEGORY,KOfam,KEGG_BRITE,KEGG_Class,KEGG_Module
-modules_db_hash ..............................: 66e53d49e65a
+contig_classification_sources ................: None
+creation_date ................................: 1788616142.48621
 
 * Please remember that it is never a good idea to change these values. But in some
   cases it may be absolutely necessary to update something here, and a
@@ -185,12 +199,8 @@ AVAILABLE HMM SOURCES
 * 'Archaea_76' (76 models with 34 hits)
 * 'Bacteria_71' (71 models with 72 hits)
 * 'Protista_83' (83 models with 38 hits)
-* 'Ribosomal_RNA_12S' (1 model with 0 hits)
 * 'Ribosomal_RNA_16S' (3 models with 0 hits)
 * 'Ribosomal_RNA_18S' (1 model with 0 hits)
-* 'Ribosomal_RNA_23S' (2 models with 0 hits)
-* 'Ribosomal_RNA_28S' (1 model with 0 hits)
-* 'Ribosomal_RNA_5S' (5 models with 0 hits)
 ```
 
 
@@ -405,13 +415,13 @@ DB Info (no touch)
 Database Path ................................: Trichodesmium_sp-contigs.db
 description ..................................: [Not found, but it's OK]
 db_type ......................................: contigs (variant: unknown)
-version ......................................: 24
+version ......................................: 25
 
 
 DB Info (no touch also)
 ===============================================
 project_name .................................: Trichodesmium_sp
-contigs_db_hash ..............................: hash98a3e869
+contigs_db_hash ..............................: hashdd485125
 split_length .................................: 20000
 kmer_size ....................................: 4
 num_contigs ..................................: 269
@@ -430,11 +440,12 @@ reaction_network_kegg_database_release .......: None
 reaction_network_modelseed_database_sha ......: None
 reaction_network_consensus_threshold .........: None
 reaction_network_discard_ties ................: None
-creation_date ................................: 1759736966.76845
+contig_classification_sources ................: None
+creation_date ................................: 1788616142.48621
 scg_taxonomy_was_run .........................: 1
 scg_taxonomy_database_version ................: GTDB: v214.1; Anvi'o: v1
-gene_function_sources ........................: COG24_CATEGORY,KEGG_BRITE,KEGG_Module,COG24_PATHWAY,KOfam,COG24_FUNCTION,KEGG_Class
-modules_db_hash ..............................: a2b5bde358bb
+gene_function_sources ........................: KOfam,KEGG_Class,KEGG_BRITE,COG24_CATEGORY,KEGG_Module,COG24_PATHWAY,COG24_FUNCTION
+modules_db_hash ..............................: 68221bd12b30
 
 * Please remember that it is never a good idea to change these values. But in some
   cases it may be absolutely necessary to update something here, and a
@@ -452,10 +463,10 @@ AVAILABLE FUNCTIONAL ANNOTATION SOURCES
 * COG24_CATEGORY (3,098 annotations)
 * COG24_FUNCTION (3,098 annotations)
 * COG24_PATHWAY (858 annotations)
-* KEGG_BRITE (1,939 annotations)
-* KEGG_Class (449 annotations)
-* KEGG_Module (449 annotations)
-* KOfam (1,941 annotations)
+* KEGG_BRITE (1,899 annotations)
+* KEGG_Class (480 annotations)
+* KEGG_Module (480 annotations)
+* KOfam (1,903 annotations)
 
 
 AVAILABLE HMM SOURCES
@@ -463,12 +474,8 @@ AVAILABLE HMM SOURCES
 * 'Archaea_76' (76 models with 34 hits)
 * 'Bacteria_71' (71 models with 72 hits)
 * 'Protista_83' (83 models with 38 hits)
-* 'Ribosomal_RNA_12S' (1 model with 0 hits)
 * 'Ribosomal_RNA_16S' (3 models with 0 hits)
 * 'Ribosomal_RNA_18S' (1 model with 0 hits)
-* 'Ribosomal_RNA_23S' (2 models with 0 hits)
-* 'Ribosomal_RNA_28S' (1 model with 0 hits)
-* 'Ribosomal_RNA_5S' (5 models with 0 hits)
 ```
 
 You can also use {% include PROGRAM name="anvi-export-functions" %} to get a tab-delimited file of all the annotations from a given annotation source (or multiple).
@@ -484,11 +491,11 @@ The output table from {% include PROGRAM name="anvi-export-functions" %} looks l
 |:--|:--|:--|:--|:--|
 |0|COG24_FUNCTION|COG3293|Transposase|5.51e-12|
 |2|COG24_FUNCTION|COG4451|Ribulose bisphosphate carboxylase small subunit (RbcS) (PDB:2YBV)|2.02e-63|
-|4|COG24_FUNCTION|COG1850|Ribulose 1,5-bisphosphate carboxylase, large subunit, or a RuBisCO-like protein (RbcL) (PDB:2YBV)|0|
+|2|KOfam|K01602|ribulose-bisphosphate carboxylase small chain [EC:4.1.1.39]|1.2e-45|
 |..|..|..|..|..|
-|4765|KOfam|K02030|polar amino acid transport system substrate-binding protein|1.7e-26|
-|4769|KOfam|K07494|putative transposase|3.6e-16|
-|4813|KOfam|K11524|positive phototaxis protein PixI|4e-37|
+|4817|COG24_FUNCTION|COG1662!!!COG3677|Transposase and inactivated derivatives, IS1 family (InsB)!!!Transposase InsA (InsA)|1.17e-19|
+|4817|KOfam|K07480|insertion element IS1 protein InsB|1.3e-14|
+|4819|COG24_FUNCTION|COG0021|Transketolase (TktA) (PDB:1AY0)|3.14e-180|
 
 
 You can search for your favorite function. As we discussed above, _Trichodesmium_ is known for its ability to fix nitrogen, so you can look for the `NifH` gene, which is a marker gene for nitrogen fixation. Here is how to do that with a simple `grep` command:
@@ -550,10 +557,29 @@ To avoid too much manual labor, we'll use BASH loops to automate the process. Th
 ls 00_DATA/fasta | cut -d "." -f1 > genomes.txt
 ```
 
-The second thing to do is to make sure our FASTA files are properly formatted. Fortunately for you, we provided genomes with anvi'o compatible headers. If you don't believe me (and you should never believe me, and always check your data), then have a look at them.
+Here is an example BASH loop that uses this file to print out the name of each genome, one after another:
 
-The next step is to generate {% include ARTIFACT name="contigs-db" %} for each of our genomes with the following BASH loop:
+```bash
+while read genome
+do
+    echo $genome
+done < genomes.txt
+```
 
+In case you have never learned about BASH loops before, here is a little breakdown:
+- the `while read` command tells your terminal to read an input file line-by-line
+- in this case, the input file is provided by the last line of the loop, where the `<` character redirects the contents of `genomes.txt` to be the loop input
+- the word `genome` in the loop header has been turned into a BASH variable that will store each line of the file, one at a time
+- the current value stored in any BASH variable is accessed by prefixing the variable name with a `$` character; in this case, `$genome`
+- in each iteration of the loop, it reads the next line of the file, assigns that line to the `genome` variable, and then uses the `echo` command to print it out
+You can change what happens in each iteration of the loop by modifying or adding lines between `do` and `done`.
+
+Now that we have the file of genome names, the second thing to do is to make sure our FASTA files are properly formatted. Fortunately for you, we provided genomes with anvi'o compatible headers. If you don't believe me (and you should never believe me, and always check your data), then have a look at them.
+
+**Exercise 2: Convert all genome FASTA files into anvi'o contigs databases.**
+The next step is to generate {% include ARTIFACT name="contigs-db" text="contigs databases" %} for each of our genomes. Can you figure out how to adapt the example BASH loop above to do this? Try it yourself, then check the answer in the Show/Hide box below.
+
+<details markdown="1"><summary>Show/Hide  Answer to Exercise 2: how to run `anvi-gen-contigs-database` in a loop </summary>
 ```bash
 while read genome
 do
@@ -562,6 +588,8 @@ do
                               -T 4
 done < genomes.txt
 ```
+
+</details>
 
 Now we can annotate these genomes with {% include PROGRAM name="anvi-run-hmms" %}, {% include PROGRAM name="anvi-run-ncbi-cogs" %}, {% include PROGRAM name="anvi-run-kegg-kofams" %}, and {% include PROGRAM name="anvi-run-pfams" %}. Some of those annotation commands can take a while, so if you don't want to wait, click the Show/Hide box below to instead get the already-annotated contigs databases from the datapack:
 
@@ -771,6 +799,19 @@ If you have multiple metagenomes, you can use the flag `--matrix` to get an outp
 | Roseobacter          | 0            | 1.00         | 1.00         | 0            | 1.00         | 0            |
 
 </div>
+
+## What we've learned
+
+In addition to learning about {% include ARTIFACT name="contigs-db" text="contigs databases" %} and how to do basic bioinformatic tasks with individual genome and metagenome assemblies in anvi'o (gene-calling, functional annotation, taxonomy estimation), we've also learned:
+
+- that the _Trichodesmium sp._ MAG_R01 genome obtained from the Red Sea is actually a _T. erythreum_ genome
+- that the NifH gene is not always well-annotated with some functional annotation sources
+- that the _Trichodesmium thiebautii_ H9 MAG is rather incomplete
+- how to use BASH loops to run repetitive tasks on different inputs
+- that you can use single-copy core genes to estimate how many microbial populations are present in a metagenomic assembly
+
+Some of these points may come up again in later chapters of this tutorial. :)
+
 
 ## The next chapter
 
