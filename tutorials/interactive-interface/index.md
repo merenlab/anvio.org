@@ -205,7 +205,7 @@ In a pangenome display:
 
 ### Cosmetics: change the radius, remove and add layers
 
-As you can see, the display is crowded with information. The first thing you might notice is that we cannot even read the names of most of the layers. To solve this, we can increase the **Radius** of the inner dendrogram in the **Options** tab. Here I changed the **Radius** to a value of 3500 (don't forget to click **Draw** to refresh the display after changing the value):
+As you can see, the display is crowded with information. The first thing you might notice is that we cannot even read the names of most of the layers. To solve this, we can increase the **Radius** of the inner dendrogram in the **Main** tabi, under the **Display** section. Here I changed the **Radius** to a value of 3500 (don't forget to click **Draw** to refresh the display after changing the value):
 
 {% include IMAGE path="/images/interactive-interface/exercise2_02.png" width=80 %}
 
@@ -213,7 +213,7 @@ Next we can remove groups of additional layers that are not interesting for our 
 
 {% include IMAGE path="/images/interactive-interface/exercise2_03.png" width=80 %}
 
-Let's say we only want to keep the layer **Avg AAI**, and we want to remove **Max AAI** and **Min AAI**. You can change the **height** to 0 for the layers you want to remove from the display:
+Let's say we only want to keep the layer **Avg AAI**, and we want to remove **Max AAI** and **Min AAI**. You can click on the eye icon to show/hide layers:
 
 {% include IMAGE path="/images/interactive-interface/exercise2_04.png" width=80 %}
 
@@ -317,15 +317,15 @@ Here is what the display should look like for you:
 
 {% include IMAGE path="/images/interactive-interface/exercise3_01.png" width=80 %}
 
-By default, anvi'o uses the 3/4 circle shape, but you can change that. First of all, you can control the angle of the display in the **Options** tab, and make it 180°:
+By default, anvi'o uses the 3/4 circle shape, but you can change that. First of all, you can control the angle of the **Display** section of the **Main** tab, and make it 180°:
 
 {% include IMAGE path="/images/interactive-interface/exercise3_02.png" width=80 %}
 
-But in the context of a phylogenomic tree, you might prefer to switch to a more rectangle-type of display, which you can do on the top of the **Main** tab. You can switch from **Circle Phylogram** to **Phylogram**.
+But in the context of a phylogenomic tree, you might prefer to switch to a more rectangle-type of display, which you can do on the top of the **Display** section. You can switch from **Circle Phylogram** to **Phylogram**.
 
 {% include IMAGE path="/images/interactive-interface/exercise3_03.png" width=80 %}
 
-You can modify the **height** and **width** of the display in the **Options** tab:
+You can modify the **height** and **width** of the display in the same section:
 
 {% include IMAGE path="/images/interactive-interface/exercise3_04.png" width=40 %}
 
