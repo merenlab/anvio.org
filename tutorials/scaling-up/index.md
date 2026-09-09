@@ -16,7 +16,7 @@ This hands-on tutorial is divided into three major sections:
  - Metagenomics read recruitment. How to download and use publicly available metagenomes and perform read recruitment analysis on your genome of interest or more!
 
 {:.notice}
-This tutorial was made with anvio v8.
+This tutorial was made for anvio v9-dev (will work for older versions, with minor differences, [like this one](https://github.com/merenlab/anvio/commit/c1ae56885f10b7548895ee037f959ead6755f630)).
 
 <details markdown="1"><summary>Show/Hide A faster version of this tutorial</summary>
 If you are following this tutorial and you fall into one of these categories:
@@ -201,17 +201,22 @@ anvi-run-workflow -w contigs \
 Congratulations, you now have {% include ARTIFACT name="contigs-db" text="contigs database" version="8" %} for your Prochlorococcus genome, if the workflow finished successfully. If not, I'm sure you are able to figure out what is happening by looking at the error message in your terminal and/or reading the log files generated for each program that was run during the workflow. 
 
 What do you do once you have a {% include ARTIFACT name="contigs-db" text="contigs database" version="8" %}? Well, you can start asking questions -- like, how complete is this genome? To answer that, you can use the program {% include PROGRAM name="anvi-estimate-genome-completeness" text="anvi-estimate-genome-completeness" version="8" %} to check the completion/redundancy estimates based on the single-copy core genes (SCGs):
+
 ```bash
-anvi-estimate-genome-completeness -c 02_CONTIGS/Prochlorococcus_JFLQ01-contigs.db
+anvi-estimate-genome-completeness -c 02_CONTIGS/Prochlorococcus_JFLQ01.db
 ```
+
+{:.notice}
+If you are using anvi'o v9 or earlier, the name of the contigs database is different: `02_CONTIGS/Prochlorococcus_JFLQ01-contigs.db`
+
 And the output should look like a table. The completion/redundancy estimation are quite good.  
 ```
-Genome in "Prochlorococcus_JFLQ01-contigs.db"
+Genome in "Prochlorococcus_JFLQ01.db"
 ===============================================
 +--------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
 | bin name                       | domain   |   confidence |   % completion |   % redundancy |   num_splits |   total length |
 +================================+==========+==============+================+================+==============+================+
-| Prochlorococcus_JFLQ01-contigs | BACTERIA |          0.9 |          92.96 |           1.41 |          224 |        1601052 |
+| Prochlorococcus_JFLQ01 | BACTERIA |          0.9 |          92.96 |           1.41 |          224 |        1601052 |
 +--------------------------------+----------+--------------+----------------+----------------+--------------+----------------+
 ```
 
@@ -842,9 +847,12 @@ anvi-import-misc-data -p 05_MERGED/Prochlorococcus_JFLQ01/PROFILE.db \
 Then start the interactive interface:
 
 ```bash
-anvi-interactive -c 02_CONTIGS/Prochlorococcus_JFLQ01-contigs.db \
+anvi-interactive -c 02_CONTIGS/Prochlorococcus_JFLQ01.db \
                  -p 05_MERGED/Prochlorococcus_JFLQ01/PROFILE.db
 ```
+
+{:.notice}
+If you are using anvi'o v9 or earlier, the name of the contigs database is different: `02_CONTIGS/Prochlorococcus_JFLQ01-contigs.db`
 
 {% include IMAGE width=100 path="/images/scaling-up/05_read_recruitment_raw.png" caption="Interactive interface" %}
 
