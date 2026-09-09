@@ -42,6 +42,11 @@ curl -L https://cloud.uol.de/public.php/dav/files/9eHngByzx4L63aq \
 tar -xvf WORKFLOW_MATERIAL.tar.gz && cd WORKFLOW_MATERIAL/
 ```
 
+Before we start, we need to migrate some of the config files inside the datapack:
+```bash
+anvi-migrate --migrate-safely */*json
+```
+
 ## Part I: Workflows with anvi'o
 In this first part we will create a {% include ARTIFACT name="contigs-db" text="contigs database" version="8" %} for our Prochlorococcus genome. 
 We also want to run some routine commands like {% include PROGRAM name="anvi-run-hmms" text="anvi-run-hmms" version="8" %} to get completion/redundancy estimates, {% include PROGRAM name="anvi-run-scg-taxonomy" text="anvi-run-scg-taxonomy" version="8" %} to confirm the taxonomic assignment and {% include PROGRAM name="anvi-run-ncbi-cogs" text="anvi-run-ncbi-cogs" version="8" %} to get some functional annotations. 
