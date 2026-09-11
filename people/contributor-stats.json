@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8166,
+        "total_commits": 8170,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 444
+            "2026": 448
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "fix what was broken",
-        "latest_commit_hash": "446547c1ccf233e937da4ff8ea5c712e40da56e2",
-        "latest_commit_date": "06 September 2026"
+        "latest_commit_message": "docs update",
+        "latest_commit_hash": "0d09e5235fa6cf5e9c836bf38d7fc0922a08db53",
+        "latest_commit_date": "10 September 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 499,
@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2643,
+        "total_commits": 2644,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 128
+            "2026": 129
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "documentation updates",
-        "latest_commit_hash": "37bc87045627e356f840a9e5791808a409758812",
-        "latest_commit_date": "16 July 2026"
+        "latest_commit_message": "fix the snakemake citation color/header",
+        "latest_commit_hash": "1bc9579518fb325871931dbf9a1abb3da1a23631",
+        "latest_commit_date": "10 September 2026"
     },
     "moritzbuck": {
         "total_commits": 3,

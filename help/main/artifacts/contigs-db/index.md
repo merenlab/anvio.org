@@ -77,6 +77,14 @@ Other programs you can run to populate a contigs database with functions include
 
 * <span class="artifact-p">[anvi-run-kegg-kofams](/help/main/programs/anvi-run-kegg-kofams)</span> (which annotates the genes in the database with the KEGG KOfam database)
 
+### The identity of a contigs database
+
+Every contigs database carries a hash value in its `self` table under the key `contigs_db_hash`, which looks like this: `0a1b2c3d4e5f6789blah`. Every anvi'o database that is generated from a contigs database (such as a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span>, a <span class="artifact-n">[genes-db](/help/main/artifacts/genes-db)</span>, or a <span class="artifact-n">[structure-db](/help/main/artifacts/structure-db)</span>) keeps a copy of this value so anvi'o can make sure you are not accidentally using them together with a contigs database they have nothing to do with.
+
+This hash is *deterministic*, since anvi'o computes it from the content as well as the structure of the database itself (i.e. the names and the sequences of its contigs, the split boundaries, the gene calls, etc). Which means running <span class="artifact-p">[anvi-gen-contigs-database](/help/main/programs/anvi-gen-contigs-database)</span> twice on the same <span class="artifact-n">[contigs-fasta](/help/main/artifacts/contigs-fasta)</span> with the same parameters will give you two databases with the same hash. Thus, if you have accidentally delete a contigs database, regenerating it the very same way will make it compatible with the profile databases you had generated from the original one, and will contribute to <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> provenance. Conversely, anything that would invalidate those downstream databases (a different split length, a different gene caller, or of course different sequences) will change the hash, and anvi'o will tell you that your databases are not compatible.
+
+Things that are added to a contigs database after its creation, such as functional annotations, HMM hits, or taxonomy, do not change its hash, since none of them invalidate anything that is linked to it.
+
 ### Analysis on a populated contigs database
 
 Other essential programs that read from a contigs database and yield key information include <span class="artifact-p">[anvi-estimate-genome-completeness](/help/main/programs/anvi-estimate-genome-completeness)</span>, <span class="artifact-p">[anvi-get-sequences-for-hmm-hits](/help/main/programs/anvi-get-sequences-for-hmm-hits)</span>, and <span class="artifact-p">[anvi-estimate-scg-taxonomy](/help/main/programs/anvi-estimate-scg-taxonomy)</span>.
