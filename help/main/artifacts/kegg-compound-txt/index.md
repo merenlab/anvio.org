@@ -80,7 +80,7 @@ Compounds are colored by sample (or, using a <span class="artifact-n">[groups-tx
 
 Compounds are colored by the continuous value through a sequential colormap (`--compound-colormap`, default `plasma_r`). The colorbar is labeled by the value column's header.
 
-A map element's constituent compound accessions are aggregated to a per-element value by `--reaction-accession-aggregation` (`sum` by default) — this reduction happens within each sample.
+A map element's constituent compound accessions are aggregated to a per-element value by `--compound-accession-aggregation` (`sum` by default) — this reduction happens within each sample.
 
 With a `sample` column, `--draw-individual-files` and/or `--draw-grid` color maps of value column data that share a single `colorbar_compounds_samples.pdf` so that samples are comparable on the same scale. How the `unified` map, and with <span class="artifact-n">[groups-txt](/help/main/artifacts/groups-txt)</span> the per-group maps, summarize samples is a separate choice (see below).
 
@@ -92,13 +92,14 @@ The two scales are colored by one colormap, `--compound-colormap`, unless `--com
 
 ## Summarizing across samples and groups
 
-There are three distinct reductions, each with its own option. The first applies whenever the file has a value column; the last two need a `sample` column:
+There are three distinct reductions, each with its own option, plus one rescaling that is not a reduction. The first reduction applies whenever the file has a value column; everything below it needs a `sample` column:
 
-|Level|Option|What it reduces|
+|Level|Option|What it does|
 |:--|:--|:--|
 |accessions of a map element|`--compound-accession-aggregation` (an aggregation; `sum` by default)|the constituent accessions of a map element → that element's value|
 |across samples|`--compound-sample-summary` (`count`, `count_continuous`, `membership`, or an aggregation)|a set of samples → one continuous value or one presence value per accession|
 |across groups|`--compound-group-summary` (`count`, `count_continuous`, `membership`, or an aggregation)|the groups of a <span class="artifact-n">[groups-txt](/help/main/artifacts/groups-txt)</span> → one continuous value or one presence value per accession|
+|each sample's or group's value for an element|`--compound-element-normalization` (a normalization; none by default)|an element's value in one sample or group → that value rescaled against the element's values across all samples or groups|
 
 An **aggregation** is `sum` (default), `mean`, `max`, `min`, `median`, `std` — or any other unsuggested pandas aggregation that reduces a series of numbers to one number, such as `var` or `sem`. Names that transform rather than reduce (`cumsum`) or that only a grouping offers (`first`) are rejected. Where an aggregation is undefined for the values available, as `std` is for a single value, the affected elements are left uncolored and a warning says how many accessions are affected.
 
@@ -118,6 +119,23 @@ anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;compound&#45;txt kegg&#45;compound
                         &#45;&#45;group&#45;threshold 0.5 \
                         &#45;&#45;compound&#45;sample&#45;summary mean \
                         &#45;&#45;compound&#45;group&#45;summary count \
+                        &#45;&#45;draw&#45;individual&#45;files \
+                        &#45;o output_dir
+</div>
+
+## Normalizing an element across samples
+
+With a `sample` column and a value column, each compound element in a sample map is colored by value aggregated across accessions in the element. `--compound-element-normalization` instead colors each element relative to all of the samples. Each element is rescaled against its own values across the samples, so under `relative_to_mean` a value of +0.25 means the sample has 25% more of that element than it averages across samples, and -0.31 means 31% less.
+
+This cannot be worked out in the file itself before analyzing the maps, since each element in each map is related to one or more accessions — the same accession factors into different rescaled element values on each map.
+
+anvi'o encodes a number of normalizations with names recognized as an argument: `relative_to_mean`, `relative_to_median`, `difference_from_mean`, `difference_from_median`, `log2_ratio_to_mean`, `log2_ratio_to_median`, `z_score`, `rank`, `fraction_of_max`, and `fraction_of_total`. A different name is taken to be a pandas Series method that transforms each value into a new value, such as `abs`.
+
+Only the maps of individual samples or groups are rescaled, so element normalization needs `--draw-individual-files` and/or `--draw-grid`. The `unified` map summarizes the unnormalized values, so is unaffected by normalization.
+
+<div class="codeblock" markdown="1">
+anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;compound&#45;txt kegg&#45;compound.txt \
+                        &#45;&#45;compound&#45;element&#45;normalization relative_to_mean \
                         &#45;&#45;draw&#45;individual&#45;files \
                         &#45;o output_dir
 </div>
