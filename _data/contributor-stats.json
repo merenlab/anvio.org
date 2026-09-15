@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2399,
+        "total_commits": 2401,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 58
+            "2026": 60
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "check `anvi-draw-kegg-pathways` package dependencies before the import that needs them",
-        "latest_commit_hash": "f490455e52e428cdf9d93dcabe243a2bc87f559e",
-        "latest_commit_date": "11 September 2026"
+        "latest_commit_message": "help message typo",
+        "latest_commit_hash": "052e756bc8068b898ff2141dbe96d2af7e32617e",
+        "latest_commit_date": "14 September 2026"
     },
     "ahenoch": {
         "total_commits": 399,
