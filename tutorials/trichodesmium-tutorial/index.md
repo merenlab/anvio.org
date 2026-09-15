@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: An anvi'o tutorial with Trichodesmium genomes
-modified: 2024-03-18
+modified: 2026-09-15
 excerpt: "A tutorial that covers a lot of anvi'o capabilities using Trichodesmium."
 categories: [anvio]
 authors: [ivagljiva, FlorianTrigodet]
@@ -155,6 +155,7 @@ Each chapter of this tutorial has its own webpage and is technically independent
 - [Chapter 2: Pangenomics]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-2)
 - [Chapter 3: Phylogenomics]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-3)
 - [Chapter 4: Metabolism]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-4)
+- [Chapter 5: Read Recruitment]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-5)
 
 For convenience, you'll find this set of links at the top of each chapter's webpage.
 

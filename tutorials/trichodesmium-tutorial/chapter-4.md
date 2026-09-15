@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: "An anvi'o tutorial with Trichodesmium genomes (Chapter 4)"
-modified: 2024-03-18
+modified: 2026-09-15
 excerpt: "The Metabolism Chapter"
 categories: [anvio]
 authors: [ivagljiva, FlorianTrigodet]
@@ -21,6 +21,7 @@ This webpage is one chapter of a much larger effort to cover multiple aspects of
 - [Chapter 2: Pangenomics]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-2)
 - [Chapter 3: Phylogenomics]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-3)
 - [Chapter 4: Metabolism]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-4) ← _you are here_
+- [Chapter 5: Read Recruitment]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-5)
 
 ## Metabolism
 
@@ -843,11 +844,13 @@ Don't forget to go back to the parent directory before you move on to the next t
 cd ..
 ```
 
-## Congrats!
+## The next chapter
 
-This is currently the last chapter of the tutorial. Well done! We hope it was useful for you.
+If you want to immediately move on to the next chapter of this tutorial, here is the link:
 
-If you want to go back to the main page of the tutorial, [click here]({{ site.url }}/tutorials/trichodesmium-tutorial/). 
+- [Chapter 5: Read Recruitment]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-5)
+
+If you want to go back to the main page of the tutorial instead, [click here]({{ site.url }}/tutorials/trichodesmium-tutorial/).
 
 {:.notice}
  If you have any questions about this exercise, or have ideas to make it better, please feel free to get in touch with the anvi'o community through our Discord server:
