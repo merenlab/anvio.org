@@ -22,7 +22,7 @@
         "latest_commit_date": "10 September 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 499,
+        "total_commits": 518,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 282
+            "2026": 301
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "rename the sra_download FASTQ output directory",
-        "latest_commit_hash": "bf5069cd5bbb39170c9abbb0471eb5658f87fe88",
-        "latest_commit_date": "12 August 2026"
+        "latest_commit_message": "let sample declare their own LR tech",
+        "latest_commit_hash": "97d22da12be09f67375279c73ab5121c00db73a6",
+        "latest_commit_date": "15 September 2026"
     },
     "watsonar": {
         "total_commits": 10,

@@ -259,6 +259,7 @@
     - name: anvi-report-inversions
     - name: anvi-script-find-misassemblies
     - name: anvi-script-gen-reads
+    - name: anvi-script-get-sra-metadata
 - author: watsonar
   programs:
     - name: anvi-display-contigs-stats
