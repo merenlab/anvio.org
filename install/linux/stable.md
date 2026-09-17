@@ -25,8 +25,6 @@ This page describes the anvi'o installation process for the current stable relea
 
 ## (3) Setup an anvi'o environment
 
-{% include install/commons/stable/conda_setup.md %}
-
 {% include install/commons/conda_packages.md %}
 
 ## (4) Install anvi'o

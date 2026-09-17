@@ -32,8 +32,6 @@ To ensure you are inside the WSL, type `uname` (it should print "Linux").
 
 ## (3) Setup an anvi'o environment
 
-{% include install/commons/stable/conda_setup.md %}
-
 {% include install/commons/conda_packages.md %}
 
 ## (4) Install anvi'o
