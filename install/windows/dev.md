@@ -27,7 +27,7 @@ Before going on, ensure you are inside the WSL, type `uname` (should print "Linu
 
 {% include install/commons/dev/conda_setup.md %}
 
-{% include install/commons/conda_packages.md %}
+{% include install/commons/conda_packages.md version="dev" %}
 
 ## (3) Install anvi'o within the environment
 
