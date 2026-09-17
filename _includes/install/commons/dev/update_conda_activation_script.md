@@ -58,4 +58,4 @@ If you followed these instructions, every time you open a terminal you will need
 conda activate anvio-dev
 ```
 
-If you are here, you can now jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you using `anvi-self-test`, but don't forget to take a look at the bonus chapter below, especially if you are using `bash`.
+If you are here, you can now jump to "[Check your anvi'o setup](#6-check-your-installation)" to see if things worked for you using `anvi-self-test`, but don't forget to take a look at the bonus chapter below, especially if you are using `bash`.
