@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8170,
+        "total_commits": 8171,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,7 +14,7 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 448
+            "2026": 449
         },
         "top_file": "anvio/dbops.py",
         "latest_commit_message": "docs update",
@@ -22,7 +22,7 @@
         "latest_commit_date": "10 September 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 518,
+        "total_commits": 524,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 301
+            "2026": 307
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "let sample declare their own LR tech",
-        "latest_commit_hash": "97d22da12be09f67375279c73ab5121c00db73a6",
-        "latest_commit_date": "15 September 2026"
+        "latest_commit_message": "clean up if muscle process goes wrong",
+        "latest_commit_hash": "1fe8e2b6fc69f7a260dfbbd26ff4c20fd34ec6bf",
+        "latest_commit_date": "17 September 2026"
     },
     "watsonar": {
         "total_commits": 10,
