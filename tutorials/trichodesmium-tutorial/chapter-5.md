@@ -37,84 +37,96 @@ anvi-script-gen-genomes-file --input-dir . -o external-genomes.txt
 </details>
 
 
-TODO INTRO
+Read recruitment, or read mapping, is a critical step in most metagenomics projects. It allows us to compute coverage and detection statistics, enabling us to (1) estimate an organism's relative abundance and presence-absence in samples, (2) analyze biogeography, and (3) more accurately bin contigs into metagenome-assembled genomes (MAGs). It also allows us to identify sequence variants and insertions/deletions, enabling us to do population genetics.
 
-We will learn how to do the following tasks that _don't involve anvi'o programs_:
-- mapping metagenomic reads to a reference using `bowtie2` (REF)
-- processing the mapping output files using `samtools` (REF)
-- competitive vs non-competitive read recruitment
+This chapter of the tutorial covers read recruitment for the case when you have genome(s) to map reads to (that is, the genomes will be your reference sequences). We'll use the results to (roughly) analyze the biogeography of our four _Trichodesmium_ species. That said, the commands for mapping are similar if you use different types of reference sequences such as a metagenomic assembly (for instance, if you want to get differential coverage for binning) or individual genes (for instance, if you want to analyze the distribution of functions across samples).
 
-These 3rd-party software are typically installed within your anvi'o conda environment, so you should have access to them.
+There are many bioinformatic tools for recruiting reads, like [Bowtie 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC3322381/), [BWA](https://arxiv.org/abs/1303.3997), [Strobealign](https://link.springer.com/article/10.1186/s13059-022-02831-7), and [Minimap2](https://doi.org/10.1093/bioinformatics/bty191). Anvi'o is not one of them, but it _does_ include several programs to process the output of read recruitment -- specifically, BAM files. And mapping reads is such a common task that the [anvi'o metagenomics workflow](https://anvio.org/help/main/workflows/metagenomics/) includes all the steps for read recruitment. Therefore, several 3rd-party software options for read recruitment are typically installed within your anvi'o conda environment, so you should have access to them.
+
+In this chapter, we will learn how to do the following tasks that _don't involve anvi'o programs_:
+- mapping metagenomic reads to a reference using Bowtie 2
+- processing the mapping output files using [SAMtools](https://pubmed.ncbi.nlm.nih.gov/19505943/)
+- setting up competitive or non-competitive read recruitment
 
 In addition, we will learn how to process the read recruitment results _within anvi'o_:
 - computing coverage, detection, and single-nucleotide variants (SNVs)
 - visualizing read recruitment data in the interactive interface
 
-### Supplementing the data pack
+### Getting started
 
-TODO get the metagenome and mapping files (size ~1.3G).
+In your terminal, you should be located within the `trichodesmium_tutorial` folder. From there, you can check the contents of the `00_DATA/mapping` folder:
 
-```bash
-cd 00_DATA
-# TODO download and unpack mapping dir
-cd ..
+```
+$ ls 00_DATA/mapping/
+ATLANTIC_R1.fastq.gz  INDIAN_OCEAN_R1.fastq.gz  map_competitive.sh     MEDITERRANEAN_R1.fastq.gz  PACIFIC_R1.fastq.gz  RED_SEA_R1.fastq.gz  samples_info.txt
+ATLANTIC_R2.fastq.gz  INDIAN_OCEAN_R2.fastq.gz  map_noncompetitive.sh  MEDITERRANEAN_R2.fastq.gz  PACIFIC_R2.fastq.gz  RED_SEA_R2.fastq.gz  samples.txt
 ```
 
-If you run `ls` to see the contents of the data you just downloaded, you should see the following:
-```
-#TODO
-```
+You should see 5 metagenome samples named according to where they were sampled. Note that these were derived from publicly-available metagenomes sampled during the Tara Oceans cruise ([Sunagawa et al 2015](https://www.science.org/doi/full/10.1126/science.1261359)). The original samples were subsetted to make them small enough to work with on a typical laptop. If you want to know the BioSample accessions of the original samples, you can check the `samples_info.txt` file in the same folder.
 
-Note that these are publicly-available metagenomes (from the Tara Oceans cruise) that have been subsetted to make them small enough to work with on a typical laptop.
-
-To keep things organized, we will generate another sub-directory to work in:
+To keep things organized as we start generating read recuitment data, we will make ourselves a sub-directory to work in:
 ```bash
 mkdir -p 03_READ_RECRUITMENT && cd 03_READ_RECRUITMENT
 ```
 
+And since we'll be covering two setups for read recruitment -- non-competitive and competitive -- we will also generate a subfolder for the output of each setup:
+```bash
+mkdir -p NON_COMPETITIVE
+mkdir -p COMPETITIVE
+```
+
+We'll mainly work in the `03_READ_RECRUITMENT` directory and direct our output into these last two folders.
+
 ### Mapping one metagenome to a single genome
 
-We will start with the simplest case: one metagenome sample mapped to one genome. Suppose we want to know how much coverage our Trichodesmium sp. MAG gets in a metagenome from the Red Sea.
+We will start with the simplest case: one metagenome sample mapped to one genome. Suppose we want to know whether our `Trichodesmium sp.` MAG (which was obtained from a Red Sea metagenome) is detectable within the `RED_SEA` sample in our datapack. 
 
-Read recruitment is done from FASTQ files (of reads) to FASTA files (of reference sequences, usually contigs). If you worked through Chapter 1, you already have a FASTA file for this genome that we could use as the reference. However, you might remember that we reformatted the contig names before making our contigs database. It is very important to use a FASTA file in which the contig names match those within the contigs-db, so that anvi'o later knows how to connect the read recruitment results to the right contig. Therefore, just to be on the safe side, we are actually going to export the contig sequences directly from the contigs database to ensure we are using a FASTA file with the right contig names:
+Read recruitment is done from FASTQ files (of reads) to FASTA files (of reference sequences, usually contigs). If you worked through [Chapter 1]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1), you already have a FASTA file for this genome that we could use as the reference. However, you might remember that we _reformatted_ the contig names before making our contigs database. It is very important to use a FASTA file in which the contig names match those within the contigs-db, so that anvi'o later knows how to connect the read recruitment results to the right contigs. Therefore, just to be on the safe side, we are actually going to export the contig sequences _directly from the contigs database_ to ensure we are using a FASTA file with the right contig names:
 
 ```bash
 anvi-export-contigs -c ../Trichodesmium_sp-contigs.db -o Trichodesmium_sp.fa
 ```
 
-First we build an index so that the mapping can be faster.
+Now that we have a reference FASTA file, our first step is to index it. Indexing makes the mapping step faster.
+
 ```bash
 bowtie2-build Trichodesmium_sp.fa Trichodesmium_sp
 ```
 
-Notice what was created in your working directory.
+Notice what files were created in your working directory.
 
-Then, we can map our metagenome sample of interest. This particular sample was taken from the Red Sea -- it is not the exact sample from which our downloaded MAG was reconstructed, but should hopefully contain a similar-enough population that our MAG sequences can recruit reads.
+We can now use the index files to map reads from our metagenome sample of interest. This particular sample comes from the Red Sea -- it is not the same sample from which our downloaded MAG was reconstructed, but if it contains a similar-enough population then our MAG's contigs will be able to recruit reads from that 'local analogue' of _Trichodesmium sp_.
+
+Mapping to a single genome is considered 'non-competitive' read recruitment because the sequencing reads only have one biological entity to map to -- if there were other genomes in the reference FASTA file, then the genomes would be competing with each other to recruit reads and sequences of highly similar or shared genomic regions would be drawn to the genome they are most similar to. But there is only one genome in our current index, so we'll direct the mapping output to the `NON_COMPETITIVE` folder. Here is the mapping command:
+
 ```bash
 bowtie2 -x Trichodesmium_sp \
-        -1 ../00_DATA/mapping/SAMEA2657055_partial_R1.fastq.gz \
-        -2 ../00_DATA/mapping/SAMEA2657055_partial_R2.fastq.gz \
-        -S SAMEA2657055-Trichodesmium_sp.sam
+        -1 ../00_DATA/mapping/RED_SEA_R1.fastq.gz \
+        -2 ../00_DATA/mapping/RED_SEA_R2.fastq.gz \
+        -S NON_COMPETITIVE/RED_SEA-Trichodesmium_sp.sam
 ```
 
 We've named the output file with the metagenome's BioSample accession combined with the genome name because later, we'll be mapping the same sample to different references.
 
-Suggestion: take a look at the SAM file using `less` to understand what sort of information it includes: contig name and start/stop positions of mapped reads, flags, CIGAR strings, etc.
+In the terminal output from Bowtie, you should see some information about how many reads were able to map to the genome. It is not 100% because the metagenome includes DNA from organisms that are not similar enough to the reference to be able to map.
 
-SAM files take up a lot of space, so we want to convert them to smaller binary files (BAM). To further save on space, we can exclude unmapped reads from the BAM file. Then, to make the BAM file faster to process, we (1) sort and (2) index it. All this is done with `samtools`.
+If you've never seen a SAM file before, it's worth it to take a look at `NON_COMPETITIVE/RED_SEA-Trichodesmium_sp.sam` using `less` to understand what sort of information it includes. Here's a link to the [SAM file Wikipedia page](https://en.wikipedia.org/wiki/SAM_(file_format)), which has a nice explanation of the format.
+
+SAM files take up a lot of space, so we want to convert them to smaller binary files (BAM). To further save on space, we can exclude unmapped reads from the BAM file. Then, to make the BAM file faster to process, we (1) sort and (2) index it. All of this is done with SAMtools using the commands below:
+
 ```bash
 samtools view -F 4 \
-              -bS SAMEA2657055-Trichodesmium_sp.sam \
-              -o SAMEA2657055-Trichodesmium_sp-RAW.bam
+              -bS RED_SEA-Trichodesmium_sp.sam \
+              -o RED_SEA-Trichodesmium_sp-RAW.bam
 
-samtools sort SAMEA2657055-Trichodesmium_sp-RAW.bam -o SAMEA2657055-Trichodesmium_sp.bam
-samtools index SAMEA2657055-Trichodesmium_sp.bam
+samtools sort RED_SEA-Trichodesmium_sp-RAW.bam -o RED_SEA-Trichodesmium_sp.bam
+samtools index RED_SEA-Trichodesmium_sp.bam
 ```
 
-If all of that was successful, you should see the sorted BAM file `SAMEA2657055-Trichodesmium_sp.bam` and its corresponding index (`.bai`) file in your working directory. Then you are free to remove the original SAM file and the unsorted BAM:
+If all of that was successful, you should see the sorted BAM file `RED_SEA-Trichodesmium_sp.bam` and its corresponding index (`.bai`) file in your working directory. Then you are free to remove the original SAM file and the unsorted BAM:
 
 ```bash
-rm SAMEA2657055-Trichodesmium_sp.sam SAMEA2657055-Trichodesmium_sp-RAW.bam
+rm RED_SEA-Trichodesmium_sp.sam RED_SEA-Trichodesmium_sp-RAW.bam
 ```
 
 Now what? Knowing which reads map where is one thing, but what we are really after are read recruitment statistics like coverage and detection. In anvi'o, we call the calculation of these metrics 'profiling', and there are a couple of programs to do it. `anvi-profile-blitz` gives you really basic read recruitment statistics in a tab-delimited text file. It's very fast and a good option if you are working with a very large number of samples. Meanwhile, `anvi-profile` not only computes coverage and detection, but also identifies single-nucleotide variants, and stores this information in a profile database that can later be used for visualization in the anvi'o interactive interface. As it is not so interesting to visualize read recruitment data from a single metagenome, we'll start with the former option:
@@ -122,17 +134,17 @@ Now what? Knowing which reads map where is one thing, but what we are really aft
 ```bash
 anvi-profile-blitz -c ../Trichodesmium_sp-contigs.db \
 				   -o Tricho_sp_contig_stats.txt \
-				   SAMEA2657055-Trichodesmium_sp.bam
+				   RED_SEA-Trichodesmium_sp.bam
 ```
 
 If you look at the output, you will see that the read recruitment metrics have been computed on a per-contig basis.
 
 |**`contig`**|**`sample`**|**`length`**|**`gc_content`**|**`num_mapped_reads`**|**`detection`**|**`mean_cov`**|**`q2q3_cov`**|**`median_cov`**|**`min_cov`**|**`max_cov`**|**`std_cov`**|**`num_windows`**|**`prop_windows_covered`**|**`prop_cov_within_foldrange`**|**`dis_cov`**|
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|Trichodesmium_sp_MAG_R01_000000000001|SAMEA2657055-Trichodesmium_sp|40296|0.349|184|0.2439|0.4582|0.0|0.0|0|9|1.065|101|0.5446|0.8079|0.6762|
-|Trichodesmium_sp_MAG_R01_000000000002|SAMEA2657055-Trichodesmium_sp|7609|0.306|18|0.1001|0.2292|0.0|0.0|0|9|0.956|26|0.2308|0.748|0.4894|
-|Trichodesmium_sp_MAG_R01_000000000003|SAMEA2657055-Trichodesmium_sp|5360|0.343|7|0.06007|0.1312|0.0|0.0|0|5|0.6213|18|0.1667|0.8975|0.5321|
-|Trichodesmium_sp_MAG_R01_000000000004|SAMEA2657055-Trichodesmium_sp|5380|0.346|22|0.1446|0.41|0.0|0.0|0|9|1.351|18|0.2778|0.7866|0.5322|
+|Trichodesmium_sp_MAG_R01_000000000001|RED_SEA-Trichodesmium_sp|40296|0.349|66|0.1026|0.1647|0.0|0.0|0|6|0.5971|101|0.297|0.8624|0.5797|
+|Trichodesmium_sp_MAG_R01_000000000002|RED_SEA-Trichodesmium_sp|7609|0.306|2|0.02418|0.02418|0.0|0.0|0|1|0.1536|26|0.07692|1.0|0.5385|
+|Trichodesmium_sp_MAG_R01_000000000003|RED_SEA-Trichodesmium_sp|5360|0.343|0|0.0|0.0|0.0|0.0|0|0|0.0|18|0.0|0.0|0.0|
+|Trichodesmium_sp_MAG_R01_000000000004|RED_SEA-Trichodesmium_sp|5380|0.346|14|0.07305|0.2599|0.0|0.0|0|9|1.212|18|0.1667|0.6921|0.4294|
 
 But if you look at the program help page, you might notice that you could also elect to compute these metrics on a per-gene level or a per-genome level. Let's do it again to get genome-level stats. We will need to make a collection-txt file to tell anvi'o that all contigs in the database belong to our _Trichodesmium sp._ genome:
 
@@ -153,26 +165,26 @@ Then we can generate genome-level stats by adding this collection file to our co
 anvi-profile-blitz -c ../Trichodesmium_sp-contigs.db \
 				   -C Trichodesmium_sp_collection.txt \
 				   -o Tricho_sp_genome_stats.txt \
-				   SAMEA2657055-Trichodesmium_sp.bam
+				   RED_SEA-Trichodesmium_sp.bam
 ```
 
 Now, because we are working with a single genome and a single sample, we get a single line of data in our output file:
 
 |**`bin`**|**`sample`**|**`length`**|**`gc_content`**|**`num_mapped_reads`**|**`detection`**|**`mean_cov`**|**`q2q3_cov`**|**`median_cov`**|**`min_cov`**|**`max_cov`**|**`std_cov`**|**`num_windows`**|**`prop_windows_covered`**|**`prop_cov_within_foldrange`**|**`dis_cov`**|
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|Trichodesmium_sp_MAG_R01|SAMEA2657055-Trichodesmium_sp|6640707|0.34|34161|0.2356|0.5147|0.0|0.0|0|86|1.815|6641|0.7383|0.7788|0.7585|
+|Trichodesmium_sp_MAG_R01|RED_SEA-Trichodesmium_sp|6640707|0.34|13931|0.1063|0.2096|0.0|0.0|0|53|1.01|6641|0.4575|0.8319|0.6447|
 
-Plenty of reads have mapped to our genome, but only ~24% of the genome is detected in this sample and the overall mean coverage is rather low. In fact, if you look at the coverage values within the interquartile range (in anvi'o this is called 'Q2Q3 coverage', to indicate that we take the mean of the coverage values within quarter 2 and quarter 3 of the distribution of all per-nucleotide coverage values. This is a very bad and not statistician-friendly name, we know.), they have a mean of 0 (`q2q3_cov`). However, that coverage seems to be spread out across the entire genome (`prop_windows_covered`: ~75% of 1-kb windows have at least some reads mapping to them), and the coverage depth appears roughly stable (`prop_cov_within_foldrange`: ~78% of the covered bases have a coverage depth within 0.5x to 2x of the median non-zero coverage depth). Taking all that evidence together, it looks like this Red Sea metagenome contains a population that is similar to our _Trichodesmium sp._ MAG, but in rather low abundance.
+Plenty of reads have mapped to our genome, but only ~21% of the genome is detected in this sample and the overall mean coverage is rather low. In fact, if you look at the coverage values within the interquartile range (in anvi'o this is called 'Q2Q3 coverage', to indicate that we take the mean of the coverage values within quarter 2 and quarter 3 of the distribution of all per-nucleotide coverage values. This is a very bad and not statistician-friendly name, we know.), they have a mean of 0 (`q2q3_cov`). However, that coverage seems to be spread out across about half the genome (`prop_windows_covered`: ~46% of 1-kb windows have at least some reads mapping to them), and the coverage depth appears roughly stable (`prop_cov_within_foldrange`: ~83% of the covered bases have a coverage depth within 0.5x to 2x of the median non-zero coverage depth), yielding a distribution of coverage score (`discov`) of 0.6447. Taking all that evidence together, it looks like this Red Sea metagenome contains a population that is similar to our _Trichodesmium sp._ MAG, but in rather low abundance.
 
 Before we move on, let's use `anvi-profile` to generate a profile database for this BAM file. We won't do anything with it right now, but it will come in handy later when we want to visualize this data:
 
 ```bash
-anvi-profile -i SAMEA2657055-Trichodesmium_sp.bam \
+anvi-profile -i RED_SEA-Trichodesmium_sp.bam \
              -c ../Trichodesmium_sp-contigs.db \
-             -o SAMEA2657055-Trichodesmium_sp-PROFILE
+             -o RED_SEA-Trichodesmium_sp-PROFILE
 ```
 
-If you look in the output directory `SAMEA2657055-Trichodesmium_sp-PROFILE/`, you should see a profile database, an auxiliary database, and a log file that recapitulates the terminal output.
+If you look in the output directory `RED_SEA-Trichodesmium_sp-PROFILE/`, you should see a profile database, an auxiliary database, and a log file that recapitulates the terminal output.
 
 ### Mapping many metagenomes to a single genome
 
@@ -199,7 +211,7 @@ do
 done < <(tail -n+3 samples.txt)
 ```
 
-Note that we skip sample `SAMEA2657055` (which is the 2nd line in the `samples.txt` file, meaning that the `tail -n+3` command excludes it) because we've already mapped it in the previous section. The loop will take some time, but once it is done, you will have a sorted, indexed BAM file and a profile database for each sample that was mapped to this genome.
+Note that we skip sample `RED_SEA` (which is the 2nd line in the `samples.txt` file, meaning that the `tail -n+3` command excludes it) because we've already mapped it in the previous section. The loop will take some time, but once it is done, you will have a sorted, indexed BAM file and a profile database for each sample that was mapped to this genome.
 
 {:.notice}
 Loops are not the most robust way to scale up this analysis. If one of the commands fails, all the downstream commands for the same sample will fail, too. It would also be a pain to figure out what went wrong without dedicated log files for each step, and you would have to manually re-do the steps that didn't work. Luckily, there is a much better solution: workflows. Check out the metagenomics workflow and this tutorial TODO.
@@ -359,9 +371,37 @@ done < <(tail -n+2 samples.txt) # notice here that we don't skip the first sampl
 anvi-merge *-${g}-PROFILE/PROFILE.db -c $db -o ${g}_MERGED
 ```
 
+Copy it over from the data dir:
+```bash
+cp ../00_DATA/mapping/map_competitive.sh .
+```
+
 Here is how to run the script:
 ```
 ./map_competitive.sh > competitive.log 2>&1
+```
+
+{:.notice}
+Now that you understand the different steps required for read recruitment, there is a much better way to actually run all those steps, and that is to use workflows. Anvi'o has a built-in snakemake workflow for metagenomics which can be run in 'references mode' to perform read recruitment from multiple samples to one or more references, with the option to go all the way to merged profile databases. If you want to learn how to do this with your own data, check out Meren's [tutorial on competitive read recruitment]({{ site.url }}/tutorials/competitive-read-recruitment/) or Florian's more general [tutorial on workflows]({{ site.url }}/tutorials/scaling-up/).
+
+If you wanted to have profile-blitz results for all 4 genomes across all 5 samples, this is how:
+```bash
+# first make the collection-txt file including all contigs
+grep '>' COMBINED.fa | sed 's/>//g' > contigs
+rev contigs | cut -d '_' -f 2- | rev > bins
+paste contigs bins > COMBINED_collection.txt
+rm contigs bins
+# then run the blitz
+anvi-profile-blitz -C COMBINED_collection.txt \
+				   -c COMBINED.db \
+				   -o combined_genome_stats.txt \*-COMBINED.bam
+```
+
+#### Clean-up
+
+Let's get rid of the BAM files, indexes, and single profiles from this section:
+```bash
+rm -r *.bam *.bai *.bt2 *-COMBINED-PROFILE
 ```
 
 ### What we've learned
