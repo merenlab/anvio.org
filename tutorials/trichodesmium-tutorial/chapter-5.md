@@ -112,29 +112,29 @@ In the terminal output from Bowtie, you should see some information about how ma
 
 If you've never seen a SAM file before, it's worth it to take a look at `NON_COMPETITIVE/RED_SEA-Trichodesmium_sp.sam` using `less` to understand what sort of information it includes. Here's a link to the [SAM file Wikipedia page](https://en.wikipedia.org/wiki/SAM_(file_format)), which has a nice explanation of the format.
 
-SAM files take up a lot of space, so we want to convert them to smaller binary files (BAM). To further save on space, we can exclude unmapped reads from the BAM file. Then, to make the BAM file faster to process, we (1) sort and (2) index it. All of this is done with SAMtools using the commands below:
+SAM files take up a lot of space, so we want to convert them to smaller binary files (BAM). To further save on space, we can exclude unmapped reads from the BAM file (this is what the `-F 4` option does below). Then, to make the BAM file faster to process, we (1) sort and (2) index it. All of this is done with SAMtools using these commands:
 
 ```bash
 samtools view -F 4 \
-              -bS RED_SEA-Trichodesmium_sp.sam \
-              -o RED_SEA-Trichodesmium_sp-RAW.bam
+              -bS NON_COMPETITIVE/RED_SEA-Trichodesmium_sp.sam \
+              -o NON_COMPETITIVE/RED_SEA-Trichodesmium_sp-RAW.bam
 
-samtools sort RED_SEA-Trichodesmium_sp-RAW.bam -o RED_SEA-Trichodesmium_sp.bam
-samtools index RED_SEA-Trichodesmium_sp.bam
+samtools sort NON_COMPETITIVE/RED_SEA-Trichodesmium_sp-RAW.bam -o NON_COMPETITIVE/RED_SEA-Trichodesmium_sp.bam
+samtools index NON_COMPETITIVE/RED_SEA-Trichodesmium_sp.bam
 ```
 
-If all of that was successful, you should see the sorted BAM file `RED_SEA-Trichodesmium_sp.bam` and its corresponding index (`.bai`) file in your working directory. Then you are free to remove the original SAM file and the unsorted BAM:
+If all of that was successful, you should see the sorted BAM file `RED_SEA-Trichodesmium_sp.bam` and its corresponding index (`.bai`) file in the output directory. Then you are free to remove the original SAM file and the unsorted BAM:
 
 ```bash
-rm RED_SEA-Trichodesmium_sp.sam RED_SEA-Trichodesmium_sp-RAW.bam
+rm NON_COMPETITIVE/RED_SEA-Trichodesmium_sp.sam NON_COMPETITIVE/RED_SEA-Trichodesmium_sp-RAW.bam
 ```
 
 Now what? Knowing which reads map where is one thing, but what we are really after are read recruitment statistics like coverage and detection. In anvi'o, we call the calculation of these metrics 'profiling', and there are a couple of programs to do it. `anvi-profile-blitz` gives you really basic read recruitment statistics in a tab-delimited text file. It's very fast and a good option if you are working with a very large number of samples. Meanwhile, `anvi-profile` not only computes coverage and detection, but also identifies single-nucleotide variants, and stores this information in a profile database that can later be used for visualization in the anvi'o interactive interface. As it is not so interesting to visualize read recruitment data from a single metagenome, we'll start with the former option:
 
 ```bash
 anvi-profile-blitz -c ../Trichodesmium_sp-contigs.db \
-				   -o Tricho_sp_contig_stats.txt \
-				   RED_SEA-Trichodesmium_sp.bam
+				   -o NON_COMPETITIVE/Tricho_sp_contig_stats.txt \
+				   NON_COMPETITIVE/RED_SEA-Trichodesmium_sp.bam
 ```
 
 If you look at the output, you will see that the read recruitment metrics have been computed on a per-contig basis.
@@ -146,7 +146,9 @@ If you look at the output, you will see that the read recruitment metrics have b
 |Trichodesmium_sp_MAG_R01_000000000003|RED_SEA-Trichodesmium_sp|5360|0.343|0|0.0|0.0|0.0|0.0|0|0|0.0|18|0.0|0.0|0.0|
 |Trichodesmium_sp_MAG_R01_000000000004|RED_SEA-Trichodesmium_sp|5380|0.346|14|0.07305|0.2599|0.0|0.0|0|9|1.212|18|0.1667|0.6921|0.4294|
 
-But if you look at the program help page, you might notice that you could also elect to compute these metrics on a per-gene level or a per-genome level. Let's do it again to get genome-level stats. We will need to make a collection-txt file to tell anvi'o that all contigs in the database belong to our _Trichodesmium sp._ genome:
+This MAG is quite fragmented, with many short contigs. There is quite a lot of variability across the contigs' read recruitment statistics, but overall it seems like few reads mapped to any single contig, yielding low detection and coverage scores. But we want to know whether _the genome as a whole_ is present in this metagenome -- how can we get similar statistics for the entire MAG?
+
+If you look at the program help page, you might notice that you could also elect to compute these metrics on a per-gene level or a per-genome level. Let's do it again to get genome-level stats. We will need to make a collection-txt file to tell anvi'o that all contigs in the contigs database belong to our _Trichodesmium sp._ genome:
 
 ```bash
 # extract the contig names from the FASTA file (removing the initial '>' character)
@@ -164,8 +166,8 @@ Then we can generate genome-level stats by adding this collection file to our co
 ```bash
 anvi-profile-blitz -c ../Trichodesmium_sp-contigs.db \
 				   -C Trichodesmium_sp_collection.txt \
-				   -o Tricho_sp_genome_stats.txt \
-				   RED_SEA-Trichodesmium_sp.bam
+				   -o NON_COMPETITIVE/Tricho_sp_genome_stats.txt \
+				   NON_COMPETITIVE/RED_SEA-Trichodesmium_sp.bam
 ```
 
 Now, because we are working with a single genome and a single sample, we get a single line of data in our output file:
@@ -174,68 +176,165 @@ Now, because we are working with a single genome and a single sample, we get a s
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
 |Trichodesmium_sp_MAG_R01|RED_SEA-Trichodesmium_sp|6640707|0.34|13931|0.1063|0.2096|0.0|0.0|0|53|1.01|6641|0.4575|0.8319|0.6447|
 
-Plenty of reads have mapped to our genome, but only ~21% of the genome is detected in this sample and the overall mean coverage is rather low. In fact, if you look at the coverage values within the interquartile range (in anvi'o this is called 'Q2Q3 coverage', to indicate that we take the mean of the coverage values within quarter 2 and quarter 3 of the distribution of all per-nucleotide coverage values. This is a very bad and not statistician-friendly name, we know.), they have a mean of 0 (`q2q3_cov`). However, that coverage seems to be spread out across about half the genome (`prop_windows_covered`: ~46% of 1-kb windows have at least some reads mapping to them), and the coverage depth appears roughly stable (`prop_cov_within_foldrange`: ~83% of the covered bases have a coverage depth within 0.5x to 2x of the median non-zero coverage depth), yielding a distribution of coverage score (`discov`) of 0.6447. Taking all that evidence together, it looks like this Red Sea metagenome contains a population that is similar to our _Trichodesmium sp._ MAG, but in rather low abundance.
+Let's go through the data more systematically this time. A total of ~14,000 reads have mapped to our genome, but only ~21% of the genome is detected in this sample and the overall mean coverage is rather low. In fact, if you look at the coverage values within the interquartile range, they have a mean of 0 (`q2q3_cov`). This makes sense because less than a quarter of the genome is detected, so of course the middle 50% of per-base coverage values are all zeros. However, that coverage seems to be spread out across about half the genome (`prop_windows_covered`: ~46% of 1-kb windows have at least some reads mapping to them), and the coverage depth appears roughly stable (`prop_cov_within_foldrange`: ~83% of the covered bases have a coverage depth within 0.5x to 2x of the median non-zero coverage depth), yielding a distribution of coverage score (`discov`) of 0.6447. Note that we used default parameters of the distribution of coverage calculation (like the window size and the fold-range of depth) as specified in the `anvi-profile-blitz` help output.
+
+{:.notice}
+In anvi'o, the mean of the middle 50% of per-base coverage values is called 'Q2Q3 coverage'. That is, we throw out the lowest quarter (Q1) and highest quarter (Q4) of per-nucleotide coverages to elimimate any extremely high coverage values due to non-specific read recruitment and extremely low coverage values which may be due to the absence of individual genes in the local population. This leaves only quarter 2 (Q2) and quarter 3 (Q3) of the distribution of all per-nucleotide coverage values, which yield a mean coverage value that can more accurately reflect the population's true coverage in the sample. Hence, 'Q2Q3 coverage'. This is a very bad and not statistician-friendly name, we know. Sorry about that.
+
+Taking all that evidence together, it looks like this Red Sea metagenome contains a population that is kind-of similar to the _Trichodesmium sp._ MAG, but in extremely low abundance. Why could this be, given that the MAG originates from the Red Sea? The [metagenomes](https://www.ncbi.nlm.nih.gov/biosample/SAMN25809967) this MAG was generated from and our `RED_SEA` sample (derived from [this metagenome](https://www.ncbi.nlm.nih.gov/biosample/SAMEA2657055/)) are very different -- the former were sampled in November 2020 from very coastal waters at a depth of 20m in the Gulf of Aqaba (no size fraction information provided), while the latter was sampled in January 2010, much farther south and offshore at a depth of 5m (size fraction 20-180μm). So there are a lot of differences in the sampling and environmental parameters that could contribute to the relative lack of detection of this MAG in our `RED_SEA` sample. Just because two samples come from the same approximate location does not mean they will contain the same microbes.
 
 Before we move on, let's use `anvi-profile` to generate a profile database for this BAM file. We won't do anything with it right now, but it will come in handy later when we want to visualize this data:
 
 ```bash
-anvi-profile -i RED_SEA-Trichodesmium_sp.bam \
+anvi-profile -i NON_COMPETITIVE/RED_SEA-Trichodesmium_sp.bam \
              -c ../Trichodesmium_sp-contigs.db \
-             -o RED_SEA-Trichodesmium_sp-PROFILE
+             -o NON_COMPETITIVE/RED_SEA-Trichodesmium_sp-PROFILE
 ```
 
-If you look in the output directory `RED_SEA-Trichodesmium_sp-PROFILE/`, you should see a profile database, an auxiliary database, and a log file that recapitulates the terminal output.
+If you look in the output directory `NON_COMPETITIVE/RED_SEA-Trichodesmium_sp-PROFILE/`, you should see a profile database, an auxiliary database, and a log file that recapitulates the terminal output.
+
+<details markdown="1"><summary>Show/Hide What's the difference between a profile database and an auxiliary database? </summary>
+
+We are glad you asked. The profile database contains _summary statistics_ like detection, coverage, abundance, etc. for each contig and split as well as the positions and nature of _variants_ like single-nucleotide variants (SNVs), insertions/deletions, single-codon variants (SCVs), and single amino acid variants (SAAVs). Meanwhile, the auxiliary database stores _per-nucleotide_ coverage values -- the underlying data that was used to compute the summary statistics. When you visualize metagenomic data in the interface (we will do this later), the data on the main interface page are the summary statistics taken from the profile database. But you can also 'inspect' individual splits to see the per-nucleotide coverage plots, which are coming from the auxiliary database (with SNV overlays taken from the profile database).
+
+You don't need the auxiliary database to run `anvi-interactive`, just the profile database. The auxiliary database will be loaded automatically by anvi'o provided it is located in the same directory as the profile-db. However, if the auxiliary database is not available, you won't be able to use the 'inspect' function in the interface (or run `anvi-inspect` from the command line).
+
+</details>
 
 ### Mapping many metagenomes to a single genome
 
-What if we want to see if this genome is present in multiple oceans? We can repeat the same steps above for our other metagenomes:
+We just saw that the _Trichodesmium sp._ MAG does not have a significant presence in our Red Sea metagenome. So where else could it be? In our datapack, we have one sample from each of several other temperate marine regions, so let's do a mini-biogeography analysis and see if we can detect this genome in any of the other oceans.
+
+We can repeat the same steps we went through above to map each of our other metagenomes, using the Bowtie 2 index for _Trichodesmium sp._ that we already created. To make things easy, we'll use a BASH loop to do this. The datapack contains a samples-txt file containing the relative path to each metagenome -- copy this file over, and then loop over each line in the file (skipping the `RED_SEA` sample we already mapped) to run Bowtie 2, process the output with SAMtools, and `anvi-profile`:
 
 ```bash
 cp ../00_DATA/mapping/samples.txt .
+
 while read sample r1 r2
 do
   echo "Working on $sample"
   bowtie2 -x Trichodesmium_sp \
         -1 $r1 \
         -2 $r2 \
-        -S ${sample}-Trichodesmium_sp.sam
+        -S NON_COMPETITIVE/${sample}-Trichodesmium_sp.sam
   samtools view -F 4 \
-        -bS ${sample}-Trichodesmium_sp.sam \
-        -o ${sample}-Trichodesmium_sp-RAW.bam
-  samtools sort ${sample}-Trichodesmium_sp-RAW.bam -o ${sample}-Trichodesmium_sp.bam
-  samtools index ${sample}-Trichodesmium_sp.bam
-  rm ${sample}-Trichodesmium_sp.sam ${sample}-Trichodesmium_sp-RAW.bam
-  anvi-profile -i ${sample}-Trichodesmium_sp.bam \
+        -bS NON_COMPETITIVE/${sample}-Trichodesmium_sp.sam \
+        -o NON_COMPETITIVE/${sample}-Trichodesmium_sp-RAW.bam
+  samtools sort NON_COMPETITIVE/${sample}-Trichodesmium_sp-RAW.bam -o NON_COMPETITIVE/${sample}-Trichodesmium_sp.bam
+  samtools index NON_COMPETITIVE/${sample}-Trichodesmium_sp.bam
+  rm NON_COMPETITIVE/${sample}-Trichodesmium_sp.sam NON_COMPETITIVE/${sample}-Trichodesmium_sp-RAW.bam
+  anvi-profile -i NON_COMPETITIVE/${sample}-Trichodesmium_sp.bam \
         -c ../Trichodesmium_sp-contigs.db \
-        -o ${sample}-Trichodesmium_sp-PROFILE
+        -o NON_COMPETITIVE/${sample}-Trichodesmium_sp-PROFILE
 done < <(tail -n+3 samples.txt)
 ```
 
-Note that we skip sample `RED_SEA` (which is the 2nd line in the `samples.txt` file, meaning that the `tail -n+3` command excludes it) because we've already mapped it in the previous section. The loop will take some time, but once it is done, you will have a sorted, indexed BAM file and a profile database for each sample that was mapped to this genome.
+Note that we use `tail -n+3` to skip over the header line and the `RED_SEA` sample (which is the 2nd line) in the `samples.txt` file. The loop will take some time to run, but once it is done, you will have a sorted, indexed BAM file and a profile database for each sample that was mapped to this genome.
 
-{:.notice}
-Loops are not the most robust way to scale up this analysis. If one of the commands fails, all the downstream commands for the same sample will fail, too. It would also be a pain to figure out what went wrong without dedicated log files for each step, and you would have to manually re-do the steps that didn't work. Luckily, there is a much better solution: workflows. Check out the metagenomics workflow and this tutorial TODO.
+{:.warning}
+Loops are not the most robust way to scale up this analysis. If one of the commands fails, all the downstream commands for the same sample will fail, too. It would also be a pain to figure out what went wrong without dedicated log files for each step, and you would have to manually re-do the steps that didn't work. Luckily, there is a much better solution: [workflows]({{ site.url }}/tutorials/scaling-up/). More on this later.
 
-We now have 5 profile databases, one for each of the samples we mapped. In order to visualize them in a single display later, we need to merge the data into one profile database:
-
-```bash
-anvi-merge *-PROFILE/PROFILE.db \
-           -c ../Trichodesmium_sp-contigs.db \
-           -o TRICHO_SP_MERGED
-```
-
-Note that we can also use `anvi-profile-blitz` on multiple BAM files connected to the same reference. We can overwrite the old output file:
+Let's check the MAG's distribution across all 5 metagenome samples. We can use `anvi-profile-blitz` on _multiple BAM files_ connected to the same reference. Note that we overwrite the old output file with the help of the `--force-overwrite` flag:
 ```bash
 anvi-profile-blitz -c ../Trichodesmium_sp-contigs.db \
 				   -C Trichodesmium_sp_collection.txt \
-				   -o Tricho_sp_genome_stats.txt \
+				   -o NON_COMPETITIVE/Tricho_sp_genome_stats.txt \
 				   --force-overwrite \
-				   *-Trichodesmium_sp.bam
+				   NON_COMPETITIVE/*-Trichodesmium_sp.bam
 ```
 
-You should now see 5 lines of data in the output file, one per sample that we mapped to the _Trichodesmium sp._ genome.
+You should now see 5 lines of data in the output file, one per sample that we mapped to the _Trichodesmium sp._ genome:
+
+|**`bin`**|**`sample`**|**`length`**|**`gc_content`**|**`num_mapped_reads`**|**`detection`**|**`mean_cov`**|**`q2q3_cov`**|**`median_cov`**|**`min_cov`**|**`max_cov`**|**`std_cov`**|**`num_windows`**|**`prop_windows_covered`**|**`prop_cov_within_foldrange`**|**`dis_cov`**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|Trichodesmium_sp_MAG_R01|ATLANTIC-Trichodesmium_sp|6640707|0.34|63222|0.2755|0.9557|0.05092|0.0|0|137|2.422|6641|0.6698|0.606|0.6379|
+|Trichodesmium_sp_MAG_R01|INDIAN_OCEAN-Trichodesmium_sp|6640707|0.34|89672|0.4043|1.358|0.3297|0.0|0|330|5.24|6641|0.8765|0.8173|0.8469|
+|Trichodesmium_sp_MAG_R01|MEDITERRANEAN-Trichodesmium_sp|6640707|0.34|106321|0.3289|1.591|0.1695|0.0|0|723|4.992|6641|0.718|0.5518|0.6349|
+|Trichodesmium_sp_MAG_R01|PACIFIC-Trichodesmium_sp|6640707|0.34|559968|0.9079|8.474|7.992|8.0|0|404|7.665|6641|0.9858|0.7634|0.8746|
+|Trichodesmium_sp_MAG_R01|RED_SEA-Trichodesmium_sp|6640707|0.34|13931|0.1063|0.2096|0.0|0.0|0|53|1.01|6641|0.4575|0.8319|0.6447|
+
+Funnily enough, our Red Sea-derived _Trichodesmium sp._ MAG is _least detected_ in our `RED_SEA` metagenome. It seems to be present in `PACIFIC` with ~8x coverage, and based on the high distribution of coverage score in `INDIAN_OCEAN`, it is also confidently present there but in low abundance (~0.3x Q2Q3 coverage). The other samples are on the fence; you could make a case for 'present but in very low abundance' or for 'absent' depending on how you set thresholds for detection or distribution of coverage.
+
+But it would be much more fun to visualize this data in the interactive interface. We have 5 profile databases, one for each of the samples we mapped. In order to visualize them in a single display later, we need to merge the data into one profile database:
+
+```bash
+anvi-merge NON_COMPETITIVE/*-PROFILE/PROFILE.db \
+           -c ../Trichodesmium_sp-contigs.db \
+           -o NON_COMPETITIVE/TRICHO_SP_MERGED
+```
+
+Now that we have all the data in one file, we no longer need the single-sample profiles, so we can just delete them:
+
+```bash
+rm -r NON_COMPETITIVE/*-PROFILE/
+```
 
 ### Visualizing read recruitment data
+
+To view the read recruitment data in the interface, we need the merged profile database and its corresponding contigs-db:
+
+```bash
+anvi-interactive -c ../Trichodesmium_sp-contigs.db \
+			-p NON_COMPETITIVE/TRICHO_SP_MERGED/PROFILE.db \
+			--title Trichodesmium_sp
+```
+
+You probably see a display that looks like this:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/mapping_01.png" width=70 %}
+
+In a metagenomics display, the 'items' of the interactive interface are contigs (technically, they are 'splits' of contigs so that longer contig sequences take up visual space proportional to their length), and the 'layers' are metagenome samples. The first thing to pay attention to is the information at the top of your screen, below the title. It tells you how the genome's contigs are arranged via the middle dendrogram (here, by their sequence composition and differential coverage across samples), what data we are currently looking at in the layers (at the moment, this is mean coverage), and how the samples are ordered (here, "custom" translates to alphabetical order by name).
+
+Another important thing to notice is that the data layers are _normalized_. In the Settings panel on the left, you should see that the metagenome data layers are log-normalized by default. This normalization is done on a _per-sample_ basis, meaning that each data layer is scaled according to the maximum value within that layer. That is why it appears as though our MAG has plenty of coverage in `RED_SEA`, even though we know from before that the actual per-contig mean coverage values are very low. You can check the coverage values in the 'Data' tab.
+
+Finally, check the additional per-sample (layer) bar plots on the right side. The most reads mapped from the _PACIFIC_ sample and we know that _PACIFIC_ certainly contains a _Trichodesmium sp._ population, but that doesn't mean the local population is exactly the same as our MAG -- a large number of SNVs and indels were identified from these reads.
+
+Let's play around with the visualization for a bit. You can change what data is displayed, alter the normalization strategy, change the sample colors, switch the ordering strategy, increase the radius, remove some layers, change the Min/Max of each sample layer, and so on.
+
+Here is what I came up with:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/mapping_02.png" width=70 %}
+
+The most important changes I made were:
+- switch the data view to 'Detection'
+- enforce all sample layers to have a Min of 0 and a Max of 1 (making the plots comparable across samples)
+- order the contigs by 'Differential coverage'
+
+Along with a few other minor cosmetic things. If you want your display to match mine exactly, you can import the state file provided in the datapack before re-opening the interface and loading the 'tutorial' state:
+```bash
+anvi-import-state -p NON_COMPETITIVE/TRICHO_SP_MERGED/PROFILE.db \
+			-s ../00_DATA/mapping/tricho_sp_state.json \
+			-n tutorial
+```
+
+There are a few things to learn from our display. First, detection is low in most samples (we saw this already in the `anvi-profile-blitz` output), but now we can see that it is generally _consistent_ within a sample across the entire MAG, meaning that every contig had an approximately similar rate of read recruitment. Second, in the `PACIFIC` sample there are only a couple of contigs that have 0 detection (on the right), and these are quite short -- basically the length of 1-2 genes which must be missing in the local population of this organism.
+
+Let's inspect one contig to see how the read recruitment patterns look at a finer resolution. We will look at a particularly long contig made up of 8 splits. You can find it by looking for a long gray bar in the 'Parent' layer, which indicates all the splits belong to the same contig sequence:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/mapping_03.png" width=50 %}
+
+Right-click on any split within that range and hit the 'Inspect split' button to open a page like this one:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/mapping_04.png" width=70 %}
+
+The top of the page indicates that we are looking at a split of the contig named `Trichodesmium_sp_MAG_R01_000000000230`, and each bar plot shows the detailed per-nucleotide coverage for one of the samples. If you click through the rest of the splits of this contig (using the 'prev' and 'next' buttons at the top until the page title shows a different contig name), you should see largely the same pattern: in `PACIFIC`, the contig sequence is thoroughly covered but with wavy coverage depth and plenty of SNVs; in the top three samples the reads map more sporadically, with `INDIAN_OCEAN` often yielding the most consistent coverage; and in `RED_SEA` there are mostly isolated read-pairs scattered across the contig. This tracks with the summarized data we saw before.
+
+Note that we see a lot of SNVs in the `PACIFIC` layer, but that is largely because this is the only layer in which the coverage depth is consistently deep enough for `anvi-profile` to take note of sequence variants (by default, the required depth is 10x). There are likely many differences between mapped reads and the reference sequence in the other samples, but not enough coverage for us to confidently distinguish true variation from sequencing errors.
+
+Here are a few of the other interesting things you might notice as you look through this contig:
+- a small missing region in the `PACIFIC` layer containing a transposase gene (in `split_00003`)
+- a huge spike of read recruitment with plenty of SNVs in between a phage lysozyme and an unannotated gene, in the top 3 samples (also in `split_00003`)
+- an operon containing _nifH_, _nifD_, _nifK_ and other _nif_ genes that is covered only in `PACIFIC` and `INDIAN_OCEAN` (in `split_00006`)
+- a large region with hardly any coverage (even in `PACIFIC`) containing glycosyl transferases and several other genes (in `split_00007`). Could it have come from an integrated plasmid or phage?
+
+Clearly, genome-level and even contig-level coverage statistics can obscure a lot of variation in read recruitment patterns, especially when mobile genetic elements are involved.
+
+If you want to open any of these splits directly from the command line, you could use the dedicated program `anvi-inspect`. Here is an example that opens the split with the _nif_ operon:
+```bash
+anvi-inspect -c ../Trichodesmium_sp-contigs.db \
+			-p NON_COMPETITIVE/TRICHO_SP_MERGED/PROFILE.db \
+			--split-name Trichodesmium_sp_MAG_R01_000000000230_split_00006
+```
 
 ### Non-competitive read recruitment (mapping many metagenomes to many genomes in individual FASTA files)
 
