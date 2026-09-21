@@ -181,7 +181,9 @@ Let's go through the data more systematically this time. A total of ~14,000 read
 {:.notice}
 In anvi'o, the mean of the middle 50% of per-base coverage values is called 'Q2Q3 coverage'. That is, we throw out the lowest quarter (Q1) and highest quarter (Q4) of per-nucleotide coverages to elimimate any extremely high coverage values due to non-specific read recruitment and extremely low coverage values which may be due to the absence of individual genes in the local population. This leaves only quarter 2 (Q2) and quarter 3 (Q3) of the distribution of all per-nucleotide coverage values, which yield a mean coverage value that can more accurately reflect the population's true coverage in the sample. Hence, 'Q2Q3 coverage'. This is a very bad and not statistician-friendly name, we know. Sorry about that.
 
-Taking all that evidence together, it looks like this Red Sea metagenome contains a population that is kind-of similar to the _Trichodesmium sp._ MAG, but in extremely low abundance. Why could this be, given that the MAG originates from the Red Sea? The [metagenomes](https://www.ncbi.nlm.nih.gov/biosample/SAMN25809967) this MAG was generated from and our `RED_SEA` sample (derived from [this metagenome](https://www.ncbi.nlm.nih.gov/biosample/SAMEA2657055/)) are very different -- the former were sampled in November 2020 from very coastal waters at a depth of 20m in the Gulf of Aqaba (no size fraction information provided), while the latter was sampled in January 2010, much farther south and offshore at a depth of 5m (size fraction 20-180μm). So there are a lot of differences in the sampling and environmental parameters that could contribute to the relative lack of detection of this MAG in our `RED_SEA` sample. Just because two samples come from the same approximate location does not mean they will contain the same microbes.
+Taking all that evidence together, it looks like this Red Sea metagenome contains a population that is kind-of similar to the _Trichodesmium sp._ MAG, but in extremely low abundance. In fact, since our reference contains only a single genome, it is possible that many of these reads originated from different microbial populations (perhaps other _Trichodesmium_ species), but were similar enough to match this genome (i.e., non-specific read recruitment). To find out if this is the case, we'd have to try competitive read recruitment and see if it makes a difference in how many reads map to this MAG (this is coming later).
+
+Why was the read recruitment so limited, given that the MAG originates from the Red Sea? The [metagenomes](https://www.ncbi.nlm.nih.gov/biosample/SAMN25809967) this MAG was generated from and our `RED_SEA` sample (derived from [this metagenome](https://www.ncbi.nlm.nih.gov/biosample/SAMEA2657055/)) are very different -- the former were sampled in November 2020 from very coastal waters at a depth of 20m in the Gulf of Aqaba (no size fraction information provided), while the latter was sampled in January 2010, much farther south and offshore at a depth of 5m (size fraction 20-180μm). So there are a lot of differences in the sampling and environmental parameters that could contribute to the relative lack of detection of this MAG in our `RED_SEA` sample. Just because two samples come from the same approximate location does not mean they will contain the same microbes.
 
 Before we move on, let's use `anvi-profile` to generate a profile database for this BAM file. We won't do anything with it right now, but it will come in handy later when we want to visualize this data:
 
@@ -338,12 +340,17 @@ anvi-inspect -c ../Trichodesmium_sp-contigs.db \
 
 ### Non-competitive read recruitment (mapping many metagenomes to many genomes in individual FASTA files)
 
-Now we just need to do the same process again, but for other genomes :) We will use one representative from each of the remaining _Trichodesmium_ species:
-- MAG_Trichodesmium_thiebautii_Indian
-- MAG_Candidatus_Trichodesmium_miru
-- MAG_Candidatus_Trichodesmium_nobis
+{:.notice}
+This section is very similar to the previous one, both conceptually and in practice. Feel free to skip it if you don't have enough time (you could move directly to [competitive read recruitment]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-5#competitive-read-recruitment) instead).
 
-The _T. miru_ and _T. nobis_ MAGs were selected because they are the only representatives in our datapack of those species, and this particular _T. thiebautii_ MAG was chosen because it is the most complete _T. thiebautii_ genome we have (remember the genome completeness table from Chapter 1?).
+We've just finished a rough biogeography analysis of _Trichodesmium sp._, which is actually a _T. erythraeum_ based on our [taxonomy estimates in Chapter 1]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1/#estimate-scg-taxonomy). What about the other _Trichodesmium_ species -- where are they found across the global oceans? To find out, we just need to repeat the same process, but using other genomes as our references. We will use one representative from each of the remaining _Trichodesmium_ species, specifically these genomes:
+- `MAG_Trichodesmium_thiebautii_Indian`
+- `MAG_Candidatus_Trichodesmium_miru`
+- `MAG_Candidatus_Trichodesmium_nobis`
+
+The _T. miru_ and _T. nobis_ MAGs were selected because they are the only representatives in our datapack of those species, and `MAG_Trichodesmium_thiebautii_Indian` was chosen because it is the most complete _T. thiebautii_ genome we have (remember the [genome completeness table from Chapter 1]({{ site.url }}/tutorials/trichodesmium-tutorial/chapter-1/#working-with-multiple-genomes)?).
+
+We will stick with non-competitive read recruitment for now, meaning that each sample will be mapped to each genome independently. The consequence is that a given sequencing read could map to multiple of the genomes, as long as its sequence has a good match somewhere in the reference. That is, the genomes aren't competing with each other to recruit reads. If there are multiple _Trichodesmium_ species in one sample, the reads from regions that are similar across all these genomes (like ribosomal proteins) will all map repeatedly to each reference, even if that reference is a different _Trichodesmium_ than the population the DNA originally came from. In other words, non-specific read recruitment can and will happen. But that is okay -- non-specific mapping is a common occurrence since our mapping references will almost never contain the exact same set of populations in our metagenome samples, so we have to learn how to deal with it.
 
 Let's first extract our three genomes of interest and the paths to their contigs databases from the external genomes file in the parent directory:
 
@@ -355,12 +362,14 @@ done
 ```
 This file will make the downstream work a bit easier.
 
-To make things a bit cleaner, we'll put the read recruitment and profiling commands into a BASH script.
+To make things a bit cleaner, we'll put the read recruitment and profiling commands into a BASH script and use variables to control which genome/sample pair we are mapping. Since you've finished the previous sections of this tutorial, you already know how to do all these steps (including working with loops and variables).
 
 **Exercise 1: Create a BASH script to do non-competitive read recruitment.**
-Your script should loop over the 3 selected representative genomes, extract their contig sequences, make Bowtie indexes out of each one, and then loop over all 5 metagenome samples to run the read mapping and profiling steps. At the end, it should merge all single-sample profiles for the same genome into one profile database. It is your choice if you want to take care of these steps using completely separate loops, or a couple of nested loops. Please name your script `map_noncompetitive.sh` for consistency with later tutorial commands. When you are ready to check your answer, click the Show/Hide box below.
+Your script should loop over the 3 selected representative genomes, extract their contig sequences, make Bowtie indexes out of each one, and then loop over all 5 metagenome samples to run the read mapping and profiling steps. At the end, it should merge all single-sample profiles for the same genome into one profile database. It is your choice if you want to take care of these steps using completely separate loops, or a couple of nested loops. Pro Tip: use the `genomes_to_map.txt` and `samples.txt` files to get paths to the files you need rather than hard-coding everything. _Please name your script `map_noncompetitive.sh` for consistency with later tutorial commands._ When you are ready to check your answer, click the Show/Hide box below.
 
 <details markdown="1"><summary>Show/Hide  Answer to Exercise 1: script for non-competitive mapping </summary>
+
+Here is one possible solution:
 
 ```bash
 #!/bin/bash
@@ -368,6 +377,7 @@ Your script should loop over the 3 selected representative genomes, extract thei
 
 INPUT_GENOMES="genomes_to_map.txt"
 INPUT_SAMPLES="samples.txt"
+OUTPUT_DIR="NON_COMPETITIVE"
 
 while read g db
 do
@@ -376,14 +386,14 @@ do
   while read sample r1 r2
   do
     echo "Mapping $sample to $g"
-    bowtie2 -x $g -1 $r1 -2 $r2 -S ${sample}-${g}.sam
-    samtools view -F 4 -bS ${sample}-${g}.sam -o ${sample}-${g}-RAW.bam
-    samtools sort ${sample}-${g}-RAW.bam -o ${sample}-${g}.bam
-    samtools index ${sample}-${g}.bam
-    rm ${sample}-${g}.sam ${sample}-${g}-RAW.bam
-    anvi-profile -i ${sample}-${g}.bam -c $db -o ${sample}-${g}-PROFILE
+    bowtie2 -x $g -1 $r1 -2 $r2 -S ${OUTPUT_DIR}/${sample}-${g}.sam
+    samtools view -F 4 -bS ${OUTPUT_DIR}/${sample}-${g}.sam -o ${OUTPUT_DIR}/${sample}-${g}-RAW.bam
+    samtools sort ${OUTPUT_DIR}/${sample}-${g}-RAW.bam -o ${OUTPUT_DIR}/${sample}-${g}.bam
+    samtools index ${OUTPUT_DIR}/${sample}-${g}.bam
+    rm ${OUTPUT_DIR}/${sample}-${g}.sam ${OUTPUT_DIR}/${sample}-${g}-RAW.bam
+    anvi-profile -i ${OUTPUT_DIR}/${sample}-${g}.bam -c $db -o ${OUTPUT_DIR}/${sample}-${g}-PROFILE
   done < <(tail -n+2 samples.txt) # notice here that we don't skip the first sample row
-  anvi-merge *-${g}-PROFILE/PROFILE.db -c $db -o ${g}_MERGED
+  anvi-merge ${OUTPUT_DIR}/*-${g}-PROFILE/PROFILE.db -c $db -o ${OUTPUT_DIR}/${g}_MERGED
 done < $INPUT_GENOMES
 ```
 
@@ -393,42 +403,96 @@ There is a copy of this script in your datapack, and if you want to use it (inst
 cp ../00_DATA/mapping/map_noncompetitive.sh .
 ```
 
-Sounds like way too much for your laptop? A script like this is fairly easy to run as a job on an HPC, in case you have access to one.
+Sounds like way too much for your laptop to handle? A script like this is fairly easy to run as a job on an HPC, in case you have access to one.
+
 </details>
 
 {:.warning}
-This script will take quite a while to run, because it processes each genome and each sample sequentially. If you are running this on a laptop, you should be prepared to leave it open and connected to power until it is done. If you are running this on an HPC, please make sure you are running it on a compute node and not a head node (you may need to send the command to your HPC's job scheduler).
+This script will take several minutes to run, because it processes each genome and each sample sequentially. If you are running this on a laptop, you should be prepared to leave it open and connected to power until it is done. If you are running this on an HPC, please make sure you are running it on a compute node and not a head node (you may need to send the command to your HPC's job scheduler).
 
 To run the script and direct all its output (including errors) into a log file:
 ```bash
 ./map_noncompetitive.sh > noncompetitive.log 2>&1
 ```
+
 If you are short on time (or computational resources) and you prefer not to run this script by yourself, you can access the final merged profiles saved in the datapack by following the instructions in the Show/Hide box below.
 
 <details markdown="1"><summary>Show/Hide  Copying over the merged profiles for visualization </summary>
 
 Here is how to get our backup databases if you don't want to run the read recruitment yourself:
 ```bash
-#TODO
+cp -r ../00_DATA/mapping/MAG*_MERGED NON_COMPETITIVE/
 ```
 
 </details>
 
 **Exercise 2: Visualize the non-competitive read recruitment results.**
-After running the read recruitment script (or copying over the backup data), you should now have 4 merged profile databases, each paired with one of our _Trichodesmium_ references. We've already looked at the data for _Trichodesmium sp._, but now is your chance to visualize one or more of the other 3 genomes' results in the interactive interface. Consider the following questions: TODO
+After running the read recruitment script (or copying over the backup data), you should now have 4 merged profile databases, each paired with one of our _Trichodesmium_ references. We've already looked at the data for _Trichodesmium sp._, but now is your chance to visualize one or more of the other 3 genomes' results in the interactive interface. Consider the following questions: (1) In which sample(s) is the genome detected? (2) Is the _entire_ genome observed in those samples? (3) What is the average coverage of the genome in those samples?
 
-<details markdown="1"><summary>Show/Hide  Answer to Exercise 2: non-competitive visualizations </summary>
-TODO
+<details markdown="1"><summary>Show/Hide  Answer to Exercise 2: non-competitive visualizations and interpretation </summary>
+Assuming your script created merged profile databases in the `NON_COMPETITIVE/` directory, here is a loop to visualize the results for each genome:
+
+```bash
+while read g db
+do
+  anvi-interactive -c $db -p NON_COMPETITIVE/${g}_MERGED/PROFILE.db --title $g
+done < genomes_to_map.txt
+```
+
+If you look at the data without modifying anything in the interface, it looks like reads are mapping all over each reference. But with a few tweaks (focusing on detection and Q2Q3 coverage instead of the default mean coverage, setting some reasonable minimum and maximum values), you can get a bit closer to understanding the 'true' distribution of these genomes.
+
+Here is how I interpreted the visualization for each genome:
+- `MAG_Trichodesmium_thiebautii_Indian`: the only sample in which this genome is highly detected is `INDIAN_OCEAN`. Some of its contigs are also detected in `PACIFIC` and `MEDITERRANEAN`, but not all. On average, the genome seems to have a Q2Q3 coverage of ~3x in `INDIAN_OCEAN`, though there are a couple of contigs in which the mean coverage spikes to as high as ~56x, driven by individual genes (including a transposase) that are recruiting lots of reads
+- `MAG_Candidatus_Trichodesmium_miru`: this genome is detected in `ATLANTIC` with a Q2Q3 coverage of ~4-5x, and partially detected in `MEDITERRANEAN` and `PACIFIC` with somewhat less coverage. The coverage depth appears much less consistent in these two samples than in `ATLANTIC`, and that combined with the large missing region suggests that `ATLANTIC` is the only sample in which this organism is truly present (that is, it gathered non-specific read recruitment from a different _Trichodesmium_ species in `MEDITERRANEAN` and `PACIFIC`)
+- `MAG_Candidatus_Trichodesmium_nobis`: this genome is certainly detected in `MEDITERRANEAN`, but only half of its contigs (or fewer) have decent detection scores in the other samples, and coverage depth is quite inconsistent in those other samples. It seems to be covered ~5x in `MEDITERRANEAN`.
+
+Because I generated the datapack, I can let you in on a little secret -- each of our metagenomes contains reads that map to _exactly two of our genomes_: the first is always _Trichodesmium sp._ and the second is always another MAG. The _true_ genome-sample pairing is as follows:
+- `MAG_Trichodesmium_thiebautii_Indian` is present in `INDIAN_OCEAN`
+- `MAG_Candidatus_Trichodesmium_miru` is present in `ATLANTIC`. Note that I also kept reads mapping to this genome in the `PACIFIC` sample, but I believe these to be non-specific
+- `MAG_Candidatus_Trichodesmium_nobis` is present in `MEDITERRANEAN`. Note that I also kept reads mapping to this genome in the `RED_SEA` sample, though these are either non-specific or Ca. _T. nobis_ is in extremely low abundance there (analogous to the situation we saw earlier for _Trichodesmium sp._ in this sample)
+
+So non-specific read recruitment really muddled the picture for us here. It made several contigs of `MAG_Trichodesmium_thiebautii_Indian` appear present in `PACIFIC` and `MEDITERRANEAN`, even though those reads were coming from the candidate species instead. The Ca. _T. miru_ genome recruited plenty of reads from _Trichodesmium sp._ and Ca. _T. nobis_ in the `MEDITERRANEAN` sample, and from whatever local _Trichodesmium_ population belongs to `PACIFIC`, such that a large portion of its genome appeared covered in those samples. The same thing happened in the non-`MEDITERRANEAN` samples for Ca. _T. nobis_.
+
+Regardless, with a bit of care, we were able to push past the non-specific read recruitment signal and identify the sample in which each genome was truly present.
+
 </details>
+
+What you should take away from this section is that even though non-competitive read recruitment yields plenty of non-specific signal, we can often manage to distinguish between genome presence and absence anyway. That said, the picture will be much cleaner when we do competitive read recruitment in the next section.
 
 #### Clean-up
 
-Since we already have merged profile databases, we don't need the BAM files or the single-sample profile dbs anymore. We're also done with the individual bowtie indices for each genome. Let's clean up our working directory:
+Feel free to keep the merged profile databases in case you want to go through the data again interactively later (particularly to compare with the competitive read recruitment results). But we don't need the BAM files or the single-sample profile dbs anymore. We're also done with the individual bowtie indices for each genome. Let's clean these up from our working and output directories:
+
 ```bash
-rm -r *.bam *.bai *.bt2 *-PROFILE/
+rm -r NON_COMPETITIVE/*.bam NON_COMPETITIVE/*.bai NON_COMPETITIVE/*-PROFILE/ *.bt2
 ```
 
 ### Competitive read recruitment (mapping many metagenomes to many genomes in ONE combined FASTA file)
+
+<details markdown="1"><summary>Show/Hide Did you skip non-competitive read recruitment? Click here for data preparation steps. </summary>
+
+If you haven't run the above section(s) on non-competitive read recruitment, then you should follow these steps to obtain a few of the files we will need.
+
+```bash
+# get a file of genomes and their database paths
+rm -f genomes_to_map.txt
+for g in MAG_Trichodesmium_thiebautii_Indian MAG_Candidatus_Trichodesmium_miru MAG_Candidatus_Trichodesmium_nobis Trichodesmium_sp
+do
+  grep $g ../external-genomes.txt >> genomes_to_map.txt
+done
+# export contig sequences from each genome
+while read g db
+do
+  anvi-export-contigs -c $db -o ${g}.fa
+done < genomes_to_map.txt
+# make a collection-txt for Trichodesmium sp.
+grep '>' Trichodesmium_sp.fa | sed 's/>//g' > contigs
+cut -d '_' -f 1-4 contigs > genome
+paste contigs genome > Trichodesmium_sp_collection.txt
+rm contigs genome
+```
+
+</details>
 
 You should see four FASTA files in your working directory:
 ```
@@ -436,12 +500,17 @@ $ ls *.fa
 MAG_Candidatus_Trichodesmium_miru.fa  MAG_Candidatus_Trichodesmium_nobis.fa  MAG_Trichodesmium_thiebautii_Indian.fa  Trichodesmium_sp.fa
 ```
 
-Combine into one reference fasta:
+We are now going to do _competitive_ read recruitment, meaning that we'll map our metagenome samples to all four genomes at once. Each sequencing read will therefore map to the genome that it best matches to, even if it is technically similar enough to match a sequence in multiple genomes. This strategy can greatly reduce the influence of non-specific read recruitment in our results. Another advantage is that it will be faster, because we only have a single reference to map to instead of four individual references.
+
+The first step is to combinen all four of our genomes into one reference FASTA file:
 ```bash
 cat *.fa > COMBINED.fa
 ```
+An important caveat to this is that all of the contig sequences can be uniquely matched to their original genome, via the prefixes in their contig headers. For instance, all the contig names belonging to `MAG_Candidatus_Trichodesmium_miru` start with the string `TARA_AOS_82_MAG_00025`. This will become important later, when we want to separate the four genomes again in our results.
 
-Now we can run all the steps of read recruitment, but on this combined FASTA file. Let's make a script to do it.
+Let's run all the steps of read recruitment, but on this combined FASTA file. We'll use a script to do it (and I won't make you write it yourself this time unless you really want to *wink wink*).
+
+Here is the script. It starts by building a Bowtie 2 index and a contigs database for the combined set of genomes, and then loops over each metagenome to run all the mapping steps. At the end, it merges the single profiles together. All the mapping output is created in the directory called `COMPETITIVE` to keep it separate from our earlier work:
 
 ```bash
 #!/bin/bash
@@ -449,9 +518,12 @@ Now we can run all the steps of read recruitment, but on this combined FASTA fil
 
 INPUT_GENOMES_FA="COMBINED.fa"
 INPUT_SAMPLES="samples.txt"
+OUTPUT_DIR="COMPETITIVE"
 
 g="COMBINED"
 db="${g}.db"
+
+mkdir -p $OUTPUT_DIR
 
 bowtie2-build ${g}.fa $g
 anvi-gen-contigs-database -f $INPUT_GENOMES_FA -o $db
@@ -459,51 +531,122 @@ anvi-gen-contigs-database -f $INPUT_GENOMES_FA -o $db
 while read sample r1 r2
 do
     echo "Mapping $sample to $g"
-    bowtie2 -x $g -1 $r1 -2 $r2 -S ${sample}-${g}.sam
-    samtools view -F 4 -bS ${sample}-${g}.sam -o ${sample}-${g}-RAW.bam
-    samtools sort ${sample}-${g}-RAW.bam -o ${sample}-${g}.bam
-    samtools index ${sample}-${g}.bam
-    rm ${sample}-${g}.sam ${sample}-${g}-RAW.bam
-    anvi-profile -i ${sample}-${g}.bam -c $db -o ${sample}-${g}-PROFILE
-done < <(tail -n+2 samples.txt) # notice here that we don't skip the first sample row
+    bowtie2 -x $g -1 $r1 -2 $r2 -S ${OUTPUT_DIR}/${sample}-${g}.sam
+    samtools view -F 4 -bS ${OUTPUT_DIR}/${sample}-${g}.sam -o ${OUTPUT_DIR}/${sample}-${g}-RAW.bam
+    samtools sort ${OUTPUT_DIR}/${sample}-${g}-RAW.bam -o ${OUTPUT_DIR}/${sample}-${g}.bam
+    samtools index ${OUTPUT_DIR}/${sample}-${g}.bam
+    rm ${OUTPUT_DIR}/${sample}-${g}.sam ${OUTPUT_DIR}/${sample}-${g}-RAW.bam
+    anvi-profile -i ${OUTPUT_DIR}/${sample}-${g}.bam -c $db -o ${OUTPUT_DIR}/${sample}-${g}-PROFILE
+done < <(tail -n+2 samples.txt)
 
-anvi-merge *-${g}-PROFILE/PROFILE.db -c $db -o ${g}_MERGED
+anvi-merge ${OUTPUT_DIR}/*-${g}-PROFILE/PROFILE.db -c $db -o ${OUTPUT_DIR}/${g}_MERGED
 ```
 
-Copy it over from the data dir:
+For convenience, you can copy the script over from the data dir before running it:
 ```bash
 cp ../00_DATA/mapping/map_competitive.sh .
-```
-
-Here is how to run the script:
-```
 ./map_competitive.sh > competitive.log 2>&1
 ```
 
 {:.notice}
-Now that you understand the different steps required for read recruitment, there is a much better way to actually run all those steps, and that is to use workflows. Anvi'o has a built-in snakemake workflow for metagenomics which can be run in 'references mode' to perform read recruitment from multiple samples to one or more references, with the option to go all the way to merged profile databases. If you want to learn how to do this with your own data, check out Meren's [tutorial on competitive read recruitment]({{ site.url }}/tutorials/competitive-read-recruitment/) or Florian's more general [tutorial on workflows]({{ site.url }}/tutorials/scaling-up/).
+Now that you understand the different steps required for read recruitment, there is a much better way to actually run all those steps, and that is to use workflows. Anvi'o has a built-in [snakemake workflow for metagenomics](https://anvio.org/help/main/workflows/metagenomics/) which can be run in 'references mode' to perform read recruitment from multiple samples to one or more references, with the option to go all the way to merged profile databases. If you want to learn how to do this with your own data, check out Meren's [tutorial on competitive read recruitment]({{ site.url }}/tutorials/competitive-read-recruitment/) or Florian's more general [tutorial on workflows]({{ site.url }}/tutorials/scaling-up/).
 
-If you wanted to have profile-blitz results for all 4 genomes across all 5 samples, this is how:
+Once the script is done, you can visualize it as follows:
 ```bash
-# first make the collection-txt file including all contigs
-grep '>' COMBINED.fa | sed 's/>//g' > contigs
-rev contigs | cut -d '_' -f 2- | rev > bins
-paste contigs bins > COMBINED_collection.txt
-rm contigs bins
+anvi-interactive -c COMBINED.db \
+		-p COMPETITIVE/COMBINED_MERGED/PROFILE.db \
+		--title Combined_Genomes
+```
+
+But there is one problem -- you can't tell which contig belongs to which genome in the display. We need to import a collection of bins describing our genomes first. Stop the interface server, and then run the following commands to make a collection-txt file describing, for each contig, which genome it belongs to:
+
+```bash
+for fa in MAG_*.fa
+do 
+  genome="${fa%.*}"
+  while read contig
+  do 
+    echo -e "$contig\t$genome" >> COMBINED_collection.txt
+  done < <(grep '>' $fa | sed 's/>//g')
+done
+cat Trichodesmium_sp_collection.txt >> COMBINED_collection.txt
+```
+
+The outer loop here goes through each FASTA file starting with `MAG_`, and extracts the name of the genome by removing the `.fa` extension of the file name. The inner loop then goes over each contig name in the FASTA file (identified by searching for the '>' characters and then removing those characters) and writes it to the collection file along with the genome name. Afterwards, we add in the _Trichodesmium sp._ contigs from the `Trichodesmium_sp_collection.txt` file that we already created.
+
+We can import this collection into our profile database. You can name it 'default' so that it shows up automatically when you open the interface:
+```bash
+anvi-import-collection -p COMPETITIVE/COMBINED_MERGED/PROFILE.db \
+		-c COMBINED.db \
+		-C default \
+		--contigs-mode \
+		COMBINED_collection.txt
+```
+
+Afterwards, opening the interface (same command as before) should show you a clear story:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/mapping_05.png" width=70 %}
+
+First, the contigs are organized according to their sequence composition and differential coverage, which means that contigs from the same genome largely come together. There are a few exceptions because these are closely-related genomes. In particular, they have very similar sequence composition -- if you change the organization to sequence composition, you should see that all the genomes get mixed up. Organizing the contigs by differential coverage alone does a much better job at keeping the original genomes distinct.
+
+Second, you should see that each genome has clean read recruitment from one sample, with limited signal from all other samples. This becomes especially clear if you switch the data view to Q2Q3 coverage. You might recall that the displays from non-competitive read recruitment were much messier -- that was due to non-specific read recruitment that has been largely eliminated by using the competitive mapping strategy.
+
+So, which genome is found in which sample(s)? Take a look at the detection data:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/mapping_06.png" width=70 %}
+
+As we saw before, _Trichodesmium sp._ is found in `PACIFIC`, _thiebautii_ is found in `INDIAN_OCEAN`, _miru_ is found in `ATLANTIC` and _nobis_ is found in `MEDITERRANEAN`. It is also debatable whether _nobis_ and _Trichodesmium sp._ are found in very low abundance in `RED_SEA` and/or `INDIAN_OCEAN`, respectively, given the roughly even detection signal across their genomes in these samples.
+
+
+We can summarize this quantitatively by running `anvi-profile-blitz` on the BAM files with our collection:
+```bash
 # then run the blitz
 anvi-profile-blitz -C COMBINED_collection.txt \
-				   -c COMBINED.db \
-				   -o combined_genome_stats.txt \*-COMBINED.bam
+				-c COMBINED.db \
+				-o COMPETITIVE/combined_genome_stats.txt \
+				COMPETITIVE/*-COMBINED.bam
 ```
+
+In the output table, we can see that the `detection` and `dis_cov` scores recapitulate what we've seen in the interface. Distribution of coverage seems to indicate that _Trichodesmium sp._ is indeed found in `INDIAN_OCEAN`, but we are a bit less confident about its presence in the `RED_SEA` than we were earlier using non-competitive read recruitment.
+
+|**`bin`**|**`sample`**|**`length`**|**`gc_content`**|**`num_mapped_reads`**|**`detection`**|**`mean_cov`**|**`q2q3_cov`**|**`median_cov`**|**`min_cov`**|**`max_cov`**|**`std_cov`**|**`num_windows`**|**`prop_windows_covered`**|**`prop_cov_within_foldrange`**|**`dis_cov`**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|MAG_Candidatus_Trichodesmium_miru|ATLANTIC-COMBINED|5425804|0.351|243910|0.9102|4.514|4.037|4.0|0|370|4.092|5426|0.9952|0.7839|0.8895|
+|MAG_Candidatus_Trichodesmium_nobis|ATLANTIC-COMBINED|6101640|0.359|142|0.001913|0.002294|0.0|0.0|0|5|0.05761|6102|0.01868|0.9675|0.4931|
+|MAG_Trichodesmium_thiebautii_Indian|ATLANTIC-COMBINED|6834732|0.353|80|0.0008925|0.00116|0.0|0.0|0|7|0.04578|6835|0.008632|0.9449|0.4768|
+|Trichodesmium_sp_MAG_R01|ATLANTIC-COMBINED|6640707|0.34|7708|0.0348|0.1162|0.0|0.0|0|97|1.098|6641|0.1316|0.8119|0.4718|
+|MAG_Candidatus_Trichodesmium_miru|INDIAN_OCEAN-COMBINED|5425804|0.351|199|0.00295|0.003663|0.0|0.0|0|8|0.07848|5426|0.02893|0.9536|0.4913|
+|MAG_Candidatus_Trichodesmium_nobis|INDIAN_OCEAN-COMBINED|6101640|0.359|460|0.005219|0.00752|0.0|0.0|0|11|0.1355|6102|0.04769|0.9232|0.4854|
+|MAG_Trichodesmium_thiebautii_Indian|INDIAN_OCEAN-COMBINED|6834732|0.353|271890|0.8608|4.001|3.33|3.0|0|541|6.094|6835|0.9873|0.793|0.8901|
+|Trichodesmium_sp_MAG_R01|INDIAN_OCEAN-COMBINED|6640707|0.34|28857|0.1814|0.4366|0.0|0.0|0|181|2.321|6641|0.6615|0.7981|0.7298|
+|MAG_Candidatus_Trichodesmium_miru|MEDITERRANEAN-COMBINED|5425804|0.351|507|0.004506|0.009031|0.0|0.0|0|52|0.2778|5426|0.04055|0.8627|0.4516|
+|MAG_Candidatus_Trichodesmium_nobis|MEDITERRANEAN-COMBINED|6101640|0.359|371864|0.926|6.024|5.037|5.0|0|6392|22.12|6102|1.0|0.6453|0.8226|
+|MAG_Trichodesmium_thiebautii_Indian|MEDITERRANEAN-COMBINED|6834732|0.353|446|0.003602|0.006275|0.0|0.0|0|51|0.2064|6835|0.03277|0.8797|0.4562|
+|Trichodesmium_sp_MAG_R01|MEDITERRANEAN-COMBINED|6640707|0.34|13736|0.03972|0.1964|0.0|0.0|0|728|2.918|6641|0.1589|0.7673|0.4631|
+|MAG_Candidatus_Trichodesmium_miru|PACIFIC-COMBINED|5425804|0.351|21182|0.07811|0.3909|0.0|0.0|0|817|6.264|5426|0.2757|0.7385|0.5071|
+|MAG_Candidatus_Trichodesmium_nobis|PACIFIC-COMBINED|6101640|0.359|254|0.00233|0.004154|0.0|0.0|0|14|0.1312|6102|0.0218|0.8806|0.4512|
+|MAG_Trichodesmium_thiebautii_Indian|PACIFIC-COMBINED|6834732|0.353|635|0.003817|0.009235|0.0|0.0|0|63|0.3296|6835|0.03497|0.8278|0.4314|
+|Trichodesmium_sp_MAG_R01|PACIFIC-COMBINED|6640707|0.34|556389|0.9059|8.42|7.948|8.0|0|404|7.477|6641|0.9846|0.7625|0.8735|
+|MAG_Candidatus_Trichodesmium_miru|RED_SEA-COMBINED|5425804|0.351|56|0.0007713|0.0009547|0.0|0.0|0|6|0.04016|5426|0.007741|0.967|0.4874|
+|MAG_Candidatus_Trichodesmium_nobis|RED_SEA-COMBINED|6101640|0.359|16589|0.1142|0.2599|0.0|0.0|0|1879|6.795|6102|0.4595|0.8227|0.6411|
+|MAG_Trichodesmium_thiebautii_Indian|RED_SEA-COMBINED|6834732|0.353|292|0.00284|0.004045|0.0|0.0|0|37|0.1337|6835|0.02955|0.9381|0.4838|
+|Trichodesmium_sp_MAG_R01|RED_SEA-COMBINED|6640707|0.34|10237|0.08158|0.154|0.0|0.0|0|53|0.8277|6641|0.3914|0.8527|0.622|
+
+Conclusions? If you want cleaner read recruitment results, go with a competitive mapping strategy. If you can't do that, then you will need to be a bit more stringent when deciding on genome presence-absence in order to account for the influence of non-specific read recruitment.
 
 #### Clean-up
 
 Let's get rid of the BAM files, indexes, and single profiles from this section:
 ```bash
-rm -r *.bam *.bai *.bt2 *-COMBINED-PROFILE
+rm -r COMPETITIVE/*.bam COMPETITIVE/*.bai COMPETITIVE/*-COMBINED-PROFILE *.bt2
 ```
 
 ### What we've learned
+
+The biggest take-away from this chapter is hopefully an awareness of non-specific read recruitment and how it influences read mapping results. But we've also learned:
+- that we can decide on genome presence-absence by looking at summary statistics like detection and distribution of coverage
+- that these summary statistics cover up a lot of variation in the mapping data. Individual genes or longer regions of your reference can be missing entirely from the local version of your reference population, and at a finer scale, the local population can have many SNVs or indels relative to the reference
+ 
 
 ## Congrats!
 
