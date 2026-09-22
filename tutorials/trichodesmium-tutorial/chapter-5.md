@@ -666,6 +666,10 @@ The biggest take-away from this chapter is hopefully an awareness of non-specifi
 - that we can decide on genome presence-absence by looking at summary statistics like detection and distribution of coverage
 - that these summary statistics cover up a lot of variation in the mapping data. Individual genes or longer regions of your reference can be missing entirely from the local version of your reference population, and at a finer scale, the local population can have many SNVs or indels relative to the reference
 
+Don't forget to go back to the parent directory before you move on to the next tutorial section:
+```bash
+cd ..
+```
 
 ## Congrats!
 
