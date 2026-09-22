@@ -455,6 +455,10 @@ So non-specific read recruitment really muddled the picture for us here. It made
 
 Regardless, with a bit of care, we were able to push past the non-specific read recruitment signal and identify the sample in which each genome was truly present.
 
+Here is one of the visualizations, for Ca. _T. miru_, in case you want to compare it to the competitive read recruitment picture later:
+
+{% include IMAGE path="/images/trichodesmium_tutorial/mapping_05.png" width=70 %}
+
 </details>
 
 What you should take away from this section is that even though non-competitive read recruitment yields plenty of non-specific signal, we can often manage to distinguish between genome presence and absence anyway. That said, the picture will be much cleaner when we do competitive read recruitment in the next section.
@@ -585,7 +589,7 @@ anvi-import-collection -p COMPETITIVE/COMBINED_MERGED/PROFILE.db \
 
 Afterwards, opening the interface (same command as before) should show you a clear story:
 
-{% include IMAGE path="/images/trichodesmium_tutorial/mapping_05.png" width=70 %}
+{% include IMAGE path="/images/trichodesmium_tutorial/mapping_06.png" width=70 %}
 
 First, the contigs are organized according to their sequence composition and differential coverage, which means that contigs from the same genome largely come together. There are a few exceptions because these are closely-related genomes. In particular, they have very similar sequence composition -- if you change the organization to sequence composition, you should see that all the genomes get mixed up. Organizing the contigs by differential coverage alone does a much better job at keeping the original genomes distinct.
 
@@ -593,7 +597,7 @@ Second, you should see that each genome has clean read recruitment from one samp
 
 So, which genome is found in which sample(s)? Take a look at the detection data:
 
-{% include IMAGE path="/images/trichodesmium_tutorial/mapping_06.png" width=70 %}
+{% include IMAGE path="/images/trichodesmium_tutorial/mapping_07.png" width=70 %}
 
 As we saw before, _Trichodesmium sp._ is found in `PACIFIC`, _thiebautii_ is found in `INDIAN_OCEAN`, _miru_ is found in `ATLANTIC` and _nobis_ is found in `MEDITERRANEAN`. It is also debatable whether _nobis_ and _Trichodesmium sp._ are found in very low abundance in `RED_SEA` and/or `INDIAN_OCEAN`, respectively, given the roughly even detection signal across their genomes in these samples.
 
@@ -646,7 +650,7 @@ rm -r COMPETITIVE/*.bam COMPETITIVE/*.bai COMPETITIVE/*-COMBINED-PROFILE *.bt2
 The biggest take-away from this chapter is hopefully an awareness of non-specific read recruitment and how it influences read mapping results. But we've also learned:
 - that we can decide on genome presence-absence by looking at summary statistics like detection and distribution of coverage
 - that these summary statistics cover up a lot of variation in the mapping data. Individual genes or longer regions of your reference can be missing entirely from the local version of your reference population, and at a finer scale, the local population can have many SNVs or indels relative to the reference
- 
+
 
 ## Congrats!
 
