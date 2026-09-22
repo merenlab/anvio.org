@@ -118,8 +118,8 @@ $ ls
 00_DATA
 
 $ ls 00_DATA/
-associate_dbs             fasta                     metabolism_state.json     module_info.txt           nitrogen_heatmap.json     pan_state.json
-contigs                   genome-pairs.txt          metagenome                modules                   nitrogen_step_copies.json phylo_dbs
+associate_dbs  fasta             mapping                metagenome       modules                nitrogen_step_copies.json  phylo_dbs
+contigs        genome-pairs.txt  metabolism_state.json  module_info.txt  nitrogen_heatmap.json  pan_state.json
 ```
 
 Inside the `00_DATA` folder, there are several files that will be useful for various parts of this tutorial. We will start from the seven *Trichodesmium* genomes stored in the `fasta` directory. Some are metagenome-assembled genomes (MAGs) binned from the TARA Ocean metagenomic dataset, and others are reference genomes taken from NCBI RefSeq.
@@ -132,7 +132,8 @@ Just in case the anvi'o database versions have been updated since the last time 
 anvi-migrate --migrate-safely 00_DATA/contigs/*.db \
                               00_DATA/associate_dbs/*.db \
                               00_DATA/metagenome/*.db \
-                              00_DATA/phylo_dbs/*.db
+                              00_DATA/phylo_dbs/*.db \
+                              00_DATA/mapping/BACKUP_PROFILES/*/*.db
 ```
 
 ## Activating anvi'o

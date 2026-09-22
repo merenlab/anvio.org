@@ -58,8 +58,8 @@ In your terminal, you should be located within the `trichodesmium_tutorial` fold
 
 ```
 $ ls 00_DATA/mapping/
-ATLANTIC_R1.fastq.gz  INDIAN_OCEAN_R1.fastq.gz  map_competitive.sh     MEDITERRANEAN_R1.fastq.gz  PACIFIC_R1.fastq.gz  RED_SEA_R1.fastq.gz  samples_info.txt
-ATLANTIC_R2.fastq.gz  INDIAN_OCEAN_R2.fastq.gz  map_noncompetitive.sh  MEDITERRANEAN_R2.fastq.gz  PACIFIC_R2.fastq.gz  RED_SEA_R2.fastq.gz  samples.txt
+ATLANTIC_R1.fastq.gz  BACKUP_PROFILES      INDIAN_OCEAN_R1.fastq.gz  map_competitive.sh     MEDITERRANEAN_R1.fastq.gz  PACIFIC_R1.fastq.gz  RED_SEA_R1.fastq.gz  samples_info.txt  tricho_sp_state.json
+ATLANTIC_R2.fastq.gz  combined_state.json  INDIAN_OCEAN_R2.fastq.gz  map_noncompetitive.sh  MEDITERRANEAN_R2.fastq.gz  PACIFIC_R2.fastq.gz  RED_SEA_R2.fastq.gz  samples.txt
 ```
 
 You should see 5 metagenome samples named according to where they were sampled. Note that these were derived from publicly-available metagenomes sampled during the Tara Oceans cruise ([Sunagawa et al 2015](https://www.science.org/doi/full/10.1126/science.1261359)). The original samples were subsetted to make them small enough to work with on a typical laptop. If you want to know the BioSample accessions of the original samples, you can check the `samples_info.txt` file in the same folder.
@@ -421,7 +421,7 @@ If you are short on time (or computational resources) and you prefer not to run 
 
 Here is how to get our backup databases if you don't want to run the read recruitment yourself:
 ```bash
-cp -r ../00_DATA/mapping/MAG*_MERGED NON_COMPETITIVE/
+cp -r ../00_DATA/mapping/BACKUP_PROFILES/MAG*_MERGED NON_COMPETITIVE/
 ```
 
 </details>
@@ -599,8 +599,10 @@ So, which genome is found in which sample(s)? Take a look at the detection data:
 
 {% include IMAGE path="/images/trichodesmium_tutorial/mapping_07.png" width=70 %}
 
-As we saw before, _Trichodesmium sp._ is found in `PACIFIC`, _thiebautii_ is found in `INDIAN_OCEAN`, _miru_ is found in `ATLANTIC` and _nobis_ is found in `MEDITERRANEAN`. It is also debatable whether _nobis_ and _Trichodesmium sp._ are found in very low abundance in `RED_SEA` and/or `INDIAN_OCEAN`, respectively, given the roughly even detection signal across their genomes in these samples.
+{:.notice}
+If you want to use our visualization settings, feel free to run `anvi-import-state -p COMPETITIVE/COMBINED_MERGED/PROFILE.db -s ../00_DATA/mapping/combined_state.json -n tutorial` and then re-open the interface and load the state called 'tutorial'.
 
+As we saw before, _Trichodesmium sp._ is found in `PACIFIC`, _thiebautii_ is found in `INDIAN_OCEAN`, _miru_ is found in `ATLANTIC` and _nobis_ is found in `MEDITERRANEAN`. It is also debatable whether _nobis_ and _Trichodesmium sp._ are found in very low abundance in `RED_SEA` and/or `INDIAN_OCEAN`, respectively, given the roughly even detection signal across their genomes in these samples.
 
 We can summarize this quantitatively by running `anvi-profile-blitz` on the BAM files with our collection:
 ```bash
