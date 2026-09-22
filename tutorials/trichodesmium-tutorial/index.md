@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: An anvi'o tutorial with Trichodesmium genomes
-modified: 2026-09-15
+modified: 2026-09-22
 excerpt: "A tutorial that covers a lot of anvi'o capabilities using Trichodesmium."
 categories: [anvio]
 authors: [ivagljiva, FlorianTrigodet]

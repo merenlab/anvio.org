@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: "An anvi'o tutorial with Trichodesmium genomes (Chapter 1)"
-modified: 2026-09-15
+modified: 2026-09-22
 excerpt: "The Genomics Chapter"
 categories: [anvio]
 authors: [ivagljiva, FlorianTrigodet]
