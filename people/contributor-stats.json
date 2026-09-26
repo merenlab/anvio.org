@@ -22,7 +22,7 @@
         "latest_commit_date": "10 September 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 525,
+        "total_commits": 526,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 308
+            "2026": 309
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "only keep sra runs that were asked about",
-        "latest_commit_hash": "8b31c676ab6c7c72be20f17268058ed8630672b0",
-        "latest_commit_date": "18 September 2026"
+        "latest_commit_message": "update the plotext version in the pyproject",
+        "latest_commit_hash": "b4aca55a8105e597c78a7df6db618e517aeb8944",
+        "latest_commit_date": "25 September 2026"
     },
     "watsonar": {
         "total_commits": 10,
