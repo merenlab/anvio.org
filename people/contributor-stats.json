@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8171,
+        "total_commits": 8174,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,15 +14,15 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 449
+            "2026": 452
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "docs update",
-        "latest_commit_hash": "0d09e5235fa6cf5e9c836bf38d7fc0922a08db53",
-        "latest_commit_date": "10 September 2026"
+        "latest_commit_message": "oh my",
+        "latest_commit_hash": "b0ddcaf9f92e1db377923194be7ee9f3028abe18",
+        "latest_commit_date": "01 October 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 527,
+        "total_commits": 554,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 310
+            "2026": 337
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "store CAZyme family names as functions in anvi-run-cazymes",
-        "latest_commit_hash": "d8e1d050a1715dcf35fb2c1d80404ee3d39e4bb4",
-        "latest_commit_date": "30 September 2026"
+        "latest_commit_message": "ship the library for structure display with anvi'o",
+        "latest_commit_hash": "3d563faab6333543f48fe6653077c6898d089ab0",
+        "latest_commit_date": "01 October 2026"
     },
     "watsonar": {
         "total_commits": 10,
