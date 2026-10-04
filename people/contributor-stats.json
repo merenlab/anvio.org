@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2403,
+        "total_commits": 2404,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 62
+            "2026": 63
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "add clocktime colormap",
-        "latest_commit_hash": "39a8e62a4a69f1c09a8fb08188131ce7012d2b6b",
-        "latest_commit_date": "02 October 2026"
+        "latest_commit_message": "add circular averaging of colors on cyclic colormaps for coloring compounds from reactions on global and overview maps",
+        "latest_commit_hash": "cc0c04c94f8e0b17a9f25f0c5fd99eb7c9cfb2cf",
+        "latest_commit_date": "03 October 2026"
     },
     "ahenoch": {
         "total_commits": 399,
