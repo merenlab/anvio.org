@@ -226,7 +226,12 @@ If everything formats properly and you like how your changes look on the locally
 
 ## Updating anvio.org
 
-Once your changes are merged to the anvi'o codebase, you still need to update the website (not your local copy, but the online version that everyone else is reading).
+Once your changes are merged to the anvi'o development branch, the [automated sync workflow](https://github.com/merenlab/anvio.org/blob/main/.github/workflows/sync-with-anvio-repo.yaml) regenerates the development help pages and programs network for the website. It runs daily, so you no longer need a separate PR to publish these generated files.
+
+{:.notice}
+Steps 7–11 below describe the former publishing process. We keep these steps here in case a manual update is ever needed.
+
+<details markdown="1"><summary>Show/Hide Manual publishing (steps 7–11)</summary>
 
 ### Step 7: Updating your local anvio.org repository
 
@@ -309,6 +314,8 @@ Run `git status` to be aware of what changes you added, and then `git push`.
 Once you make a PR for these changes, you are all done! The PR will be merged, and the online version of the website will be automatically updated shortly afterwards so that everyone else can see your documentation, too.
 
 (If you didn't make your own branch, you will of course skip the PR step.)
+
+</details>
 
 
 ## Getting credit for your changes
