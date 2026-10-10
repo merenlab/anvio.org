@@ -176,7 +176,7 @@
         "latest_commit_date": "05 October 2026"
     },
     "ahenoch": {
-        "total_commits": 399,
+        "total_commits": 400,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -190,12 +190,12 @@
             "2023": 10,
             "2024": 132,
             "2025": 129,
-            "2026": 128
+            "2026": 129
         },
         "top_file": "anvio/panops.py",
-        "latest_commit_message": "slightly change defaults",
-        "latest_commit_hash": "3b6d2d674572260fdf4a3f66ab090f768b3ef66b",
-        "latest_commit_date": "22 July 2026"
+        "latest_commit_message": "fixy",
+        "latest_commit_hash": "75c3f591adde97315bef7dc384cc29b602915102",
+        "latest_commit_date": "09 October 2026"
     },
     "isaacfink21": {
         "total_commits": 120,
