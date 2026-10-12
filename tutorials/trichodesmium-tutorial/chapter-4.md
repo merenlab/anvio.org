@@ -381,6 +381,21 @@ Here is what I came up with for the heatmap of pathway completeness scores and t
 {:.notice}
 In these visualizations, we've adjusted the min/max values to better show the different values. The completeness score heatmap has a minimum of 0.25 (so any completeness value below that appears white) and the normal maximum of 1.0. The copy number heatmap has the normal minimum of 0 and a maximum of 10 (so any copy number above 10 appears black) -- there are some steps that have way more than 10 copies, which makes the typical range of 0-2 copies extremely difficult to see on the heatmap unless we cap the value.
 
+<details markdown="1"><summary>Show/Hide  Annotated the contigs DBs yourself and your results are different? Click here.</summary>
+
+The results shown above were obtained with annotations using Pfam release 36.0 (2023-07) that are stored within the backup contigs databases provided in the datapack. If you've run the annotations yourself with a newer version of Pfam, things will look different. For instance, here is how they look like if you use Pfam release 38.2 (2026-01) with the same interface settings:
+
+<div style="display: flex; gap: 10px;">
+  {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_04_newer_Pfam.png" width=100 %}
+  {% include IMAGE path="/images/trichodesmium_tutorial/metabolism_05_newer_Pfam.png" width=100 %}
+</div>
+
+If you compare these results to the above, you'll notice that the hopanoid lipid production module is most affected -- a lot of the Pfam annotations in this module are no longer annotated in these genomes, with the exception of _Trichodesmium_ sp. which still gets many annotations to the _hpnABH_ domains PF00535.30, PF01370.25 and PF04055.25. Perhaps the newer versions of these annotation models are more specific and/or have more stringent gathering thresholds.
+
+The last observation in the list below still applies for _Trichodesmium_ sp., so you can continue with this section of the tutorial and you should see the same output.
+
+</details>
+
 Here are some of my observations:
 - As we expected, *T. miru* and *T. nobis* only have the `NIF004` (Nitrogen uptake) module complete.
 - The other 6 genomes have all the modules >80% complete (except for H9, which is missing several genes from the hydrogen recycling and nitrogen uptake modules. But we already know it is quite an incomplete genome).
