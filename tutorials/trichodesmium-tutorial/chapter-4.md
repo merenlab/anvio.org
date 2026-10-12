@@ -390,9 +390,9 @@ Here are some of my observations:
 
 Let's look into that last point a bit more. What is going on with the stepwise copy number estimation for hopanoid production? When things look weird in the results, it is always good to take a single genome, rerun the metabolism estimation, and pay attention to the warnings in the terminal output. Terminal output is more verbose on individual genomes than in 'multi-mode' for {% include PROGRAM name="anvi-estimate-metabolism" %}.
 
-The *T. erythraeum* genome shows this weird copy number pattern, so let's use that one:
+The *Trichodesmium* sp. MAG shows this weird copy number pattern, so let's use that one:
 ```bash
-anvi-estimate-metabolism -c ../Trichodesmium_erythraeum_IMS101-contigs.db \
+anvi-estimate-metabolism -c ../Trichodesmium_sp-contigs.db \
                   -u ../00_DATA/ \
                   --only-user-modules \
                   -O test
@@ -402,7 +402,7 @@ Aha! There is a relevant warning in the terminal output:
 ```
 WARNING
 ===============================================
-The gene call 208 has multiple annotations to alternative enzymes within the
+The gene call 3600 has multiple annotations to alternative enzymes within the
 same step of a metabolic pathway (PF04055.25, PF11946.12), and these enzymes
 unfortunately have a complex relationship. The affected module is NIF003, and
 here is the step in question: PF04055.25+PF11946.12. We arbitrarily kept only
@@ -410,7 +410,7 @@ one of the annotations to this gene in order to avoid inflating the step's copy
 number, but due to the complex relationship between these alternatives, this
 could mean that the copy number for this step is actually too low. Please heed
 this warning and double check the stepwise copy number results for NIF003 and
-other pathways containing gene call 208.
+other pathways containing gene call 3600.
 ```
 
 The lessons here: pay attention to warnings from anvi'o programs. And keep in mind that many of these warnings are suppressed when processing multiple inputs, so testing things on individual genomes might be the way to go when outputs look strange.
