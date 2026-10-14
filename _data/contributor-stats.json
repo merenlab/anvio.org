@@ -22,7 +22,7 @@
         "latest_commit_date": "01 October 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 559,
+        "total_commits": 561,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,11 +36,11 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 342
+            "2026": 344
         },
         "top_file": "anvio/profiler.py",
-        "latest_commit_message": "release SRA reads only once nothing else writes into their profiles",
-        "latest_commit_hash": "7dae3fe177bb32993352bfa6613d05319cbd891a",
+        "latest_commit_message": "detect npm packages that drifted from their pinned versions",
+        "latest_commit_hash": "dbd0e4a97f258bcc44e682ed097cac183d45f73d",
         "latest_commit_date": "12 October 2026"
     },
     "watsonar": {
