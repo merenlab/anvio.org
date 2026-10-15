@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2415,
+        "total_commits": 2424,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 74
+            "2026": 83
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "add difference_from_circular_mean element normalization",
-        "latest_commit_hash": "1f4a39f5e61e38fd60a6d711e3f692808bdd0c31",
-        "latest_commit_date": "05 October 2026"
+        "latest_commit_message": "count each accession of a map element once in `anvi-draw-kegg-pathways`",
+        "latest_commit_hash": "0dca846326837b8b55852973162b8920a77b6e08",
+        "latest_commit_date": "14 October 2026"
     },
     "ahenoch": {
         "total_commits": 400,
