@@ -519,7 +519,7 @@ For artifacts, I run this (assuming that you have the anvi'o codebase at `~/gith
 
 ``` bash
 {% raw %}
-for i in `grep '{' ~/github/anvio/anvio/docs/__init__.py | grep '"' | awk 'BEGIN{FS="\""}{print $2}'`
+for i in `grep '{' ~/github/anvio/anvio/programsdata.py | grep '"' | awk 'BEGIN{FS="\""}{print $2}'`
 do
     echo inoreabbrev ${i}i {% include ARTIFACT name=\"$i\" %}
 done
