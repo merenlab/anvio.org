@@ -38,7 +38,7 @@ There are no anvi'o tools that require this artifact directly, which means it is
 
 ## Description
 
-Output PDF files produced by <span class="artifact-p">[anvi-draw-kegg-pathways](/help/main/programs/anvi-draw-kegg-pathways)</span> which show KEGG pathway map images. Files can consist of a single map or a grid of the same map with different information on each.
+Output files produced by <span class="artifact-p">[anvi-draw-kegg-pathways](/help/main/programs/anvi-draw-kegg-pathways)</span> which show KEGG pathway map images. PDF files can consist of a single map or a grid of the same map with different information on each. An HTML player shows the same map for each data source in turn.
 
 
 {:.notice}

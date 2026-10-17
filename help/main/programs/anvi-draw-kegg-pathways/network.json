@@ -14,6 +14,15 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
+      "id": "kegg-slice-key-txt",
+      "name": "kegg-slice-key-txt",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "kegg-data",
       "name": "kegg-data",
       "provided_by_anvio": true,
@@ -101,7 +110,7 @@
       "type": "TXT"
     },
     {
-      "size": 11,
+      "size": 12,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-draw-kegg-pathways",
@@ -111,58 +120,63 @@
   ],
   "links": [
     {
-      "source": 11,
+      "source": 12,
       "target": 0,
       "type": "provides"
     },
     {
-      "target": 11,
-      "source": 1,
+      "source": 12,
+      "target": 1,
+      "type": "provides"
+    },
+    {
+      "target": 12,
+      "source": 2,
       "type": "requires"
     },
     {
-      "target": 11,
-      "source": 2,
-      "type": "can_use"
-    },
-    {
-      "target": 11,
+      "target": 12,
       "source": 3,
       "type": "can_use"
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 4,
       "type": "can_use"
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 5,
       "type": "can_use"
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 6,
       "type": "can_use"
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 7,
       "type": "can_use"
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 8,
       "type": "can_use"
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 9,
       "type": "can_use"
     },
     {
-      "target": 11,
+      "target": 12,
       "source": 10,
+      "type": "can_use"
+    },
+    {
+      "target": 12,
+      "source": 11,
       "type": "can_use"
     }
   ],
