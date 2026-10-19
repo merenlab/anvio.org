@@ -1,0 +1,73 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "functions-across-genomes-txt",
+      "name": "functions-across-genomes-txt",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "functions",
+      "name": "functions",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "external-genomes",
+      "name": "external-genomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "internal-genomes",
+      "name": "internal-genomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-script-gen-antismash-matrix",
+      "name": "anvi-script-gen-antismash-matrix",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 4,
+      "target": 0,
+      "type": "provides"
+    },
+    {
+      "target": 4,
+      "source": 1,
+      "type": "requires"
+    },
+    {
+      "target": 4,
+      "source": 2,
+      "type": "requires"
+    },
+    {
+      "target": 4,
+      "source": 3,
+      "type": "can_use"
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

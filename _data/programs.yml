@@ -267,6 +267,8 @@
   programs:
     - name: anvi-estimate-metabolism
     - name: anvi-gen-function-matrix
+    - name: anvi-run-antismash
+    - name: anvi-script-gen-antismash-matrix
 - author: qclayssen
   programs:
     - name: anvi-estimate-scg-taxonomy

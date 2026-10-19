@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **18 Oct 26 04:09:34** for anvi'o version **9-dev (eunice)**.
+The help contents were last updated on **19 Oct 26 04:09:49** for anvi'o version **9-dev (eunice)**.
 
 
 {% include _project-anvio-version.html %}
@@ -138,7 +138,7 @@ Listed below **a total of 161 artifacts**.
 
 Anvi'o programs perform atomic tasks that can be weaved together to implement complete 'omics workflows. Please note that there may be programs that are not listed on this page. You can type 'anvi-' in your terminal, and press the TAB key twice to see the full list of programs available to you on your system, and type `anvi-program-name --help` to read the full list of command line options.
 
-Listed below **a total of 175 programs**.
+Listed below **a total of 177 programs**.
 
 
 <div style="width:100%;">
@@ -3542,6 +3542,36 @@ Listed below **a total of 175 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-antismash](programs/anvi-run-antismash)**</span>. <span markdown="1">Run antiSMASH on one or many anvi&#x27;o contigs databases and import biosynthetic gene cluster (BGC) annotations into the gene functions table</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/jessika-fuessel" target="_blank"><img class="anvio-person-photo-img-mini" title="Jessika Fuessel" src="images/authors/bio-jessika.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
         <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-scg-taxonomy](programs/anvi-run-scg-taxonomy)**</span>. <span markdown="1">The purpose of this program is to affiliate single-copy core genes in an anvi&#x27;o contigs database with taxonomic names. A properly setup local SCG taxonomy database is required for this program to perform properly. After its successful run, `anvi-estimate-scg-taxonomy` will be useful to estimate taxonomy at genome-, collection-, or metagenome-level)</span>.
     </td>
 </tr>
@@ -4783,6 +4813,36 @@ Listed below **a total of 175 programs**.
 <tr style="border:none;">
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ge0rges" target="_blank"><img class="anvio-person-photo-img-mini" title="Georges Kanaan (Gio)" src="images/authors/ge0rges.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-gen-antismash-matrix](programs/anvi-script-gen-antismash-matrix)**</span>. <span markdown="1">With this script you can generate a matrix across many contig-dbs or bins in a collection to compare their biosynthetic capacity. You can choose between a per-gene matrix that resolves the smCOG annotations and domains within each gene and their role within the BGC and a cluster resolved matrix that summarizes the individual genes into BGC and their product. To generate these matrices your contig-dbs already need to be annotated with antiSMASH. Use the --genes flag to get the &#x27;per-gene&#x27; output or the --regions flag to get the &#x27;BGC-resolved&#x27; output.</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[external-genomes](artifacts/external-genomes) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">[functions-across-genomes-txt](artifacts/functions-across-genomes-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/jessika-fuessel" target="_blank"><img class="anvio-person-photo-img-mini" title="Jessika Fuessel" src="images/authors/bio-jessika.jpg" /></a></div></div>
 
     </td>
 </tr>

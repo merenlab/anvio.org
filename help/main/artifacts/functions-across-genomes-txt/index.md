@@ -23,7 +23,7 @@ A TXT-type anvi'o artifact. This artifact is typically generated, used, and/or e
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-gen-function-matrix](../../programs/anvi-gen-function-matrix)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-gen-function-matrix](../../programs/anvi-gen-function-matrix)</span> <span class="artifact-p">[anvi-script-gen-antismash-matrix](../../programs/anvi-script-gen-antismash-matrix)</span></p>
 
 
 
