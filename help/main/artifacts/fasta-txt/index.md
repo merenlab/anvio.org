@@ -58,6 +58,8 @@ Here is an example with those additional columns:
 |SAMPLE_01|path/to/sample_01.fa|<span class="artifact-n">[external-gene-calls](/help/main/artifacts/external-gene-calls)</span>_01.txt|<span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span>_01.txt|
 |SAMPLE_02|path/to/sample_02.fa|<span class="artifact-n">[external-gene-calls](/help/main/artifacts/external-gene-calls)</span>_02.txt|<span class="artifact-n">[functions-txt](/help/main/artifacts/functions-txt)</span>_02.txt|
 
+You can also add a `structure_genes_of_interest` column, which points to a <span class="artifact-n">[genes-of-interest-txt](/help/main/artifacts/genes-of-interest-txt)</span> for each FASTA file. When structure prediction is turned on in the contigs workflow, anvi'o predicts structures only for these genes, and for every gene of a FASTA file that has no value in this column (see the [contigs workflow](../../workflows/contigs/#predicting-protein-structures) for details).
+
 For more information, check out the [anvi'o workflow tutorial](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#fastatxt)
 
 

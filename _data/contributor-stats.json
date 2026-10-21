@@ -22,7 +22,7 @@
         "latest_commit_date": "18 October 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 561,
+        "total_commits": 574,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 344
+            "2026": 357
         },
-        "top_file": "anvio/profiler.py",
-        "latest_commit_message": "detect npm packages that drifted from their pinned versions",
-        "latest_commit_hash": "dbd0e4a97f258bcc44e682ed097cac183d45f73d",
-        "latest_commit_date": "12 October 2026"
+        "top_file": "anvio/workflows/metagenomics/__init__.py",
+        "latest_commit_message": "make the no structure warning simple and generic",
+        "latest_commit_hash": "504bc84b9c70dc36bb37ec78842a217a2537c36c",
+        "latest_commit_date": "20 October 2026"
     },
     "watsonar": {
         "total_commits": 10,
