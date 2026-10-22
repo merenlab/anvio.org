@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2436,
+        "total_commits": 2442,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 95
+            "2026": 101
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "write an HTML player of each map gathered by map with '--animate-files-by-map' in `anvi-draw-kegg-pathways`",
-        "latest_commit_hash": "df62df9a1856979df781fb500014fce72752c3b9",
-        "latest_commit_date": "16 October 2026"
+        "latest_commit_message": "color each compound circle only from the reaction lines that end at it",
+        "latest_commit_hash": "995c79d04292def963a37f0286a17dc4087b491d",
+        "latest_commit_date": "21 October 2026"
     },
     "ahenoch": {
         "total_commits": 400,

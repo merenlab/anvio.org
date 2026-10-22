@@ -108,6 +108,23 @@ anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;contigs&#45;dbs <span class="artif
                         &#45;o output_dir
 </div>
 
+## Labels
+
+By default, the reaction elements of standard maps are labeled, and nothing else is. Most of these are boxes. A few standard maps, such as N-Glycan biosynthesis (`00510`), also draw reactions as lines, which are labeled too. The fill of a box hides the text of the base map, so a box without a label is blank. `--reaction-labels` and `--compound-labels` choose the kinds of map whose reaction elements and compound circles are labeled. Each takes one or more of `standard`, `overview`, and `global`, or `none` for no labels. Global maps are numbered `011XX`, overview maps are numbered `012XX` and `013XX`, and all other maps are standard (see [Single contigs database](#single-contigs-database) for an example of each).
+
+The kinds given replace the default. The following command labels the reaction elements of standard maps, the reaction arrows of overview maps, and the compound circles of both kinds of map.
+
+<div class="codeblock" markdown="1">
+anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;contigs&#45;dbs <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
+                        &#45;&#45;reaction&#45;labels standard overview \
+                        &#45;&#45;compound&#45;labels standard overview \
+                        &#45;o output_dir
+</div>
+
+Every element of a map of a given kind is labeled, with or without data. A reaction element is labeled with KEGG's name for it. That is the first KO of the element, followed by `...` when the element stands for several KOs. The label may therefore name a KO that is not in your data. It is a KO even when a <span class="artifact-n">[kegg-reaction-txt](/help/main/artifacts/kegg-reaction-txt)</span> file holds KEGG reaction IDs. A compound circle is labeled with the KEGG ID of its compound, glycan, or drug, or with the first of several IDs, followed by `...`.
+
+A compound label is wider than its circle and sits above its center. It can cover nearby lines, arrowheads, boxes, and the compound names printed on the base map. A compound that takes part in no reaction on the map is labeled in faint gray. On maps without reactions, such as many signaling maps, that is every compound. The labels of global maps are small and crowded, and they can be read only when the map is zoomed in.
+
 ## Output
 
 This program requires the path to a directory as an argument to `-o` or `--output-dir`. This must be a non-existent directory unless the flag, `-W` or `--overwrite-output-destinations`, is also used. Options are available to make it easier to browse through output files and anticipate their contents.
@@ -228,7 +245,7 @@ anvi&#45;draw&#45;kegg&#45;pathways &#45;&#45;contigs&#45;dbs <span class="artif
                         &#45;o output_dir
 </div>
 
-Here are three maps drawn with this command from a bacterial genomic contigs database. The map in the upper left, `00010 Glycolysis / Gluconeogenesis`, is a "standard" map, in which boxes are associated with a reaction arrow and one or more KOs. The map in the upper right, `01200 Carbon metabolism`, is a metabolic "overview" map. Overview maps have numerical IDs in the range `012XX` and `013XX`. Reaction arrows in overview maps are associated with one or more KOs and are colored and widened if represented by anvi'o KO data. The bottom map, `01100 Metabolic pathways`, is a "global" metabolic map. Global maps have numerical IDs in the range `011XX`. Reaction lines in global maps are associated with one or more KOs and colored if represented by anvi'o KO data. In all maps, circles are colored if the compound they represent is involved in reactions that are also colored. (Occasionally complete data linking reaction and compound graphics is missing from the KEGG reference files, preventing the reaction color from being imparted to the compound. One such error can be seen at the very top of the overview map of `Carbon metabolism`, where `Glucono-1,5-lactone` is white when it should be green.)
+Here are three maps drawn with this command from a bacterial genomic contigs database. The map in the upper left, `00010 Glycolysis / Gluconeogenesis`, is a "standard" map, in which boxes are associated with a reaction arrow and one or more KOs. The map in the upper right, `01200 Carbon metabolism`, is a metabolic "overview" map. Overview maps have numerical IDs in the range `012XX` and `013XX`. Reaction arrows in overview maps are associated with one or more KOs and are colored and widened if represented by anvi'o KO data. The bottom map, `01100 Metabolic pathways`, is a "global" metabolic map. Global maps have numerical IDs in the range `011XX`. Reaction lines in global maps are associated with one or more KOs and colored if represented by anvi'o KO data. In global and overview maps, a circle is colored where a colored reaction touches it. A reaction touches the circles at the ends of its lines: global maps draw lines into their circles, and overview maps draw arrows that stop just short of them. A compound drawn in several places is therefore colored only where a colored reaction touches it.
 
 ![Three maps showing KOs from a single contigs database](../../images/anvi-draw-kegg-pathways/kos_single_contigs_db.png)
 
@@ -276,7 +293,7 @@ The images in this section show data from contigs databases of genomes from diff
 
 #### Color by database
 
-When comparing a small number of contigs databases (realistically, two or three), reactions can be colored by their occurrence across databases, with each color representing a different database or combination of databases. A colorbar key is drawn in a separate file in the output directory, `colorbar_reactions.pdf`. Compound circles are imparted the color of the associated reaction found in the greatest number of databases.
+When comparing a small number of contigs databases (realistically, two or three), reactions can be colored by their occurrence across databases, with each color representing a different database or combination of databases. A colorbar key is drawn in a separate file in the output directory, `colorbar_reactions.pdf`. Each compound circle takes the color of the reaction touching it that is found in the greatest number of databases.
 
 ![Three maps showing KOs from three contigs databases](../../images/anvi-draw-kegg-pathways/kos_three_contigs_dbs.png)
 
@@ -834,7 +851,7 @@ Both summaries default to presence. With the default summaries, a run without gr
 
 On each map, an accession of an element gets a slice where it has a value on that map. An accession without data on a map takes no space there. An accession whose summary is undefined on the map takes no space either. Examples are `std` over a single sample, a rule with no winner, and the circular mean of times that cancel out. The other slices then take the whole width or length of the element, and a warning counts the accessions whose summary was undefined. An element is left uncolored on a map where none of its accessions has a value, as before. An element with one slice is drawn whole, in the color of that slice.
 
-Slices follow the order of the accessions in the map's KGML file. With a KO file, the leftmost slice of a box is the KO that the box label names, whenever that KO has data. Only the accessions with values are drawn, so one position can hold different accessions on different maps. The slices still keep the same order relative to each other. Slices are never ordered by value or by weight.
+Slices follow the order of the accessions in the map's KGML file. With a KO file, the leftmost slice of a box is the first KO of the element, which a box label names, whenever that KO has data. Only the accessions with values are drawn, so one position can hold different accessions on different maps. The slices still keep the same order relative to each other. Slices are never ordered by value or by weight.
 
 Each slice shows the value of one accession. Within a sample, `--reaction-gene-aggregation` reduces the values of the accession's genes to that value. The maps of groups and the `unified` map pool the values of the accession with the sample and group summaries, as they pool the values of elements without slices. `--reaction-accession-aggregation` is never applied to a slice of an accession, so it is refused for numbers sliced by accession. For categorical values, it still chooses the stand-in value of an element among the accessions of its slices (see below). The run's report of choices counts the choices of the accession rule only for these stand-in values. The color scales span the values of single accessions, not of whole elements, and their limits and centers are read in these values too. An element drawn whole adds only its stand-in value to a scale, since none of its slices is drawn.
 
@@ -886,7 +903,7 @@ Equal shares are not the same as weights of 1. Without weights, the slices are e
 
 #### How slices are drawn
 
-A box is cut into columns, left to right. A thin gray line separates neighboring columns, so that two neighbors of the same color can still be told apart. The box keeps one black outline and one label.
+A box is cut into columns, left to right. A thin gray line separates neighboring columns, so that two neighbors of the same color can still be told apart. The box keeps one black outline, and one label where reaction elements are labeled (see [Labels](#labels)).
 
 A line is cut into repeating dashes with no gaps. Each cycle of dashes holds one dash per slice, in order from the first point of the line in the KGML file. On global maps, compound circles cover about 10 points at each end of almost every line. The dashes fill the part of the line that the circles leave visible. That part holds a whole number of cycles, so each slice shows exactly its share of it. It holds as many cycles as it can while its shortest dash stays at least twice as long as the line is wide. A short line holds one cycle. Neighboring dashes overlap by 0.5 points, so no seams show between them. A line in several pieces shows every slice on each piece.
 

@@ -73,7 +73,7 @@ The inclusion of different columns results in different coloring modes.
 
 Compounds are colored a single presence color, pink by default — set it with `--compound-color`, which takes a six-digit color hex code.
 
-On global and overview maps, if reaction layer data supplied by <span class="artifact-n">[kegg-reaction-txt](/help/main/artifacts/kegg-reaction-txt)</span> is colored with `--original-color`, the compounds of those reactions are automatically colored to match, just as they appear in the reference maps.
+On global and overview maps, if reaction layer data supplied by <span class="artifact-n">[kegg-reaction-txt](/help/main/artifacts/kegg-reaction-txt)</span> is colored with `--original-color`, the compounds that those reactions touch are colored to match, just as they appear in the reference maps.
 
 **Sample column, no value column**
 
