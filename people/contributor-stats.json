@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2442,
+        "total_commits": 2451,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 101
+            "2026": 110
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "color each compound circle only from the reaction lines that end at it",
-        "latest_commit_hash": "995c79d04292def963a37f0286a17dc4087b491d",
-        "latest_commit_date": "21 October 2026"
+        "latest_commit_message": "draw pies in compound circles from another column of the input text file",
+        "latest_commit_hash": "8854b45d59d26de34af85fcb1156481f5e87b1e7",
+        "latest_commit_date": "25 October 2026"
     },
     "ahenoch": {
         "total_commits": 400,
