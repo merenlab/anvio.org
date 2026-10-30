@@ -66,7 +66,7 @@
         "latest_commit_date": "22 August 2022"
     },
     "ekiefl": {
-        "total_commits": 1746,
+        "total_commits": 1761,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -80,12 +80,12 @@
             "2023": 2,
             "2024": 0,
             "2025": 0,
-            "2026": 0
+            "2026": 15
         },
         "top_file": "anvio/variabilityops.py",
-        "latest_commit_message": "Update DEVELOPERS.yaml",
-        "latest_commit_hash": "17b54c423c2314a61ccd21f1a60e295ede2e6044",
-        "latest_commit_date": "06 December 2023"
+        "latest_commit_message": "Update ARCHITECTURE.md",
+        "latest_commit_hash": "3663614b63a93ff6a624ae38445abd58dda64263",
+        "latest_commit_date": "10 October 2026"
     },
     "mschecht": {
         "total_commits": 749,
@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2451,
+        "total_commits": 2493,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,15 +168,15 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 110
+            "2026": 152
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "draw pies in compound circles from another column of the input text file",
-        "latest_commit_hash": "8854b45d59d26de34af85fcb1156481f5e87b1e7",
-        "latest_commit_date": "25 October 2026"
+        "latest_commit_message": "name options in Python form in the `Integrator` messages for genomic input combinations that the CLI of `anvi-integrate-trnaseq` checks first",
+        "latest_commit_hash": "493e568ac709bdb8a40f5293cb05416d06cbe541",
+        "latest_commit_date": "29 October 2026"
     },
     "ahenoch": {
-        "total_commits": 400,
+        "total_commits": 401,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -190,12 +190,12 @@
             "2023": 10,
             "2024": 132,
             "2025": 129,
-            "2026": 129
+            "2026": 130
         },
         "top_file": "anvio/panops.py",
-        "latest_commit_message": "fixy",
-        "latest_commit_hash": "75c3f591adde97315bef7dc384cc29b602915102",
-        "latest_commit_date": "09 October 2026"
+        "latest_commit_message": "anvi-reorient-genome independant single genome run, multiple new modes",
+        "latest_commit_hash": "a88f69424ccc12c90d9e190db0c491d1a281b16f",
+        "latest_commit_date": "12 October 2026"
     },
     "isaacfink21": {
         "total_commits": 120,
