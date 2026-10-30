@@ -530,9 +530,9 @@ For programs, I run these two:
 
 ``` bash
 {% raw %}
-for i in `ls ~/github/anvio/bin/anvi-* ~/github/anvio/sandbox/anvi-* | grep -v '_' | grep -v "augustus"`
+for i in `grep -o '^"anvi-[^"]*"' ~/github/anvio/pyproject.toml | tr -d '"' | grep -v "augustus"`
 do
-    echo inoreabbrev $(basename $i)i {% include PROGRAM name=\"$(basename $i)\" %}
+    echo inoreabbrev ${i}i {% include PROGRAM name=\"$i\" %}
 done
 {% endraw%}
 ```
