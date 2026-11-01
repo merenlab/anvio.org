@@ -117,6 +117,57 @@ anvi&#45;script&#45;find&#45;misassemblies &#45;b sample01.bam &#45;o result &#4
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-find-misassemblies.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-script-find-misassemblies`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-script-find-misassemblies [-h] -b BAM_FILE -o OUTPUT_PREFIX [-m MIN_DIST_TO_END] [-r CLIPPING_RATIO] [-T NUM_THREADS] [--just-do-it]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-required">
+<header class="parameter-group-header"><span class="parameter-group-title">REQUIRED</span> <span class="parameter-group-description">Declare your BAM file here</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-bam_file"><code class="parameter-flags">-b, --bam-file</code> <code class="parameter-metavar">BAM_FILE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Sorted and indexed BAM file to analyze.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output-prefix">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT-PREFIX</span> <span class="parameter-group-description">Choose a prefix for the two output files</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-output_prefix"><code class="parameter-flags">-o, --output-prefix</code> <code class="parameter-metavar">OUTPUT_PREFIX</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Output prefix for the two tab-delimited files. Will overwrite existing files.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-other-parameters">
+<header class="parameter-group-header"><span class="parameter-group-title">OTHER PARAMETERS</span> <span class="parameter-group-description">Various paramaters that you can change</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-min_dist_to_end"><code class="parameter-flags">-m, --min-dist-to-end</code> <code class="parameter-metavar">MIN_DIST_TO_END</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Sequence length on each side of a contigs that will be ignored in the clipping outut. This is to prevent aftifactual results that typically occurs at the ends of contigs.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">100</code></span></dd>
+<dt class="parameter" id="parameter-clipping_ratio"><code class="parameter-flags">-r, --clipping-ratio</code> <code class="parameter-metavar">CLIPPING_RATIO</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum ratio of &#x27;coverage-of-clipped-reads / total-coverage&#x27; that will be reported in the output file. Default is 0.8</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.8</code></span></dd>
+<dt class="parameter" id="parameter-num_threads"><code class="parameter-flags">-T, --num-threads</code> <code class="parameter-metavar">NUM_THREADS</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Maximum number of threads to use for multithreading whenever possible. Very conservatively, the default is 1, unless the environmental variable `ANVIO_THREADS` sets another positive integer. If you use this parameter, it will override `ANVIO_THREADS`. It is a good idea to not exceed the number of CPUs / cores on your system. Plus, please be careful with this option if you are running your commands on a SGE -- if you are clusterizing your runs, and asking for multiple threads to use, you may deplete your resources very fast.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">1</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-just_do_it"><code class="parameter-flags">--just-do-it</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Don&#x27;t bother me with questions or warnings, just do it.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

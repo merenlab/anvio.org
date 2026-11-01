@@ -129,6 +129,75 @@ anvi&#45;compute&#45;functional&#45;enrichment&#45;in&#45;pan &#45;p <span class
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-compute-functional-enrichment-in-pan.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-compute-functional-enrichment-in-pan`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-compute-functional-enrichment-in-pan [-h] -p PAN_DB [-g GENOMES_STORAGE] [--category-variable CATEGORY] [--annotation-source FUNCTION_ANNOTATION_SOURCE] [--include-gc-identity-as-function] [-l] -o FILE_PATH [-F FILE] [--qlambda NUM] [--just-do-it]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-critical-inputs">
+<header class="parameter-group-header"><span class="parameter-group-title">CRITICAL INPUTS</span> <span class="parameter-group-description">Give anvi&#x27;o what it wants.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-pan_db"><code class="parameter-flags">-p, --pan-db</code> <code class="parameter-metavar">PAN_DB</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Anvi&#x27;o pan database</span></dd>
+<dt class="parameter" id="parameter-genomes_storage"><code class="parameter-flags">-g, --genomes-storage</code> <code class="parameter-metavar">GENOMES_STORAGE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Anvi&#x27;o genomes storage file</span></dd>
+<dt class="parameter" id="parameter-category_variable"><code class="parameter-flags">--category-variable</code> <code class="parameter-metavar">CATEGORY</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The additional layers data variable name that divides layers into multiple categories.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-function-annotation-source">
+<header class="parameter-group-header"><span class="parameter-group-title">FUNCTION ANNOTATION SOURCE</span> <span class="parameter-group-description">Here you tell anvi&#x27;o which function annotation source to use.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-annotation_source"><code class="parameter-flags">--annotation-source</code> <code class="parameter-metavar">FUNCTION_ANNOTATION_SOURCE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Get functional annotations for a specific annotation source. You can use the flag &#x27;--list-annotation-sources&#x27; to learn about what sources are available.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-include_gc_identity_as_function"><code class="parameter-flags">--include-gc-identity-as-function</code></dt>
+<dd class="parameter-details"><span class="parameter-help">This is an option that asks anvi&#x27;o to treat gene cluster names as functions. By doing so, you are in fact creating an opportunity to study functional enrichment statistics for each gene cluster independently. For instance, multiple gene clusters may have the same COG function. But if you wish to use the same enrichment analysis in your pangenome without collapsing multiple gene clusters into a single function name, you can use this flag, and ask for &#x27;IDENTITY&#x27; as the functional annotation source.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-list_annotation_sources"><code class="parameter-flags">-l, --list-annotation-sources</code></dt>
+<dd class="parameter-details"><span class="parameter-help">List available functional annotation sources.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output-options">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT OPTIONS</span> <span class="parameter-group-description">What comes out the other end. (Please provide at least the output file name.)</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">FILE_PATH</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">File path to store results.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output-options-for-functional-enrichment">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT OPTIONS FOR FUNCTIONAL ENRICHMENT</span> <span class="parameter-group-description">Reporting options that only make sense for input option #1 or #3.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-functional_occurrence_table_output"><code class="parameter-flags">-F, --functional-occurrence-table-output</code> <code class="parameter-metavar">FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Saves the occurrence frequency information for functions in genomes in a TAB-delimited format. A file name must be provided. To learn more about how the functional occurrence is computed, please refer to the tutorial.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-optional-thingies">
+<header class="parameter-group-header"><span class="parameter-group-title">OPTIONAL THINGIES</span> <span class="parameter-group-description">If you want it, here it is, come and get it.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-qlambda"><code class="parameter-flags">--qlambda</code> <code class="parameter-metavar">NUM</code></dt>
+<dd class="parameter-details"><span class="parameter-help">If you want to set the maximum lambda value for q-value estimation, provide a fraction between 0.05 and 1.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-just_do_it"><code class="parameter-flags">--just-do-it</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Don&#x27;t bother me with questions or warnings, just do it.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

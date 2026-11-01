@@ -103,6 +103,104 @@ You can also skip processes like intializing functions or automatically ordering
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-display-pan.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-display-pan`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-display-pan [-h] [-p PAN_DB] [-g GENOMES_STORAGE] [-d VIEW_DATA] [-t NEWICK] [-V ADDITIONAL_VIEW] [-A ADDITIONAL_LAYERS] [--view NAME] [--title NAME] [--state-autoload NAME] [--collection-autoload NAME] [--export-svg FILE_PATH] [--skip-init-functions] [--dry-run] [--skip-auto-ordering] [--skip-news] [-I IP_ADDR] [-P INT] [--browser-path PATH] [--read-only] [--server-only] [--password-protected] [--user-server-shutdown]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input-files">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT FILES</span> <span class="parameter-group-description">Input files from the pangenome analysis.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-pan_db"><code class="parameter-flags">-p, --pan-db</code> <code class="parameter-metavar">PAN_DB</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Anvi&#x27;o pan database</span></dd>
+<dt class="parameter" id="parameter-genomes_storage"><code class="parameter-flags">-g, --genomes-storage</code> <code class="parameter-metavar">GENOMES_STORAGE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Anvi&#x27;o genomes storage file</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-optional-inputs">
+<header class="parameter-group-header"><span class="parameter-group-title">OPTIONAL INPUTS</span> <span class="parameter-group-description">Where the yay factor becomes a reality.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-view_data"><code class="parameter-flags">-d, --view-data</code> <code class="parameter-metavar">VIEW_DATA</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A TAB-delimited file for view data</span></dd>
+<dt class="parameter" id="parameter-tree"><code class="parameter-flags">-t, --tree</code> <code class="parameter-metavar">NEWICK</code></dt>
+<dd class="parameter-details"><span class="parameter-help">NEWICK formatted tree structure</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-additional-stuff">
+<header class="parameter-group-header"><span class="parameter-group-title">ADDITIONAL STUFF</span> <span class="parameter-group-description">Parameters to provide additional layers, views, or layer data.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-additional_view"><code class="parameter-flags">-V, --additional-view</code> <code class="parameter-metavar">ADDITIONAL_VIEW</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A TAB-delimited file for an additional view to be used in the interface. This file should contain all split names, and values for each of them in all samples. Each column in this file must correspond to a sample name. Content of this file will be called &#x27;user_view&#x27;, which will be available as a new item in the &#x27;views&#x27; combo box in the interface</span></dd>
+<dt class="parameter" id="parameter-additional_layers"><code class="parameter-flags">-A, --additional-layers</code> <code class="parameter-metavar">ADDITIONAL_LAYERS</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A TAB-delimited file for additional layers for splits. The first column of this file must be split names, and the remaining columns should be unique attributes. The file does not need to contain all split names, or values for each split in every column. Anvi&#x27;o will try to deal with missing data nicely. Each column in this file will be visualized as a new layer in the tree.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-visuals-related">
+<header class="parameter-group-header"><span class="parameter-group-title">VISUALS RELATED</span> <span class="parameter-group-description">Parameters that give access to various adjustements regarding the interface.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-view"><code class="parameter-flags">--view</code> <code class="parameter-metavar">NAME</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Start the interface with a pre-selected view. To see a list of available views, use --show-views flag.</span></dd>
+<dt class="parameter" id="parameter-title"><code class="parameter-flags">--title</code> <code class="parameter-metavar">NAME</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Title for the interface. If you are working with a RUNINFO dict, the title will be determined based on information stored in that file. Regardless, you can override that value using this parameter.</span></dd>
+<dt class="parameter" id="parameter-state_autoload"><code class="parameter-flags">--state-autoload</code> <code class="parameter-metavar">NAME</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Automatically load previous saved state and draw tree. To see a list of available states, use --show-states flag.</span></dd>
+<dt class="parameter" id="parameter-collection_autoload"><code class="parameter-flags">--collection-autoload</code> <code class="parameter-metavar">NAME</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Automatically load a collection and draw tree. To see a list of available collections, use --list-collections flag.</span></dd>
+<dt class="parameter" id="parameter-export_svg"><code class="parameter-flags">--export-svg</code> <code class="parameter-metavar">FILE_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The SVG output file path.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-sweet-params-of-convenience">
+<header class="parameter-group-header"><span class="parameter-group-title">SWEET PARAMS OF CONVENIENCE</span> <span class="parameter-group-description">Parameters and flags that are not quite essential (but nice to have).</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-skip_init_functions"><code class="parameter-flags">--skip-init-functions</code></dt>
+<dd class="parameter-details"><span class="parameter-help">When declared, function calls for genes will not be initialized (therefore will be missing from all relevant interfaces or output files). The use of this flag may reduce the memory fingerprint and processing time for large datasets.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-dry_run"><code class="parameter-flags">--dry-run</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Don&#x27;t do anything real. Test everything, and stop right before wherever the developer said &#x27;well, this is enough testing&#x27;, and decided to print out results.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-skip_auto_ordering"><code class="parameter-flags">--skip-auto-ordering</code></dt>
+<dd class="parameter-details"><span class="parameter-help">When declared, the attempt to include automatically generated orders of items based on additional data is skipped. In case those buggers cause issues with your data, and you still want to see your stuff and deal with the other issue maybe later.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-skip_news"><code class="parameter-flags">--skip-news</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Don&#x27;t try to read news content from upstream.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-server-configuration">
+<header class="parameter-group-header"><span class="parameter-group-title">SERVER CONFIGURATION</span> <span class="parameter-group-description">For power users.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-ip_address"><code class="parameter-flags">-I, --ip-address</code> <code class="parameter-metavar">IP_ADDR</code></dt>
+<dd class="parameter-details"><span class="parameter-help">IP address for the HTTP server. The default ip address (localhost) should work just fine for most.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">localhost</code></span></dd>
+<dt class="parameter" id="parameter-port_number"><code class="parameter-flags">-P, --port-number</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Port number to use for anvi&#x27;o services. If nothing is declared, anvi&#x27;o will try to find a suitable port number, starting from the default port number, 8080.</span></dd>
+<dt class="parameter" id="parameter-browser_path"><code class="parameter-flags">--browser-path</code> <code class="parameter-metavar">PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">By default, anvi&#x27;o will use your default browser to launch the interactive interface. If you would like to use something else than your system default, you can provide a full path for an alternative browser using this parameter, and hope for the best. For instance we are using this parameter to call Google&#x27;s experimental browser, Canary, which performs better with demanding visualizations.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-read_only"><code class="parameter-flags">--read-only</code></dt>
+<dd class="parameter-details"><span class="parameter-help">When the interactive interface is started with this flag, all &#x27;database write&#x27; operations will be disabled.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-server_only"><code class="parameter-flags">--server-only</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The default behavior is to start the local server, and fire up a browser that connects to the server. If you have other plans, and want to start the server without calling the browser, this is the flag you need.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-password_protected"><code class="parameter-flags">--password-protected</code></dt>
+<dd class="parameter-details"><span class="parameter-help">If this flag is set, command line tool will ask you to enter a password and interactive interface will be only accessible after entering same password. This option is recommended for shared machines like clusters or shared networks where computers are not isolated.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-user_server_shutdown"><code class="parameter-flags">--user-server-shutdown</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Allow users to shutdown an anvi&#x27;server via web interface.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

@@ -70,6 +70,37 @@ and Anvi'o will output to your console the following information for each of the
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-show-collections-and-bins.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-show-collections-and-bins`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-show-collections-and-bins [-h] -p PAN_OR_PROFILE_DB</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-options">
+<header class="parameter-group-header"><span class="parameter-group-title">options</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-pan_or_profile_db"><code class="parameter-flags">-p, --pan-or-profile-db</code> <code class="parameter-metavar">PAN_OR_PROFILE_DB</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">An anvi&#x27;o pan-db or profile-db (and even genes-db or pan-graph-db in appropriate contexts).</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

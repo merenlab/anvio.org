@@ -138,6 +138,48 @@ If you have multiple KEGG data directories on your computer, you should specify 
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-setup-user-modules.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-setup-user-modules`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-setup-user-modules [-h] [-u DIR_PATH] [--kegg-data-dir DIR_PATH] [--reset] [--just-do-it]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-user-data-setup">
+<header class="parameter-group-header"><span class="parameter-group-title">USER DATA SETUP</span> <span class="parameter-group-description">If you have defined your own set of metabolic modules, you can use this program to parse these files into the format required for metabolism estimation.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-user_modules"><code class="parameter-flags">-u, --user-modules</code> <code class="parameter-metavar">DIR_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Directory location where your metabolic module files are kept. It is also the output directory, since the modules database will be set up in this folder.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-extras">
+<header class="parameter-group-header"><span class="parameter-group-title">EXTRAS</span> <span class="parameter-group-description">Extras for the extra.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-kegg_data_dir"><code class="parameter-flags">--kegg-data-dir</code> <code class="parameter-metavar">DIR_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">You may need to provide the location of your existing KEGG data so that we can properly sanity check your data. Use this parameter to do so.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-reset"><code class="parameter-flags">--reset</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Remove all the previously stored files and start over. If something is feels wrong for some reason and if you believe re-downloading files and setting them up could address the issue, this is the flag that will tell anvi&#x27;o to act like a real computer scientist challenged with a computational problem.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-just_do_it"><code class="parameter-flags">--just-do-it</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Don&#x27;t bother me with questions or warnings, just do it.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

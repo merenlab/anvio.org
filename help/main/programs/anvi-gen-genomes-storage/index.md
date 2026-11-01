@@ -97,6 +97,60 @@ If you're wondering what gene callers are available in your <span class="artifac
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-gen-genomes-storage.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-gen-genomes-storage`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-gen-genomes-storage [-h] [-e FILE_PATH] [-i FILE_PATH] [--gene-caller GENE-CALLER] [--skip-checking-genome-hashes] -o GENOMES_STORAGE</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-external-genomes">
+<header class="parameter-group-header"><span class="parameter-group-title">EXTERNAL GENOMES</span> <span class="parameter-group-description">External genomes listed as anvi&#x27;o contigs databases. As in, you have one or more genomes say from NCBI you want to work with, and you created an anvi&#x27;o contigs database for each one of them.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-external_genomes"><code class="parameter-flags">-e, --external-genomes</code> <code class="parameter-metavar">FILE_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A two-column TAB-delimited flat text file that lists anvi&#x27;o contigs databases. The first item in the header line should read &#x27;name&#x27;, and the second should read &#x27;contigs_db_path&#x27;. Each line in the file should describe a single entry, where the first column is the name of the genome (or MAG), and the second column is the anvi&#x27;o contigs database generated for this genome.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-internal-genomes">
+<header class="parameter-group-header"><span class="parameter-group-title">INTERNAL GENOMES</span> <span class="parameter-group-description">Genome bins stored in an anvi&#x27;o profile databases as collections.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-internal_genomes"><code class="parameter-flags">-i, --internal-genomes</code> <code class="parameter-metavar">FILE_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A five-column TAB-delimited flat text file. The header line must contain these columns: &#x27;name&#x27;, &#x27;bin_id&#x27;, &#x27;collection_id&#x27;, &#x27;profile_db_path&#x27;, &#x27;contigs_db_path&#x27;. Each line should list a single entry, where &#x27;name&#x27; can be any name to describe the anvi&#x27;o bin identified as &#x27;bin_id&#x27; that is stored in a collection.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-pro-stuff">
+<header class="parameter-group-header"><span class="parameter-group-title">PRO STUFF</span> <span class="parameter-group-description">Things you may not have to change. But you never know (unless you read the help).</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-gene_caller"><code class="parameter-flags">--gene-caller</code> <code class="parameter-metavar">GENE-CALLER</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The gene caller to utilize. Anvi&#x27;o supports multiple gene callers, and some operations (including this one) may require an explicit mentioning of which one to use. The default gene caller is identified automatically in most cases (based on whether the most frequent gene calls match to a known gene caller in anvi&#x27;o), but if you have a contigs-db generated with `--external-gene-callers` or something, you may have to pay extra attention here. Also, some HMM collections may add new gene calls into a given contigs-db as an ad-hoc fashion, so if you want to see all the options available to you in a given contigs database, please run the program `anvi-db-info` and take a look at the output.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-skip_checking_genome_hashes"><code class="parameter-flags">--skip-checking-genome-hashes</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Use this flag if you would like anvi&#x27;o to skip checking genome hashes. This is only relevant if you may have genomes in your internal or external genomes files that have identical sequences with different names AND if you are OK with it. You may be OK with it, for instance, if you are using `anvi-dereplicate-genomes` program to dereplicate genomes desribed in multiple collections in an anvi&#x27;o profile database that may be describing the same genome multiple times (see https://github.com/merenlab/anvio/issues/1397 for a case).</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT</span> <span class="parameter-group-description">Give it a nice name. Must end with &#x27;-GENOMES.db&#x27;. This is primarily due to the fact that there are other .db files used throughout anvi&#x27;o and it would be better to distinguish this very special file from them.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">GENOMES_STORAGE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">File path to store results.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

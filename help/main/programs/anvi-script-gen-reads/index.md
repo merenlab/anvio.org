@@ -201,6 +201,89 @@ anvi&#45;profile &#45;i sample_01.bam \
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-gen-reads.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-script-gen-reads`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-script-gen-reads [-h] -f FASTA -o PREFIX [--preset {illumina-paired,illumina-single,pacbio-hifi,pacbio-clr,ont-r9,ont-r10,ont-ultralong}] [--read-type {paired-end,single-end,long-fixed,long-distributed}] [--read-length INT] [--read-length-std FLOAT] [--min-read-length INT] [--coverage FLOAT] [--insert-size INT] [--insert-size-std INT] [--error-rate FLOAT] [--quality-score CHAR] [--length-distribution {normal,lognormal}] [--mutations-file FILE] [--snv-density FLOAT] [--num-alleles INT] [--seed INT]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT</span> <span class="parameter-group-description">The reference FASTA file from which reads will be generated.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-fasta_file"><code class="parameter-flags">-f, --fasta-file</code> <code class="parameter-metavar">FASTA</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Input reference FASTA file (can contain multiple contigs).</span></dd>
+<dt class="parameter parameter-required" id="parameter-output_file_prefix"><code class="parameter-flags">-o, --output-file-prefix</code> <code class="parameter-metavar">PREFIX</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Output file prefix. Paired-end mode produces PREFIX-R1.fastq and PREFIX-R2.fastq, other modes produce PREFIX.fastq.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-read-type">
+<header class="parameter-group-header"><span class="parameter-group-title">READ TYPE</span> <span class="parameter-group-description">Choose a preset or specify the read type explicitly. Presets set sensible defaults for all read parameters, which you can override individually.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-preset"><code class="parameter-flags">--preset</code> <code class="parameter-metavar">PRESET</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Use a preset configuration. Available: illumina-paired, illumina-single, pacbio-hifi, pacbio-clr, ont-r9, ont-r10, ont-ultralong.</span> <span class="parameter-choices"><span class="parameter-label">Choices:</span> <code class="parameter-choice">illumina-paired</code> <code class="parameter-choice">illumina-single</code> <code class="parameter-choice">pacbio-hifi</code> <code class="parameter-choice">pacbio-clr</code> <code class="parameter-choice">ont-r9</code> <code class="parameter-choice">ont-r10</code> <code class="parameter-choice">ont-ultralong</code></span></dd>
+<dt class="parameter" id="parameter-read_type"><code class="parameter-flags">--read-type</code> <code class="parameter-metavar">READ_TYPE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Read type to generate. Inferred from preset if not given.</span> <span class="parameter-choices"><span class="parameter-label">Choices:</span> <code class="parameter-choice">paired-end</code> <code class="parameter-choice">single-end</code> <code class="parameter-choice">long-fixed</code> <code class="parameter-choice">long-distributed</code></span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-read-parameters">
+<header class="parameter-group-header"><span class="parameter-group-title">READ PARAMETERS</span> <span class="parameter-group-description">Fine-tune read generation. These override preset values when both are given.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-read_length"><code class="parameter-flags">--read-length</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Read length in bp. For long-distributed mode, this is the mean length.</span></dd>
+<dt class="parameter" id="parameter-read_length_std"><code class="parameter-flags">--read-length-std</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Standard deviation of read length (only for long-distributed / ONT mode).</span></dd>
+<dt class="parameter" id="parameter-min_read_length"><code class="parameter-flags">--min-read-length</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum read length for long-distributed mode. Default: 200.</span></dd>
+<dt class="parameter" id="parameter-coverage"><code class="parameter-flags">--coverage</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Target coverage depth. Default: 50.</span></dd>
+<dt class="parameter" id="parameter-insert_size"><code class="parameter-flags">--insert-size</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Mean insert size between R1 and R2 (paired-end only).</span></dd>
+<dt class="parameter" id="parameter-insert_size_std"><code class="parameter-flags">--insert-size-std</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Standard deviation of insert size (paired-end only).</span></dd>
+<dt class="parameter" id="parameter-error_rate"><code class="parameter-flags">--error-rate</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Per-base substitution error probability. Default: 0 (no errors).</span></dd>
+<dt class="parameter" id="parameter-quality_score"><code class="parameter-flags">--quality-score</code> <code class="parameter-metavar">CHAR</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Fixed FASTQ quality score character. Default depends on preset (e.g., &#x27;?&#x27; for Q30 Illumina, &#x27;F&#x27; for Q37 HiFi).</span></dd>
+<dt class="parameter" id="parameter-length_distribution"><code class="parameter-flags">--length-distribution</code> <code class="parameter-metavar">LENGTH_DISTRIBUTION</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Length distribution for long-distributed mode. &#x27;lognormal&#x27; produces a right-skewed distribution realistic for ONT data. Default: normal (or set by preset).</span> <span class="parameter-choices"><span class="parameter-label">Choices:</span> <code class="parameter-choice">normal</code> <code class="parameter-choice">lognormal</code></span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-snv-injection">
+<header class="parameter-group-header"><span class="parameter-group-title">SNV INJECTION</span> <span class="parameter-group-description">Introduce SNVs at specific positions with controlled multi-allele frequencies. Use --mutations-file for precise control, or --snv-density for random placement.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-mutations_file"><code class="parameter-flags">--mutations-file</code> <code class="parameter-metavar">FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Path to a TAB-delimited file with columns: contig_name, position (0-indexed), freq_A, freq_T, freq_C, freq_G. Frequencies must sum to 1.0.</span></dd>
+<dt class="parameter" id="parameter-snv_density"><code class="parameter-flags">--snv-density</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Randomly place SNVs at this density (e.g., 0.01 = 1 SNV per 100 bp).</span></dd>
+<dt class="parameter" id="parameter-num_alleles"><code class="parameter-flags">--num-alleles</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Number of alleles (2-4) at each random SNV position. Only used with --snv-density. Default: 2.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-reproducibility">
+<header class="parameter-group-header"><span class="parameter-group-title">REPRODUCIBILITY</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-seed"><code class="parameter-flags">--seed</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Random seed for reproducibility. Default: 42.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">42</code></span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

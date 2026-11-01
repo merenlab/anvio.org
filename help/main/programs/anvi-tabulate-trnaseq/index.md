@@ -60,6 +60,50 @@ All tables include taxonomic annotations of the seeds; annotations are added to 
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-tabulate-trnaseq.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-tabulate-trnaseq`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-tabulate-trnaseq [-h] -c CONTIGS_DB --specific-profile-db PROFILE_DB [--nonspecific-profile-db PROFILE_DB] [-o DIR_PATH] [-W]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-mandatory">
+<header class="parameter-group-header"><span class="parameter-group-title">MANDATORY</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-contigs_db"><code class="parameter-flags">-c, --contigs-db</code> <code class="parameter-metavar">CONTIGS_DB</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Path to a `trnaseq`-variant contigs database, as produced by `anvi-merge-trnaseq`.</span></dd>
+<dt class="parameter parameter-required" id="parameter-specific_profile_db"><code class="parameter-flags">--specific-profile-db, -s</code> <code class="parameter-metavar">PROFILE_DB</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">The path to an anvi&#x27;o profile database containing specific coverage information on tRNA seeds. `anvi-merge-trnaseq` generates a specific profile database from a tRNA-seq experiment.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-optional">
+<header class="parameter-group-header"><span class="parameter-group-title">OPTIONAL</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-nonspecific_profile_db"><code class="parameter-flags">--nonspecific-profile-db, -n</code> <code class="parameter-metavar">PROFILE_DB</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The path to an anvi&#x27;o profile database containing nonspecific coverage information on tRNA seeds. `anvi-merge-trnaseq` optionally generates a nonspecific profile database from a tRNA-seq experiment.</span></dd>
+<dt class="parameter" id="parameter-output_dir"><code class="parameter-flags">-o, --output-dir</code> <code class="parameter-metavar">DIR_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Directory path for output files</span></dd>
+<dt class="parameter parameter-switch" id="parameter-overwrite_output_destinations"><code class="parameter-flags">-W, --overwrite-output-destinations</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Overwrite if the output files and/or directories exist.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

@@ -78,6 +78,63 @@ One important note about this conversion is the following: During the conversion
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-process-genbank.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-script-process-genbank`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-script-process-genbank [-h] -i GENBANK [-O FILENAME_PREFIX] [--output-fasta FASTA] [--output-gene-calls TAB DELIMITED FILE] [--output-functions TAB DELIMITED FILE] [--annotation-source ANNOTATION_SOURCE] [--annotation-version ANNOTATION_VERSION] [--omit-aa-sequences-column] [--include-locus-tags-as-functions]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT</span> <span class="parameter-group-description">Give us the preciousss...</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-input_genbank"><code class="parameter-flags">-i, --input-genbank</code> <code class="parameter-metavar">GENBANK</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Input GenBank file</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT</span> <span class="parameter-group-description">You either provide a &#x27;prefix&#x27;, or provide specific output file names/paths. You can&#x27;t mix the two (well, you can try).</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-output_file_prefix"><code class="parameter-flags">-O, --output-file-prefix</code> <code class="parameter-metavar">FILENAME_PREFIX</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A prefix to be used while naming the output files. No file type extensions please; just a prefix -- all ouptut file names and extensions will be appended to this prefix.</span></dd>
+<dt class="parameter" id="parameter-output_fasta"><code class="parameter-flags">--output-fasta</code> <code class="parameter-metavar">FASTA</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Output FASTA file path.</span></dd>
+<dt class="parameter" id="parameter-output_gene_calls"><code class="parameter-flags">--output-gene-calls</code> <code class="parameter-metavar">TAB DELIMITED FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Output file path for external gene calls</span></dd>
+<dt class="parameter" id="parameter-output_functions"><code class="parameter-flags">--output-functions</code> <code class="parameter-metavar">TAB DELIMITED FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Output file path for anvi&#x27;o-importable gene functions file</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-details">
+<header class="parameter-group-header"><span class="parameter-group-title">DETAILS</span> <span class="parameter-group-description">Setting the annotation source and version data to appear in the output file for functional annotations file.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-annotation_source"><code class="parameter-flags">--annotation-source</code> <code class="parameter-metavar">ANNOTATION_SOURCE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Annotation source (default: &quot;NCBI_PGAP&quot;)</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">NCBI_PGAP</code></span></dd>
+<dt class="parameter" id="parameter-annotation_version"><code class="parameter-flags">--annotation-version</code> <code class="parameter-metavar">ANNOTATION_VERSION</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Annotation source version to be stored in the database (default: &quot;v4.6&quot;)</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">v4.6</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-omit_aa_sequences_column"><code class="parameter-flags">--omit-aa-sequences-column</code></dt>
+<dd class="parameter-details"><span class="parameter-help">If amino acid sequences for gene calls are present in the GFF file, anvi&#x27;o by default will include an `aa_sequences` column in the external gene calls output file. This is good because then anvi-gen-contigs-database can use that information directly, instead of trying to predict the translated sequences itself. If you would like this program to not report amino acid sequences even when they present and use anvi&#x27;o to predict translated sequences later, you can use this flag.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-include_locus_tags_as_functions"><code class="parameter-flags">--include-locus-tags-as-functions</code></dt>
+<dd class="parameter-details"><span class="parameter-help">When anvi&#x27;o processes genes in a GenBank file, it will assign new gene caller ids to each entry. Using this flag will will instruct anvi&#x27;o to add a new &#x27;function&#x27; source in the annotation of each gene call so the the user can trace back a given gene call to the original locus tag number in the GenBank file.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

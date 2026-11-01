@@ -160,6 +160,76 @@ These annotations are visible in the anvi'o interactive interface and are access
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-gen-pan-representative.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-gen-pan-representative`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-gen-pan-representative [-h] -e FILE_PATH -g GENOMES_STORAGE -p PAN_DB -o FILE_PATH [--gap-size INT] [--alpha FLOAT] [--representative GENOME-NAME] [--max-num-contigs INT] [--keep-synteny] [--keep-promoter] [-n PROJECT_NAME] [--description TEXT_FILE] [--skip-mindful-splitting]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input-files">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT FILES</span> <span class="parameter-group-description">Input files from the pangenome analysis.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-external_genomes"><code class="parameter-flags">-e, --external-genomes</code> <code class="parameter-metavar">FILE_PATH</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">A two-column TAB-delimited flat text file that lists anvi&#x27;o contigs databases. The first item in the header line should read &#x27;name&#x27;, and the second should read &#x27;contigs_db_path&#x27;. Each line in the file should describe a single entry, where the first column is the name of the genome (or MAG), and the second column is the anvi&#x27;o contigs database generated for this genome.</span></dd>
+<dt class="parameter parameter-required" id="parameter-genomes_storage"><code class="parameter-flags">-g, --genomes-storage</code> <code class="parameter-metavar">GENOMES_STORAGE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Anvi&#x27;o genomes storage file</span></dd>
+<dt class="parameter parameter-required" id="parameter-pan_db"><code class="parameter-flags">-p, --pan-db</code> <code class="parameter-metavar">PAN_DB</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Anvi&#x27;o pan database</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output-file">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT FILE</span> <span class="parameter-group-description">Where do you want your newly generated contigs-db to go and what do you want to call it?</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">FILE_PATH</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">File path to store results.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-optipons-for-the-supplementary-contig">
+<header class="parameter-group-header"><span class="parameter-group-title">OPTIPONS FOR THE SUPPLEMENTARY CONTIG</span> <span class="parameter-group-description">Options related to the supplementary contig that will be added to the representative genome.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-gap_size"><code class="parameter-flags">--gap-size</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Number of N nucleotides to insert between sequences in the supplementary contig. Default is 100.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">100</code></span></dd>
+<dt class="parameter" id="parameter-alpha"><code class="parameter-flags">--alpha</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Weight for scoring candidate representative genomes. Controls the balance between completion/redundancy (alpha) and number of contigs (1 - alpha). A value of 1.0 selects purely on completion/redundancy; 0.0 selects purely on the fewest contigs. Default is 0.8.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.8</code></span></dd>
+<dt class="parameter" id="parameter-representative"><code class="parameter-flags">--representative</code> <code class="parameter-metavar">GENOME-NAME</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Name of the genome to use as the representative. If not provided, anvi&#x27;o will select one automatically based on completion, redundancy, and number of contigs.</span></dd>
+<dt class="parameter" id="parameter-max_num_contigs"><code class="parameter-flags">--max-num-contigs</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Maximum number of contigs a genome may have to be considered as a representative candidate. Genomes exceeding this threshold are excluded from selection. Default is 99999.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">99999</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-keep_synteny"><code class="parameter-flags">--keep-synteny</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Preserve the original genomic order of genes when building the supplementary contig. Consecutive gene stretches from donor genomes are extracted as contiguous segments rather than concatenated individually.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-keep_promoter"><code class="parameter-flags">--keep-promoter</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Include the intergenic region flanking each gene stretch in the supplementary contig (from the previous gene stop to the next gene start). Implies --keep-synteny.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-parameters-of-convenience">
+<header class="parameter-group-header"><span class="parameter-group-title">PARAMETERS OF CONVENIENCE</span> <span class="parameter-group-description">You wouldn&#x27;t have lost anyting if you had skipped ALLA these.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-project_name"><code class="parameter-flags">-n, --project-name</code> <code class="parameter-metavar">PROJECT_NAME</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Name of the project. Please choose a short but descriptive name (so anvi&#x27;o can use it whenever she needs to name an output file, or add a new table in a database, or name her first born).</span></dd>
+<dt class="parameter" id="parameter-description"><code class="parameter-flags">--description</code> <code class="parameter-metavar">TEXT_FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A plain text file that contains some description about the project. You can use Markdown syntax. The description text will be rendered and shown in all relevant interfaces, including the anvi&#x27;o interactive interface, or anvi&#x27;o summary outputs.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-skip_mindful_splitting"><code class="parameter-flags">--skip-mindful-splitting</code></dt>
+<dd class="parameter-details"><span class="parameter-help">By default, anvi&#x27;o attempts to prevent soft-splitting large contigs by cutting proper gene calls to make sure a single gene is not broken into multiple splits. This requires a careful examination of where genes start and end, and to find best locations to split contigs with respect to this information. So, when the user asks for a split size of, say, 1,000, it serves as a mere suggestion. When this flag is used, anvi&#x27;o does what the user wants and creates splits at desired lengths (although some functionality may become unavailable for the projects that rely on a contigs database that is initiated this way).</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

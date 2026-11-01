@@ -99,6 +99,55 @@ You can always run `anvi-migrate -v` to learn about the versions of artifact typ
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-migrate.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-migrate`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-migrate [-h] [--migrate-safely] [--migrate-quickly] [--just-do-it] [-t VERSION] FILE(S) [FILE(S) ...]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-inputs">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUTS</span> <span class="parameter-group-description">You will literally give us anything.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required parameter-positional" id="parameter-input"><code class="parameter-flags">FILE(S)</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">One or more files to migrate. If you unleash the program on many files by running something like `anvi-migrate *.db *.json`, anvi&#x27;o will try to migrate all of the files that match to your filters.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-safety">
+<header class="parameter-group-header"><span class="parameter-group-title">SAFETY</span> <span class="parameter-group-description">It is up to you. Safe things take much longer and boring. Unsafe things are fast, fun, and .. well, don&#x27;t come to us if your computer loses power or something.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-migrate_safely"><code class="parameter-flags">--migrate-safely</code></dt>
+<dd class="parameter-details"><span class="parameter-help">If you chose this, anvi&#x27;o will first create a copy of your input file, and if something goes wrong, it will restore the original. If everything works fine, it will remove the copy. IF YOU HAVE ANVI&#x27;O ARTIFACTS THAT ARE VERY LARGE OR IF YOU ARE MIGRATING MANY MANY OF THEM, THIS OPTION WILL ADD A HUGE I/O BURDEN ON YOUR SYSTEM :/ But still. Safety is safe.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-migrate_quickly"><code class="parameter-flags">--migrate-quickly</code></dt>
+<dd class="parameter-details"><span class="parameter-help">If you chose this, anvi&#x27;o will migrate your artifats in place. It will be much faster (and arguably more fun since #YOLO) than the safe option, but if something goes wrong, you will lose data. During the first five years of anvi&#x27;o development not, a single user lost data using our migration scripts as far as we know. But there is always a first, and today might be your lucky day.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-parameters-of-convenience">
+<header class="parameter-group-header"><span class="parameter-group-title">PARAMETERS OF CONVENIENCE</span> <span class="parameter-group-description">This is how anvi&#x27;o spoils you.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-just_do_it"><code class="parameter-flags">--just-do-it</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Don&#x27;t bother me with questions or warnings, just do it.</span></dd>
+<dt class="parameter" id="parameter-target_version"><code class="parameter-flags">-t, --target-version</code> <code class="parameter-metavar">VERSION</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Anvi&#x27;o will stop upgrading your database when it reaches to this version.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

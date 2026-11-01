@@ -72,6 +72,41 @@ anvi&#45;setup&#45;pfams &#45;&#45;reset
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-setup-pfams.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-setup-pfams`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-setup-pfams [-h] [--pfam-data-dir PFAM_DATA_DIR] [--reset] [--pfam-version PFAM_VERSION]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-options">
+<header class="parameter-group-header"><span class="parameter-group-title">options</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-pfam_data_dir"><code class="parameter-flags">--pfam-data-dir</code> <code class="parameter-metavar">PFAM_DATA_DIR</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The directory for Pfam data to be stored. If you leave it as is without specifying anything, the default destination for the data directory will be used to set things up. The advantage of it is that everyone will be using a single data directory, but then you may need superuser privileges to do it. Using this parameter you can choose the location of the data directory somewhere you like. However, when it is time to run Pfam, you will need to remember that path and provide it to the program.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-reset"><code class="parameter-flags">--reset</code></dt>
+<dd class="parameter-details"><span class="parameter-help">This program by default attempts to use previously downloaded files in your Pfam data directory if there are any. If something is wrong for some reason you can use this to tell anvi&#x27;o to remove everything, and start over.</span></dd>
+<dt class="parameter" id="parameter-pfam_version"><code class="parameter-flags">--pfam-version</code> <code class="parameter-metavar">PFAM_VERSION</code></dt>
+<dd class="parameter-details"><span class="parameter-help">By default, the most current version available will be downloaded. If you have specific tastes for a different version, you can provide it here. For example, `31.0`. Here are all possible versions: ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

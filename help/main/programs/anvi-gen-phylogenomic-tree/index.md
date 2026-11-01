@@ -65,6 +65,58 @@ anvi&#45;gen&#45;phylogenomic&#45;tree &#45;f <span class="artifact&#45;n">[conc
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-gen-phylogenomic-tree.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-gen-phylogenomic-tree`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-gen-phylogenomic-tree [-h] -f FASTA file -o FILE_PATH [--program PROGRAM_NAME] [--just-do-it]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input-files">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT FILES</span> <span class="parameter-group-description">Concatenated aligment files exported using anvi-get-sequences-for-gene-clusters</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-fasta_file"><code class="parameter-flags">-f, --fasta-file</code> <code class="parameter-metavar">FASTA FILE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">A FASTA-formatted input file.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output-file">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT FILE</span> <span class="parameter-group-description">The output file where the generated newick tree will be stored.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">FILE_PATH</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">File path to store results.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-program">
+<header class="parameter-group-header"><span class="parameter-group-title">PROGRAM</span> <span class="parameter-group-description">The program that will be used for generating tree. Available options: default, fasttree</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-program"><code class="parameter-flags">--program</code> <code class="parameter-metavar">PROGRAM_NAME</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Program name.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">default</code></span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-others">
+<header class="parameter-group-header"><span class="parameter-group-title">OTHERS</span> <span class="parameter-group-description">Parameters of convenience</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-just_do_it"><code class="parameter-flags">--just-do-it</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Don&#x27;t bother me with questions or warnings, just do it.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

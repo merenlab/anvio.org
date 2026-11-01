@@ -74,6 +74,47 @@ Then the output file would be a <span class="artifact-n">[contigs-fasta](/help/m
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-filter-fasta-by-blast.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-script-filter-fasta-by-blast`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-script-filter-fasta-by-blast [-h] [-f FASTA file] [-o FILE_PATH] -b TAB DELIMITED FILE -s OUTFMT -t THRESHOLD [--just-do-it]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-options">
+<header class="parameter-group-header"><span class="parameter-group-title">options</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-fasta_file"><code class="parameter-flags">-f, --fasta-file</code> <code class="parameter-metavar">FASTA FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A FASTA-formatted input file.</span></dd>
+<dt class="parameter" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">FILE_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">File path to store results.</span></dd>
+<dt class="parameter parameter-required" id="parameter-blast_output"><code class="parameter-flags">-b, --blast-output</code> <code class="parameter-metavar">TAB DELIMITED FILE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">BLAST table generated with blastp. `--outfmt 6` as the output format is assumed.</span></dd>
+<dt class="parameter parameter-required" id="parameter-outfmt"><code class="parameter-flags">-s, --outfmt</code> <code class="parameter-metavar">OUTFMT</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Specify the column ordering of your BLAST report. We add the following paramter to our BLAST searches so the output report contains the `qlen` field, which is not included by default: `-outfmt &#x27;6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen&#x27;`. You may have used a different `-outfmt` paramter, and you should use this parameter to explicitly define the column names in your output file. For instance, if you had used the parameter mentioned above, then the correct version of this parameter would be: &quot;qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen&quot;. Regardless of the BLAST output format, your columns MUST contain the following parameters for this program to work properly: &#x27;qseqid&#x27;, &#x27;bitscore&#x27;, &#x27;length&#x27;, &#x27;qlen&#x27;, and &#x27;pident&#x27;.</span></dd>
+<dt class="parameter parameter-required" id="parameter-threshold"><code class="parameter-flags">-t, --threshold</code> <code class="parameter-metavar">THRESHOLD</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">What `proper_pident` threshold do you want to use for filtering out sequences whose top bit-score matches have `proper_pident`s less than this threshold? We have defined `proper_pident` to be the percentage of the query amino acids that both aligned to and were identical to the corresponding matched amino acid. Note that the `pident` parameter output by BLAST does not include regions of the query sequence unaligned to the matched sequence, whereas `proper_pident` does. For example, a sequence that&#x27;s only half aligned by a match but with 100% identity at matched regions has a `pident` of 100 but a `proper_pident` of 50. The default is 30.0%.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">30.0</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-just_do_it"><code class="parameter-flags">--just-do-it</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Don&#x27;t bother me with questions or warnings, just do it.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

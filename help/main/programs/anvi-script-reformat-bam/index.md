@@ -86,6 +86,46 @@ Output BAM file created ......................: SAMPLE-REFORMATTED.bam
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-reformat-bam.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-script-reformat-bam`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-script-reformat-bam [-h] -r TXT FILE [-o FORMATTED BAM] BAM FILE</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT</span> <span class="parameter-group-description">The input file you wish to work with.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required parameter-positional" id="parameter-bam_file"><code class="parameter-flags">BAM FILE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help"></span></dd>
+<dt class="parameter parameter-required" id="parameter-report_file"><code class="parameter-flags">-r, --report-file</code> <code class="parameter-metavar">TXT FILE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">A TAB-delimited file produced by `anvi-script-reformat-fasta` to report sequence name changes due to `--simplify-names` flag.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT</span> <span class="parameter-group-description">Dealing with the output.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-output_bam"><code class="parameter-flags">-o, --output-bam</code> <code class="parameter-metavar">FORMATTED BAM</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The output BAM file name. If you don&#x27;t specify an output file name, the new BAM file will be reported with the suffix `.reformatted.bam`.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

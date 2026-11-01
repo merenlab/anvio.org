@@ -124,6 +124,63 @@ anvi&#45;compute&#45;metabolic&#45;enrichment &#45;M MODULES.TXT \
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-compute-metabolic-enrichment.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-compute-metabolic-enrichment`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-compute-metabolic-enrichment [-h] [-M TEXT_FILE] [-G TEXT_FILE] -o FILE_PATH [--sample-header SAMPLE_HEADER] [--module-completion-threshold NUM] [--use-stepwise-completeness] [--include-samples-missing-from-groups-txt] [--qlambda NUM] [--just-do-it]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-critical-inputs">
+<header class="parameter-group-header"><span class="parameter-group-title">CRITICAL INPUTS</span> <span class="parameter-group-description">This program requires TWO INPUT FILES: (1) an output file produced by the program `anvi-estimate-metabolism` as input and (2) a groups file (using the `--groups-txt` parameter) to specify which sample is in which group.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-modules_txt"><code class="parameter-flags">-M, --modules-txt</code> <code class="parameter-metavar">TEXT_FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A tab-delimited text file specifying module completeness in every genome/MAG/sample that you are interested in. The best way to get this file is to run `anvi-estimate-metabolism --output-modes modules` on your samples of interest. Trust us.</span></dd>
+<dt class="parameter" id="parameter-groups_txt"><code class="parameter-flags">-G, --groups-txt</code> <code class="parameter-metavar">TEXT_FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A tab-delimited text file specifying which group each item belongs to. Depending on the context, items here may be individual samples or genomes. The first column must contain item names matching to those that are in your input data. A different column should have the header &#x27;group&#x27; and contain the group name for each item. Each item should be associated with a single group. It is always a good idea to define groups using single words without any fancy characters. For instance, `HIGH_TEMPERATURE` or `LOW_FITNESS` are good group names. `my group #1` or `IS-THIS-OK?`, are not good group names.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output-options">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT OPTIONS</span> <span class="parameter-group-description">What comes out the other end. (Please provide at least the output file name.)</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">FILE_PATH</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">File path to store results.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-optional-options">
+<header class="parameter-group-header"><span class="parameter-group-title">OPTIONAL OPTIONS</span> <span class="parameter-group-description">If you want it, here it is, come and get it.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-sample_header"><code class="parameter-flags">--sample-header</code> <code class="parameter-metavar">SAMPLE_HEADER</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The header of the column containing your sample names in the modules-txt input file. By default this is &#x27;db_name&#x27; because we are assuming you got your modules mode output by running `anvi-estimate-metabolism` in multi mode (on multiple genomes or metagenomes), but just in case you got it a different way, this is how you can tell anvi&#x27;o which column to look at. The values in this column should correspond to those in the &#x27;sample&#x27; column in the groups-txt input file.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">db_name</code></span></dd>
+<dt class="parameter" id="parameter-module_completion_threshold"><code class="parameter-flags">--module-completion-threshold</code> <code class="parameter-metavar">NUM</code></dt>
+<dd class="parameter-details"><span class="parameter-help">This threshold defines the percent completeness score at which we consider a KEGG module to be &#x27;present&#x27;in a given sample. That is, if a module&#x27;s completeness in a sample is less than this value, then we say the module is not present in that sample, and this will affect the module&#x27;s enrichment score. By extension, if a module&#x27;s completeness is less than this value in all samples, it will have a very very low enrichment score (ie, it will not be considered enriched at all, because it doesn&#x27;t occur in any groups). Note that the closer this number is to 0, the more meaningless this whole enrichment analysis is... but hey, this is your show. This threshold CAN be different from the completeness threshold used in `anvi-estimate-metabolism` if you wish. The default threshold is 0.75.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.75</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-use_stepwise_completeness"><code class="parameter-flags">--use-stepwise-completeness</code></dt>
+<dd class="parameter-details"><span class="parameter-help">By default, this program will use pathwise completeness of a module to determine if it is present in a sample or not. To make it use stepwise completeness instead, provide this flag. Confused? Don&#x27;t worry. Check out the online documentation for a discussion on pathwise vs stepwise completeness.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-include_samples_missing_from_groups_txt"><code class="parameter-flags">--include-samples-missing-from-groups-txt</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Sometimes, you might have some sample names in your modules-txt file that you did not include in the groups-txt file. This is fine. By default, we will ignore those samples because they do not have a group. But if you use this flag, then instead those samples will be included in a group called &#x27;UNGROUPED&#x27;.</span></dd>
+<dt class="parameter" id="parameter-qlambda"><code class="parameter-flags">--qlambda</code> <code class="parameter-metavar">NUM</code></dt>
+<dd class="parameter-details"><span class="parameter-help">If you want to set the maximum lambda value for q-value estimation, provide a fraction between 0.05 and 1.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-just_do_it"><code class="parameter-flags">--just-do-it</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Don&#x27;t bother me with questions or warnings, just do it.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

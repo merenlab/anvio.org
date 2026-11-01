@@ -67,6 +67,44 @@ anvi&#45;update&#45;db&#45;description &#45;&#45;description my_description.txt 
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-update-db-description.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-update-db-description`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-update-db-description [-h] --description TEXT_FILE DB</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-positional-arguments">
+<header class="parameter-group-header"><span class="parameter-group-title">positional arguments</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required parameter-positional" id="parameter-db_path"><code class="parameter-flags">DB</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">An anvi&#x27;o database.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-options">
+<header class="parameter-group-header"><span class="parameter-group-title">options</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-description"><code class="parameter-flags">--description</code> <code class="parameter-metavar">TEXT_FILE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">A plain text file that contains some description about the project. You can use Markdown syntax. The description text will be rendered and shown in all relevant interfaces, including the anvi&#x27;o interactive interface, or anvi&#x27;o summary outputs.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

@@ -76,6 +76,45 @@ You can also add the flag `--include-unbinned` to have all unbinned contigs in t
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-export-collection.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-export-collection`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-export-collection [-h] -p PAN_OR_PROFILE_DB [-C COLLECTION_NAME] [-O FILENAME_PREFIX] [--list-collections] [--include-unbinned]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-options">
+<header class="parameter-group-header"><span class="parameter-group-title">options</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-pan_or_profile_db"><code class="parameter-flags">-p, --pan-or-profile-db</code> <code class="parameter-metavar">PAN_OR_PROFILE_DB</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">An anvi&#x27;o pan-db or profile-db (and even genes-db or pan-graph-db in appropriate contexts).</span></dd>
+<dt class="parameter" id="parameter-collection_name"><code class="parameter-flags">-C, --collection-name</code> <code class="parameter-metavar">COLLECTION_NAME</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Collection name.</span></dd>
+<dt class="parameter" id="parameter-output_file_prefix"><code class="parameter-flags">-O, --output-file-prefix</code> <code class="parameter-metavar">FILENAME_PREFIX</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A prefix to be used while naming the output files. No file type extensions please; just a prefix -- all ouptut file names and extensions will be appended to this prefix.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-list_collections"><code class="parameter-flags">--list-collections</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Show available collections and exit.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-include_unbinned"><code class="parameter-flags">--include-unbinned</code></dt>
+<dd class="parameter-details"><span class="parameter-help">When this flag is used, anvi&#x27;o will also store in the output file the items that do not appear in any of your bins. This new bin will be called &#x27;UNBINNED_ITEMS_BIN&#x27;. Yes. The ugly name is intentional.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

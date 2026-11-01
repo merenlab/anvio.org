@@ -99,6 +99,63 @@ Please consider finetuning these parameters according to your research question.
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-get-pn-ps-ratio.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-get-pn-ps-ratio`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-get-pn-ps-ratio [-h] [-V SCV_FILE] -c CONTIGS_DB [-j FLOAT] [-r FLOAT] [-i MINIMUM_NUM_VARIANTS] [-m MIN_COVERAGE] [-x {reference,consensus,popular_consensus}] -o DIR_PATH [-p]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-variability">
+<header class="parameter-group-header"><span class="parameter-group-title">VARIABILITY</span> <span class="parameter-group-description">Provide a SCV table that can be generated with anvi-gen-variability-profile.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-variability_profile"><code class="parameter-flags">-V, --variability-profile</code> <code class="parameter-metavar">SCV_FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Filepath to the SCV table.</span></dd>
+<dt class="parameter parameter-required" id="parameter-contigs_db"><code class="parameter-flags">-c, --contigs-db</code> <code class="parameter-metavar">CONTIGS_DB</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Filepath to the contigs database used to generate variability table.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-tunables">
+<header class="parameter-group-header"><span class="parameter-group-title">TUNABLES</span> <span class="parameter-group-description">Successfully tune one or more of these parameters to unlock the badge &#x27;Advanced anvian&#x27;.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-min_departure_from_consensus"><code class="parameter-flags">-j, --min-departure-from-consensus</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">SCVs will be ignored if they have a departure from consensus less than this value. Note: Keep in mind you may have already supplied this parameter during anvi-gen-variability-profile. The default value is 0.00.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.0</code></span></dd>
+<dt class="parameter" id="parameter-min_departure_from_reference"><code class="parameter-flags">-r, --min-departure-from-reference</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">SCVs will be ignored if they have a departure from reference less than this value. Note: Keep in mind you may have already supplied this parameter during anvi-gen-variability-profile. The default value is 0.00.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.0</code></span></dd>
+<dt class="parameter" id="parameter-minimum_num_variants"><code class="parameter-flags">-i, --minimum-num-variants</code> <code class="parameter-metavar">MINIMUM_NUM_VARIANTS</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Ignore groups with less than this number of single codon variants. pN, pS, and pN/pS values will be set to NaN for these groups</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">4</code></span></dd>
+<dt class="parameter" id="parameter-min_coverage"><code class="parameter-flags">-m, --min-coverage</code> <code class="parameter-metavar">MIN_COVERAGE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">If the coverage value at a codon is less than this amount, any associated SCVs will be ignored. The default is 30.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">30</code></span></dd>
+<dt class="parameter" id="parameter-comparison"><code class="parameter-flags">-x, --comparison</code> <code class="parameter-metavar">COMPARISON</code></dt>
+<dd class="parameter-details"><span class="parameter-help">You can determine synonymity relative to either the reference codon, or the consensus codon. The consensus codon is determined on a per-sample basis. The default is &#x27;reference.&#x27;</span> <span class="parameter-choices"><span class="parameter-label">Choices:</span> <code class="parameter-choice">reference</code> <code class="parameter-choice">consensus</code> <code class="parameter-choice">popular_consensus</code></span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">reference</code></span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT</span> <span class="parameter-group-description">The output of this program is a folder directory with several tables.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-output_dir"><code class="parameter-flags">-o, --output-dir</code> <code class="parameter-metavar">DIR_PATH</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Directory path for output files</span></dd>
+<dt class="parameter parameter-switch" id="parameter-pivot"><code class="parameter-flags">-p, --pivot</code></dt>
+<dd class="parameter-details"><span class="parameter-help">By default the output is in long format, however you can choose the output to be in matrix form with this flag. If you&#x27;re not sure which one is right for you, just try one and take a look at the output--there is no cost for making a mistake :)</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

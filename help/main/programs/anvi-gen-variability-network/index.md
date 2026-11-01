@@ -143,6 +143,59 @@ Config Error: The edge weight variable `THIS_DOESNT_EXIST` does not seem to be a
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-gen-variability-network.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-gen-variability-network`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-gen-variability-network [-h] -i VARIABILITY_PROFILE -o FILE_PATH [--as-matrix] [-n NUM_POSITIONS] [--include-competing-NTs OPTION] [--edge-variable OPTION] [--list-competing-NT-calculators]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT</span> <span class="parameter-group-description">What goes in..</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-input_file"><code class="parameter-flags">-i, --input-file</code> <code class="parameter-metavar">VARIABILITY_PROFILE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">The anvi&#x27;o variability profile. Please see `anvi-gen-variability-profile` to generate one.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT</span> <span class="parameter-group-description">What comes out..</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">FILE_PATH</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">File path to store results.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-as_matrix"><code class="parameter-flags">--as-matrix</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Report the output as a table, rather than an network</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-additional-params">
+<header class="parameter-group-header"><span class="parameter-group-title">ADDITIONAL PARAMS</span> <span class="parameter-group-description">More options for the wise.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-max_num_unique_positions"><code class="parameter-flags">-n, --max-num-unique-positions</code> <code class="parameter-metavar">NUM_POSITIONS</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Maximum number of unique positions to be used in the network. This may be one way to avoid extremely large network descriptions that would defeat the purpose of a quick visualization. If there are more unique positions in the variability profile, the program will randomly select a subset of them to match the `max-num-unique-positions`. The default is 0, which means all positions should be reported. Remember that the number of nodes in the network will also depend on the number of samples described in the variability profile.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0</code></span></dd>
+<dt class="parameter" id="parameter-include_competing_nts"><code class="parameter-flags">--include-competing-NTs</code> <code class="parameter-metavar">OPTION</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Whether anvi&#x27;o should use competing nucleotides, rather than unique positions for variable nucleotides (which is the default behavior), to define the nodes in the network. If you would like that, then you will need to explicitly ask for a calculator for competing nuclotides. The available options are the following: &#x27;default&#x27;, &#x27;noise-robust&#x27;. If you would like to learn about these options before choosing one of them (as you should), please first use the flag `--list-competing-NT-calculators` (in which case the program will list descriptions for these options and exit.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">False</code></span></dd>
+<dt class="parameter" id="parameter-edge_variable"><code class="parameter-flags">--edge-variable</code> <code class="parameter-metavar">OPTION</code></dt>
+<dd class="parameter-details"><span class="parameter-help">In the output anvi&#x27;o will connect SNVs to samples using edges, weights of which will be defined by this variable.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">departure_from_reference</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-list_competing_nt_calculators"><code class="parameter-flags">--list-competing-NT-calculators</code></dt>
+<dd class="parameter-details"><span class="parameter-help">List options and their descriptions that can be used with `--include-competing-NTs`.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

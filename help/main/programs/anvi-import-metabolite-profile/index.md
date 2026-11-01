@@ -62,6 +62,39 @@ Once metabolite abundances are stored in a profile database, they can be loaded 
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-import-metabolite-profile.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-import-metabolite-profile`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-import-metabolite-profile [-h] --metabolite-profile-table METABOLITE_PROFILE_TABLE -p PROFILE_DB</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-options">
+<header class="parameter-group-header"><span class="parameter-group-title">options</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-metabolite_profile_table"><code class="parameter-flags">--metabolite-profile-table</code> <code class="parameter-metavar">METABOLITE_PROFILE_TABLE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">This tab-delimited table contains metabolite abundance data from different samples. It should have the following named columns: &#x27;source&#x27;, &#x27;accession&#x27;, &#x27;sample&#x27;, and &#x27;abundance&#x27;. Each row corresponds to a distinct metabolite abundance measurement. &#x27;source&#x27; is the source of the identifying accessions. Currently, the only permitted source is &#x27;ModelSEED&#x27;. &#x27;accession&#x27; is the ModelSEED Compound ID, e.g., &#x27;cpd00001&#x27;, providing a unique identifier that facilitates integration into anvi&#x27;o metabolic network data. &#x27;sample&#x27; is the name of the sample in which the measurement was made. It need not be the same as any nucleotide sequence samples stored in the profile database. &#x27;abundance&#x27; is the metabolite abundance value itself.</span></dd>
+<dt class="parameter parameter-required" id="parameter-profile_db"><code class="parameter-flags">-p, --profile-db</code> <code class="parameter-metavar">PROFILE_DB</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Anvi&#x27;o profile database</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

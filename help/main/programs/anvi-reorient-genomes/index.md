@@ -475,6 +475,94 @@ and the sequences of other contigs belong in between. (...)
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-reorient-genomes.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-reorient-genomes`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-reorient-genomes [-h] -f FASTA_TXT -o DIR_PATH [--reference REFERENCE] [--use-auto-reference-as-is] [--use-dnaa-for-reference-orientation] [--use-dnaa-for-every-genome] [--dnaa-contigs-are-circular] [--scaffold-fragmented] [--min-contig-length MIN_CONTIG_LENGTH] [--keep-query-contigs-intact] [--skip-visualizing-alignments] [--plot-width PLOT_WIDTH] [--plot-height PLOT_HEIGHT] [--minimap2-preset {asm5,asm10,asm20}] [--threads THREADS] [--just-do-it] [--log-file-path LOG_FILE_PATH]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input-files">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT FILES</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-fasta_txt"><code class="parameter-flags">-f, --fasta-txt</code> <code class="parameter-metavar">FASTA_TXT</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Two-column TAB-delimited file with genome name and FASTA file path.</span></dd>
+<dt class="parameter parameter-required" id="parameter-output_dir"><code class="parameter-flags">-o, --output-dir</code> <code class="parameter-metavar">DIR_PATH</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Directory path for output files</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-selection-processing-of-reference">
+<header class="parameter-group-header"><span class="parameter-group-title">SELECTION &amp; PROCESSING OF REFERENCE</span> <span class="parameter-group-description">IMPORTANT: the reference MUST be a single contig, since orienting and ordering contigs requires a single continuous coordinate system to work against, and coordinates from different contigs of a fragmented reference do not form one axis. The program will STOP WITH AN ERROR otherwise. Please note that this is a separate matter from circularity: the reference additionally needs to be a COMPLETE, CIRCULAR sequence if anvi&#x27;o is going to ROTATE it, which happens when the reference is auto-selected, or when --use-dnaa-for-reference-orientation is used, since rotating a linear sequence or a fragment of a chromosome is biologically meaningless. If your reference is a genomic locus rather than a complete chromosome, name it explicitly with --reference, which never rotates anything. If you do not set --reference, the program will auto-select a reference by choosing the genome with the fewest contigs (ties are broken by the largest total length), and it will refuse to continue if even that genome turns out to have more than one contig. The only way to work with a fragmented reference is --use-auto-reference-as-is, which skips all steps of rotation over the reference, and uses it as is.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-reference"><code class="parameter-flags">--reference</code> <code class="parameter-metavar">REFERENCE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Name of the entry in fasta-txt to use as the reference orientation. It must be a single contig, but it does not have to be a complete circular genome: a single contig covering a genomic locus of interest works just as well, since anvi&#x27;o never rotates a reference you name explicitly here. If omitted, auto-selection applies.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-use_auto_reference_as_is"><code class="parameter-flags">--use-auto-reference-as-is</code></dt>
+<dd class="parameter-details"><span class="parameter-help">When anvi&#x27;o selects the reference genome automatically (i.e., when `--reference` parameter is not used) it first chooses the genome with the fewest contigs and then longest among those that have the same number of contigs, and THEN, it rotates this auto-picked reference to a reasonable start point by taking into consideration all the genomes. Using this flag, you can ask anvi&#x27;o to not tinker with the auto-picked reference orientation. This is most useful when the collection of genomes (or contigs) all start with an evolutionarily meaningful positions, and all you want to do is to reverse complement those that need it so all genomes (or contigs) have the same orientation. This is ALSO the only supported way to move forward when none of the genomes in your fasta-txt file is a single contig -- but please be aware of what you are giving up: since coordinates that come from different contigs of a fragmented reference do not form a single continuous axis, the contig ordering, the scaffolding output, and the reported start positions will not be trustworthy. This flag is obviously not compatible with `--reference` and `--use-dnaa-for-reference-orientation`.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-use_dnaa_for_reference_orientation"><code class="parameter-flags">--use-dnaa-for-reference-orientation</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Use DnaA gene location to orient the reference genome. The program will identify the DnaA gene using an HMM profile (Bac_DnaA_C from Pfam), and rotate the reference so that it starts with the start codon of dnaA on the forward strand (reverse complementing it first if necessary), which typically marks the origin of replication in bacterial genomes. Since this rotates the reference, it requires the reference genome to be a single contig. This option is useful for bacterial genomes but may not work well for plasmids or viral genomes without DnaA, or fragments from genomes such as specific genomic loci you are interested in (for such cases you should certainly consider naming your reference explicitly with `--reference`, which never rotates it, or using `--use-auto-reference-as-is`).</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-starting-every-genome-at-its-own-dnaa">
+<header class="parameter-group-header"><span class="parameter-group-title">STARTING EVERY GENOME AT ITS OWN DnaA</span> <span class="parameter-group-description">Instead of aligning every genome to a reference, anvi&#x27;o can find the DnaA gene of every genome on its own and start the genome there. This needs no reference, no alignments, and works the same way however distant your genomes are.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-use_dnaa_for_every_genome"><code class="parameter-flags">--use-dnaa-for-every-genome</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Start every genome at its own DnaA gene, found with an HMM profile (Bac_DnaA_C from Pfam) after calling genes with pyrodigal-gv. A genome that is a single contig is treated as a circle: it is reverse complemented if its DnaA gene is on the reverse strand, and rotated so that the start codon of dnaA becomes its first nucleotide. In a genome with more than one contig, the contig that carries DnaA is cut in two at that start codon instead (the piece that starts with dnaA becomes &#x27;&lt;contig&gt;_part2&#x27;, the one before it &#x27;&lt;contig&gt;_part1&#x27;, and both are written first), since rotating a contig that may be a fragment of a draft genome would join its two ends, which are not neighbours. All other contigs, and genomes without a DnaA gene, are written as they are. This flag is not compatible with any of the flags that choose or treat a reference.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-dnaa_contigs_are_circular"><code class="parameter-flags">--dnaa-contigs-are-circular</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Use this with `--use-dnaa-for-every-genome` if the contigs that carry DnaA in your genomes are complete, circular chromosomes even in genomes with more than one contig (e.g., complete genomes with plasmids or with more than one chromosome). These contigs are then rotated to start at DnaA, just like single-contig genomes, instead of being cut in two.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-scaffolding-options">
+<header class="parameter-group-header"><span class="parameter-group-title">SCAFFOLDING OPTIONS</span> <span class="parameter-group-description">These options control how multi-contig (fragmented) genomes are ordered and oriented relative to the reference. Single-contig genomes are always processed using the circular reorientation workflow.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-scaffold_fragmented"><code class="parameter-flags">--scaffold-fragmented</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Insert N characters between ordered contigs to represent missing sequence. The number of Ns inserted equals the gap size on the reference (distance between consecutive contig alignments minus any overlap). Without this flag, contigs are simply concatenated in order without gap padding.</span></dd>
+<dt class="parameter" id="parameter-min_contig_length"><code class="parameter-flags">--min-contig-length</code> <code class="parameter-metavar">MIN_CONTIG_LENGTH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum contig length (in bp) to include in scaffolding. Contigs shorter than this threshold are excluded from alignment and will not appear in output. This threshold also serves as the smallest fragment anvi&#x27;o is willing to create when it cuts a contig that runs past the ends of the reference, which keeps the handful of nucleotides `minimap2` routinely soft-clips off the end of a divergent alignment from being promoted into contigs of their own. Default: 1000 bp.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">1000</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-keep_query_contigs_intact"><code class="parameter-flags">--keep-query-contigs-intact</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Never cut or rotate a query contig, even when keeping it in one piece misrepresents how it aligns to the reference. By default anvi&#x27;o keeps your contigs intact whenever it can, but it will cut one into fragments when the contig runs past the beginning or the end of the reference. This is becasue such a contig will have no single position on the reference to be placed at, since one part of it belongs to the very start of the reference coordinates and another part of it to the very end (which is exactly what happens when your reference and your query genome were circularized at different positions), or because one of its ends hangs off the reference with too little reference left over for that sequence to sit on. Anvi&#x27;o cuts such contigs, aligns each fragment on its own merit, and tells you about it. Which means the output FASTA file for a genome may have MORE contigs than the input FASTA did! If your downstream analyses cannot tolerate that, or you are doing an analysis that requires your contigs to be kept intact, then you can use this flag if you promise that you will keep in mind the tradeoff: your contigs will survive in one piece, and in exchange parts of them will not actually be aligned to the reference even though the output file will look like they are. This flag will ALSO suppress the rotation of circularly permuted contigs (contigs an assembler cut out of a cycle in its assembly graph at an arbitrary point, which anvi&#x27;o will recognize because their two ends are neighbours on the reference and will rotates back into co-linearity). The cost of preventing this step is that a large part of such a contig will sit in the wrong place. Long story short, anvi&#x27;o will report every contig as they were in the query genome apart from reverse-complementing them when necessary, and re-ordering them to match the order of the reference.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-visualization">
+<header class="parameter-group-header"><span class="parameter-group-title">VISUALIZATION</span> <span class="parameter-group-description">By default, the program will generate synteny ribbon plots showing alignment patterns between the reference and each query genome before and after reorientation/scaffolding. These visualizations help assess the quality of the reorientation process.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-skip_visualizing_alignments"><code class="parameter-flags">--skip-visualizing-alignments</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Skip generating alignment visualizations. This can speed up processing when you only need the reoriented FASTA files without visual inspection.</span></dd>
+<dt class="parameter" id="parameter-plot_width"><code class="parameter-flags">--plot-width</code> <code class="parameter-metavar">PLOT_WIDTH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Width of alignment plots in characters. By default, plots automatically scale to use the full terminal width. Use this to override with a specific width. Note: widths below 100 characters may not display properly.</span></dd>
+<dt class="parameter" id="parameter-plot_height"><code class="parameter-flags">--plot-height</code> <code class="parameter-metavar">PLOT_HEIGHT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Height of alignment plots in characters. Default: 20</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">20</code></span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-advanced">
+<header class="parameter-group-header"><span class="parameter-group-title">ADVANCED</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-minimap2_preset"><code class="parameter-flags">--minimap2-preset</code> <code class="parameter-metavar">MINIMAP2_PRESET</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The `minimap2` preset anvi&#x27;o will use to align your genomes to the reference. Each preset puts a ceiling on how much sequence divergence an alignment is allowed to have before `minimap2` stops reporting it altogether: &#x27;asm5&#x27; tolerates up to about 5%, &#x27;asm10&#x27; up to about 10%, and &#x27;asm20&#x27; up to about 20%. The default is a good fit for genomes that are nearly identical to one another, but if your genomes are more distant than that (say, populations recovered from different samples, or phages from different stations), the default will quietly find nothing to align and anvi&#x27;o will not be able to reorient them. Loosening this is the first thing to try in that case. Default: asm5.</span> <span class="parameter-choices"><span class="parameter-label">Choices:</span> <code class="parameter-choice">asm5</code> <code class="parameter-choice">asm10</code> <code class="parameter-choice">asm20</code></span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">asm5</code></span></dd>
+<dt class="parameter" id="parameter-threads"><code class="parameter-flags">--threads</code> <code class="parameter-metavar">THREADS</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Number of threads for minimap2.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">1</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-just_do_it"><code class="parameter-flags">--just-do-it</code></dt>
+<dd class="parameter-details"><span class="parameter-help">By default anvi&#x27;o aligns every genome in your fasta-txt file to the reference before it gets to work, and stops with an error if any of them do not align to the reference at all, since there is nothing this program can do for a genome that shares no sequence with the reference. Use this flag if you know that already, and want anvi&#x27;o to go ahead with the rest of your genomes anyway. Those that do not align will be reported as FAILED at the end.</span></dd>
+<dt class="parameter" id="parameter-log_file_path"><code class="parameter-flags">--log-file-path</code> <code class="parameter-metavar">LOG_FILE_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Write a detailed log to this file (otherwise only concise reporting is printed).</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

@@ -75,6 +75,41 @@ Please note that the `PROFILE-NAME` will become the name for the HMM source when
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-pfam-accessions-to-hmms-directory.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-script-pfam-accessions-to-hmms-directory`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-script-pfam-accessions-to-hmms-directory [-h] [--pfam-accessions-list PFAM_ACCESSION [PFAM_ACCESSION ...]] [--pfam-accessions-file FILE] [-o DIR_PATH]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-options">
+<header class="parameter-group-header"><span class="parameter-group-title">options</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-pfam_accessions_list"><code class="parameter-flags">--pfam-accessions-list</code> <code class="parameter-metavar">PFAM_ACCESSION</code></dt>
+<dd class="parameter-details"><span class="parameter-help">One or more PFAM accession IDs (such as PF14437). If you have multiple accessions, you can separate them from each other with a space. If you have too many, consider using the `--pfam-accessions-file` parameter instead.</span></dd>
+<dt class="parameter" id="parameter-pfam_accessions_file"><code class="parameter-flags">--pfam-accessions-file</code> <code class="parameter-metavar">FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A single column text file where each column is a single PFAM accession ID (such as PF14437). You may have as many accession ids as you like in this file.</span></dd>
+<dt class="parameter" id="parameter-output_dir"><code class="parameter-flags">-o, --output-dir</code> <code class="parameter-metavar">DIR_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Output directory for the anvi&#x27;o-formatted HMMs. Choose the name wisely as this will be the name that will appear in the contigs database after you provide it with the `-H` flag to `anvi-run-hmms`. We suggest you use a name that does not include any of those millenial characters (like space, question mark, comma, and such, you know).</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 
