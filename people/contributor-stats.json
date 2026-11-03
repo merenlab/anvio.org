@@ -748,7 +748,7 @@
         "latest_commit_date": "27 January 2026"
     },
     "Med1Bel": {
-        "total_commits": 18,
+        "total_commits": 20,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -762,12 +762,12 @@
             "2023": 0,
             "2024": 0,
             "2025": 0,
-            "2026": 18
+            "2026": 20
         },
         "top_file": "anvio/panrep.py",
-        "latest_commit_message": "fix negative start position in keep-promoter mode",
-        "latest_commit_hash": "b9843a03ca67a5b2b04a1b626542495c29acb286",
-        "latest_commit_date": "01 September 2026"
+        "latest_commit_message": "correct the default gap size",
+        "latest_commit_hash": "dfff5680d2a5c3fc182adefb81a56cf6b7b598f4",
+        "latest_commit_date": "03 November 2026"
     },
     "sarilog": {
         "total_commits": 3,
