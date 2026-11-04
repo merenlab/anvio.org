@@ -403,6 +403,45 @@ The code that generates this web page ensures that this information is the lates
 <dd class="parameter-details"><span class="parameter-help">Don&#x27;t bother me with questions or warnings, just do it.</span></dd>
 </dl>
 </section>
+<section class="parameter-group parameter-group-mode-kofam">
+<header class="parameter-group-header"><span class="parameter-group-title">--mode KOfam</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-only_download"><code class="parameter-flags">--only-download</code></dt>
+<dd class="parameter-details"><span class="parameter-help">You want this program to only download data from KEGG, and then stop. It will not process the data (ie, into organized HMMs or a modules database). (It would be a *very* good idea for you to specify a data directory using --kegg-data-dir in this case, so that you can find the resulting data easily and avoid messing up any data in the default KEGG directory. But you are of course free to do whatever you want.)</span></dd>
+<dt class="parameter parameter-switch" id="parameter-only_processing"><code class="parameter-flags">--only-processing</code></dt>
+<dd class="parameter-details"><span class="parameter-help">You already have all the KEGG data you need on your computer. Probably you even got it from this program, using the --only-download option. We don&#x27;t know. What matters is that you don&#x27;t need anything downloaded, you just want this program to process that existing data. Good. We can do that if you provide this flag (and hopefully also the --kegg-data-dir in which said data is located).</span></dd>
+<dt class="parameter parameter-switch" id="parameter-include_nt_kos"><code class="parameter-flags">--include-nt-KOs</code></dt>
+<dd class="parameter-details"><span class="parameter-help">&#x27;No-threshold KOs&#x27;, or &#x27;nt-KOs&#x27; are what we call KEGG Orthlogs that KEGG does not provide a bit score threshold for. If you want to include these protein families in your annotations and downstream analyses, then you can use this flag. Anvi&#x27;o does something very basic to estimate a bit score threshold for annotating these KOs, which is (1) to download the KEGG GENES sequences associated with each family, (2) to build a new HMM from these GENES (since KEGG GENES updates with new sequences faster than KOfam updates its models), (3) to run HMMER of each new model against the KO&#x27;s associated sequences, and (4) to take the minimum bit score of those hits as the bit score threshold for the KO. Downstream, we use the anvi&#x27;o-generated models to annotate these KO families with their estimated bit score thresholds.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-mode-modules">
+<header class="parameter-group-header"><span class="parameter-group-title">--mode modules</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-only_download"><code class="parameter-flags">--only-download</code></dt>
+<dd class="parameter-details"><span class="parameter-help">You want this program to only download data from KEGG, and then stop. It will not process the data (ie, into organized HMMs or a modules database). (It would be a *very* good idea for you to specify a data directory using --kegg-data-dir in this case, so that you can find the resulting data easily and avoid messing up any data in the default KEGG directory. But you are of course free to do whatever you want.)</span></dd>
+<dt class="parameter parameter-switch" id="parameter-only_processing"><code class="parameter-flags">--only-processing</code></dt>
+<dd class="parameter-details"><span class="parameter-help">You already have all the KEGG data you need on your computer. Probably you even got it from this program, using the --only-download option. We don&#x27;t know. What matters is that you don&#x27;t need anything downloaded, you just want this program to process that existing data. Good. We can do that if you provide this flag (and hopefully also the --kegg-data-dir in which said data is located).</span></dd>
+<dt class="parameter parameter-switch" id="parameter-overwrite_output_destinations"><code class="parameter-flags">-W, --overwrite-output-destinations</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Overwrite any existing modules database in the KEGG data directory [USE WITH CAUTION]. Only relevant if you are using the --only-processing flag</span></dd>
+<dt class="parameter parameter-switch" id="parameter-skip_brite_hierarchies"><code class="parameter-flags">--skip-brite-hierarchies</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Use this flag to skip using BRITE hierarchies, which we don&#x27;t recommend but let you do anyways.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-skip_binary_relations"><code class="parameter-flags">--skip-binary-relations</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Use this flag to skip setting up KEGG binary relation files, which we don&#x27;t recommend, since they are necessary for running `anvi-reaction-network`, but let you do anyways.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-skip_map_images"><code class="parameter-flags">--skip-map-images</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Use this flag to skip setting up KEGG pathway map image files, which we don&#x27;t recommend, since they are used in visualizing pathway membership, but let you do anyways.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-mode-all">
+<header class="parameter-group-header"><span class="parameter-group-title">--mode all</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-kegg_snapshot"><code class="parameter-flags">--kegg-snapshot</code> <code class="parameter-metavar">RELEASE_NUM</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The default behavior of this program is to download a pre-processed snapshot of data from KEGG. If you are particularly interested in an earlier snapshot of KEGG that anvi&#x27;o knows about, you can set it here. Otherwise anvi&#x27;o will always use the latest snapshot it knows about, which is likely to be the one associated with the current release of anvi&#x27;o.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-download_from_kegg"><code class="parameter-flags">-D, --download-from-kegg</code></dt>
+<dd class="parameter-details"><span class="parameter-help">This flag is for those people who always need the latest data. You know who you are :) By default, this program will set up a snapshot of the KEGG databases, which will be dated to the time of the anvi&#x27;o release that you are currently working with. The pros of this are that the KEGG data will be the same for everyone (which makes sharing your KEGG-annotated datasets easy), and you will not have to worry about updating your datasets with new annotations every time that KEGG updates. However, KEGG updates regularly, so the con of this is that you will not have the most up-to-date version of KEGG for your annotations, metabolism estimations, or any other downstream uses of this data. If that is going to be a problem for you, do not fear - you can provide this flag to tell anvi&#x27;o to download the latest, freshest data directly from KEGG&#x27;s REST API and set it up into anvi&#x27;o-compatible files.</span></dd>
+<dt class="parameter" id="parameter-kegg_archive"><code class="parameter-flags">--kegg-archive</code> <code class="parameter-metavar">KEGG_ARCHIVE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The path to an archived (.tar.gz) KEGG directory (which you have downloaded from figshare or from a collaborator who has a KEGG data directory generated by anvi&#x27;o). If you provide this parameter, anvi&#x27;o will set up the KEGG data directory from the archive you specify rather than downloading and setting up our default KEGG archive.</span></dd>
+</dl>
+</section>
 </div>
 {% endraw %}
 

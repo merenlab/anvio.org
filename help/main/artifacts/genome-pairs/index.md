@@ -42,7 +42,7 @@ There are no anvi'o tools that require this artifact directly, which means it is
 
 ## Description
 
-This input file type describes pairs of genomes that go together in an analysis, and is usually paired with an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> file that describes where the '<span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>'ssociated with each genome name is located.
+This input file type describes pairs of genomes that go together in an analysis, and is usually paired with an <span class="artifact-n">[external-genomes](/help/main/artifacts/external-genomes)</span> file that describes where the <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span> associated with each genome name is located.
 
 In the context of <span class="artifact-p">[anvi-predict-metabolic-exchanges](/help/main/programs/anvi-predict-metabolic-exchanges)</span>, this file describes which pairs of genomes to predict exchanges between.
 

@@ -48,7 +48,7 @@
         "2"
       ]
     ],
-    "date": "03 Nov 26 11:32:56",
+    "date": "04 Nov 26 11:49:44",
     "base_url": "/help/main",
     "version_short_identifier": "m"
   },
@@ -327,7 +327,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "Annotation sources for Ngrams",
@@ -374,7 +375,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "Optional arguments",
@@ -434,7 +436,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -512,7 +515,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PARAMETERS",
@@ -557,7 +561,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "REPORTING",
@@ -602,7 +607,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -745,7 +751,487 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
+        },
+        {
+          "title": "--driver concoct",
+          "description": null,
+          "parameters": [
+            {
+              "flags": [
+                "--clusters"
+              ],
+              "dest": "clusters",
+              "help": "specify maximal number of clusters for VGMM, default 400",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--kmer-length"
+              ],
+              "dest": "kmer_length",
+              "help": "pecify kmer length, default 4",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--length-threshold"
+              ],
+              "dest": "length_threshold",
+              "help": "specify the sequence length threshold, contigs shorter than this value will not be included. Defaults to 1000",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--read-length"
+              ],
+              "dest": "read_length",
+              "help": "specify read length for coverage, default 100",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--no-cov-normalization"
+              ],
+              "dest": "no_cov_normalization",
+              "help": "By default the coverage is normalized with regards to samples, then normalized with regards of contigs and finally log transformed. By setting this flag you skip the normalization and only do log transorm of the coverage.",
+              "metavar": null,
+              "default": false,
+              "choices": null,
+              "required": false,
+              "takes_value": false,
+              "nargs": 0
+            },
+            {
+              "flags": [
+                "--total-percentage-pca"
+              ],
+              "dest": "total_percentage_pca",
+              "help": "The percentage of variance explained by the principal components for the combined data.",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--epsilon"
+              ],
+              "dest": "epsilon",
+              "help": "Specify the epsilon for VBGMM. Default value is 1.0e-6",
+              "metavar": "FLOAT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--iterations"
+              ],
+              "dest": "iterations",
+              "help": "Specify maximum number of iterations for the VBGMM. Default value is 500",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--seed"
+              ],
+              "dest": "seed",
+              "help": "Specify an integer to use as seed for clustering. 0 gives a random seed, 1 is the default seed and any other positive integer can be used. Other values give ArgumentTypeError.",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            }
+          ],
+          "mode": "concoct"
+        },
+        {
+          "title": "--driver metabat2",
+          "description": null,
+          "parameters": [
+            {
+              "flags": [
+                "-m",
+                "--minContig"
+              ],
+              "dest": "minContig",
+              "help": "Minimum size of a contig for binning (should be >=1500)",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--maxP"
+              ],
+              "dest": "maxP",
+              "help": "Percentage of 'good' contigs considered for binning decided by connection among contigs. The greater, the more sensitive.",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--minS"
+              ],
+              "dest": "minS",
+              "help": "Minimum score of a edge for binning (should be between 1 and 99). The greater, the more specific.",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--maxEdges"
+              ],
+              "dest": "maxEdges",
+              "help": "Maximum number of edges per node. The greater, the more sensitive.",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--pTNF"
+              ],
+              "dest": "pTNF",
+              "help": "TNF probability cutoff for building TNF graph. Use it to skip the preparation step. (0: auto).",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--noAdd"
+              ],
+              "dest": "noAdd",
+              "help": "Turning off additional binning for lost or small contigs.",
+              "metavar": null,
+              "default": false,
+              "choices": null,
+              "required": false,
+              "takes_value": false,
+              "nargs": 0
+            },
+            {
+              "flags": [
+                "--minCV"
+              ],
+              "dest": "minCV",
+              "help": "Minimum mean coverage of a contig in each library for binning.",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--minCVSum"
+              ],
+              "dest": "minCVSum",
+              "help": "Minimum size of a bin as the output.",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--minClsSize"
+              ],
+              "dest": "minClsSize",
+              "help": "Minimum size of a bin as the output.",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--seed"
+              ],
+              "dest": "seed",
+              "help": "For exact reproducibility. (0: use random seed).",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            }
+          ],
+          "mode": "metabat2"
+        },
+        {
+          "title": "--driver maxbin2",
+          "description": null,
+          "parameters": [
+            {
+              "flags": [
+                "--min-contig-length"
+              ],
+              "dest": "min_contig_length",
+              "help": "Minimum contig length. Default: 1000.",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--max-iteration"
+              ],
+              "dest": "max_iteration",
+              "help": "Maximum Expectation-Maximization algorithm iteration number. Default 50.",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--prob-threshold"
+              ],
+              "dest": "prob_threshold",
+              "help": "Probability threshold for EM final classification. Default 0.9.",
+              "metavar": "FLOAT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--merkerset"
+              ],
+              "dest": "merkerset",
+              "help": "Minimum contig length. Default: 1000",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            }
+          ],
+          "mode": "maxbin2"
+        },
+        {
+          "title": "--driver dastool",
+          "description": null,
+          "parameters": [
+            {
+              "flags": [
+                "-S",
+                "--source-collections"
+              ],
+              "dest": "source_collections",
+              "help": "Comma-separated list of collections, case sensitive.",
+              "metavar": "COLLECTION_LIST",
+              "default": null,
+              "choices": null,
+              "required": true,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--search-engine"
+              ],
+              "dest": "search_engine",
+              "help": "Engine used for single copy gene identification [blast/diamond/usearch]. (default: usearch)",
+              "metavar": "PROGRAM",
+              "default": "usearch",
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--score-threshold"
+              ],
+              "dest": "score_threshold",
+              "help": "Score threshold until selection algorithm will keep selecting bins [0..1]. (default: 0.5)",
+              "metavar": "FLOAT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--duplicate-penalty"
+              ],
+              "dest": "duplicate_penalty",
+              "help": "Penalty for duplicate single copy genes per bin (weight b). Only change if you know what you're doing. [0..3] (default: 0.6)",
+              "metavar": "FLOAT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--megabin-penalty"
+              ],
+              "dest": "megabin_penalty",
+              "help": "Penalty for megabins (weight c). Only change if you know what you're doing. [0..3] (default: 0.5)",
+              "metavar": "FLOAT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--db-directory"
+              ],
+              "dest": "db_directory",
+              "help": "Directory of single copy gene database. (default: install_dir/db)",
+              "metavar": "PATH",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            }
+          ],
+          "mode": "dastool"
+        },
+        {
+          "title": "--driver binsanity",
+          "description": null,
+          "parameters": [
+            {
+              "flags": [
+                "--preference"
+              ],
+              "dest": "preference",
+              "help": "Specify a preference (default is -3) Note: decreasing the preference leads to more lumping, increasing will lead to more splitting. If your range of coverages are low you will want to decrease the preference, if you have 10 or less replicates increasing the preference could benefit you.",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--maxiter"
+              ],
+              "dest": "maxiter",
+              "help": "Specify a max number of iterations [default is 2000]",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--conviter"
+              ],
+              "dest": "conviter",
+              "help": "Specify the convergence iteration number (default is 200) e.g Number of iterations with no change in the number of estimated clusters that stops the convergence.",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--damp"
+              ],
+              "dest": "damp",
+              "help": "Specify a damping factor between 0.5 and 1, default is 0.9",
+              "metavar": "FLOAT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "--contigsize"
+              ],
+              "dest": "contigsize",
+              "help": "TNF probability cutoff for building TNF graph. Use it to skip the preparation step. (0: auto).",
+              "metavar": "INT",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            }
+          ],
+          "mode": "binsanity"
         }
       ]
     },
@@ -846,7 +1332,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -934,7 +1421,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "RELATIONSHIPS BETWEEN GENOMES",
@@ -954,7 +1442,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FUNCTION ANNOTATION SOURCE",
@@ -987,7 +1476,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -1034,7 +1524,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL THINGIES",
@@ -1079,7 +1570,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -1170,7 +1662,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FUNCTION ANNOTATION SOURCE",
@@ -1216,7 +1709,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT OPTIONS",
@@ -1236,7 +1730,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT OPTIONS FOR FUNCTIONAL ENRICHMENT",
@@ -1256,7 +1751,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL THINGIES",
@@ -1288,7 +1784,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -1353,7 +1850,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "REPORTING",
@@ -1386,7 +1884,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SELECTION",
@@ -1446,7 +1945,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL",
@@ -1492,7 +1992,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -1579,7 +2080,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT OPTIONS",
@@ -1613,7 +2115,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "Program",
@@ -1636,7 +2139,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "fastANI Settings",
@@ -1681,7 +2185,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "pyANI Settings",
@@ -1744,7 +2249,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "Sourmash Settings",
@@ -1776,7 +2282,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "HIERARCHICAL CLUSTERING",
@@ -1808,7 +2315,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OTHER IMPORTANT STUFF",
@@ -1867,7 +2375,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -1946,7 +2455,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT OPTIONS",
@@ -1966,7 +2476,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL OPTIONS",
@@ -2050,7 +2561,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -2106,7 +2618,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -2126,7 +2639,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PARAMETERS OF CONVENIENCE",
@@ -2158,7 +2672,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -2221,7 +2736,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "TRNASEQ SAMPLES",
@@ -2294,7 +2810,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENOMIC INPUTS",
@@ -2398,7 +2915,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -2590,7 +3108,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "CLUSTERING",
@@ -2674,7 +3193,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PLOTS",
@@ -2836,7 +3356,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FUNCTIONS",
@@ -2960,7 +3481,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SEED ASSIGNMENT",
@@ -2997,7 +3519,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ISOACCEPTOR PARAMETERS",
@@ -3081,7 +3604,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "CODON FILTERS",
@@ -3152,7 +3676,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INFO",
@@ -3200,7 +3725,8 @@
               "takes_value": true,
               "nargs": 2
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -3249,7 +3775,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "Very dangerous zone",
@@ -3294,7 +3821,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -3367,7 +3895,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -3418,7 +3947,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL",
@@ -3464,7 +3994,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -3538,7 +4069,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -3626,7 +4158,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -3698,7 +4231,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "Details",
@@ -3770,7 +4304,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -3845,7 +4380,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -3925,7 +4461,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "IMPORT RESULTS",
@@ -3957,7 +4494,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT OPTIONS",
@@ -4003,7 +4541,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "Program",
@@ -4026,7 +4565,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "fastANI Settings",
@@ -4071,7 +4611,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "pyANI Settings",
@@ -4147,7 +4688,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "sourmash settings",
@@ -4179,7 +4721,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "Dereplication Parameters",
@@ -4230,7 +4773,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OTHER IMPORTANT STUFF",
@@ -4289,7 +4833,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -4338,7 +4883,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "REPORT CONFIGURATION",
@@ -4371,7 +4917,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SERVER CONFIGURATION",
@@ -4457,7 +5004,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -4535,7 +5083,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT PARAMETERS",
@@ -4554,7 +5103,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FREQUENCY STATISTICS",
@@ -4638,7 +5188,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FILTER GENES, CODONS",
@@ -4729,7 +5280,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "VISUALS RELATED",
@@ -4787,7 +5339,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SWEET PARAMS OF CONVENIENCE",
@@ -4819,7 +5372,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SERVER CONFIGURATION",
@@ -4918,7 +5472,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -5000,7 +5555,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GROUPS",
@@ -5033,7 +5589,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FUNCTIONS",
@@ -5091,7 +5648,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PROFILE DB",
@@ -5111,7 +5669,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENES",
@@ -5130,7 +5689,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "VISUALS RELATED",
@@ -5188,7 +5748,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SWEET PARAMS OF CONVENIENCE",
@@ -5233,7 +5794,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SERVER CONFIGURATION",
@@ -5332,7 +5894,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -5412,7 +5975,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADDITIONAL INPUT",
@@ -5474,7 +6038,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -5493,7 +6058,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SERVER CONFIGURATION",
@@ -5566,7 +6132,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -5638,7 +6205,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL INPUTS",
@@ -5672,7 +6240,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADDITIONAL STUFF",
@@ -5706,7 +6275,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "VISUALS RELATED",
@@ -5777,7 +6347,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SWEET PARAMS OF CONVENIENCE",
@@ -5835,7 +6406,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SERVER CONFIGURATION",
@@ -5934,7 +6506,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -5998,7 +6571,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SERVER CONFIGURATION",
@@ -6097,7 +6671,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -6164,7 +6739,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "VARIABILITY",
@@ -6212,7 +6788,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "REFINING PARAMETERS",
@@ -6310,7 +6887,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SERVER CONFIGURATION",
@@ -6383,7 +6961,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -6625,7 +7204,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "BORDER VALUES",
@@ -7030,7 +7610,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "BAR VALUES",
@@ -7237,7 +7818,8 @@
               "takes_value": true,
               "nargs": 2
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "REACTION NETWORK JSON",
@@ -7256,7 +7838,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "CONTIGS DATABASE",
@@ -7288,7 +7871,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PANGENOMIC DATABASE",
@@ -7348,7 +7932,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GROUPS",
@@ -7423,7 +8008,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SAMPLE AND GROUP SUMMARIES",
@@ -7481,7 +8067,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -7619,7 +8206,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "MAP",
@@ -7651,7 +8239,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "LABELS",
@@ -7693,7 +8282,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "COLOR",
@@ -8028,7 +8618,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -8079,7 +8670,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "MANDATORY INPUT OPTION #2",
@@ -8113,7 +8705,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADDITIONAL INPUT (OPTIONAL)",
@@ -8147,7 +8740,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PARAMETERS OF CONVENIENCE",
@@ -8232,7 +8826,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -8319,7 +8914,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT #1 - ESTIMATION ON SINGLE GENOMES OR METAGENOMES",
@@ -8352,7 +8948,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT #2 - ESTIMATION ON BINS",
@@ -8414,7 +9011,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT #3 - MULTI-MODE",
@@ -8448,7 +9046,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT #4 - ESTIMATION ON A LIST OF ENZYMES",
@@ -8467,7 +9066,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT #5 - ESTIMATION ON A PANGENOME",
@@ -8500,7 +9100,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT - GENERAL OPTIONS",
@@ -8624,7 +9225,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT - LONG-FORMAT OPTIONS",
@@ -8695,7 +9297,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT - MATRIX OPTIONS",
@@ -8753,7 +9356,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "DEBUG",
@@ -8824,7 +9428,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -8899,7 +9504,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT #2",
@@ -8933,7 +9539,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT #3",
@@ -8967,7 +9574,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT AND FORMATTING",
@@ -9095,7 +9703,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PERFORMANCE",
@@ -9115,7 +9724,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "AUTHORITY",
@@ -9174,7 +9784,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADVANCED",
@@ -9245,7 +9856,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "BORING",
@@ -9265,7 +9877,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -9335,7 +9948,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT #2",
@@ -9369,7 +9983,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT #3",
@@ -9389,7 +10004,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT #4",
@@ -9421,7 +10037,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT AND FORMATTING",
@@ -9549,7 +10166,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PERFORMANCE",
@@ -9569,7 +10187,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "AUTHORITY",
@@ -9615,7 +10234,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADVANCED",
@@ -9660,7 +10280,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "BORING",
@@ -9680,7 +10301,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -9729,7 +10351,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "options",
@@ -9870,7 +10493,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -9974,7 +10598,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -10102,7 +10727,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -10232,7 +10858,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -10280,7 +10907,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SOURCE FOR GENE CALLS",
@@ -10312,7 +10940,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "MATTERS OF REPORTING",
@@ -10345,7 +10974,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -10392,7 +11022,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "MATTERS OF REPORTING",
@@ -10412,7 +11043,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -10477,7 +11109,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -10497,7 +11130,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENES",
@@ -10529,7 +11163,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -10593,7 +11228,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUPUT",
@@ -10613,7 +11249,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -10662,7 +11299,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ANCHOR GENE IDENTIFICATION OPTION #1",
@@ -10761,7 +11399,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ANCHOR GENE IDENTIFICATION OPTION #2",
@@ -10780,7 +11419,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "THE OUTPUT",
@@ -10814,7 +11454,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADDITIONAL STUFF",
@@ -10886,7 +11527,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -10965,7 +11607,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "Details",
@@ -11013,7 +11656,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -11077,7 +11721,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SUBGRAPH COORDINATES",
@@ -11122,7 +11767,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -11155,7 +11801,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -11285,7 +11932,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -11346,7 +11994,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -11437,7 +12086,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -11526,7 +12176,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -11593,7 +12244,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PERFORMANCE",
@@ -11613,7 +12265,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL INPUTS",
@@ -11700,7 +12353,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENES IN CONTIGS",
@@ -11797,7 +12451,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -11902,7 +12557,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FOCUS :: BIN",
@@ -11936,7 +12592,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FOCUS :: SPLIT NAMES",
@@ -11955,7 +12612,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FOCUS :: GENE CALLER IDs",
@@ -12000,7 +12658,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SAMPLES",
@@ -12019,7 +12678,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ENGINE",
@@ -12038,7 +12698,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FILTERS",
@@ -12057,7 +12718,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -12077,7 +12739,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "EXTRAS",
@@ -12096,7 +12759,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -12179,7 +12843,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GROUPS",
@@ -12212,7 +12877,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FUNCTIONS",
@@ -12283,7 +12949,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PER-POPULATION COPY NUMBER",
@@ -12302,7 +12969,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENES",
@@ -12321,7 +12989,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADVANCED",
@@ -12340,7 +13009,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -12360,7 +13030,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -12409,7 +13080,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "DATABASES",
@@ -12443,7 +13115,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FOCUS",
@@ -12488,7 +13161,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -12521,7 +13195,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "EXTRAS",
@@ -12566,7 +13241,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -12631,7 +13307,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "BIN(S) AND COLLECTION",
@@ -12679,7 +13356,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADDITIONAL PARAMETERS",
@@ -12711,7 +13389,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PARAMETERS OF CONVENIENCE",
@@ -12730,7 +13409,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INSEQ DATA",
@@ -12749,7 +13429,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -12803,7 +13484,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INTERNAL GENOMES",
@@ -12823,7 +13505,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PRO STUFF",
@@ -12855,7 +13538,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -12875,7 +13559,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -12940,7 +13625,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "HMM STUFF",
@@ -12973,7 +13659,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUTTAH",
@@ -13006,7 +13693,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -13084,7 +13772,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT FILE",
@@ -13104,7 +13793,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIPONS FOR THE SUPPLEMENTARY CONTIG",
@@ -13188,7 +13878,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PARAMETERS OF CONVENIENCE",
@@ -13234,7 +13925,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -13287,7 +13979,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT FILE",
@@ -13307,7 +14000,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PROGRAM",
@@ -13326,7 +14020,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OTHERS",
@@ -13345,7 +14040,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -13447,7 +14143,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENES",
@@ -13518,7 +14215,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -13551,7 +14249,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ENGINE",
@@ -13573,7 +14272,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SHARED PREDICTION PARAMS",
@@ -13606,7 +14306,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "MODELLER PARAMS",
@@ -13735,7 +14436,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "COLABFOLD PARAMS",
@@ -13845,7 +14547,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "IMPORT STRUCTURES",
@@ -13864,7 +14567,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "EXTRA",
@@ -13897,7 +14601,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -13949,7 +14654,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -13982,7 +14688,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADDITIONAL PARAMS",
@@ -14041,7 +14748,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -14134,7 +14842,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FOCUS :: BIN",
@@ -14168,7 +14877,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FOCUS :: SPLIT NAMES",
@@ -14187,7 +14897,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FOCUS :: GENE CALLER IDs",
@@ -14232,7 +14943,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SAMPLES",
@@ -14251,7 +14963,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ENGINE",
@@ -14270,7 +14983,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FILTERS",
@@ -14411,7 +15125,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -14496,7 +15211,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -14561,7 +15277,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL PARAMS FOR BINS",
@@ -14609,7 +15326,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL PARAMS FOR CONTIGS",
@@ -14628,7 +15346,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL PARAMS FOR GENE CALLS",
@@ -14647,7 +15366,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -14757,7 +15477,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "MULTIPLE GENOME INPUTS",
@@ -14791,7 +15512,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT FILES",
@@ -14863,7 +15585,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FREQUENCY STATISTICS",
@@ -14947,7 +15670,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FUNCTIONS",
@@ -15031,7 +15755,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FILTER GENES, FUNCTIONS, CODONS",
@@ -15161,7 +15886,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -15267,7 +15993,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "MULTIPLE GENOME INPUTS",
@@ -15301,7 +16028,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -15321,7 +16049,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "CUB_CALCULATION",
@@ -15356,7 +16085,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FUNCTION SELECTION",
@@ -15440,7 +16170,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "REFERENCE",
@@ -15498,7 +16229,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FILTER GENES, FUNCTIONS, CODONS",
@@ -15630,7 +16362,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FILTER REFERENCE",
@@ -15675,7 +16408,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -15723,7 +16457,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PANGENOME",
@@ -15773,7 +16508,8 @@
               "takes_value": true,
               "nargs": "*"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -15807,7 +16543,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OTHER OPTIONS",
@@ -15839,7 +16576,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -15901,7 +16639,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "TUNABLES",
@@ -15981,7 +16720,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -16015,7 +16755,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -16135,7 +16876,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTION #1.1: STORE SEQEUNCES AS GFF?",
@@ -16194,7 +16936,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTION #2: GET SEQUENCES FROM A GENOMES STORAGE",
@@ -16228,7 +16971,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FASTA OUTPUT FORMATTING OPTIONS",
@@ -16286,7 +17030,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONS COMMON TO ALL INPUTS",
@@ -16306,7 +17051,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -16376,7 +17122,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT OPTION #1: SINGLE FILE",
@@ -16396,7 +17143,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT OPTION #2: MULTIPLE FILES",
@@ -16429,7 +17177,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SELECTION",
@@ -16489,7 +17238,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADVANCED FILTERS",
@@ -16651,7 +17401,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OTHER STUFF",
@@ -16683,7 +17434,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PHYLOGENOMICS",
@@ -16754,7 +17506,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "REPRESENTATIVE SEQUENCES",
@@ -16773,7 +17526,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "LIFE SAVERS",
@@ -16818,7 +17572,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -16882,7 +17637,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT OPTION #2: CONTIGS DB + PROFLIE DB",
@@ -16944,7 +17700,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT OPTION #3: INT/EXTERNAL GENOMES FILE",
@@ -16978,7 +17735,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "HMM STUFF",
@@ -17038,7 +17796,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "THE OUTPUT",
@@ -17097,7 +17856,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "THE ALPHABET",
@@ -17116,7 +17876,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PHYLOGENOMICS? K!",
@@ -17200,7 +17961,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL",
@@ -17284,7 +18046,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -17333,7 +18096,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT OPTION #1",
@@ -17409,7 +18173,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT OPTION #2",
@@ -17454,7 +18219,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FILTERS",
@@ -17473,7 +18239,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -17535,7 +18302,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -17605,7 +18373,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENES",
@@ -17650,7 +18419,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -17670,7 +18440,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -17740,7 +18511,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT OPTION #1: SPLIT or CONTIG NAME",
@@ -17772,7 +18544,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT OPTION #2: COLLECTION + BIN",
@@ -17806,7 +18579,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT OPTION #3: GENE CALL",
@@ -17838,7 +18612,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "BORING STUFF",
@@ -17897,7 +18672,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -17939,7 +18715,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT OPTIONS",
@@ -17971,7 +18748,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT OPTIONS",
@@ -18004,7 +18782,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -18085,7 +18864,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "TARGET DATABASE",
@@ -18119,7 +18899,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "EXOTIC OPTIONS",
@@ -18138,7 +18919,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -18205,7 +18987,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL",
@@ -18224,7 +19007,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -18326,7 +19110,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -18392,7 +19177,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "NOT SO CRITICAL INPUT",
@@ -18424,7 +19210,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -18482,7 +19269,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -18546,7 +19334,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT DATABASES",
@@ -18580,7 +19369,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "TARGET TABLE/GROUP",
@@ -18614,7 +19404,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "CONVENIENCE",
@@ -18646,7 +19437,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "CONTIGS MODE",
@@ -18665,7 +19457,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -18723,7 +19516,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -18801,7 +19595,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -18890,7 +19685,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -18978,7 +19774,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -19028,7 +19825,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "options",
@@ -19062,7 +19860,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -19145,7 +19944,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "VISUALS RELATED",
@@ -19164,7 +19964,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SERVER CONFIGURATION",
@@ -19211,7 +20012,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENERAL CONVENIENCE",
@@ -19230,7 +20032,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -19310,7 +20113,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENOMIC INPUTS",
@@ -19414,7 +20218,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PERMUTATION OF MODIFICATIONS",
@@ -19448,7 +20253,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SEED/GENE MATCHING",
@@ -19495,7 +20301,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "TEMPORARY FILES",
@@ -19529,7 +20336,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OTHER",
@@ -19563,7 +20371,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INFO",
@@ -19583,7 +20392,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -19702,7 +20512,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "MANUAL INPUTS",
@@ -19776,7 +20587,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADDITIONAL STUFF",
@@ -19824,7 +20636,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENE MODE",
@@ -19870,7 +20683,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "VISUALS RELATED",
@@ -20001,7 +20815,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SWEET PARAMS OF CONVENIENCE",
@@ -20151,7 +20966,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SERVER CONFIGURATION",
@@ -20250,7 +21066,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -20299,7 +21116,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -20345,7 +21163,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SWEETS",
@@ -20403,7 +21222,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -20455,7 +21275,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "options",
@@ -20582,7 +21403,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -20645,7 +21467,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "BINS TO WORK WITH",
@@ -20679,7 +21502,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SWEET FLAGS OF CONVENIENCE",
@@ -20711,7 +21535,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -20784,7 +21609,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "EXTRAS",
@@ -20844,7 +21670,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADVANCED",
@@ -20969,7 +21796,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -21032,7 +21860,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "METAGENOME",
@@ -21052,7 +21881,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "CRITERION FOR DETECTION",
@@ -21084,7 +21914,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PRO STUFF",
@@ -21116,7 +21947,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -21171,7 +22003,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SAFETY",
@@ -21203,7 +22036,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PARAMETERS OF CONVENIENCE",
@@ -21236,7 +22070,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -21302,7 +22137,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -21386,7 +22222,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT DATA: WHERE THINGS SHOULD APPEAR?",
@@ -21433,7 +22270,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "DEFAULT GENE CLUSTER FORMATION: SEQUENCE SEARCH",
@@ -21465,7 +22303,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "DEFAULT GENE CLUSTER FORMATION: RESOLVING NETWORK",
@@ -21523,7 +22362,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ALTERNATIVE GENE CLUSTER FORMATION: USER-PROVIDED GENE CLUSTERS",
@@ -21542,7 +22382,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENE CLUSTER CHARACTERIZATION",
@@ -21600,7 +22441,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OTHERS",
@@ -21647,7 +22489,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ORGANIZING GENE CLUSTERs",
@@ -21705,7 +22548,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -21798,7 +22642,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL (BUT RECOMMENDED)DIAMOND USE",
@@ -21844,7 +22689,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -21877,7 +22723,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GRAPH BUILDING",
@@ -21948,7 +22795,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PANGENOME GRAPH ENGINE PARAMETERS",
@@ -22197,7 +23045,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "LAYOUT & SIMPLIFICATION",
@@ -22255,7 +23104,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "METADATA & LAYERS",
@@ -22314,7 +23164,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ROBUSTNESS & DEBUGGING",
@@ -22333,7 +23184,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -22408,7 +23260,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL",
@@ -22428,7 +23281,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -22496,7 +23350,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT - MULTIPLE PAIRS OF GENOMES (MULTI-MODE)",
@@ -22529,7 +23384,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -22549,7 +23405,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "METABOLISM DATA LOCATION",
@@ -22581,7 +23438,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "CUSTOMIZATION",
@@ -22691,7 +23549,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PERFORMANCE",
@@ -22764,7 +23623,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -22856,7 +23716,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PROJECT DETAILS",
@@ -22889,7 +23750,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "CONTIG FILTERS",
@@ -22948,7 +23810,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SHORT READ FILTERS",
@@ -22980,7 +23843,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "POPULATION GENETICS",
@@ -23117,7 +23981,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "HIERARCHICAL CLUSTERING",
@@ -23175,7 +24040,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT CONTROL",
@@ -23209,7 +24075,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PERFORMANCE",
@@ -23268,7 +24135,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -23318,7 +24186,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT DB",
@@ -23338,7 +24207,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENES?",
@@ -23396,7 +24266,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "COLLECTION",
@@ -23416,7 +24287,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -23462,7 +24334,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "DISCOV SCORE",
@@ -23559,7 +24432,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -23623,7 +24497,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SINGLE GENOME OR METAGENOME INPUT",
@@ -23643,7 +24518,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PANGENOME INPUT",
@@ -23703,7 +24579,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "DATABASE",
@@ -23735,7 +24612,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OTHER OPTIONS",
@@ -23767,7 +24645,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -23853,7 +24732,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "REFINE-SPECIFICS",
@@ -23914,7 +24794,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADDITIONAL STUFF",
@@ -24002,7 +24883,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "VISUALS RELATED",
@@ -24094,7 +24976,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SWEET PARAMS OF CONVENIENCE",
@@ -24178,7 +25061,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SERVER CONFIGURATION",
@@ -24264,7 +25148,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -24356,7 +25241,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT AND TESTING",
@@ -24414,7 +25300,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "MAG OPTIONS",
@@ -24485,7 +25372,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -24547,7 +25435,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SELECTION & PROCESSING OF REFERENCE",
@@ -24592,7 +25481,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "STARTING EVERY GENOME AT ITS OWN DnaA",
@@ -24624,7 +25514,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SCAFFOLDING OPTIONS",
@@ -24669,7 +25560,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "VISUALIZATION",
@@ -24714,7 +25606,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADVANCED",
@@ -24776,7 +25669,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -24820,7 +25714,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "options",
@@ -24840,7 +25735,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INSERT SIZE ESTIMATION",
@@ -24872,7 +25768,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "CIRCULARITY PREDICTION",
@@ -24943,7 +25840,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -24972,7 +25870,7 @@
       ],
       "can_use": [],
       "can_provide": [],
-      "command_line_usage": "anvi-report-inversions [-h] [-P BAMS-AND-PROFILES-FILE] [--pre-computed-inversions INVERSIONS-FILE] [--min-coverage-to-define-stretches INT] [--min-stretch-length INT] [--min-distance-between-independent-stretches INT] [--num-nts-to-pad-a-stretch INT] [--min-ratio-of-normal-to-special-coverage FLOAT] [--min-detection-to-report-coverage-ratio FLOAT] [-l INT] [-m INT] [-d INT] [--min-mismatch-distance-to-first-base INT] [--palindrome-search-algorithm {numba,BLAST}] [--check-all-palindromes] [--process-only-inverted-reads] [-T NUM_THREADS] [--oligo-primer-base-length INT] [--skip-compute-inversion-activity] [--end-primer-search-after-x-hits END_PRIMER_SEARCH_AFTER_X_HITS] [--min-frequency-to-report MIN_FREQUENCY_TO_REPORT] [--skip-recovering-genomic-context] [--num-genes-to-consider-in-context INT] [--gene-caller GENE-CALLER] [--skip-search-for-motifs] [--num-of-motifs INT] [--verbose] [--target-contig CONTIG_NAME] [--target-region-start NUCLEOTIDE_POSITION] [--target-region-end NUCLEOTIDE_POSITION] [-o DIR_PATH]",
+      "command_line_usage": "anvi-report-inversions [-h] [-P BAMS-AND-PROFILES-FILE] [--pre-computed-inversions INVERSIONS-FILE] [--min-coverage-to-define-stretches INT] [--min-stretch-length INT] [--min-distance-between-independent-stretches INT] [--num-nts-to-pad-a-stretch INT] [--min-ratio-of-normal-to-special-coverage FLOAT] [--min-detection-to-report-coverage-ratio FLOAT] [-l INT] [-m INT] [-d INT] [--min-mismatch-distance-to-first-base INT] [--palindrome-search-algorithm {BLAST,numba}] [--check-all-palindromes] [--process-only-inverted-reads] [-T NUM_THREADS] [--oligo-primer-base-length INT] [--skip-compute-inversion-activity] [--end-primer-search-after-x-hits END_PRIMER_SEARCH_AFTER_X_HITS] [--min-frequency-to-report MIN_FREQUENCY_TO_REPORT] [--skip-recovering-genomic-context] [--num-genes-to-consider-in-context INT] [--gene-caller GENE-CALLER] [--skip-search-for-motifs] [--num-of-motifs INT] [--verbose] [--target-contig CONTIG_NAME] [--target-region-start NUCLEOTIDE_POSITION] [--target-region-end NUCLEOTIDE_POSITION] [-o DIR_PATH]",
       "parameter_groups": [
         {
           "title": "INPUT DATA",
@@ -24992,7 +25890,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "CALCULATE ACTIVITY FROM KNOWN INVERSIONS?",
@@ -25011,7 +25910,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "KEY ALGORITHMIC COMPONENT 01: IDENTIFYING REGIONS OF INTEREST",
@@ -25095,7 +25995,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "KEY ALGORITHMIC COMPONENT 02: FINDING PALINDROMES",
@@ -25172,7 +26073,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "KEY ALGORITHMIC COMPONENT 03: CONFIRMING INVERSIONS",
@@ -25204,7 +26106,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "KEY ALGORITHMIC COMPONENT 04: COMPUTING INVERSION ACTIVITY",
@@ -25276,7 +26179,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "KEY ALGORITHMIC COMPONENT 05: REPORTING GENOMIC CONTEXT AROUND INVERSIONS",
@@ -25321,7 +26225,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "KEY ALGORITHMIC COMPONENT 06: FINDING MOTIFS IN INVERTED REPEATS",
@@ -25353,7 +26258,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "TARGETED SEARCH & PROCESSING",
@@ -25411,7 +26317,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT DIRECTORY",
@@ -25431,7 +26338,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -25531,7 +26439,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -25645,7 +26554,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -25702,7 +26612,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "HMM OPTIONS",
@@ -25789,7 +26700,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "tRNAs",
@@ -25808,7 +26720,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PERFORMANCE",
@@ -25841,7 +26754,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "AUTHORITY",
@@ -25873,14 +26787,15 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
     "anvi-run-interacdome": {
       "id": "program:anvi-run-interacdome",
       "kind": "program",
-      "source_markdown": "\nThis program predicts per-residue binding scores for genes in your %(contigs-db)s via the [InteracDome](https://interacdome.princeton.edu/) database.\n\n\nThe full process is detailed in [this blog post](https://merenlab.org/2020/07/22/interacdome/). In fact, ideally, all of that information should really be in this very document, but because the blogpost has preceded this document, it hasn't been translated over yet. So really, you should really be reading that blogpost if you want to get into the nitty gritty details. Otherwise, the quick reference herein should be sufficient.\n\n\nIn summary, this program runs an HMM search of the genes in your %(contigs-db)s to all the Pfam gene families that have been annotated with InteracDome binding frequencies. Then, it parses and filters results, associates binding frequencies of HMM match states to the user's genes of interest, and then stores the resulting per-residue binding frequencies for each gene into the %(contigs-db)s as %(misc-data-amino-acids)s.\n\n\nBefore running this program, you'll have to run %(anvi-setup-interacdome)s to set up a local copy of [InteracDome's tab-separated files](https://interacdome.princeton.edu/#tab-6136-4).\n\n\n\n## Basic Usage\n\nA basic run of this program looks like this:\n\n{{ codestart }}\nanvi-run-interacdome -c %(contigs-db)s -T 4\n{{ codestop }}\n\nIn addition to storing per-residue binding frequencies as %(misc-data-amino-acids)s in your %(contigs-db)s, this also outputs additional files prefixed with `INTERACDOME` by default (the prefix can be changed with `-O`). These are provided as %(binding-frequencies-txt)s files named `INTERACDOME-match_state_contributors.txt` and `INTERACDOME-domain_hits.txt`. See %(binding-frequencies-txt)s for details.\n\n\n## Parameters\n\n[InteracDome](https://interacdome.princeton.edu/) offers two different binding frequency datasets that can be chosen with `--interacdome-dataset`.  Choose 'representable' to include Pfams that correspond to domain-ligand interactions that had nonredundant instances across three or more distinct PDB structures. InteracDome authors recommend using this collection to learn more about domain binding properties. Choose 'confident' to include Pfams that correspond to domain-ligand interactions that had nonredundant instances across three or more distinct PDB entries and achieved a cross-validated precision of at least 0.5. The default is 'representable', and you can change it like so:\n\n\n{{ codestart }}\nanvi-run-interacdome -c %(contigs-db)s \\\n                     --interacdome-dataset confident\n{{ codestop }}\n\nThis progarm is multi-threaded, so be sure to make use of it:\n\n{{ codestart }}\nanvi-run-interacdome -c %(contigs-db)s \\\n                     --interacdome-dataset confident \\\n                     -T 8\n{{ codestop }}\n\nAdditionally, there are numerous thresholds that you can set:\n\n1. [`--min-binding-frequency` to ignore very low frequencies](https://merenlab.org/2020/07/22/interacdome/#filtering-low-binding-frequency-scores). The InteracDome scale is from 0 (most likely not involved in binding) to 1 (most likely involved in binding). The default cutoff is 0.200000.\n2. [`--min-hit-fraction` to remove poor quality HMM hits]((https://merenlab.org/2020/07/22/interacdome/#filtering-partial-hits)). The default value is 0.5, so at least half of a profile HMM's length must align to your gene, otherwise the hit will be discarded.\n3. [`--information-content-cutoff` to ignore low-qulaity domain hits](https://merenlab.org/2020/07/22/interacdome/#filtering-bad-hits-with-information-content). The default value is 4, which means every amino acid of your gene must match the consensus amino acid of the match state for each mate state with [information content](https://en.wikipedia.org/wiki/Sequence_logo) greater than 4. Decreasing this cutoff yields an increasingly stringent filter.\n",
+      "source_markdown": "\nThis program predicts per-residue binding scores for genes in your %(contigs-db)s via the [InteracDome](https://interacdome.princeton.edu/) database.\n\n\nThe full process is detailed in [this blog post](https://merenlab.org/2020/07/22/interacdome/). In fact, ideally, all of that information should really be in this very document, but because the blogpost has preceded this document, it hasn't been translated over yet. So really, you should really be reading that blogpost if you want to get into the nitty gritty details. Otherwise, the quick reference herein should be sufficient.\n\n\nIn summary, this program runs an HMM search of the genes in your %(contigs-db)s to all the Pfam gene families that have been annotated with InteracDome binding frequencies. Then, it parses and filters results, associates binding frequencies of HMM match states to the user's genes of interest, and then stores the resulting per-residue binding frequencies for each gene into the %(contigs-db)s as %(misc-data-amino-acids)s.\n\n\nBefore running this program, you'll have to run %(anvi-setup-interacdome)s to set up a local copy of [InteracDome's tab-separated files](https://interacdome.princeton.edu/#tab-6136-4).\n\n\n\n## Basic Usage\n\nA basic run of this program looks like this:\n\n{{ codestart }}\nanvi-run-interacdome -c %(contigs-db)s -T 4\n{{ codestop }}\n\nIn addition to storing per-residue binding frequencies as %(misc-data-amino-acids)s in your %(contigs-db)s, this also outputs additional files prefixed with `INTERACDOME` by default (the prefix can be changed with `-O`). These are provided as %(binding-frequencies-txt)s files named `INTERACDOME-match_state_contributors.txt` and `INTERACDOME-domain_hits.txt`. See %(binding-frequencies-txt)s for details.\n\n\n## Parameters\n\n[InteracDome](https://interacdome.princeton.edu/) offers two different binding frequency datasets that can be chosen with `--interacdome-dataset`.  Choose 'representable' to include Pfams that correspond to domain-ligand interactions that had nonredundant instances across three or more distinct PDB structures. InteracDome authors recommend using this collection to learn more about domain binding properties. Choose 'confident' to include Pfams that correspond to domain-ligand interactions that had nonredundant instances across three or more distinct PDB entries and achieved a cross-validated precision of at least 0.5. The default is 'representable', and you can change it like so:\n\n\n{{ codestart }}\nanvi-run-interacdome -c %(contigs-db)s \\\n                     --interacdome-dataset confident\n{{ codestop }}\n\nThis progarm is multi-threaded, so be sure to make use of it:\n\n{{ codestart }}\nanvi-run-interacdome -c %(contigs-db)s \\\n                     --interacdome-dataset confident \\\n                     -T 8\n{{ codestop }}\n\nAdditionally, there are numerous thresholds that you can set:\n\n1. [`--min-binding-frequency` to ignore very low frequencies](https://merenlab.org/2020/07/22/interacdome/#filtering-low-binding-frequency-scores). The InteracDome scale is from 0 (most likely not involved in binding) to 1 (most likely involved in binding). The default cutoff is 0.200000.\n2. [`--min-hit-fraction` to remove poor quality HMM hits](https://merenlab.org/2020/07/22/interacdome/#filtering-partial-hits). The default value is 0.5, so at least half of a profile HMM's length must align to your gene, otherwise the hit will be discarded.\n3. [`--information-content-cutoff` to ignore low-qulaity domain hits](https://merenlab.org/2020/07/22/interacdome/#filtering-bad-hits-with-information-content). The default value is 4, which means every amino acid of your gene must match the consensus amino acid of the match state for each mate state with [information content](https://en.wikipedia.org/wiki/Sequence_logo) greater than 4. Decreasing this cutoff yields an increasingly stringent filter.\n",
       "documentation_path": "anvio/docs/programs/anvi-run-interacdome.md",
       "html_url": "https://anvio.org/help/main/programs/anvi-run-interacdome/",
       "name": "anvi-run-interacdome",
@@ -26039,7 +26954,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -26089,7 +27005,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL INPUT",
@@ -26213,7 +27130,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "BITSCORE RELAXATION HEURISTIC",
@@ -26260,7 +27178,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -26309,7 +27228,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT OPTION #2: A BORING FASTA FILE",
@@ -26343,7 +27263,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENERAL OPTIONS",
@@ -26389,7 +27310,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -26442,7 +27364,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT #2 - ANNOTATION OF FASTA FILE",
@@ -26476,7 +27399,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENERAL OPTIONS",
@@ -26548,7 +27472,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -26637,7 +27562,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -26700,7 +27626,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ANTISMASH",
@@ -26775,7 +27702,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -26834,7 +27762,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "RESOURCES",
@@ -26867,7 +27796,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -26923,7 +27853,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADVANCED STUFF",
@@ -26968,7 +27899,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PERFORMANCE",
@@ -27015,7 +27947,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -27034,7 +27967,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -27082,7 +28016,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADVANCED STUFF",
@@ -27127,7 +28062,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PERFORMANCE",
@@ -27174,7 +28110,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -27193,7 +28130,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -27252,7 +28190,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADDITIONAL STUFF",
@@ -27364,7 +28303,8 @@
               "takes_value": true,
               "nargs": "..."
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -27477,7 +28417,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -27569,7 +28510,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SEARCH FOR",
@@ -27654,7 +28596,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "REPORT",
@@ -27713,7 +28656,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -27744,7 +28688,7 @@
         "fasta"
       ],
       "can_provide": [],
-      "command_line_usage": "anvi-search-palindromes [-h] [-c CONTIGS_DB] [-f FASTA file] [--dna-sequence DNA SEQ] [--palindrome-search-algorithm {numba,BLAST}] [-l INT] [-m INT] [-d INT] [--min-mismatch-distance-to-first-base INT] [--blast-word-size INT] [-T NUM_THREADS] [-o FILE_PATH] [--verbose]",
+      "command_line_usage": "anvi-search-palindromes [-h] [-c CONTIGS_DB] [-f FASTA file] [--dna-sequence DNA SEQ] [--palindrome-search-algorithm {BLAST,numba}] [-l INT] [-m INT] [-d INT] [--min-mismatch-distance-to-first-base INT] [--blast-word-size INT] [-T NUM_THREADS] [-o FILE_PATH] [--verbose]",
       "parameter_groups": [
         {
           "title": "SEQUENCE SOURCE",
@@ -27791,7 +28735,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SEARCH ALGORITHM",
@@ -27813,7 +28758,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PALINDROME PROPERTIES",
@@ -27874,7 +28820,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "BLAST SENSITIVITY & PERFORMANCE",
@@ -27907,7 +28854,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -27940,7 +28888,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -28000,7 +28949,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PARAMETERS OF LIFE OR DEATH",
@@ -28048,7 +28998,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "TESTING?",
@@ -28067,7 +29018,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -28087,7 +29039,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -28138,7 +29091,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL DBs",
@@ -28171,7 +29125,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "MOTIFS",
@@ -28190,7 +29145,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -28223,7 +29179,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -28310,7 +29267,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -28380,7 +29338,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -28442,7 +29401,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -28505,7 +29465,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "COMMON PARAMETERS",
@@ -28564,7 +29525,187 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
+        },
+        {
+          "title": "--mode KOfam",
+          "description": null,
+          "parameters": [
+            {
+              "flags": [
+                "--only-download"
+              ],
+              "dest": "only_download",
+              "help": "You want this program to only download data from KEGG, and then stop. It will not process the data (ie, into organized HMMs or a modules database). (It would be a *very* good idea for you to specify a data directory using --kegg-data-dir in this case, so that you can find the resulting data easily and avoid messing up any data in the default KEGG directory. But you are of course free to do whatever you want.)",
+              "metavar": null,
+              "default": false,
+              "choices": null,
+              "required": false,
+              "takes_value": false,
+              "nargs": 0
+            },
+            {
+              "flags": [
+                "--only-processing"
+              ],
+              "dest": "only_processing",
+              "help": "You already have all the KEGG data you need on your computer. Probably you even got it from this program, using the --only-download option. We don't know. What matters is that you don't need anything downloaded, you just want this program to process that existing data. Good. We can do that if you provide this flag (and hopefully also the --kegg-data-dir in which said data is located).",
+              "metavar": null,
+              "default": false,
+              "choices": null,
+              "required": false,
+              "takes_value": false,
+              "nargs": 0
+            },
+            {
+              "flags": [
+                "--include-nt-KOs"
+              ],
+              "dest": "include_nt_KOs",
+              "help": "'No-threshold KOs', or 'nt-KOs' are what we call KEGG Orthlogs that KEGG does not provide a bit score threshold for. If you want to include these protein families in your annotations and downstream analyses, then you can use this flag. Anvi'o does something very basic to estimate a bit score threshold for annotating these KOs, which is (1) to download the KEGG GENES sequences associated with each family, (2) to build a new HMM from these GENES (since KEGG GENES updates with new sequences faster than KOfam updates its models), (3) to run HMMER of each new model against the KO's associated sequences, and (4) to take the minimum bit score of those hits as the bit score threshold for the KO. Downstream, we use the anvi'o-generated models to annotate these KO families with their estimated bit score thresholds.",
+              "metavar": null,
+              "default": false,
+              "choices": null,
+              "required": false,
+              "takes_value": false,
+              "nargs": 0
+            }
+          ],
+          "mode": "KOfam"
+        },
+        {
+          "title": "--mode modules",
+          "description": null,
+          "parameters": [
+            {
+              "flags": [
+                "--only-download"
+              ],
+              "dest": "only_download",
+              "help": "You want this program to only download data from KEGG, and then stop. It will not process the data (ie, into organized HMMs or a modules database). (It would be a *very* good idea for you to specify a data directory using --kegg-data-dir in this case, so that you can find the resulting data easily and avoid messing up any data in the default KEGG directory. But you are of course free to do whatever you want.)",
+              "metavar": null,
+              "default": false,
+              "choices": null,
+              "required": false,
+              "takes_value": false,
+              "nargs": 0
+            },
+            {
+              "flags": [
+                "--only-processing"
+              ],
+              "dest": "only_processing",
+              "help": "You already have all the KEGG data you need on your computer. Probably you even got it from this program, using the --only-download option. We don't know. What matters is that you don't need anything downloaded, you just want this program to process that existing data. Good. We can do that if you provide this flag (and hopefully also the --kegg-data-dir in which said data is located).",
+              "metavar": null,
+              "default": false,
+              "choices": null,
+              "required": false,
+              "takes_value": false,
+              "nargs": 0
+            },
+            {
+              "flags": [
+                "-W",
+                "--overwrite-output-destinations"
+              ],
+              "dest": "overwrite_output_destinations",
+              "help": "Overwrite any existing modules database in the KEGG data directory [USE WITH CAUTION]. Only relevant if you are using the --only-processing flag",
+              "metavar": null,
+              "default": false,
+              "choices": null,
+              "required": false,
+              "takes_value": false,
+              "nargs": 0
+            },
+            {
+              "flags": [
+                "--skip-brite-hierarchies"
+              ],
+              "dest": "skip_brite_hierarchies",
+              "help": "Use this flag to skip using BRITE hierarchies, which we don't recommend but let you do anyways.",
+              "metavar": null,
+              "default": false,
+              "choices": null,
+              "required": false,
+              "takes_value": false,
+              "nargs": 0
+            },
+            {
+              "flags": [
+                "--skip-binary-relations"
+              ],
+              "dest": "skip_binary_relations",
+              "help": "Use this flag to skip setting up KEGG binary relation files, which we don't recommend, since they are necessary for running `anvi-reaction-network`, but let you do anyways.",
+              "metavar": null,
+              "default": false,
+              "choices": null,
+              "required": false,
+              "takes_value": false,
+              "nargs": 0
+            },
+            {
+              "flags": [
+                "--skip-map-images"
+              ],
+              "dest": "skip_map_images",
+              "help": "Use this flag to skip setting up KEGG pathway map image files, which we don't recommend, since they are used in visualizing pathway membership, but let you do anyways.",
+              "metavar": null,
+              "default": false,
+              "choices": null,
+              "required": false,
+              "takes_value": false,
+              "nargs": 0
+            }
+          ],
+          "mode": "modules"
+        },
+        {
+          "title": "--mode all",
+          "description": null,
+          "parameters": [
+            {
+              "flags": [
+                "--kegg-snapshot"
+              ],
+              "dest": "kegg_snapshot",
+              "help": "The default behavior of this program is to download a pre-processed snapshot of data from KEGG. If you are particularly interested in an earlier snapshot of KEGG that anvi'o knows about, you can set it here. Otherwise anvi'o will always use the latest snapshot it knows about, which is likely to be the one associated with the current release of anvi'o.",
+              "metavar": "RELEASE_NUM",
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            },
+            {
+              "flags": [
+                "-D",
+                "--download-from-kegg"
+              ],
+              "dest": "download_from_kegg",
+              "help": "This flag is for those people who always need the latest data. You know who you are :) By default, this program will set up a snapshot of the KEGG databases, which will be dated to the time of the anvi'o release that you are currently working with. The pros of this are that the KEGG data will be the same for everyone (which makes sharing your KEGG-annotated datasets easy), and you will not have to worry about updating your datasets with new annotations every time that KEGG updates. However, KEGG updates regularly, so the con of this is that you will not have the most up-to-date version of KEGG for your annotations, metabolism estimations, or any other downstream uses of this data. If that is going to be a problem for you, do not fear - you can provide this flag to tell anvi'o to download the latest, freshest data directly from KEGG's REST API and set it up into anvi'o-compatible files.",
+              "metavar": null,
+              "default": false,
+              "choices": null,
+              "required": false,
+              "takes_value": false,
+              "nargs": 0
+            },
+            {
+              "flags": [
+                "--kegg-archive"
+              ],
+              "dest": "kegg_archive",
+              "help": "The path to an archived (.tar.gz) KEGG directory (which you have downloaded from figshare or from a collaborator who has a KEGG data directory generated by anvi'o). If you provide this parameter, anvi'o will set up the KEGG data directory from the archive you specify rather than downloading and setting up our default KEGG archive.",
+              "metavar": null,
+              "default": null,
+              "choices": null,
+              "required": false,
+              "takes_value": true,
+              "nargs": null
+            }
+          ],
+          "mode": "all"
         }
       ]
     },
@@ -28602,9 +29743,9 @@
                 "--dir"
               ],
               "dest": "dir",
-              "help": "Directory in which a new subdirectory with the name, 'ModelSEED', is created containing database files.",
+              "help": "Directory in which a new subdirectory, 'MODELSEED', is created to hold the database files. Without this flag, the database is set up in a default directory within the anvi'o installation (anvio/data/misc/MODELSEED).",
               "metavar": null,
-              "default": "/home/runner/work/anvio.org/anvio.org/anvio_source/anvio/data/misc",
+              "default": null,
               "choices": null,
               "required": false,
               "takes_value": true,
@@ -28623,7 +29764,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -28695,7 +29837,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -28805,7 +29948,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -28902,7 +30046,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -28973,7 +30118,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -29050,7 +30196,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -29134,7 +30281,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -29182,7 +30330,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "EXTRAS",
@@ -29227,7 +30376,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -29275,7 +30425,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -29338,7 +30489,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "Details",
@@ -29372,7 +30524,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -29465,7 +30618,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PROFILE/CONTIGS OPTIONS",
@@ -29497,7 +30651,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "COLLECTION",
@@ -29531,7 +30686,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "CONTIG-ONLY MODE",
@@ -29615,7 +30771,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -29635,7 +30792,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "EXTRAS",
@@ -29706,7 +30864,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -29773,7 +30932,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PROFILE TYPE SPECIFIC PARAMETERS",
@@ -29807,7 +30967,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "STANDARD PROFILE SPECIFIC PARAMS",
@@ -29878,7 +31039,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PAN PROFILE SPECIFIC PARAMS",
@@ -29897,7 +31059,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "COMMONS",
@@ -29970,7 +31133,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "EXTRA",
@@ -29989,7 +31153,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "DISTRIBUTION OF COVERAGE (DISCOV)",
@@ -30099,7 +31264,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -30144,7 +31310,8 @@
               "takes_value": true,
               "nargs": "+"
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "options",
@@ -30206,7 +31373,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -30267,7 +31435,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL",
@@ -30315,7 +31484,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -30390,7 +31560,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "EXTRAS",
@@ -30436,7 +31607,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADVANCED",
@@ -30591,7 +31763,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PERFORMANCE",
@@ -30650,7 +31823,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "DEFAULTS",
@@ -30682,7 +31856,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -30729,7 +31904,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "options",
@@ -30748,7 +31924,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -30842,7 +32019,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GENES",
@@ -30926,7 +32104,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -30945,7 +32124,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "MODELLER PARAMS",
@@ -30964,7 +32144,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "COLABFOLD PARAMS",
@@ -31035,7 +32216,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "EXTRA",
@@ -31094,7 +32276,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -31159,7 +32342,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "COLLECTION NAME",
@@ -31179,7 +32363,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "BINS",
@@ -31212,7 +32397,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -31282,7 +32468,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -31356,7 +32543,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -31417,7 +32605,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -31576,7 +32765,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -31643,7 +32833,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "REPORTING",
@@ -31676,7 +32867,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL",
@@ -31723,7 +32915,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -31771,7 +32964,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL INPUTS",
@@ -31829,7 +33023,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL THINGIES",
@@ -31849,7 +33044,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -31968,7 +33164,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -32124,7 +33321,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -32169,7 +33367,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT-PREFIX",
@@ -32189,7 +33388,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OTHER PARAMETERS",
@@ -32250,7 +33450,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -32325,7 +33526,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "STUFF UNDER THE HOOD",
@@ -32357,7 +33559,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PERFORMANCE",
@@ -32377,7 +33580,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "TEST RUN",
@@ -32396,7 +33600,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -32486,7 +33691,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "MATRIX TYPE",
@@ -32518,7 +33724,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -32538,7 +33745,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -32663,7 +33871,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -32743,7 +33952,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "FUNCTIONS",
@@ -32801,7 +34011,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GROUPS",
@@ -32821,7 +34032,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -32854,7 +34066,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -32917,7 +34130,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INTERNAL GENOMES",
@@ -32965,7 +34179,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -32985,7 +34200,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -33046,7 +34262,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -33108,7 +34325,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "READ TYPE",
@@ -33153,7 +34371,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "READ PARAMETERS",
@@ -33279,7 +34498,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "SNV INJECTION",
@@ -33324,7 +34544,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "REPRODUCIBILITY",
@@ -33343,7 +34564,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -33387,7 +34609,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "options",
@@ -33406,7 +34629,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -33495,7 +34719,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL - MODULE DEFINITION",
@@ -33515,7 +34740,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTIONAL - KEGG DATA",
@@ -33534,7 +34760,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -33583,7 +34810,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTION #1",
@@ -33603,7 +34831,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTION #2",
@@ -33623,7 +34852,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPTION #3",
@@ -33643,7 +34873,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "METHOD",
@@ -33667,7 +34898,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -33687,7 +34919,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "EXTRAS",
@@ -33706,7 +34939,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -33756,7 +34990,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INPUT: HMM SOURCE",
@@ -33775,7 +35010,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUTTAH",
@@ -33795,7 +35031,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -33854,7 +35091,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -33874,7 +35112,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -33947,7 +35186,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -34048,7 +35288,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -34122,7 +35363,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -34197,7 +35439,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -34246,7 +35489,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -34305,7 +35549,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "DETAILS",
@@ -34363,7 +35608,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -34416,7 +35662,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -34449,7 +35696,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "ADDITIONAL PARAMETERS",
@@ -34469,7 +35717,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -34528,7 +35777,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -34548,7 +35798,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -34595,7 +35846,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -34642,7 +35894,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPERATIONS: RENAME YOUR DEFLINES",
@@ -34674,7 +35927,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OPERATIONS: TAME YOUR SEQUENCES",
@@ -34818,7 +36072,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "UTILITY: FASTA STATS",
@@ -34863,7 +36118,8 @@
               "takes_value": true,
               "nargs": "?"
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -34912,7 +36168,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "options",
@@ -35036,7 +36293,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -35090,7 +36348,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "options",
@@ -35110,7 +36369,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -35171,7 +36431,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -35231,7 +36492,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     },
@@ -35328,7 +36590,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "INSET PANEL",
@@ -35399,7 +36662,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "GEOMETRY",
@@ -35509,7 +36773,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "COSMETICS",
@@ -35859,7 +37124,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "TIMING",
@@ -35930,7 +37196,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "TEXT",
@@ -36004,7 +37271,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "PERFORMANCE",
@@ -36024,7 +37292,8 @@
               "takes_value": true,
               "nargs": null
             }
-          ]
+          ],
+          "mode": null
         },
         {
           "title": "OUTPUT",
@@ -36109,7 +37378,8 @@
               "takes_value": false,
               "nargs": 0
             }
-          ]
+          ],
+          "mode": null
         }
       ]
     }
@@ -36536,7 +37806,7 @@
     "genes-db": {
       "id": "artifact:genes-db",
       "kind": "artifact",
-      "source_markdown": "An anvi'o genes database is a %(profile-db)s-like database that contains statistics, such their coverage and detection across samples, rather than contigs in a given %(contigs-db)s.\n\nA gene database for a given %(bin)s stored in a %(collection)s will be automatically generated when %(anvi-interactive)s is run in 'gene mode'. For details, see the [relevant section](../programs/anvi-interactive/#visualizing-genes-instead-of-contigs) in %(anvi-interactive)s\n\nAlternatively, genes databases can be explicitly generated using the program %(anvi-gen-gene-level-stats-databases)s. By default, this program will generate a gene database for each %(bin)s for a given %(collection)s.\n\nDue to the structural similarities between a %(genes-db)s and a %(profile-db)s, many of the anvi'o programs that operate on profile databases will also run on genes databases. These programs include those that import/export states and import/export misc additional data.\n",
+      "source_markdown": "An anvi'o genes database is a %(profile-db)s-like database that contains statistics, such their coverage and detection across samples, rather than contigs in a given %(contigs-db)s.\n\nA gene database for a given %(bin)s stored in a %(collection)s will be automatically generated when %(anvi-interactive)s is run in 'gene mode'. For details, see the [relevant section](../../programs/anvi-interactive/#visualizing-genes-instead-of-contigs) in %(anvi-interactive)s\n\nAlternatively, genes databases can be explicitly generated using the program %(anvi-gen-gene-level-stats-databases)s. By default, this program will generate a gene database for each %(bin)s for a given %(collection)s.\n\nDue to the structural similarities between a %(genes-db)s and a %(profile-db)s, many of the anvi'o programs that operate on profile databases will also run on genes databases. These programs include those that import/export states and import/export misc additional data.\n",
       "documentation_path": "anvio/docs/artifacts/genes-db.md",
       "html_url": "https://anvio.org/help/main/artifacts/genes-db/",
       "name": "GENES",
@@ -37889,7 +39159,7 @@
     "genome-pairs": {
       "id": "artifact:genome-pairs",
       "kind": "artifact",
-      "source_markdown": "This input file type describes pairs of genomes that go together in an analysis, and is usually paired with an %(external-genomes)s file that describes where the %(contigs-db) associated with each genome name is located.\n\nIn the context of %(anvi-predict-metabolic-exchanges)s, this file describes which pairs of genomes to predict exchanges between.\n\nThe file should be tab-delimited and contain at least two columns named `genome_1` and `genome_2`. Here is an example:\n\n|**`genome_1`**|**`genome_2`**|\n|:--|:--|\n|name_of_one_genome|name_of_another_genome|\n|E_coli|Pelagibacter_sp|\n|another_genome|awesomegenome|\n\nAs long as the genome names match to those described in the accompanying %(external-genomes)s file, you should be good to go.\n",
+      "source_markdown": "This input file type describes pairs of genomes that go together in an analysis, and is usually paired with an %(external-genomes)s file that describes where the %(contigs-db)s associated with each genome name is located.\n\nIn the context of %(anvi-predict-metabolic-exchanges)s, this file describes which pairs of genomes to predict exchanges between.\n\nThe file should be tab-delimited and contain at least two columns named `genome_1` and `genome_2`. Here is an example:\n\n|**`genome_1`**|**`genome_2`**|\n|:--|:--|\n|name_of_one_genome|name_of_another_genome|\n|E_coli|Pelagibacter_sp|\n|another_genome|awesomegenome|\n\nAs long as the genome names match to those described in the accompanying %(external-genomes)s file, you should be good to go.\n",
       "documentation_path": "anvio/docs/artifacts/genome-pairs.md",
       "html_url": "https://anvio.org/help/main/artifacts/genome-pairs/",
       "name": "GENOME PAIRS",

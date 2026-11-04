@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8206,
+        "total_commits": 8212,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 484
+            "2026": 490
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "update the template for programs",
-        "latest_commit_hash": "200c15156311a9d63c3cd6600da500ec712b7734",
-        "latest_commit_date": "01 November 2026"
+        "latest_commit_message": "fix path and syntax",
+        "latest_commit_hash": "bd646d75c86e711ea19469aa52f923d558f97c34",
+        "latest_commit_date": "04 November 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 575,
@@ -66,7 +66,7 @@
         "latest_commit_date": "22 August 2022"
     },
     "ekiefl": {
-        "total_commits": 1761,
+        "total_commits": 1766,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -80,12 +80,12 @@
             "2023": 2,
             "2024": 0,
             "2025": 0,
-            "2026": 15
+            "2026": 20
         },
         "top_file": "anvio/variabilityops.py",
-        "latest_commit_message": "Update ARCHITECTURE.md",
-        "latest_commit_hash": "3663614b63a93ff6a624ae38445abd58dda64263",
-        "latest_commit_date": "10 October 2026"
+        "latest_commit_message": "Handle CLI programs with modes",
+        "latest_commit_hash": "9dc3a72d4414e59eb51a20f2562eab7d0e96a206",
+        "latest_commit_date": "02 November 2026"
     },
     "mschecht": {
         "total_commits": 749,
@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2493,
+        "total_commits": 2494,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 152
+            "2026": 153
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "name options in Python form in the `Integrator` messages for genomic input combinations that the CLI of `anvi-integrate-trnaseq` checks first",
-        "latest_commit_hash": "493e568ac709bdb8a40f5293cb05416d06cbe541",
-        "latest_commit_date": "29 October 2026"
+        "latest_commit_message": "leave `--dir` of `anvi-setup-modelseed-database` without a default, so its help page no longer shows the absolute path of the anvi'o installation that built it",
+        "latest_commit_hash": "c4026e3612bc7de16db91e17942a2705a95c0fe6",
+        "latest_commit_date": "03 November 2026"
     },
     "ahenoch": {
         "total_commits": 401,

@@ -113,6 +113,99 @@ The code that generates this web page ensures that this information is the lates
 <dd class="parameter-details"><span class="parameter-help">Don&#x27;t bother me with questions or warnings, just do it.</span></dd>
 </dl>
 </section>
+<section class="parameter-group parameter-group-driver-concoct">
+<header class="parameter-group-header"><span class="parameter-group-title">--driver concoct</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-clusters"><code class="parameter-flags">--clusters</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">specify maximal number of clusters for VGMM, default 400</span></dd>
+<dt class="parameter" id="parameter-kmer_length"><code class="parameter-flags">--kmer-length</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">pecify kmer length, default 4</span></dd>
+<dt class="parameter" id="parameter-length_threshold"><code class="parameter-flags">--length-threshold</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">specify the sequence length threshold, contigs shorter than this value will not be included. Defaults to 1000</span></dd>
+<dt class="parameter" id="parameter-read_length"><code class="parameter-flags">--read-length</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">specify read length for coverage, default 100</span></dd>
+<dt class="parameter parameter-switch" id="parameter-no_cov_normalization"><code class="parameter-flags">--no-cov-normalization</code></dt>
+<dd class="parameter-details"><span class="parameter-help">By default the coverage is normalized with regards to samples, then normalized with regards of contigs and finally log transformed. By setting this flag you skip the normalization and only do log transorm of the coverage.</span></dd>
+<dt class="parameter" id="parameter-total_percentage_pca"><code class="parameter-flags">--total-percentage-pca</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The percentage of variance explained by the principal components for the combined data.</span></dd>
+<dt class="parameter" id="parameter-epsilon"><code class="parameter-flags">--epsilon</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Specify the epsilon for VBGMM. Default value is 1.0e-6</span></dd>
+<dt class="parameter" id="parameter-iterations"><code class="parameter-flags">--iterations</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Specify maximum number of iterations for the VBGMM. Default value is 500</span></dd>
+<dt class="parameter" id="parameter-seed"><code class="parameter-flags">--seed</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Specify an integer to use as seed for clustering. 0 gives a random seed, 1 is the default seed and any other positive integer can be used. Other values give ArgumentTypeError.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-driver-metabat2">
+<header class="parameter-group-header"><span class="parameter-group-title">--driver metabat2</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-mincontig"><code class="parameter-flags">-m, --minContig</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum size of a contig for binning (should be &gt;=1500)</span></dd>
+<dt class="parameter" id="parameter-maxp"><code class="parameter-flags">--maxP</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Percentage of &#x27;good&#x27; contigs considered for binning decided by connection among contigs. The greater, the more sensitive.</span></dd>
+<dt class="parameter" id="parameter-mins"><code class="parameter-flags">--minS</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum score of a edge for binning (should be between 1 and 99). The greater, the more specific.</span></dd>
+<dt class="parameter" id="parameter-maxedges"><code class="parameter-flags">--maxEdges</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Maximum number of edges per node. The greater, the more sensitive.</span></dd>
+<dt class="parameter" id="parameter-ptnf"><code class="parameter-flags">--pTNF</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">TNF probability cutoff for building TNF graph. Use it to skip the preparation step. (0: auto).</span></dd>
+<dt class="parameter parameter-switch" id="parameter-noadd"><code class="parameter-flags">--noAdd</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Turning off additional binning for lost or small contigs.</span></dd>
+<dt class="parameter" id="parameter-mincv"><code class="parameter-flags">--minCV</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum mean coverage of a contig in each library for binning.</span></dd>
+<dt class="parameter" id="parameter-mincvsum"><code class="parameter-flags">--minCVSum</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum size of a bin as the output.</span></dd>
+<dt class="parameter" id="parameter-minclssize"><code class="parameter-flags">--minClsSize</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum size of a bin as the output.</span></dd>
+<dt class="parameter" id="parameter-seed"><code class="parameter-flags">--seed</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">For exact reproducibility. (0: use random seed).</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-driver-maxbin2">
+<header class="parameter-group-header"><span class="parameter-group-title">--driver maxbin2</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-min_contig_length"><code class="parameter-flags">--min-contig-length</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum contig length. Default: 1000.</span></dd>
+<dt class="parameter" id="parameter-max_iteration"><code class="parameter-flags">--max-iteration</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Maximum Expectation-Maximization algorithm iteration number. Default 50.</span></dd>
+<dt class="parameter" id="parameter-prob_threshold"><code class="parameter-flags">--prob-threshold</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Probability threshold for EM final classification. Default 0.9.</span></dd>
+<dt class="parameter" id="parameter-merkerset"><code class="parameter-flags">--merkerset</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum contig length. Default: 1000</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-driver-dastool">
+<header class="parameter-group-header"><span class="parameter-group-title">--driver dastool</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-source_collections"><code class="parameter-flags">-S, --source-collections</code> <code class="parameter-metavar">COLLECTION_LIST</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Comma-separated list of collections, case sensitive.</span></dd>
+<dt class="parameter" id="parameter-search_engine"><code class="parameter-flags">--search-engine</code> <code class="parameter-metavar">PROGRAM</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Engine used for single copy gene identification [blast/diamond/usearch]. (default: usearch)</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">usearch</code></span></dd>
+<dt class="parameter" id="parameter-score_threshold"><code class="parameter-flags">--score-threshold</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Score threshold until selection algorithm will keep selecting bins [0..1]. (default: 0.5)</span></dd>
+<dt class="parameter" id="parameter-duplicate_penalty"><code class="parameter-flags">--duplicate-penalty</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Penalty for duplicate single copy genes per bin (weight b). Only change if you know what you&#x27;re doing. [0..3] (default: 0.6)</span></dd>
+<dt class="parameter" id="parameter-megabin_penalty"><code class="parameter-flags">--megabin-penalty</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Penalty for megabins (weight c). Only change if you know what you&#x27;re doing. [0..3] (default: 0.5)</span></dd>
+<dt class="parameter" id="parameter-db_directory"><code class="parameter-flags">--db-directory</code> <code class="parameter-metavar">PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Directory of single copy gene database. (default: install_dir/db)</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-driver-binsanity">
+<header class="parameter-group-header"><span class="parameter-group-title">--driver binsanity</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-preference"><code class="parameter-flags">--preference</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Specify a preference (default is -3) Note: decreasing the preference leads to more lumping, increasing will lead to more splitting. If your range of coverages are low you will want to decrease the preference, if you have 10 or less replicates increasing the preference could benefit you.</span></dd>
+<dt class="parameter" id="parameter-maxiter"><code class="parameter-flags">--maxiter</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Specify a max number of iterations [default is 2000]</span></dd>
+<dt class="parameter" id="parameter-conviter"><code class="parameter-flags">--conviter</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Specify the convergence iteration number (default is 200) e.g Number of iterations with no change in the number of estimated clusters that stops the convergence.</span></dd>
+<dt class="parameter" id="parameter-damp"><code class="parameter-flags">--damp</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Specify a damping factor between 0.5 and 1, default is 0.9</span></dd>
+<dt class="parameter" id="parameter-contigsize"><code class="parameter-flags">--contigsize</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">TNF probability cutoff for building TNF graph. Use it to skip the preparation step. (0: auto).</span></dd>
+</dl>
+</section>
 </div>
 {% endraw %}
 

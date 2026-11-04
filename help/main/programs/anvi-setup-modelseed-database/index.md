@@ -101,7 +101,7 @@ The code that generates this web page ensures that this information is the lates
 <header class="parameter-group-header"><span class="parameter-group-title">options</span></header>
 <dl class="parameter-list">
 <dt class="parameter" id="parameter-dir"><code class="parameter-flags">--dir</code> <code class="parameter-metavar">DIR</code></dt>
-<dd class="parameter-details"><span class="parameter-help">Directory in which a new subdirectory with the name, &#x27;ModelSEED&#x27;, is created containing database files.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">/home/runner/work/anvio.org/anvio.org/anvio_source/anvio/data/misc</code></span></dd>
+<dd class="parameter-details"><span class="parameter-help">Directory in which a new subdirectory, &#x27;MODELSEED&#x27;, is created to hold the database files. Without this flag, the database is set up in a default directory within the anvi&#x27;o installation (anvio/data/misc/MODELSEED).</span></dd>
 <dt class="parameter parameter-switch" id="parameter-reset"><code class="parameter-flags">--reset</code></dt>
 <dd class="parameter-details"><span class="parameter-help">Remove all the previously stored files and start over. If something is feels wrong for some reason and if you believe re-downloading files and setting them up could address the issue, this is the flag that will tell anvi&#x27;o to act like a real computer scientist challenged with a computational problem.</span></dd>
 </dl>
