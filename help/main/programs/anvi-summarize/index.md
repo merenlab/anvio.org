@@ -126,11 +126,11 @@ anvi&#45;summarize &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;
                &#45;C <span class="artifact&#45;n">[collection](/help/main/artifacts/collection)</span>
 </div>
 
-### Computing DisCov statistics
+### Computing discov statistics
 
-When summarizing a profile database, you can optionally compute the Distribution of Coverage (DisCov) score for each bin and each contig within each bin. See <span class="artifact-n">[discov-stats](/help/main/artifacts/discov-stats)</span> for a full description of the metric and its parameters.
+When summarizing a profile database, you can optionally compute the distribution of coverage (discov) score for each bin and each contig within each bin. See <span class="artifact-n">[discov-stats](/help/main/artifacts/discov-stats)</span> for a full description of the metric and its parameters.
 
-To enable DisCov computation, use the `--report-discov` flag:
+To enable discov computation, use the `--report-discov` flag:
 
 <div class="codeblock" markdown="1">
 anvi&#45;summarize &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/main/artifacts/contigs&#45;db)</span> \
@@ -140,28 +140,30 @@ anvi&#45;summarize &#45;c <span class="artifact&#45;n">[contigs&#45;db](/help/ma
                &#45;&#45;report&#45;discov
 </div>
 
-This requires access to the auxiliary data file (`AUXILIARY-DATA.db`) in the same directory as the profile database and produces two additional output files under `bins_across_samples/`:
+This requires access to the auxiliary data file (`AUXILIARY-DATA.db`) in the same directory as the profile database, and a profile database that includes the number of reads assigned to each split. It produces two additional output files under `bins_across_samples/`:
 
 * `discov_bins.txt` — one row per bin × sample
-* `discov_contigs.txt` — one row per contig × sample
+* `discov_contigs.txt` — one row per contig × sample. If the splits of a contig are in different bins, each of these bins gets a row for the part of the contig that is in it, and the `partial_contig_in_bin` column is set to 1 for these rows.
 
-You can adjust how DisCov is computed using the following parameters. When neither `--window-length` nor `--window-length-as-percentage` is specified, anvi'o applies context-sensitive defaults: a fixed 1,000 bp window for bins, and a percentage-based window (1% of contig length, minimum 300 bp) for individual contigs.
+Both files report the length of each sequence, the number of reads mapping to it (`num_reads`), the number of windows, the observed and expected proportion of covered windows, the normalized spread (_S_), the window depth evenness (_E_), the spread-evenness score (_C_), and the discov score (`discov`).
 
-**Window sizing for S**
+You can adjust how discov is computed using the following parameters. When neither `--window-length` nor `--window-length-as-percentage` is specified, anvi'o applies context-sensitive defaults: a fixed 10,000 bp window for bins, and a percentage-based window (1% of contig length, minimum 300 bp) for individual contigs. If you specify window length parameters, they apply to both bins and contigs.
+
+**Window sizing**
 
 * `--window-length INT` — use a fixed window size in bp for all sequences (bins and contigs)
-* `--window-length-as-percentage FLOAT` — set window length as a percentage of each sequence's length
-* `--min-window-length INT` — minimum window length floor for percentage mode
-
-**Fold-range for E**
-
-* `--foldrange-lower FLOAT` — lower bound of the coverage fold-range (default: 0.5)
-* `--foldrange-upper FLOAT` — upper bound of the coverage fold-range (default: 2.0)
+* `--window-length-as-percentage INT` — set window length as a percentage of each sequence's length
+* `--min-window-length INT` — minimum window length floor for percentage mode (default for contigs: 300)
 
 **Combining S and E**
 
 * `--alpha FLOAT` — weight of S relative to E, in [0, 1] (default: 0.5)
-* `--discov-formula STRING` — `linear` (DisCov = αS + (1-α)E) or `geometric` (DisCov = S^α × E^(1-α)) (default: `linear`)
+* `--discov-formula STRING` — `geometric` (C = S^α × E^(1-α)) or `linear` (C = αS + (1-α)E) (default: `geometric`)
+
+The final score is discov = min(1, C + D^2), where D is detection.
+
+{:.notice}
+Discov values computed by <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span> and <span class="artifact-p">[anvi-profile-blitz](/help/main/programs/anvi-profile-blitz)</span> on the same data should be identical, with one exception: the auxiliary data file caps per-nucleotide coverage at 65,535X, so the values can differ slightly for sequences with extremely high coverage. See <span class="artifact-n">[discov-stats](/help/main/artifacts/discov-stats)</span> for details.
 
 ### Other notes
 
@@ -190,7 +192,7 @@ The code that generates this web page ensures that this information is the lates
 ### Command line usage
 
 {% raw %}
-<div class="program-parameters-usage">anvi-summarize [-h] -p PAN_OR_PROFILE_DB [-c CONTIGS_DB] [-g GENOMES_STORAGE] [--init-gene-coverages] [--calculate-Q2Q3-carefully] [--reformat-contig-names] [--light-summary] [--report-aa-seqs-for-gene-calls] [--report-discov] [--window-length INTEGER] [--window-length-as-percentage INTEGER] [--min-window-length INTEGER] [--foldrange-lower FLOAT] [--foldrange-upper FLOAT] [--alpha FLOAT] [--discov-formula STRING] [--report-DNA-sequences] [-C COLLECTION_NAME] [-o DIR_PATH] [--list-collections] [--cog-data-dir COG_DATA_DIR] [--quick-summary] [--just-do-it]</div>
+<div class="program-parameters-usage">anvi-summarize [-h] -p PAN_OR_PROFILE_DB [-c CONTIGS_DB] [-g GENOMES_STORAGE] [--init-gene-coverages] [--calculate-Q2Q3-carefully] [--reformat-contig-names] [--light-summary] [--report-aa-seqs-for-gene-calls] [--report-discov] [--window-length INTEGER] [--window-length-as-percentage INTEGER] [--min-window-length INTEGER] [--alpha FLOAT] [--discov-formula STRING] [--report-DNA-sequences] [-C COLLECTION_NAME] [-o DIR_PATH] [--list-collections] [--cog-data-dir COG_DATA_DIR] [--quick-summary] [--just-do-it]</div>
 {% endraw %}
 
 ### Parameters and their descriptions
@@ -258,24 +260,20 @@ The code that generates this web page ensures that this information is the lates
 </dl>
 </section>
 <section class="parameter-group parameter-group-distribution-of-coverage-discov">
-<header class="parameter-group-header"><span class="parameter-group-title">DISTRIBUTION OF COVERAGE (DISCOV)</span> <span class="parameter-group-description">Parameters for computing the DisCov metric as part of the summary (requires `--report-discov`). DisCov quantifies coverage spread (S) and evenness (E) and combines them into a single score.</span></header>
+<header class="parameter-group-header"><span class="parameter-group-title">DISTRIBUTION OF COVERAGE (DISCOV)</span> <span class="parameter-group-description">Parameters for computing the discov metric as part of the summary (requires `--report-discov`). Discov quantifies coverage spread (S) and evenness (E) and combines them into a single score.</span></header>
 <dl class="parameter-list">
 <dt class="parameter parameter-switch" id="parameter-report_discov"><code class="parameter-flags">--report-discov</code></dt>
-<dd class="parameter-details"><span class="parameter-help">Compute the Distribution of Coverage (DisCov) metric for each bin and each contig within each bin. DisCov combines a spread score S (proportion of windows with at least some coverage) and an evenness score E (proportion of covered bases within a fold-range of the median nonzero coverage). Requires access to the auxiliary data file (AUXILIARY-DATA.db). Results are written to &#x27;bins_across_samples/discov_bins.txt&#x27; (one row per bin x sample) and &#x27;bins_across_samples/discov_contigs.txt&#x27; (one row per contig x sample).</span></dd>
+<dd class="parameter-details"><span class="parameter-help">Compute the Distribution of Coverage (discov) metric for each bin and each contig within each bin. Discov combines a spread score S (proportion of windows with at least some coverage) and an evenness score E (based on the coefficient of variation of mean coverage depth across windows). Requires access to the auxiliary data file (AUXILIARY-DATA.db). Results are written to &#x27;bins_across_samples/discov_bins.txt&#x27; (one row per bin x sample) and &#x27;bins_across_samples/discov_contigs.txt&#x27; (one row per contig x sample).</span></dd>
 <dt class="parameter" id="parameter-window_length"><code class="parameter-flags">--window-length</code> <code class="parameter-metavar">INTEGER</code></dt>
-<dd class="parameter-details"><span class="parameter-help">How long to make the windows for computing the spread metric: S = # windows with coverage / # windows. Using this flag sets a fixed window length (in bp) for computing S at both bin and contig level. Important note: when neither this flag nor --window-length-as-percentage is provided, anvi&#x27;o uses context-sensitive defaults: `--window-length 1000` for bins and `--window-length-as-percentage 1 --min-window-length 300` for individual contigs (which can be smaller than the default fixed length).</span></dd>
+<dd class="parameter-details"><span class="parameter-help">How long to make the windows for computing the spread metric: S = # windows with coverage / # windows. Using this flag sets a fixed window length (in bp) for computing S at both bin and contig level. Important note: when neither this flag nor --window-length-as-percentage is provided, anvi&#x27;o uses context-sensitive defaults: `--window-length 10000` for bins and `--window-length-as-percentage 1 --min-window-length 300` for individual contigs (which can be smaller than the default fixed length).</span></dd>
 <dt class="parameter" id="parameter-window_length_as_percentage"><code class="parameter-flags">--window-length-as-percentage</code> <code class="parameter-metavar">INTEGER</code></dt>
 <dd class="parameter-details"><span class="parameter-help">With this option you can set the window length for the spread metric (S) dynamically as a percentage of a given input sequence length. This works well when your input sequences (contigs or genomes) have a wide size distribution and you don&#x27;t have a one-size-fits-all window length to use. For instance, if you want the window size to be 5% of the contig length, you would use `--window-length-as-percentage 5`. You may want to consider also specifying a reasonable minimum window length with the --min-window-length parameter.</span></dd>
 <dt class="parameter" id="parameter-min_window_length"><code class="parameter-flags">--min-window-length</code> <code class="parameter-metavar">INTEGER</code></dt>
 <dd class="parameter-details"><span class="parameter-help">Use with --window-length-as-percentage to ensure that percentage-based window lengths never fall below this value.</span></dd>
-<dt class="parameter" id="parameter-foldrange_lower"><code class="parameter-flags">--foldrange-lower</code> <code class="parameter-metavar">FLOAT</code></dt>
-<dd class="parameter-details"><span class="parameter-help">When computing evenness of coverage depth (E), count any bases with coverage OVER this value * the median nonzero coverage. In typical use-cases, this value will be the inverse of --foldrange-upper. The default is &#x27;0.5&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.5</code></span></dd>
-<dt class="parameter" id="parameter-foldrange_upper"><code class="parameter-flags">--foldrange-upper</code> <code class="parameter-metavar">FLOAT</code></dt>
-<dd class="parameter-details"><span class="parameter-help">When computing evenness of coverage depth (E), count any bases with coverage UNDER this value * the median nonzero coverage. In typical use-cases, this value will be the inverse of --foldrange-lower. The default is &#x27;2.0&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">2.0</code></span></dd>
 <dt class="parameter" id="parameter-alpha"><code class="parameter-flags">--alpha</code> <code class="parameter-metavar">FLOAT</code></dt>
-<dd class="parameter-details"><span class="parameter-help">How much to weight S over E in the DisCov score. Should be a value in the range [0,1]. The default is &#x27;0.5&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.5</code></span></dd>
+<dd class="parameter-details"><span class="parameter-help">How much to weight S over E when combining them into the spread-evenness score (C) that underlies the discov score. Should be a value in the range [0,1]. The default is &#x27;0.5&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.5</code></span></dd>
 <dt class="parameter" id="parameter-discov_formula"><code class="parameter-flags">--discov-formula</code> <code class="parameter-metavar">STRING</code></dt>
-<dd class="parameter-details"><span class="parameter-help">Which formula to use when combining S and E into the DisCov score. Options are &#x27;linear&#x27; (DisCov = αS + (1-α)E) and &#x27;geometric&#x27; (DisCov = S^α * E^(1-α)). The default is &#x27;linear&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">linear</code></span></dd>
+<dd class="parameter-details"><span class="parameter-help">Which formula to use when combining S and E into the spread-evenness score (C) that underlies the discov score. Options are &#x27;linear&#x27; (C = αS + (1-α)E) and &#x27;geometric&#x27; (C = S^α * E^(1-α)). The default is &#x27;geometric&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">geometric</code></span></dd>
 </dl>
 </section>
 </div>

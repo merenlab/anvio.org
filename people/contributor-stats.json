@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2644,
+        "total_commits": 2688,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 129
+            "2026": 173
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "fix the snakemake citation color/header",
-        "latest_commit_hash": "1bc9579518fb325871931dbf9a1abb3da1a23631",
-        "latest_commit_date": "10 September 2026"
+        "latest_commit_message": "fix names of num reads table and self key to match recent change in profile_db_num_reads branch",
+        "latest_commit_hash": "7d0fb933d220b97dacdc78483e04fc6a229adc73",
+        "latest_commit_date": "04 November 2026"
     },
     "moritzbuck": {
         "total_commits": 3,

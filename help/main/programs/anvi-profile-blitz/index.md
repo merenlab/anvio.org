@@ -125,7 +125,7 @@ anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/mai
 </div>
 
 {:.note}
-Bin-level detection and coverage are computed by treating all contigs in a bin as a single genome (nucleotide arrays are concatenated under the hood). With `--report-minimal`, these statistics are streamed to keep memory usage close to contig mode even for large bins.
+Bin-level detection and coverage are computed by treating all contigs in a bin as a single genome (nucleotide arrays are concatenated under the hood, in alphabetical order of contig names). With `--report-minimal`, these statistics are streamed to keep memory usage close to contig mode even for large bins.
 
 ### Genes mode, default output
 
@@ -162,37 +162,32 @@ anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/mai
                    &#45;&#45;genes&#45;of&#45;interest <span class="artifact&#45;n">[genes&#45;of&#45;interest&#45;txt](/help/main/artifacts/genes&#45;of&#45;interest&#45;txt)</span>
 </div>
 
-## Modifying DisCov parameters
+## Modifying discov parameters
 
-For genomes or contigs, <span class="artifact-p">[anvi-profile-blitz](/help/main/programs/anvi-profile-blitz)</span> can compute the Distribution of Coverage (DisCov) score alongside other coverage statistics. DisCov combines a spread score _S_ (proportion of windows with coverage) and an evenness score _E_ (proportion of covered bases within a fold-range of the median nonzero coverage). See <span class="artifact-n">[discov-stats](/help/main/artifacts/discov-stats)</span> for a full description of the metric and parameters.
+For genomes or contigs, <span class="artifact-p">[anvi-profile-blitz](/help/main/programs/anvi-profile-blitz)</span> computes the distribution of coverage (discov) score alongside other coverage statistics. Discov combines a spread score _S_ (proportion of windows with coverage, normalized by the proportion expected given the number of mapped reads), an evenness score _E_ (based on the coefficient of variation of mean coverage depth across covered windows), and detection _D_. See <span class="artifact-n">[discov-stats](/help/main/artifacts/discov-stats)</span> for a full description of the metric and parameters.
 
 The default parameters are designed to work well across typical metagenomics data, but you can adjust them:
 
-**Window sizing for _S_**
+**Window sizing**
 
-The spread score (_S_) is computed by dividing the input sequence into non-overlapping windows. By default, contig-level stats use a window length equal to 1% of the contig length (minimum 300 bp). Genome/bin-level stats (when using `--collection-txt`) use a fixed 1,000 bp window. You can override these defaults with the following parameters:
+_S_ and _E_ are computed by dividing the input sequence into non-overlapping windows. By default, contig-level stats use a window length equal to 1% of the contig length (minimum 300 bp). Genome/bin-level stats (when using `--collection-txt`) use a fixed 10,000 bp window. You can override these defaults with the following parameters:
 
 * `--window-length INT` — use a fixed window size in bp for all sequences
-* `--window-length-as-percentage FLOAT` — set window length as a percentage of each sequence's length
+* `--window-length-as-percentage INT` — set window length as a percentage of each sequence's length
 * `--min-window-length INT` — set a minimum window length floor when using percentage mode
-
-**Fold-range for _E_**
-
-The evenness score (_E_) counts bases with coverage between a lower and upper fold-multiple of the median nonzero coverage. The default fold-range endpoints are 0.5x and 2.0x. To adjust:
-
-* `--foldrange-lower FLOAT` — lower bound (default: 0.5)
-* `--foldrange-upper FLOAT` — upper bound (default: 2.0)
 
 **Combining _S_ and _E_**
 
-You can adjust how _S_ and _E_ are combined by changing either their weights or the overall DisCov formula:
+You can adjust how _S_ and _E_ are combined into the spread-evenness score _C_ by changing either their weights or the formula:
 
 * `--alpha FLOAT` — weight of _S_ relative to _E_, in [0, 1] (default: 0.5)
-* `--discov-formula STRING` — `linear` (DisCov = _αS_ + (1-_α_)_E_) or `geometric` (DisCov = _S_^_α_ × _E_^(1-_α_)) (default: `linear`)
+* `--discov-formula STRING` — `geometric` (_C_ = _S_^_α_ × _E_^(1-_α_)) or `linear` (_C_ = _αS_ + (1-_α_)_E_) (default: `geometric`)
+
+The final score is discov = min(1, _C_ + _D_^2).
 
 **Window-level output**
 
-To inspect the per-window values used to compute _S_ (useful for debugging or visualization), add the `--gen-window-level-output` flag:
+To inspect the per-window values used to compute _S_ and _E_ (useful for debugging or visualization), add the `--gen-window-level-output` flag:
 
 <div class="codeblock" markdown="1">
 anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/main/artifacts/bam&#45;file)</span> \
@@ -201,9 +196,11 @@ anvi&#45;profile&#45;blitz <span class="artifact&#45;n">[bam&#45;file](/help/mai
                    &#45;&#45;gen&#45;window&#45;level&#45;output
 </div>
 
-This produces an additional file named `OUTPUT-WINDOWS.txt` with per-window start/stop positions, coverage presence, and base counts within the fold-range.
+This produces an additional file named `OUTPUT-WINDOWS.txt` with one row per window, including its start/stop positions (relative to the contig it is in, also in genome mode), its length, whether it has any coverage, its mean coverage, and the number of bases with nonzero coverage.
 
-Note that computing DisCov is not compatible with `--gene-mode` or `--report-minimal`.
+In genome mode, the contigs of a bin are concatenated before being divided into windows, so a window can span the boundary between two contigs. Such a window is reported under the contig in which it starts, and its stop position can therefore be larger than the length of that contig.
+
+Note that computing discov is not compatible with `--gene-mode` or `--report-minimal`.
 
 ## Performance
 
@@ -230,7 +227,7 @@ The code that generates this web page ensures that this information is the lates
 ### Command line usage
 
 {% raw %}
-<div class="program-parameters-usage">anvi-profile-blitz [-h] -c CONTIGS_DB [--gene-mode] [--gene-caller GENE-CALLER] [--gene-caller-ids GENE_CALLER_IDS] [--genes-of-interest FILE] [-C COLLECTION_TXT] -o FILE_PATH [--report-minimal] [--gen-window-level-output] [--window-length INTEGER] [--window-length-as-percentage INTEGER] [--min-window-length INTEGER] [--foldrange-lower FLOAT] [--foldrange-upper FLOAT] [--alpha FLOAT] [--discov-formula STRING] BAM_FILE(S) [BAM_FILE(S) ...]</div>
+<div class="program-parameters-usage">anvi-profile-blitz [-h] -c CONTIGS_DB [--gene-mode] [--gene-caller GENE-CALLER] [--gene-caller-ids GENE_CALLER_IDS] [--genes-of-interest FILE] [-C COLLECTION_TXT] -o FILE_PATH [--report-minimal] [--gen-window-level-output] [--window-length INTEGER] [--window-length-as-percentage INTEGER] [--min-window-length INTEGER] [--alpha FLOAT] [--discov-formula STRING] BAM_FILE(S) [BAM_FILE(S) ...]</div>
 {% endraw %}
 
 ### Parameters and their descriptions
@@ -279,26 +276,22 @@ The code that generates this web page ensures that this information is the lates
 <dt class="parameter parameter-switch" id="parameter-report_minimal"><code class="parameter-flags">--report-minimal</code></dt>
 <dd class="parameter-details"><span class="parameter-help">Using this flag, you can ask anvi&#x27;o to report minimum amount of data about your genes or contigs (such as mean coverage and detection) rather than a full blown output file with as much information as anvi&#x27;o can offer (such as, mean coverage, detection, Q2Q3 coverage, standard deviation of coverage, min/max values of coverage, GC-content and length of items, etc). Using this flag can cut your processing time in half. See the help docs for example output files for contigs and gene mode.</span></dd>
 <dt class="parameter parameter-switch" id="parameter-gen_window_level_output"><code class="parameter-flags">--gen-window-level-output</code></dt>
-<dd class="parameter-details"><span class="parameter-help">Generate an additional output file with per-window coverage statistics. For each window used to compute the DisCov metric, the output includes the window&#x27;s start/stop positions in the sequence, its length, whether it has any coverage, and the number of bases within the fold-range of the median nonzero coverage. The file is named after the main output file with &#x27;-WINDOWS&#x27; inserted before the extension. Not compatible with --gene-mode or --report-minimal.</span></dd>
+<dd class="parameter-details"><span class="parameter-help">Generate an additional output file with per-window coverage statistics. For each window used to compute the discov metric, the output includes the window&#x27;s start/stop positions in the sequence, its length, whether it has any coverage, its mean coverage, and the number of bases with nonzero coverage. The file is named after the main output file with &#x27;-WINDOWS&#x27; inserted before the extension. Not compatible with --gene-mode or --report-minimal.</span></dd>
 </dl>
 </section>
 <section class="parameter-group parameter-group-discov-score">
-<header class="parameter-group-header"><span class="parameter-group-title">DISCOV SCORE</span> <span class="parameter-group-description">Parameters related to computing the distribution of coverage score (DisCov), where S = proportion of windows with coverage and E = proportion of covered bases within a fold-range of the median nonzero coverage. These can be combined as DisCov = αS + (1-α)E (linear) or DisCov = S^α * E^(1-α) (geometric). Does not apply to --gene-mode.</span></header>
+<header class="parameter-group-header"><span class="parameter-group-title">DISCOV SCORE</span> <span class="parameter-group-description">Parameters related to computing the distribution of coverage score (discov), where S = proportion of windows with coverage (normalized by the proportion expected if reads were placed randomly) and E = evenness of mean coverage depth across windows. These are combined into a spread-evenness score C = αS + (1-α)E (linear) or C = S^α * E^(1-α) (geometric), and discov = min(1, C + detection^2). Does not apply to --gene-mode.</span></header>
 <dl class="parameter-list">
 <dt class="parameter" id="parameter-window_length"><code class="parameter-flags">--window-length</code> <code class="parameter-metavar">INTEGER</code></dt>
-<dd class="parameter-details"><span class="parameter-help">How long to make the windows for computing the spread metric: S = # windows with coverage / # windows. For genome/bin-level stats, this is the default when no window length parameters are provided, and the default window size is 1000.</span></dd>
+<dd class="parameter-details"><span class="parameter-help">How long to make the windows for computing the spread metric: S = # windows with coverage / # windows. For genome/bin-level stats, this is the default when no window length parameters are provided, and the default window size is 10000.</span></dd>
 <dt class="parameter" id="parameter-window_length_as_percentage"><code class="parameter-flags">--window-length-as-percentage</code> <code class="parameter-metavar">INTEGER</code></dt>
 <dd class="parameter-details"><span class="parameter-help">With this option you can set the window length for the spread metric (S) dynamically as a percentage of a given input sequence length. This works well when your input sequences (contigs or genomes) have a wide size distribution and you don&#x27;t have a one-size-fits-all window length to use. For instance, if you want the window size to be 5% of the contig length, you would use `--window-length-as-percentage 5`. You may want to consider also specifying a reasonable minimum window length with the --min-window-length parameter. This is the default window-sizing strategy for contig-level stats, and the default percentage is 1.</span></dd>
 <dt class="parameter" id="parameter-min_window_length"><code class="parameter-flags">--min-window-length</code> <code class="parameter-metavar">INTEGER</code></dt>
 <dd class="parameter-details"><span class="parameter-help">Use with --window-length-as-percentage to ensure that percentage-based window lengths never fall below this value. This parameter is set by default to 300 for contig-level stats.</span></dd>
-<dt class="parameter" id="parameter-foldrange_lower"><code class="parameter-flags">--foldrange-lower</code> <code class="parameter-metavar">FLOAT</code></dt>
-<dd class="parameter-details"><span class="parameter-help">When computing evenness of coverage depth (E), count any bases with coverage OVER this value * the median nonzero coverage. In typical use-cases, this value will be the inverse of --foldrange-upper. The default is &#x27;0.5&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.5</code></span></dd>
-<dt class="parameter" id="parameter-foldrange_upper"><code class="parameter-flags">--foldrange-upper</code> <code class="parameter-metavar">FLOAT</code></dt>
-<dd class="parameter-details"><span class="parameter-help">When computing evenness of coverage depth (E), count any bases with coverage UNDER this value * the median nonzero coverage. In typical use-cases, this value will be the inverse of --foldrange-lower. The default is &#x27;2.0&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">2.0</code></span></dd>
 <dt class="parameter" id="parameter-alpha"><code class="parameter-flags">--alpha</code> <code class="parameter-metavar">FLOAT</code></dt>
-<dd class="parameter-details"><span class="parameter-help">How much to weight S over E in the DisCov score. Should be a value in the range [0,1]. The default is &#x27;0.5&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.5</code></span></dd>
+<dd class="parameter-details"><span class="parameter-help">How much to weight S over E when combining them into the spread-evenness score (C) that underlies the discov score. Should be a value in the range [0,1]. The default is &#x27;0.5&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.5</code></span></dd>
 <dt class="parameter" id="parameter-discov_formula"><code class="parameter-flags">--discov-formula</code> <code class="parameter-metavar">STRING</code></dt>
-<dd class="parameter-details"><span class="parameter-help">Which formula to use when combining S and E into the DisCov score. Options are &#x27;linear&#x27; (DisCov = αS + (1-α)E) and &#x27;geometric&#x27; (DisCov = S^α * E^(1-α)). The default is &#x27;linear&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">linear</code></span></dd>
+<dd class="parameter-details"><span class="parameter-help">Which formula to use when combining S and E into the spread-evenness score (C) that underlies the discov score. Options are &#x27;linear&#x27; (C = αS + (1-α)E) and &#x27;geometric&#x27; (C = S^α * E^(1-α)). The default is &#x27;geometric&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">geometric</code></span></dd>
 </dl>
 </section>
 </div>
