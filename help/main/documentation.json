@@ -48,7 +48,7 @@
         "2"
       ]
     ],
-    "date": "07 Nov 26 10:52:34",
+    "date": "08 Nov 26 10:59:51",
     "base_url": "/help/main",
     "version_short_identifier": "m"
   },
@@ -25844,7 +25844,7 @@
       ],
       "can_use": [],
       "can_provide": [],
-      "command_line_usage": "anvi-report-inversions [-h] [-P BAMS-AND-PROFILES-FILE] [--pre-computed-inversions INVERSIONS-FILE] [--min-coverage-to-define-stretches INT] [--min-stretch-length INT] [--min-distance-between-independent-stretches INT] [--num-nts-to-pad-a-stretch INT] [--min-ratio-of-normal-to-special-coverage FLOAT] [--min-detection-to-report-coverage-ratio FLOAT] [-l INT] [-m INT] [-d INT] [--min-mismatch-distance-to-first-base INT] [--palindrome-search-algorithm {BLAST,numba}] [--check-all-palindromes] [--process-only-inverted-reads] [-T NUM_THREADS] [--oligo-primer-base-length INT] [--skip-compute-inversion-activity] [--end-primer-search-after-x-hits END_PRIMER_SEARCH_AFTER_X_HITS] [--min-frequency-to-report MIN_FREQUENCY_TO_REPORT] [--skip-recovering-genomic-context] [--num-genes-to-consider-in-context INT] [--gene-caller GENE-CALLER] [--skip-search-for-motifs] [--num-of-motifs INT] [--verbose] [--target-contig CONTIG_NAME] [--target-region-start NUCLEOTIDE_POSITION] [--target-region-end NUCLEOTIDE_POSITION] [-o DIR_PATH]",
+      "command_line_usage": "anvi-report-inversions [-h] [-P BAMS-AND-PROFILES-FILE] [--pre-computed-inversions INVERSIONS-FILE] [--min-coverage-to-define-stretches INT] [--min-stretch-length INT] [--min-distance-between-independent-stretches INT] [--num-nts-to-pad-a-stretch INT] [--min-ratio-of-normal-to-special-coverage FLOAT] [--min-detection-to-report-coverage-ratio FLOAT] [-l INT] [-m INT] [-d INT] [--min-mismatch-distance-to-first-base INT] [--palindrome-search-algorithm {numba,BLAST}] [--check-all-palindromes] [--process-only-inverted-reads] [-T NUM_THREADS] [--oligo-primer-base-length INT] [--skip-compute-inversion-activity] [--end-primer-search-after-x-hits END_PRIMER_SEARCH_AFTER_X_HITS] [--min-frequency-to-report MIN_FREQUENCY_TO_REPORT] [--skip-recovering-genomic-context] [--num-genes-to-consider-in-context INT] [--gene-caller GENE-CALLER] [--skip-search-for-motifs] [--num-of-motifs INT] [--verbose] [--target-contig CONTIG_NAME] [--target-region-start NUCLEOTIDE_POSITION] [--target-region-end NUCLEOTIDE_POSITION] [-o DIR_PATH]",
       "parameter_groups": [
         {
           "title": "INPUT DATA",
@@ -28662,7 +28662,7 @@
         "fasta"
       ],
       "can_provide": [],
-      "command_line_usage": "anvi-search-palindromes [-h] [-c CONTIGS_DB] [-f FASTA file] [--dna-sequence DNA SEQ] [--palindrome-search-algorithm {BLAST,numba}] [-l INT] [-m INT] [-d INT] [--min-mismatch-distance-to-first-base INT] [--blast-word-size INT] [-T NUM_THREADS] [-o FILE_PATH] [--verbose]",
+      "command_line_usage": "anvi-search-palindromes [-h] [-c CONTIGS_DB] [-f FASTA file] [--dna-sequence DNA SEQ] [--palindrome-search-algorithm {numba,BLAST}] [-l INT] [-m INT] [-d INT] [--min-mismatch-distance-to-first-base INT] [--blast-word-size INT] [-T NUM_THREADS] [-o FILE_PATH] [--verbose]",
       "parameter_groups": [
         {
           "title": "SEQUENCE SOURCE",
