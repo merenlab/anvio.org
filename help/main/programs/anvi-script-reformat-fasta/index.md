@@ -156,6 +156,93 @@ Please use the flag `--overwrite-input` with extreme caution.
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-reformat-fasta.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-script-reformat-fasta`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-script-reformat-fasta [-h] [-o FASTA FILE PATH] [--overwrite-input] [-r TXT FILE PATH] [--simplify-names] [--prefix PREFIX] [-l INT] [-L INT] [--exact-length INT] [--max-percentage-gaps PERCENTAGE] [-M MAX_GAPS] [-i TXT FILE] [--export-gap-counts-table TSV FILE] [-I TXT FILE] [--seq-type SEQ TYPE] [--ignore-empty-sequences] [--stats-only] [--length-histogram-bins [INT]] [--length-histogram-height [INT]] FASTA FILE</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT</span> <span class="parameter-group-description">The input file you wish to work with.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required parameter-positional" id="parameter-contigs_fasta"><code class="parameter-flags">FASTA FILE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help"></span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT</span> <span class="parameter-group-description">Dealing with the output.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">FASTA FILE PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Output file path for a NEW FASTA file. If you want all changes to be stored in the same file, see the `--overwrite` flag.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-overwrite_input"><code class="parameter-flags">--overwrite-input</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Instead of reporting a new file, overwrite the input file. For those of us who loves to live life at the very edge of it. A case of we can&#x27;t go back, Kate.</span></dd>
+<dt class="parameter" id="parameter-report_file"><code class="parameter-flags">-r, --report-file</code> <code class="parameter-metavar">TXT FILE PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">When you run this program with `--simplify-names` flag, all changes to deflines will be reported in this file in case you need to go back to this information later. It is not mandatory to declare one, but it is a very good idea to have it.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-operations-rename-your-deflines">
+<header class="parameter-group-header"><span class="parameter-group-title">OPERATIONS: RENAME YOUR DEFLINES</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-simplify_names"><code class="parameter-flags">--simplify-names</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Edit deflines to make sure they contigs have simple names.</span></dd>
+<dt class="parameter" id="parameter-prefix"><code class="parameter-flags">--prefix</code> <code class="parameter-metavar">PREFIX</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Use this parameter if you would like to add a prefix to your contig names while simplifying them. The prefix must be a single word (you can use underscor character, but nothing more!).</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-operations-tame-your-sequences">
+<header class="parameter-group-header"><span class="parameter-group-title">OPERATIONS: TAME YOUR SEQUENCES</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-min_len"><code class="parameter-flags">-l, --min-len</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum length of contigs to keep (contigs shorter than this value will not be included in the output file). The default is 0, so nothing will be removed if you do not declare a minimum size.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0</code></span></dd>
+<dt class="parameter" id="parameter-max_len"><code class="parameter-flags">-L, --max-len</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Maximum length of contigs to keep (contigs longer than this value will not be included in the output file). If omitted, no upper bound is enforced.</span></dd>
+<dt class="parameter" id="parameter-exact_length"><code class="parameter-flags">--exact-length</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Exact lenght of the sequences you wish to keep from a FASTA fille. Why would anyone need that? Anvi&#x27;o does not know. But there you have it. This parameter is indeed incompatible with a lot of others, such as `--min-len` or `--max-len`.</span></dd>
+<dt class="parameter" id="parameter-max_percentage_gaps"><code class="parameter-flags">--max-percentage-gaps</code> <code class="parameter-metavar">PERCENTAGE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Maximum fraction of gaps in a sequence (any sequence with more gaps will be removed from the output FASTA file). The default is 100.000000.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">100</code></span></dd>
+<dt class="parameter" id="parameter-max_gaps"><code class="parameter-flags">-M, --max-gaps</code> <code class="parameter-metavar">MAX_GAPS</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Maximum amount of gaps allowed per sequence in the alignment. Don&#x27;t know which threshold to pick? Use --export-gap-counts-table to explore the gap counts per sequence distribution!</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">1000000</code></span></dd>
+<dt class="parameter" id="parameter-exclude_ids"><code class="parameter-flags">-i, --exclude-ids</code> <code class="parameter-metavar">TXT FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">IDs to remove from the FASTA file. You cannot provide both --keep-ids and --exclude-ids.</span></dd>
+<dt class="parameter" id="parameter-export_gap_counts_table"><code class="parameter-flags">--export-gap-counts-table</code> <code class="parameter-metavar">TSV FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Export a table with the number of gaps per sequence. Please provide a prefix to name the file.</span></dd>
+<dt class="parameter" id="parameter-keep_ids"><code class="parameter-flags">-I, --keep-ids</code> <code class="parameter-metavar">TXT FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">If provided, all IDs not in this file will be excluded from the reformatted FASTA file. Any additional filters (such as --min-len) will still be applied to the IDs in this file. You cannot provide both --exclude-ids and --keep-ids.</span></dd>
+<dt class="parameter" id="parameter-seq_type"><code class="parameter-flags">--seq-type</code> <code class="parameter-metavar">SEQ TYPE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Supply either &#x27;NT&#x27; or &#x27;AA&#x27; (if you want). If &#x27;NT&#x27;, any characters besides {A,C,T,G} will by replaced with &#x27;N&#x27;. If &#x27;AA&#x27;, any characters that are not 1-letter amino acid characters will be replaced with &#x27;X&#x27;. If you don&#x27;t supply anything, no charaters will be modified.</span> <span class="parameter-choices"><span class="parameter-label">Choices:</span> <code class="parameter-choice">AA</code> <code class="parameter-choice">NT</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-ignore_empty_sequences"><code class="parameter-flags">--ignore-empty-sequences</code></dt>
+<dd class="parameter-details"><span class="parameter-help">If your FASTA file contains entries with no sequences, you will either have to ask anvi&#x27;o to ignore them, or go back to your file and figure out why it is the case (because you will certainly get an error somewhere during the process).</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-utility-fasta-stats">
+<header class="parameter-group-header"><span class="parameter-group-title">UTILITY: FASTA STATS</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-stats_only"><code class="parameter-flags">--stats-only</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Skip all reformatting operations and instead report basic statistics about the input FASTA file (total sequences, min/max/mean lengths, N50, GC content, etc.) without writing a new file.</span></dd>
+<dt class="parameter" id="parameter-length_histogram_bins"><code class="parameter-flags">--length-histogram-bins</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Number of bins for the length histogram shown with --stats-only. If you omit a value, anvi&#x27;o chooses a reasonable one based on the number of sequences.</span></dd>
+<dt class="parameter" id="parameter-length_histogram_height"><code class="parameter-flags">--length-histogram-height</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Height (rows) for the length histograms shown with --stats-only. Defaults to 24 rows if not provided.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

@@ -78,6 +78,39 @@ anvi&#45;setup&#45;modelseed&#45;database &#45;&#45;reset
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-setup-modelseed-database.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-setup-modelseed-database`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-setup-modelseed-database [-h] [--dir DIR] [--reset]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-options">
+<header class="parameter-group-header"><span class="parameter-group-title">options</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-dir"><code class="parameter-flags">--dir</code> <code class="parameter-metavar">DIR</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Directory in which a new subdirectory, &#x27;MODELSEED&#x27;, is created to hold the database files. Without this flag, the database is set up in a default directory within the anvi&#x27;o installation (anvio/data/misc/MODELSEED).</span></dd>
+<dt class="parameter parameter-switch" id="parameter-reset"><code class="parameter-flags">--reset</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Remove all the previously stored files and start over. If something is feels wrong for some reason and if you believe re-downloading files and setting them up could address the issue, this is the flag that will tell anvi&#x27;o to act like a real computer scientist challenged with a computational problem.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

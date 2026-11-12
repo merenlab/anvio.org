@@ -118,6 +118,57 @@ ANNOTATION_SOURCE  K01657  KOfam
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-gen-user-module-file.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-script-gen-user-module-file`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-script-gen-user-module-file [-h] -e FILE_PATH -I ENTRY_ID -n NAME -c CLASS [-d DEFINITION] [--kegg-data-dir DIR_PATH]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-required-input">
+<header class="parameter-group-header"><span class="parameter-group-title">REQUIRED INPUT</span> <span class="parameter-group-description">Everything you NEED to make a module definition.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-enzymes_list_for_module"><code class="parameter-flags">-e, --enzymes-list-for-module</code> <code class="parameter-metavar">FILE_PATH</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">A TAB-delimited flat text file that lists the enzymes in your module (one enzyme per line). There are three required columns: an &#x27;enzyme&#x27; column that contains the identifier for the enzyme, a &#x27;source&#x27; column that contains the annotation source of the enzyme, and an &#x27;orthology&#x27; column that contains the functional annotation of the enzyme. Note that the orthology column can be left blank IIF the annotation source is &#x27;KOfam&#x27;.</span></dd>
+<dt class="parameter parameter-required" id="parameter-module_entry"><code class="parameter-flags">-I, --module-entry</code> <code class="parameter-metavar">ENTRY_ID</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">The entry ID for the module. Should be one &#x27;word&#x27; (underscores and dashes allowed), and unique to the module.</span></dd>
+<dt class="parameter parameter-required" id="parameter-module_name"><code class="parameter-flags">-n, --module-name</code> <code class="parameter-metavar">NAME</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">The name of the module (an arbitrary string - spaces allowed).</span></dd>
+<dt class="parameter parameter-required" id="parameter-module_class"><code class="parameter-flags">-c, --module-class</code> <code class="parameter-metavar">CLASS</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">The class of the module. Should be one string with three sections (class, category, subcategory) separated by semi-colons.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-optional-module-definition">
+<header class="parameter-group-header"><span class="parameter-group-title">OPTIONAL - MODULE DEFINITION</span> <span class="parameter-group-description">If you don&#x27;t pass a module definition, anvi&#x27;o will make each enzyme in the enzymes-list-for-module file a distinct step in the module. Useful if you are not defining a metabolic pathway, but rather a characteristic set of genes (ie, transporters, tRNA modification enzymes, etc).</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-module_definition"><code class="parameter-flags">-d, --module-definition</code> <code class="parameter-metavar">DEFINITION</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The definition string of the module in terms of enzyme identifiers, formatted in the KEGG fashion. All enzymes in the definition should be present in the enzymes-list-for-module file. See help pages for instructions on creating the definition.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-optional-kegg-data">
+<header class="parameter-group-header"><span class="parameter-group-title">OPTIONAL - KEGG DATA</span> <span class="parameter-group-description">If you want anvi&#x27;o to fill in the ORTHOLOGY of enzymes from source &#x27;KOfam&#x27;, you might need to tell her where to find any non-default KEGG data.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-kegg_data_dir"><code class="parameter-flags">--kegg-data-dir</code> <code class="parameter-metavar">DIR_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The directory path for your KEGG setup, which will include things like KOfam profiles, KEGG MODULE data, and KEGG BRITE data. Anvi&#x27;o will try to use the default path if you do not specify anything.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

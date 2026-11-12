@@ -91,6 +91,41 @@ anvi&#45;script&#45;hmm&#45;to&#45;hmm&#45;directory &#45;&#45;hmm&#45;list FILE
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-hmm-to-hmm-directory.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-script-hmm-to-hmm-directory`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-script-hmm-to-hmm-directory [-h] [--hmm-list FILES [FILES ...]] [--hmm-source SOURCES [SOURCES ...]] [-o PATH]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-options">
+<header class="parameter-group-header"><span class="parameter-group-title">options</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-hmm_list"><code class="parameter-flags">--hmm-list</code> <code class="parameter-metavar">FILES</code></dt>
+<dd class="parameter-details"><span class="parameter-help">One or more paths to HMM files. These should have been generated using hmmbuild in HMMER3, or otherwise be in the same format.</span></dd>
+<dt class="parameter" id="parameter-hmm_source"><code class="parameter-flags">--hmm-source</code> <code class="parameter-metavar">SOURCES</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The source of these HMMs (e.g. pfam.xfam.org). Specify either one or as many as there are HMM files. Specify this list in the same order as the files in `--hmm-list`</span></dd>
+<dt class="parameter" id="parameter-output_directory"><code class="parameter-flags">-o, --output-directory</code> <code class="parameter-metavar">PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Output directory for the anvi&#x27;o-formatted HMMs. Choose the name wisely as this will be the name that will appear in the contigs database after you provide it with `-H` flag to `anvi-run-hmms`. We suggest you to use a name that does not include any special characters or punctuation(such as space, question mark, comma, etc.).</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

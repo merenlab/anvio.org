@@ -167,6 +167,48 @@ Then go on your merry adventuring way.
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-db-info.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-db-info`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-db-info [-h] [--self-key SELF_KEY] [--self-value SELF_VALUE] [--just-do-it] DATABASE_PATH</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input">
+<header class="parameter-group-header"><span class="parameter-group-title">Input</span> <span class="parameter-group-description">The database path you wish to access.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required parameter-positional" id="parameter-input"><code class="parameter-flags">DATABASE_PATH</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">An anvi&#x27;o database for pan, profile, contigs, or auxiliary data</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-very-dangerous-zone">
+<header class="parameter-group-header"><span class="parameter-group-title">Very dangerous zone</span> <span class="parameter-group-description">For power users with extreme self-control and maturity.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-self_key"><code class="parameter-flags">--self-key</code> <code class="parameter-metavar">SELF_KEY</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The key you wish to set or change.</span></dd>
+<dt class="parameter" id="parameter-self_value"><code class="parameter-flags">--self-value</code> <code class="parameter-metavar">SELF_VALUE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The value you wish to set for the self key.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-just_do_it"><code class="parameter-flags">--just-do-it</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Don&#x27;t bother me with questions or warnings, just do it.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

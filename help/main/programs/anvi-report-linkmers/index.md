@@ -109,6 +109,45 @@ Having complete links, however, will enable [oligotyping](https://besjournals.on
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-report-linkmers.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-report-linkmers`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-report-linkmers [-h] -i INPUT_BAM(S) [INPUT_BAM(S) ...] --contigs-and-positions CONTIGS_AND_POS [--only-complete-links] -o FILE_PATH [--list-contigs]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-options">
+<header class="parameter-group-header"><span class="parameter-group-title">options</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-input_files"><code class="parameter-flags">-i, --input-files</code> <code class="parameter-metavar">INPUT_BAM(S)</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Sorted and indexed BAM files to analyze. It is essential that all BAM files must be the result of mappings against the same contigs.</span></dd>
+<dt class="parameter parameter-required" id="parameter-contigs_and_positions"><code class="parameter-flags">--contigs-and-positions</code> <code class="parameter-metavar">CONTIGS_AND_POS</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">This is the file where you list the contigs, and nucleotide positions you are interested in. This is supposed to be a TAB-delimited file with two columns. In each line, the first column should be the contig name, and the second column should be the comma-separated list of integers for nucleotide positions.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-only_complete_links"><code class="parameter-flags">--only-complete-links</code></dt>
+<dd class="parameter-details"><span class="parameter-help">When declared, only reads that cover all positions will be reported. It is necessary to use this flag if you want to perform oligotyping-like analyses on matching reads.</span></dd>
+<dt class="parameter parameter-required" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">FILE_PATH</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">File path to store results.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-list_contigs"><code class="parameter-flags">--list-contigs</code></dt>
+<dd class="parameter-details"><span class="parameter-help">When declared, the program will list contigs in the BAM file and exit gracefully without any further analysis.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

@@ -74,6 +74,41 @@ You can also download a specific release of this database by providing its URL w
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-setup-scg-taxonomy.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-setup-scg-taxonomy`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-setup-scg-taxonomy [-h] [-T NUM_THREADS] [--scgs-taxonomy-data-dir PATH] [--gtdb-release RELEASE_NUM]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-options">
+<header class="parameter-group-header"><span class="parameter-group-title">options</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-num_threads"><code class="parameter-flags">-T, --num-threads</code> <code class="parameter-metavar">NUM_THREADS</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Maximum number of threads to use for multithreading whenever possible. Very conservatively, the default is 1, unless the environmental variable `ANVIO_THREADS` sets another positive integer. If you use this parameter, it will override `ANVIO_THREADS`. It is a good idea to not exceed the number of CPUs / cores on your system. Plus, please be careful with this option if you are running your commands on a SGE -- if you are clusterizing your runs, and asking for multiple threads to use, you may deplete your resources very fast.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">1</code></span></dd>
+<dt class="parameter" id="parameter-scgs_taxonomy_data_dir"><code class="parameter-flags">--scgs-taxonomy-data-dir</code> <code class="parameter-metavar">PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The directory for SCGs data to be stored (or read from, depending on the context). If you leave it as is without specifying anything, anvi&#x27;o will set up everything in (or try to read things from) a pre-defined default directory. The advantage of using the default directory at the time of set up is that every user of anvi&#x27;o on a computer system will be using a single data directory, but then you may need to run the setup program with superuser privileges. If you don&#x27;t have superuser privileges, then you can use this parameter to tell anvi&#x27;o the location you wish to use to setup your databases. If you are using a program (such as `anvi-run-scg-taxonomy` or `anvi-estimate-scg-taxonomy`) you will have to use this parameter to tell those programs where your data are.</span></dd>
+<dt class="parameter" id="parameter-gtdb_release"><code class="parameter-flags">--gtdb-release</code> <code class="parameter-metavar">RELEASE_NUM</code></dt>
+<dd class="parameter-details"><span class="parameter-help">If you are particularly intersted an earlier release anvi&#x27;o knows about, you can set it here Otherwise anvi&#x27;o will always use the latest release it knows about.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

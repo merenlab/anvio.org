@@ -84,6 +84,72 @@ You can also use multithreading if you're familiar with that.
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-compute-gene-cluster-homogeneity.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-compute-gene-cluster-homogeneity`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-compute-gene-cluster-homogeneity [-h] -p PAN_DB [-g GENOMES_STORAGE] [-o FILE_PATH] [--store-in-db] [--gene-cluster-id GENE_CLUSTER_ID] [--gene-cluster-ids-file FILE_PATH] [-C COLLECTION_NAME] [-b BIN_NAME] [--quick-homogeneity] [-T NUM_THREADS] [--just-do-it]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input-files">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT FILES</span> <span class="parameter-group-description">Input files from the pangenome analysis.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-pan_db"><code class="parameter-flags">-p, --pan-db</code> <code class="parameter-metavar">PAN_DB</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Anvi&#x27;o pan database</span></dd>
+<dt class="parameter" id="parameter-genomes_storage"><code class="parameter-flags">-g, --genomes-storage</code> <code class="parameter-metavar">GENOMES_STORAGE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Anvi&#x27;o genomes storage file</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-reporting">
+<header class="parameter-group-header"><span class="parameter-group-title">REPORTING</span> <span class="parameter-group-description">How do you want results to be reported? Anvi&#x27;o can produce a TAB-delimited output file for you (for which you would have to provide an output file name). Or the results can be stored in the pan database directly, for which you would have to explicitly ask for it. You can get both as well in case you are a fan of redundancy and poor data analysis practices. Anvi&#x27;o does not judge.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">FILE_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">File path to store results.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-store_in_db"><code class="parameter-flags">--store-in-db</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Store analysis results into the database directly.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-selection">
+<header class="parameter-group-header"><span class="parameter-group-title">SELECTION</span> <span class="parameter-group-description">Which gene clusters should be analyzed. You can ask for a single gene cluster, or multiple ones listed in a file, or you can use a collection and bin name to list gene clusters of interest.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-gene_cluster_id"><code class="parameter-flags">--gene-cluster-id</code> <code class="parameter-metavar">GENE_CLUSTER_ID</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Gene cluster ID you are interested in.</span></dd>
+<dt class="parameter" id="parameter-gene_cluster_ids_file"><code class="parameter-flags">--gene-cluster-ids-file</code> <code class="parameter-metavar">FILE_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Text file for gene clusters (each line should contain be a unique gene cluster id).</span></dd>
+<dt class="parameter" id="parameter-collection_name"><code class="parameter-flags">-C, --collection-name</code> <code class="parameter-metavar">COLLECTION_NAME</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Collection name.</span></dd>
+<dt class="parameter" id="parameter-bin_id"><code class="parameter-flags">-b, --bin-id</code> <code class="parameter-metavar">BIN_NAME</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Bin name you are interested in.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-optional">
+<header class="parameter-group-header"><span class="parameter-group-title">OPTIONAL</span> <span class="parameter-group-description">Optional stuff available for you to use</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-quick_homogeneity"><code class="parameter-flags">--quick-homogeneity</code></dt>
+<dd class="parameter-details"><span class="parameter-help">By default, anvi&#x27;o will use a homogeneity algorithm that checks for horizontal and vertical geometric homogeneity (along with functional). With this flag, you can tell anvi&#x27;o to skip horizontal geometric homogeneity calculations. It will be less accurate but quicker.</span></dd>
+<dt class="parameter" id="parameter-num_threads"><code class="parameter-flags">-T, --num-threads</code> <code class="parameter-metavar">NUM_THREADS</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Maximum number of threads to use for multithreading whenever possible. Very conservatively, the default is 1, unless the environmental variable `ANVIO_THREADS` sets another positive integer. If you use this parameter, it will override `ANVIO_THREADS`. It is a good idea to not exceed the number of CPUs / cores on your system. Plus, please be careful with this option if you are running your commands on a SGE -- if you are clusterizing your runs, and asking for multiple threads to use, you may deplete your resources very fast.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">1</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-just_do_it"><code class="parameter-flags">--just-do-it</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Don&#x27;t bother me with questions or warnings, just do it.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

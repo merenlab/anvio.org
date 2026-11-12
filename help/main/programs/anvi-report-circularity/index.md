@@ -140,6 +140,68 @@ Given all these, the final decision for contig status is made based on the rules
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-report-circularity.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-report-circularity`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-report-circularity [-h] -o FILE_PATH [--max-num-pairs-for-is-est MAX_NUM_PAIRS_FOR_IS_EST] [--min-pairs-for-stats MIN_PAIRS_FOR_STATS] [--insert-tolerance-factor INSERT_TOLERANCE_FACTOR] [--min-supporting-pairs MIN_SUPPORTING_PAIRS] [--expected-fraction-threshold EXPECTED_FRACTION_THRESHOLD] [--circularity-support-threshold CIRCULARITY_SUPPORT_THRESHOLD] [--min-contig-length MIN_CONTIG_LENGTH] BAM_FILE</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-positional-arguments">
+<header class="parameter-group-header"><span class="parameter-group-title">positional arguments</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required parameter-positional" id="parameter-bam_file"><code class="parameter-flags">BAM_FILE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Sorted and indexed BAM file to analyze.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-options">
+<header class="parameter-group-header"><span class="parameter-group-title">options</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">FILE_PATH</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">File path to store results.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-insert-size-estimation">
+<header class="parameter-group-header"><span class="parameter-group-title">INSERT SIZE ESTIMATION</span> <span class="parameter-group-description">Control how FR pairs are sampled to estimate insert sizes.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-max_num_pairs_for_is_est"><code class="parameter-flags">--max-num-pairs-for-is-est</code> <code class="parameter-metavar">MAX_NUM_PAIRS_FOR_IS_EST</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Maximum number of FR pairs to sample when estimating insert size (default: 100000).</span></dd>
+<dt class="parameter" id="parameter-min_pairs_for_stats"><code class="parameter-flags">--min-pairs-for-stats</code> <code class="parameter-metavar">MIN_PAIRS_FOR_STATS</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum number of FR pairs required to compute insert size statistics (default: 1000).</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-circularity-prediction">
+<header class="parameter-group-header"><span class="parameter-group-title">CIRCULARITY PREDICTION</span> <span class="parameter-group-description">Parameters used to decide whether contigs are circular. They are indeed confusing, but if you read the documentation, you will probably be fine :)</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-insert_tolerance_factor"><code class="parameter-flags">--insert-tolerance-factor</code> <code class="parameter-metavar">INSERT_TOLERANCE_FACTOR</code></dt>
+<dd class="parameter-details"><span class="parameter-help">MAD multiplier around the median insert size for acceptable circular junction inserts (default: 3.0).</span></dd>
+<dt class="parameter" id="parameter-min_supporting_pairs"><code class="parameter-flags">--min-supporting-pairs</code> <code class="parameter-metavar">MIN_SUPPORTING_PAIRS</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Absolute minimum number of RF pairs required to call a contig circular (default: 5).</span></dd>
+<dt class="parameter" id="parameter-expected_fraction_threshold"><code class="parameter-flags">--expected-fraction-threshold</code> <code class="parameter-metavar">EXPECTED_FRACTION_THRESHOLD</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum fraction of expected RF pairs to call a contig circular (default: 0.3).</span></dd>
+<dt class="parameter" id="parameter-circularity_support_threshold"><code class="parameter-flags">--circularity-support-threshold</code> <code class="parameter-metavar">CIRCULARITY_SUPPORT_THRESHOLD</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum circularity support value to call a contig circular (default: 0.5).</span></dd>
+<dt class="parameter" id="parameter-min_contig_length"><code class="parameter-flags">--min-contig-length</code> <code class="parameter-metavar">MIN_CONTIG_LENGTH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Only evaluate contigs at least this long (default: evaluate all contigs).</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

@@ -452,6 +452,64 @@ anvi-display-pan -g CORRECTED-BY-W48-MHL2-GENOMES.db \
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-fix-homopolymer-indels.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-script-fix-homopolymer-indels`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-script-fix-homopolymer-indels [-h] [-i FASTA] [-r FASTA] [-o FASTA] [--min-homopolymer-length INT] [--verbose] [-T NUM_THREADS] [--test-run]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-files-that-matter">
+<header class="parameter-group-header"><span class="parameter-group-title">FILES THAT MATTER</span> <span class="parameter-group-description">Here you provide file paths for input sequence(s) to be corrected, reference sequence(s) to be used for correction, and the edited input sequences to be stored. UNLESS you just want to do a test run. In which case you don&#x27;t need any of these but the parameter `--test-run`</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-input_fasta"><code class="parameter-flags">-i, --input-fasta</code> <code class="parameter-metavar">FASTA</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A FASTA file of sequences you wish to fix</span></dd>
+<dt class="parameter" id="parameter-reference_fasta"><code class="parameter-flags">-r, --reference-fasta</code> <code class="parameter-metavar">FASTA</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A FASTA file for reference sequences</span></dd>
+<dt class="parameter" id="parameter-output_fasta"><code class="parameter-flags">-o, --output-fasta</code> <code class="parameter-metavar">FASTA</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Corrected FASTA file</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-stuff-under-the-hood">
+<header class="parameter-group-header"><span class="parameter-group-title">STUFF UNDER THE HOOD</span> <span class="parameter-group-description">Like how should we define homopolymers or how much information should we share with you as we go.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-min_homopolymer_length"><code class="parameter-flags">--min-homopolymer-length</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum number of identical nucleotides next to each other PLUS THE GAP CHARACTER to be considered a homopolymer when these nucleotides are aligned to a region in the other sequnce that is all composed of the same nucleotides. Confused? Read on. The default is 3. So when this value is 2, the program would consider the following to match the definition of minimum homopolymer length to be considered for fixing: (R)eference: &#x27;AA-&#x27; and (Q)uery: &#x27;AAA&#x27;. The same would be true for R: &#x27;AA---&#x27; / Q: &#x27;AAAAA&#x27; but not R: &#x27;A-&#x27; / Q: &#x27;AA&#x27; In contrast, when this value is 3, then the minimum that would work would be this: R: &#x27;AAA-&#x27;, Q: &#x27;AAAA&#x27;. Obviously, you shouldn&#x27;t go any lower than 2, but then why should you listen to a computer?</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">3</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-verbose"><code class="parameter-flags">--verbose</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Be verbose, print more messages whenever possible. You may regret this.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-performance">
+<header class="parameter-group-header"><span class="parameter-group-title">PERFORMANCE</span> <span class="parameter-group-description">For the BLAST search</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-num_threads"><code class="parameter-flags">-T, --num-threads</code> <code class="parameter-metavar">NUM_THREADS</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Maximum number of threads to use for multithreading whenever possible. Very conservatively, the default is 1, unless the environmental variable `ANVIO_THREADS` sets another positive integer. If you use this parameter, it will override `ANVIO_THREADS`. It is a good idea to not exceed the number of CPUs / cores on your system. Plus, please be careful with this option if you are running your commands on a SGE -- if you are clusterizing your runs, and asking for multiple threads to use, you may deplete your resources very fast.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">1</code></span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-test-run">
+<header class="parameter-group-header"><span class="parameter-group-title">TEST RUN</span> <span class="parameter-group-description">To have an idea about what is corrected and what is not</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-test_run"><code class="parameter-flags">--test-run</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Just do a test run and nothing more.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

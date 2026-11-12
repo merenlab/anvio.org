@@ -103,6 +103,53 @@ Then the fasta-txt will only contain a `name` column and a `path` column.
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-process-genbank-metadata.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-script-process-genbank-metadata`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-script-process-genbank-metadata [-h] -m GENBANK_METADATA [-o DIR_PATH] [--output-fasta-txt OUTPUT_FASTA_TXT] [-E]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT</span> <span class="parameter-group-description">Give us the preciousss...</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-metadata"><code class="parameter-flags">-m, --metadata</code> <code class="parameter-metavar">GENBANK_METADATA</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">This is the file you get from the program `ncbi-genome-download` when you use the parameter `--metadata-table`.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT</span> <span class="parameter-group-description">Where to find your precioussesss...</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-output_dir"><code class="parameter-flags">-o, --output-dir</code> <code class="parameter-metavar">DIR_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Directory path for output files</span></dd>
+<dt class="parameter" id="parameter-output_fasta_txt"><code class="parameter-flags">--output-fasta-txt</code> <code class="parameter-metavar">OUTPUT_FASTA_TXT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">This is not a FASTA file, but a TAB-delimited file with all the file names and paths processed by this program. This output can directly go into the anvi&#x27;o snakemake workflows because magic.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-additional-parameters">
+<header class="parameter-group-header"><span class="parameter-group-title">ADDITIONAL PARAMETERS</span> <span class="parameter-group-description">Additional things you can set.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-exclude_gene_calls_from_fasta_txt"><code class="parameter-flags">-E, --exclude-gene-calls-from-fasta-txt</code></dt>
+<dd class="parameter-details"><span class="parameter-help">This flag will exclude the external gene calls and functions from the fasta.txt file. Files for external gene calls and functions according to the information stored in GenBank file, but they will simply not be included in your fasta.txt file. By doing so you will *gurantee* that when you use this file from within a workflow, anvi&#x27;o wil use its default gene caller to identify genes.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

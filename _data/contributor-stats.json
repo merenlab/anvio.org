@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8197,
+        "total_commits": 8212,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,15 +14,15 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 475
+            "2026": 490
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "pfft",
-        "latest_commit_hash": "1d65860d5dc67677f900a212c6776f8797e43ead",
-        "latest_commit_date": "18 October 2026"
+        "latest_commit_message": "fix path and syntax",
+        "latest_commit_hash": "bd646d75c86e711ea19469aa52f923d558f97c34",
+        "latest_commit_date": "04 November 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 574,
+        "total_commits": 575,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 357
+            "2026": 358
         },
         "top_file": "anvio/workflows/metagenomics/__init__.py",
-        "latest_commit_message": "make the no structure warning simple and generic",
-        "latest_commit_hash": "504bc84b9c70dc36bb37ec78842a217a2537c36c",
-        "latest_commit_date": "20 October 2026"
+        "latest_commit_message": "say when the single-end SRA accession list is truncated",
+        "latest_commit_hash": "5184a4c0b95deb9b02f5e83605c35800193bf48a",
+        "latest_commit_date": "30 October 2026"
     },
     "watsonar": {
         "total_commits": 10,
@@ -66,7 +66,7 @@
         "latest_commit_date": "22 August 2022"
     },
     "ekiefl": {
-        "total_commits": 1761,
+        "total_commits": 1766,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -80,12 +80,12 @@
             "2023": 2,
             "2024": 0,
             "2025": 0,
-            "2026": 15
+            "2026": 20
         },
         "top_file": "anvio/variabilityops.py",
-        "latest_commit_message": "Update ARCHITECTURE.md",
-        "latest_commit_hash": "3663614b63a93ff6a624ae38445abd58dda64263",
-        "latest_commit_date": "10 October 2026"
+        "latest_commit_message": "Handle CLI programs with modes",
+        "latest_commit_hash": "9dc3a72d4414e59eb51a20f2562eab7d0e96a206",
+        "latest_commit_date": "02 November 2026"
     },
     "mschecht": {
         "total_commits": 749,
@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2644,
+        "total_commits": 2688,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 129
+            "2026": 173
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "fix the snakemake citation color/header",
-        "latest_commit_hash": "1bc9579518fb325871931dbf9a1abb3da1a23631",
-        "latest_commit_date": "10 September 2026"
+        "latest_commit_message": "fix names of num reads table and self key to match recent change in profile_db_num_reads branch",
+        "latest_commit_hash": "7d0fb933d220b97dacdc78483e04fc6a229adc73",
+        "latest_commit_date": "04 November 2026"
     },
     "moritzbuck": {
         "total_commits": 3,
@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2493,
+        "total_commits": 2504,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 152
+            "2026": 163
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "name options in Python form in the `Integrator` messages for genomic input combinations that the CLI of `anvi-integrate-trnaseq` checks first",
-        "latest_commit_hash": "493e568ac709bdb8a40f5293cb05416d06cbe541",
-        "latest_commit_date": "29 October 2026"
+        "latest_commit_message": "leave `--dir` of `anvi-setup-modelseed-database` without a default, so its help page no longer shows the absolute path of the anvi'o installation that built it",
+        "latest_commit_hash": "c4026e3612bc7de16db91e17942a2705a95c0fe6",
+        "latest_commit_date": "03 November 2026"
     },
     "ahenoch": {
         "total_commits": 401,
@@ -748,7 +748,7 @@
         "latest_commit_date": "27 January 2026"
     },
     "Med1Bel": {
-        "total_commits": 18,
+        "total_commits": 20,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -762,12 +762,12 @@
             "2023": 0,
             "2024": 0,
             "2025": 0,
-            "2026": 18
+            "2026": 20
         },
         "top_file": "anvio/panrep.py",
-        "latest_commit_message": "fix negative start position in keep-promoter mode",
-        "latest_commit_hash": "b9843a03ca67a5b2b04a1b626542495c29acb286",
-        "latest_commit_date": "01 September 2026"
+        "latest_commit_message": "correct the default gap size",
+        "latest_commit_hash": "dfff5680d2a5c3fc182adefb81a56cf6b7b598f4",
+        "latest_commit_date": "03 November 2026"
     },
     "sarilog": {
         "total_commits": 3,

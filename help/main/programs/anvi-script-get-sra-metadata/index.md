@@ -84,6 +84,46 @@ Running this program a second time on the same output file does not start over. 
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-get-sra-metadata.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-script-get-sra-metadata`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-script-get-sra-metadata [-h] [--accession-list ACCESSION_LIST] [--samples-txt SAMPLES_TXT] [-o OUTPUT_FILE]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT</span> <span class="parameter-group-description">Where the accessions come from. Pick one.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-accession_list"><code class="parameter-flags">--accession-list</code> <code class="parameter-metavar">ACCESSION_LIST</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A file with one SRA run accession per line.</span></dd>
+<dt class="parameter" id="parameter-samples_txt"><code class="parameter-flags">--samples-txt</code> <code class="parameter-metavar">SAMPLES_TXT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A samples-txt file with an `sra_accession` column.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">OUTPUT_FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Where to keep what anvi&#x27;o learns. If this file already exists, anvi&#x27;o only looks up the accessions that are missing from it and adds them, so anything you have corrected by hand stays as you left it. The default is &#x27;SRA-METADATA.txt&#x27;, which is also where the metagenomics workflow looks unless you tell it otherwise.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">SRA-METADATA.txt</code></span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

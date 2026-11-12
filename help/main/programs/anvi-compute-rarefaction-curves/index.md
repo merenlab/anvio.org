@@ -154,6 +154,53 @@ The <span class="artifact-n">[rarefaction-curves](/help/main/artifacts/rarefacti
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-compute-rarefaction-curves.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-compute-rarefaction-curves`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-compute-rarefaction-curves [-h] -p PAN_OR_PAN_GRAPH_DB [-O FILENAME_PREFIX] [--iterations ITERATIONS] [--skip-output-files]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input-database">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT DATABASE</span> <span class="parameter-group-description">The input database here can be a pan-db, in which case what accumulates as genomes are added is the gene cluster, or a pan-graph-db, in which case it is the synteny gene cluster (SynGC).</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-pan_or_pan_graph_db"><code class="parameter-flags">-p, --pan-or-pan-graph-db</code> <code class="parameter-metavar">PAN_OR_PAN_GRAPH_DB</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">An anvi&#x27;o pan-db or pan-graph-db. Which one it is is worked out from the database itself, so either may be given here.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT</span> <span class="parameter-group-description">This program can generate a visualization of the rarefaction curves for you. If you provide nothing, it will simply print outthe Heaps&#x27; Law fit values for alpha and K for you to interpret. The format of the output file will be determined automatically by the extension. So if you name your output file as `output.svg` you will get an SVG file, and if you name it as `output.pdf`, you will get a PDF.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-output_file_prefix"><code class="parameter-flags">-O, --output-file-prefix</code> <code class="parameter-metavar">FILENAME_PREFIX</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A prefix to be used while naming the output files. No file type extensions please; just a prefix -- all ouptut file names and extensions will be appended to this prefix.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-parameters-of-convenience">
+<header class="parameter-group-header"><span class="parameter-group-title">PARAMETERS OF CONVENIENCE</span> <span class="parameter-group-description">You want convenience and control? You have it (but not much).</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-iterations"><code class="parameter-flags">--iterations</code> <code class="parameter-metavar">ITERATIONS</code></dt>
+<dd class="parameter-details"><span class="parameter-help">How many subsampling iterations you wish to be performed? The default is 100. Don&#x27;t go below 10 :)</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">100</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-skip_output_files"><code class="parameter-flags">--skip-output-files</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Do not bother generating any output files, just report Heaps&#x27; fit values.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

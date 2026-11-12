@@ -167,6 +167,64 @@ print(sequences)
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-search-primers.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-search-primers`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-search-primers [-h] [--samples-txt FILE] --primers-txt FILE [-m INT] [-x] [-R] [--stop-after INT] -o DIR_PATH</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input-files">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT FILES</span> <span class="parameter-group-description">Here you are expected to declare your FASTQ files and sequences which you are interested to find in those FASTQ files. Each file should have at least one entry</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-samples_txt"><code class="parameter-flags">--samples-txt</code> <code class="parameter-metavar">FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A TAB-delimited file with columns [&#x27;sample&#x27;, &#x27;r1&#x27;, &#x27;r2&#x27;] or [&#x27;sample&#x27;, &#x27;group&#x27;, &#x27;r1&#x27;, &#x27;r2&#x27;] where `r1` and `r2` columns are paths to compressed or flat FASTQ files for each `sample` and `group` is an optional column for relevant applications where samples are affiliated with one-word categorical variables that define to which group they are assigned.</span></dd>
+<dt class="parameter parameter-required" id="parameter-primers_txt"><code class="parameter-flags">--primers-txt</code> <code class="parameter-metavar">FILE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">A two-column file that contains one or more primer sequences. See the primers-txt artifact for details.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-parameters-of-life-or-death">
+<header class="parameter-group-header"><span class="parameter-group-title">PARAMETERS OF LIFE OR DEATH</span> <span class="parameter-group-description">Here you are expected to set appropriate parameters for your search (or you can choose to go with the defaults)</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-min_remainder_length"><code class="parameter-flags">-m, --min-remainder-length</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum length of the remainder of the read after a match. If your short read is XXXMMMMMMYYYYYYYYYYYYYY, where Ms indicate the primer sequence, min remainder length is equal to the length of nucleotide matching Y. Default is 60.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">60</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-only_report_primer_matches"><code class="parameter-flags">-x, --only-report-primer-matches</code></dt>
+<dd class="parameter-details"><span class="parameter-help">For a given sequence with a primer match, report only the part of it that matches to the primer. In other words, if your short read is XXXMMMMMMYYYYYYYYYYYYYY, where Ms indicate part of your sequence that matches to the primer, setting this flag will remove all Xs and Ys. Setting this flag will automatically set the `--min-remainder-length` to 0. If you have a problem with that, let us know.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-only_report_remainders"><code class="parameter-flags">-R, --only-report-remainders</code></dt>
+<dd class="parameter-details"><span class="parameter-help">For a given sequence with a primer match, report only the part that follows the primer. In other words, if your short read is XXXMMMMMMYYYYYYYYYYYYYY, where Ms indicate part of your sequence that matches to the primer, setting this flag will only report Ys. This flag is obviously incompatible with `--only-report-primer-matches` flag.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-testing">
+<header class="parameter-group-header"><span class="parameter-group-title">TESTING?</span> <span class="parameter-group-description">Be our guest.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-stop_after"><code class="parameter-flags">--stop-after</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Stop after X number of hits because who needs data.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0</code></span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT</span> <span class="parameter-group-description">Tell anvi&#x27;o where to put your thingies</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-output_dir"><code class="parameter-flags">-o, --output-dir</code> <code class="parameter-metavar">DIR_PATH</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Directory path for output files</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

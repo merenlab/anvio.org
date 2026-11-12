@@ -302,6 +302,140 @@ For more information about each of these txt files, go check <span class="artifa
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-report-inversions.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-report-inversions`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-report-inversions [-h] [-P BAMS-AND-PROFILES-FILE] [--pre-computed-inversions INVERSIONS-FILE] [--min-coverage-to-define-stretches INT] [--min-stretch-length INT] [--min-distance-between-independent-stretches INT] [--num-nts-to-pad-a-stretch INT] [--min-ratio-of-normal-to-special-coverage FLOAT] [--min-detection-to-report-coverage-ratio FLOAT] [-l INT] [-m INT] [-d INT] [--min-mismatch-distance-to-first-base INT] [--palindrome-search-algorithm {BLAST,numba}] [--check-all-palindromes] [--process-only-inverted-reads] [-T NUM_THREADS] [--oligo-primer-base-length INT] [--skip-compute-inversion-activity] [--end-primer-search-after-x-hits END_PRIMER_SEARCH_AFTER_X_HITS] [--min-frequency-to-report MIN_FREQUENCY_TO_REPORT] [--skip-recovering-genomic-context] [--num-genes-to-consider-in-context INT] [--gene-caller GENE-CALLER] [--skip-search-for-motifs] [--num-of-motifs INT] [--verbose] [--target-contig CONTIG_NAME] [--target-region-start NUCLEOTIDE_POSITION] [--target-region-end NUCLEOTIDE_POSITION] [-o DIR_PATH]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input-data">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT DATA</span> <span class="parameter-group-description">Essentially a BAMs and profiles file and nothing more.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-bams_and_profiles"><code class="parameter-flags">-P, --bams-and-profiles</code> <code class="parameter-metavar">BAMS-AND-PROFILES-FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A four-column TAB-delimited flat text file. The header line must contain these columns: &#x27;name&#x27;, &#x27;contigs_db_path&#x27;, &#x27;profile_db_path&#x27;, and &#x27;bam_file_path&#x27;. See the profiles-and-bams.txt artifact for the details of the file.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-calculate-activity-from-known-inversions">
+<header class="parameter-group-header"><span class="parameter-group-title">CALCULATE ACTIVITY FROM KNOWN INVERSIONS?</span> <span class="parameter-group-description">This input option is ONLY relevant to those who have already run the entire workflow and have their consensus inversions (i.e., &#x27;CONSENSUS-INVERSIONS.txt&#x27;) or sample-specific inversions (i.e., &#x27;INVERSIONS-IN-[SAMPLE-NAME].txt&#x27;) calculated. This input option will use the existing inversions reported in the input file and recalculate the inversion activity output. It is a great way to calculate inversions or refine them from a smaller set of genomes / metagenomes, and scale up the characterizations of their activity to thousands of metagenomes quickly (*cough* cheater *cough*). Please note that if you use this flag, most other options EXCEPT those that are listed below &#x27;KEY ALGORITHMIC COMPONENT 04: COMPUTING INVERSION ACTIVITY&#x27; will be irrelevant, so you can skip all and take a look at the parameters there.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-pre_computed_inversions"><code class="parameter-flags">--pre-computed-inversions</code> <code class="parameter-metavar">INVERSIONS-FILE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A TAB-delimited file that lists sample-specific or consensus inversions identified by the program `anvi-report-inversions`.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-key-algorithmic-component-01-identifying-regions-of-interest">
+<header class="parameter-group-header"><span class="parameter-group-title">KEY ALGORITHMIC COMPONENT 01: IDENTIFYING REGIONS OF INTEREST</span> <span class="parameter-group-description">How should anvi&#x27;o identify regions of interest based on REV/REV and FWD/FWD paired-end reads? Defaults will be good for most cases.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-min_coverage_to_define_stretches"><code class="parameter-flags">--min-coverage-to-define-stretches</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Value to break up contigs into &#x27;stretches&#x27; of high-coverage regions of FWD/FWD and REV/REV reads. The lower the value, the more noise. This acts as a low-pass filter if it helps you imagine how it works.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">10</code></span></dd>
+<dt class="parameter" id="parameter-min_stretch_length"><code class="parameter-flags">--min-stretch-length</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">These are not the stretches you are looking for (unless they are longer than this, obv).</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">50</code></span></dd>
+<dt class="parameter" id="parameter-min_distance_between_independent_stretches"><code class="parameter-flags">--min-distance-between-independent-stretches</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Our &#x27;low pass&#x27; filter may break a single stretch of reasonable coverage of FWD/FWD and REV/REV reads into multiple pieces. To recover from that, we wish to merge the fragmented ones if they are closer to one another than this value.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">2000</code></span></dd>
+<dt class="parameter" id="parameter-num_nts_to_pad_a_stretch"><code class="parameter-flags">--num-nts-to-pad-a-stretch</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Some leeway towards upstream and downstream context that is essential to not miss key information due to coverage variation that may influence the beginnings and ends of final stretches.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">100</code></span></dd>
+<dt class="parameter" id="parameter-min_ratio_of_normal_to_special_coverage"><code class="parameter-flags">--min-ratio-of-normal-to-special-coverage</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">When a contig has significant detection of FWD/FWD or REV/REV reads (see --min-detection-to-report-coverage-ratio), anvi&#x27;o computes the ratio of the coverage of these &#x27;special&#x27; reads to the total coverage from all reads in the BAM file for each stretch. A low ratio with high detection is a hallmark of PCR template-switching artifacts, where chimeric reads uniformly cover entire contigs but represent only a tiny fraction of total sequencing depth. Stretches with a coverage ratio below this cutoff will be skipped. The default of 0.05 means that stretches where special reads account for less than 5% of total coverage will not be considered for inversion calling.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.05</code></span></dd>
+<dt class="parameter" id="parameter-min_detection_to_report_coverage_ratio"><code class="parameter-flags">--min-detection-to-report-coverage-ratio</code> <code class="parameter-metavar">FLOAT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The minimum detection value (i.e., the fraction of the contig covered by FWD/FWD or REV/REV reads) required before anvi&#x27;o computes the coverage ratio between special reads and all reads in the BAM file. If the detection is below this value, the coverage ratio columns in the stretches report will show &#x27;NA&#x27;. The default of 0.10 means that a contig must have at least 10% of its nucleotide positions covered by special reads before the coverage ratio check kicks in.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.1</code></span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-key-algorithmic-component-02-finding-palindromes">
+<header class="parameter-group-header"><span class="parameter-group-title">KEY ALGORITHMIC COMPONENT 02: FINDING PALINDROMES</span> <span class="parameter-group-description">Some essential parameters to find palindromes in sequence stretches anvi&#x27;o identified in the previous step</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-min_palindrome_length"><code class="parameter-flags">-l, --min-palindrome-length</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The minimum palindrome length.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">10</code></span></dd>
+<dt class="parameter" id="parameter-max_num_mismatches"><code class="parameter-flags">-m, --max-num-mismatches</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The maximum number of mismatches allowed.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0</code></span></dd>
+<dt class="parameter" id="parameter-min_distance"><code class="parameter-flags">-d, --min-distance</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The minimum distance between palindromic sequences (this parameter is essentially asking for the number of `x` in the sequence `ATCGxxxCGAT`). A value of 0 means that the algorithm will find all palindromes whether they are &#x27;in-place&#x27; palindromes or distant palindromes. The default value is 50 ncl.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">50</code></span></dd>
+<dt class="parameter" id="parameter-min_mismatch_distance_to_first_base"><code class="parameter-flags">--min-mismatch-distance-to-first-base</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">This parameter allows you to trim the palindrome when one or more mismatches are n nucleotides away from a palindrome&#x27;s start or stop. By default, this flag is set to 1, which means anvi&#x27;o will trim palindromes with a mismatch that are occuring on the second or n-1 position. Here is an example palindrome `MMMMMM(X)M` where `M` are the matching nucleotides and `X` is a mismatch. By default, anvi&#x27;o will only report the first six matches: `MMMMMMM`. The rationale behind this parameter is that when searching for palindromes with mismatches, the algorithm will extend the palindrome length as much as possible, often wrongly including mismatches which are outside of the true palindrome.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">1</code></span></dd>
+<dt class="parameter" id="parameter-palindrome_search_algorithm"><code class="parameter-flags">--palindrome-search-algorithm</code> <code class="parameter-metavar">PALINDROME_SEARCH_ALGORITHM</code></dt>
+<dd class="parameter-details"><span class="parameter-help">There are two algorithms for calculating palindromes: &#x27;BLAST&#x27; and &#x27;numba&#x27;. By default, anvi&#x27;o will dynamically optimize your search for speed and will use numba when a given sequence is shorter than 5,000 nucleotides or will use BLAST otherwise. However, you can use this parameter to ask anvi&#x27;o to use either of these methods explicitly to search for palindromes. You can choose from the options &#x27;BLAST&#x27; or &#x27;numba&#x27;. Please note that the results from the two approaches may differ.</span> <span class="parameter-choices"><span class="parameter-label">Choices:</span> <code class="parameter-choice">BLAST</code> <code class="parameter-choice">numba</code></span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-key-algorithmic-component-03-confirming-inversions">
+<header class="parameter-group-header"><span class="parameter-group-title">KEY ALGORITHMIC COMPONENT 03: CONFIRMING INVERSIONS</span> <span class="parameter-group-description">Which palindromes are inversions? A one million dollar question that is quite difficult to get right (but as anvi&#x27;o does get it right frequently).</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-check_all_palindromes"><code class="parameter-flags">--check-all-palindromes</code></dt>
+<dd class="parameter-details"><span class="parameter-help">In a given &#x27;stretch&#x27; anvi&#x27;o has identified as a region of interest due to the coverage of FWD/FWD and REV/REV reads (see KEY ALGORITHMIC COMPONENT 01), there may be multiple palindromic sequences. By default, anvi&#x27;o will stop its search as soon as it finds evidence among short reads in the BAM file that suggests a given palindrome represents an active inversion, WITHOUT testing any of the remaining palindromes in the same region. While this strategy is extremely efficient as it will not go through all reads over and over again for each palindrome, it will miss if there are multiple inversions in a single stretch, which is extremely unlikely. But using this this you can instruct anvi&#x27;o to test ALL palindromes in a stretch. We understand -- we are unreasonable people, too.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-process_only_inverted_reads"><code class="parameter-flags">--process-only-inverted-reads</code></dt>
+<dd class="parameter-details"><span class="parameter-help">At one point, anvi&#x27;o will have all the regions of interest in contigs that include palindromes that look promising. At that point, it will access to short reads in the BAM file to determine which palindromes in fact represent active inversions by searching for unique constructs that can only occur when a genomic region did funny things. One option is to search for such reads that are evidence of inversion activity among paired-end reads that are in FWD/FWD or REV/REV orientation. Which is defined by the fetch-filter &#x27;inversions&#x27;. However, this may be too limiting as there may be paired-end reads that are too downstream or too upstream to the region of interest, and thus mapping FWD/REV or REV/FWD orientation just like every other non-rebellious paired end read, YET including one of the constructs. Thus, searching all reads may in fact help the identification of more inversions (especially those that are covered less), with only an added disadvantage of compute time, which should be negligible in almost all instances (since anvi&#x27;o at this stage is only focusing on very specific regions of genomes). But this parameter is here in case you insist on only using inverted paired-end reads and assert your authority. You do you and turn on the flag, you rebellious scientist who will likely miss a lot of additional inversions like a boss.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-key-algorithmic-component-04-computing-inversion-activity">
+<header class="parameter-group-header"><span class="parameter-group-title">KEY ALGORITHMIC COMPONENT 04: COMPUTING INVERSION ACTIVITY</span> <span class="parameter-group-description">What is the proportion of invertible repeat orientation across samples? A two million dollars question that anvi&#x27;o WILL answer for you IF you have `r1` and `r2` columns in your `bams-and-profiles-txt` file that points to raw FASTQ reads you have used to generate your BAM files for each sample. Truly crazy stuff.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-num_threads"><code class="parameter-flags">-T, --num-threads</code> <code class="parameter-metavar">NUM_THREADS</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Maximum number of threads to use for multithreading whenever possible. Very conservatively, the default is 1, unless the environmental variable `ANVIO_THREADS` sets another positive integer. If you use this parameter, it will override `ANVIO_THREADS`. It is a good idea to not exceed the number of CPUs / cores on your system. Plus, please be careful with this option if you are running your commands on a SGE -- if you are clusterizing your runs, and asking for multiple threads to use, you may deplete your resources very fast.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">1</code></span></dd>
+<dt class="parameter" id="parameter-oligo_primer_base_length"><code class="parameter-flags">--oligo-primer-base-length</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Calculating inversion ratios require anvi&#x27;o to &#x27;design&#x27; an in silico primer based on palindromes associated with inversions and the upstream/downstream genomic context to search for short reads in raw sequencing datato find the ratio of inversion activity per sample. This variable is to control how much of the palindrome for a given inversion should be used to build a primer to search for short reads. The longer it is, the more specific the primers will be to survey short reads. But if if it is too long, then there will not be enough reads to &#x27;keep&#x27; depending on the minimum short read length of the sequencing. The default value will probably good for the vast majority of cases.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">12</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-skip_compute_inversion_activity"><code class="parameter-flags">--skip-compute-inversion-activity</code></dt>
+<dd class="parameter-details"><span class="parameter-help">This flag will help you skip computing inversion activity, which is an extremely costly step, even if your `bams-and-profiles-txt` contains `r1` and `r2` entries. It may be a good idea to first run the workflow without computing activity, take a look at the CONSENSUS file to make sure everything looks alright, and then run the workflow without this flag.</span></dd>
+<dt class="parameter" id="parameter-end_primer_search_after_x_hits"><code class="parameter-flags">--end-primer-search-after-x-hits</code> <code class="parameter-metavar">END_PRIMER_SEARCH_AFTER_X_HITS</code></dt>
+<dd class="parameter-details"><span class="parameter-help">For very large datasets, primer search can take a very long time. By setting a small integer here, you can ask anvi&#x27;o to stop searching primers after a few hits. Once the total number of primer hits reach to number for a given sample, anvi&#x27;o will stop searching further and continue with the next sample. This flag is only good for testing, since it will prematurely end the search without testing all primers</span></dd>
+<dt class="parameter" id="parameter-min_frequency_to_report"><code class="parameter-flags">--min-frequency-to-report</code> <code class="parameter-metavar">MIN_FREQUENCY_TO_REPORT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">By default, anvi&#x27;o will only report primers supported by more than one read from the `r1` and `r2` entry in your `bams-and-profiles-txt`. The reason for this filtering is sequencing errors, which can create very low frequency entries in the activity report. Use this flag to change that minimum threshold.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">1</code></span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-key-algorithmic-component-05-reporting-genomic-context-around-inversions">
+<header class="parameter-group-header"><span class="parameter-group-title">KEY ALGORITHMIC COMPONENT 05: REPORTING GENOMIC CONTEXT AROUND INVERSIONS</span> <span class="parameter-group-description">Once the consensus inversions are computed, anvi&#x27;o can go back to contigs on which they are found, and for each inversion site report the surrounding genes and their functions as flat text files in the output directory so you can actually take quick look at them.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-skip_recovering_genomic_context"><code class="parameter-flags">--skip-recovering-genomic-context</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Of course you can skip this step because why should anyone have nice things.</span></dd>
+<dt class="parameter" id="parameter-num_genes_to_consider_in_context"><code class="parameter-flags">--num-genes-to-consider-in-context</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">With this parameter you can adjust the number of genes anvi&#x27;o should consider to characterize the genomic context surrounding inversions. If you set nothing here, anvi&#x27;o will go 3 genes upstream from the first palindrome of the inversion and 3 genes downstream from the second. If there are not enough genes in the contig given the position of either of the palindromes, anvio&#x27; will report whatever it can.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">3</code></span></dd>
+<dt class="parameter" id="parameter-gene_caller"><code class="parameter-flags">--gene-caller</code> <code class="parameter-metavar">GENE-CALLER</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The gene caller to show gene calls from.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-key-algorithmic-component-06-finding-motifs-in-inverted-repeats">
+<header class="parameter-group-header"><span class="parameter-group-title">KEY ALGORITHMIC COMPONENT 06: FINDING MOTIFS IN INVERTED REPEATS</span> <span class="parameter-group-description">Site-specific inversions are carried out by site-specific recombinases which recognize imperfect palindromic sequences on each end of an inversion. They appear as a single pair of inverted repeats, the one anvi&#x27;o report in the consensus output. We can use DNA motif search to connect inversions that are potentially inverted by the same site-specific recombinase.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-skip_search_for_motifs"><code class="parameter-flags">--skip-search-for-motifs</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Skip the search for conserved motifs in inverted repeats.</span></dd>
+<dt class="parameter" id="parameter-num_of_motifs"><code class="parameter-flags">--num-of-motifs</code> <code class="parameter-metavar">INT</code></dt>
+<dd class="parameter-details"><span class="parameter-help">By default anvi&#x27;o will search for as many motifs as inversions. It can be time consuming if you have a lot of inversions. You can use that flag to search for less motifs.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-targeted-search-processing">
+<header class="parameter-group-header"><span class="parameter-group-title">TARGETED SEARCH &amp; PROCESSING</span> <span class="parameter-group-description">By default anvi&#x27;o process every region of every contig it is given. Using the following three parameters, you can limit your search to a particular contig, start position, or end position. You can use ANY COMBINATION of these three. For instance, if you focus on a particular contig only, all regions identified in it by FWD/FWD or REV/REV reads. You can limit the search space on that contig using target region start and end parameters.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-verbose"><code class="parameter-flags">--verbose</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Be verbose, print more messages whenever possible. You may regret this.</span></dd>
+<dt class="parameter" id="parameter-target_contig"><code class="parameter-flags">--target-contig</code> <code class="parameter-metavar">CONTIG_NAME</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Contig name of interest.</span></dd>
+<dt class="parameter" id="parameter-target_region_start"><code class="parameter-flags">--target-region-start</code> <code class="parameter-metavar">NUCLEOTIDE_POSITION</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The start position of the region of interest.</span></dd>
+<dt class="parameter" id="parameter-target_region_end"><code class="parameter-flags">--target-region-end</code> <code class="parameter-metavar">NUCLEOTIDE_POSITION</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The end position of the region of interest.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output-directory">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT DIRECTORY</span> <span class="parameter-group-description">Where to put all the output files.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-output_dir"><code class="parameter-flags">-o, --output-dir</code> <code class="parameter-metavar">DIR_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Directory path for output files</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

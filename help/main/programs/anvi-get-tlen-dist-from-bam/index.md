@@ -122,6 +122,55 @@ The histogram may require additional filters to avoid skewed displays due to out
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-get-tlen-dist-from-bam.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-get-tlen-dist-from-bam`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-get-tlen-dist-from-bam [-h] [--min-template-length-frequency MIN_TEMPLATE_LENGTH_FREQUENCY] [--max-template-length-to-consider MAX_TEMPLATE_LENGTH_TO_CONSIDER] [-o FILE_PATH] [--plot-data] BAM_FILE</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-positional-arguments">
+<header class="parameter-group-header"><span class="parameter-group-title">positional arguments</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required parameter-positional" id="parameter-bam_file"><code class="parameter-flags">BAM_FILE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">An indexed BAM file</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-input-options">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT OPTIONS</span> <span class="parameter-group-description">Things you don&#x27;t care but should.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-min_template_length_frequency"><code class="parameter-flags">--min-template-length-frequency</code> <code class="parameter-metavar">MIN_TEMPLATE_LENGTH_FREQUENCY</code></dt>
+<dd class="parameter-details"><span class="parameter-help">How many times a template lenght should be observed to be considered as a viable template lenght? If this number is zero, you will have an extremely large number template lengths that will likely be due to noise. This number can be best set as a function of the total number of mapped reads in a bam file. The default value is set with the assumption that you have millions of reads in the BAM file.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">10</code></span></dd>
+<dt class="parameter" id="parameter-max_template_length_to_consider"><code class="parameter-flags">--max-template-length-to-consider</code> <code class="parameter-metavar">MAX_TEMPLATE_LENGTH_TO_CONSIDER</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Some paired end reads will map incredibly distant locations given the linear sequences you have used for read recruitment if the DNA templates were circular in the sample used for sequencing. Which is a beautiful thing, but can ruin your histogram. Using this parameter, you can discard paired end reads that are extremely distant from one another.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">500000</code></span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output-options">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT OPTIONS</span> <span class="parameter-group-description">Output options.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">FILE_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">File path to store results.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-plot_data"><code class="parameter-flags">--plot-data</code></dt>
+<dd class="parameter-details"><span class="parameter-help">In addition to providing you with a TAB-delimited output file, anvi&#x27;o can also try to plot a summary histogram for the template length distribution across ALL contigs in a given BAM file</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

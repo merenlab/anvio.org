@@ -145,6 +145,65 @@ anvi-analyze-synteny -g TEST_OUTPUT/TEST-GENOMES.db \
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-analyze-synteny.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-analyze-synteny`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-analyze-synteny [-h] -g GENOMES_STORAGE [--ngram-window-range NGRAM_WINDOW_RANGE] [-o FILE_PATH] [--annotation-source FUNCTION_ANNOTATION_SOURCE] [-p PAN_DB] [-n NGRAM_SOURCE] [-l] [--analyze-unknown-functions] [-G GENOME_NAMES] [--first-functional-hit-only]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-essential-input">
+<header class="parameter-group-header"><span class="parameter-group-title">Essential INPUT</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-genomes_storage"><code class="parameter-flags">-g, --genomes-storage</code> <code class="parameter-metavar">GENOMES_STORAGE</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Anvi&#x27;o genomes storage file</span></dd>
+<dt class="parameter" id="parameter-ngram_window_range"><code class="parameter-flags">--ngram-window-range</code> <code class="parameter-metavar">NGRAM_WINDOW_RANGE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The range of window sizes of Ngrams to analyze for synteny patterns.Please format the window-range as x:y (e.g. Window sizes 2 to 4 would be denoted as: 2:4)</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">2:3</code></span></dd>
+<dt class="parameter" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">FILE_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">File path to store results.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-annotation-sources-for-ngrams">
+<header class="parameter-group-header"><span class="parameter-group-title">Annotation sources for Ngrams</span> <span class="parameter-group-description">Choose one source of annotations for your Ngrams.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-annotation_source"><code class="parameter-flags">--annotation-source</code> <code class="parameter-metavar">FUNCTION_ANNOTATION_SOURCE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Get functional annotations for a specific annotation source. You can use the flag &#x27;--list-annotation-sources&#x27; to learn about what sources are available.</span></dd>
+<dt class="parameter" id="parameter-pan_db"><code class="parameter-flags">-p, --pan-db</code> <code class="parameter-metavar">PAN_DB</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Anvi&#x27;o pan database</span></dd>
+<dt class="parameter" id="parameter-ngram_source"><code class="parameter-flags">-n, --ngram-source</code> <code class="parameter-metavar">NGRAM_SOURCE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">If two annotation sources are provided, please choose one annotation source that will be used to calcuate Ngrams (e.g. gene_clusters, COG_FUNCTION)</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-optional-arguments">
+<header class="parameter-group-header"><span class="parameter-group-title">Optional arguments</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-list_annotation_sources"><code class="parameter-flags">-l, --list-annotation-sources</code></dt>
+<dd class="parameter-details"><span class="parameter-help">List available functional annotation sources.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-analyze_unknown_functions"><code class="parameter-flags">--analyze-unknown-functions</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Provide this flag if you want anvi-analyze-synteny to report Ngrams that contain gene calls that have no annotation.</span></dd>
+<dt class="parameter" id="parameter-genome_names"><code class="parameter-flags">-G, --genome-names</code> <code class="parameter-metavar">GENOME_NAMES</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Genome names to &#x27;focus&#x27;. You can use this parameter to limit the genomes included in your analysis. You can provide these names as a comma-separated list of names, or you can put them in a file, where you have a single genome name in each line, and provide the file path.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-first_functional_hit_only"><code class="parameter-flags">--first-functional-hit-only</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Use this flag if you want to use on the first functional annotation when making ngrams and assigning annotations. In some cases, anvio reports more than one annotation when there are multiple good hits to the gene. When this happens, all annotations will be reported in order of alignment score and delimited by &#x27;!!!&#x27; e.g. &#x27;COG123!!!COG456!!!COG789&#x27;. This flag will report &#x27;COG123!!!COG456!!!COG789&#x27; as &#x27;COG123&#x27;.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

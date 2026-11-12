@@ -1194,6 +1194,108 @@ th, td {
   border: none;
 }
 
+/* additional styling for program parameters */
+.program-parameters {
+  margin: 1em 0 2em;
+}
+
+.program-parameters section {
+  padding: 0px;
+}
+
+.program-parameters-usage {
+  font-family: monospace;
+  font-size: 0.85em;
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 10px;
+  background: #f7f7f7;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.parameter-group {
+  margin: 1.5em 0;
+  padding-left: 1em;
+}
+
+.parameter-group-header {
+  background: #fbfbfb;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: -12px;
+  margin-top: 1.5em;
+}
+
+.parameter-group-title {
+  font-size: medium;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.parameter-group-description {
+  display: block;
+  font-style: italic;
+  color: #555;
+  font-size: .9em;
+  padding-left: 10px;
+}
+
+.parameter-group-mandatory-inputs {
+  border-left-color: #c0392b;
+}
+
+.parameter-list {
+  margin: 0;
+  margin-left: 2em;
+  padding-left: 0.5em;
+  border-left: 3px solid #fbfbfb;
+}
+
+.parameter-list dt {
+  margin-top: .8em;
+  font-weight: normal;
+}
+
+.parameter-list dd {
+  margin: .2em 0 0 1.5em;
+  font-size: .92em;
+}
+
+.parameter-flags {
+  font-weight: bold;
+}
+
+.parameter-metavar {
+  color: #888;
+}
+
+.parameter-required-label {
+  font-size: .7em;
+  text-transform: uppercase;
+  background: #c0392b;
+  color: #fff;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: .4em;
+}
+
+.parameter-choices,
+.parameter-default {
+  display: block;
+  margin-top: .25em;
+  color: #555;
+}
+
+.parameter-label {
+  font-variant: small-caps;
+  margin-right: .3em;
+}
+
+.parameter-choice + .parameter-choice {
+  margin-left: .3em;
+}
+
 summary {
   background: #f4f5ea;
   padding: 5px;

@@ -100,6 +100,55 @@ This one file is the join key for everything downstream:
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-gen-antismash-matrix.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-script-gen-antismash-matrix`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-script-gen-antismash-matrix [-h] [-e FILE_PATH] [-i FILE_PATH] [--genes] [--regions] -O FILENAME_PREFIX</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT</span> <span class="parameter-group-description">This script accepts external- and internal-genomes files as input, simply use either the -e or -i flag (or both).</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-external_genomes"><code class="parameter-flags">-e, --external-genomes</code> <code class="parameter-metavar">FILE_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A two-column TAB-delimited flat text file that lists anvi&#x27;o contigs databases. The first item in the header line should read &#x27;name&#x27;, and the second should read &#x27;contigs_db_path&#x27;. Each line in the file should describe a single entry, where the first column is the name of the genome (or MAG), and the second column is the anvi&#x27;o contigs database generated for this genome.</span></dd>
+<dt class="parameter" id="parameter-internal_genomes"><code class="parameter-flags">-i, --internal-genomes</code> <code class="parameter-metavar">FILE_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A five-column TAB-delimited flat text file. The header line must contain these columns: &#x27;name&#x27;, &#x27;bin_id&#x27;, &#x27;collection_id&#x27;, &#x27;profile_db_path&#x27;, &#x27;contigs_db_path&#x27;. Each line should list a single entry, where &#x27;name&#x27; can be any name to describe the anvi&#x27;o bin identified as &#x27;bin_id&#x27; that is stored in a collection.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-matrix-type">
+<header class="parameter-group-header"><span class="parameter-group-title">MATRIX TYPE</span> <span class="parameter-group-description">Choose exactly one of the following.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-switch" id="parameter-genes"><code class="parameter-flags">--genes</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Build a per-gene matrix: rows are distinct gene signatures (role, function, smCOG and domains as separate columns), columns are genomes, and each cell is how many genes in that genome match the signature.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-regions"><code class="parameter-flags">--regions</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Build a per-cluster matrix: rows are BGC product types (terpene, NRPS, ...), columns are genomes, and each cell is how many regions (clusters) of that type the genome has.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-output">
+<header class="parameter-group-header"><span class="parameter-group-title">OUTPUT</span> <span class="parameter-group-description">A prefix for the two matrix files (frequency and presence/absence) this program will write.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-output_file_prefix"><code class="parameter-flags">-O, --output-file-prefix</code> <code class="parameter-metavar">FILENAME_PREFIX</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">A prefix to be used while naming the output files. No file type extensions please; just a prefix -- all ouptut file names and extensions will be appended to this prefix.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

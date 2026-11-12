@@ -75,6 +75,46 @@ You'll get a `Config Error` that will tell you what item orders are available.
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-export-items-order.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-export-items-order`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-export-items-order [-h] [-p DB PATH] [--name ORDER NAME] [-o FILE_PATH]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT</span> <span class="parameter-group-description">The database and the items order of interest</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-db_path"><code class="parameter-flags">-p, --db-path</code> <code class="parameter-metavar">DB PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">An appropriate anvi&#x27;o database.</span></dd>
+<dt class="parameter" id="parameter-name"><code class="parameter-flags">--name</code> <code class="parameter-metavar">ORDER NAME</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The name of the order you want to export. If you don&#x27;t provide an order name, anvi&#x27;o will show you the names of all available orders in the database.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-ouput">
+<header class="parameter-group-header"><span class="parameter-group-title">OUPUT</span> <span class="parameter-group-description">Output file name and stuff</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-output_file"><code class="parameter-flags">-o, --output-file</code> <code class="parameter-metavar">FILE_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">File path to store results.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 

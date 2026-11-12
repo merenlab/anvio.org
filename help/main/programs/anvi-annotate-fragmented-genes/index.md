@@ -212,6 +212,63 @@ If the `PSEUDO_GENES` source already exists in a contigs database (from a previo
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-annotate-fragmented-genes.md) to update this information.
 
 
+
+## Command line interface
+
+The following is the list of parameters and their descriptions in the latest version of `anvi-annotate-fragmented-genes`.
+
+The code that generates this web page ensures that this information is the latest available in **9-dev (eunice)**. Which means, in some cases the information in this section (generated automatically) might be more comprehensive or up-to-date compared to the descriptions above (written by humans).
+
+---
+
+### Command line usage
+
+{% raw %}
+<div class="program-parameters-usage">anvi-annotate-fragmented-genes [-h] -p PAN_DB [-g GENOMES_STORAGE] [-e FILE_PATH] [--min-full-length-ratio MIN_FULL_LENGTH_RATIO] [--max-combined-length-ratio MAX_COMBINED_LENGTH_RATIO] [--find-stray-fragments] [--annotation-source FUNCTION_ANNOTATION_SOURCE] [--skip-reporting] [--report-only]</div>
+{% endraw %}
+
+### Parameters and their descriptions
+
+{% raw %}
+<div class="program-parameters">
+<section class="parameter-group parameter-group-input">
+<header class="parameter-group-header"><span class="parameter-group-title">INPUT</span> <span class="parameter-group-description">Provide the pangenome database, genomes storage, and an external genomes file. The program will scan gene clusters for fragmentation events and annotate the relevant contigs databases.</span></header>
+<dl class="parameter-list">
+<dt class="parameter parameter-required" id="parameter-pan_db"><code class="parameter-flags">-p, --pan-db</code> <code class="parameter-metavar">PAN_DB</code> <span class="parameter-required-label">required</span></dt>
+<dd class="parameter-details parameter-required"><span class="parameter-help">Anvi&#x27;o pan database</span></dd>
+<dt class="parameter" id="parameter-genomes_storage"><code class="parameter-flags">-g, --genomes-storage</code> <code class="parameter-metavar">GENOMES_STORAGE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Anvi&#x27;o genomes storage file</span></dd>
+<dt class="parameter" id="parameter-external_genomes"><code class="parameter-flags">-e, --external-genomes</code> <code class="parameter-metavar">FILE_PATH</code></dt>
+<dd class="parameter-details"><span class="parameter-help">A two-column TAB-delimited flat text file that lists anvi&#x27;o contigs databases. The first item in the header line should read &#x27;name&#x27;, and the second should read &#x27;contigs_db_path&#x27;. Each line in the file should describe a single entry, where the first column is the name of the genome (or MAG), and the second column is the anvi&#x27;o contigs database generated for this genome.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-parameters">
+<header class="parameter-group-header"><span class="parameter-group-title">PARAMETERS</span> <span class="parameter-group-description">Fine-tune the fragmentation detection logic.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-min_full_length_ratio"><code class="parameter-flags">--min-full-length-ratio</code> <code class="parameter-metavar">MIN_FULL_LENGTH_RATIO</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Minimum ratio of the longest fragment length to the full-length reference gene length for that fragment to be labeled &#x27;fragmented_gene&#x27; rather than &#x27;gene_fragment&#x27;. If the longest fragment in a genome is shorter than this fraction of the reference, ALL fragments in that genome will be labeled &#x27;gene_fragment&#x27;. Default: 0.50</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.5</code></span></dd>
+<dt class="parameter" id="parameter-max_combined_length_ratio"><code class="parameter-flags">--max-combined-length-ratio</code> <code class="parameter-metavar">MAX_COMBINED_LENGTH_RATIO</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Maximum ratio of the combined length of adjacent genes in a candidate fragmentation group to the full-length reference gene length. When a gene is truly split by a premature stop codon, the resulting fragments should sum to roughly the reference length. If the combined length far exceeds the reference, the adjacent genes are more likely tandem gene duplications (paralogs?) rather than fragments of a single gene. Groups whose combined length exceeds this ratio times the reference length will be skipped. Default should work well for most cases, and it is 1.20. Please adjust it if your terminal output reveals any issues with your dataset.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">1.2</code></span></dd>
+<dt class="parameter parameter-switch" id="parameter-find_stray_fragments"><code class="parameter-flags">--find-stray-fragments</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Also look for out-of-frame gene fragments that ended up in different gene clusters. When a premature stop codon splits a gene and the downstream fragment is in a different reading frame, MCL places the fragment in a separate gene cluster. This flag enables a second scan that detects such cases by finding truncated genes whose adjacent neighbor on the same contig belongs to a different gene cluster and together they approximate the full-length reference.</span></dd>
+</dl>
+</section>
+<section class="parameter-group parameter-group-reporting">
+<header class="parameter-group-header"><span class="parameter-group-title">REPORTING</span> <span class="parameter-group-description">Control what this program reports and whether it gets to update anything at all.</span></header>
+<dl class="parameter-list">
+<dt class="parameter" id="parameter-annotation_source"><code class="parameter-flags">--annotation-source</code> <code class="parameter-metavar">FUNCTION_ANNOTATION_SOURCE</code></dt>
+<dd class="parameter-details"><span class="parameter-help">If provided, the consensus function from this annotation source will be shown next to each gene cluster name in the terminal report. You can always run `anvi-db-info` on your genome storage db to remember what function annotation sources available and what they are called.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-skip_reporting"><code class="parameter-flags">--skip-reporting</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Do not print per-gene-cluster visualizations to the terminal. Annotations will still be written to contigs databases.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-report_only"><code class="parameter-flags">--report-only</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Only report fragmentation events to the terminal. Do not write any annotations to contigs databases.</span></dd>
+</dl>
+</section>
+</div>
+{% endraw %}
+
+
+
 ## Additional Resources
 
 
