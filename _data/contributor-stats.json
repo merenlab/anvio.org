@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2494,
+        "total_commits": 2504,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,7 +168,7 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 153
+            "2026": 163
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
         "latest_commit_message": "leave `--dir` of `anvi-setup-modelseed-database` without a default, so its help page no longer shows the absolute path of the anvi'o installation that built it",
