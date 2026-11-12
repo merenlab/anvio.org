@@ -18,7 +18,7 @@ We are planning a free, in-person workshop and early-career researcher symposium
 * Pangenomics
 * Phylogenomics
 
-If you are interested in attending, please consider applying as soon as possible as we have limited number of seats in the workshop venue, and mark your calendars for April 19-23, 2027.
+If you are interested in attending, please consider [applying](https://forms.gle/seRvpS2ukMSCSMXY7) as soon as possible as we have limited number of seats in the workshop venue, and **mark your calendars for April 19-23, 2027**.
 
 Do you know someone who may be interested in attending? Please feel free to share this page with them!
 
@@ -117,7 +117,7 @@ If you do not have the funds to support your own travel and accommodation, pleas
 
 ## Registration
 
-**The application deadline is on December 7, 2026**. We will inform you if you got a spot in the workshop by December 14-15, 2026, and in that case you will have to formally accept the invitation/register for the workshop by **January 7, 2027**.
+If you are interested in attending this workshop, please apply using [this Google Form](https://forms.gle/seRvpS2ukMSCSMXY7). **The application deadline is on December 7, 2026**. We will inform you if you got a spot in the workshop by December 14-15, 2026, and in that case you will have to formally accept the invitation/register for the workshop by **January 7, 2027**.
 
 ## List of Faculty
 
