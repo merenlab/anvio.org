@@ -2,7 +2,7 @@
 
 > anvi'o is an open-source platform for microbial 'omics. This file contains the help pages for every anvi'o workflow, program, and artifact (the files and concepts programs use and produce). Each entry is a level-two section titled `<name> (<kind>)`.
 
-Generated 12 Nov 26 12:03:42 from anvi'o 9-dev (eunice). Online version: https://anvio.org/help/main/
+Generated 13 Nov 26 11:48:26 from anvi'o 9-dev (eunice). Online version: https://anvio.org/help/main/
 
 - Anvi'o version: eunice (v9-dev)
 - Profile DB version: 43
