@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8212,
+        "total_commits": 8224,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,7 +14,7 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 490
+            "2026": 502
         },
         "top_file": "anvio/dbops.py",
         "latest_commit_message": "fix path and syntax",
@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2505,
+        "total_commits": 2506,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 164
+            "2026": 165
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "normalize each genome's demand over its own isoacceptors in `anvi-compute-trnaseq-functional-affinity` rather than over the isoacceptors of every input genome",
-        "latest_commit_hash": "c54dfc486dd2e789637465138547d7ec00ea7277",
-        "latest_commit_date": "12 November 2026"
+        "latest_commit_message": "fix sample trees and dendrograms, which failed on blank affinities, and limit each genome's tables, plots, and trees to the samples in which it has affinities",
+        "latest_commit_hash": "ad305ec4d4a70ad9c8f8034d50eed9dc578d32bd",
+        "latest_commit_date": "13 November 2026"
     },
     "ahenoch": {
         "total_commits": 401,
@@ -660,7 +660,7 @@
         "latest_commit_date": "10 March 2025"
     },
     "bcoltman": {
-        "total_commits": 11,
+        "total_commits": 21,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -674,12 +674,12 @@
             "2023": 0,
             "2024": 0,
             "2025": 10,
-            "2026": 1
+            "2026": 11
         },
         "top_file": "anvio/drivers/hmmer.py",
-        "latest_commit_message": "Fixes #2539 by adding a simple fix for backward compatibility",
-        "latest_commit_hash": "8b6164a25e532a9a8dc9776822a997bab6ab85b0",
-        "latest_commit_date": "11 February 2026"
+        "latest_commit_message": "Remove MUSCLE run_stdin wrapper",
+        "latest_commit_hash": "3f52975c18e99d7349ab61b8560c9d6bfda6430e",
+        "latest_commit_date": "03 July 2026"
     },
     "katysloz": {
         "total_commits": 52,

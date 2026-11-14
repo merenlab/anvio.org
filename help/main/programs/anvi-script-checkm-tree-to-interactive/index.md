@@ -57,8 +57,7 @@ anvi&#45;script&#45;checkm&#45;tree&#45;to&#45;interactive &#45;t CheckM_concate
 cd OUTPUT_PATH/
 anvi&#45;interactive &#45;p PROFILE.db \
                  &#45;t newick.tree \
-                 &#45;d view_data.txt \
-                 &#45;&#45;manual
+                 &#45;d view_data.txt
 </div>
 
 

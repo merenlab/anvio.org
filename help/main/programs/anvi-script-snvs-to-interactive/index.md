@@ -59,8 +59,7 @@ anvi&#45;script&#45;snvs&#45;to&#45;interactive &#45;o OUTPUT_DIR \
 Then, you can open the interactive interface by running
 
 <div class="codeblock" markdown="1">
-anvi&#45;interactive &#45;&#45;manual&#45;mode \
-                 &#45;p OUTPUT_DIR/profile.db \
+anvi&#45;interactive &#45;p OUTPUT_DIR/profile.db \
                  &#45;&#45;tree OUTPUT_DIR/tree.txt \
                  &#45;&#45;view&#45;data OUTPUT_DIR/view.txt
 </div>

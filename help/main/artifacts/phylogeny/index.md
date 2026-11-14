@@ -65,11 +65,11 @@ Secondly, as done in the [Phylogenetics tutorial](http://merenlab.org/2017/06/07
 
 <div class="codeblock" markdown="1">
 anvi&#45;interactive &#45;t <span class="artifact&#45;n">[phylogeny](/help/main/artifacts/phylogeny)</span> \
-                 &#45;&#45;title "Phylogenomics Tutorial" \
-                 &#45;&#45;manual
+                 &#45;p phylogeny&#45;PROFILE.db \
+                 &#45;&#45;title "Phylogenomics Tutorial"
 </div>
 
-This will create an empty <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> to store any <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s you create and other such data. You can also add various information, such as taxonomy hits, as done in that same [Phylogenetics tutorial](http://merenlab.org/2017/06/07/phylogenomics/#working-with-fasta-files).
+Since `phylogeny-PROFILE.db` does not exist yet, this will create an empty <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> to store any <span class="artifact-n">[bin](/help/main/artifacts/bin)</span>s you create and other such data. You can also add various information, such as taxonomy hits, as done in that same [Phylogenetics tutorial](http://merenlab.org/2017/06/07/phylogenomics/#working-with-fasta-files).
 
 
 {:.notice}

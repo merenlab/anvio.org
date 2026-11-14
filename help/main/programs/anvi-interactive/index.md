@@ -144,14 +144,25 @@ You can also visit [this page](http://merenlab.org/tutorials/infant-gut/#the-gen
 
 ## Manual mode: visualize anything
 
-You can initiate the anvi'o interactive interface in manual mode to run it on *ad hoc* tabular data (here is [a tutorial on this](http://merenlab.org/tutorials/interactive-interface/)).
+You can also run the anvi'o interactive interface on *ad hoc* data that has nothing to do with anvi'o databases (here is [a tutorial on this](http://merenlab.org/tutorials/interactive-interface/)). To do that, you simply provide *any* of the following types of files individually or together, without a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>:
 
-Anvi'o interactive interface is initiated with the flag `--manual-mode` and then by providing *any* of the following types of files individually or together:
+- a TAB-delimited tabular data (`--view-data`),
+- a NEWICK formatted tree (`--tree`),
 
-- a TAB-delimited tabular data,
-- a NEWICK formatted tree,
+For instance:
 
-When doing this kind of run, anvi'o does not expect you to have a profile database, but it still needs you to provide a name for it. Anvi'o will simply create an empty one for you so you can store your state or collections in it for reproducibility.
+<div class="codeblock" markdown="1">
+anvi&#45;interactive &#45;d view_data.txt \
+                 &#45;t tree.txt \
+                 &#45;p my&#45;display&#45;PROFILE.db
+</div>
+
+When doing this kind of run, anvi'o does not expect you to have a profile database, but it still needs you to provide a name for it. Anvi'o will simply create an empty one for you so you can store your state or collections in it for reproducibility. When you run the same command again, anvi'o will find the same profile database and will remember everything you have stored in it.
+
+{:.notice}
+Anvi'o recognizes this kind of run automatically, and starts the interface in what we call the 'manual mode'. In older versions of anvi'o you had to use the flag `--manual-mode` (or `--manual`) to ask for it explicitly. This is no longer necessary, but anvi'o will continue to accept these flags so your older commands will work.
+
+There is one case where you will need the `--manual-mode` flag: if you provide a tree or a data file without `-p` or `-c` in a directory where anvi'o can find a <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</span> and a <span class="artifact-n">[contigs-db](/help/main/artifacts/contigs-db)</span>, anvi'o can't tell whether you want to see your files alone, or on top of those databases. In that case it will ask you to be precise, either by using `--manual-mode` with a profile database path of your choice, or by providing the databases you want to use explicitly with `-p` and `-c`.
 
 ## Extending anvi'o displays
 
@@ -230,7 +241,7 @@ The code that generates this web page ensures that this information is the lates
 {% raw %}
 <div class="program-parameters">
 <section class="parameter-group parameter-group-default-inputs">
-<header class="parameter-group-header"><span class="parameter-group-title">DEFAULT INPUTS</span> <span class="parameter-group-description">The interactive interface can be started with and without anvi&#x27;o databases. The default use assumes you have your profile and contigs database, however, it is also possible to start the interface using ad hoc input files. See &#x27;MANUAL INPUT&#x27; section for required parameters.</span></header>
+<header class="parameter-group-header"><span class="parameter-group-title">DEFAULT INPUTS</span> <span class="parameter-group-description">The interactive interface can be started with and without anvi&#x27;o databases. The default use assumes you have your profile and contigs database, however, it is also possible to start the interface using ad hoc input files. See &#x27;MANUAL INPUTS&#x27; section for those parameters.</span></header>
 <dl class="parameter-list">
 <dt class="parameter" id="parameter-profile_db"><code class="parameter-flags">-p, --profile-db</code> <code class="parameter-metavar">PROFILE_DB</code></dt>
 <dd class="parameter-details"><span class="parameter-help">Anvi&#x27;o profile database</span></dd>
@@ -241,10 +252,10 @@ The code that generates this web page ensures that this information is the lates
 </dl>
 </section>
 <section class="parameter-group parameter-group-manual-inputs">
-<header class="parameter-group-header"><span class="parameter-group-title">MANUAL INPUTS</span> <span class="parameter-group-description">Mandatory input parameters to start the interactive interface without anvi&#x27;o databases.</span></header>
+<header class="parameter-group-header"><span class="parameter-group-title">MANUAL INPUTS</span> <span class="parameter-group-description">Input parameters to start the interactive interface without anvi&#x27;o databases. When you provide these without a contigs database, anvi&#x27;o will start the interface in manual mode automatically. You still need to provide a profile database path, which does not need to exist: anvi&#x27;o will create an empty one for you to store your states and collections.</span></header>
 <dl class="parameter-list">
-<dt class="parameter parameter-switch" id="parameter-manual_mode"><code class="parameter-flags">--manual-mode</code></dt>
-<dd class="parameter-details"><span class="parameter-help">Using this flag, you can run the interactive interface in an ad hoc manner using input files you curated instead of standard output files generated by an anvi&#x27;o run. In the manual mode you will be asked to provide a profile database. In this mode a profile database is only used to store &#x27;state&#x27; of the interactive interface so you can reload your visual settings when you re-analyze the same files again. If the profile database you provide does not exist, anvi&#x27;o will create an empty one for you.</span></dd>
+<dt class="parameter parameter-switch" id="parameter-manual_mode"><code class="parameter-flags">--manual-mode, --manual</code></dt>
+<dd class="parameter-details"><span class="parameter-help">You will rarely need this flag, since anvi&#x27;o starts the interactive interface in manual mode automatically when it is given ad hoc input files (such as a tree or a view data file) without a contigs database. But if there are anvi&#x27;o databases in your work directory, anvi&#x27;o may not be sure whether you want to visualize your files alone or on top of those databases, and ask you to use this flag to be precise. In the manual mode the profile database is only used to store the &#x27;state&#x27; of the interface and collections, and if it does not exist, anvi&#x27;o will create an empty one for you.</span></dd>
 <dt class="parameter" id="parameter-fasta_file"><code class="parameter-flags">-f, --fasta-file</code> <code class="parameter-metavar">FASTA FILE</code></dt>
 <dd class="parameter-details"><span class="parameter-help">A FASTA-formatted input file.</span></dd>
 <dt class="parameter" id="parameter-view_data"><code class="parameter-flags">-d, --view-data</code> <code class="parameter-metavar">VIEW_DATA</code></dt>

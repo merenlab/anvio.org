@@ -82,7 +82,6 @@ Thus, after running this program on a bin with name `BIN_NAME`, you can run
 <div class="codeblock" markdown="1">
 <span class="artifact&#45;p">[anvi&#45;interactive](/help/main/programs/anvi&#45;interactive)</span> &#45;d BIN_NAME&#45;GENE&#45;COVs.txt \
                  &#45;A BIN_NAME&#45;ENV&#45;DETECTION.txt \
-                 &#45;&#45;manual \
                  &#45;p <span class="artifact&#45;n">[profile&#45;db](/help/main/artifacts/profile&#45;db)</span>
 </div>
 

@@ -320,7 +320,7 @@ The code that generates this web page ensures that this information is the lates
 ### Command line usage
 
 {% raw %}
-<div class="program-parameters-usage">anvi-search-palindromes [-h] [-c CONTIGS_DB] [-f FASTA file] [--dna-sequence DNA SEQ] [--palindrome-search-algorithm {numba,BLAST}] [-l INT] [-m INT] [-d INT] [--min-mismatch-distance-to-first-base INT] [--blast-word-size INT] [-T NUM_THREADS] [-o FILE_PATH] [--verbose]</div>
+<div class="program-parameters-usage">anvi-search-palindromes [-h] [-c CONTIGS_DB] [-f FASTA file] [--dna-sequence DNA SEQ] [--palindrome-search-algorithm {BLAST,numba}] [-l INT] [-m INT] [-d INT] [--min-mismatch-distance-to-first-base INT] [--blast-word-size INT] [-T NUM_THREADS] [-o FILE_PATH] [--verbose]</div>
 {% endraw %}
 
 ### Parameters and their descriptions

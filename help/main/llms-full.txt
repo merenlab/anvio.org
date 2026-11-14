@@ -2,7 +2,7 @@
 
 > anvi'o is an open-source platform for microbial 'omics. This file contains the help pages for every anvi'o workflow, program, and artifact (the files and concepts programs use and produce). Each entry is a level-two section titled `<name> (<kind>)`.
 
-Generated 13 Nov 26 11:48:26 from anvi'o 9-dev (eunice). Online version: https://anvio.org/help/main/
+Generated 14 Nov 26 11:10:09 from anvi'o 9-dev (eunice). Online version: https://anvio.org/help/main/
 
 - Anvi'o version: eunice (v9-dev)
 - Profile DB version: 43
@@ -496,8 +496,7 @@ To initialize [AA-mode](#aa-mode), go to the rule `cluster_X_percent_sim_mmseqs`
 PROTEIN="" # Replace with name of protein from hmm_list.txt
 anvi-interactive -t 05_TREES/"${PROTEIN}"/"${PROTEIN}"_renamed.nwk \
                  -p 05_TREES/"${PROTEIN}"/"${PROTEIN}"-PROFILE.db \
-                 --fasta 05_TREES/"${PROTEIN}"/"${PROTEIN}"_renamed.faa \
-                 --manual
+                 --fasta 05_TREES/"${PROTEIN}"/"${PROTEIN}"_renamed.faa
 ```
 
 ### profile-mode: Insights into the ecological and evolutionary patterns of target genes and environments
@@ -525,8 +524,7 @@ To visualize the output of [profile-mode](#profile-mode-insights-into-the-ecolog
 ```bash
 PROTEIN="" # Replace with name of protein from hmm_list.txt
 anvi-interactive -p METAGENOMICS_WORKFLOW/06_MERGED/"${PROTEIN}"/PROFILE.db \
-                 -c METAGENOMICS_WORKFLOW/03_CONTIGS/"${PROTEIN}".db \
-                 --manual
+                 -c METAGENOMICS_WORKFLOW/03_CONTIGS/"${PROTEIN}".db
 ```
 
 
@@ -536,8 +534,7 @@ Just want a quick look at the tree without read recruitment results?
 PROTEIN="" # Replace with name of protein from hmm_list.txt
 anvi-interactive -t 05_TREES/"${PROTEIN}"/"${PROTEIN}"_renamed.nwk \
                  -p 05_TREES/"${PROTEIN}"/"${PROTEIN}"-PROFILE.db \
-                 --fasta 05_TREES/"${PROTEIN}"/"${PROTEIN}"_renamed.faa \
-                 --manual
+                 --fasta 05_TREES/"${PROTEIN}"/"${PROTEIN}"_renamed.faa
 ```
 
 ### Manual curation of the ecophylo phylogeny
@@ -3706,8 +3703,7 @@ This profile-db can be used to visualize the same data repeatedly; however, futu
 
 
 ```
-anvi-interactive -p GCF_001458775-PROFILE.db \
-                 --manual
+anvi-interactive -p GCF_001458775-PROFILE.db
 ```
 
 ## anvi-display-contigs-stats (program)
@@ -8230,8 +8226,7 @@ anvi-matrix-to-newick variability_output.txt -o variability_output.newick
 
 anvi-interactive -d variability_output.txt \
                  -t variability_output.newick \
-                 -p varaibility_profile.db \
-                 --manual
+                 -p varaibility_profile.db
 ```
 
 ### Using competing nucleotides as features
@@ -10646,14 +10641,24 @@ You can also visit [this page](http://merenlab.org/tutorials/infant-gut/#the-gen
 
 ### Manual mode: visualize anything
 
-You can initiate the anvi'o interactive interface in manual mode to run it on *ad hoc* tabular data (here is [a tutorial on this](http://merenlab.org/tutorials/interactive-interface/)).
+You can also run the anvi'o interactive interface on *ad hoc* data that has nothing to do with anvi'o databases (here is [a tutorial on this](http://merenlab.org/tutorials/interactive-interface/)). To do that, you simply provide *any* of the following types of files individually or together, without a contigs-db:
 
-Anvi'o interactive interface is initiated with the flag `--manual-mode` and then by providing *any* of the following types of files individually or together:
+- a TAB-delimited tabular data (`--view-data`),
+- a NEWICK formatted tree (`--tree`),
 
-- a TAB-delimited tabular data,
-- a NEWICK formatted tree,
+For instance:
 
-When doing this kind of run, anvi'o does not expect you to have a profile database, but it still needs you to provide a name for it. Anvi'o will simply create an empty one for you so you can store your state or collections in it for reproducibility.
+```
+anvi-interactive -d view_data.txt \
+                 -t tree.txt \
+                 -p my-display-PROFILE.db
+```
+
+When doing this kind of run, anvi'o does not expect you to have a profile database, but it still needs you to provide a name for it. Anvi'o will simply create an empty one for you so you can store your state or collections in it for reproducibility. When you run the same command again, anvi'o will find the same profile database and will remember everything you have stored in it.
+
+**Note:** Anvi'o recognizes this kind of run automatically, and starts the interface in what we call the 'manual mode'. In older versions of anvi'o you had to use the flag `--manual-mode` (or `--manual`) to ask for it explicitly. This is no longer necessary, but anvi'o will continue to accept these flags so your older commands will work.
+
+There is one case where you will need the `--manual-mode` flag: if you provide a tree or a data file without `-p` or `-c` in a directory where anvi'o can find a profile-db and a contigs-db, anvi'o can't tell whether you want to see your files alone, or on top of those databases. In that case it will ask you to be precise, either by using `--manual-mode` with a profile database path of your choice, or by providing the databases you want to use explicitly with `-p` and `-c`.
 
 ### Extending anvi'o displays
 
@@ -13986,8 +13991,7 @@ anvi-script-checkm-tree-to-interactive -t CheckM_concatenated.tree \
 cd OUTPUT_PATH/
 anvi-interactive -p PROFILE.db \
                  -t newick.tree \
-                 -d view_data.txt \
-                 --manual
+                 -d view_data.txt
 ```
 
 ## anvi-script-compute-ani-for-fasta (program)
@@ -14812,7 +14816,6 @@ Thus, after running this program on a bin with name `BIN_NAME`, you can run
 ```
 anvi-interactive -d BIN_NAME-GENE-COVs.txt \
                  -A BIN_NAME-ENV-DETECTION.txt \
-                 --manual \
                  -p profile-db
 ```
 
@@ -15677,8 +15680,7 @@ anvi-script-snvs-to-interactive -o OUTPUT_DIR \
 Then, you can open the interactive interface by running
 
 ```
-anvi-interactive --manual-mode \
-                 -p OUTPUT_DIR/profile.db \
+anvi-interactive -p OUTPUT_DIR/profile.db \
                  --tree OUTPUT_DIR/tree.txt \
                  --view-data OUTPUT_DIR/view.txt
 ```
@@ -23615,11 +23617,11 @@ Secondly, as done in the [Phylogenetics tutorial](http://merenlab.org/2017/06/07
 
 ```
 anvi-interactive -t phylogeny \
-                 --title "Phylogenomics Tutorial" \
-                 --manual
+                 -p phylogeny-PROFILE.db \
+                 --title "Phylogenomics Tutorial"
 ```
 
-This will create an empty profile-db to store any bins you create and other such data. You can also add various information, such as taxonomy hits, as done in that same [Phylogenetics tutorial](http://merenlab.org/2017/06/07/phylogenomics/#working-with-fasta-files).
+Since `phylogeny-PROFILE.db` does not exist yet, this will create an empty profile-db to store any bins you create and other such data. You can also add various information, such as taxonomy hits, as done in that same [Phylogenetics tutorial](http://merenlab.org/2017/06/07/phylogenomics/#working-with-fasta-files).
 
 ## pn-ps-data (artifact)
 

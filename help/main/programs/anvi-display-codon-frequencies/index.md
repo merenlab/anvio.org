@@ -127,8 +127,7 @@ This <span class="artifact-n">[profile-db](/help/main/artifacts/profile-db)</spa
 
 
 ```
-anvi-interactive -p GCF_001458775-PROFILE.db \
-                 --manual
+anvi-interactive -p GCF_001458775-PROFILE.db
 ```
 
 
