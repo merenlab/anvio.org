@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8224,
+        "total_commits": 8248,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 502
+            "2026": 526
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "fix path and syntax",
-        "latest_commit_hash": "bd646d75c86e711ea19469aa52f923d558f97c34",
-        "latest_commit_date": "04 November 2026"
+        "latest_commit_message": "pass run/progress objects religiously",
+        "latest_commit_hash": "ba9a7b5af2a8607d7a8896ea613e9aab1f9a35cb",
+        "latest_commit_date": "14 November 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 575,
@@ -1012,7 +1012,7 @@
         "latest_commit_date": "21 May 2026"
     },
     "jessika-fuessel": {
-        "total_commits": 9,
+        "total_commits": 11,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -1026,12 +1026,12 @@
             "2023": 0,
             "2024": 2,
             "2025": 0,
-            "2026": 2
+            "2026": 4
         },
         "top_file": "anvio/__init__.py",
-        "latest_commit_message": "Add anvi-run-antismash and anvi-script-gen-antismash-matrix",
-        "latest_commit_hash": "17e98a550b33ffe0495291bc95ae1d485a70fdae",
-        "latest_commit_date": "13 July 2026"
+        "latest_commit_message": "Split AMRFinder.process into smaller methods",
+        "latest_commit_hash": "57708799236fbd44860eef7edc38dcddae6d977d",
+        "latest_commit_date": "13 November 2026"
     },
     "tdelmont": {
         "total_commits": 0,

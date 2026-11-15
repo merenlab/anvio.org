@@ -17,7 +17,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **14 Nov 26 11:10:09** for anvi'o version **9-dev (eunice)**.
+The help contents were last updated on **15 Nov 26 11:44:27** for anvi'o version **9-dev (eunice)**.
 
 
 {% include _project-anvio-version.html %}
@@ -52,7 +52,7 @@ The anvi'o 9-dev (eunice) contains 6 workflows:
 
 Anvi'o artifacts represent **concepts, file types, or data types** anvi'o programs can work with. A given anvi'o artifact can be provided by the user (such as a FASTA file), produced by anvi'o (such as a profile database), or both (such as phylogenomic trees). Anvi'o artifacts link anvi'o programs to each other to build novel workflows.
 
-Listed below **a total of 162 artifacts**.
+Listed below **a total of 163 artifacts**.
 
 <table class="artifacts-table">
 
@@ -105,7 +105,7 @@ Listed below **a total of 162 artifacts**.
 </tr>
 
 <tr>
-<td><div class="artifact-icon-div"><img src="images/icons/DATA.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[cogs-data](artifacts/cogs-data)</span> <span class="artifact-n" markdown="1">[globdb-data](artifacts/globdb-data)</span> <span class="artifact-n" markdown="1">[pfams-data](artifacts/pfams-data)</span> <span class="artifact-n" markdown="1">[cazyme-data](artifacts/cazyme-data)</span> <span class="artifact-n" markdown="1">[interacdome-data](artifacts/interacdome-data)</span></td>
+<td><div class="artifact-icon-div"><img src="images/icons/DATA.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[cogs-data](artifacts/cogs-data)</span> <span class="artifact-n" markdown="1">[globdb-data](artifacts/globdb-data)</span> <span class="artifact-n" markdown="1">[pfams-data](artifacts/pfams-data)</span> <span class="artifact-n" markdown="1">[cazyme-data](artifacts/cazyme-data)</span> <span class="artifact-n" markdown="1">[amrfinder-data](artifacts/amrfinder-data)</span> <span class="artifact-n" markdown="1">[interacdome-data](artifacts/interacdome-data)</span></td>
 </tr>
 
 <tr>
@@ -138,7 +138,7 @@ Listed below **a total of 162 artifacts**.
 
 Anvi'o programs perform atomic tasks that can be weaved together to implement complete 'omics workflows. Please note that there may be programs that are not listed on this page. You can type 'anvi-' in your terminal, and press the TAB key twice to see the full list of programs available to you on your system, and type `anvi-program-name --help` to read the full list of command line options.
 
-Listed below **a total of 177 programs**.
+Listed below **a total of 179 programs**.
 
 
 <div style="width:100%;">
@@ -3325,6 +3325,36 @@ Listed below **a total of 177 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-amrfinder](programs/anvi-run-amrfinder)**</span>. <span markdown="1">You can use this to annotate genes in a contigs-db with NCBI&#x27;s AMRFinderPlus to find antimicrobial resistance genes, stress response genes (such as metal and biocide resistance), and virulence genes.</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[amrfinder-data](artifacts/amrfinder-data) <img src="images/icons/DATA.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/jessika-fuessel" target="_blank"><img class="anvio-person-photo-img-mini" title="Jessika Fuessel" src="images/authors/bio-jessika.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
         <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-cazymes](programs/anvi-run-cazymes)**</span>. <span markdown="1">Run dbCAN CAZymes on contigs-db</span>.
     </td>
 </tr>
@@ -3839,6 +3869,36 @@ Listed below **a total of 177 programs**.
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ekiefl" target="_blank"><img class="anvio-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/ivagljiva" target="_blank"><img class="anvio-person-photo-img-mini" title="Iva Veseli" src="images/authors/ivagljiva.jpg" /></a></div></div>
 <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/mschecht" target="_blank"><img class="anvio-person-photo-img-mini" title="Matthew Schechter" src="images/authors/mschecht.jpg" /></a></div></div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-amrfinder](programs/anvi-setup-amrfinder)**</span>. <span markdown="1">Downloads and sets up NCBI&#x27;s AMRFinderPlus database for `anvi-run-amrfinder`</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span>
+        <span class="artifact-r" markdown="1">n/a</span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span>
+        <span class="artifact-p" markdown="1">[amrfinder-data](artifacts/amrfinder-data) <img src="images/icons/DATA.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🧠</span> <div class="anvio-person-mini"><div class="anvio-person-photo-mini"><a href="/people/jessika-fuessel" target="_blank"><img class="anvio-person-photo-img-mini" title="Jessika Fuessel" src="images/authors/bio-jessika.jpg" /></a></div></div>
 
     </td>
 </tr>

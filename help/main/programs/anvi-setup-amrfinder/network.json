@@ -1,0 +1,31 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "amrfinder-data",
+      "name": "amrfinder-data",
+      "provided_by_anvio": true,
+      "type": "DATA"
+    },
+    {
+      "size": 1,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-setup-amrfinder",
+      "name": "anvi-setup-amrfinder",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 1,
+      "target": 0,
+      "type": "provides"
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

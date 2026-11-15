@@ -267,7 +267,9 @@
   programs:
     - name: anvi-estimate-metabolism
     - name: anvi-gen-function-matrix
+    - name: anvi-run-amrfinder
     - name: anvi-run-antismash
+    - name: anvi-setup-amrfinder
     - name: anvi-script-gen-antismash-matrix
 - author: qclayssen
   programs:

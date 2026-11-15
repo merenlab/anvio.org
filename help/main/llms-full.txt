@@ -2,7 +2,7 @@
 
 > anvi'o is an open-source platform for microbial 'omics. This file contains the help pages for every anvi'o workflow, program, and artifact (the files and concepts programs use and produce). Each entry is a level-two section titled `<name> (<kind>)`.
 
-Generated 14 Nov 26 11:10:09 from anvi'o 9-dev (eunice). Online version: https://anvio.org/help/main/
+Generated 15 Nov 26 11:44:27 from anvi'o 9-dev (eunice). Online version: https://anvio.org/help/main/
 
 - Anvi'o version: eunice (v9-dev)
 - Profile DB version: 43
@@ -10660,6 +10660,28 @@ When doing this kind of run, anvi'o does not expect you to have a profile databa
 
 There is one case where you will need the `--manual-mode` flag: if you provide a tree or a data file without `-p` or `-c` in a directory where anvi'o can find a profile-db and a contigs-db, anvi'o can't tell whether you want to see your files alone, or on top of those databases. In that case it will ask you to be precise, either by using `--manual-mode` with a profile database path of your choice, or by providing the databases you want to use explicitly with `-p` and `-c`.
 
+If the items in your display have sequences (for instance, a tree you have computed from a multiple sequence alignment), you can also provide a FASTA file with `--fasta-file`, in which case the names of the sequences must match the names of the items in your display:
+
+```
+anvi-interactive -t dendrogram \
+                 --fasta-file fasta \
+                 -p profile-db
+```
+
+#### Curating bins in manual mode
+
+In manual mode, clicking on the number of items of a bin in the Bins panel opens a curation window for that bin. This window lists every item in the bin with a checkbox, and offers buttons to select all items, none of them, or invert the current selection. Once you have selected some items, you can remove them from the bin, or move them to another bin. The window that opens when you choose to move items lists the existing bins, and also offers to move them to a new bin with a name anvi'o suggests (which you can change). New bins are created only when you apply your changes. These operations are only *staged*: the affected items are struck through and tagged in the window, and nothing happens to your bins until you click 'Apply'. Clicking 'Discard all changes' throws away all staged changes and lets you start over in the same window, and closing the window while there are staged changes discards them as well (after asking you to confirm). All changes applied at once can be reverted with a single 'undo'.
+
+The same window also shows a 'Sequences' section that lists the sequence of each item, so you can compare them and spot unexpected or odd ones that you may want to remove from the bin. Sequences are not wrapped, so if they come from an alignment their columns line up with each other. The checkboxes in this section are synchronized with those in the 'Splits' section, and you can copy the sequences of all remaining items, or only the checked ones, to your clipboard in FASTA format. If you do not wish to see the sequences, you can uncheck the box "Show sequences in the bin items window" in the Bins panel.
+
+If your sequences are not already aligned, you can check the box "Align sequences before showing them" in the Bins panel (it is unchecked by default). When it is checked, anvi'o aligns the sequences in the bin with its default aligner (any gap characters in your FASTA file are removed first), so their columns line up and odd sequences are easier to spot. In this case the FASTA you copy to your clipboard will contain the aligned sequences. Please keep in mind that aligning many or very long sequences may take a while. Aligned sequences are colored the same way anvi-display-pan colors the amino acid sequences of gene clusters (which is designed for amino acids, so colors will not mean much for nucleotide sequences), unless there are so many residues that coloring them would make the interface sluggish.
+
+#### Getting a new FASTA file after curating bins
+
+In manual mode with a FASTA file, the Bins panel also offers to download a copy of the input FASTA either *excluding* the sequences in your bins, or *only* with the sequences in your bins. Clicking either of these buttons opens a window where you can select the bins to consider and change the name of the new file, which your browser will save like any other download. The new FASTA file reflects your bins as they are in the interface at that moment (whether you stored them in a collection or not), and its sequences appear in the same order and with the same deflines as in the input FASTA file. Entries in the input FASTA that do not appear in your display are kept when you exclude sequences in bins (since they can't be in a bin).
+
+If/when you provide a FASTA file to anvi-interactive, the combination of displaying sequences (with the option to align them on-the-fly) AND being able to move them around or mark them for deletion by adding unruly sequences to specific bins, becomes an extremely powerful way to manually curate your phylogenetic trees.
+
 ### Extending anvi'o displays
 
 You can extend any interactive display in anvi'o with additional data related to your project through the program anvi-import-misc-data. [This article](https://merenlab.org/2017/12/11/additional-data-tables/) describes a detailed use of this program.
@@ -12838,6 +12860,114 @@ Having complete links, however, will enable [oligotyping](https://besjournals.on
 ### See this program in action
 
 [http://merenlab.org/2015/12/09/musings-over-commamox/](http://merenlab.org/2015/12/09/musings-over-commamox/)
+
+## anvi-run-amrfinder (program)
+
+- URL: https://anvio.org/help/main/programs/anvi-run-amrfinder/
+- Description: You can use this to annotate genes in a contigs-db with NCBI's AMRFinderPlus to find antimicrobial resistance genes, stress response genes (such as metal and biocide resistance), and virulence genes.
+- Requires: `contigs-db`, `amrfinder-data`
+- Provides: `functions`
+- Authors: Jessika Fuessel (@jessika-fuessel)
+
+This program **annotates genes in your contigs-db with NCBI's [AMRFinderPlus](https://github.com/ncbi/amr/wiki)**, which identifies antimicrobial resistance genes, stress response genes (such as metal, biocide, heat, and acid resistance), and virulence genes. The output is a functions artifact.
+
+**Note:** Keep in mind that AMRs are difficult to annotate and AMRFinderPlus's database is mostly built from AMRs in host associated microbes. To get a comprehensive picture of AMRs in environmental populations you would need to dive much deeper than using this tool only.
+
+Before you can run this program, you will need to install AMRFinderPlus and set up its database with anvi-setup-amrfinder.
+
+### How does it work?
+
+1. AMRFinderPlus requires the amino acid sequences of the genes in your contigs-db. The first thing anvi-run-amrfinder does is to **export the amino acid sequences** of all genes in your contigs-db into a temporary FASTA file while using their gene caller ids as names.
+2. Anvi'o then **runs AMRFinderPlus** which compares the exported amino acid sequences to NCBI's curated reference proteins with BLASTP and to its curated protein families with HMMs. Whether a gene is identified or not depends on NCBI's curated cutoffs. Anvi'o always includes all genes in AMRFinderPlus's database, which also includes stress response genes, virulence genes, and resistance genes with uncertain effects.
+3. Anvi'o then **stores the hits** in your contigs-db including six levels of information for each gene that are available in the AMRFinderPlus database (see below).
+
+Since AMRFinderPlus works with the gene sequences that anvi'o has already identified, the program does not search the contig sequences themselves, and it does not screen for the organism-specific point mutations that the AMRFinderPlus database contains for some known pathogens.
+
+### Running it
+
+```
+anvi-run-amrfinder -c contigs-db \
+                   --num-threads 4
+```
+
+If you set up the amrfinder-data in a non-default location, you will need to provide that path as well:
+
+```
+anvi-run-amrfinder -c contigs-db \
+                   --amrfinder-data-dir path/to/directory
+```
+
+### What goes into the contigs database
+
+Each positive hit is associated with six levels of information that are contained in the AMRFinderPlus database:
+
+|Annotation source|Accession|Function|Examples|
+|:--|:--|:--|:--|
+|`AMRFinder`|AMRFinderPlus hierarchy node|gene name|`bla-B3`: subclass B3 metallo-beta-lactamase|
+|`AMRFinder_CLASS`|class|class|BETA-LACTAM, MERCURY|
+|`AMRFinder_SUBCLASS`|subclass|subclass|CARBAPENEM, ARSENITE|
+|`AMRFinder_SUBTYPE`|subtype|subtype|AMR, METAL, BIOCIDE, VIRULENCE|
+|`AMRFinder_SCOPE`|scope|scope|core, plus|
+|`AMRFinder_METHOD`|method|method|HMM, BLASTP, EXACTP|
+
+AMRFinderPlus annotates each gene following an annotation hierarchy that is built like a family tree of genes, and assigns each hit to the most specific entry (node) of this tree based on the curated similarity cutoffs. Each node in this hierarchy has a unique identifier in the AMRFinderPlus database, which is more specific than gene symbols or names (several different entries share the name 'class A beta-lactamase', for instance).
+
+Genes for which AMRFinderPlus reports no class or subclass, which includes most virulence genes, heat and acid resistance genes, and a few metal resistance genes, have no annotation at the `AMRFinder_CLASS` and `AMRFinder_SUBCLASS` level.
+
+### E-values
+
+Running HMMs to annotate genes generates e-values, but these are not included in the output of AMRFinderPlus because the database uses manually curated cutoff values. When you run the program in anvi'o it recovers the e-values from the hmmsearch table AMRFinderPlus leaves behind in its temporary directory, and stores them with every HMM based gene annotation. Hits without an HMM match that were identified with BLASTP only have no e-value and receive a placeholder e-value of 0. Because AMRFinderPlus calculates e-values for a fixed search space of 10,000 proteins, they are not directly comparable to the e-values of other anvi'o annotation programs.
+
+If for some reason anvi'o cannot find the hmmsearch table (for instance, because a future version of AMRFinderPlus works differently), it will stop with an error. In that case, you can use the flag `--skip-amrfinder-e-values` to store all annotations with an e-value of 0 but still get your annotations. That does not make the annotations less reliable, the same curated cutoffs are still applied during the annotation process:
+
+```
+anvi-run-amrfinder -c contigs-db \
+                   --skip-amrfinder-e-values
+```
+
+### The full AMRFinderPlus report
+
+The contigs-db stores the essentials of every hit. If you would like to generate an output tab-delimited table that includes all available information for each annotation, you can use this flag:
+
+```
+anvi-run-amrfinder -c contigs-db \
+                   --full-amrfinder-report AMRFinder-report.txt
+```
+
+In addition to what AMRFinderPlus reports for each annotated gene, anvi'o adds the HMM e-value, the HMM bit score, and NCBI's curated bit score cutoff for that HMM (`NA` where there is no HMM information).
+
+### Re-annotating a contigs database
+
+When you run anvi-run-amrfinder, the AMRFinderPlus database version is recorded in your contigs-db. To re-annotate the contigs-db, for example with a newer database version, you need to use the flag `--just-do-it`.
+
+### What can you do next?
+
+AMRFinderPlus annotations are stored as functions in your contigs-db and several other anvi'o programs can use them. Here are two examples that are useful when you are working with metagenomic assemblies rather than genomes or MAGs.
+
+If you want to get an idea about the prevalence of specific genes in your metagenomic assemblies you can calculate the **per-population copy number** using anvi-gen-function-matrix with the `--add-per-population-copy-number` flag:
+
+```
+anvi-gen-function-matrix -e external-genomes \
+                         --annotation-source AMRFinder_CLASS \
+                         --add-per-population-copy-number \
+                         -O AMR-CLASS
+```
+
+You can also look at the **coverage and detection of genes across samples** if you recruited reads to your genomes, MAGs or assemblies creating a profile-db. You need to first export the genes with the AMRFinderPlus annotations with anvi-export-functions to be able to export a file with their coverage and detection with anvi-export-gene-coverage-and-detection:
+
+```
+anvi-export-functions -c contigs-db \
+                      --annotation-sources AMRFinder,AMRFinder_CLASS,AMRFinder_SUBTYPE \
+                      --matrix-format \
+                      -o amr-genes.txt
+cut -f1 amr-genes.txt | tail -n +2 > amr-gene-ids.txt
+anvi-export-gene-coverage-and-detection -c contigs-db \
+                                        -p profile-db \
+                                        --genes-of-interest amr-gene-ids.txt \
+                                        -O AMR
+```
+
+Please note that genes on contigs that were too short to be profiled by anvi-profile will not have coverage values. The default cutoff is 1000 bp, but you can adjust that value when generating the profile-db.
 
 ## anvi-run-antismash (program)
 
@@ -16603,6 +16733,51 @@ Instead of a profile database, this program can also run on an anvi'o genes-db a
 
 This program enables an anvi'o user to run component tests on various anvi'o functionality to ensure they are working on their system.
 
+## anvi-setup-amrfinder (program)
+
+- URL: https://anvio.org/help/main/programs/anvi-setup-amrfinder/
+- Description: Downloads and sets up NCBI's AMRFinderPlus database for `anvi-run-amrfinder`
+- Provides: `amrfinder-data`
+- Authors: Jessika Fuessel (@jessika-fuessel)
+
+This program **downloads and sets up NCBI's [AMRFinderPlus](https://github.com/ncbi/amr/wiki) database** for use with anvi-run-amrfinder. It produces an amrfinder-data artifact.
+
+We have not included AMRFinderPlus as a part of the standard anvi'o installation, so if you want to use it you first need to install it into your anvi'o environment:
+
+```
+conda install -c conda-forge -c bioconda ncbi-amrfinderplus
+```
+
+### Basic usage
+
+anvi'o uses AMRFinderPlus's own program, `amrfinder_update`, to download the newest version of the database from NCBI:
+
+```
+anvi-setup-amrfinder
+```
+
+### Custom data directory
+
+By default, anvi'o stores the database at `anvio/data/misc/AMRFinder/`. If you want to store it in a different location you can use:
+
+```
+anvi-setup-amrfinder --amrfinder-data-dir path/to/directory
+```
+
+In case you already have an AMRFinderPlus database on your computer or your computer cluster, you can direct anvi'o to it using anvi-run-amrfinder with `--amrfinder-data-dir`.
+
+### Updating the database
+
+There are regular updates by NCBI to the AMRFinderPlus database and if you want to make sure that you are using the latest one you can replace the 'old' database in the default location with the newest version by running:
+
+```
+anvi-setup-amrfinder --reset
+```
+
+Anvi'o wants to avoid deleting valuable data in a non-default directory or to reset a database that may be shared with others, therefore you can only use the `--reset` flag for the default directory location. If you set up the database with `--amrfinder-data-dir`, you need to remove that directory yourself before setting it up again.
+
+**Note:** anvi-run-amrfinder records the database version in every contigs-db it annotates, so you can always find out which version you used with anvi-db-info.
+
 ## anvi-setup-cazymes (program)
 
 - URL: https://anvio.org/help/main/programs/anvi-setup-cazymes/
@@ -18020,6 +18195,20 @@ You can also use anvi-get-aa-counts to get this information for a bin, collectio
         .
         .
 
+## amrfinder-data (artifact)
+
+- URL: https://anvio.org/help/main/artifacts/amrfinder-data/
+- Display name: AMRFinderPlus DATA
+- Type: DATA
+- Provided by anvi'o: yes
+- Provided by the user: no
+- Required by: `anvi-run-amrfinder`
+- Provided by: `anvi-setup-amrfinder`
+
+This is a local copy of NCBI's [AMRFinderPlus](https://github.com/ncbi/amr/wiki) database, which describes antimicrobial resistance genes, stress response genes, and virulence genes.
+
+To set it up on your computer you need to run the program anvi-setup-amrfinder, and it is required to run anvi-run-amrfinder.
+
 ## augustus-gene-calls (artifact)
 
 - URL: https://anvio.org/help/main/artifacts/augustus-gene-calls/
@@ -18888,7 +19077,7 @@ By default, this file is generated by anvi-script-reformat-fasta, when it is run
 - Type: DB
 - Provided by anvi'o: yes
 - Provided by the user: no
-- Required by: `anvi-cluster-contigs`, `anvi-compute-completeness`, `anvi-compute-trnaseq-functional-affinity`, `anvi-db-info`, `anvi-delete-contig-classification`, `anvi-delete-functions`, `anvi-delete-hmms`, `anvi-display-codon-frequencies`, `anvi-display-contigs-stats`, `anvi-display-metabolism`, `anvi-estimate-genome-completeness`, `anvi-estimate-metabolism`, `anvi-estimate-scg-taxonomy`, `anvi-estimate-trna-taxonomy`, `anvi-export-contigs`, `anvi-export-functions`, `anvi-export-gene-calls`, `anvi-export-gene-coverage-and-detection`, `anvi-export-locus`, `anvi-export-splits-and-coverages`, `anvi-export-splits-taxonomy`, `anvi-gen-fixation-index-matrix`, `anvi-gen-gene-consensus-sequences`, `anvi-gen-gene-level-stats-databases`, `anvi-gen-structure-database`, `anvi-gen-variability-profile`, `anvi-get-aa-counts`, `anvi-get-codon-frequencies`, `anvi-get-codon-usage-bias`, `anvi-get-metabolic-model-file`, `anvi-get-pn-ps-ratio`, `anvi-get-sequences-for-gene-calls`, `anvi-get-sequences-for-hmm-hits`, `anvi-get-short-reads-mapping-to-a-gene`, `anvi-import-collection`, `anvi-import-contig-classification`, `anvi-import-functions`, `anvi-import-taxonomy-for-genes`, `anvi-inspect`, `anvi-integrate-trnaseq`, `anvi-merge`, `anvi-migrate`, `anvi-predict-metabolic-exchanges`, `anvi-profile`, `anvi-profile-blitz`, `anvi-refine`, `anvi-run-antismash`, `anvi-run-cazymes`, `anvi-run-globdb-functions`, `anvi-run-hmms`, `anvi-run-interacdome`, `anvi-run-kegg-kofams`, `anvi-run-ncbi-cogs`, `anvi-run-pfams`, `anvi-run-scg-taxonomy`, `anvi-run-trna-taxonomy`, `anvi-scan-trnas`, `anvi-script-estimate-metabolic-independence`, `anvi-script-filter-hmm-hits-table`, `anvi-script-gen-distribution-of-genes-in-a-bin`, `anvi-script-gen-genomes-file`, `anvi-script-get-hmm-hits-per-gene-call`, `anvi-script-merge-collections`, `anvi-search-functions`, `anvi-search-palindromes`, `anvi-search-sequence-motifs`, `anvi-summarize-blitz`, `anvi-update-db-description`, `anvi-update-structure-database`
+- Required by: `anvi-cluster-contigs`, `anvi-compute-completeness`, `anvi-compute-trnaseq-functional-affinity`, `anvi-db-info`, `anvi-delete-contig-classification`, `anvi-delete-functions`, `anvi-delete-hmms`, `anvi-display-codon-frequencies`, `anvi-display-contigs-stats`, `anvi-display-metabolism`, `anvi-estimate-genome-completeness`, `anvi-estimate-metabolism`, `anvi-estimate-scg-taxonomy`, `anvi-estimate-trna-taxonomy`, `anvi-export-contigs`, `anvi-export-functions`, `anvi-export-gene-calls`, `anvi-export-gene-coverage-and-detection`, `anvi-export-locus`, `anvi-export-splits-and-coverages`, `anvi-export-splits-taxonomy`, `anvi-gen-fixation-index-matrix`, `anvi-gen-gene-consensus-sequences`, `anvi-gen-gene-level-stats-databases`, `anvi-gen-structure-database`, `anvi-gen-variability-profile`, `anvi-get-aa-counts`, `anvi-get-codon-frequencies`, `anvi-get-codon-usage-bias`, `anvi-get-metabolic-model-file`, `anvi-get-pn-ps-ratio`, `anvi-get-sequences-for-gene-calls`, `anvi-get-sequences-for-hmm-hits`, `anvi-get-short-reads-mapping-to-a-gene`, `anvi-import-collection`, `anvi-import-contig-classification`, `anvi-import-functions`, `anvi-import-taxonomy-for-genes`, `anvi-inspect`, `anvi-integrate-trnaseq`, `anvi-merge`, `anvi-migrate`, `anvi-predict-metabolic-exchanges`, `anvi-profile`, `anvi-profile-blitz`, `anvi-refine`, `anvi-run-amrfinder`, `anvi-run-antismash`, `anvi-run-cazymes`, `anvi-run-globdb-functions`, `anvi-run-hmms`, `anvi-run-interacdome`, `anvi-run-kegg-kofams`, `anvi-run-ncbi-cogs`, `anvi-run-pfams`, `anvi-run-scg-taxonomy`, `anvi-run-trna-taxonomy`, `anvi-scan-trnas`, `anvi-script-estimate-metabolic-independence`, `anvi-script-filter-hmm-hits-table`, `anvi-script-gen-distribution-of-genes-in-a-bin`, `anvi-script-gen-genomes-file`, `anvi-script-get-hmm-hits-per-gene-call`, `anvi-script-merge-collections`, `anvi-search-functions`, `anvi-search-palindromes`, `anvi-search-sequence-motifs`, `anvi-summarize-blitz`, `anvi-update-db-description`, `anvi-update-structure-database`
 - Provided by: `anvi-export-pan-subgraph`, `anvi-gen-contigs-database`, `anvi-gen-pan-representative`
 - Can be used by: `anvi-display-structure`, `anvi-draw-kegg-pathways`, `anvi-export-misc-data`, `anvi-get-short-reads-from-bam`, `anvi-get-split-coverages`, `anvi-import-misc-data`, `anvi-interactive`, `anvi-reaction-network`, `anvi-rename-bins`, `anvi-script-add-default-collection`, `anvi-show-misc-data`, `anvi-split`, `anvi-summarize`
 
@@ -19913,7 +20102,7 @@ Here is a more concrete example (the same example as in the [pangenomics tutoria
 - Provided by anvi'o: yes
 - Provided by the user: no
 - Required by: `anvi-compute-functional-enrichment-across-genomes`, `anvi-compute-functional-enrichment-in-pan`, `anvi-display-functions`, `anvi-export-functions`, `anvi-gen-function-matrix`, `anvi-script-gen-antismash-matrix`, `anvi-script-gen-functions-per-group-stats-output`, `anvi-setup-modelseed-database`
-- Provided by: `anvi-annotate-fragmented-genes`, `anvi-import-functions`, `anvi-run-antismash`, `anvi-run-cazymes`, `anvi-run-globdb-functions`, `anvi-run-kegg-kofams`, `anvi-run-ncbi-cogs`, `anvi-run-pfams`
+- Provided by: `anvi-annotate-fragmented-genes`, `anvi-import-functions`, `anvi-run-amrfinder`, `anvi-run-antismash`, `anvi-run-cazymes`, `anvi-run-globdb-functions`, `anvi-run-kegg-kofams`, `anvi-run-ncbi-cogs`, `anvi-run-pfams`
 - Can be used by: `anvi-analyze-synteny`, `anvi-compute-metabolic-enrichment`, `anvi-delete-functions`
 
 This is an artifact that describes **annotation of genes in your contigs-db with functions**.
@@ -19925,6 +20114,7 @@ To populate a given contigs-db with functions, anvi'o includes multiple programs
 * anvi-run-ncbi-cogs, which uses NCBI's [COGs database](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102395/),
 * anvi-run-pfams, which uses EBI's [Pfam database](https://pfam.xfam.org/),
 * anvi-run-cazymes, which uses the dbCAN [CAZyme HMMs](https://bcb.unl.edu/dbCAN2/download/Databases/)
+* anvi-run-amrfinder, which uses NCBI's [AMRFinderPlus](https://github.com/ncbi/amr/wiki) to find antimicrobial resistance, stress response, and virulence genes,
 * anvi-run-kegg-kofams, which uses the [Kyoto Encyclopedia of Genes and Genomes](https://www.genome.jp/kegg/) (KEGG) database and produces kegg-functions, which is the necessary annotation information that can be used by the program anvi-estimate-metabolism.
 
 In addition, you can use the program anvi-import-functions with a simple functions-txt to import functions from any other annotation source, or to import any ad hoc, user-defined function to later access through anvi'o interfaces or programs.
