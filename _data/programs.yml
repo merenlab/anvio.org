@@ -52,6 +52,7 @@
     - name: anvi-gen-variability-profile
     - name: anvi-get-aa-counts
     - name: anvi-get-codon-frequencies
+    - name: anvi-get-sequences-for-function-hits
     - name: anvi-get-sequences-for-gene-calls
     - name: anvi-get-sequences-for-gene-clusters
     - name: anvi-get-sequences-for-hmm-hits

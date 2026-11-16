@@ -1,0 +1,129 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "genes-fasta",
+      "name": "genes-fasta",
+      "provided_by_anvio": true,
+      "type": "FASTA"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contigs-db",
+      "name": "contigs-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "functions",
+      "name": "functions",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "profile-db",
+      "name": "profile-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "collection",
+      "name": "collection",
+      "provided_by_anvio": true,
+      "type": "COLLECTION"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "bin",
+      "name": "bin",
+      "provided_by_anvio": true,
+      "type": "BIN"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "external-genomes",
+      "name": "external-genomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "internal-genomes",
+      "name": "internal-genomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 8,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-get-sequences-for-function-hits",
+      "name": "anvi-get-sequences-for-function-hits",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 8,
+      "target": 0,
+      "type": "provides"
+    },
+    {
+      "target": 8,
+      "source": 1,
+      "type": "requires"
+    },
+    {
+      "target": 8,
+      "source": 2,
+      "type": "requires"
+    },
+    {
+      "target": 8,
+      "source": 3,
+      "type": "can_use"
+    },
+    {
+      "target": 8,
+      "source": 4,
+      "type": "can_use"
+    },
+    {
+      "target": 8,
+      "source": 5,
+      "type": "can_use"
+    },
+    {
+      "target": 8,
+      "source": 6,
+      "type": "can_use"
+    },
+    {
+      "target": 8,
+      "source": 7,
+      "type": "can_use"
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

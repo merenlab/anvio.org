@@ -2,7 +2,7 @@
 
 > anvi'o is an open-source platform for microbial 'omics. This file contains the help pages for every anvi'o workflow, program, and artifact (the files and concepts programs use and produce). Each entry is a level-two section titled `<name> (<kind>)`.
 
-Generated 15 Nov 26 11:44:27 from anvi'o 9-dev (eunice). Online version: https://anvio.org/help/main/
+Generated 16 Nov 26 11:51:29 from anvi'o 9-dev (eunice). Online version: https://anvio.org/help/main/
 
 - Anvi'o version: eunice (v9-dev)
 - Profile DB version: 43
@@ -9188,6 +9188,96 @@ Please keep in mind that anvi-get-pn-ps-ratio has a few filtering choices that a
 
 Please consider finetuning these parameters according to your research question.
 
+## anvi-get-sequences-for-function-hits (program)
+
+- URL: https://anvio.org/help/main/programs/anvi-get-sequences-for-function-hits/
+- Description: Get sequences for genes with hits in a single functional annotation source, optionally only for those that match to specific accession ids, from one or more contigs-dbs, bins, or genomes. Similar to anvi-get-sequences-for-hmm-hits, but without any gene concatenation / phylogenomics functionality.
+- Requires: `contigs-db`, `functions`
+- Can use: `profile-db`, `collection`, `bin`, `external-genomes`, `internal-genomes`
+- Provides: `genes-fasta`
+- Authors: A. Murat Eren (Meren) (@meren)
+
+This program writes a genes-fasta with one entry per gene that has at least one hit in a single functions source. You can limit the output to genes with hits to specific accession ids in that source.
+
+It works with a contigs-db, bins in a collection, or many genomes described in external-genomes and/or internal-genomes files.
+
+anvi-get-sequences-for-function-hits is very similar to anvi-get-sequences-for-hmm-hits, but unlike the latter, this program does not have any functionality to concatenate genes for downstream phylogenetic or phylogenomic analyses. While this was not difficult to implement, it was a mindful omission on our part. This is primarily due to the fact that genes that share a functional annotation can have extremely low sequence identity depending on the breadth of their representation in databases, so their sequences may not a reliable basis for phylogenetic or phylogenomic inferences even though it may not be immediately obvious for all functions. HMMs can also return not-so-ideal hits, but since they are built from aligned sequences by design, they are generally more appropriate to work with for such goals.
+
+The primary purpose of this program is to give you all matching sequences annotated with a particular function, or all functions listed in a particular source.
+
+### Learn available annotation sources
+
+```
+anvi-get-sequences-for-function-hits -c contigs-db \
+                                     --list-annotation-sources
+```
+
+### Get sequences for all genes with hits in a source
+
+```
+anvi-get-sequences-for-function-hits -c contigs-db \
+                                     --annotation-source Pfam \
+                                     -o genes-fasta
+```
+
+### Get sequences only for genes with hits to specific accession ids
+
+```
+anvi-get-sequences-for-function-hits -c contigs-db \
+                                     --annotation-source Pfam \
+                                     --accession-ids PF00117,PF02786 \
+                                     -o genes-fasta
+```
+
+Instead of a comma-separated list, `--accession-ids` also accepts a file with one accession id per line. A gene is reported if any of its hits in the source matches any of the accession ids. If an accession id matches nothing in any of your inputs, anvi'o will stop with an error rather than ignore it.
+
+### Get sequences from bins or genomes
+
+For every bin in a collection (use `--bin-id` or `--bin-ids-file` to focus on specific bins):
+
+```
+anvi-get-sequences-for-function-hits -c contigs-db \
+                                     -p profile-db \
+                                     -C collection \
+                                     --annotation-source COG20_FUNCTION \
+                                     -o genes-fasta
+```
+
+For many genomes:
+
+```
+anvi-get-sequences-for-function-hits -e external-genomes \
+                                     -i internal-genomes \
+                                     --annotation-source KOfam \
+                                     --accession-ids K00001 \
+                                     -o genes-fasta
+```
+
+The annotation source must be present in every input contigs-db.
+
+### Amino acid sequences
+
+Sequences are reported in DNA alphabet by default. Add `--get-aa-sequences` to get amino acid sequences instead.
+
+### Deflines
+
+The default defline looks like this:
+
+```
+{genome_name}_{gene_callers_id} source:{source}|accession:{accession}|function:{function}
+```
+
+Here `{genome_name}` is the genome name, the bin name, or the project name of the contigs-db depending on the input. If a gene has multiple hits in the source, its accessions and functions are joined with `!!!`.
+
+You can define your own defline with `--defline-format`, and see all available variables with `--list-defline-variables`. Your format must produce a unique defline for each sequence (e.g., by including `{genome_name}` and `{gene_callers_id}`), otherwise anvi'o will complain.
+
+```
+anvi-get-sequences-for-function-hits -c contigs-db \
+                                     --annotation-source Pfam \
+                                     --defline-format "{gene_callers_id}_{accession}" \
+                                     -o genes-fasta
+```
+
 ## anvi-get-sequences-for-gene-calls (program)
 
 - URL: https://anvio.org/help/main/programs/anvi-get-sequences-for-gene-calls/
@@ -12875,6 +12965,12 @@ This program **annotates genes in your contigs-db with NCBI's [AMRFinderPlus](ht
 
 Before you can run this program, you will need to install AMRFinderPlus and set up its database with anvi-setup-amrfinder.
 
+### Where does AMRFinderPlus come from?
+
+[AMRFinderPlus](https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/) is a tool developed and maintained by the [National Center for Biotechnology Information (NCBI)](https://www.ncbi.nlm.nih.gov/) (as a part of its [Pathogen Detection](https://www.ncbi.nlm.nih.gov/pathogens/) project). It searches a given set of protein sequences against the curated Reference Gene Database and its curated collection of HMMs, both of which NCBI updates regularly. Anvi'o does not develop or maintain AMRFinderPlus or its database, but simply runs AMRFinderPlus on the genes in your contigs-db and stores its findings in a way other anvi'o programs can use them. So if you have questions about how a given gene is annotated, the [AMRFinderPlus documentation](https://github.com/ncbi/amr/wiki) is the best place to look.
+
+If you use anvi-run-amrfinder in your work, please don't forget to cite AMRFinderPlus along with anvi'o (anvi'o will remind you to do it in the output of the program and ask you to cite [Feldgarden M, Brover V, Gonzalez-Escalona N, et al. (2021)](https://doi.org/10.1038/s41598-021-91456-0)).
+
 ### How does it work?
 
 1. AMRFinderPlus requires the amino acid sequences of the genes in your contigs-db. The first thing anvi-run-amrfinder does is to **export the amino acid sequences** of all genes in your contigs-db into a temporary FASTA file while using their gene caller ids as names.
@@ -12968,6 +13064,12 @@ anvi-export-gene-coverage-and-detection -c contigs-db \
 ```
 
 Please note that genes on contigs that were too short to be profiled by anvi-profile will not have coverage values. The default cutoff is 1000 bp, but you can adjust that value when generating the profile-db.
+
+Resources:
+
+- [AMRFinderPlus at NCBI](https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/)
+- [AMRFinderPlus documentation](https://github.com/ncbi/amr/wiki)
+- [The AMRFinderPlus paper (Feldgarden et al. 2021)](https://doi.org/10.1038/s41598-021-91456-0)
 
 ## anvi-run-antismash (program)
 
@@ -13799,6 +13901,10 @@ anvi-run-trna-taxonomy -c contigs-db
 
 If you have set up the two requirements listed above, this should run smoothly.
 
+### tRNA-seq seeds
+
+If your contigs-db is a trnaseq-contigs-db, the sequences it holds are tRNA-seq seeds, which are labeled with the anticodons read from tRNA transcripts rather than encoded in genes. Reverse transcription reads inosine (I), a modified nucleotide, as G, and bacterial tRNA-Arg-ACG and tRNA-Leu-AAG can carry inosine at wobble position 34, so their seeds can be labeled GCG and GAG. This program therefore searches seeds labeled GCG against both GCG and ACG genes and seeds labeled GAG against both GAG and AAG genes, keeping the hits of the genes whose best alignment has the higher bitscore. The taxonomy of a seed is always stored under its labeled anticodon. In the table this program prints, a column called `as_I34` shows how many seeds were annotated with ACG or AAG genes. The percent identity of a seed with I34 counts its G at position 34 as a mismatch to the A of the genes, so a seed that differs from a gene only at that position has an identity of about 98.6% for tRNA-Arg and 98.8% for the longer tRNA-Leu.
+
 ### Additional Parameters
 
 When changing these parameters, it might be a good idea to run anvi-estimate-trna-taxonomy with the `--debug` flag so that you can see what your results look like under the hood.
@@ -13806,7 +13912,7 @@ When changing these parameters, it might be a good idea to run anvi-estimate-trn
 1. `--max-num-target-sequences`: the number of hits that this program considers for each tRNA sequence before making a final decision for the taxonomy association. The default is 100, but if you want to ensure that you have accurate data at the expense of some runtime, you can increase it.
 2. `--min-percent-identity`: the minimum percent alignment needed to consider something a hit.  The default is 90, but if you're not getting any hits on a specific sequence, you can decrease it at the risk of getting some nonsense results.
 
-Finally, this program does not usually have an output file, but if desired you can add the parameter `--all-hits-output-file` to store the list of hits that anvi'o looked at to determine the consensus hit for each sequence.
+Finally, this program does not usually have an output file, but if desired you can add the parameter `--all-hits-output-file` to store the list of hits that anvi'o looked at to determine the consensus hit for each sequence. The `searched_anticodon` column in this file gives the anticodon of the genes each hit comes from, which differs from the column `anticodon` only for the tRNA-seq seeds with I34 that are enumerated above.
 
 ## anvi-run-workflow (program)
 
@@ -16742,6 +16848,8 @@ This program enables an anvi'o user to run component tests on various anvi'o fun
 
 This program **downloads and sets up NCBI's [AMRFinderPlus](https://github.com/ncbi/amr/wiki) database** for use with anvi-run-amrfinder. It produces an amrfinder-data artifact.
 
+[AMRFinderPlus](https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/) and its database are developed and maintained by the [National Center for Biotechnology Information (NCBI)](https://www.ncbi.nlm.nih.gov/) and described in this paper by [Feldgarden et al. (2021)](https://doi.org/10.1038/s41598-021-91456-0).
+
 We have not included AMRFinderPlus as a part of the standard anvi'o installation, so if you want to use it you first need to install it into your anvi'o environment:
 
 ```
@@ -16777,6 +16885,12 @@ anvi-setup-amrfinder --reset
 Anvi'o wants to avoid deleting valuable data in a non-default directory or to reset a database that may be shared with others, therefore you can only use the `--reset` flag for the default directory location. If you set up the database with `--amrfinder-data-dir`, you need to remove that directory yourself before setting it up again.
 
 **Note:** anvi-run-amrfinder records the database version in every contigs-db it annotates, so you can always find out which version you used with anvi-db-info.
+
+Resources:
+
+- [AMRFinderPlus at NCBI](https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/)
+- [AMRFinderPlus documentation](https://github.com/ncbi/amr/wiki)
+- [The AMRFinderPlus paper (Feldgarden et al. 2021)](https://doi.org/10.1038/s41598-021-91456-0)
 
 ## anvi-setup-cazymes (program)
 
@@ -18564,7 +18678,7 @@ Some programs, such as anvi-report-inversions, can process the `r1` and `r2` fil
 - Provided by the user: no
 - Required by: `anvi-merge-bins`, `anvi-rename-bins`
 - Provided by: `anvi-cluster-contigs`, `anvi-refine`, `anvi-rename-bins`, `anvi-script-add-default-collection`, `anvi-script-compute-bayesian-pan-core`
-- Can be used by: `anvi-display-metabolism`, `anvi-estimate-metabolism`, `anvi-estimate-scg-taxonomy`, `anvi-estimate-trna-taxonomy`, `anvi-gen-fixation-index-matrix`, `anvi-gen-gene-level-stats-databases`, `anvi-gen-variability-profile`, `anvi-get-codon-frequencies`, `anvi-get-codon-usage-bias`, `anvi-get-short-reads-from-bam`, `anvi-get-split-coverages`, `anvi-inspect`, `anvi-interactive`, `anvi-refine`, `anvi-script-gen-distribution-of-genes-in-a-bin`
+- Can be used by: `anvi-display-metabolism`, `anvi-estimate-metabolism`, `anvi-estimate-scg-taxonomy`, `anvi-estimate-trna-taxonomy`, `anvi-gen-fixation-index-matrix`, `anvi-gen-gene-level-stats-databases`, `anvi-gen-variability-profile`, `anvi-get-codon-frequencies`, `anvi-get-codon-usage-bias`, `anvi-get-sequences-for-function-hits`, `anvi-get-short-reads-from-bam`, `anvi-get-split-coverages`, `anvi-inspect`, `anvi-interactive`, `anvi-refine`, `anvi-script-gen-distribution-of-genes-in-a-bin`
 - Can be provided by: `anvi-display-pan`, `anvi-interactive`
 
 In its simplest form, **a group of items** that are put together. Think of a literal bin in which you put data. One or more bins in anvi'o form a collection.
@@ -18802,7 +18916,7 @@ Please see the help page for anvi-setup-ncbi-cogs if you want to learn how to ch
 - Provided by the user: no
 - Required by: `anvi-delete-collection`, `anvi-merge-bins`, `anvi-rename-bins`, `anvi-split`, `anvi-summarize`
 - Provided by: `anvi-cluster-contigs`, `anvi-import-collection`, `anvi-rename-bins`, `anvi-script-add-default-collection`
-- Can be used by: `anvi-cluster-contigs`, `anvi-display-metabolism`, `anvi-estimate-genome-completeness`, `anvi-estimate-metabolism`, `anvi-estimate-scg-taxonomy`, `anvi-estimate-trna-taxonomy`, `anvi-export-collection`, `anvi-gen-gene-level-stats-databases`, `anvi-get-aa-counts`, `anvi-get-codon-frequencies`, `anvi-get-codon-usage-bias`, `anvi-get-split-coverages`, `anvi-script-gen-distribution-of-genes-in-a-bin`, `anvi-script-gen-genomes-file`
+- Can be used by: `anvi-cluster-contigs`, `anvi-display-metabolism`, `anvi-estimate-genome-completeness`, `anvi-estimate-metabolism`, `anvi-estimate-scg-taxonomy`, `anvi-estimate-trna-taxonomy`, `anvi-export-collection`, `anvi-gen-gene-level-stats-databases`, `anvi-get-aa-counts`, `anvi-get-codon-frequencies`, `anvi-get-codon-usage-bias`, `anvi-get-sequences-for-function-hits`, `anvi-get-split-coverages`, `anvi-script-gen-distribution-of-genes-in-a-bin`, `anvi-script-gen-genomes-file`
 - Can be provided by: `anvi-display-pan`, `anvi-interactive`
 
 An anvi'o concept that describes one or more bins.
@@ -19077,7 +19191,7 @@ By default, this file is generated by anvi-script-reformat-fasta, when it is run
 - Type: DB
 - Provided by anvi'o: yes
 - Provided by the user: no
-- Required by: `anvi-cluster-contigs`, `anvi-compute-completeness`, `anvi-compute-trnaseq-functional-affinity`, `anvi-db-info`, `anvi-delete-contig-classification`, `anvi-delete-functions`, `anvi-delete-hmms`, `anvi-display-codon-frequencies`, `anvi-display-contigs-stats`, `anvi-display-metabolism`, `anvi-estimate-genome-completeness`, `anvi-estimate-metabolism`, `anvi-estimate-scg-taxonomy`, `anvi-estimate-trna-taxonomy`, `anvi-export-contigs`, `anvi-export-functions`, `anvi-export-gene-calls`, `anvi-export-gene-coverage-and-detection`, `anvi-export-locus`, `anvi-export-splits-and-coverages`, `anvi-export-splits-taxonomy`, `anvi-gen-fixation-index-matrix`, `anvi-gen-gene-consensus-sequences`, `anvi-gen-gene-level-stats-databases`, `anvi-gen-structure-database`, `anvi-gen-variability-profile`, `anvi-get-aa-counts`, `anvi-get-codon-frequencies`, `anvi-get-codon-usage-bias`, `anvi-get-metabolic-model-file`, `anvi-get-pn-ps-ratio`, `anvi-get-sequences-for-gene-calls`, `anvi-get-sequences-for-hmm-hits`, `anvi-get-short-reads-mapping-to-a-gene`, `anvi-import-collection`, `anvi-import-contig-classification`, `anvi-import-functions`, `anvi-import-taxonomy-for-genes`, `anvi-inspect`, `anvi-integrate-trnaseq`, `anvi-merge`, `anvi-migrate`, `anvi-predict-metabolic-exchanges`, `anvi-profile`, `anvi-profile-blitz`, `anvi-refine`, `anvi-run-amrfinder`, `anvi-run-antismash`, `anvi-run-cazymes`, `anvi-run-globdb-functions`, `anvi-run-hmms`, `anvi-run-interacdome`, `anvi-run-kegg-kofams`, `anvi-run-ncbi-cogs`, `anvi-run-pfams`, `anvi-run-scg-taxonomy`, `anvi-run-trna-taxonomy`, `anvi-scan-trnas`, `anvi-script-estimate-metabolic-independence`, `anvi-script-filter-hmm-hits-table`, `anvi-script-gen-distribution-of-genes-in-a-bin`, `anvi-script-gen-genomes-file`, `anvi-script-get-hmm-hits-per-gene-call`, `anvi-script-merge-collections`, `anvi-search-functions`, `anvi-search-palindromes`, `anvi-search-sequence-motifs`, `anvi-summarize-blitz`, `anvi-update-db-description`, `anvi-update-structure-database`
+- Required by: `anvi-cluster-contigs`, `anvi-compute-completeness`, `anvi-compute-trnaseq-functional-affinity`, `anvi-db-info`, `anvi-delete-contig-classification`, `anvi-delete-functions`, `anvi-delete-hmms`, `anvi-display-codon-frequencies`, `anvi-display-contigs-stats`, `anvi-display-metabolism`, `anvi-estimate-genome-completeness`, `anvi-estimate-metabolism`, `anvi-estimate-scg-taxonomy`, `anvi-estimate-trna-taxonomy`, `anvi-export-contigs`, `anvi-export-functions`, `anvi-export-gene-calls`, `anvi-export-gene-coverage-and-detection`, `anvi-export-locus`, `anvi-export-splits-and-coverages`, `anvi-export-splits-taxonomy`, `anvi-gen-fixation-index-matrix`, `anvi-gen-gene-consensus-sequences`, `anvi-gen-gene-level-stats-databases`, `anvi-gen-structure-database`, `anvi-gen-variability-profile`, `anvi-get-aa-counts`, `anvi-get-codon-frequencies`, `anvi-get-codon-usage-bias`, `anvi-get-metabolic-model-file`, `anvi-get-pn-ps-ratio`, `anvi-get-sequences-for-function-hits`, `anvi-get-sequences-for-gene-calls`, `anvi-get-sequences-for-hmm-hits`, `anvi-get-short-reads-mapping-to-a-gene`, `anvi-import-collection`, `anvi-import-contig-classification`, `anvi-import-functions`, `anvi-import-taxonomy-for-genes`, `anvi-inspect`, `anvi-integrate-trnaseq`, `anvi-merge`, `anvi-migrate`, `anvi-predict-metabolic-exchanges`, `anvi-profile`, `anvi-profile-blitz`, `anvi-refine`, `anvi-run-amrfinder`, `anvi-run-antismash`, `anvi-run-cazymes`, `anvi-run-globdb-functions`, `anvi-run-hmms`, `anvi-run-interacdome`, `anvi-run-kegg-kofams`, `anvi-run-ncbi-cogs`, `anvi-run-pfams`, `anvi-run-scg-taxonomy`, `anvi-run-trna-taxonomy`, `anvi-scan-trnas`, `anvi-script-estimate-metabolic-independence`, `anvi-script-filter-hmm-hits-table`, `anvi-script-gen-distribution-of-genes-in-a-bin`, `anvi-script-gen-genomes-file`, `anvi-script-get-hmm-hits-per-gene-call`, `anvi-script-merge-collections`, `anvi-search-functions`, `anvi-search-palindromes`, `anvi-search-sequence-motifs`, `anvi-summarize-blitz`, `anvi-update-db-description`, `anvi-update-structure-database`
 - Provided by: `anvi-export-pan-subgraph`, `anvi-gen-contigs-database`, `anvi-gen-pan-representative`
 - Can be used by: `anvi-display-structure`, `anvi-draw-kegg-pathways`, `anvi-export-misc-data`, `anvi-get-short-reads-from-bam`, `anvi-get-split-coverages`, `anvi-import-misc-data`, `anvi-interactive`, `anvi-reaction-network`, `anvi-rename-bins`, `anvi-script-add-default-collection`, `anvi-show-misc-data`, `anvi-split`, `anvi-summarize`
 
@@ -19886,7 +20000,7 @@ The column `call_type` declares the nature of the call. It can take one of the f
 - Provided by the user: yes
 - Required by: `anvi-compute-functional-enrichment-across-genomes`, `anvi-compute-genome-similarity`, `anvi-dereplicate-genomes`, `anvi-display-functions`, `anvi-gen-function-matrix`, `anvi-gen-genomes-storage`, `anvi-gen-hmm-hits-matrix`, `anvi-gen-pan-representative`, `anvi-script-gen-antismash-matrix`, `anvi-script-gen-functions-per-group-stats-output`
 - Provided by: `anvi-script-gen-genomes-file`
-- Can be used by: `anvi-annotate-fragmented-genes`, `anvi-compute-metabolic-enrichment`, `anvi-draw-kegg-pathways`, `anvi-estimate-genome-completeness`, `anvi-estimate-metabolism`, `anvi-export-pan-subgraph`, `anvi-get-codon-frequencies`, `anvi-get-codon-usage-bias`, `anvi-get-sequences-for-hmm-hits`, `anvi-pan-genome-graph`, `anvi-predict-metabolic-exchanges`, `anvi-run-antismash`
+- Can be used by: `anvi-annotate-fragmented-genes`, `anvi-compute-metabolic-enrichment`, `anvi-draw-kegg-pathways`, `anvi-estimate-genome-completeness`, `anvi-estimate-metabolism`, `anvi-export-pan-subgraph`, `anvi-get-codon-frequencies`, `anvi-get-codon-usage-bias`, `anvi-get-sequences-for-function-hits`, `anvi-get-sequences-for-hmm-hits`, `anvi-pan-genome-graph`, `anvi-predict-metabolic-exchanges`, `anvi-run-antismash`
 
 In the anvi'o lingo, an external genome is any contigs-db generated from a FASTA file that describes a single genome for a single microbial population (and not a metagenome).
 
@@ -20101,7 +20215,7 @@ Here is a more concrete example (the same example as in the [pangenomics tutoria
 - Type: CONCEPT
 - Provided by anvi'o: yes
 - Provided by the user: no
-- Required by: `anvi-compute-functional-enrichment-across-genomes`, `anvi-compute-functional-enrichment-in-pan`, `anvi-display-functions`, `anvi-export-functions`, `anvi-gen-function-matrix`, `anvi-script-gen-antismash-matrix`, `anvi-script-gen-functions-per-group-stats-output`, `anvi-setup-modelseed-database`
+- Required by: `anvi-compute-functional-enrichment-across-genomes`, `anvi-compute-functional-enrichment-in-pan`, `anvi-display-functions`, `anvi-export-functions`, `anvi-gen-function-matrix`, `anvi-get-sequences-for-function-hits`, `anvi-script-gen-antismash-matrix`, `anvi-script-gen-functions-per-group-stats-output`, `anvi-setup-modelseed-database`
 - Provided by: `anvi-annotate-fragmented-genes`, `anvi-import-functions`, `anvi-run-amrfinder`, `anvi-run-antismash`, `anvi-run-cazymes`, `anvi-run-globdb-functions`, `anvi-run-kegg-kofams`, `anvi-run-ncbi-cogs`, `anvi-run-pfams`
 - Can be used by: `anvi-analyze-synteny`, `anvi-compute-metabolic-enrichment`, `anvi-delete-functions`
 
@@ -20463,7 +20577,7 @@ Due to the structural similarities between a genes-db and a profile-db, many of 
 - Type: FASTA
 - Provided by anvi'o: yes
 - Provided by the user: no
-- Provided by: `anvi-gen-gene-consensus-sequences`, `anvi-get-sequences-for-gene-calls`, `anvi-get-sequences-for-gene-clusters`, `anvi-get-sequences-for-hmm-hits`
+- Provided by: `anvi-gen-gene-consensus-sequences`, `anvi-get-sequences-for-function-hits`, `anvi-get-sequences-for-gene-calls`, `anvi-get-sequences-for-gene-clusters`, `anvi-get-sequences-for-hmm-hits`
 
 A genes-fasta is what it sounds like: a FASTA formatted file that contains genes. In Anvi'o, this is an output for programs that return gene sequences. This includes anvi-get-sequences-for-gene-calls, anvi-get-sequences-for-gene-clusters (when working with pan genomes), and anvi-get-sequences-for-hmm-hits.
 
@@ -21231,7 +21345,7 @@ The interactive interface recognizes a handful of keyboard shortcuts to help spe
 - Provided by the user: yes
 - Required by: `anvi-meta-pan-genome`
 - Provided by: `anvi-script-gen-genomes-file`
-- Can be used by: `anvi-compute-functional-enrichment-across-genomes`, `anvi-compute-genome-similarity`, `anvi-compute-metabolic-enrichment`, `anvi-dereplicate-genomes`, `anvi-display-functions`, `anvi-estimate-metabolism`, `anvi-gen-function-matrix`, `anvi-gen-genomes-storage`, `anvi-gen-hmm-hits-matrix`, `anvi-get-codon-frequencies`, `anvi-get-codon-usage-bias`, `anvi-get-sequences-for-hmm-hits`, `anvi-script-gen-antismash-matrix`, `anvi-script-gen-functions-per-group-stats-output`
+- Can be used by: `anvi-compute-functional-enrichment-across-genomes`, `anvi-compute-genome-similarity`, `anvi-compute-metabolic-enrichment`, `anvi-dereplicate-genomes`, `anvi-display-functions`, `anvi-estimate-metabolism`, `anvi-gen-function-matrix`, `anvi-gen-genomes-storage`, `anvi-gen-hmm-hits-matrix`, `anvi-get-codon-frequencies`, `anvi-get-codon-usage-bias`, `anvi-get-sequences-for-function-hits`, `anvi-get-sequences-for-hmm-hits`, `anvi-script-gen-antismash-matrix`, `anvi-script-gen-functions-per-group-stats-output`
 
 In the anvi'o lingo, an internal genome is any bin stored in an anvi'o collection that describes a single genome. You can obtain one of these by binning a metagenome manually in the interactive interface, automatically using a binning software, or by importing a collection into anvi'o using the program anvi-import-collection.
 
@@ -23901,7 +24015,7 @@ Here is an example file with three primers:
 - Provided by the user: no
 - Required by: `anvi-cluster-contigs`, `anvi-delete-collection`, `anvi-delete-misc-data`, `anvi-delete-state`, `anvi-export-collection`, `anvi-export-gene-coverage-and-detection`, `anvi-export-items-order`, `anvi-export-misc-data`, `anvi-export-splits-and-coverages`, `anvi-export-state`, `anvi-gen-fixation-index-matrix`, `anvi-gen-gene-consensus-sequences`, `anvi-gen-gene-level-stats-databases`, `anvi-gen-variability-profile`, `anvi-get-split-coverages`, `anvi-import-items-order`, `anvi-import-metabolite-profile`, `anvi-import-misc-data`, `anvi-import-protein-profile`, `anvi-import-state`, `anvi-inspect`, `anvi-interactive`, `anvi-merge-bins`, `anvi-refine`, `anvi-rename-bins`, `anvi-script-add-default-collection`, `anvi-script-gen-distribution-of-genes-in-a-bin`, `anvi-show-collections-and-bins`, `anvi-show-misc-data`, `anvi-split`, `anvi-summarize`
 - Provided by: `anvi-merge`
-- Can be used by: `anvi-db-info`, `anvi-display-metabolism`, `anvi-display-structure`, `anvi-estimate-genome-completeness`, `anvi-estimate-metabolism`, `anvi-estimate-scg-taxonomy`, `anvi-estimate-trna-taxonomy`, `anvi-get-aa-counts`, `anvi-get-codon-frequencies`, `anvi-get-codon-usage-bias`, `anvi-get-sequences-for-hmm-hits`, `anvi-get-short-reads-from-bam`, `anvi-import-collection`, `anvi-migrate`, `anvi-script-gen-genomes-file`, `anvi-search-sequence-motifs`, `anvi-update-db-description`
+- Can be used by: `anvi-db-info`, `anvi-display-metabolism`, `anvi-display-structure`, `anvi-estimate-genome-completeness`, `anvi-estimate-metabolism`, `anvi-estimate-scg-taxonomy`, `anvi-estimate-trna-taxonomy`, `anvi-get-aa-counts`, `anvi-get-codon-frequencies`, `anvi-get-codon-usage-bias`, `anvi-get-sequences-for-function-hits`, `anvi-get-sequences-for-hmm-hits`, `anvi-get-short-reads-from-bam`, `anvi-import-collection`, `anvi-migrate`, `anvi-script-gen-genomes-file`, `anvi-search-sequence-motifs`, `anvi-update-db-description`
 - Can be provided by: `anvi-display-codon-frequencies`
 
 An anvi'o database that **contains key information about the mapping of short reads *from multiple samples* to your contigs.**

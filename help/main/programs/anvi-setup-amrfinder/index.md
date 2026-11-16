@@ -49,6 +49,8 @@ This program seems to know what its doing. It needs no input material from its u
 
 This program **downloads and sets up NCBI's [AMRFinderPlus](https://github.com/ncbi/amr/wiki) database** for use with <span class="artifact-p">[anvi-run-amrfinder](/help/main/programs/anvi-run-amrfinder)</span>. It produces an <span class="artifact-n">[amrfinder-data](/help/main/artifacts/amrfinder-data)</span> artifact.
 
+[AMRFinderPlus](https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/) and its database are developed and maintained by the [National Center for Biotechnology Information (NCBI)](https://www.ncbi.nlm.nih.gov/) and described in this paper by [Feldgarden et al. (2021)](https://doi.org/10.1038/s41598-021-91456-0).
+
 We have not included AMRFinderPlus as a part of the standard anvi'o installation, so if you want to use it you first need to install it into your anvi'o environment:
 
 <div class="codeblock" markdown="1">
@@ -126,6 +128,12 @@ The code that generates this web page ensures that this information is the lates
 
 ## Additional Resources
 
+
+* [AMRFinderPlus at NCBI](https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/)
+
+* [AMRFinderPlus documentation](https://github.com/ncbi/amr/wiki)
+
+* [The AMRFinderPlus paper (Feldgarden et al. 2021)](https://doi.org/10.1038/s41598-021-91456-0)
 
 
 {:.notice}

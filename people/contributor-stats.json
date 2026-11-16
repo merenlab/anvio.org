@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8248,
+        "total_commits": 8259,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 526
+            "2026": 537
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "pass run/progress objects religiously",
-        "latest_commit_hash": "ba9a7b5af2a8607d7a8896ea613e9aab1f9a35cb",
-        "latest_commit_date": "14 November 2026"
+        "latest_commit_message": "some test for anvi-get-sequences-for-function-hits",
+        "latest_commit_hash": "253ae9b0294e3ef5aa22894288f9c4f2bf3daa75",
+        "latest_commit_date": "16 November 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 575,
@@ -154,7 +154,7 @@
         "latest_commit_date": "21 June 2025"
     },
     "semiller10": {
-        "total_commits": 2506,
+        "total_commits": 2507,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -168,12 +168,12 @@
             "2023": 317,
             "2024": 531,
             "2025": 288,
-            "2026": 165
+            "2026": 166
         },
         "top_file": "anvio/biochemistry/reactionnetwork.py",
-        "latest_commit_message": "fix sample trees and dendrograms, which failed on blank affinities, and limit each genome's tables, plots, and trees to the samples in which it has affinities",
-        "latest_commit_hash": "ad305ec4d4a70ad9c8f8034d50eed9dc578d32bd",
-        "latest_commit_date": "13 November 2026"
+        "latest_commit_message": "Classify I34 tRNA-seq seeds in `anvi-run-trna-taxonomy` by also searching seeds labeled GCG and GAG against ACG and AAG genes and keeping the genes with the best-scoring alignment",
+        "latest_commit_hash": "72462d3deac8e993d729fcb26d2160ee40d937d4",
+        "latest_commit_date": "15 November 2026"
     },
     "ahenoch": {
         "total_commits": 401,
