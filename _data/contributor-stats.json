@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8259,
+        "total_commits": 8260,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,11 +14,11 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 537
+            "2026": 538
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "some test for anvi-get-sequences-for-function-hits",
-        "latest_commit_hash": "253ae9b0294e3ef5aa22894288f9c4f2bf3daa75",
+        "latest_commit_message": "print talbes cute when possiburu",
+        "latest_commit_hash": "cd481aaf0792454244743057948ffa9f27112905",
         "latest_commit_date": "16 November 2026"
     },
     "FlorianTrigodet": {
@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2688,
+        "total_commits": 2695,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 173
+            "2026": 180
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "fix names of num reads table and self key to match recent change in profile_db_num_reads branch",
-        "latest_commit_hash": "7d0fb933d220b97dacdc78483e04fc6a229adc73",
-        "latest_commit_date": "04 November 2026"
+        "latest_commit_message": "add recent pull request links to the resources list for discov-stats",
+        "latest_commit_hash": "7a85526dc741849d5cfd63e6626cecae2b0eb8d4",
+        "latest_commit_date": "16 November 2026"
     },
     "moritzbuck": {
         "total_commits": 3,

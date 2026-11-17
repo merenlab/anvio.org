@@ -170,11 +170,12 @@ The default parameters are designed to work well across typical metagenomics dat
 
 **Window sizing**
 
-_S_ and _E_ are computed by dividing the input sequence into non-overlapping windows. By default, contig-level stats use a window length equal to 1% of the contig length (minimum 300 bp). Genome/bin-level stats (when using `--collection-txt`) use a fixed 10,000 bp window. You can override these defaults with the following parameters:
+_S_ and _E_ are computed by dividing the input sequence into non-overlapping windows. By default, contig-level stats use a window length equal to 1% of the contig length (minimum 300 bp, maximum 10,000 bp). Genome/bin-level stats (when using `--collection-txt`) use a fixed 10,000 bp window. You can override these defaults with the following parameters:
 
 * `--window-length INT` — use a fixed window size in bp for all sequences
 * `--window-length-as-percentage INT` — set window length as a percentage of each sequence's length
-* `--min-window-length INT` — set a minimum window length floor when using percentage mode
+* `--min-window-length INT` — set a minimum window length floor when using percentage mode (default: 300)
+* `--max-window-length INT` — set a maximum window length cap when using percentage mode (default: 10,000; set to 0 for no cap)
 
 **Combining _S_ and _E_**
 
@@ -227,7 +228,7 @@ The code that generates this web page ensures that this information is the lates
 ### Command line usage
 
 {% raw %}
-<div class="program-parameters-usage">anvi-profile-blitz [-h] -c CONTIGS_DB [--gene-mode] [--gene-caller GENE-CALLER] [--gene-caller-ids GENE_CALLER_IDS] [--genes-of-interest FILE] [-C COLLECTION_TXT] -o FILE_PATH [--report-minimal] [--gen-window-level-output] [--window-length INTEGER] [--window-length-as-percentage INTEGER] [--min-window-length INTEGER] [--alpha FLOAT] [--discov-formula STRING] BAM_FILE(S) [BAM_FILE(S) ...]</div>
+<div class="program-parameters-usage">anvi-profile-blitz [-h] -c CONTIGS_DB [--gene-mode] [--gene-caller GENE-CALLER] [--gene-caller-ids GENE_CALLER_IDS] [--genes-of-interest FILE] [-C COLLECTION_TXT] -o FILE_PATH [--report-minimal] [--gen-window-level-output] [--window-length INTEGER] [--window-length-as-percentage INTEGER] [--min-window-length INTEGER] [--max-window-length INTEGER] [--alpha FLOAT] [--discov-formula STRING] BAM_FILE(S) [BAM_FILE(S) ...]</div>
 {% endraw %}
 
 ### Parameters and their descriptions
@@ -287,7 +288,9 @@ The code that generates this web page ensures that this information is the lates
 <dt class="parameter" id="parameter-window_length_as_percentage"><code class="parameter-flags">--window-length-as-percentage</code> <code class="parameter-metavar">INTEGER</code></dt>
 <dd class="parameter-details"><span class="parameter-help">With this option you can set the window length for the spread metric (S) dynamically as a percentage of a given input sequence length. This works well when your input sequences (contigs or genomes) have a wide size distribution and you don&#x27;t have a one-size-fits-all window length to use. For instance, if you want the window size to be 5% of the contig length, you would use `--window-length-as-percentage 5`. You may want to consider also specifying a reasonable minimum window length with the --min-window-length parameter. This is the default window-sizing strategy for contig-level stats, and the default percentage is 1.</span></dd>
 <dt class="parameter" id="parameter-min_window_length"><code class="parameter-flags">--min-window-length</code> <code class="parameter-metavar">INTEGER</code></dt>
-<dd class="parameter-details"><span class="parameter-help">Use with --window-length-as-percentage to ensure that percentage-based window lengths never fall below this value. This parameter is set by default to 300 for contig-level stats.</span></dd>
+<dd class="parameter-details"><span class="parameter-help">Use with --window-length-as-percentage to ensure that percentage-based window lengths never fall below this value. Whenever percentage-based windows are used, this parameter is set by default to 300.</span></dd>
+<dt class="parameter" id="parameter-max_window_length"><code class="parameter-flags">--max-window-length</code> <code class="parameter-metavar">INTEGER</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Use with --window-length-as-percentage to ensure that percentage-based window lengths never exceed this value. This prevents very long sequences (such as large contigs or concatenated genomes) from producing windows that are too large to be informative. Whenever percentage-based windows are used, this parameter is set by default to 10000. Set it to 0 if you want percentage-based window lengths to be unbounded (i.e., no maximum).</span></dd>
 <dt class="parameter" id="parameter-alpha"><code class="parameter-flags">--alpha</code> <code class="parameter-metavar">FLOAT</code></dt>
 <dd class="parameter-details"><span class="parameter-help">How much to weight S over E when combining them into the spread-evenness score (C) that underlies the discov score. Should be a value in the range [0,1]. The default is &#x27;0.5&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.5</code></span></dd>
 <dt class="parameter" id="parameter-discov_formula"><code class="parameter-flags">--discov-formula</code> <code class="parameter-metavar">STRING</code></dt>

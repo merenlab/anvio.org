@@ -147,13 +147,14 @@ This requires access to the auxiliary data file (`AUXILIARY-DATA.db`) in the sam
 
 Both files report the length of each sequence, the number of reads mapping to it (`num_reads`), the number of windows, the observed and expected proportion of covered windows, the normalized spread (_S_), the window depth evenness (_E_), the spread-evenness score (_C_), and the discov score (`discov`).
 
-You can adjust how discov is computed using the following parameters. When neither `--window-length` nor `--window-length-as-percentage` is specified, anvi'o applies context-sensitive defaults: a fixed 10,000 bp window for bins, and a percentage-based window (1% of contig length, minimum 300 bp) for individual contigs. If you specify window length parameters, they apply to both bins and contigs.
+You can adjust how discov is computed using the following parameters. When neither `--window-length` nor `--window-length-as-percentage` is specified, anvi'o applies context-sensitive defaults: a fixed 10,000 bp window for bins, and a percentage-based window (1% of contig length, minimum 300 bp, maximum 10,000 bp) for individual contigs. If you specify window length parameters, they apply to both bins and contigs.
 
 **Window sizing**
 
 * `--window-length INT` — use a fixed window size in bp for all sequences (bins and contigs)
 * `--window-length-as-percentage INT` — set window length as a percentage of each sequence's length
-* `--min-window-length INT` — minimum window length floor for percentage mode (default for contigs: 300)
+* `--min-window-length INT` — minimum window length floor for percentage mode (default: 300)
+* `--max-window-length INT` — maximum window length cap for percentage mode (default: 10,000; set to 0 for no cap)
 
 **Combining S and E**
 
@@ -192,7 +193,7 @@ The code that generates this web page ensures that this information is the lates
 ### Command line usage
 
 {% raw %}
-<div class="program-parameters-usage">anvi-summarize [-h] -p PAN_OR_PROFILE_DB [-c CONTIGS_DB] [-g GENOMES_STORAGE] [--init-gene-coverages] [--calculate-Q2Q3-carefully] [--reformat-contig-names] [--light-summary] [--report-aa-seqs-for-gene-calls] [--report-discov] [--window-length INTEGER] [--window-length-as-percentage INTEGER] [--min-window-length INTEGER] [--alpha FLOAT] [--discov-formula STRING] [--report-DNA-sequences] [-C COLLECTION_NAME] [-o DIR_PATH] [--list-collections] [--cog-data-dir COG_DATA_DIR] [--quick-summary] [--just-do-it]</div>
+<div class="program-parameters-usage">anvi-summarize [-h] -p PAN_OR_PROFILE_DB [-c CONTIGS_DB] [-g GENOMES_STORAGE] [--init-gene-coverages] [--calculate-Q2Q3-carefully] [--reformat-contig-names] [--light-summary] [--report-aa-seqs-for-gene-calls] [--report-discov] [--window-length INTEGER] [--window-length-as-percentage INTEGER] [--min-window-length INTEGER] [--max-window-length INTEGER] [--alpha FLOAT] [--discov-formula STRING] [--report-DNA-sequences] [-C COLLECTION_NAME] [-o DIR_PATH] [--list-collections] [--cog-data-dir COG_DATA_DIR] [--quick-summary] [--just-do-it]</div>
 {% endraw %}
 
 ### Parameters and their descriptions
@@ -265,11 +266,13 @@ The code that generates this web page ensures that this information is the lates
 <dt class="parameter parameter-switch" id="parameter-report_discov"><code class="parameter-flags">--report-discov</code></dt>
 <dd class="parameter-details"><span class="parameter-help">Compute the Distribution of Coverage (discov) metric for each bin and each contig within each bin. Discov combines a spread score S (proportion of windows with at least some coverage) and an evenness score E (based on the coefficient of variation of mean coverage depth across windows). Requires access to the auxiliary data file (AUXILIARY-DATA.db). Results are written to &#x27;bins_across_samples/discov_bins.txt&#x27; (one row per bin x sample) and &#x27;bins_across_samples/discov_contigs.txt&#x27; (one row per contig x sample).</span></dd>
 <dt class="parameter" id="parameter-window_length"><code class="parameter-flags">--window-length</code> <code class="parameter-metavar">INTEGER</code></dt>
-<dd class="parameter-details"><span class="parameter-help">How long to make the windows for computing the spread metric: S = # windows with coverage / # windows. Using this flag sets a fixed window length (in bp) for computing S at both bin and contig level. Important note: when neither this flag nor --window-length-as-percentage is provided, anvi&#x27;o uses context-sensitive defaults: `--window-length 10000` for bins and `--window-length-as-percentage 1 --min-window-length 300` for individual contigs (which can be smaller than the default fixed length).</span></dd>
+<dd class="parameter-details"><span class="parameter-help">How long to make the windows for computing the spread metric: S = # windows with coverage / # windows. Using this flag sets a fixed window length (in bp) for computing S at both bin and contig level. Important note: when neither this flag nor --window-length-as-percentage is provided, anvi&#x27;o uses context-sensitive defaults: `--window-length 10000` for bins and `--window-length-as-percentage 1 --min-window-length 300 --max-window-length 10000` for individual contigs (which can be smaller than the default fixed length).</span></dd>
 <dt class="parameter" id="parameter-window_length_as_percentage"><code class="parameter-flags">--window-length-as-percentage</code> <code class="parameter-metavar">INTEGER</code></dt>
 <dd class="parameter-details"><span class="parameter-help">With this option you can set the window length for the spread metric (S) dynamically as a percentage of a given input sequence length. This works well when your input sequences (contigs or genomes) have a wide size distribution and you don&#x27;t have a one-size-fits-all window length to use. For instance, if you want the window size to be 5% of the contig length, you would use `--window-length-as-percentage 5`. You may want to consider also specifying a reasonable minimum window length with the --min-window-length parameter.</span></dd>
 <dt class="parameter" id="parameter-min_window_length"><code class="parameter-flags">--min-window-length</code> <code class="parameter-metavar">INTEGER</code></dt>
 <dd class="parameter-details"><span class="parameter-help">Use with --window-length-as-percentage to ensure that percentage-based window lengths never fall below this value.</span></dd>
+<dt class="parameter" id="parameter-max_window_length"><code class="parameter-flags">--max-window-length</code> <code class="parameter-metavar">INTEGER</code></dt>
+<dd class="parameter-details"><span class="parameter-help">Use with --window-length-as-percentage to ensure that percentage-based window lengths never exceed this value. Set it to 0 if you want percentage-based window lengths to be unbounded (i.e., no maximum). Whenever percentage-based windows are used, this parameter is set by default to 10000.</span></dd>
 <dt class="parameter" id="parameter-alpha"><code class="parameter-flags">--alpha</code> <code class="parameter-metavar">FLOAT</code></dt>
 <dd class="parameter-details"><span class="parameter-help">How much to weight S over E when combining them into the spread-evenness score (C) that underlies the discov score. Should be a value in the range [0,1]. The default is &#x27;0.5&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.5</code></span></dd>
 <dt class="parameter" id="parameter-discov_formula"><code class="parameter-flags">--discov-formula</code> <code class="parameter-metavar">STRING</code></dt>
