@@ -163,6 +163,10 @@ You can adjust how discov is computed using the following parameters. When neith
 
 The final score is discov = min(1, C + D^2), where D is detection.
 
+**Sequences with few mapped reads**
+
+* `--discov-min-reads INT` — minimum number of reads mapping to a bin or contig for S and E to be computed. Below this threshold, normalized S and E are set to 0, so discov = D^2 (default: 20). This default was set using genome-level scores, and may be too high for contig-level scores (see <span class="artifact-n">[discov-stats](/help/main/artifacts/discov-stats)</span>)
+
 {:.notice}
 Discov values computed by <span class="artifact-p">[anvi-summarize](/help/main/programs/anvi-summarize)</span> and <span class="artifact-p">[anvi-profile-blitz](/help/main/programs/anvi-profile-blitz)</span> on the same data should be identical, with one exception: the auxiliary data file caps per-nucleotide coverage at 65,535X, so the values can differ slightly for sequences with extremely high coverage. See <span class="artifact-n">[discov-stats](/help/main/artifacts/discov-stats)</span> for details.
 
@@ -193,7 +197,7 @@ The code that generates this web page ensures that this information is the lates
 ### Command line usage
 
 {% raw %}
-<div class="program-parameters-usage">anvi-summarize [-h] -p PAN_OR_PROFILE_DB [-c CONTIGS_DB] [-g GENOMES_STORAGE] [--init-gene-coverages] [--calculate-Q2Q3-carefully] [--reformat-contig-names] [--light-summary] [--report-aa-seqs-for-gene-calls] [--report-discov] [--window-length INTEGER] [--window-length-as-percentage INTEGER] [--min-window-length INTEGER] [--max-window-length INTEGER] [--alpha FLOAT] [--discov-formula STRING] [--report-DNA-sequences] [-C COLLECTION_NAME] [-o DIR_PATH] [--list-collections] [--cog-data-dir COG_DATA_DIR] [--quick-summary] [--just-do-it]</div>
+<div class="program-parameters-usage">anvi-summarize [-h] -p PAN_OR_PROFILE_DB [-c CONTIGS_DB] [-g GENOMES_STORAGE] [--init-gene-coverages] [--calculate-Q2Q3-carefully] [--reformat-contig-names] [--light-summary] [--report-aa-seqs-for-gene-calls] [--report-discov] [--window-length INTEGER] [--window-length-as-percentage INTEGER] [--min-window-length INTEGER] [--max-window-length INTEGER] [--alpha FLOAT] [--discov-formula STRING] [--discov-min-reads INTEGER] [--report-DNA-sequences] [-C COLLECTION_NAME] [-o DIR_PATH] [--list-collections] [--cog-data-dir COG_DATA_DIR] [--quick-summary] [--just-do-it]</div>
 {% endraw %}
 
 ### Parameters and their descriptions
@@ -277,6 +281,8 @@ The code that generates this web page ensures that this information is the lates
 <dd class="parameter-details"><span class="parameter-help">How much to weight S over E when combining them into the spread-evenness score (C) that underlies the discov score. Should be a value in the range [0,1]. The default is &#x27;0.5&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.5</code></span></dd>
 <dt class="parameter" id="parameter-discov_formula"><code class="parameter-flags">--discov-formula</code> <code class="parameter-metavar">STRING</code></dt>
 <dd class="parameter-details"><span class="parameter-help">Which formula to use when combining S and E into the spread-evenness score (C) that underlies the discov score. Options are &#x27;linear&#x27; (C = αS + (1-α)E) and &#x27;geometric&#x27; (C = S^α * E^(1-α)). The default is &#x27;geometric&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">geometric</code></span></dd>
+<dt class="parameter" id="parameter-discov_min_reads"><code class="parameter-flags">--discov-min-reads</code> <code class="parameter-metavar">INTEGER</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The minimum number of reads that must map to a sequence for anvi&#x27;o to compute the normalized spread (S) and evenness (E) components of discov. With very few reads, there is not enough information to estimate either of them reliably (for instance, a handful of reads landing randomly in separate windows can look perfectly spread and even). For sequences with fewer mapped reads than this value, S and E are set to 0, so discov collapses to detection squared. Set this to 0 to always compute S and E. The default is &#x27;20&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">20</code></span></dd>
 </dl>
 </section>
 </div>

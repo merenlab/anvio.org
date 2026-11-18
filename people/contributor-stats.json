@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2695,
+        "total_commits": 2702,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 180
+            "2026": 187
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "add recent pull request links to the resources list for discov-stats",
-        "latest_commit_hash": "7a85526dc741849d5cfd63e6626cecae2b0eb8d4",
-        "latest_commit_date": "16 November 2026"
+        "latest_commit_message": "flag name fixy in docs",
+        "latest_commit_hash": "a837860a99d79ef91f308d60fefb0cb7ee74c1d7",
+        "latest_commit_date": "17 November 2026"
     },
     "moritzbuck": {
         "total_commits": 3,

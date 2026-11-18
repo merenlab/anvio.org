@@ -186,6 +186,10 @@ You can adjust how _S_ and _E_ are combined into the spread-evenness score _C_ b
 
 The final score is discov = min(1, _C_ + _D_^2).
 
+**Sequences with few mapped reads**
+
+* `--discov-min-reads INT` — minimum number of reads mapping to a contig or bin for _S_ and _E_ to be computed. Below this threshold, normalized _S_ and _E_ are set to 0, so discov = _D_^2 (default: 20). This default was set using genome-level scores, and may be too high for contig-level scores (see <span class="artifact-n">[discov-stats](/help/main/artifacts/discov-stats)</span>)
+
 **Window-level output**
 
 To inspect the per-window values used to compute _S_ and _E_ (useful for debugging or visualization), add the `--gen-window-level-output` flag:
@@ -228,7 +232,7 @@ The code that generates this web page ensures that this information is the lates
 ### Command line usage
 
 {% raw %}
-<div class="program-parameters-usage">anvi-profile-blitz [-h] -c CONTIGS_DB [--gene-mode] [--gene-caller GENE-CALLER] [--gene-caller-ids GENE_CALLER_IDS] [--genes-of-interest FILE] [-C COLLECTION_TXT] -o FILE_PATH [--report-minimal] [--gen-window-level-output] [--window-length INTEGER] [--window-length-as-percentage INTEGER] [--min-window-length INTEGER] [--max-window-length INTEGER] [--alpha FLOAT] [--discov-formula STRING] BAM_FILE(S) [BAM_FILE(S) ...]</div>
+<div class="program-parameters-usage">anvi-profile-blitz [-h] -c CONTIGS_DB [--gene-mode] [--gene-caller GENE-CALLER] [--gene-caller-ids GENE_CALLER_IDS] [--genes-of-interest FILE] [-C COLLECTION_TXT] -o FILE_PATH [--report-minimal] [--gen-window-level-output] [--window-length INTEGER] [--window-length-as-percentage INTEGER] [--min-window-length INTEGER] [--max-window-length INTEGER] [--alpha FLOAT] [--discov-formula STRING] [--discov-min-reads INTEGER] BAM_FILE(S) [BAM_FILE(S) ...]</div>
 {% endraw %}
 
 ### Parameters and their descriptions
@@ -295,6 +299,8 @@ The code that generates this web page ensures that this information is the lates
 <dd class="parameter-details"><span class="parameter-help">How much to weight S over E when combining them into the spread-evenness score (C) that underlies the discov score. Should be a value in the range [0,1]. The default is &#x27;0.5&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">0.5</code></span></dd>
 <dt class="parameter" id="parameter-discov_formula"><code class="parameter-flags">--discov-formula</code> <code class="parameter-metavar">STRING</code></dt>
 <dd class="parameter-details"><span class="parameter-help">Which formula to use when combining S and E into the spread-evenness score (C) that underlies the discov score. Options are &#x27;linear&#x27; (C = αS + (1-α)E) and &#x27;geometric&#x27; (C = S^α * E^(1-α)). The default is &#x27;geometric&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">geometric</code></span></dd>
+<dt class="parameter" id="parameter-discov_min_reads"><code class="parameter-flags">--discov-min-reads</code> <code class="parameter-metavar">INTEGER</code></dt>
+<dd class="parameter-details"><span class="parameter-help">The minimum number of reads that must map to a sequence for anvi&#x27;o to compute the normalized spread (S) and evenness (E) components of discov. With very few reads, there is not enough information to estimate either of them reliably (for instance, a handful of reads landing randomly in separate windows can look perfectly spread and even). For sequences with fewer mapped reads than this value, S and E are set to 0, so discov collapses to detection squared. Set this to 0 to always compute S and E. The default is &#x27;20&#x27;.</span> <span class="parameter-default"><span class="parameter-label">Default:</span> <code class="parameter-default-value">20</code></span></dd>
 </dl>
 </section>
 </div>
