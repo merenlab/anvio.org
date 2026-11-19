@@ -110,7 +110,7 @@
         "latest_commit_date": "31 July 2025"
     },
     "ivagljiva": {
-        "total_commits": 2702,
+        "total_commits": 2703,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -124,12 +124,12 @@
             "2023": 174,
             "2024": 221,
             "2025": 315,
-            "2026": 187
+            "2026": 188
         },
         "top_file": "anvio/kegg.py",
-        "latest_commit_message": "flag name fixy in docs",
-        "latest_commit_hash": "a837860a99d79ef91f308d60fefb0cb7ee74c1d7",
-        "latest_commit_date": "17 November 2026"
+        "latest_commit_message": "new default kegg snapshot, downloaded yesterday",
+        "latest_commit_hash": "78cfe96755dd0f26ccee975fa2a90fd9c104a424",
+        "latest_commit_date": "18 November 2026"
     },
     "moritzbuck": {
         "total_commits": 3,
