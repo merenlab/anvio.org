@@ -22,7 +22,7 @@
         "latest_commit_date": "16 November 2026"
     },
     "FlorianTrigodet": {
-        "total_commits": 575,
+        "total_commits": 576,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -36,12 +36,12 @@
             "2023": 36,
             "2024": 24,
             "2025": 131,
-            "2026": 358
+            "2026": 359
         },
         "top_file": "anvio/workflows/metagenomics/__init__.py",
-        "latest_commit_message": "say when the single-end SRA accession list is truncated",
-        "latest_commit_hash": "5184a4c0b95deb9b02f5e83605c35800193bf48a",
-        "latest_commit_date": "30 October 2026"
+        "latest_commit_message": "Recompute dendrogram branch colors from bin leaf membership",
+        "latest_commit_hash": "6586451896182325668fd56d7f7900de5be437b3",
+        "latest_commit_date": "19 November 2026"
     },
     "watsonar": {
         "total_commits": 10,
