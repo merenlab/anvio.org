@@ -48,7 +48,7 @@
         "2"
       ]
     ],
-    "date": "20 Nov 26 04:07:02",
+    "date": "21 Nov 26 04:06:35",
     "base_url": "/help/main",
     "version_short_identifier": "m"
   },
@@ -27058,7 +27058,7 @@
                 "--installed-hmm-profile"
               ],
               "dest": "installed_hmm_profile",
-              "help": "When you run this program without any parameter, it will run all 5 HMM profiles installed on your system. Using this parameter, you can instruct anvi'o to run only one or more of the specific profiles of you choose. You can provide a comma-separated list of names for multiple profiles (but in that case don't put a space between each profile name). Here is the list of installed profiles available to you: 'Archaea_76' (type: singlecopy); 'Protista_83' (type: singlecopy); 'Bacteria_71' (type: singlecopy); 'Ribosomal_RNA_16S' (type: Ribosomal_RNA_16S); 'Ribosomal_RNA_18S' (type: Ribosomal_RNA_18S).",
+              "help": "When you run this program without any parameter, it will run all 5 HMM profiles installed on your system. Using this parameter, you can instruct anvi'o to run only one or more of the specific profiles of you choose. You can provide a comma-separated list of names for multiple profiles (but in that case don't put a space between each profile name). Here is the list of installed profiles available to you: 'Protista_83' (type: singlecopy); 'Ribosomal_RNA_18S' (type: Ribosomal_RNA_18S); 'Ribosomal_RNA_16S' (type: Ribosomal_RNA_16S); 'Archaea_76' (type: singlecopy); 'Bacteria_71' (type: singlecopy).",
               "metavar": "HMM PROFILE NAME(S)",
               "default": null,
               "choices": null,
