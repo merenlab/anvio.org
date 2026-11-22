@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8260,
+        "total_commits": 8301,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 538
+            "2026": 579
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "print talbes cute when possiburu",
-        "latest_commit_hash": "cd481aaf0792454244743057948ffa9f27112905",
-        "latest_commit_date": "16 November 2026"
+        "latest_commit_message": "uppity docs",
+        "latest_commit_hash": "6092e998cd8defbe73be9f93a2f10f3b59fe4770",
+        "latest_commit_date": "21 November 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 577,
@@ -792,7 +792,7 @@
         "latest_commit_date": "21 May 2026"
     },
     "tucker4": {
-        "total_commits": 11,
+        "total_commits": 14,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -806,15 +806,15 @@
             "2023": 0,
             "2024": 0,
             "2025": 2,
-            "2026": 9
+            "2026": 12
         },
-        "top_file": "anvio/tables/contigclassification.py",
-        "latest_commit_message": "fix end of file",
-        "latest_commit_hash": "3ee782f9f03d5596daa91cb4795be396bcb95f99",
-        "latest_commit_date": "21 May 2026"
+        "top_file": "anvio/tables/__init__.py",
+        "latest_commit_message": "updated rpm to cpm in all documentation",
+        "latest_commit_hash": "7a035a0341f905ad52cf58e30d622b7c7e3e4f81",
+        "latest_commit_date": "22 May 2026"
     },
     "AviHuene": {
-        "total_commits": 1,
+        "total_commits": 10,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -828,12 +828,12 @@
             "2023": 0,
             "2024": 0,
             "2025": 0,
-            "2026": 1
+            "2026": 10
         },
-        "top_file": "anvio/data/misc/PEOPLE/AVATARS/avrilhoyningen.jpg",
-        "latest_commit_message": "add avril and xixi to contributors.yaml",
-        "latest_commit_hash": "230173197242f0b375a66788e1d5b1cb81ec304c",
-        "latest_commit_date": "20 May 2026"
+        "top_file": "anvio/data/interactive/js/main.js",
+        "latest_commit_message": "Changed error that arrests plotting to warning when plotting values that are illegally transformed.",
+        "latest_commit_hash": "811dadc5cde055001d29fa2213e8b576269236c0",
+        "latest_commit_date": "27 October 2026"
     },
     "u-xixi": {
         "total_commits": 5,

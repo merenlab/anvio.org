@@ -2,12 +2,12 @@
 
 > anvi'o is an open-source platform for microbial 'omics. This file contains the help pages for every anvi'o workflow, program, and artifact (the files and concepts programs use and produce). Each entry is a level-two section titled `<name> (<kind>)`.
 
-Generated 21 Nov 26 04:06:35 from anvi'o 9-dev (eunice). Online version: https://anvio.org/help/main/
+Generated 22 Nov 26 04:07:34 from anvi'o 9-dev (eunice). Online version: https://anvio.org/help/main/
 
 - Anvi'o version: eunice (v9-dev)
 - Profile DB version: 43
 - Contigs DB version: 25
-- Genes DB version: 6
+- Genes DB version: 8
 - Auxiliary data storage version: 2
 - Pan DB version: 21
 - Pangraph DB version: 7
@@ -7795,23 +7795,50 @@ This program **generates a genes-db, which stores the coverage and detection val
 
 This information is usually calculated when it's needed (for example when running anvi-interactive in genes mode), but this program lets you break this process into two steps. This way, you can easily change the parameters of anvi-interactive without having to recalculate the gene-level statistics.
 
-Given a contigs-db and profile-db pair, as well as a collection, this program will calculate the stats for the genes in each of your bins and give each bin its own profile-db that includes this information.
+Given a contigs-db and profile-db pair, as well as a collection, this program will calculate the stats for the genes in each of your bins and give each bin its own genes-db that includes this information.
 
 For example, if a collection called `GENE_COLLECTION` contained the bins `bin_0001`, `bin_0002`, and `bin_0003` and you ran:
 
 ```
 anvi-gen-gene-level-stats-databases -c contigs-db \
                                     -p profile-db \
-                                    -C collection
+                                    -C GENE_COLLECTION
 ```
 
-Then it will create a directory called `GENES` that contains three profile-db called `GENE_COLLECTION-bin_0001.db`, `GENE_COLLECTION-bin_0002.db`, and `GENE_COLLECTION-bin_0003.db`. In terms of output, this program is similar to anvi-split: each of these databases can now be treated as self-contained anvi'o projects but they also contain the gene-level information. Thus, you then could run anvi-interactive in genes mode on one of these profile databases.
+Then it will create a directory called `GENES` next to your profile-db that contains three genes-dbs called `GENE_COLLECTION-bin_0001.db`, `GENE_COLLECTION-bin_0002.db`, and `GENE_COLLECTION-bin_0003.db`. Once these databases are there, running anvi-interactive in gene mode for any of these bins will use them directly, instead of computing gene-level stats from scratch.
 
-You also have the option to provide a list of bin (either as a file or as a string) to anlyze instead of a single collection.
+You also have the option to provide a list of bin (either as a file or as a string) to analyze instead of every bin in a collection.
+
+If genes databases already exist for some of your bins, anvi'o will ask you to use the flag `--just-do-it` before it does anything. With that flag, it will keep each existing genes database that was generated with the same parameters and the same splits, and regenerate the ones that weren't.
+
+### Normalized gene coverages
+
+By default, this program also computes five normalizations of the `non_outlier_mean_coverage` values of each gene in each sample, and stores them in the genes database. They become additional views when you run anvi-interactive in gene mode:
+
+- **log1p**: log(x + 1) of coverage values, which reduces their dynamic range.
+- **cov_per_million**: mean coverage depth per million mapped reads in each sample, which accounts for differences in sequencing depth across samples. Please note that this is not CPM (counts per million), since it is based on coverage depth rather than read counts.
+- **zscore_raw**, **zscore_log1p**, and **zscore_cov_per_million**: per-gene z-scores of raw, log1p, and cov_per_million values across samples, which show how many standard deviations a gene's coverage in a given sample deviates from that gene's mean coverage across all samples.
+
+Z-scores are computed for each gene separately, so they are not comparable between genes within the same sample. With transcriptomic data, they reflect each gene's own expression pattern. With metagenomic data, genes of a single population tend to follow the abundance of that population, so z-scores mostly help spot genes whose coverage patterns deviate from the rest of their genome (such as those that are found in multiple copies, or are absent from some samples). In either case, setting a __center__ value of 0 for z-score views in the interactive interface will display them as diverging values.
+
+If an existing genes database does not have normalized coverages yet (e.g., because it was generated with an earlier version of anvi'o), this program will compute them using the gene-level stats already stored in it.
+
+You can skip this step with the flag `--skip-computing-gene-level-normalized-coverages`, in which case these data will not be generated, and these views will not be available:
+
+```
+anvi-gen-gene-level-stats-databases -c contigs-db \
+                                    -p profile-db \
+                                    -C collection \
+                                    --skip-computing-gene-level-normalized-coverages
+```
+
+**Note:** Z-scores are not meaningful when there is only a single sample. So, if your profile-db has only one sample, anvi'o will refuse to create a new genes database until you add `--skip-computing-gene-level-normalized-coverages` to your command, so it is clear that these values will not be available.
+
+**Note:** Computing coverage per million mapped reads requires the number of reads mapped to each sample, which some very old profile-dbs may not have. In that case anvi'o will skip computing normalized coverages with a warning.
 
 ### Other Parameters
 
-You can also change the definition of an outlier nucleotide position or switch calculations to use the [INSeq/Tn-Seq](https://www.illumina.com/science/sequencing-method-explorer/kits-and-arrays/in-seq-tn-seq.html) statistical methods.
+You can also change the definition of an outlier nucleotide position (with `--outliers-threshold`), or whether nucleotide positions with zero coverage should be treated as outliers (with `--zeros-are-outliers`).
 
 ## anvi-gen-genomes-storage (program)
 
@@ -10706,10 +10733,7 @@ The clustering of bins in this case based on their distribution across samples w
 
 #### Genes mode: Visualizing *genes* instead of contigs
 
-You can also start the interactive interface in "gene mode", in which each item of the central tree is a gene instead of a split or contig (or
-
-
-bin like in "collection mode").
+You can also start the interactive interface in "gene mode", in which each item of the central tree is a gene instead of a split or contig (or bin like in "collection mode").
 
 To initiate the visualization in gene mode you need the following:
 
@@ -10722,6 +10746,10 @@ anvi-interactive -p profile-db \
 ```
 
 If there isn't one already, this command will automatically generate an anvi'o genes-db under the `GENES` directory at the same level of the profile database. When the same command is run again, anvi-interactive will use the existing genes database.
+
+In addition to the views for mean coverage, detection, and non-outlier mean coverage and standard deviation of each gene, gene mode by default also offers five views of normalized gene coverages, each with its own item order: `log1p`, `cov_per_million` (mean coverage depth per million mapped reads), and per-gene z-scores across samples for raw, log1p, and cov_per_million values (`zscore_raw`, `zscore_log1p`, and `zscore_cov_per_million`). Anvi'o computes them once, stores them in the genes database, and reads them from there in subsequent runs. Setting a __center__ value of 0 for z-score views in the interface will display them as diverging values. See anvi-gen-gene-level-stats-databases for details on what these normalizations are and how to interpret them.
+
+If you don't want these data, you can add the flag `--skip-computing-gene-level-normalized-coverages` to your command when the genes database is first created, in which case these views will not be available (normalized coverages that are already stored in a genes database will still be shown). This flag is required when your profile-db has only one sample and a new genes database is being created, since per-gene z-scores across samples are not meaningful with a single sample. This flag can only be used together with `--gene-mode`.
 
 In this view you can order genes based on their distributions patterns across metagenomes (*without paying attention to their synteny*) or by ordering them based on their synteny in a given genome (*without paying attention to their differential distribution*). [Figure 2 in this paper](https://peerj.com/articles/4320/) examples the latter, and [Figure 5 in this paper](https://stm.sciencemag.org/content/11/507/eaau9356) examples the former case, which is also shown below:
 
@@ -20590,6 +20618,10 @@ A gene database for a given bin stored in a collection will be automatically gen
 
 Alternatively, genes databases can be explicitly generated using the program anvi-gen-gene-level-stats-databases. By default, this program will generate a gene database for each bin for a given collection.
 
+In addition to gene-level coverage stats (i.e., mean coverage, detection, and non-outlier mean coverage and standard deviation of each gene in each sample), a genes database by default also stores five normalizations of non-outlier mean coverage values in a table called `gene_level_normalized_coverages`: `log1p`, `cov_per_million` (mean coverage depth per million mapped reads), and per-gene z-scores across samples for raw, log1p, and cov_per_million values (`zscore_raw`, `zscore_log1p`, and `zscore_cov_per_million`). These become additional views in gene mode. See anvi-gen-gene-level-stats-databases for details, including how to skip computing them, and why that is required for profile databases with a single sample.
+
+Genes databases generated with earlier versions of anvi'o can be upgraded with anvi-migrate. Their normalized coverages will be computed the next time they are used by anvi-interactive in gene mode, or by anvi-gen-gene-level-stats-databases.
+
 Due to the structural similarities between a genes-db and a profile-db, many of the anvi'o programs that operate on profile databases will also run on genes databases. These programs include those that import/export states and import/export misc additional data.
 
 ## genes-fasta (artifact)
@@ -21225,10 +21257,16 @@ This is one of the most frequently used tabs in the interface, and there are mul
   - __Order__: change how the items are ordered. Some orders are already computed according to the type of interface you are using, like "Seq. Composition + Diff. Coverage" or "Gene cluster presence absence", or any user provided item order with anvi-import-items-order.
   - __Data__: also called "Views", it represents the data you wish you visualized in the main figure. In the context of read-recruitment, the options would include "mean coverage" or "detection" for instance.
   - __Item Data Group__: some layers describing your items come as group which you can choose to toggle on/off to either keep them or remove them from the main figure.
-  - __Display__: this is where you can extensively modify the aesthetics of the layers displayed on your figure. You can drag and rearrange the order of these layers. You can also change their color, type (bar, intensity, line), normalization (none, log, square root), height, margin, min and max value.
+  - __Display__: this is where you can extensively modify the aesthetics of the layers displayed on your figure. You can drag and rearrange the order of these layers. You can also change their color, type (bar, intensity, line), normalization (none, log, square root), height, margin, min, max, and center value.
   - __Edit attribute for multiple layers__: if you select multiple layers using the check boxes, you can change values for multiple layers at once. Very useful if you want to change the color/height/whatever of a group of layers. The search box supports multiple search terms separated by semicolons (e.g., `abundance;coverage;detection` will select all layers matching any of those terms), `*` wildcards for pattern matching (e.g., `GC_*` will match `GC_content`, `GC_skew`, etc), or any combination of these (e.g., `hmms;DAY*18`) for flexible layer selection.
 
 **Note:** If you want to remove a layer from the interface, simply change the height to a value of 0.
+
+**Note:** Setting a __center__ value for a layer (e.g., 0 for z-scores or log fold changes) displays its data as diverging around that value: bars and lines extend in both directions from the middle of the layer, and intensity layers use a three-color scale that is white at the center. Values below the center are drawn in the left color, values above in the right color, for bars and lines alike. The left color picker becomes available once a center is set, and if the left color is white or nearly white (which would make values below the center invisible), anvi'o replaces it with a random dark color. The scale is symmetric, and is determined by the value that is furthest from the center. Min and max values are not used for layers with a center value, so their boxes are grayed out while a center is set. Any normalization (log, square root) is applied first, so the center refers to the normalized values, which is also why changing the normalization of a layer resets its center value. Just like normalization, min, and max, center values are specific to each view (e.g., setting a center of 0 for a z-score view will not affect how the same layer is displayed in a coverage view), and they are stored in states as such. Leave the field empty to return to the regular display.
+
+**Note:** Clicking on a __center__ box opens a small window where you can enter a value, clear it, or set it to the __mean__ or __median__ of the layer's values in the current view (computed after the normalization of the layer, if any, is applied). The same window is available for the center box of the 'edit attributes for multiple layers' row, in which case each selected layer gets its own mean or median, while a value you enter applies to all of them.
+
+**Note:** Height, margin, min, max, and center boxes only accept numbers. A box with a value that is not a number turns red, and the interface will not draw until it is fixed.
 
 - #### Layers subsection
 
