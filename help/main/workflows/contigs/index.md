@@ -59,6 +59,8 @@ This workflow is extremely useful if you have one or more <span class="artifact-
 {:.warning}
 If you have not yet run anvi'o programs <span class="artifact-p">[anvi-setup-ncbi-cogs](/help/main/programs/anvi-setup-ncbi-cogs)</span> and <span class="artifact-p">[anvi-setup-scg-taxonomy](/help/main/programs/anvi-setup-scg-taxonomy)</span> on your system yet, you will get a cryptic error from this workflow if you run it with the default <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span>. You can avoid this by first running these two anvi'o programs to setup the necessary databases (which is done only once for every anvi'o installation), **or** set the rules for COG functions and/or SCG taxonomy to `run=false` explicitly.
 
+Some annotation rules are turned off by default. You can turn them on by setting `run` to `true` in your <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span>. Other rules may only be effective if you already have set up their databases prior.
+
 To start things going with this workflow, first ask anvi'o to give you a default <span class="artifact-n">[workflow-config](/help/main/artifacts/workflow-config)</span> file for the contigs workflow:
 
 ```bash

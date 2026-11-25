@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8301,
+        "total_commits": 8305,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,12 +14,12 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 579
+            "2026": 583
         },
         "top_file": "anvio/dbops.py",
-        "latest_commit_message": "uppity docs",
-        "latest_commit_hash": "6092e998cd8defbe73be9f93a2f10f3b59fe4770",
-        "latest_commit_date": "21 November 2026"
+        "latest_commit_message": "uppity",
+        "latest_commit_hash": "d1df5e1d11c7a7ecfcb3c5bfefcfa813612c2ef4",
+        "latest_commit_date": "24 November 2026"
     },
     "FlorianTrigodet": {
         "total_commits": 577,

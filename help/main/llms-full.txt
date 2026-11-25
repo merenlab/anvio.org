@@ -2,7 +2,7 @@
 
 > anvi'o is an open-source platform for microbial 'omics. This file contains the help pages for every anvi'o workflow, program, and artifact (the files and concepts programs use and produce). Each entry is a level-two section titled `<name> (<kind>)`.
 
-Generated 25 Nov 26 04:07:55 from anvi'o 9-dev (eunice). Online version: https://anvio.org/help/main/
+Generated 25 Nov 26 11:19:24 from anvi'o 9-dev (eunice). Online version: https://anvio.org/help/main/
 
 - Anvi'o version: eunice (v9-dev)
 - Profile DB version: 43
@@ -30,6 +30,8 @@ This workflow is useful for converting a bunch of genomes into an anvi'o-compati
 This workflow is extremely useful if you have one or more fasta files that describe one or more contig sequences for your genomes or assembled metagenomes, and all you want to turn them into contigs-db files.
 
 **Warning:** If you have not yet run anvi'o programs anvi-setup-ncbi-cogs and anvi-setup-scg-taxonomy on your system yet, you will get a cryptic error from this workflow if you run it with the default workflow-config. You can avoid this by first running these two anvi'o programs to setup the necessary databases (which is done only once for every anvi'o installation), **or** set the rules for COG functions and/or SCG taxonomy to `run=false` explicitly.
+
+Some annotation rules are turned off by default. You can turn them on by setting `run` to `true` in your workflow-config. Other rules may only be effective if you already have set up their databases prior.
 
 To start things going with this workflow, first ask anvi'o to give you a default workflow-config file for the contigs workflow:
 
