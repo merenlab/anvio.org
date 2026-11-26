@@ -24,7 +24,7 @@ Compute homogeneity for gene clusters.
 
 ## Authors
 
-<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/mahmoudyousef98.jpg" /></div><div class="anvio-person-info-box"><a href="/people/mahmoudyousef98" target="_blank"><span class="anvio-person-name">Mahmoud Yousef</span></a><div class="anvio-person-social-box"><a href="mailto:mahmoudyousef@uchicago.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://github.com/mahmoudyousef98" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/mahmoudyousef98.jpg" /></div><div class="anvio-person-info-box"><a href="/people/mahmoudyousef98" target="_blank"><span class="anvio-person-name">Mahmoud Yousef</span></a><div class="anvio-person-social-box"><a href="mailto:mahmoudyousef@uchicago.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://github.com/mahmoudyousef98" class="person-social" target="_blank"><i class="fab fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 

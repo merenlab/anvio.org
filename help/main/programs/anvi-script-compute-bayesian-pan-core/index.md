@@ -24,7 +24,7 @@ Runs mOTUpan on your gene clusters to estimate whether they are core or accessor
 
 ## Authors
 
-<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/no-avatar.png" /></div><div class="anvio-person-info-box"><a href="/people/moritzbuck" target="_blank"><span class="anvio-person-name">Moritz Buck</span></a><div class="anvio-person-social-box"><a href="mailto:moritz.buck@slu.se" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/MetaMoritz" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/moritzbuck" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/no-avatar.png" /></div><div class="anvio-person-info-box"><a href="/people/moritzbuck" target="_blank"><span class="anvio-person-name">Moritz Buck</span></a><div class="anvio-person-social-box"><a href="mailto:moritz.buck@slu.se" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/MetaMoritz" class="person-social" target="_blank"><i class="fab fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/moritzbuck" class="person-social" target="_blank"><i class="fab fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 

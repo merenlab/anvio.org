@@ -24,7 +24,7 @@ A script to convert SNV output obtained from anvi-gen-variability-profile to the
 
 ## Authors
 
-<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/no-avatar.png" /></div><div class="anvio-person-info-box"><a href="/people/srinidhi202" target="_blank"><span class="anvio-person-name">Srinidhi Varadharajan</span></a><div class="anvio-person-social-box"><a href="mailto:srinidhi.varadharajan@bcm.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://github.com/srinidhi202" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+<div class="anvio-person"><div class="anvio-person-info"><div class="anvio-person-photo"><img class="anvio-person-photo-img" src="../../images/authors/no-avatar.png" /></div><div class="anvio-person-info-box"><a href="/people/srinidhi202" target="_blank"><span class="anvio-person-name">Srinidhi Varadharajan</span></a><div class="anvio-person-social-box"><a href="mailto:srinidhi.varadharajan@bcm.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://github.com/srinidhi202" class="person-social" target="_blank"><i class="fab fa-fw fa-github"></i>Github</a></div></div></div></div>
 
 
 
