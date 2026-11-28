@@ -1,6 +1,6 @@
 {
     "meren": {
-        "total_commits": 8310,
+        "total_commits": 8318,
         "commits_per_year": {
             "2014": 309,
             "2015": 1064,
@@ -14,7 +14,7 @@
             "2023": 227,
             "2024": 238,
             "2025": 526,
-            "2026": 588
+            "2026": 596
         },
         "top_file": "anvio/dbops.py",
         "latest_commit_message": "fix icon classes so they are correct",
@@ -176,7 +176,7 @@
         "latest_commit_date": "15 November 2026"
     },
     "ahenoch": {
-        "total_commits": 401,
+        "total_commits": 405,
         "commits_per_year": {
             "2014": 0,
             "2015": 0,
@@ -190,12 +190,12 @@
             "2023": 10,
             "2024": 132,
             "2025": 129,
-            "2026": 130
+            "2026": 134
         },
         "top_file": "anvio/panops.py",
-        "latest_commit_message": "anvi-reorient-genome independant single genome run, multiple new modes",
-        "latest_commit_hash": "a88f69424ccc12c90d9e190db0c491d1a281b16f",
-        "latest_commit_date": "12 October 2026"
+        "latest_commit_message": "docstring update",
+        "latest_commit_hash": "764afdc0bbe7d5169f4f2034209513359e27a4f5",
+        "latest_commit_date": "26 November 2026"
     },
     "isaacfink21": {
         "total_commits": 120,
